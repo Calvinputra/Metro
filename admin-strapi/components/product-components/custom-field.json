@@ -1,0 +1,17 @@
+{
+  "collectionName": "product-external_urls",
+  "info": {
+    "name": "Product External Url",
+    "icon": "archway",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "string"
+    },
+    "external_url_type": {
+      "model": "external-url-types"
+    }
+  }
+}

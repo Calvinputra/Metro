@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/external-url-types",
+      "handler": "external-url-types.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/external-url-types/count",
+      "handler": "external-url-types.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/external-url-types/:id",
+      "handler": "external-url-types.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/external-url-types",
+      "handler": "external-url-types.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/external-url-types/:id",
+      "handler": "external-url-types.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/external-url-types/:id",
+      "handler": "external-url-types.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
