@@ -63,7 +63,7 @@
     "product_attributes": {
       "type": "component",
       "repeatable": true,
-      "component": "product-components.produdct-attributes"
+      "component": "product-components.product-attributes"
     }
   }
 }
