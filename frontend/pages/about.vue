@@ -3,7 +3,18 @@
     <Header />
     <div class="container padding-bottom-3x mb-1">
       <!-- Alert-->
-
+      <nav class="container my-4" aria-label="breadcrumb">
+        <ol class="py-1 breadcrumb">
+          <li class="my-2 ms-3 breadcrumb-item">
+            <a style="text-decoration: none" href="/">Beranda</a>
+          </li>
+          <li class="my-2 breadcrumb-item active" aria-current="page">
+            Keranjang Saya
+          </li>
+        </ol>
+      </nav>
+      <h2>Keranjang Belanja</h2>
+      <pre></pre>
       <!-- Shopping Cart-->
       <div class="table-responsive shopping-cart">
         <table class="table">
@@ -33,20 +44,23 @@
                 </div>
                 <pre></pre>
               </td>
-              <td class="text-center">
+              <td class="text-center align-middle">
                 <div class="count-input">
-                  <select class="form-control">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
+                  <input
+                    class="col-sm-4"
+                    id="demoInput"
+                    type="number"
+                    min="0"
+                  />
                 </div>
               </td>
-              <td class="text-center text-lg text-medium">$43.90</td>
-              <td class="text-center text-lg text-medium">$18.00</td>
-              <td class="text-center">
+              <td class="text-center text-lg text-medium align-middle">
+                $43.90
+              </td>
+              <td class="text-center text-lg text-medium align-middle">
+                $18.00
+              </td>
+              <td class="text-center align-middle">
                 <a
                   class="remove-from-cart"
                   href="#"
@@ -65,24 +79,27 @@
                       src="https://via.placeholder.com/220x180/5F9EA0/000000"
                       alt="Product"
                   /></a>
-                  <p>KODE PRODUK - NAMA PRODUK 2</p>
+                  <p class="row gx-0 align-items-center">
+                    KODE PRODUK - NAMA PRODUK 2
+                  </p>
                 </div>
                 <pre></pre>
               </td>
-              <td class="text-center">
+              <td class="text-center align-middle">
                 <div class="count-input">
-                  <select class="form-control">
-                    <option>1</option>
-                    <option selected="">2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
+                  <input
+                    class="col-sm-4"
+                    id="demoInput"
+                    type="number"
+                    min="0"
+                  />
                 </div>
               </td>
-              <td class="text-center text-lg text-medium">$24.89</td>
-              <td class="text-center">—</td>
-              <td class="text-center">
+              <td class="text-center text-lg text-medium align-middle">
+                $24.89
+              </td>
+              <td class="text-center align-middle">—</td>
+              <td class="text-center align-middle">
                 <a
                   class="remove-from-cart"
                   href="#"
@@ -101,24 +118,27 @@
                       src="https://via.placeholder.com/220x180/9932CC/000000"
                       alt="Product"
                   /></a>
-                  <p>KODE PRODUK - NAMA PRODUK 3</p>
+                  <p class="row gx-0 align-items-center">
+                    KODE PRODUK - NAMA PRODUK 3
+                  </p>
                   <pre></pre>
                 </div>
               </td>
-              <td class="text-center">
+              <td class="text-center align-middle">
                 <div class="count-input">
-                  <select class="form-control">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
+                  <input
+                    class="col-sm-4"
+                    id="demoInput"
+                    type="number"
+                    min="0"
+                  />
                 </div>
               </td>
-              <td class="text-center text-lg text-medium">$200.00</td>
-              <td class="text-center">—</td>
-              <td class="text-center">
+              <td class="text-center text-lg text-medium align-middle">
+                $200.00
+              </td>
+              <td class="text-center align-middle">—</td>
+              <td class="text-center align-middle">
                 <a
                   class="remove-from-cart"
                   href="#"
@@ -132,13 +152,17 @@
           </tbody>
         </table>
       </div>
+      <div style="display : flex" class="text-right">
+        <p>Total Harga</p>
+      </div>
       <div class="shopping-cart-footer">
         <div class="column"></div>
       </div>
       <div class="shopping-cart-footer">
-        <div class="column justify-content-center">
+        <div class="column text-center">
           <a
-            class="btn btn-primary"
+            style="color : red"
+            class="btn btn-light"
             href="#"
             data-toast=""
             data-toast-type="success"
@@ -146,11 +170,20 @@
             data-toast-icon="icon-circle-check"
             data-toast-title="Your cart"
             data-toast-message="is updated successfully!"
-            >Update Cart</a
-          ><a class="btn btn-success" href="#">Checkout</a>
+            >Lanjut Belanja</a
+          ><a class="btn btn-danger" href="#">Periksa</a>
         </div>
       </div>
     </div>
     <Footer />
   </section>
 </template>
+
+<script>
+function increment() {
+  document.getElementById("demoInput").stepUp();
+}
+function decrement() {
+  document.getElementById("demoInput").stepDown();
+}
+</script>
