@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "menu_items",
+  "info": {
+    "name": "menu_items",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "target": {
+      "type": "string",
+      "default": "_self"
+    },
+    "icon_class": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "order": {
+      "type": "string"
+    },
+    "parent_id": {
+      "model": "menu-items"
+    },
+    "menu": {
+      "model": "menus",
+      "via": "menu_items"
+    }
+  }
+}
