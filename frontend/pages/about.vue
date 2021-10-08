@@ -1,71 +1,156 @@
 <template>
-  <div style="min-height: 2000px">
-    <nav class="navbar sticky-top navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar scroll</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarScroll"
-          aria-controls="navbarScroll"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarScroll">
-          <ul
-            class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
-            style="--bs-scroll-height: 100px"
-          >
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarScrollingDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Link
-                <link rel="stylesheet" href="askdnajsndjasndjansd" />
-              </a>
-              <ul
-                class="dropdown-menu"
-                aria-labelledby="navbarScrollingDropdown"
-              >
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled">Link</a>
-            </li>
-          </ul>
-          <form class="d-flex">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
+  <section>
+    <Header />
+    <div class="container padding-bottom-3x mb-1">
+      <!-- Alert-->
+
+      <!-- Shopping Cart-->
+      <div class="table-responsive shopping-cart">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Produk</th>
+              <th class="text-center">Jumlah</th>
+              <th class="text-center">Harga</th>
+              <th class="text-center">Sub total</th>
+              <th class="text-center">
+                <a class="btn btn-sm btn-outline-danger" href="#">Clear Cart</a>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="product-item" style="display : flex">
+                  <a class="product-thumb" href="#"
+                    ><img
+                      src="https://via.placeholder.com/220x180/FF0000/000000"
+                      alt="Product"
+                  /></a>
+                  <p class="justify-content-center">
+                    KODE PRODUK - NAMA PRODUK 1
+                  </p>
+                </div>
+                <pre></pre>
+              </td>
+              <td class="text-center">
+                <div class="count-input">
+                  <select class="form-control">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+              <td class="text-center text-lg text-medium">$43.90</td>
+              <td class="text-center text-lg text-medium">$18.00</td>
+              <td class="text-center">
+                <a
+                  class="remove-from-cart"
+                  href="#"
+                  data-toggle="tooltip"
+                  title=""
+                  data-original-title="Remove item"
+                  ><i class="fa fa-trash"></i
+                ></a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display : flex" class="product-item">
+                  <a class="product-thumb" href="#"
+                    ><img
+                      src="https://via.placeholder.com/220x180/5F9EA0/000000"
+                      alt="Product"
+                  /></a>
+                  <p>KODE PRODUK - NAMA PRODUK 2</p>
+                </div>
+                <pre></pre>
+              </td>
+              <td class="text-center">
+                <div class="count-input">
+                  <select class="form-control">
+                    <option>1</option>
+                    <option selected="">2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+              <td class="text-center text-lg text-medium">$24.89</td>
+              <td class="text-center">—</td>
+              <td class="text-center">
+                <a
+                  class="remove-from-cart"
+                  href="#"
+                  data-toggle="tooltip"
+                  title=""
+                  data-original-title="Remove item"
+                  ><i class="fa fa-trash"></i
+                ></a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display : flex" class="product-item">
+                  <a class="product-thumb" href="#"
+                    ><img
+                      src="https://via.placeholder.com/220x180/9932CC/000000"
+                      alt="Product"
+                  /></a>
+                  <p>KODE PRODUK - NAMA PRODUK 3</p>
+                  <pre></pre>
+                </div>
+              </td>
+              <td class="text-center">
+                <div class="count-input">
+                  <select class="form-control">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+              <td class="text-center text-lg text-medium">$200.00</td>
+              <td class="text-center">—</td>
+              <td class="text-center">
+                <a
+                  class="remove-from-cart"
+                  href="#"
+                  data-toggle="tooltip"
+                  title=""
+                  data-original-title="Remove item"
+                  ><i class="fa fa-trash"></i
+                ></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="shopping-cart-footer">
+        <div class="column"></div>
+      </div>
+      <div class="shopping-cart-footer">
+        <div class="column justify-content-center">
+          <a
+            class="btn btn-primary"
+            href="#"
+            data-toast=""
+            data-toast-type="success"
+            data-toast-position="topRight"
+            data-toast-icon="icon-circle-check"
+            data-toast-title="Your cart"
+            data-toast-message="is updated successfully!"
+            >Update Cart</a
+          ><a class="btn btn-success" href="#">Checkout</a>
         </div>
       </div>
-    </nav>
-  </div>
+    </div>
+    <Footer />
+  </section>
 </template>
