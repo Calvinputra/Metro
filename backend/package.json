@@ -10,12 +10,18 @@
   "license": "ISC",
   "dependencies": {
     "@admin-bro/express": "^3.1.0",
+    "@admin-bro/sequelize": "^1.2.1",
     "admin-bro": "^4.0.1",
+    "axios": "^0.22.0",
     "chalk": "^4.1.2",
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "eslint": "^7.32.0",
     "express": "^4.17.1",
     "express-formidable": "^1.2.0",
+    "express-session": "^1.17.2",
+    "mysql2": "^2.3.0",
+    "on-headers": "^1.0.2",
     "tslib": "^2.3.1"
   }
 }
