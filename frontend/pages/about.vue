@@ -21,13 +21,13 @@
           <tbody>
             <tr>
               <td>
-                <div class="product-item" style="display : flex">
+                <div class="product-item" style="display: flex">
                   <a class="product-thumb" href="#"
                     ><img
                       src="https://via.placeholder.com/220x180/FF0000/000000"
                       alt="Product"
                   /></a>
-                  <p class="justify-content-center">
+                  <p class="row gx-0 align-items-center">
                     KODE PRODUK - NAMA PRODUK 1
                   </p>
                 </div>
@@ -59,7 +59,7 @@
             </tr>
             <tr>
               <td>
-                <div style="display : flex" class="product-item">
+                <div style="display: flex" class="product-item">
                   <a class="product-thumb" href="#"
                     ><img
                       src="https://via.placeholder.com/220x180/5F9EA0/000000"
@@ -95,7 +95,7 @@
             </tr>
             <tr>
               <td>
-                <div style="display : flex" class="product-item">
+                <div style="display: flex" class="product-item">
                   <a class="product-thumb" href="#"
                     ><img
                       src="https://via.placeholder.com/220x180/9932CC/000000"
