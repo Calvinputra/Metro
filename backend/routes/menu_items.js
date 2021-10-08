@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const MenuItem = require("../models/menu_items.model");
+const db = require("../models/");
+const MenuItem = db.menu_items;
 
 router.get("/menu_items", async (req, res) =>
 {

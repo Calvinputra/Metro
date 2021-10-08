@@ -1,12 +1,12 @@
-module.exports = (sequelize, Sequelize) => {
-    const Menu = sequelize.define("menus", {
+module.exports = (Sequelize, DataTypes) => {
+    const Menu = Sequelize.define("menus", {
         id:{
-            type: Sequelize.BIGINT.UNSIGNED,
+            type: DataTypes.BIGINT.UNSIGNED,
             autoIncrement: true,
             primaryKey: true
         },
       title: {
-        type: Sequelize.STRING
+        type: DataTypes.STRING
       },
     });
   
