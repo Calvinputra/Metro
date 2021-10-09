@@ -37,54 +37,16 @@
             class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
             style="--bs-scroll-height: 100px"
           >
-            <li class="nav-item col-2">
+            <li class="nav-item col-2" v-for="menu_item in (getHeader.menu_items)" :key="menu_item.id" >
               <a
                 class="nav-link active text-danger"
                 aria-current="page"
-                href="#"
-                >kategory 1</a
+                :target="menu_item.target"
+                :href="menu_item.url"
+                >{{menu_item.title}}</a
               >
             </li>
-            <li class="nav-item col-2">
-              <a
-                class="nav-link active text-danger"
-                aria-current="page"
-                href="#"
-                >kategory 2</a
-              >
-            </li>
-            <li class="nav-item col-2">
-              <a
-                class="nav-link active text-danger"
-                aria-current="page"
-                href="#"
-                >kategory 3</a
-              >
-            </li>
-            <li class="nav-item col-2">
-              <a
-                class="nav-link active text-danger"
-                aria-current="page"
-                href="#"
-                >kategory 4</a
-              >
-            </li>
-            <li class="nav-item col-2">
-              <a
-                class="nav-link active text-danger"
-                aria-current="page"
-                href="#"
-                >kategory 5</a
-              >
-            </li>
-            <li class="nav-item col-2">
-              <a
-                class="nav-link active text-danger"
-                aria-current="page"
-                href="#"
-                >lainnya</a
-              >
-            </li>
+           
           </ul>
         </div>
       </div>
@@ -134,3 +96,20 @@
   </nav>
   <!-- Akhir Navbar -->
 </template>
+
+<script>
+import {mapGetters} from "vuex";
+export default {
+  created() {
+    this.$store.dispatch("fetchHeader");
+  },
+  data(){
+    return {
+      menu:[],
+    }
+  },
+  computed:{
+    ...mapGetters(["getHeader"])
+  }
+};
+</script>

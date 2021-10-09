@@ -1,41 +1,53 @@
-module.exports = (Sequelize, DataTypes) => {
-  const MenuItem = Sequelize.define("menu_items", {
+module.exports = (sequelize, Sequelize) => {
+  const MenuItem = sequelize.define("menu_items", {
     id: {
-      type: DataTypes.BIGINT.UNSIGNED,
+      type: Sequelize.BIGINT.UNSIGNED,
       autoIncrement: true,
       primaryKey: true,
     },
     title: {
-      type: DataTypes.STRING,
+      type: Sequelize.STRING,
     },
     url: {
-      type: DataTypes.STRING,
+      type: Sequelize.STRING,
+      defaultValue:"#"
     },
     target: {
-      type: DataTypes.STRING,
+      type: Sequelize.STRING,
+      defaultValue:"_self"
     },
     icon_class: {
-      type: DataTypes.STRING,
+      type: Sequelize.STRING,
     },
     color: {
-      type: DataTypes.STRING,
+      type: Sequelize.STRING,
     },
     order: {
-      type: DataTypes.INTEGER,
+      type: Sequelize.INTEGER,
     },
     parent_id: {
-      type: DataTypes.BIGINT.UNSIGNED,
+      type: Sequelize.BIGINT.UNSIGNED,
       references: {
         model: "menu_items",
         key: "id",
       },
     },
     menu_id: {
-      type: DataTypes.BIGINT.UNSIGNED,
+      type: Sequelize.BIGINT.UNSIGNED,
       references: {
         model: "menus",
         key: "id",
       },
+    },
+    createdAt: {
+      allowNull: false,
+      type: Sequelize.DATE,
+      defaultValue: Sequelize.NOW
+    },
+    updatedAt: {
+      allowNull: false,
+      type: Sequelize.DATE,
+      defaultValue: Sequelize.NOW
     },
   });
 

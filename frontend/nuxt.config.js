@@ -1,5 +1,4 @@
-const URL = "http://localhost:3000";
-
+require('dotenv').config()
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -42,8 +41,8 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    proxy: true,
-    baseURL: URL
+    baseURL: process.env.API_URL,
+    proxy:true,
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -56,6 +55,6 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
   server: {
-    port: 8000
+    port: process.env.PORT
   }
 };

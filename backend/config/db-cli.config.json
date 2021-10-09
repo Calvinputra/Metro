@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "root",
+    "password": "root",
+    "port":3307,
+    "database": "metro_jaya",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "root",
+    "port":3307,
+    "database": "metro_jaya",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "root",
+    "port":3307,
+    "database": "metro_jaya",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
