@@ -17,7 +17,16 @@
       </ol>
     </nav>
 
-    <Card-Product />
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-2">
+          <Kategory />
+        </div>
+        <div class="col-sm-10">
+          <Card-Product />
+        </div>
+      </div>
+    </div>
     <Footer />
   </section>
 </template>
