@@ -76,38 +76,17 @@
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">Menu</h6>
-            <p class="mb-0">
-              <a href="#!" class="text-reset my-0">Beranda</a>
-            </p>
-            <p class="mb-0">
-              <a href="#!" class="text-reset my-0">Kategori 1</a>
-            </p>
-            <p class="mb-0">
-              <a href="#!" class="text-reset">Kategori 2</a>
-            </p>
-            <p class="mb-0">
-              <a href="#!" class="text-reset">Kategori 3</a>
-            </p>
-            <p class="mb-0">
-              <a href="#!" class="text-reset">Kategori 4</a>
-            </p>
-            <p class="mb-0">
-              <a href="#!" class="text-reset">Kategori 5</a>
-            </p>
-            <p class="mb-0">
-              <a href="#!" class="text-reset">Kategori 6</a>
-            </p>
-            <p class="mb-0">
-              <a href="#!" class="text-reset">Kategori 7</a>
-            </p>
-            <p class="mb-0">
-              <a href="#!" class="text-reset">Kategori 8</a>
-            </p>
-            <p class="mb-0">
-              <a href="#!" class="text-reset">Kategori 9</a>
-            </p>
-            <p class="mb-0">
-              <a href="#!" class="text-reset">Kategori 10</a>
+            <p
+              v-for="menu_item in footer_1.menu_items"
+              :key="menu_item.id"
+              class="mb-0"
+            >
+              <a
+                :href="menu_item.url"
+                :target="menu_item.target"
+                class="text-reset my-0"
+                >{{ menu_item.title }}</a
+              >
             </p>
           </div>
           <!-- Grid column -->
@@ -116,17 +95,17 @@
           <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">Metro Jaya</h6>
-            <p class="mb-0">
-              <a href="#!" class="text-reset">Akun saya</a>
-            </p>
-            <p class="mb-0">
-              <a href="#!" class="text-reset">Daftar Keinginan</a>
-            </p>
-            <p class="mb-0">
-              <a href="#!" class="text-reset">Tentang Kami</a>
-            </p>
-            <p class="mb-0">
-              <a href="#!" class="text-reset">Hubungi Kami</a>
+            <p
+              class="mb-0"
+              v-for="menu_item in footer_2.menu_items"
+              :key="menu_item.id"
+            >
+              <a
+                :href="menu_item.url"
+                :target="menu_item.target"
+                class="text-reset"
+                >{{ menu_item.title }}</a
+              >
             </p>
           </div>
           <!-- Grid column -->
@@ -134,17 +113,17 @@
           <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">Metro Jaya</h6>
-            <p class="mb-0">
-              <a href="#!" class="text-reset">Akun saya</a>
-            </p>
-            <p class="mb-0">
-              <a href="#!" class="text-reset">Daftar Keinginan</a>
-            </p>
-            <p class="mb-0">
-              <a href="#!" class="text-reset">Tentang Kami</a>
-            </p>
-            <p class="mb-0">
-              <a href="#!" class="text-reset">Hubungi Kami</a>
+            <p
+              class="mb-0"
+              v-for="menu_item in footer_3.menu_items"
+              :key="menu_item.id"
+            >
+              <a
+                :href="menu_item.url"
+                :target="menu_item.target"
+                class="text-reset"
+                >{{ menu_item.title }}</a
+              >
             </p>
           </div>
           <!-- Grid column -->
@@ -178,3 +157,21 @@
   </footer>
   <!-- Akhir Footer -->
 </template>
+
+<script>
+import { mapGetters } from "vuex";
+export default {
+  created() {
+    this.$store.dispatch("fetchFooter1");
+    this.$store.dispatch("fetchFooter2");
+    this.$store.dispatch("fetchFooter3");
+  },
+  computed: {
+    ...mapGetters({
+      footer_1: "getFooter1",
+      footer_2: "getFooter2",
+      footer_3: "getFooter3",
+    }),
+  },
+};
+</script>

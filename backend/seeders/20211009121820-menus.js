@@ -11,7 +11,15 @@ module.exports = {
         },
         {
           id: 2,
-          title: "Footer Menu",
+          title: "Footer Menu 1",
+        },
+        {
+          id: 3,
+          title: "Footer Menu 2",
+        },
+        {
+          id: 4,
+          title: "Footer Menu 3",
         },
       ],
       {}
@@ -20,6 +28,6 @@ module.exports = {
 
   down: async (queryInterface, Sequelize) => {
     const Op = Sequelize.Op;
-    await queryInterface.bulkDelete("menus", { id: { [Op.in]: [1, 2] } });
+    await queryInterface.bulkDelete("menus", { id: { [Op.in]: [1, 2, 3, 4] } });
   },
 };
