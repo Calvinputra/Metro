@@ -37,16 +37,19 @@
             class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
             style="--bs-scroll-height: 100px"
           >
-            <li class="nav-item col-2" v-for="menu_item in (getHeader.menu_items)" :key="menu_item.id" >
+            <li
+              class="nav-item col-2"
+              v-for="menu_item in menu.menu_items"
+              :key="menu_item.id"
+            >
               <a
                 class="nav-link active text-danger"
                 aria-current="page"
                 :target="menu_item.target"
                 :href="menu_item.url"
-                >{{menu_item.title}}</a
+                >{{ menu_item.title }}</a
               >
             </li>
-           
           </ul>
         </div>
       </div>
@@ -98,18 +101,16 @@
 </template>
 
 <script>
-import {mapGetters} from "vuex";
+import { mapGetters } from "vuex";
 export default {
   created() {
     this.$store.dispatch("fetchHeader");
   },
-  data(){
-    return {
-      menu:[],
-    }
+ 
+  computed: {
+    ...mapGetters({
+      menu: "getHeader",
+    }),
   },
-  computed:{
-    ...mapGetters(["getHeader"])
-  }
 };
 </script>
