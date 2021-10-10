@@ -30,153 +30,13 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                <div class="product-item text-middle" style="display: flex">
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="flexCheckChecked"
-                      checked
-                    />
-                  </div>
-                  <a class="product-thumb" href="#"
-                    ><img
-                      src="https://via.placeholder.com/220x180/FF0000/000000"
-                      alt="Product"
-                  /></a>
-                  <p class="row gx-0 align-items-center">
-                    KODE PRODUK - NAMA PRODUK 1
-                  </p>
-                </div>
-                <pre></pre>
-              </td>
-              <td class="text-center align-middle">
-                <div class="count-input">
-                  <input
-                    class="col-sm-4"
-                    id="demoInput"
-                    type="number"
-                    min="0"
-                  />
-                </div>
-              </td>
-              <td class="text-center text-lg text-medium align-middle">
-                $43.90
-              </td>
-              <td class="text-center text-lg text-medium align-middle">
-                $18.00
-              </td>
-              <td class="text-center align-middle">
-                <a
-                  class="remove-from-cart"
-                  href="#"
-                  data-toggle="tooltip"
-                  title=""
-                  data-original-title="Remove item"
-                  ><i class="fa fa-trash"></i
-                ></a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div style="display: flex" class="product-item">
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="flexCheckChecked"
-                      checked
-                    />
-                  </div>
-                  <a class="product-thumb" href="#"
-                    ><img
-                      src="https://via.placeholder.com/220x180/5F9EA0/000000"
-                      alt="Product"
-                  /></a>
-                  <p class="row gx-0 align-items-center">
-                    KODE PRODUK - NAMA PRODUK 2
-                  </p>
-                </div>
-                <pre></pre>
-              </td>
-              <td class="text-center align-middle">
-                <div class="count-input">
-                  <input
-                    class="col-sm-4"
-                    id="demoInput"
-                    type="number"
-                    min="0"
-                  />
-                </div>
-              </td>
-              <td class="text-center text-lg text-medium align-middle">
-                $24.89
-              </td>
-              <td class="text-center align-middle">—</td>
-              <td class="text-center align-middle">
-                <a
-                  class="remove-from-cart"
-                  href="#"
-                  data-toggle="tooltip"
-                  title=""
-                  data-original-title="Remove item"
-                  ><i class="fa fa-trash"></i
-                ></a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div style="display: flex" class="product-item">
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="flexCheckChecked"
-                      checked
-                    />
-                  </div>
-                  <a class="product-thumb" href="#"
-                    ><img
-                      src="https://via.placeholder.com/220x180/9932CC/000000"
-                      alt="Product"
-                  /></a>
-                  <p class="row gx-0 align-items-center">
-                    KODE PRODUK - NAMA PRODUK 3
-                  </p>
-                  <pre></pre>
-                </div>
-              </td>
-              <td class="text-center align-middle">
-                <div class="count-input">
-                  <input
-                    class="col-sm-4"
-                    id="demoInput"
-                    type="number"
-                    min="0"
-                  />
-                </div>
-              </td>
-              <td class="text-center text-lg text-medium align-middle">
-                $200.00
-              </td>
-              <td class="text-center align-middle">—</td>
-              <td class="text-center align-middle">
-                <a
-                  class="remove-from-cart"
-                  href="#"
-                  data-toggle="tooltip"
-                  title=""
-                  data-original-title="Remove item"
-                  ><i class="fa fa-trash"></i
-                ></a>
-              </td>
-            </tr>
+            <Cart />
+            <Cart />
+            <Cart />
           </tbody>
         </table>
       </div>
-      <div style="display : flex" class="text-right">
+      <div style="display: flex" class="text-right">
         <p>Total Harga</p>
       </div>
       <div class="shopping-cart-footer">
@@ -185,7 +45,7 @@
       <div class="shopping-cart-footer">
         <div class="column text-center">
           <a
-            style="color : red"
+            style="color: red"
             class="btn btn-light"
             href="#"
             data-toast=""
