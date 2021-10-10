@@ -32,7 +32,15 @@
           <tbody>
             <tr>
               <td>
-                <div class="product-item" style="display: flex">
+                <div class="product-item text-middle" style="display: flex">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="flexCheckChecked"
+                      checked
+                    />
+                  </div>
                   <a class="product-thumb" href="#"
                     ><img
                       src="https://via.placeholder.com/220x180/FF0000/000000"
@@ -74,6 +82,14 @@
             <tr>
               <td>
                 <div style="display: flex" class="product-item">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="flexCheckChecked"
+                      checked
+                    />
+                  </div>
                   <a class="product-thumb" href="#"
                     ><img
                       src="https://via.placeholder.com/220x180/5F9EA0/000000"
@@ -113,6 +129,14 @@
             <tr>
               <td>
                 <div style="display: flex" class="product-item">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="flexCheckChecked"
+                      checked
+                    />
+                  </div>
                   <a class="product-thumb" href="#"
                     ><img
                       src="https://via.placeholder.com/220x180/9932CC/000000"
