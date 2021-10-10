@@ -1,16 +1,13 @@
+
 const AdminBro = require('admin-bro');
 const AdminBroExpress = require('@admin-bro/express');
 const AdminBroSequelize = require('@admin-bro/sequelize');
 const express = require('express');
 const cors = require("cors");
+require("dotenv").config();
 
 const app = express();
-
-//ENV NOT READ (undefined)
-const dotenv = require("dotenv");
-dotenv.config();
-
-const PORT = process.env.PORT || 8080; // set port, listen for requests
+const PORT = process.env.PORT ; // set port, listen for requests
 //console.log("PORT ENV : "+process.env.PORT);
 const db = require('./models');
 

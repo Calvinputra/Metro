@@ -1,4 +1,3 @@
-const API_URL = "http://localhost:8080/api";
 export const state = () => ({
   //initialize data
   header: {
@@ -90,8 +89,7 @@ export const state = () => ({
 export const actions = {
   async fetchHeader({ commit }) {
     try {
-      let response = await this.$axios.$get(API_URL + "/menu/1");
-      console.log(response.menu);
+      let response = await this.$axios.$get(process.env.API_URL + "/menu/1");
 
       commit("FETCH_HEADER", response.menu);
     } catch (error) {
@@ -101,8 +99,7 @@ export const actions = {
 
   async fetchFooter1({ commit }) {
     try {
-      let response = await this.$axios.$get(API_URL + "/menu/2");
-      console.log(response.menu);
+      let response = await this.$axios.$get(process.env.API_URL + "/menu/2");
 
       commit("FETCH_FOOTER_1", response.menu);
     } catch (error) {
@@ -112,8 +109,7 @@ export const actions = {
 
   async fetchFooter2({ commit }) {
     try {
-      let response = await this.$axios.$get(API_URL + "/menu/3");
-      console.log(response.menu);
+      let response = await this.$axios.$get(process.env.API_URL + "/menu/3");
 
       commit("FETCH_FOOTER_2", response.menu);
     } catch (error) {
@@ -123,8 +119,7 @@ export const actions = {
 
   async fetchFooter3({ commit }) {
     try {
-      let response = await this.$axios.$get(API_URL + "/menu/4");
-      console.log(response.menu);
+      let response = await this.$axios.$get(process.env.API_URL + "/menu/4");
 
       commit("FETCH_FOOTER_3", response.menu);
     } catch (error) {
