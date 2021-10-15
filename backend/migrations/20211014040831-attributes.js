@@ -2,15 +2,26 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("menus", {
+    await queryInterface.createTable("attributes", {
       id: {
         type: Sequelize.BIGINT.UNSIGNED,
         autoIncrement: true,
         primaryKey: true,
-        allowNull: false,
       },
       title: {
         type: Sequelize.STRING,
+        allowNull: false,
+      },
+      is_required: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
+        allowNull: false,
+      },
+      default_value: {
+        type: Sequelize.STRING,
+      },
+      options: {
+        type: Sequelize.JSON,
       },
       createdAt: {
         allowNull: false,
@@ -22,10 +33,17 @@ module.exports = {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW,
       },
+      category_id: {
+        type: Sequelize.BIGINT.UNSIGNED,
+        references: {
+          model: "categories",
+          key: "id",
+        },
+      },
     });
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("menus");
+    await queryInterface.dropTable("attributes");
   },
 };
