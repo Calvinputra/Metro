@@ -22,8 +22,11 @@
         <div class="col-sm-2">
           <Kategory />
         </div>
-        <div class="col-sm-10">
-          <Card-Product />
+        <div class="col-sm-10 align-self-start">
+          <h1>Kategory</h1>
+          <div class="col-sm-10 align-self-end">
+            <Card-Product />
+          </div>
         </div>
       </div>
     </div>
