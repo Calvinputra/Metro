@@ -22,13 +22,43 @@
         <div class="col-sm-2">
           <Kategory />
         </div>
-        <div class="col-sm-10">
-          <div class="row justify-content-start">
-            <Card-Product
-              v-for="product in products"
-              :key="product.id"
-              :data="product"
-            />
+        <div
+          class="col-sm-10 align-self-start mt-2 row justify-content-between"
+        >
+          <div class="col-sm-8">
+            <h2>Kategory 1</h2>
+          </div>
+          <div class="col-sm-4 mx-auto my-auto">
+            <div class="row">
+              <h5 class="col align-self-center">Urutkan:</h5>
+              <div class="col btn-group ms-0 ps-0">
+                <button
+                  class="btn btn-light btn-sm dropdown-toggle text-danger"
+                  type="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Small button
+                </button>
+                <div class="dropdown-menu">...</div>
+              </div>
+              <div class="col">
+                <a href=""><img src="img/grid.png" alt="" /></a>
+              </div>
+              <div class="col">
+                <a href=""><img src="img/list.png" alt="" /></a>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="row justify-content-start">
+              <Card-Product
+                v-for="product in products"
+                :key="product.id"
+                :data="product"
+              />
+            </div>
           </div>
         </div>
       </div>
