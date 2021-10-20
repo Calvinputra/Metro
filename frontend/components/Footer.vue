@@ -77,7 +77,7 @@
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">Menu</h6>
             <p
-              v-for="menu_item in footer_1.menu_items"
+              v-for="menu_item in footer_1.items"
               :key="menu_item.id"
               class="mb-0"
             >
@@ -97,7 +97,7 @@
             <h6 class="text-uppercase fw-bold mb-4">Metro Jaya</h6>
             <p
               class="mb-0"
-              v-for="menu_item in footer_2.menu_items"
+              v-for="menu_item in footer_2.items"
               :key="menu_item.id"
             >
               <a
@@ -115,7 +115,7 @@
             <h6 class="text-uppercase fw-bold mb-4">Metro Jaya</h6>
             <p
               class="mb-0"
-              v-for="menu_item in footer_3.menu_items"
+              v-for="menu_item in footer_3.items"
               :key="menu_item.id"
             >
               <a

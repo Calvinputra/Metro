@@ -89,9 +89,9 @@ export const state = () => ({
 export const actions = {
   async fetchHeader({ commit }) {
     try {
-      let response = await this.$axios.$get(process.env.API_URL + "/menu/1");
+      let response = await this.$axios.$get(process.env.API_URL + "/menus/2");
 
-      commit("FETCH_HEADER", response.menu);
+      commit("FETCH_HEADER", response.data);
     } catch (error) {
       console.log(error);
     }
@@ -99,9 +99,9 @@ export const actions = {
 
   async fetchFooter1({ commit }) {
     try {
-      let response = await this.$axios.$get(process.env.API_URL + "/menu/2");
+      let response = await this.$axios.$get(process.env.API_URL + "/menus/3");
 
-      commit("FETCH_FOOTER_1", response.menu);
+      commit("FETCH_FOOTER_1", response.data);
     } catch (error) {
       console.log(error);
     }
@@ -109,9 +109,9 @@ export const actions = {
 
   async fetchFooter2({ commit }) {
     try {
-      let response = await this.$axios.$get(process.env.API_URL + "/menu/3");
+      let response = await this.$axios.$get(process.env.API_URL + "/menus/4");
 
-      commit("FETCH_FOOTER_2", response.menu);
+      commit("FETCH_FOOTER_2", response.data);
     } catch (error) {
       console.log(error);
     }
@@ -119,9 +119,9 @@ export const actions = {
 
   async fetchFooter3({ commit }) {
     try {
-      let response = await this.$axios.$get(process.env.API_URL + "/menu/4");
+      let response = await this.$axios.$get(process.env.API_URL + "/menus/5");
 
-      commit("FETCH_FOOTER_3", response.menu);
+      commit("FETCH_FOOTER_3", response.data);
     } catch (error) {
       console.log(error);
     }
