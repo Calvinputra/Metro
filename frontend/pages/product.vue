@@ -22,10 +22,13 @@
         <div class="col-sm-2">
           <Kategory />
         </div>
-        <div class="col-sm-10 align-self-start">
-          <h1>Kategory</h1>
-          <div class="col-sm-10 align-self-end">
-            <Card-Product />
+        <div class="col-sm-10">
+          <div class="row justify-content-start">
+            <Card-Product
+              v-for="product in products"
+              :key="product.id"
+              :data="product"
+            />
           </div>
         </div>
       </div>
@@ -33,3 +36,19 @@
     <Footer />
   </section>
 </template>
+
+<script>
+export default {
+  async asyncData({ $axios }) {
+    try {
+      let products = await $axios.$get(process.env.API_URL + "/products");
+      console.log(products);
+      return {
+        products: products.data,
+      };
+    } catch (error) {
+      console.log(error);
+    }
+  },
+};
+</script>

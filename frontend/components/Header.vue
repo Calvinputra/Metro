@@ -39,7 +39,7 @@
           >
             <li
               class="nav-item col-2"
-              v-for="menu_item in menu.menu_items"
+              v-for="menu_item in menu.items"
               :key="menu_item.id"
             >
               <a

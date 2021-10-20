@@ -1,19 +1,20 @@
 <template>
-  <section class="container">
-    <div class="card rounded shadow mb-5 bg-white rounded" style="width: 18rem">
+  <div class="col-md-4">
+    <div class="card rounded shadow mb-5 bg-white rounded" style="width: 100%;">
       <img
-        src="img/audiblelogo.png"
+        style="width: 100%; height: 183px"
+        :src="ASSET_URL + '/' + JSON.parse(data.images)[0]"
         class="card-img-top height:auto"
         alt="..."
       />
       <div class="card-body">
         <div class="row">
-          <h5 class="col-sm-9 card-title">Nama Produk</h5>
+          <h5 class="col-sm-9 card-title">{{ data.name }}</h5>
           <a class="col-sm-3" href=""
             ><img src="img/audiblelogo.png" alt=""
           /></a>
         </div>
-        <p class="card-text mb-4 font-weight-bold">Rp.120.000</p>
+        <p class="card-text mb-4 font-weight-bold">Rp.{{Number(data.display_price).toLocaleString("id-ID")}}</p>
         <div class="row">
           <a
             href="#"
@@ -38,10 +39,17 @@
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["data"],
+  data() {
+    return {
+      ASSET_URL: process.env.ASSET_URL,
+    };
+  },
+};
 </script>
 
