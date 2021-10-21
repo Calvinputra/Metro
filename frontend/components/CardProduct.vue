@@ -1,6 +1,6 @@
 <template>
   <div class="col-md-4">
-    <div class="card rounded shadow mb-5 bg-white rounded" style="width: 100%;">
+    <div class="card rounded shadow mb-5 bg-white rounded" style="width: 100%">
       <img
         style="width: 100%; height: 183px"
         :src="ASSET_URL + '/' + JSON.parse(data.images)[0]"
@@ -11,10 +11,12 @@
         <div class="row">
           <h5 class="col-sm-9 card-title">{{ data.name }}</h5>
           <a class="col-sm-3" href=""
-            ><img src="img/audiblelogo.png" alt=""
+            ><img src="/img/audiblelogo.png" alt=""
           /></a>
         </div>
-        <p class="card-text mb-4 font-weight-bold">Rp.{{Number(data.display_price).toLocaleString("id-ID")}}</p>
+        <p class="card-text mb-4 font-weight-bold">
+          Rp.{{ Number(data.display_price).toLocaleString("id-ID") }}
+        </p>
         <div class="row">
           <a
             href="#"
@@ -26,14 +28,14 @@
             ><img
               class="img-fluid max-width:100% height:auto rounded"
               style="background-color: #f3f3f3"
-              src="img/Whatsapp_new.png"
+              src="/img/Whatsapp_new.png"
               alt=""
           /></a>
           <a class="col-sm-3" href=""
             ><img
               class="img-fluid max-width:100% height:auto rounded"
               style="background-color: #f3f3f3"
-              src="img/tokopedia.png"
+              src="/img/tokopedia.png"
               alt=""
           /></a>
         </div>
@@ -44,7 +46,7 @@
 
 <script>
 export default {
-  props: ["data"],
+  props: ["data","url"],
   data() {
     return {
       ASSET_URL: process.env.ASSET_URL,

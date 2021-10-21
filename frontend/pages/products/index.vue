@@ -20,16 +20,54 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-2">
-          <Kategory />
+          <section class="">
+            <div class="row">
+              <div>
+                <h1>Kategory</h1>
+                <div class="bg-danger rounded">
+                  <a href="" class="text-black" style="text-decoration: none"
+                    ><p class="py-2 ps-2">Kategory1</p></a
+                  >
+                </div>
+                <a href="" style="text-decoration: none" class="text-black"
+                  ><p class="ms-2">Kategory2</p></a
+                >
+                <a href="" style="text-decoration: none" class="text-black"
+                  ><p class="ms-2">Kategory3</p></a
+                >
+                <a href="" style="text-decoration: none" class="text-black"
+                  ><p class="ms-2">Kategory4</p></a
+                >
+                <a href="" style="text-decoration: none" class="text-black"
+                  ><p class="ms-2">Kategory5</p></a
+                >
+                <a href="" style="text-decoration: none" class="text-black"
+                  ><p class="ms-2">Kategory6</p></a
+                >
+                <a href="" style="text-decoration: none" class="text-black"
+                  ><p class="ms-2">Kategory7</p></a
+                >
+                <a href="" style="text-decoration: none" class="text-black"
+                  ><p class="ms-2">Kategory8</p></a
+                >
+                <a href="" style="text-decoration: none" class="text-black"
+                  ><p class="ms-2">Kategory9</p></a
+                >
+                <a href="" style="text-decoration: none" class="text-black"
+                  ><p class="ms-2">Kategory10</p></a
+                >
+              </div>
+            </div>
+          </section>
         </div>
         <div
           class="col-sm-10 align-self-start mt-2 row justify-content-between"
         >
-          <div class="col-sm-8">
+          <div class="col-sm-4">
             <h2>Kategory 1</h2>
           </div>
-          <div class="col-sm-4 mx-auto my-auto">
-            <div class="row">
+          <div class="col-sm-8 mx-auto my-auto">
+            <div class="row" style="float:right;">
               <h5 class="col align-self-center">Urutkan:</h5>
               <div class="col btn-group ms-0 ps-0">
                 <button
@@ -57,6 +95,7 @@
                 v-for="product in products"
                 :key="product.id"
                 :data="product"
+                :url="'/products/'+product.id"
               />
             </div>
           </div>

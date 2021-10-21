@@ -7,52 +7,15 @@
     <div class="container space-between" style="height: auto">
       <!-- Logo -->
       <div class="col-sm-2">
-        <a href="#"
+        <a href="/"
           ><img
             class="img-fluid rounded mx-auto d-block"
-            src="img/audiblelogo.png"
+            src="/img/audiblelogo.png"
             alt=""
         /></a>
       </div>
-      <!-- search -->
-      <div id="search" class="nav-item col-sm-8 align-self-start mt-4">
-        <form class="d-flex">
-          <input
-            class="form-control"
-            type="search"
-            placeholder="Cari Barang Di sini"
-            aria-label="Search"
-          />
-          <button
-            class="btn btn-outline-success mx-auto"
-            style="background-color: #e5e5e5"
-            type="submit"
-          >
-            <img src="img/search.png" alt="" />
-          </button>
-        </form>
-        <!-- kategory -->
-        <div id="kategory" class="nav-item col-sm-12 align-self-end">
-          <ul
-            class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
-            style="--bs-scroll-height: 100px"
-          >
-            <li
-              class="nav-item col-2"
-              v-for="menu_item in menu.items"
-              :key="menu_item.id"
-            >
-              <a
-                class="nav-link active text-danger"
-                aria-current="page"
-                :target="menu_item.target"
-                :href="menu_item.url"
-                >{{ menu_item.title }}</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
+      <Search :data="menu" />
+      
       <!-- hamburger button -->
       <button
         class="navbar-toggler"
@@ -70,16 +33,16 @@
         <div id="icon navbar" class="container-fluid ms-4">
           <div class="col-sm-4">
             <a aria-current="page" href="#"
-              ><img src="img/profile.png" alt=""
+              ><img src="/img/profile.png" alt=""
             /></a>
           </div>
           <div class="col-sm-4">
             <a href="https://facebook.com"
-              ><img src="img/wishlist.png" alt=""
+              ><img src="/img/wishlist.png" alt=""
             /></a>
           </div>
           <div class="col-sm-4">
-            <a href="#"><img src="img/cart.png" alt="" /></a>
+            <a href="/cart"><img src="/img/cart.png" alt="" /></a>
           </div>
           <!-- Kosong -->
         </div>
@@ -106,7 +69,7 @@ export default {
   created() {
     this.$store.dispatch("fetchHeader");
   },
- 
+
   computed: {
     ...mapGetters({
       menu: "getHeader",
