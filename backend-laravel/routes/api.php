@@ -19,5 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('/login', 'API\LoginController@index');
+Route::get('/logout', 'API\LoginController@logout');
+
 Route::apiResource('/menus', MenuController::class);
 Route::apiResource('/products', ProductController::class);

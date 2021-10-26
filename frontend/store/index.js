@@ -83,7 +83,9 @@ export const state = () => ({
         updatedAt: null
       }
     ]
-  }
+  },
+  
+
 });
 
 export const actions = {
