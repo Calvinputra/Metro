@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\MenuController;
 use App\Http\Controllers\API\ProductController;
+use App\Http\Controllers\API\LoginController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,8 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/login', 'API\LoginController@index');
-Route::get('/logout', 'API\LoginController@logout');
+Route::post('/login', [LoginController::class,'index']);
+Route::get('/logout',  [LoginController::class,'logout']);
 
 Route::apiResource('/menus', MenuController::class);
 Route::apiResource('/products', ProductController::class);

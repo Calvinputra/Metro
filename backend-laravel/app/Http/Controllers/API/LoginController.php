@@ -10,10 +10,6 @@ class LoginController extends Controller
 {
     public function index(Request $request)
     {
-        $request->validate([
-            'email'    => 'required|email',
-            'password' => 'required',
-        ]);
 
         $user = Customer::where('email', $request->email)->first();
 
