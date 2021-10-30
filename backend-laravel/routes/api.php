@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\MenuController;
 use App\Http\Controllers\API\ProductController;
 use App\Http\Controllers\API\LoginController;
+use App\Http\Controllers\API\RegisterController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,8 +21,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/login', [LoginController::class,'index']);
+Route::post('/login', [LoginController::class,'login']);
 Route::get('/logout',  [LoginController::class,'logout']);
+
+Route::post('/register', [RegisterController::class,'register']);
+
 
 Route::apiResource('/menus', MenuController::class);
 Route::apiResource('/products', ProductController::class);

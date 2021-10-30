@@ -17,7 +17,7 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $paginate_item = $request->paginate??25;
-        return ProductResource::collection(Product::with('category')->paginate($paginate_item));
+        return ProductResource::collection(Product::with('category')->orderBy('created_at','DESC')->paginate($paginate_item));
     }
 
     /**
@@ -72,5 +72,9 @@ class ProductController extends Controller
             'data'   => 'Unauthorized Action',
             'status' => 503,
         ]);
+    }
+
+    public function addToCart($id){
+        
     }
 }

@@ -5,11 +5,29 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use Validator;
 
 class LoginController extends Controller
 {
-    public function index(Request $request)
+    public function login(Request $request)
     {
+
+        $rules = [
+            'email'    => 'required',
+            'password' => 'required',
+        ];
+        $messages = [
+            'email.required'    => 'Email wajib diisi',
+            'password.required' => 'Password wajib diisi',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+        if ($validator->fails()) {
+            return response([
+                'success' => false,
+                'message' => $validator->errors(),
+            ], 403);
+        }
 
         $user = Customer::where('email', $request->email)->first();
 
@@ -17,7 +35,7 @@ class LoginController extends Controller
             return response([
                 'success' => false,
                 'message' => ['These credentials do not match our records.'],
-            ], 404);
+            ], 401);
         }
 
         $token = $user->createToken('ApiToken')->plainTextToken;
