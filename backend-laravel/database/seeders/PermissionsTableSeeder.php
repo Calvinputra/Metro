@@ -339,6 +339,46 @@ class PermissionsTableSeeder extends Seeder
                 'created_at' => '2021-10-20 03:27:29',
                 'updated_at' => '2021-10-20 03:27:29',
             ),
+            40 => 
+            array (
+                'id' => 41,
+                'key' => 'browse_customers',
+                'table_name' => 'customers',
+                'created_at' => '2021-10-30 06:23:31',
+                'updated_at' => '2021-10-30 06:23:31',
+            ),
+            41 => 
+            array (
+                'id' => 42,
+                'key' => 'read_customers',
+                'table_name' => 'customers',
+                'created_at' => '2021-10-30 06:23:31',
+                'updated_at' => '2021-10-30 06:23:31',
+            ),
+            42 => 
+            array (
+                'id' => 43,
+                'key' => 'edit_customers',
+                'table_name' => 'customers',
+                'created_at' => '2021-10-30 06:23:31',
+                'updated_at' => '2021-10-30 06:23:31',
+            ),
+            43 => 
+            array (
+                'id' => 44,
+                'key' => 'add_customers',
+                'table_name' => 'customers',
+                'created_at' => '2021-10-30 06:23:31',
+                'updated_at' => '2021-10-30 06:23:31',
+            ),
+            44 => 
+            array (
+                'id' => 45,
+                'key' => 'delete_customers',
+                'table_name' => 'customers',
+                'created_at' => '2021-10-30 06:23:31',
+                'updated_at' => '2021-10-30 06:23:31',
+            ),
         ));
         
         

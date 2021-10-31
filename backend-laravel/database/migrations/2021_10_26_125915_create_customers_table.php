@@ -15,7 +15,6 @@ class CreateCustomersTable extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('email')->unique();
             $table->string('password');
             $table->string('first_name');
@@ -23,6 +22,8 @@ class CreateCustomersTable extends Migration
             $table->string('phone');
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamp('phone_verified_at')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -21,12 +21,15 @@ class CreateCustomerAddressesTable extends Migration
             $table->unsignedBigInteger('country_id');
             $table->unsignedBigInteger('province_id');
             $table->unsignedBigInteger('city_id');
-            $table->timestamps();
             $table->foreign('customer_id')->references('id')->on('customers');
             $table->foreign('country_id')->references('id')->on('countries');
             $table->foreign('province_id')->references('id')->on('provinces');
             $table->foreign('city_id')->references('id')->on('cities');
+            $table->timestamps();
+            $table->softDeletes();
+            
         });
+
     }
 
     /**
