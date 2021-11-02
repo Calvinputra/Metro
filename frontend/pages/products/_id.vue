@@ -2,26 +2,7 @@
   <section>
     <Header />
     <section>
-      <nav class="container my-4" aria-label="breadcrumb">
-        <ol class="py-1 breadcrumb">
-          <li class="my-2 ms-3 breadcrumb-item opacity-50">
-            <a style="text-decoration: none; color: black" href="/">Beranda</a>
-          </li>
-          <li
-            class="my-2 breadcrumb-item active opacity-50"
-            style="color: black"
-          >
-            Product
-          </li>
-          <li
-            class="my-2 breadcrumb-item active opacity-50"
-            style="color: black"
-            aria-current="page"
-          >
-            Nama Produk
-          </li>
-        </ol>
-      </nav>
+      <Breadcrumb :links="breadcrumb" />
       <div class="container">
         <div class="row">
           <div class="col-sm-1"></div>
@@ -141,6 +122,29 @@
 
 <script>
 export default {
+  data(){
+    return {
+      breadcrumb:[
+        {
+          url:"/",
+          name:"Beranda",
+          class:"my-2 ms-3 breadcrumb-item opacity-50"
+        },
+        {
+          url:"/",
+          name:"Product",
+          class:"my-2 breadcrumb-item active opacity-50"
+        },
+        {
+          url:"/",
+          name:"Nama Product",
+          class:"my-2 breadcrumb-item active opacity-50"
+        },
+
+
+      ]
+    }
+  },
   async asyncData({ $axios, params }) {
     try {
       let response = await $axios(

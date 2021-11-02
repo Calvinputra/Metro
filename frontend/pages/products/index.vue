@@ -1,21 +1,7 @@
 <template>
   <section>
     <Header />
-
-    <nav class="container my-4" aria-label="breadcrumb">
-      <ol class="py-1 breadcrumb">
-        <li class="my-2 ms-3 breadcrumb-item opacity-50">
-          <a style="text-decoration: none; color: black" href="/">Beranda</a>
-        </li>
-        <li
-          class="my-2 breadcrumb-item active opacity-50"
-          style="color: black"
-          aria-current="page"
-        >
-          Product
-        </li>
-      </ol>
-    </nav>
+    <Breadcrumb :links="breadcrumb" />
 
     <div class="container">
       <div class="row">
@@ -67,7 +53,7 @@
             <h2>Kategory 1</h2>
           </div>
           <div class="col-sm-8 mx-auto my-auto">
-            <div class="row" style="float:right;">
+            <div class="row" style="float: right">
               <h5 class="col align-self-center">Urutkan:</h5>
               <div class="col btn-group ms-0 ps-0">
                 <button
@@ -95,7 +81,7 @@
                 v-for="product in products"
                 :key="product.id"
                 :data="product"
-                :url="'/products/'+product.id"
+                :url="'/products/' + product.id"
               />
             </div>
           </div>
@@ -108,6 +94,22 @@
 
 <script>
 export default {
+  data() {
+    return {
+      breadcrumb: [
+        {
+          url: "/",
+          name: "Beranda",
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
+        },
+        {
+          url: "/",
+          name: "Product",
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
+      ],
+    };
+  },
   async asyncData({ $axios }) {
     try {
       let products = await $axios.$get(process.env.API_URL + "/products");
