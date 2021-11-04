@@ -53,7 +53,20 @@
             "
           >
             <div class="col-sm-12">
-              <h2>Registrasi Akun di Metro Jaya*</h2>
+              <label class="mb-0"
+                ><h2 class="font-weight-bold">
+                  Registrasi Akun di Metro Jaya<span style="color: red">*</span>
+                </h2></label
+              >
+            </div>
+            <div class="mb-4">
+              <hr
+                style="height:10%; width:100%; border-width:0; color:red"
+                class="col-sm-12 mb-0 mt-0"
+              />
+              <p class="mb-">
+                Jika sudah memiliki akun, dapat pergi ke halaman Masuk Akun.
+              </p>
             </div>
 
             <div>
@@ -61,7 +74,9 @@
                 <form>
                   <div class="register-form-title">Pengisian Data Diri</div>
                   <div class="form-group">
-                    <label for="first_name">Nama Depan*:</label>
+                    <label for="first_name"
+                      >Nama Depan<span style="color: red">*</span>:</label
+                    >
                     <input
                       type="text"
                       class="form-control"
@@ -71,7 +86,9 @@
                     />
                   </div>
                   <div class="form-group">
-                    <label for="last_name">Nama Belakang*:</label>
+                    <label for="last_name"
+                      >Nama Belakang<span style="color: red">*</span>:</label
+                    >
                     <input
                       type="text"
                       class="form-control"
@@ -81,7 +98,9 @@
                     />
                   </div>
                   <div class="form-group">
-                    <label for="email">Email*:</label>
+                    <label for="email"
+                      >Email<span style="color: red">*</span>:</label
+                    >
                     <input
                       type="email"
                       class="form-control"
@@ -91,7 +110,9 @@
                     />
                   </div>
                   <div class="form-group">
-                    <label for="password">Kata Sandi*:</label>
+                    <label for="password"
+                      >Kata Sandi<span style="color: red">*</span>:</label
+                    >
                     <input
                       type="password"
                       class="form-control"
@@ -102,7 +123,8 @@
                   </div>
                   <div class="form-group">
                     <label for="password_confirmation"
-                      >Konfirmasi Kata Sandi*:</label
+                      >Konfirmasi Kata Sandi<span style="color: red">*</span
+                      >:</label
                     >
                     <input
                       type="password"
@@ -115,7 +137,9 @@
 
                   <div class="register-form-title">Alamat Pengiriman</div>
                   <div class="form-group">
-                    <label for="address">Alamat Lengkap*:</label>
+                    <label for="address"
+                      >Alamat Lengkap<span style="color: red">*</span>:</label
+                    >
                     <textarea
                       class="form-control"
                       id="address"
@@ -124,7 +148,9 @@
                     ></textarea>
                   </div>
                   <div class="form-group">
-                    <label for="country">Negara*:</label>
+                    <label for="country"
+                      >Negara<span style="color: red">*</span>:</label
+                    >
                     <input
                       type="text"
                       class="form-control"
@@ -134,7 +160,9 @@
                     />
                   </div>
                   <div class="form-group">
-                    <label for="province">Provinsi*:</label>
+                    <label for="province"
+                      >Provinsi<span style="color: red">*</span>:</label
+                    >
                     <input
                       type="text"
                       class="form-control"
@@ -144,7 +172,9 @@
                     />
                   </div>
                   <div class="form-group">
-                    <label for="city">Kota*:</label>
+                    <label for="city"
+                      >Kota<span style="color: red">*</span>:</label
+                    >
                     <input
                       type="text"
                       class="form-control"
@@ -154,7 +184,9 @@
                     />
                   </div>
                   <div class="form-group">
-                    <label for="postal_code">Kode Pos*:</label>
+                    <label for="postal_code"
+                      >Kode Pos<span style="color: red">*</span>:</label
+                    >
                     <input
                       type="text"
                       class="form-control"
@@ -165,7 +197,9 @@
                   </div>
 
                   <br />
-                  <label style="color: red">*Wajib diisi</label>
+                  <label style="color: red"
+                    ><span style="color: red">*</span>Wajib diisi</label
+                  >
                   <div class="form-check">
                     <input
                       type="checkbox"
@@ -212,16 +246,15 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50",
+          class: "my-2 ms-3 breadcrumb-item opacity-50"
         },
         {
           url: "/register",
           name: "Register",
-          class: "my-2 breadcrumb-item active opacity-50",
-        },
-      ],
+          class: "my-2 breadcrumb-item active opacity-50"
+        }
+      ]
     };
-  },
+  }
 };
 </script>
-
