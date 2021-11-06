@@ -148,7 +148,7 @@ export default {
   async asyncData({ $axios, params }) {
     try {
       let response = await $axios(
-        process.env.API_URL + "/products/${params.id}"
+        process.env.API_URL + "/api/products/${params.id}"
       );
       console.log(response);
     } catch (error) {

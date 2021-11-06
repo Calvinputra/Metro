@@ -112,7 +112,7 @@ export default {
   },
   async asyncData({ $axios }) {
     try {
-      let products = await $axios.$get(process.env.API_URL + "/products");
+      let products = await $axios.$get(process.env.API_URL + "/api/products");
       console.log(products);
       return {
         products: products.data,

@@ -76,7 +76,7 @@
             </div>
             <div class="mb-4">
               <hr
-                style="height:10%; width:100%; border-width:0; color:red"
+                style="height: 10%; width: 100%; border-width: 0; color: red"
                 class="col-sm-12 mb-0 mt-0"
               />
               <p class="mb-">
@@ -89,13 +89,27 @@
               <h2 class="text-center">Masuk Ke Akun</h2>
             </div>
             <div>
+              <b-alert
+                v-model="showDismissibleAlert"
+                variant="danger"
+                dismissible
+              >
+                <ul
+                  style="color: black; padding: 0"
+                  v-for="(error, key) in errors"
+                  :key="key"
+                >
+                  <li v-for="(e, key) in error" :key="key">{{ e }}</li>
+                </ul>
+              </b-alert>
               <div class="row justify-content-start">
-                <form>
+                <form method="post">
                   <div class="form-group">
                     <label for="email"
                       >Email<span style="color: red">*</span>:</label
                     >
                     <input
+                      v-model="email"
                       type="email"
                       class="form-control"
                       id="email"
@@ -108,6 +122,7 @@
                       >Kata Sandi<span style="color: red">*</span>:</label
                     >
                     <input
+                      v-model="password"
                       type="password"
                       class="form-control"
                       id="password"
@@ -124,18 +139,20 @@
                 </form>
                 <div class="text-center">
                   <button
+                    @click.prevent="login"
                     type="submit"
-                    class="  btn
-                  text-danger
-                  btn-light
-                  btn-sm
-                  shadow
-                  rounded
-                  col-sm-2
-                  ms-0
-                  ps-0
-                  py-2
-                  px-2"
+                    class="
+                      btn
+                      text-danger
+                      btn-light btn-sm
+                      shadow
+                      rounded
+                      col-sm-2
+                      ms-0
+                      ps-0
+                      py-2
+                      px-2
+                    "
                   >
                     Masuk
                   </button>
@@ -158,21 +175,59 @@
 
 <script>
 export default {
+  middleware: "auth",
+  auth: "guest",
   data() {
     return {
       breadcrumb: [
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50"
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
         },
         {
           url: "/register",
           name: "Register",
-          class: "my-2 breadcrumb-item active opacity-50"
-        }
-      ]
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
+      ],
+      email: "",
+      password: "",
+      errors: null,
+      dismissSecs: 10,
+      dismissCountDown: 0,
+      showDismissibleAlert: false,
     };
-  }
+  },
+  methods: {
+    async login() {
+      try {
+        let data = {
+          email: this.email,
+          password: this.password,
+        };
+        let response = await this.$axios.$post(
+          process.env.API_URL + "/api/login",
+          data
+        );
+        if (response.success) {
+          await this.$auth.loginWith("laravelSanctum", {
+            data: {
+              email: this.email,
+              password: this.password,
+            },
+          });
+          this.showDismissibleAlert = false;
+          this.$router.push("/welcome");
+        } else {
+          this.errors = response.message;
+          this.showDismissibleAlert = true;
+        }
+        console.log(response);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
 };
 </script>

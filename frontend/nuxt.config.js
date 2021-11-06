@@ -1,4 +1,4 @@
-require('dotenv').config()
+require("dotenv").config();
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -7,18 +7,21 @@ export default {
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { hid: "description", name: "description", content: "" },
-      { name: "format-detection", content: "telephone=no" }
+      { name: "format-detection", content: "telephone=no" },
     ],
     link: [
       { rel: "icon", href: "/favicon.ico" },
       { rel: "stylesheet", href: "/css/font-awesome/webfonts/all.css" },
-      { rel: "stylesheet", href: "/css/default.css" }
-    ]
+      { rel: "stylesheet", href: "/css/default.css" },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ["@/assets/css/bootstrap.css"],
-  js: ["@/assets/js/bootstrap.min.js"],
+  css: ["@/assets/css/bootstrap.css", "vue-select/dist/vue-select.css"],
+  js: [
+    "@/assets/js/bootstrap.min.js",
+    "https://code.jquery.com/jquery-3.2.1.min.js",
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -37,25 +40,47 @@ export default {
     "@nuxtjs/axios",
     // https://go.nuxtjs.dev/pwa
     "@nuxtjs/pwa",
-    '@nuxtjs/dotenv'
+    "@nuxtjs/dotenv",
+    "@nuxtjs/auth-next",
   ],
-
+  auth: {
+    // Options
+    strategies: {
+      laravelSanctum: {
+        provider: "laravel/sanctum",
+        url: process.env.API_URL + "/api",
+        endpoints: {
+          login: { url: "/login", method: "post" },
+          logout: { url: "/logout", method: "post" },
+          user: { url: "/user", method: "get", propertyName: false },
+        },
+        token: {
+          property: "token",
+          global: true,
+          required: true,
+          type: "Bearer",
+        },
+      },
+    },
+    localStorage: false,
+  },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     baseURL: process.env.API_URL,
-    proxy:true,
+    proxy: true,
+    credentials: true,
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: "en"
-    }
+      lang: "en",
+    },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
   server: {
-    port: process.env.PORT
-  }
+    port: process.env.PORT,
+  },
 };

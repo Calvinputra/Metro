@@ -4,8 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\MenuController;
 use App\Http\Controllers\API\ProductController;
-use App\Http\Controllers\API\LoginController;
-use App\Http\Controllers\API\RegisterController;
+use App\Http\Controllers\API\AuthController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,14 +16,12 @@ use App\Http\Controllers\API\RegisterController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/user', [AuthController::class,'user'])->middleware('auth:sanctum');
 
-Route::post('/login', [LoginController::class,'login']);
-Route::get('/logout',  [LoginController::class,'logout']);
+Route::post('/login', [AuthController::class,'login']);
+Route::post('/logout',  [AuthController::class,'logout'])->middleware('auth:sanctum');
 
-Route::post('/register', [RegisterController::class,'register']);
+Route::post('/register', [AuthController::class,'register']);
 
 
 Route::apiResource('/menus', MenuController::class);

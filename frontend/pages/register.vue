@@ -61,7 +61,7 @@
             </div>
             <div class="mb-4">
               <hr
-                style="height:10%; width:100%; border-width:0; color:red"
+                style="height: 10%; width: 100%; border-width: 0; color: red"
                 class="col-sm-12 mb-0 mt-0"
               />
               <p class="mb-">
@@ -151,37 +151,34 @@
                     <label for="country"
                       >Negara<span style="color: red">*</span>:</label
                     >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="country"
+
+                    <select
+                      class="form-control select2"
                       name="country"
-                      placeholder="Negara"
-                    />
+                      id="country"
+                    >
+                      <option>Pilih Negara</option>
+                    </select>
                   </div>
                   <div class="form-group">
                     <label for="province"
                       >Provinsi<span style="color: red">*</span>:</label
                     >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="province"
+                    <select
+                      class="form-control select2"
                       name="province"
-                      placeholder="Provinsi"
-                    />
+                      id="province"
+                    >
+                      <option>Pilih Provinsi</option>
+                    </select>
                   </div>
                   <div class="form-group">
                     <label for="city"
                       >Kota<span style="color: red">*</span>:</label
                     >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="city"
-                      name="city"
-                      placeholder="Kota"
-                    />
+                    <select class="form-control select2" name="city" id="city">
+                      <option>Pilih Kota</option>
+                    </select>
                   </div>
                   <div class="form-group">
                     <label for="postal_code"
@@ -215,10 +212,10 @@
                     <input
                       type="checkbox"
                       class="form-check-input"
-                      id="exampleCheck1"
+                      id="exampleCheck2"
                     />
 
-                    <label class="form-check-label" for="exampleCheck1"
+                    <label class="form-check-label" for="exampleCheck2"
                       >Perbarui Saya dengan berita dan promo terbaru</label
                     >
                   </div>
@@ -235,6 +232,13 @@
     </section>
 
     <Footer />
+    <client-only>
+      <script>
+        $(document).ready(function () {
+          $(".select2").select2();
+        });
+      </script>
+    </client-only>
   </section>
 </template>
 
@@ -242,19 +246,39 @@
 export default {
   data() {
     return {
+      country_options: [],
+      country_selected: ["Indonesia"],
       breadcrumb: [
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50"
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
         },
         {
           url: "/register",
           name: "Register",
-          class: "my-2 breadcrumb-item active opacity-50"
-        }
-      ]
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
+      ],
     };
-  }
+  },
+  head() {
+    return {
+      script: [
+        {
+          src: "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js",
+        },
+        {
+          src: "https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js",
+        },
+      ],
+      link: [
+        {
+          rel: "stylesheet",
+          href: "https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css",
+        },
+      ],
+    };
+  },
 };
 </script>
