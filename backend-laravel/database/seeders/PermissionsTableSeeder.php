@@ -379,6 +379,126 @@ class PermissionsTableSeeder extends Seeder
                 'created_at' => '2021-10-30 06:23:31',
                 'updated_at' => '2021-10-30 06:23:31',
             ),
+            45 => 
+            array (
+                'id' => 46,
+                'key' => 'browse_countries',
+                'table_name' => 'countries',
+                'created_at' => '2021-11-06 13:26:40',
+                'updated_at' => '2021-11-06 13:26:40',
+            ),
+            46 => 
+            array (
+                'id' => 47,
+                'key' => 'read_countries',
+                'table_name' => 'countries',
+                'created_at' => '2021-11-06 13:26:40',
+                'updated_at' => '2021-11-06 13:26:40',
+            ),
+            47 => 
+            array (
+                'id' => 48,
+                'key' => 'edit_countries',
+                'table_name' => 'countries',
+                'created_at' => '2021-11-06 13:26:40',
+                'updated_at' => '2021-11-06 13:26:40',
+            ),
+            48 => 
+            array (
+                'id' => 49,
+                'key' => 'add_countries',
+                'table_name' => 'countries',
+                'created_at' => '2021-11-06 13:26:40',
+                'updated_at' => '2021-11-06 13:26:40',
+            ),
+            49 => 
+            array (
+                'id' => 50,
+                'key' => 'delete_countries',
+                'table_name' => 'countries',
+                'created_at' => '2021-11-06 13:26:40',
+                'updated_at' => '2021-11-06 13:26:40',
+            ),
+            50 => 
+            array (
+                'id' => 51,
+                'key' => 'browse_provinces',
+                'table_name' => 'provinces',
+                'created_at' => '2021-11-06 13:29:43',
+                'updated_at' => '2021-11-06 13:29:43',
+            ),
+            51 => 
+            array (
+                'id' => 52,
+                'key' => 'read_provinces',
+                'table_name' => 'provinces',
+                'created_at' => '2021-11-06 13:29:43',
+                'updated_at' => '2021-11-06 13:29:43',
+            ),
+            52 => 
+            array (
+                'id' => 53,
+                'key' => 'edit_provinces',
+                'table_name' => 'provinces',
+                'created_at' => '2021-11-06 13:29:43',
+                'updated_at' => '2021-11-06 13:29:43',
+            ),
+            53 => 
+            array (
+                'id' => 54,
+                'key' => 'add_provinces',
+                'table_name' => 'provinces',
+                'created_at' => '2021-11-06 13:29:43',
+                'updated_at' => '2021-11-06 13:29:43',
+            ),
+            54 => 
+            array (
+                'id' => 55,
+                'key' => 'delete_provinces',
+                'table_name' => 'provinces',
+                'created_at' => '2021-11-06 13:29:43',
+                'updated_at' => '2021-11-06 13:29:43',
+            ),
+            55 => 
+            array (
+                'id' => 56,
+                'key' => 'browse_cities',
+                'table_name' => 'cities',
+                'created_at' => '2021-11-06 13:34:12',
+                'updated_at' => '2021-11-06 13:34:12',
+            ),
+            56 => 
+            array (
+                'id' => 57,
+                'key' => 'read_cities',
+                'table_name' => 'cities',
+                'created_at' => '2021-11-06 13:34:12',
+                'updated_at' => '2021-11-06 13:34:12',
+            ),
+            57 => 
+            array (
+                'id' => 58,
+                'key' => 'edit_cities',
+                'table_name' => 'cities',
+                'created_at' => '2021-11-06 13:34:12',
+                'updated_at' => '2021-11-06 13:34:12',
+            ),
+            58 => 
+            array (
+                'id' => 59,
+                'key' => 'add_cities',
+                'table_name' => 'cities',
+                'created_at' => '2021-11-06 13:34:12',
+                'updated_at' => '2021-11-06 13:34:12',
+            ),
+            59 => 
+            array (
+                'id' => 60,
+                'key' => 'delete_cities',
+                'table_name' => 'cities',
+                'created_at' => '2021-11-06 13:34:12',
+                'updated_at' => '2021-11-06 13:34:12',
+            ),
         ));
         
         

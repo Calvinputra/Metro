@@ -139,7 +139,7 @@
                 </form>
                 <div class="text-center">
                   <button
-                    @click.prevent="login"
+                    @click.prevent="doLogin"
                     type="submit"
                     class="
                       btn
@@ -179,6 +179,7 @@ export default {
   auth: "guest",
   data() {
     return {
+      //breadcrumb
       breadcrumb: [
         {
           url: "/",
@@ -191,8 +192,10 @@ export default {
           class: "my-2 breadcrumb-item active opacity-50",
         },
       ],
+      //data
       email: "",
       password: "",
+      //alert
       errors: null,
       dismissSecs: 10,
       dismissCountDown: 0,
@@ -200,7 +203,7 @@ export default {
     };
   },
   methods: {
-    async login() {
+    async doLogin() {
       try {
         let data = {
           email: this.email,

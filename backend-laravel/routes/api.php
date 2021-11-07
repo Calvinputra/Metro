@@ -4,6 +4,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\MenuController;
 use App\Http\Controllers\API\ProductController;
+use App\Http\Controllers\API\CountryController;
+use App\Http\Controllers\API\CityController;
+use App\Http\Controllers\API\ProvinceController;
 use App\Http\Controllers\API\AuthController;
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +29,6 @@ Route::post('/register', [AuthController::class,'register']);
 
 Route::apiResource('/menus', MenuController::class);
 Route::apiResource('/products', ProductController::class);
+Route::apiResource('/cities', CityController::class);
+Route::apiResource('/provinces', ProvinceController::class);
+Route::apiResource('/countries', CountryController::class);

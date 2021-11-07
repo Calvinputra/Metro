@@ -3,21 +3,20 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ProductResource;
-use App\Models\Product;
+use App\Http\Resources\CountryResource;
+use App\Models\Country;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class CountryController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $paginate_item = $request->paginate ?? 25;
-        return ProductResource::collection(Product::with('category')->orderBy('created_at', 'DESC')->paginate($paginate_item));
+        return CountryResource::collection(Country::orderBy('name')->get());
     }
 
     /**
@@ -28,10 +27,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        return response()->json([
-            'data'   => 'Unauthorized Action',
-            'status' => 503,
-        ]);
+        //
     }
 
     /**
@@ -54,10 +50,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return response()->json([
-            'data'   => 'Unauthorized Action',
-            'status' => 503,
-        ]);
+        //
     }
 
     /**
@@ -68,14 +61,6 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        return response()->json([
-            'data'   => 'Unauthorized Action',
-            'status' => 503,
-        ]);
-    }
-
-    public function addToCart($id)
-    {
-
+        //
     }
 }

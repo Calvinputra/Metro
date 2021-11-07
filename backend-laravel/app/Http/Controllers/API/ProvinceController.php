@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ProductResource;
-use App\Models\Product;
+use App\Http\Resources\ProvinceResource;
+use App\Models\Province;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class ProvinceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,7 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $paginate_item = $request->paginate ?? 25;
-        return ProductResource::collection(Product::with('category')->orderBy('created_at', 'DESC')->paginate($paginate_item));
+        return ProvinceResource::collection(Province::where('country_id', $request->country_id ?? '0')->orderBy('name')->get());
     }
 
     /**
@@ -28,10 +27,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        return response()->json([
-            'data'   => 'Unauthorized Action',
-            'status' => 503,
-        ]);
+        //
     }
 
     /**
@@ -54,10 +50,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return response()->json([
-            'data'   => 'Unauthorized Action',
-            'status' => 503,
-        ]);
+        //
     }
 
     /**
@@ -68,14 +61,6 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        return response()->json([
-            'data'   => 'Unauthorized Action',
-            'status' => 503,
-        ]);
-    }
-
-    public function addToCart($id)
-    {
-
+        //
     }
 }

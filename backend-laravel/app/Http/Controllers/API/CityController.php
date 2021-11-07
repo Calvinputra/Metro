@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ProductResource;
-use App\Models\Product;
+use App\Http\Resources\CityResource;
+use App\Models\City;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class CityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +16,8 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $paginate_item = $request->paginate ?? 25;
-        return ProductResource::collection(Product::with('category')->orderBy('created_at', 'DESC')->paginate($paginate_item));
+        return CityResource::collection(City::where('province_id', $request->province_id ?? '0')->orderBy('name')->get());
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -28,10 +26,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        return response()->json([
-            'data'   => 'Unauthorized Action',
-            'status' => 503,
-        ]);
+        //
     }
 
     /**
@@ -54,10 +49,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return response()->json([
-            'data'   => 'Unauthorized Action',
-            'status' => 503,
-        ]);
+        //
     }
 
     /**
@@ -68,14 +60,6 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        return response()->json([
-            'data'   => 'Unauthorized Action',
-            'status' => 503,
-        ]);
-    }
-
-    public function addToCart($id)
-    {
-
+        //
     }
 }

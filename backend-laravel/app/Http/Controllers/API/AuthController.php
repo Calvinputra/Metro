@@ -77,6 +77,8 @@ class AuthController extends Controller
             'province'    => 'required',
             'city'        => 'required',
             'postal_code' => 'required',
+            'agreement_1' => 'accepted',
+            'agreement_2' => 'accepted',
         ];
 
         $validator = Validator::make($request->all(), $rules);
@@ -84,7 +86,7 @@ class AuthController extends Controller
             return response([
                 'success' => false,
                 'message' => $validator->errors(),
-            ], 403);
+            ], 200);
         }
 
         $data = [

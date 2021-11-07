@@ -73,6 +73,19 @@
               <div class="row justify-content-start">
                 <form>
                   <div class="register-form-title">Pengisian Data Diri</div>
+                  <b-alert
+                    v-model="showDismissibleAlert"
+                    variant="danger"
+                    dismissible
+                  >
+                    <ul
+                      style="color: black; padding: 0"
+                      v-for="(error, key) in errors"
+                      :key="key"
+                    >
+                      <li v-for="(e, key) in error" :key="key">{{ e }}</li>
+                    </ul>
+                  </b-alert>
                   <div class="form-group">
                     <label for="first_name"
                       >Nama Depan<span style="color: red">*</span>:</label
@@ -83,6 +96,7 @@
                       id="first_name"
                       name="first_name"
                       placeholder="Nama Depan"
+                      v-model="first_name"
                     />
                   </div>
                   <div class="form-group">
@@ -95,6 +109,20 @@
                       id="last_name"
                       name="last_name"
                       placeholder="Nama Belakang"
+                      v-model="last_name"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="phone]"
+                      >Nomor Telepon<span style="color: red">*</span>:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="phone"
+                      name="phone"
+                      placeholder="Nomor Telepon"
+                      v-model="phone"
                     />
                   </div>
                   <div class="form-group">
@@ -107,6 +135,7 @@
                       id="email"
                       name="email"
                       placeholder="Email"
+                      v-model="email"
                     />
                   </div>
                   <div class="form-group">
@@ -119,6 +148,7 @@
                       id="password"
                       name="password"
                       placeholder="Password"
+                      v-model="password"
                     />
                   </div>
                   <div class="form-group">
@@ -132,6 +162,7 @@
                       id="password_confirmation"
                       name="password_confirmation"
                       placeholder="Password"
+                      v-model="password_confirmation"
                     />
                   </div>
 
@@ -145,40 +176,40 @@
                       id="address"
                       name="address"
                       rows="3"
+                      v-model="address"
                     ></textarea>
                   </div>
                   <div class="form-group">
                     <label for="country"
                       >Negara<span style="color: red">*</span>:</label
                     >
-
-                    <select
-                      class="form-control select2"
-                      name="country"
-                      id="country"
-                    >
-                      <option>Pilih Negara</option>
-                    </select>
+                    <v-select
+                      v-model="country_id"
+                      :reduce="(countries) => countries.code"
+                      @input="getProvince"
+                      :options="countries"
+                    ></v-select>
                   </div>
                   <div class="form-group">
                     <label for="province"
                       >Provinsi<span style="color: red">*</span>:</label
                     >
-                    <select
-                      class="form-control select2"
-                      name="province"
-                      id="province"
-                    >
-                      <option>Pilih Provinsi</option>
-                    </select>
+                    <v-select
+                      v-model="province_id"
+                      :reduce="(provinces) => provinces.code"
+                      @input="getCity"
+                      :options="provinces"
+                    ></v-select>
                   </div>
                   <div class="form-group">
                     <label for="city"
                       >Kota<span style="color: red">*</span>:</label
                     >
-                    <select class="form-control select2" name="city" id="city">
-                      <option>Pilih Kota</option>
-                    </select>
+                    <v-select
+                      v-model="city_id"
+                      :reduce="(cities) => cities.code"
+                      :options="cities"
+                    ></v-select>
                   </div>
                   <div class="form-group">
                     <label for="postal_code"
@@ -190,6 +221,7 @@
                       id="postal_code"
                       name="postal_code"
                       placeholder="Kode Pos"
+                      v-model="postal_code"
                     />
                   </div>
 
@@ -202,6 +234,7 @@
                       type="checkbox"
                       class="form-check-input"
                       id="exampleCheck1"
+                      v-model="agreement_1"
                     />
                     <label class="form-check-label" for="exampleCheck1"
                       >Saya telah membaca dan menyetujui Kebijakan
@@ -213,6 +246,7 @@
                       type="checkbox"
                       class="form-check-input"
                       id="exampleCheck2"
+                      v-model="agreement_2"
                     />
 
                     <label class="form-check-label" for="exampleCheck2"
@@ -220,7 +254,11 @@
                     >
                   </div>
                   <br />
-                  <button type="submit" class="btn btn-primary">
+                  <button
+                    @click.prevent="doRegister"
+                    type="submit"
+                    class="btn btn-primary"
+                  >
                     Buat Akun
                   </button>
                 </form>
@@ -233,21 +271,53 @@
 
     <Footer />
     <client-only>
-      <script>
-        $(document).ready(function () {
-          $(".select2").select2();
-        });
-      </script>
+      <!-- include VueJS first -->
+      <script src="https://unpkg.com/vue@latest"></script>
+
+      <!-- use the latest vue-select release -->
+      <script src="https://unpkg.com/vue-select@latest"></script>
+      <link
+        rel="stylesheet"
+        href="https://unpkg.com/vue-select@latest/dist/vue-select.css"
+      />
+
+      <!-- or point to a specific vue-select release -->
+      <script src="https://unpkg.com/vue-select@3.0.0"></script>
+      <link
+        rel="stylesheet"
+        href="https://unpkg.com/vue-select@3.0.0/dist/vue-select.css"
+      />
     </client-only>
   </section>
 </template>
 
 <script>
+import Vue from "vue";
+import vSelect from "vue-select";
+import "vue-select/dist/vue-select.css";
+Vue.component("v-select", vSelect);
+
 export default {
   data() {
     return {
-      country_options: [],
-      country_selected: ["Indonesia"],
+      first_name: null,
+      last_name: null,
+      phone:null,
+      email: null,
+      password: null,
+      password_confirmation: null,
+      address: null,
+      country_id: 0,
+      city_id: 0,
+      province_id: 0,
+      postal_code: null,
+      agreement_1: false,
+      agreement_2: false,
+      //data v select
+      cities: [],
+      countries: [],
+      provinces: [],
+      //breadcrumb
       breadcrumb: [
         {
           url: "/",
@@ -260,7 +330,97 @@ export default {
           class: "my-2 breadcrumb-item active opacity-50",
         },
       ],
+      //alert
+      errors: null,
+      dismissSecs: 10,
+      dismissCountDown: 0,
+      showDismissibleAlert: false,
     };
+  },
+  methods: {
+    async getCountry() {
+      try {
+        let response = await this.$axios.$get(
+          process.env.API_URL + "/api/countries"
+        );
+        response.data.forEach((value, index) => {
+          this.countries.push({
+            label: value.name,
+            code: value.id,
+          });
+        });
+        console.log(this.countries);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async getProvince() {
+      try {
+        let response = await this.$axios.$get(
+          process.env.API_URL + "/api/provinces?country_id=" + this.country_id
+        );
+        console.log(response);
+        response.data.forEach((value, index) => {
+          this.provinces.push({
+            label: value.name,
+            code: value.id,
+          });
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async getCity() {
+      try {
+        let response = await this.$axios.$get(
+          process.env.API_URL + "/api/cities?province_id=" + this.province_id
+        );
+        console.log(response);
+        response.data.forEach((value, index) => {
+          this.cities.push({
+            label: value.name,
+            code: value.id,
+          });
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async doRegister() {
+      try {
+        let data = {
+          first_name: this.first_name,
+          last_name: this.last_name,
+          phone: this.phone,
+          email: this.email,
+          password: this.password,
+          password_confirmation: this.password_confirmation,
+          address: this.address,
+          country: this.country_id,
+          province: this.province_id,
+          city: this.city_id,
+          postal_code: this.postal_code,
+          agreement_1: this.agreement_1,
+          agreement_2: this.agreement_2,
+        };
+        console.log(data);
+        let response = await this.$axios.$post(
+          process.env.API_URL + "/api/register",
+          data
+        );
+        if (response.success) {
+          //success registration
+          this.showDismissibleAlert = false;
+          //this.$router.push("/welcome");
+        } else {
+          this.errors = response.message;
+          this.showDismissibleAlert = true;
+        }
+        console.log(response);
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
   head() {
     return {
@@ -279,6 +439,9 @@ export default {
         },
       ],
     };
+  },
+  created() {
+    this.getCountry();
   },
 };
 </script>
