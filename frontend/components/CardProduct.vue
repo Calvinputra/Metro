@@ -22,6 +22,7 @@
             href="#"
             class="btn text-danger btn-sm shadow rounded col-sm-5 ms-2 pt-2"
             style="background-color: #f3f3f3"
+            @click="addToCart(data.id)"
             >+ Keranjang</a
           >
           <a class="col-sm-3" href=""
@@ -46,11 +47,20 @@
 
 <script>
 export default {
-  props: ["data","url"],
+  props: ["data", "url"],
   data() {
     return {
       ASSET_URL: process.env.ASSET_URL,
     };
+  },
+  methods: {
+    async addToCart(id) {
+      if (this.$auth.loggedIn) {
+        console.log(id);
+      } else {
+        this.$router.push("/login");
+      }
+    },
   },
 };
 </script>

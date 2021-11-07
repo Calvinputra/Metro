@@ -8,6 +8,7 @@ use App\Http\Controllers\API\CountryController;
 use App\Http\Controllers\API\CityController;
 use App\Http\Controllers\API\ProvinceController;
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\CartController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -32,3 +33,4 @@ Route::apiResource('/products', ProductController::class);
 Route::apiResource('/cities', CityController::class);
 Route::apiResource('/provinces', ProvinceController::class);
 Route::apiResource('/countries', CountryController::class);
+Route::apiResource('/carts', CartController::class)->middleware('auth:sanctum');

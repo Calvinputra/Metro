@@ -68,6 +68,10 @@
 </template>
 
 <script>
+export default{
+  middleware: "auth",
+  auth: "guest",
+}
 function increment() {
   document.getElementById("demoInput").stepUp();
 }

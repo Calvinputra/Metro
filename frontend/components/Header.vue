@@ -32,12 +32,12 @@
       <div class="collapse navbar-collapse center" id="navbarScroll">
         <div id="icon navbar" class="container-fluid ms-4">
           <div class="col-sm-4">
-            <a aria-current="page" href="#"
+            <a aria-current="page" href="account"
               ><img src="/img/profile.png" alt=""
             /></a>
           </div>
           <div class="col-sm-4">
-            <a href="https://facebook.com"
+            <a href="/wishlist"
               ><img src="/img/wishlist.png" alt=""
             /></a>
           </div>

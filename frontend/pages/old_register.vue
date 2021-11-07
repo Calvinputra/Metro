@@ -6,7 +6,44 @@
       <div class="container">
         <div class="row">
           <div class="col-md-2">
-            <AccountMenu :name="'register'" />
+            <section class="">
+              <div class="row">
+                <div>
+                  <h1>Akun</h1>
+                  <a
+                    v-if="this.$auth.loggedIn == false"
+                    href="/register"
+                    class="text-black nav-custom nav-custom-active"
+                    style="text-decoration: none"
+                  >
+                    <p class="py-2 ps-2">Buat Akun</p>
+                  </a>
+                  <a
+                    v-if="this.$auth.loggedIn == false"
+                    href="/login"
+                    style="text-decoration: none"
+                    class="text-black nav-custom"
+                  >
+                    <p class="ms-2">Masuk Akun</p>
+                  </a>
+                  <a
+                    v-if="this.$auth.loggedIn == false"
+                    href=""
+                    style="text-decoration: none"
+                    class="text-black nav-custom"
+                  >
+                    <p class="ms-2">Lupa Password</p>
+                  </a>
+                  <a
+                    href=""
+                    style="text-decoration: none"
+                    class="text-black nav-custom"
+                  >
+                    <p class="ms-2">Akun Saya</p>
+                  </a>
+                </div>
+              </div>
+            </section>
           </div>
           <div
             class="
@@ -38,9 +75,7 @@
             <div>
               <div class="row justify-content-start">
                 <form>
-                  <div class="register-form-title mr-5 pr-5">
-                    Pengisian Data Diri
-                  </div>
+                  <div class="register-form-title">Pengisian Data Diri</div>
                   <b-alert
                     v-model="showDismissibleAlert"
                     variant="danger"
@@ -54,7 +89,7 @@
                       <li v-for="(e, key) in error" :key="key">{{ e }}</li>
                     </ul>
                   </b-alert>
-                  <div class="form-group col-sm-10 center">
+                  <div class="form-group">
                     <label for="first_name"
                       >Nama Depan<span style="color: red">*</span>:</label
                     >
@@ -67,7 +102,7 @@
                       v-model="first_name"
                     />
                   </div>
-                  <div class="form-group form-group col-sm-10">
+                  <div class="form-group">
                     <label for="last_name"
                       >Nama Belakang<span style="color: red">*</span>:</label
                     >
@@ -80,8 +115,7 @@
                       v-model="last_name"
                     />
                   </div>
-
-                  <div class="form-group form-group col-sm-10">
+                  <div class="form-group">
                     <label for="phone]"
                       >Nomor Telepon<span style="color: red">*</span>:</label
                     >
@@ -94,7 +128,7 @@
                       v-model="phone"
                     />
                   </div>
-                  <div class="form-group col-sm-10">
+                  <div class="form-group">
                     <label for="email"
                       >Email<span style="color: red">*</span>:</label
                     >
@@ -107,7 +141,7 @@
                       v-model="email"
                     />
                   </div>
-                  <div class="form-group col-sm-10">
+                  <div class="form-group">
                     <label for="password"
                       >Kata Sandi<span style="color: red">*</span>:</label
                     >
@@ -120,7 +154,7 @@
                       v-model="password"
                     />
                   </div>
-                  <div class="form-group col-sm-10">
+                  <div class="form-group">
                     <label for="password_confirmation"
                       >Konfirmasi Kata Sandi<span style="color: red">*</span
                       >:</label
@@ -136,7 +170,7 @@
                   </div>
 
                   <div class="register-form-title">Alamat Pengiriman</div>
-                  <div class="form-group col-sm-10">
+                  <div class="form-group">
                     <label for="address"
                       >Alamat Lengkap<span style="color: red">*</span>:</label
                     >
@@ -148,7 +182,7 @@
                       v-model="address"
                     ></textarea>
                   </div>
-                  <div class="form-group col-sm-10">
+                  <div class="form-group">
                     <label for="country"
                       >Negara<span style="color: red">*</span>:</label
                     >
@@ -159,7 +193,7 @@
                       :options="countries"
                     ></v-select>
                   </div>
-                  <div class="form-group col-sm-10 text">
+                  <div class="form-group">
                     <label for="province"
                       >Provinsi<span style="color: red">*</span>:</label
                     >
@@ -170,7 +204,7 @@
                       :options="provinces"
                     ></v-select>
                   </div>
-                  <div class="form-group col-sm-10">
+                  <div class="form-group">
                     <label for="city"
                       >Kota<span style="color: red">*</span>:</label
                     >
@@ -180,7 +214,7 @@
                       :options="cities"
                     ></v-select>
                   </div>
-                  <div class="form-group col-sm-10">
+                  <div class="form-group">
                     <label for="postal_code"
                       >Kode Pos<span style="color: red">*</span>:</label
                     >
@@ -223,26 +257,13 @@
                     >
                   </div>
                   <br />
-                  <div class="text-center">
-                    <button
-                      @click.prevent="doRegister"
-                      type="submit"
-                      class="
-                        btn
-                        text-danger
-                        btn-light btn-sm
-                        shadow
-                        rounded
-                        col-sm-2
-                        ms-0
-                        ps-0
-                        py-2
-                        px-2
-                      "
-                    >
-                      Buat Akun
-                    </button>
-                  </div>
+                  <button
+                    @click.prevent="doRegister"
+                    type="submit"
+                    class="btn btn-primary"
+                  >
+                    Buat Akun
+                  </button>
                 </form>
               </div>
             </div>

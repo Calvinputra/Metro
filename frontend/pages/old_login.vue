@@ -31,13 +31,30 @@
                   >
                     <p class="ms-2">Lupa Password</p>
                   </a>
-                  <a
-                    href=""
-                    style="text-decoration: none"
-                    class="text-black nav-custom"
-                  >
-                    <p class="ms-2">Akun Saya</p>
-                  </a>
+                  <div class="dropdown mt-3">
+                    <button
+                      class="btn btn-light dropdown-toggle"
+                      type="button"
+                      id="dropdown1"
+                      data-bs-toggle="dropdown"
+                    >
+                      Akun Saya
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdown1">
+                      <li>
+                        <a href="#" class="dropdown-item">Ubah Kata Sandi</a>
+                      </li>
+                      <li>
+                        <a href="#" class="dropdown-item">Riwayat Pembelian</a>
+                      </li>
+                      <li>
+                        <a href="#" class="dropdown-item">Undang Teman</a>
+                      </li>
+                      <li>
+                        <a href="#" class="dropdown-item">Undang Teman</a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </section>
@@ -59,7 +76,7 @@
             </div>
             <div class="mb-4">
               <hr
-                style="height:10%; width:100%; border-width:0; color:red"
+                style="height: 10%; width: 100%; border-width: 0; color: red"
                 class="col-sm-12 mb-0 mt-0"
               />
               <p class="mb-">
@@ -68,17 +85,31 @@
               </p>
             </div>
 
-            <div class="mr-5 pr-5">
-              <h2 class="text-center mr-5 pr-5">Masuk Ke Akun</h2>
+            <div>
+              <h2 class="text-center">Masuk Ke Akun</h2>
             </div>
             <div>
+              <b-alert
+                v-model="showDismissibleAlert"
+                variant="danger"
+                dismissible
+              >
+                <ul
+                  style="color: black; padding: 0"
+                  v-for="(error, key) in errors"
+                  :key="key"
+                >
+                  <li v-for="(e, key) in error" :key="key">{{ e }}</li>
+                </ul>
+              </b-alert>
               <div class="row justify-content-start">
-                <form>
-                  <div class="form-group col-sm-10">
+                <form method="post">
+                  <div class="form-group">
                     <label for="email"
                       >Email<span style="color: red">*</span>:</label
                     >
                     <input
+                      v-model="email"
                       type="email"
                       class="form-control"
                       id="email"
@@ -86,11 +117,12 @@
                       placeholder="Email"
                     />
                   </div>
-                  <div class="form-group col-sm-10">
+                  <div class="form-group">
                     <label for="password"
                       >Kata Sandi<span style="color: red">*</span>:</label
                     >
                     <input
+                      v-model="password"
                       type="password"
                       class="form-control"
                       id="password"
@@ -107,20 +139,22 @@
                 </form>
                 <div class="text-center">
                   <button
+                    @click.prevent="doLogin"
                     type="submit"
-                    class="  btn
-                  text-danger
-                  btn-light
-                  btn-sm
-                  shadow
-                  rounded
-                  col-sm-2
-                  ms-0
-                  ps-0
-                  py-2
-                  px-2"
+                    class="
+                      btn
+                      text-danger
+                      btn-light btn-sm
+                      shadow
+                      rounded
+                      col-sm-2
+                      ms-0
+                      ps-0
+                      py-2
+                      px-2
+                    "
                   >
-                    Masuk Akun
+                    Masuk
                   </button>
                 </div>
                 <p></p>
@@ -141,21 +175,62 @@
 
 <script>
 export default {
+  middleware: "auth",
+  auth: "guest",
   data() {
     return {
+      //breadcrumb
       breadcrumb: [
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50"
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
         },
         {
           url: "/register",
           name: "Register",
-          class: "my-2 breadcrumb-item active opacity-50"
-        }
-      ]
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
+      ],
+      //data
+      email: "",
+      password: "",
+      //alert
+      errors: null,
+      dismissSecs: 10,
+      dismissCountDown: 0,
+      showDismissibleAlert: false,
     };
-  }
+  },
+  methods: {
+    async doLogin() {
+      try {
+        let data = {
+          email: this.email,
+          password: this.password,
+        };
+        let response = await this.$axios.$post(
+          process.env.API_URL + "/api/login",
+          data
+        );
+        if (response.success) {
+          await this.$auth.loginWith("laravelSanctum", {
+            data: {
+              email: this.email,
+              password: this.password,
+            },
+          });
+          this.showDismissibleAlert = false;
+          this.$router.push("/welcome");
+        } else {
+          this.errors = response.message;
+          this.showDismissibleAlert = true;
+        }
+        console.log(response);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
 };
 </script>

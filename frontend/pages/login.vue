@@ -6,58 +6,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-2">
-            <section class="">
-              <div class="row">
-                <div>
-                  <h1>Akun</h1>
-                  <a
-                    href="/register"
-                    class="text-black nav-custom"
-                    style="text-decoration: none"
-                  >
-                    <p class="ms-2">Buat Akun</p>
-                  </a>
-                  <a
-                    href="/login"
-                    style="text-decoration: none"
-                    class="text-black nav-custom nav-custom-active"
-                  >
-                    <p class="py-2 ps-2">Masuk Akun</p>
-                  </a>
-                  <a
-                    href=""
-                    style="text-decoration: none"
-                    class="text-black nav-custom"
-                  >
-                    <p class="ms-2">Lupa Password</p>
-                  </a>
-                  <div class="dropdown mt-3">
-                    <button
-                      class="btn btn-light dropdown-toggle"
-                      type="button"
-                      id="dropdown1"
-                      data-bs-toggle="dropdown"
-                    >
-                      Akun Saya
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                      <li>
-                        <a href="#" class="dropdown-item">Ubah Kata Sandi</a>
-                      </li>
-                      <li>
-                        <a href="#" class="dropdown-item">Riwayat Pembelian</a>
-                      </li>
-                      <li>
-                        <a href="#" class="dropdown-item">Undang Teman</a>
-                      </li>
-                      <li>
-                        <a href="#" class="dropdown-item">Undang Teman</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </section>
+            <AccountMenu :name="'login'"/>
           </div>
           <div
             class="
@@ -85,8 +34,8 @@
               </p>
             </div>
 
-            <div>
-              <h2 class="text-center">Masuk Ke Akun</h2>
+            <div class="mr-5 pr-5">
+              <h2 class="text-center mr-5 pr-5">Masuk Ke Akun</h2>
             </div>
             <div>
               <b-alert
@@ -103,8 +52,8 @@
                 </ul>
               </b-alert>
               <div class="row justify-content-start">
-                <form method="post">
-                  <div class="form-group">
+                <form>
+                  <div class="form-group col-sm-10">
                     <label for="email"
                       >Email<span style="color: red">*</span>:</label
                     >
@@ -117,7 +66,7 @@
                       placeholder="Email"
                     />
                   </div>
-                  <div class="form-group">
+                  <div class="form-group col-sm-10">
                     <label for="password"
                       >Kata Sandi<span style="color: red">*</span>:</label
                     >
