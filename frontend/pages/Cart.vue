@@ -34,9 +34,9 @@
             </tr>
           </thead>
           <tbody>
-            <Cart />
-            <Cart />
-            <Cart />
+            <Cart v-for="cart in carts" :key="cart.id" :product="cart.product" :qty="cart.qty" :id="cart.id"
+            
+             />
           </tbody>
         </table>
       </div>
@@ -68,10 +68,20 @@
 </template>
 
 <script>
-export default{
+export default {
   middleware: "auth",
-  auth: "guest",
-}
+  async asyncData({ $axios }) {
+    try {
+      let carts = await $axios.$get(process.env.API_URL + "/api/carts");
+      console.log(carts);
+      return {
+        carts: carts.data,
+      };
+    } catch (error) {
+      console.log(error);
+    }
+  },
+};
 function increment() {
   document.getElementById("demoInput").stepUp();
 }

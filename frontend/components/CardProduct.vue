@@ -55,10 +55,21 @@ export default {
   },
   methods: {
     async addToCart(id) {
-      if (this.$auth.loggedIn) {
-        console.log(id);
-      } else {
-        this.$router.push("/login");
+      try {
+        if (this.$auth.loggedIn) {
+          let data = {
+            product_id: id,
+          };
+          let response = await this.$axios.$post(
+            process.env.API_URL + "/api/carts",
+            data
+          );
+          console.log(response);
+        } else {
+          this.$router.push("/login");
+        }
+      } catch (error) {
+        console.log(error);
       }
     },
   },

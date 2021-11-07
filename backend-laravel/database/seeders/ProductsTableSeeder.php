@@ -34,8 +34,9 @@ class ProductsTableSeeder extends Seeder
                 'images' => '["products/1170176.jpg","products/1064544.jpg","products/1145183.png"]',
                 'category_id' => 1,
                 'created_at' => '2021-10-20 04:40:18',
-                'updated_at' => '2021-10-20 04:41:40',
+                'updated_at' => '2021-11-07 14:43:26',
                 'deleted_at' => NULL,
+                'code' => 'TEST123',
             ),
             1 => 
             array (
@@ -52,8 +53,9 @@ class ProductsTableSeeder extends Seeder
                 'images' => '["products/1145183.png"]',
                 'category_id' => 2,
                 'created_at' => '2021-10-20 05:48:11',
-                'updated_at' => '2021-10-20 05:48:11',
+                'updated_at' => '2021-11-07 14:43:43',
                 'deleted_at' => NULL,
+                'code' => 'TEST1235',
             ),
         ));
         

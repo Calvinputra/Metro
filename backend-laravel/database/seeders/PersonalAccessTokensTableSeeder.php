@@ -39,9 +39,9 @@ class PersonalAccessTokensTableSeeder extends Seeder
                 'name' => 'ApiToken',
                 'token' => '4bb5afc4ade3dec881b0cfb1c0fdb602225b0bbf00b3fda61cda56bcd5c2d907',
                 'abilities' => '["*"]',
-                'last_used_at' => '2021-11-05 15:27:23',
+                'last_used_at' => '2021-11-07 11:32:42',
                 'created_at' => '2021-11-05 15:11:21',
-                'updated_at' => '2021-11-05 15:27:23',
+                'updated_at' => '2021-11-07 11:32:42',
             ),
             2 => 
             array (
@@ -138,6 +138,54 @@ class PersonalAccessTokensTableSeeder extends Seeder
                 'last_used_at' => NULL,
                 'created_at' => '2021-11-06 11:51:15',
                 'updated_at' => '2021-11-06 11:51:15',
+            ),
+            10 => 
+            array (
+                'id' => 11,
+                'tokenable_type' => 'App\\Models\\Customer',
+                'tokenable_id' => 5,
+                'name' => 'ApiToken',
+                'token' => '14ad18ff07c6bb102206d10bfa52d4d23f16565502862aa3baf43d40ac57fbe4',
+                'abilities' => '["*"]',
+                'last_used_at' => NULL,
+                'created_at' => '2021-11-07 10:51:29',
+                'updated_at' => '2021-11-07 10:51:29',
+            ),
+            11 => 
+            array (
+                'id' => 12,
+                'tokenable_type' => 'App\\Models\\Customer',
+                'tokenable_id' => 5,
+                'name' => 'ApiToken',
+                'token' => '72277b8a61c99dd3bb4e6f33346a433e082aba5e7e5085fa5bab47a99bf07caa',
+                'abilities' => '["*"]',
+                'last_used_at' => '2021-11-07 14:36:42',
+                'created_at' => '2021-11-07 10:51:31',
+                'updated_at' => '2021-11-07 14:36:42',
+            ),
+            12 => 
+            array (
+                'id' => 13,
+                'tokenable_type' => 'App\\Models\\Customer',
+                'tokenable_id' => 1,
+                'name' => 'ApiToken',
+                'token' => 'f61c1038784b80dd4be01ac7ef8b8a9bea125ce854867642947b4d1ce3c59369',
+                'abilities' => '["*"]',
+                'last_used_at' => NULL,
+                'created_at' => '2021-11-07 14:29:03',
+                'updated_at' => '2021-11-07 14:29:03',
+            ),
+            13 => 
+            array (
+                'id' => 14,
+                'tokenable_type' => 'App\\Models\\Customer',
+                'tokenable_id' => 1,
+                'name' => 'ApiToken',
+                'token' => '9910ace36255f1e502c2a15f97edb977bfaaa6f07b13d9d128095f13b3bbb12b',
+                'abilities' => '["*"]',
+                'last_used_at' => '2021-11-07 15:26:51',
+                'created_at' => '2021-11-07 14:29:05',
+                'updated_at' => '2021-11-07 15:26:51',
             ),
         ));
         

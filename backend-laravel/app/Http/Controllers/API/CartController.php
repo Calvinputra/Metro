@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\CartResource;
 use App\Models\Cart;
 use App\Models\Customer;
 use App\Models\Product;
@@ -11,6 +12,18 @@ use Validator;
 
 class CartController extends Controller
 {
+    public function index(Request $request)
+    {
+        $user = Customer::where('token', '=', request()->bearerToken())->first();
+        if ($user) {
+            return CartResource::collection(Cart::with('product')->orderBy('created_at', 'DESC')->get());
+        } else {
+            return response()->json([
+                'data'   => 'Unauthorized Action',
+                'status' => 503,
+            ]);
+        }
+    }
     public function store(Request $request)
     {
         $user = Customer::where('token', '=', request()->bearerToken())->first();
