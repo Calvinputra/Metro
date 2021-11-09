@@ -6,7 +6,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-2">
-            <AccountMenu :name="'login'"/>
+            <AccountMenu :name="'login'" />
           </div>
           <div
             class="
@@ -133,13 +133,13 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50",
+          class: "my-2 ms-3 breadcrumb-item opacity-50"
         },
         {
           url: "/register",
           name: "Register",
-          class: "my-2 breadcrumb-item active opacity-50",
-        },
+          class: "my-2 breadcrumb-item active opacity-50"
+        }
       ],
       //data
       email: "",
@@ -148,7 +148,7 @@ export default {
       errors: null,
       dismissSecs: 10,
       dismissCountDown: 0,
-      showDismissibleAlert: false,
+      showDismissibleAlert: false
     };
   },
   methods: {
@@ -156,7 +156,7 @@ export default {
       try {
         let data = {
           email: this.email,
-          password: this.password,
+          password: this.password
         };
         let response = await this.$axios.$post(
           process.env.API_URL + "/api/login",
@@ -166,8 +166,8 @@ export default {
           await this.$auth.loginWith("laravelSanctum", {
             data: {
               email: this.email,
-              password: this.password,
-            },
+              password: this.password
+            }
           });
           this.showDismissibleAlert = false;
           this.$router.push("/welcome");
@@ -179,7 +179,7 @@ export default {
       } catch (error) {
         console.log(error);
       }
-    },
-  },
+    }
+  }
 };
 </script>

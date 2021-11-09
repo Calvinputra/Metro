@@ -6,19 +6,20 @@
         <div style="col-sm">
           <img src="/img/metro.png" alt="" />
         </div>
-        <div class="mr-5">
+        <div class="mr-5 col-sm-5">
           <form class="mr-5">
             <div class="col-sm-12">
               <label class="mb-0 mt-5"
                 ><h2 class="font-weight-bold">
                   Formulir umpan balik
-                  <hr
-                    style="height:10%; width:100%; border-width:0; color:red"
-                    class="col-sm-12 mb-0 mt-0"
-                  /></h2
-              ></label>
+                </h2></label
+              >
+              <hr
+                style="height:3px; border-width:0; color:red"
+                class="col-sm-12"
+              />
             </div>
-            <div class="form-group">
+            <div class="form-group mt-2">
               <label for="first_name"
                 >Nama Depan<span style="color: red">*</span>:</label
               >
