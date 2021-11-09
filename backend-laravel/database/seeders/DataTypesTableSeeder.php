@@ -119,13 +119,13 @@ class DataTypesTableSeeder extends Seeder
                 'icon' => 'voyager-shop',
                 'model_name' => 'App\\Models\\Product',
                 'policy_name' => NULL,
-                'controller' => NULL,
+                'controller' => '\\App\\Http\\Controllers\\Vendor\\Voyager\\ProductController',
                 'description' => NULL,
                 'generate_permissions' => 1,
                 'server_side' => 0,
                 'details' => '{"order_column":null,"order_display_column":null,"order_direction":"asc","default_search_key":null,"scope":null}',
                 'created_at' => '2021-10-20 03:27:29',
-                'updated_at' => '2021-11-09 02:57:38',
+                'updated_at' => '2021-11-09 03:23:05',
             ),
             6 => 
             array (
@@ -209,13 +209,13 @@ class DataTypesTableSeeder extends Seeder
                 'icon' => 'fa fa-info',
                 'model_name' => 'App\\Models\\ProductAttribute',
                 'policy_name' => NULL,
-                'controller' => '\\App\\Http\\Controllers\\Vendor\\Voyager\\ProductController',
+                'controller' => NULL,
                 'description' => NULL,
                 'generate_permissions' => 1,
                 'server_side' => 1,
                 'details' => '{"order_column":null,"order_display_column":null,"order_direction":"asc","default_search_key":null,"scope":null}',
                 'created_at' => '2021-11-09 02:09:55',
-                'updated_at' => '2021-11-09 03:07:29',
+                'updated_at' => '2021-11-09 03:22:48',
             ),
             11 => 
             array (

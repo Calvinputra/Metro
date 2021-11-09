@@ -18,6 +18,18 @@ class ProductAttributesTableSeeder extends Seeder
 
         \DB::table('product_attributes')->delete();
         
+        \DB::table('product_attributes')->insert(array (
+            0 => 
+            array (
+                'id' => 1,
+                'attribute_id' => 1,
+                'product_id' => 2,
+                'value' => 'Besi',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+        ));
         
         
     }

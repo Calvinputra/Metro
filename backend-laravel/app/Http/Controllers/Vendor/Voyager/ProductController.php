@@ -2,10 +2,107 @@
 
 namespace App\Http\Controllers\Vendor\Voyager;
 
+use App\Models\Attribute;
+use App\Models\ProductAttribute;
+use Auth;
 use Illuminate\Http\Request;
+use TCG\Voyager\Events\BreadDataAdded;
+use TCG\Voyager\Events\BreadDataUpdated;
+use Validator;
+use Voyager;
 
 class ProductController extends \TCG\Voyager\Http\Controllers\VoyagerBaseController
 {
+    public function checkAttributeRequired(Request $request)
+    {
+        $errors                  = array();
+        $temp_transaction_detail = $request->transaction['product_attributes'] ?? array();
+        $attribute_required      = Attribute::where('required', '1')->get();
+        foreach ($attribute_required as $key => $attr) {
+            $flag = false;
+            foreach ($temp_transaction_detail as $key => $td) {
+                if ($td['product_attribute_belongsto_attribute_relationship'] == $attr->id) {
+                    $flag = true;
+                }
+            }
+            if (!$flag) {
+                array_push($errors, [
+                    'message' => "Attribute " . $attr->name . " dibutuhkan",
+                ]);
+            }
+        }
+        return $errors;
+
+    }
+
+    public function validateLines(Request $request)
+    {
+        /*custom validate*/
+        $temp_transaction_detail = $request->transaction['product_attributes'] ?? array();
+
+        //validasi attribute required
+        $val = $this->checkAttributeRequired($request);
+        foreach ($val as $key => $err) {
+            return redirect()->back()
+                ->withInput($request->input())
+                ->withErrors([
+                    'attributes' => $err['message'],
+                ]);
+        }
+
+        $transaction_detail = array();
+        foreach ($temp_transaction_detail as $key => $td) {
+            $rules = [
+                'product_attribute_belongsto_attribute_relationship' => 'required|integer',
+                'value'                                              => 'required',
+            ];
+            $messages = [
+                'product_attribute_belongsto_attribute_relationship.required' => 'Attribute harus dipilih',
+                'value.required'                                              => 'Value harus diisi',
+
+            ];
+            $validator = Validator::make($td, $rules, $messages);
+
+            //validasi attribute id harus ada di db
+            $attribute = Attribute::find($td['product_attribute_belongsto_attribute_relationship']);
+            if (!$attribute) {
+                $validator->errors()->add(
+                    'product_attribute_belongsto_attribute_relationship', 'Attribute not found!'
+                );
+            }
+
+            if ($validator->fails()) {
+                return redirect()->back()
+                    ->withInput($request->input())
+                    ->withErrors($validator->errors());
+            }
+        }
+
+        return null;
+        /*end*/
+    }
+
+    public function storeEditLines(Request $request, $id)
+    {
+        if (isset($id)) {
+
+            $temp_transaction_detail = $request->transaction['product_attributes'] ?? array();
+            $product                 = \App\Models\Product::where('id', $id)->first();
+
+            $data = [];
+            foreach ($temp_transaction_detail as $key => $td) {
+                array_push($data, [
+                    'attribute_id' => $td['product_attribute_belongsto_attribute_relationship'],
+                    'product_id'   => $product->id,
+                    'value'        => $td['value'],
+                ]);
+            }
+
+            $prev = \App\Models\ProductAttribute::where('product_id', $product->id)->delete();
+            \App\Models\ProductAttribute::insert($data);
+        }
+
+    }
 
     // POST BR(E)AD
     public function update(Request $request, $id)
@@ -32,7 +129,11 @@ class ProductController extends \TCG\Voyager\Http\Controllers\VoyagerBaseControl
         $this->authorize('edit', $data);
 
         // Validate fields with ajax
-        $val = $this->validateBread($request->all(), $dataType->editRows, $dataType->name, $id)->validate();
+        $val          = $this->validateBread($request->all(), $dataType->editRows, $dataType->name, $id)->validate();
+        $validate_val = $this->validateLines($request);
+        if ($validate_val) {
+            return $validate_val;
+        }
 
         // Get fields with images to remove before updating and make a copy of $data
         $to_remove = $dataType->editRows->where('type', 'image')
@@ -41,6 +142,7 @@ class ProductController extends \TCG\Voyager\Http\Controllers\VoyagerBaseControl
             });
         $original_data = clone ($data);
 
+        $this->storeEditLines($request, $id);
         $this->insertUpdateData($request, $slug, $dataType->editRows, $data);
 
         // Delete Images
@@ -77,8 +179,13 @@ class ProductController extends \TCG\Voyager\Http\Controllers\VoyagerBaseControl
         $this->authorize('add', app($dataType->model_name));
 
         // Validate fields with ajax
-        $val  = $this->validateBread($request->all(), $dataType->addRows)->validate();
+        $val          = $this->validateBread($request->all(), $dataType->addRows)->validate();
+        $validate_val = $this->validateLines($request);
+        if ($validate_val) {
+            return $validate_val;
+        }
         $data = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
+        $this->storeEditLines($request, $data->id);
 
         event(new BreadDataAdded($dataType, $data));
 
