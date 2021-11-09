@@ -22,6 +22,7 @@ class ProductsTableSeeder extends Seeder
             0 => 
             array (
                 'id' => 1,
+                'code' => 'TEST123',
                 'name' => 'TEST ITEM',
                 'description' => 'TES',
                 'display_price' => 100000.0,
@@ -36,11 +37,11 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2021-10-20 04:40:18',
                 'updated_at' => '2021-11-07 14:43:26',
                 'deleted_at' => NULL,
-                'code' => 'TEST123',
             ),
             1 => 
             array (
                 'id' => 2,
+                'code' => 'TEST1235',
                 'name' => 'testing 2',
                 'description' => 'test',
                 'display_price' => 200000.0,
@@ -55,7 +56,6 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2021-10-20 05:48:11',
                 'updated_at' => '2021-11-07 14:43:43',
                 'deleted_at' => NULL,
-                'code' => 'TEST1235',
             ),
         ));
         

@@ -187,6 +187,30 @@ class PersonalAccessTokensTableSeeder extends Seeder
                 'created_at' => '2021-11-07 14:29:05',
                 'updated_at' => '2021-11-07 15:26:51',
             ),
+            14 => 
+            array (
+                'id' => 15,
+                'tokenable_type' => 'App\\Models\\Customer',
+                'tokenable_id' => 1,
+                'name' => 'ApiToken',
+                'token' => '94ca3eae93d4875a562b8220fba10c293cd484a8d4b3ee13df3fe99aae884c51',
+                'abilities' => '["*"]',
+                'last_used_at' => NULL,
+                'created_at' => '2021-11-08 14:59:27',
+                'updated_at' => '2021-11-08 14:59:27',
+            ),
+            15 => 
+            array (
+                'id' => 16,
+                'tokenable_type' => 'App\\Models\\Customer',
+                'tokenable_id' => 1,
+                'name' => 'ApiToken',
+                'token' => '57cbba9d34483e7338025879d6a4873f52d9ce86119929b896ce39716e79ba33',
+                'abilities' => '["*"]',
+                'last_used_at' => '2021-11-08 15:11:35',
+                'created_at' => '2021-11-08 14:59:29',
+                'updated_at' => '2021-11-08 15:11:35',
+            ),
         ));
         
         

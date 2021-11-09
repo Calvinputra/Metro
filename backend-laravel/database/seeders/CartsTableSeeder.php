@@ -22,6 +22,7 @@ class CartsTableSeeder extends Seeder
             0 => 
             array (
                 'id' => 1,
+                'process' => 0,
                 'customer_id' => 5,
                 'product_id' => 2,
                 'qty' => 3,
@@ -32,11 +33,12 @@ class CartsTableSeeder extends Seeder
             1 => 
             array (
                 'id' => 2,
+                'process' => 0,
                 'customer_id' => 1,
                 'product_id' => 1,
-                'qty' => 2,
+                'qty' => 4,
                 'created_at' => '2021-11-07 15:26:12',
-                'updated_at' => '2021-11-07 15:26:51',
+                'updated_at' => '2021-11-08 15:01:08',
                 'deleted_at' => NULL,
             ),
         ));

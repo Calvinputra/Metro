@@ -125,7 +125,7 @@ class DataTypesTableSeeder extends Seeder
                 'server_side' => 0,
                 'details' => '{"order_column":null,"order_display_column":null,"order_direction":"asc","default_search_key":null,"scope":null}',
                 'created_at' => '2021-10-20 03:27:29',
-                'updated_at' => '2021-11-07 14:42:30',
+                'updated_at' => '2021-11-09 02:57:38',
             ),
             6 => 
             array (
@@ -198,6 +198,42 @@ class DataTypesTableSeeder extends Seeder
                 'details' => '{"order_column":null,"order_display_column":null,"order_direction":"asc","default_search_key":null,"scope":null}',
                 'created_at' => '2021-11-06 13:34:12',
                 'updated_at' => '2021-11-06 13:35:28',
+            ),
+            10 => 
+            array (
+                'id' => 12,
+                'name' => 'product_attributes',
+                'slug' => 'product-attributes',
+                'display_name_singular' => 'Product Attribute',
+                'display_name_plural' => 'Product Attributes',
+                'icon' => 'fa fa-info',
+                'model_name' => 'App\\Models\\ProductAttribute',
+                'policy_name' => NULL,
+                'controller' => '\\App\\Http\\Controllers\\Vendor\\Voyager\\ProductController',
+                'description' => NULL,
+                'generate_permissions' => 1,
+                'server_side' => 1,
+                'details' => '{"order_column":null,"order_display_column":null,"order_direction":"asc","default_search_key":null,"scope":null}',
+                'created_at' => '2021-11-09 02:09:55',
+                'updated_at' => '2021-11-09 03:07:29',
+            ),
+            11 => 
+            array (
+                'id' => 13,
+                'name' => 'attributes',
+                'slug' => 'attributes',
+                'display_name_singular' => 'Attribute',
+                'display_name_plural' => 'Attributes',
+                'icon' => 'voyager-info-circled',
+                'model_name' => 'App\\Models\\Attribute',
+                'policy_name' => NULL,
+                'controller' => NULL,
+                'description' => NULL,
+                'generate_permissions' => 1,
+                'server_side' => 0,
+                'details' => '{"order_column":null,"order_display_column":null,"order_direction":"asc","default_search_key":null,"scope":null}',
+                'created_at' => '2021-11-09 02:32:16',
+                'updated_at' => '2021-11-09 02:33:52',
             ),
         ));
         
