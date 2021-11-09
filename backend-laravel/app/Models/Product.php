@@ -16,6 +16,6 @@ class Product extends Model implements Auditable
     }
     public function attributes()
     {
-        return $this->hasMany('App\Models\ProductAttribute', 'product_id');
+        return $this->hasMany('App\Models\ProductAttribute', 'product_id')->with('attribute');
     }
 }

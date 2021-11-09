@@ -21,7 +21,7 @@ class ProductController extends \TCG\Voyager\Http\Controllers\VoyagerBaseControl
         foreach ($attribute_required as $key => $attr) {
             $flag = false;
             foreach ($temp_transaction_detail as $key => $td) {
-                if ($td['product_attribute_belongsto_attribute_relationship'] == $attr->id) {
+                if ($td['product_attribute_belongsto_attribute_relationship'] ?? $td['attribute_id'] == $attr->id) {
                     $flag = true;
                 }
             }
@@ -53,10 +53,12 @@ class ProductController extends \TCG\Voyager\Http\Controllers\VoyagerBaseControl
         $transaction_detail = array();
         foreach ($temp_transaction_detail as $key => $td) {
             $rules = [
-                'product_attribute_belongsto_attribute_relationship' => 'required|integer',
-                'value'                                              => 'required',
+
+                'value' => 'required',
             ];
+            $rules = array_merge($rules, isset($td['product_attribute_belongsto_attribute_relationship']) ? ['product_attribute_belongsto_attribute_relationship' => 'required|integer'] : ['attribute_id' => 'required|integer']);
             $messages = [
+                'attribute_id.required'                                       => 'Attribute harus dipilih',
                 'product_attribute_belongsto_attribute_relationship.required' => 'Attribute harus dipilih',
                 'value.required'                                              => 'Value harus diisi',
 
@@ -64,7 +66,7 @@ class ProductController extends \TCG\Voyager\Http\Controllers\VoyagerBaseControl
             $validator = Validator::make($td, $rules, $messages);
 
             //validasi attribute id harus ada di db
-            $attribute = Attribute::find($td['product_attribute_belongsto_attribute_relationship']);
+            $attribute = Attribute::find($td['product_attribute_belongsto_attribute_relationship'] ?? $td['attribute_id']);
             if (!$attribute) {
                 $validator->errors()->add(
                     'product_attribute_belongsto_attribute_relationship', 'Attribute not found!'
@@ -92,7 +94,7 @@ class ProductController extends \TCG\Voyager\Http\Controllers\VoyagerBaseControl
             $data = [];
             foreach ($temp_transaction_detail as $key => $td) {
                 array_push($data, [
-                    'attribute_id' => $td['product_attribute_belongsto_attribute_relationship'],
+                    'attribute_id' => $td['product_attribute_belongsto_attribute_relationship'] ?? $td['attribute_id'],
                     'product_id'   => $product->id,
                     'value'        => $td['value'],
                 ]);

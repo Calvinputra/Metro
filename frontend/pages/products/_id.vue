@@ -16,7 +16,7 @@
                 <div class="col-12 mb-1">
                   <div class="lightbox">
                     <img
-                      src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14a.jpg"
+                      :src="ASSET_URL + '/' + JSON.parse(data.images)[0]"
                       alt="Gallery image 1"
                       class="ecommerce-gallery-main-img active w-100"
                     />
@@ -61,7 +61,7 @@
             <h5>Nama Merek</h5>
             <div class="row">
               <div class="col-sm-8">
-                <h3>Kode Produk - NAMA PRODUK</h3>
+                <h3>{{ data.code }} - {{ data.name }}</h3>
               </div>
               <!-- <div class="row"> -->
               <a class="col-sm-1 me-0 pe-1" href=""
@@ -80,15 +80,29 @@
               /></a>
               <!-- </div> -->
             </div>
-            <h4>Rp.120.000</h4>
+            <h4>Rp.{{ Number(data.price).toLocaleString("id-ID") }}</h4>
             <hr class="style1" style="background-color: red; height: 2px" />
             <div>
-              <h5>Material : Besi</h5>
-              <h5>Warna : Silver</h5>
-              <h5>Pengukuran Produk : 12cm x 12cm x 12cm</h5>
-              <h5>Berat Barang : 1Kg</h5>
+              <h5 v-for="attribute in data.attributes" :key="attribute.id">
+                {{ attribute.attribute.name }} : {{ attribute.value }}
+              </h5>
+              <h5>
+                Pengukuran Produk :
+                {{ parseFloat(data.dimension_width / 10).toFixed(2) }}cm x
+                {{ parseFloat(data.dimension_height / 10).toFixed(2) }}cm x
+                {{ parseFloat(data.dimension_depth / 10).toFixed(2) }}cm
+              </h5>
+              <h5>
+                Berat Barang :
+                {{
+                  parseFloat(
+                    (data.weight &lt; 10 ? 10 : data.weight) / 1000
+                  ).toFixed(2)
+                }}
+                Kg
+              </h5>
               <br />
-              <h5>Stok : 120</h5>
+              <h5>Stok : {{ Number(data.stock).toLocaleString("id-ID") }}</h5>
               <br />
               <a
                 href="#"
@@ -122,35 +136,39 @@
 
 <script>
 export default {
-  data(){
+  data() {
     return {
-      breadcrumb:[
-        {
-          url:"/",
-          name:"Beranda",
-          class:"my-2 ms-3 breadcrumb-item opacity-50"
-        },
-        {
-          url:"/",
-          name:"Product",
-          class:"my-2 breadcrumb-item active opacity-50"
-        },
-        {
-          url:"/",
-          name:"Nama Product",
-          class:"my-2 breadcrumb-item active opacity-50"
-        },
-
-
-      ]
-    }
+      ASSET_URL: process.env.ASSET_URL,
+    };
   },
   async asyncData({ $axios, params }) {
     try {
       let response = await $axios(
-        process.env.API_URL + "/api/products/${params.id}"
+        process.env.API_URL + `/api/products/${params.id}`
       );
-      console.log(response);
+      let response_data = response.data.data;
+      console.log(response_data);
+
+      return {
+        data: response_data,
+        breadcrumb: [
+          {
+            url: "/",
+            name: "Beranda",
+            class: "my-2 ms-3 breadcrumb-item opacity-50",
+          },
+          {
+            url: "/",
+            name: "Product",
+            class: "my-2 breadcrumb-item active opacity-50",
+          },
+          {
+            url: "/",
+            name: response_data.name,
+            class: "my-2 breadcrumb-item active opacity-50",
+          },
+        ],
+      };
     } catch (error) {
       console.log(error);
     }
