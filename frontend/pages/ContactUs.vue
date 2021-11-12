@@ -1,6 +1,7 @@
 <template>
   <section>
     <Header />
+    <Breadcrumb :links="breadcrumb" />
     <section>
       <div class="d-flex" style="justify-content : space-evenly">
         <div style="col-sm">

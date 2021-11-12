@@ -9,7 +9,7 @@
           style="text-decoration: none"
           :class="
             'text-black nav-custom ' +
-            (name == 'register' ? 'nav-custom-active' : '')
+              (name == 'register' ? 'nav-custom-active' : '')
           "
         >
           <p :class="name == 'register' ? 'py-2 ps-2' : 'ms-2'">Buat Akun</p>
@@ -20,7 +20,7 @@
           style="text-decoration: none"
           :class="
             'text-black nav-custom ' +
-            (name == 'login' ? 'nav-custom-active' : '')
+              (name == 'login' ? 'nav-custom-active' : '')
           "
         >
           <p :class="name == 'login' ? 'py-2 ps-2' : 'ms-2'">Masuk Akun</p>
@@ -31,7 +31,7 @@
           style="text-decoration: none"
           :class="
             'text-black nav-custom ' +
-            (name == 'forgot' ? 'nav-custom-active' : '')
+              (name == 'forgot' ? 'nav-custom-active' : '')
           "
         >
           <p :class="name == 'forgot' ? 'py-2 ps-2' : 'ms-2'">Lupa Password</p>
@@ -46,6 +46,6 @@
 
 <script>
 export default {
-  props: ["name"],
+  props: ["name"]
 };
 </script>
