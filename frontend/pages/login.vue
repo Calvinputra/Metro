@@ -170,7 +170,7 @@ export default {
             }
           });
           this.showDismissibleAlert = false;
-          this.$router.push("/welcome");
+          this.$router.push("/");
         } else {
           this.errors = response.message;
           this.showDismissibleAlert = true;

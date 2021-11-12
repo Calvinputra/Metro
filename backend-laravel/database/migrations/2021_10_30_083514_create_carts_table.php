@@ -23,7 +23,7 @@ class CreateCartsTable extends Migration
             $table->foreign('product_id')->references('id')->on('products');
             $table->timestamps();
             $table->softDeletes();
-            $table->unique('customer_id', 'product_id');
+            $table->unique(['customer_id', 'product_id']);
         });
     }
 

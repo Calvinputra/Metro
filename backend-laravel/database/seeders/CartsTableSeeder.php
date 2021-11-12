@@ -21,24 +21,13 @@ class CartsTableSeeder extends Seeder
         \DB::table('carts')->insert(array (
             0 => 
             array (
-                'id' => 1,
-                'process' => 0,
-                'customer_id' => 5,
-                'product_id' => 2,
-                'qty' => 3,
-                'created_at' => '2021-11-07 11:33:43',
-                'updated_at' => '2021-11-07 11:38:49',
-                'deleted_at' => NULL,
-            ),
-            1 => 
-            array (
-                'id' => 2,
+                'id' => 11,
                 'process' => 0,
                 'customer_id' => 1,
-                'product_id' => 1,
-                'qty' => 4,
-                'created_at' => '2021-11-07 15:26:12',
-                'updated_at' => '2021-11-08 15:01:08',
+                'product_id' => 4,
+                'qty' => 1,
+                'created_at' => '2021-11-12 06:53:35',
+                'updated_at' => '2021-11-12 06:53:35',
                 'deleted_at' => NULL,
             ),
         ));

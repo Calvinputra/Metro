@@ -16,7 +16,7 @@ class CartController extends Controller
     {
         $user = Customer::where('token', '=', request()->bearerToken())->first();
         if ($user) {
-            return CartResource::collection(Cart::with('product')->orderBy('created_at', 'DESC')->get());
+            return CartResource::collection(Cart::where('customer_id', $user->id)->with('product')->orderBy('created_at', 'DESC')->get());
         } else {
             return response()->json([
                 'data'   => 'Unauthorized Action',
@@ -71,5 +71,67 @@ class CartController extends Controller
             ]);
         }
 
+    }
+
+    public function update(Request $request, $id)
+    {
+        $user = Customer::where('token', '=', request()->bearerToken())->first();
+        if ($user) {
+            $rules = [
+                'qty' => 'required|min:0',
+            ];
+            $cart      = Cart::find($id);
+            $validator = Validator::make($request->all(), $rules);
+            if ($validator->fails()) {
+                return response([
+                    'success' => false,
+                    'message' => $validator->errors(),
+                ], 200);
+            } else if (!$cart && $cart->customer_id == $user->id) {
+                return response([
+                    'success' => false,
+                    'message' => ['msg' => ['Cart not Found!.']],
+                ], 200);
+            }
+
+            $data = [
+                'qty' => $request->qty,
+            ];
+            $cart = tap($cart)->update($data);
+
+            if (isset($request->process)) {
+                $data = [
+                    'process' => $request->process,
+                ];
+                $cart = tap($cart)->update($data);
+
+            }
+
+            return response([
+                'success' => true,
+                'data'    => $cart,
+            ], 200);
+
+        }
+    }
+    public function destroy(Request $request, $id)
+    {
+        $user = Customer::where('token', '=', request()->bearerToken())->first();
+        if ($user) {
+            $cart = Cart::find($id);
+            if (!$cart && $cart->customer_id == $user->id) {
+                return response([
+                    'success' => false,
+                    'message' => ['msg' => ['Cart not Found!.']],
+                ], 200);
+            } else {
+                $cart->delete();
+
+                return response([
+                    'success' => true,
+                ], 200);
+
+            }
+        }
     }
 }

@@ -29,14 +29,24 @@
               <th class="text-center">Harga</th>
               <th class="text-center">Sub total</th>
               <th class="text-center">
-                <a class="btn btn-sm btn-outline-danger" href="#">Clear Cart</a>
+                <a
+                  @click="destroyAll"
+                  class="btn btn-sm btn-outline-danger"
+                  href="#"
+                  >Clear Cart</a
+                >
               </th>
             </tr>
           </thead>
           <tbody>
-            <Cart v-for="cart in carts" :key="cart.id" :product="cart.product" :qty="cart.qty" :id="cart.id"
-            
-             />
+            <Cart
+              v-for="cart in carts"
+              :key="cart.id"
+              :product="cart.product"
+              :qty="cart.qty"
+              :id="cart.id"
+              :process="cart.process"
+            />
           </tbody>
         </table>
       </div>
@@ -59,7 +69,7 @@
             data-toast-title="Your cart"
             data-toast-message="is updated successfully!"
             >Lanjut Belanja</a
-          ><a class="btn btn-danger" href="#">Periksa</a>
+          ><a class="btn btn-danger" href="/checkout">Periksa</a>
         </div>
       </div>
     </div>
@@ -80,6 +90,19 @@ export default {
     } catch (error) {
       console.log(error);
     }
+  },
+
+  methods: {
+    destroyAll() {
+      this.carts.forEach(async (cart, index) => {
+        let response = await this.$axios
+          .$delete(process.env.API_URL + "/api/carts/" + cart.id)
+          .then(() => {
+            this.$nuxt.refresh();
+          });
+        console.log(response);
+      });
+    },
   },
 };
 function increment() {

@@ -20,6 +20,7 @@ class CartResource extends JsonResource
             'product_id'  => $this->product_id,
             'qty'         => $this->qty,
             'product'     => $this->product,
+            'process'     => $this->process == 1,
         ];
     }
 }

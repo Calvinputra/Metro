@@ -12,6 +12,7 @@ class Cart extends Model
         'customer_id',
         'product_id',
         'qty',
+        'process'
     ];
     public function product(){
         return $this->belongsTo('App\Models\Product','product_id');
