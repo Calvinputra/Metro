@@ -15,7 +15,7 @@
         /></a>
       </div>
       <Search :data="menu" />
-      
+
       <!-- hamburger button -->
       <button
         class="navbar-toggler"
@@ -32,31 +32,32 @@
       <div class="collapse navbar-collapse center" id="navbarScroll">
         <div id="icon navbar" class="container-fluid ms-4">
           <div class="col-sm-4">
-            <a aria-current="page" href="account"
-              ><img src="/img/profile.png" alt=""
-            /></a>
+            <b-dropdown
+              id="dropdown-1"
+              variant="transparent"
+              text=""
+              class="ms-12"
+            >
+              <template slot="button-content">
+                <i class="py-0 fa fa-user"></i>
+                <em></em>
+              </template>
+              <b-dropdown-item>First Action</b-dropdown-item>
+              <b-dropdown-item>Second Action</b-dropdown-item>
+              <b-dropdown-item>Third Action</b-dropdown-item>
+              <b-dropdown-divider></b-dropdown-divider>
+              <b-dropdown-item @click="logout" active>Logout</b-dropdown-item>
+              <b-dropdown-item disabled>Disabled action</b-dropdown-item>
+            </b-dropdown>
           </div>
           <div class="col-sm-4">
-            <a href="/wishlist"
-              ><img src="/img/wishlist.png" alt=""
-            /></a>
+            <a href="/wishlist"><img src="/img/wishlist.png" alt="" /></a>
           </div>
           <div class="col-sm-4">
             <a href="/cart"><img src="/img/cart.png" alt="" /></a>
           </div>
           <!-- Kosong -->
         </div>
-        <!-- <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-            </ul> -->
       </div>
     </div>
   </nav>
@@ -74,6 +75,13 @@ export default {
     ...mapGetters({
       menu: "getHeader",
     }),
+  },
+  methods: {
+    async logout() {
+      await this.$auth.logout();
+
+      this.$router.push("/login");
+    },
   },
 };
 </script>
