@@ -36,8 +36,15 @@
         >
           <p :class="name == 'forgot' ? 'py-2 ps-2' : 'ms-2'">Lupa Password</p>
         </a>
-        <a href="" style="text-decoration: none" class="text-black nav-custom">
-          <p class="ms-2">Akun Saya</p>
+        <a href="" style="text-decoration: none" class="text-black bg-danger">
+          <div class="text-black">
+            <b-dropdown id="dropdown-1" text="Akun Saya" class="m-md-2">
+              <b-dropdown-item>Ubah Kata Sandi</b-dropdown-item>
+              <b-dropdown-item>Riwayat Pembelian</b-dropdown-item>
+              <b-dropdown-item>Undang Teman</b-dropdown-item>
+              <b-dropdown-item>Keluar</b-dropdown-item>
+            </b-dropdown>
+          </div>
         </a>
       </div>
     </div>
