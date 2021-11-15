@@ -17,7 +17,15 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $paginate_item = $request->paginate ?? 25;
-        return ProductResource::collection(Product::with('category')->orderBy('created_at', 'DESC')->paginate($paginate_item));
+        $products = Product::with('category')->orderBy('created_at', 'DESC');
+        if(isset($request->s)){
+            $products=$products->where('name',"LIKE","%".$request->s."%");
+        }
+
+        //jika kosong
+
+        $products = $products->paginate($paginate_item);
+        return ProductResource::collection($products);
     }
 
     /**
