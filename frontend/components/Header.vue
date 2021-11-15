@@ -31,7 +31,7 @@
       <!-- icon -->
       <div class="collapse navbar-collapse center" id="navbarScroll">
         <div id="icon navbar" class="container-fluid ms-4">
-          <div class="col-sm-4">
+          <div class="col-sm-4" style="padding: 0">
             <b-dropdown
               id="dropdown-1"
               variant="transparent"
@@ -39,7 +39,10 @@
               class="ms-12"
             >
               <template slot="button-content">
-                <i class="py-0 fa fa-user"></i>
+                <i
+                  class="py-0 fa fa-user"
+                  style="font-size: 30px !important"
+                ></i>
                 <em></em>
               </template>
               <b-dropdown-item>First Action</b-dropdown-item>
@@ -51,7 +54,12 @@
             </b-dropdown>
           </div>
           <div class="col-sm-4">
-            <a href="/wishlist"><img src="/img/wishlist.png" alt="" /></a>
+            <a href="/wishlist"
+              ><i
+                class="fas fa-heart"
+                style="font-size: 30px !important; color: #c63442 !important"
+              ></i
+            ></a>
           </div>
           <div class="col-sm-4">
             <a href="/cart"><img src="/img/cart.png" alt="" /></a>

@@ -14,9 +14,16 @@
         <div class="card-body">
           <div class="row">
             <h5 class="col-sm-9 card-title">{{ data.name }}</h5>
-            <a class="col-sm-3" href="" onclick="return false;"
-              ><img src="/img/audiblelogo.png" alt=""
-            /></a>
+            <a
+              class="col-sm-3"
+              href=""
+              onclick="return false;"
+              @click="addToWishList(data.id)"
+              ><i
+                :class="(data.wishlist_exist ? 'fas' : 'far') + ' fa-heart'"
+                style="font-size: 30px !important; color: #c63442 !important"
+              ></i
+            ></a>
           </div>
           <p class="card-text mb-4 font-weight-bold">
             Rp.{{ Number(data.display_price).toLocaleString("id-ID") }}
@@ -58,6 +65,7 @@ export default {
       ASSET_URL: process.env.ASSET_URL,
     };
   },
+
   methods: {
     async addToCart(id) {
       try {
@@ -69,6 +77,25 @@ export default {
             process.env.API_URL + "/api/carts",
             data
           );
+          console.log(response);
+        } else {
+          this.$router.push("/login");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async addToWishList(id) {
+      try {
+        if (this.$auth.loggedIn) {
+          let data = {
+            product_id: id,
+          };
+          let response = await this.$axios.$post(
+            process.env.API_URL + "/api/wishlists",
+            data
+          );
+          this.$nuxt.refresh();
           console.log(response);
         } else {
           this.$router.push("/login");

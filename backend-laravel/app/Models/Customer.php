@@ -17,6 +17,8 @@ class Customer extends Model
         'token',
     ];
     protected $hidden = ['password','token'];
-    
+     public function wishlists(){
+        return $this->hasMany('App\Models\Wishlist','customer_id');
+    }
 
 }

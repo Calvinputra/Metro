@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Customer;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ProductResource extends JsonResource
@@ -14,6 +15,15 @@ class ProductResource extends JsonResource
      */
     public function toArray($request)
     {
+        $user           = Customer::where('token', '=', $request->bearerToken())->first();
+        $wishlist_exist = false;
+        if ($user) {
+            foreach ($user->wishlists as $key => $wl) {
+                if($wl->product_id==$this->id){
+                    $wishlist_exist=true;
+                }
+            }
+        }
         return [
             'id'               => $this->id,
             'name'             => $this->name,
@@ -29,6 +39,7 @@ class ProductResource extends JsonResource
             'category'         => $this->category->name,
             'code'             => $this->code,
             'attributes'       => $this->attributes,
+            'wishlist_exist'   => $wishlist_exist,
 
         ];
     }
