@@ -93,6 +93,11 @@ export default {
         let response = await this.$axios
           .$delete(process.env.API_URL + "/api/carts/" + this.id)
           .then(() => {
+             this.$toast.success("Successfully delete a product from cart", {
+            theme: "bubble",
+            position: "bottom-right",
+            duration: 5000,
+          });
             this.$nuxt.refresh();
           });
         console.log(response);

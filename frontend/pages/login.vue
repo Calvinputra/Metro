@@ -123,6 +123,8 @@
 </template>
 
 <script>
+
+
 export default {
   middleware: "auth",
   auth: "guest",
@@ -133,13 +135,13 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50"
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
         },
         {
           url: "/register",
           name: "Register",
-          class: "my-2 breadcrumb-item active opacity-50"
-        }
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
       ],
       //data
       email: "",
@@ -148,7 +150,7 @@ export default {
       errors: null,
       dismissSecs: 10,
       dismissCountDown: 0,
-      showDismissibleAlert: false
+      showDismissibleAlert: false,
     };
   },
   methods: {
@@ -156,7 +158,7 @@ export default {
       try {
         let data = {
           email: this.email,
-          password: this.password
+          password: this.password,
         };
         let response = await this.$axios.$post(
           process.env.API_URL + "/api/login",
@@ -166,10 +168,15 @@ export default {
           await this.$auth.loginWith("laravelSanctum", {
             data: {
               email: this.email,
-              password: this.password
-            }
+              password: this.password,
+            },
           });
           this.showDismissibleAlert = false;
+          this.$toast.success("Successfully authenticated", {
+            theme: "bubble",
+            position: "bottom-right",
+            duration: 5000,
+          });
           this.$router.push("/");
         } else {
           this.errors = response.message;
@@ -177,9 +184,14 @@ export default {
         }
         console.log(response);
       } catch (error) {
+        this.$toasted.error(error, {
+            theme: "bubble",
+            position: "bottom-right",
+            duration: 5000,
+          });
         console.log(error);
       }
-    }
-  }
+    },
+  },
 };
 </script>

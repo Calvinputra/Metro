@@ -42,6 +42,7 @@ export default {
     "@nuxtjs/pwa",
     "@nuxtjs/dotenv",
     "@nuxtjs/auth-next",
+    "@nuxtjs/toast",
   ],
   auth: {
     // Options

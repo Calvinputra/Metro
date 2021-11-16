@@ -77,6 +77,11 @@ export default {
             process.env.API_URL + "/api/carts",
             data
           );
+          this.$toast.success("Successfully add a product to cart", {
+            theme: "bubble",
+            position: "bottom-right",
+            duration: 5000,
+          });
           console.log(response);
         } else {
           this.$router.push("/login");
@@ -95,6 +100,20 @@ export default {
             process.env.API_URL + "/api/wishlists",
             data
           );
+          if (this.data.wishlist_exist) {
+            this.$toast.success("Successfully delete a product from wishlist", {
+              theme: "bubble",
+              position: "bottom-right",
+              duration: 5000,
+            });
+          } else {
+            this.$toast.success("Successfully add a product to wishlist", {
+              theme: "bubble",
+              position: "bottom-right",
+              duration: 5000,
+            });
+          }
+
           this.$nuxt.refresh();
           console.log(response);
         } else {
