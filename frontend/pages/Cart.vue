@@ -50,9 +50,12 @@
           </tbody>
         </table>
       </div>
-      <div style="display: flex" class="text-right">
-        <p>Total Harga</p>
+      <div class="text-right text-right col-sm-11">
+        <span class="text-center mr-5 pl-5">Total Harga</span>
+        <span class="pl-5">Rp 50.000</span>
       </div>
+      <br />
+      <br />
       <div class="shopping-cart-footer">
         <div class="column"></div>
       </div>
@@ -85,7 +88,7 @@ export default {
       let carts = await $axios.$get(process.env.API_URL + "/api/carts");
       console.log(carts);
       return {
-        carts: carts.data,
+        carts: carts.data
       };
     } catch (error) {
       console.log(error);
@@ -101,14 +104,14 @@ export default {
             this.$toast.success("Successfully clear all cart", {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000,
+              duration: 5000
             });
             this.$nuxt.refresh();
           });
         console.log(response);
       });
-    },
-  },
+    }
+  }
 };
 function increment() {
   document.getElementById("demoInput").stepUp();
