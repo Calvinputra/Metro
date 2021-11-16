@@ -67,10 +67,23 @@
                   </div>
                 </form>
                 <div class="text-center mt-3">
-                  <button <svg xmlns="http://www.w3.org/2000/svg">
-                    @click.prevent="doLogin" type="submit" class=" btn
-                    text-danger btn-light btn-sm shadow rounded col-sm-2 ms-0
-                    ps-0 py-2 px-2 " > Kirim
+                  <button
+                    @click.prevent="doLogin"
+                    type="submit"
+                    class="
+                      btn
+                      text-danger
+                      btn-light btn-sm
+                      shadow
+                      rounded
+                      col-sm-2
+                      ms-0
+                      ps-0
+                      py-2
+                      px-2
+                    "
+                  >
+                    Kirim
                   </button>
                 </div>
                 <div class="text-center mt-3">
