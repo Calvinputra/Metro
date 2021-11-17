@@ -12,8 +12,8 @@
           <img class="mr-2" src="/img/audiblelogo.png" alt="" />
         </div>
         <div>
-          <span class="border border-success border-2 text-success rounded-3">
-            Selesai</span
+          <span class="border border-warning border-2 text-warning rounded-3">
+            Menunggu Konfirmasi</span
           >
           #ID
           <br />

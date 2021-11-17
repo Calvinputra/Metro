@@ -139,14 +139,14 @@
                         btn-light btn-sm
                         shadow
                         rounded
-                        col-sm-8
+                        col-sm-9
                         ms-0
                         ps-0
                         py-2
                         px-2
                       "
                   >
-                    Lihat Detail Transaksi
+                    <b> Lihat Detail Transaksi </b>
                   </button>
                   <button
                     type="submit"
@@ -163,7 +163,7 @@
                         px-2
                       "
                   >
-                    Lainnya
+                    <b> Lainnya </b>
                   </button>
                 </span>
               </div>
@@ -199,16 +199,17 @@
                         btn
                         text-danger
                         btn-light btn-sm
-                        shadow
+                        shadow-sm
                         rounded
                         col-sm-8
                         ms-0
+                        
                         ps-0
                         py-2
                         px-2
                       "
                   >
-                    Lihat Detail Transaksi
+                    <b> Detail Transaksi</b>
                   </button>
                   <button
                     type="submit"
@@ -216,7 +217,7 @@
                         btn
                         text-danger
                         btn-light btn-sm
-                        shadow
+                        shadow-sm
                         rounded
                         col-sm-4
                         ms-0
@@ -225,12 +226,14 @@
                         px-2
                       "
                   >
-                    Lainnya
+                    <b> Lainnya </b>
                   </button>
                 </span>
               </div>
             </div>
             <historySelesai />
+            <historyBerlangsung />
+            <historyTidakBerhasil />
           </div>
         </div>
       </div>
