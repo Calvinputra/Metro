@@ -37,7 +37,7 @@
           <p :class="name == 'forgot' ? 'py-2 ps-2' : 'ms-2'">Lupa Password</p>
         </a>
         <a href="" style="text-decoration: none" class="text-black bg-danger">
-          <div class="text-black">
+          <div>
             <b-dropdown id="dropdown-1" text="Akun Saya" class="m-md-2">
               <b-dropdown-item>Ubah Kata Sandi</b-dropdown-item>
               <b-dropdown-item>Riwayat Pembelian</b-dropdown-item>

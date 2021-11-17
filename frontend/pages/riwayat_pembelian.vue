@@ -113,7 +113,12 @@
                   <img class="mr-2" src="/img/audiblelogo.png" alt="" />
                 </div>
                 <div>
-                  <span> Selesai</span> #ID
+                  <span
+                    class="border border-success border-2 text-success rounded-3"
+                  >
+                    Selesai</span
+                  >
+                  #ID
                   <br />
                   <span>KODE PRODUK</span>
                   - <span>NAMA PRODUK 1</span>
@@ -225,6 +230,7 @@
                 </span>
               </div>
             </div>
+            <historySelesai />
           </div>
         </div>
       </div>
