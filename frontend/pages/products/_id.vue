@@ -129,6 +129,35 @@
           <!-- <div class="col-sm-1"></div> -->
         </div>
       </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-1"></div>
+          <div class="pt-2 col-sm 3 d-flex align-items-center">
+            <h1>Ulasan</h1>
+            <h5 class="pt-1">(2)</h5>
+            <div class="col-sm-8"></div>
+            <div class="">
+              <div class="d-flex">
+                <img
+                  class="img-thumbnail max-width:100% height:auto"
+                  src="/img/emojione_star.png"
+                  alt=""
+                />
+                <h2 class="">5/5</h2>
+              </div>
+              <h5 class="text-danger">Lihat Detail</h5>
+            </div>
+          </div>
+          <div>
+            <div class="col-sm-1"></div>
+            <hr class="style1" style="background-color: red; height: 2px" />
+          </div>
+        </div>
+      </div>
+      <Ulasan />
+      <Ulasan />
+      <Ulasan />
+      <Ulasan />
     </section>
     <Footer />
   </section>
