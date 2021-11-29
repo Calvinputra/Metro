@@ -17,9 +17,9 @@ export const state = () => ({
         parent_id: null,
         menu_id: 1,
         createdAt: null,
-        updatedAt: null
-      }
-    ]
+        updatedAt: null,
+      },
+    ],
   },
   footer_1: {
     id: 2,
@@ -38,9 +38,9 @@ export const state = () => ({
         parent_id: null,
         menu_id: 1,
         createdAt: null,
-        updatedAt: null
-      }
-    ]
+        updatedAt: null,
+      },
+    ],
   },
   footer_2: {
     id: 3,
@@ -59,9 +59,9 @@ export const state = () => ({
         parent_id: null,
         menu_id: 1,
         createdAt: null,
-        updatedAt: null
-      }
-    ]
+        updatedAt: null,
+      },
+    ],
   },
   footer_3: {
     id: 4,
@@ -80,18 +80,22 @@ export const state = () => ({
         parent_id: null,
         menu_id: 1,
         createdAt: null,
-        updatedAt: null
-      }
-    ]
+        updatedAt: null,
+      },
+    ],
   },
-  
 
+  //cart
+  cart: [],
+  cartLength: 0,
 });
 
 export const actions = {
   async fetchHeader({ commit }) {
     try {
-      let response = await this.$axios.$get(process.env.API_URL + "/api/menus/2");
+      let response = await this.$axios.$get(
+        process.env.API_URL + "/api/menus/2"
+      );
 
       commit("FETCH_HEADER", response.data);
     } catch (error) {
@@ -101,7 +105,9 @@ export const actions = {
 
   async fetchFooter1({ commit }) {
     try {
-      let response = await this.$axios.$get(process.env.API_URL + "/api/menus/3");
+      let response = await this.$axios.$get(
+        process.env.API_URL + "/api/menus/3"
+      );
 
       commit("FETCH_FOOTER_1", response.data);
     } catch (error) {
@@ -111,7 +117,9 @@ export const actions = {
 
   async fetchFooter2({ commit }) {
     try {
-      let response = await this.$axios.$get(process.env.API_URL + "/api/menus/4");
+      let response = await this.$axios.$get(
+        process.env.API_URL + "/api/menus/4"
+      );
 
       commit("FETCH_FOOTER_2", response.data);
     } catch (error) {
@@ -121,13 +129,26 @@ export const actions = {
 
   async fetchFooter3({ commit }) {
     try {
-      let response = await this.$axios.$get(process.env.API_URL + "/api/menus/5");
+      let response = await this.$axios.$get(
+        process.env.API_URL + "/api/menus/5"
+      );
 
       commit("FETCH_FOOTER_3", response.data);
     } catch (error) {
       console.log(error);
     }
-  }
+  },
+
+  addProductToCart({ state, commit }, product) {
+    const cartProduct = state.cart.find((prod) => prod.id === product.id);
+    if (!cartProduct) {
+      commit("pushProductToCart", product);
+    } else {
+      commit("incrementProductQty", product);
+    }
+
+    commit("incrementCartLength");
+  },
 };
 
 export const mutations = {
@@ -142,7 +163,40 @@ export const mutations = {
   },
   FETCH_FOOTER_3(state, footer_3) {
     state.footer_3 = footer_3;
-  }
+  },
+
+  pushProductToCart(state, product) {
+    this.$toast.success("Successfully add a product to cart", {
+      theme: "bubble",
+      position: "bottom-right",
+      duration: 5000,
+    });
+    product.quantity = 1;
+    state.cart.push(product);
+  },
+
+  incrementProductQty(state, product) {
+    this.$toast.success("Successfully update product quantity", {
+      theme: "bubble",
+      position: "bottom-right",
+      duration: 5000,
+    });
+    if (product.quantity) {
+      product.quantity++;
+    } else {
+      product.quantity = 1;
+    }
+    let indexOfProduct = state.cart.indexOf(product);
+    state.cart.splice(indexOfProduct, 1, product);
+  },
+  incrementCartLength(state) {
+    state.cartLength = 0;
+    if (state.cart.length > 0) {
+      state.cart.map((product) => {
+        state.cartLength += product.quantity;
+      });
+    }
+  },
 };
 
 export const getters = {
@@ -157,5 +211,23 @@ export const getters = {
   },
   getFooter3(state) {
     return state.footer_3;
-  }
+  },
+  getCartLength(state) {
+    return state.cartLength;
+  },
+  getCart(state) {
+    let temp_cart = {};
+    let id = 0;
+    state.cart.forEach((product) => {
+      let data = {
+        qty: product.quantity,
+        product: product,
+        process: 1,
+        id: id,
+      };
+      id++;
+      temp_cart.push(data);
+    });
+    return temp_cart;
+  },
 };

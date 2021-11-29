@@ -33,7 +33,7 @@
               class="btn text-danger btn-sm shadow rounded col-sm-5 ms-2 pt-2"
               style="background-color: #f3f3f3"
               onclick="return false;"
-              @click="addToCart(data.id)"
+              @click="addToCart(data)"
               >+ Keranjang</a
             >
             <a class="col-sm-3" href="" onclick="return false;"
@@ -58,6 +58,7 @@
 </template>
 
 <script>
+import {mapActions} from "vuex";
 export default {
   props: ["data", "url"],
   data() {
@@ -67,11 +68,11 @@ export default {
   },
 
   methods: {
-    async addToCart(id) {
+    async addToCart(product) {
       try {
         if (this.$auth.loggedIn) {
           let data = {
-            product_id: id,
+            product_id: product.id,
           };
           let response = await this.$axios.$post(
             process.env.API_URL + "/api/carts",
@@ -84,7 +85,9 @@ export default {
           });
           console.log(response);
         } else {
-          this.$router.push("/login");
+          //this.$router.push("/login");
+          this.addProductToCart(product);
+          
         }
       } catch (error) {
         console.log(error);
@@ -120,9 +123,11 @@ export default {
           this.$router.push("/login");
         }
       } catch (error) {
+        
         console.log(error);
       }
     },
+    ...mapActions(["addProductToCart"])
   },
 };
 </script>

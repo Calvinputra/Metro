@@ -40,7 +40,7 @@
           </thead>
           <tbody>
             <Cart
-              v-for="cart in carts"
+              v-for="cart in tempCart"
               :key="cart.id"
               :product="cart.product"
               :qty="cart.qty"
@@ -81,37 +81,51 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
-  middleware: "auth",
-  async asyncData({ $axios }) {
-    try {
-      let carts = await $axios.$get(process.env.API_URL + "/api/carts");
-      console.log(carts);
-      return {
-        carts: carts.data
-      };
-    } catch (error) {
-      console.log(error);
-    }
+  data() {
+    return {
+      carts: {},
+    };
+  },
+
+  async mounted() {
+    if (this.$auth.loggedIn) {
+      try {
+        let carts = await this.$axios.$get(process.env.API_URL + "/api/carts");
+        console.log(carts);
+        this.carts = carts.data;
+      } catch (error) {
+        console.log(error);
+      }
+    } 
+  },
+  computed: {
+    ...mapGetters({
+      tempCart: "getCart",
+    }),
   },
 
   methods: {
     destroyAll() {
-      this.carts.forEach(async (cart, index) => {
-        let response = await this.$axios
-          .$delete(process.env.API_URL + "/api/carts/" + cart.id)
-          .then(() => {
-            this.$toast.success("Successfully clear all cart", {
-              theme: "bubble",
-              position: "bottom-right",
-              duration: 5000
+      if (this.$auth.loggedIn) {
+        this.carts.forEach(async (cart, index) => {
+          let response = await this.$axios
+            .$delete(process.env.API_URL + "/api/carts/" + cart.id)
+            .then(() => {
+              this.$toast.success("Successfully clear all cart", {
+                theme: "bubble",
+                position: "bottom-right",
+                duration: 5000,
+              });
+              this.$nuxt.refresh();
             });
-            this.$nuxt.refresh();
-          });
-        console.log(response);
-      });
-    }
-  }
+          console.log(response);
+        });
+      } else {
+      }
+    },
+  },
 };
 function increment() {
   document.getElementById("demoInput").stepUp();

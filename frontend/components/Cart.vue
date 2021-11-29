@@ -55,6 +55,8 @@
   </tr>
 </template>
 <script>
+
+
 export default {
   props: ["product", "qty", "id", "process"],
   data() {
@@ -62,54 +64,63 @@ export default {
       sub_total: 0,
       ASSET_URL: process.env.ASSET_URL,
       qty_model: 0,
-      process_model: false
+      process_model: false,
     };
   },
   methods: {
     async updateSubTotal() {
-      console.log("checked : " + this.process_model);
-      this.sub_total = this.qty_model * this.product.price;
-      //update database
-      try {
-        let data = {
-          qty: this.qty_model,
-          process: this.process_model
-        };
+      if (this.$auth.loggedIn) {
+        console.log("checked : " + this.process_model);
+        this.sub_total = this.qty_model * this.product.price;
+        //update database
+        try {
+          let data = {
+            qty: this.qty_model,
+            process: this.process_model,
+          };
 
-        let response = await this.$axios
-          .$put(process.env.API_URL + "/api/carts/" + this.id, data)
-          .then(() => {
-            //this.$nuxt.refresh();
-          });
+          let response = await this.$axios
+            .$put(process.env.API_URL + "/api/carts/" + this.id, data)
+            .then(() => {
+              //this.$nuxt.refresh();
+            });
 
-        console.log(response);
-      } catch (error) {
-        console.log(error);
+          console.log(response);
+        } catch (error) {
+          console.log(error);
+        }
+      } else {
+        this.sub_total = this.qty_model * this.product.price;
       }
     },
 
     async deleteCart() {
-      try {
-        let response = await this.$axios
-          .$delete(process.env.API_URL + "/api/carts/" + this.id)
-          .then(() => {
-            this.$toast.success("Successfully delete a product from cart", {
-              theme: "bubble",
-              position: "bottom-right",
-              duration: 5000
+      if (this.$auth.loggedIn) {
+        try {
+          let response = await this.$axios
+            .$delete(process.env.API_URL + "/api/carts/" + this.id)
+            .then(() => {
+              this.$toast.success("Successfully delete a product from cart", {
+                theme: "bubble",
+                position: "bottom-right",
+                duration: 5000,
+              });
+              this.$nuxt.refresh();
             });
-            this.$nuxt.refresh();
-          });
-        console.log(response);
-      } catch (error) {
-        console.log(error);
+          console.log(response);
+        } catch (error) {
+          console.log(error);
+        }
+      } else {
+
       }
-    }
+    },
   },
+ 
   created() {
     this.sub_total = this.qty * this.product.price;
     this.qty_model = this.qty;
     this.process_model = this.process;
-  }
+  },
 };
 </script>

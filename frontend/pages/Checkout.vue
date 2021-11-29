@@ -2,7 +2,7 @@
   <section>
     <Header />
     <Breadcrumb :links="breadcrumb" />
-    <section class="container-md" style="min-width:95%">
+    <section class="container-md" style="min-width: 95%">
       <div class="ml-5 pr-5 mb-0">
         <h1>Periksa</h1>
         <div>
@@ -206,40 +206,43 @@
 
 <script>
 export default {
-  middleware: "auth",
   data() {
     return {
       breadcrumb: [
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50"
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
         },
         {
           url: "/cart",
           name: "Keranjang Saya",
-          class: "my-2 breadcrumb-item opacity-50"
+          class: "my-2 breadcrumb-item opacity-50",
         },
         {
           url: "/checkout",
           name: "Check Out",
-          class: "my-2 breadcrumb-item active opacity-50"
-        }
-      ]
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
+      ],
     };
   },
   async asyncData({ $axios }) {
-    try {
-      let response = await $axios.$get(process.env.API_URL + "/api/carts");
-      let carts = response.data;
-      carts = carts.filter(i => i.process == true);
-      console.log(carts);
-      return {
-        carts: carts
-      };
-    } catch (error) {
-      console.log(error);
+    if (this.$auth.loggedIn) {
+      try {
+        let response = await $axios.$get(process.env.API_URL + "/api/carts");
+        let carts = response.data;
+        carts = carts.filter((i) => i.process == true);
+        console.log(carts);
+        return {
+          carts: carts,
+        };
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      
     }
-  }
+  },
 };
 </script>
