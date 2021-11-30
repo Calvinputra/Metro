@@ -55,8 +55,6 @@
   </tr>
 </template>
 <script>
-
-
 export default {
   props: ["product", "qty", "id", "process"],
   data() {
@@ -83,6 +81,7 @@ export default {
             .$put(process.env.API_URL + "/api/carts/" + this.id, data)
             .then(() => {
               //this.$nuxt.refresh();
+              this.$store.dispatch("setCartChange", true);
             });
 
           console.log(response);
@@ -91,6 +90,11 @@ export default {
         }
       } else {
         this.sub_total = this.qty_model * this.product.price;
+        this.$store.dispatch("updateCart", {
+          product: this.product,
+          qty: this.qty_model,
+          process: this.process_model,
+        });
       }
     },
 
@@ -105,6 +109,7 @@ export default {
                 position: "bottom-right",
                 duration: 5000,
               });
+              this.$store.dispatch("setCartChange", true);
               this.$nuxt.refresh();
             });
           console.log(response);
@@ -112,11 +117,11 @@ export default {
           console.log(error);
         }
       } else {
-
+        this.$store.dispatch("deleteCart", this.product);
       }
     },
   },
- 
+
   created() {
     this.sub_total = this.qty * this.product.price;
     this.qty_model = this.qty;

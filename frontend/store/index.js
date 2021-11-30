@@ -88,6 +88,8 @@ export const state = () => ({
   //cart
   cart: [],
   cartLength: 0,
+  cartTotal:0,
+  cartChanged:false,
 });
 
 export const actions = {
@@ -149,6 +151,38 @@ export const actions = {
 
     commit("incrementCartLength");
   },
+
+  updateCart({ state, commit }, { product, qty, process }) {
+    const cartProduct = state.cart.find((prod) => prod.id === product.id);
+    if (cartProduct) {
+      commit("updateProductCart", { product, qty, process });
+    } else {
+      this.$toast.error("Product not found", {
+        theme: "bubble",
+        position: "bottom-right",
+        duration: 5000,
+      });
+    }
+  },
+
+  deleteCart({ state, commit }, product) {
+    const cartProduct = state.cart.find((prod) => prod.id === product.id);
+    if (cartProduct) {
+      commit("deleteProductCart", product);
+    } else {
+      this.$toast.error("Product not found", {
+        theme: "bubble",
+        position: "bottom-right",
+        duration: 5000,
+      });
+    }
+  },
+  setCartChange({commit},value){
+    commit("setCartChangeValue",value);
+  }
+
+ 
+
 };
 
 export const mutations = {
@@ -171,9 +205,12 @@ export const mutations = {
       position: "bottom-right",
       duration: 5000,
     });
-    product.quantity = 1;
+    product.qty = 1;
+    product.process = 1;
     state.cart.push(product);
   },
+
+
 
   incrementProductQty(state, product) {
     this.$toast.success("Successfully update product quantity", {
@@ -181,22 +218,46 @@ export const mutations = {
       position: "bottom-right",
       duration: 5000,
     });
-    if (product.quantity) {
-      product.quantity++;
+    if (product.qty) {
+      product.qty++;
     } else {
-      product.quantity = 1;
+      product.qty = 1;
     }
     let indexOfProduct = state.cart.indexOf(product);
     state.cart.splice(indexOfProduct, 1, product);
   },
+
+  deleteProductCart(state, product) {
+    let indexOfProduct = state.cart.indexOf(product);
+    state.cart.splice(indexOfProduct, 1);
+    this.$toast.success("Successfully delete a product from cart", {
+      theme: "bubble",
+      position: "bottom-right",
+      duration: 5000,
+    });
+  },
+  updateProductCart(state, { product, qty, process }) {
+    product.qty = qty;
+    product.process = process;
+    let indexOfProduct = state.cart.indexOf(product);
+    state.cart.splice(indexOfProduct, 1, product);
+  },
+
   incrementCartLength(state) {
     state.cartLength = 0;
     if (state.cart.length > 0) {
       state.cart.map((product) => {
-        state.cartLength += product.quantity;
+        state.cartLength += product.qty;
       });
     }
   },
+
+  setCartChangeValue(state,value){
+    console.log('set cart to '+value);
+    state.cartChanged = value
+  }
+
+ 
 };
 
 export const getters = {
@@ -216,13 +277,13 @@ export const getters = {
     return state.cartLength;
   },
   getCart(state) {
-    let temp_cart = {};
+    let temp_cart = [];
     let id = 0;
     state.cart.forEach((product) => {
       let data = {
-        qty: product.quantity,
+        qty: product.qty,
         product: product,
-        process: 1,
+        process: product.process ?? 1,
         id: id,
       };
       id++;
@@ -230,4 +291,10 @@ export const getters = {
     });
     return temp_cart;
   },
+  getCartTotal(state){
+    return state.cartTotal;
+  },
+  getCartChanged(state){
+    return state.cartChanged;
+  }
 };

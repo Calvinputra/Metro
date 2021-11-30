@@ -38,9 +38,19 @@
               </th>
             </tr>
           </thead>
-          <tbody>
+          <tbody v-if="!this.$auth.loggedIn">
             <Cart
               v-for="cart in tempCart"
+              :key="cart.id"
+              :product="cart.product"
+              :qty="cart.qty"
+              :id="cart.id"
+              :process="cart.process"
+            />
+          </tbody>
+          <tbody v-if="this.$auth.loggedIn">
+            <Cart
+              v-for="cart in carts"
               :key="cart.id"
               :product="cart.product"
               :qty="cart.qty"
@@ -52,7 +62,9 @@
       </div>
       <div class="text-right text-right col-sm-11">
         <span class="text-center mr-5 pl-5">Total Harga</span>
-        <span class="pl-5">Rp 50.000</span>
+        <span class="pl-5"
+          >Rp. {{ Number(grandTotal).toLocaleString("id-ID") }}</span
+        >
       </div>
       <br />
       <br />
@@ -86,26 +98,71 @@ export default {
   data() {
     return {
       carts: {},
+      grandTotal: 0,
     };
   },
 
   async mounted() {
     if (this.$auth.loggedIn) {
+      this.$store.dispatch("setCartChange", true);
       try {
         let carts = await this.$axios.$get(process.env.API_URL + "/api/carts");
         console.log(carts);
         this.carts = carts.data;
+        this.$store.dispatch("setCartChange", false);
       } catch (error) {
         console.log(error);
       }
-    } 
+    } else {
+    }
   },
   computed: {
     ...mapGetters({
       tempCart: "getCart",
+      cartChanged: "getCartChanged",
     }),
   },
+  watch: {
+    cartChanged: {
+      handler: async function (changed) {
+        if (this.$auth.loggedIn && changed) {
+          this.grandTotal = 0;
+          try {
+            let carts = await this.$axios.$get(
+              process.env.API_URL + "/api/carts"
+            );
+            let data = carts.data
+            data.forEach((cart) => {
+              if (cart.process == 1) {
+                this.grandTotal += cart.qty * cart.product.price;
+              }
+            });
+            console.log(carts);
+            this.carts = carts.data;
+          } catch (error) {
+            console.log(error);
+          }
 
+          this.$store.dispatch("setCartChange", false);
+        }
+      },
+      deep: true,
+    },
+    tempCart: {
+      handler: function (carts) {
+        if (!this.$auth.loggedIn && carts) {
+          this.grandTotal = 0;
+
+          carts.forEach((cart) => {
+            if (cart.product.process == 1) {
+              this.grandTotal += cart.product.qty * cart.product.price;
+            }
+          });
+        }
+      },
+      deep: true,
+    },
+  },
   methods: {
     destroyAll() {
       if (this.$auth.loggedIn) {
