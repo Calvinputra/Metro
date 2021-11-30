@@ -5,4 +5,3 @@
     <Footer />
   </section>
 </template>
-

@@ -6,7 +6,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-2">
-             <AccountMenu :name="'forgot'"/>
+            <AccountMenu :name="'forgot'" />
           </div>
           <div
             class="
