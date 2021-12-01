@@ -38,7 +38,12 @@
         </a>
         <a href="" style="text-decoration: none" class="text-black bg-danger">
           <div>
-            <b-dropdown id="dropdown-1" text="Akun Saya" class="m-md-2">
+            <b-dropdown
+              id="dropdown-1"
+              text="Akun Saya"
+              variant="danger"
+              class="m-md-2"
+            >
               <b-dropdown-item>Ubah Kata Sandi</b-dropdown-item>
               <b-dropdown-item>Riwayat Pembelian</b-dropdown-item>
               <b-dropdown-item>Undang Teman</b-dropdown-item>
