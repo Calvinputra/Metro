@@ -45,11 +45,24 @@
                 ></i>
                 <em></em>
               </template>
-              <b-dropdown-item>First Action</b-dropdown-item>
-              <b-dropdown-item>Second Action</b-dropdown-item>
-              <b-dropdown-item>Third Action</b-dropdown-item>
+              <b-dropdown-item v-if="this.$auth.loggedIn"
+                >Akun Saya</b-dropdown-item
+              >
+              <b-dropdown-item v-if="this.$auth.loggedIn" href="/riwayat_pembelian"
+                >Riwayat Pembelian</b-dropdown-item
+              >
+              <b-dropdown-item v-if="!this.$auth.loggedIn" href="/login"
+                >Login</b-dropdown-item
+              >
+              <b-dropdown-item v-if="!this.$auth.loggedIn" href="/register"
+                >Register</b-dropdown-item
+              >
+
               <b-dropdown-divider></b-dropdown-divider>
-              <b-dropdown-item @click="logout" active>Logout</b-dropdown-item>
+
+              <b-dropdown-item v-if="this.$auth.loggedIn" @click="logout" active
+                >Logout</b-dropdown-item
+              >
               <b-dropdown-item disabled>Disabled action</b-dropdown-item>
             </b-dropdown>
           </div>
@@ -87,6 +100,7 @@ export default {
   methods: {
     async logout() {
       await this.$auth.logout();
+      this.$forceUpdate();
 
       this.$router.push("/login");
     },

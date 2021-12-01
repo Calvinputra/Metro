@@ -38,7 +38,8 @@
               </th>
             </tr>
           </thead>
-          <tbody v-if="!this.$auth.loggedIn">
+          <tbody></tbody>
+          <template v-if="!this.$auth.loggedIn">
             <Cart
               v-for="cart in tempCart"
               :key="cart.id"
@@ -47,8 +48,9 @@
               :id="cart.id"
               :process="cart.process"
             />
-          </tbody>
-          <tbody v-if="this.$auth.loggedIn">
+          </template>
+
+          <template v-if="this.$auth.loggedIn">
             <Cart
               v-for="cart in carts"
               :key="cart.id"
@@ -57,7 +59,7 @@
               :id="cart.id"
               :process="cart.process"
             />
-          </tbody>
+          </template>
         </table>
       </div>
       <div class="text-right text-right col-sm-11">
@@ -131,7 +133,7 @@ export default {
             let carts = await this.$axios.$get(
               process.env.API_URL + "/api/carts"
             );
-            let data = carts.data
+            let data = carts.data;
             data.forEach((cart) => {
               if (cart.process == 1) {
                 this.grandTotal += cart.qty * cart.product.price;

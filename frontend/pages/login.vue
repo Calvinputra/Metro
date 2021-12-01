@@ -123,8 +123,6 @@
 </template>
 
 <script>
-
-
 export default {
   middleware: "auth",
   auth: "guest",
@@ -165,19 +163,23 @@ export default {
           data
         );
         if (response.success) {
-          await this.$auth.loginWith("laravelSanctum", {
-            data: {
-              email: this.email,
-              password: this.password,
-            },
-          });
-          this.showDismissibleAlert = false;
-          this.$toast.success("Successfully authenticated", {
-            theme: "bubble",
-            position: "bottom-right",
-            duration: 5000,
-          });
-          this.$router.push("/");
+          await this.$auth
+            .loginWith("laravelSanctum", {
+              data: {
+                email: this.email,
+                password: this.password,
+              },
+            })
+            .then(() => {
+              this.$forceUpdate();
+              this.$router.push("/");
+              this.showDismissibleAlert = false;
+              this.$toast.success("Successfully authenticated", {
+                theme: "bubble",
+                position: "bottom-right",
+                duration: 5000,
+              });
+            });
         } else {
           this.errors = response.message;
           this.showDismissibleAlert = true;
@@ -185,10 +187,10 @@ export default {
         console.log(response);
       } catch (error) {
         this.$toasted.error(error, {
-            theme: "bubble",
-            position: "bottom-right",
-            duration: 5000,
-          });
+          theme: "bubble",
+          position: "bottom-right",
+          duration: 5000,
+        });
         console.log(error);
       }
     },
