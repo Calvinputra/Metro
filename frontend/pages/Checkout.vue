@@ -11,13 +11,13 @@
             class="col-sm-12"
           />
         </div>
-        <div class="bg-light text-black col-sm-11">
+        <div class="bg-light text-black col-sm-11" v-if="!$auth.loggedIn">
           <label for="step1">
             <h5>Step 1: Periksa Akun</h5>
           </label>
         </div>
       </div>
-      <div class="d-flex" style="justify-content: space-evenly">
+      <div class="d-flex" style="justify-content: space-evenly" v-if="!$auth.loggedIn">
         <div style="col-sm">
           <img src="/img/metro.png" alt="" />
         </div>
@@ -87,14 +87,14 @@
           </p>
         </div>
       </div>
-      <div class="ml-5">
+      <div class="ml-5"  v-if="$auth.loggedIn">
         <div class="bg-light text-black col-sm-11">
           <label for="step1">
-            <h5>Step 2: Data Personal</h5>
+            <h5>Step 1: Periksa Akun</h5>
           </label>
         </div>
       </div>
-      <div class="d-flex justify-content-around mt-3" style="">
+      <div class="d-flex justify-content-around mt-3" style="" v-if="$auth.loggedIn">
         <div>
           <p>Nama :Jason Renata</p>
           <p>Nomor Telepon :08123172819</p>
@@ -115,7 +115,7 @@
       <div class="ml-5 mt-5">
         <div class="bg-light text-black col-sm-11 mb-5">
           <label for="step1">
-            <h5>Step 3: Pilih Metode Pengiriman</h5>
+            <h5>Step 2: Pilih Metode Pengiriman</h5>
           </label>
         </div>
         <div>
@@ -187,14 +187,26 @@
               </tr>
             </thead>
             <tbody>
-              <ProductCheckout
-                v-for="cart in carts"
-                :key="cart.id"
-                :product="cart.product"
-                :qty="cart.qty"
-                :id="cart.id"
-                :process="cart.process"
-              />
+              <template v-if="$auth.loggedIn">
+                <ProductCheckout
+                  v-for="cart in carts"
+                  :key="cart.id"
+                  :product="cart.product"
+                  :qty="cart.qty"
+                  :id="cart.id"
+                  :process="cart.process"
+                />
+              </template>
+              <template v-if="!$auth.loggedIn">
+                <ProductCheckout
+                  v-for="cart in tempCart"
+                  :key="cart.id"
+                  :product="cart.product"
+                  :qty="cart.qty"
+                  :id="cart.id"
+                  :process="cart.process"
+                />
+              </template>
             </tbody>
           </table>
         </div>
@@ -205,6 +217,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   data() {
     return {
@@ -225,24 +238,28 @@ export default {
           class: "my-2 breadcrumb-item active opacity-50",
         },
       ],
+      carts: {},
+      grandTotal: 0,
     };
   },
-  async asyncData({ $axios }) {
+
+  async mounted() {
     if (this.$auth.loggedIn) {
       try {
-        let response = await $axios.$get(process.env.API_URL + "/api/carts");
-        let carts = response.data;
-        carts = carts.filter((i) => i.process == true);
+        let carts = await this.$axios.$get(process.env.API_URL + "/api/carts");
         console.log(carts);
-        return {
-          carts: carts,
-        };
+        this.carts = carts.data;
       } catch (error) {
         console.log(error);
       }
     } else {
-      
     }
+  },
+  computed: {
+    ...mapGetters({
+      tempCart: "getCart",
+      cartChanged: "getCartChanged",
+    }),
   },
 };
 </script>
