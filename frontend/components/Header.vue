@@ -48,7 +48,9 @@
               <b-dropdown-item v-if="this.$auth.loggedIn"
                 >Akun Saya</b-dropdown-item
               >
-              <b-dropdown-item v-if="this.$auth.loggedIn" href="/riwayat_pembelian"
+              <b-dropdown-item
+                v-if="this.$auth.loggedIn"
+                href="/riwayat_pembelian"
                 >Riwayat Pembelian</b-dropdown-item
               >
               <b-dropdown-item v-if="!this.$auth.loggedIn" href="/login"
@@ -99,10 +101,15 @@ export default {
   },
   methods: {
     async logout() {
-      await this.$auth.logout();
-      this.$forceUpdate();
-
-      this.$router.push("/login");
+      await this.$auth.logout().then(() => {
+        this.$toast.success("Successfully logout", {
+          theme: "bubble",
+          position: "bottom-right",
+          duration: 5000,
+        });
+        setTimeout(() => {  window.location.reload(true); }, 2000);
+        
+      });
     },
   },
 };

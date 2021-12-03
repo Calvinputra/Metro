@@ -171,14 +171,15 @@ export default {
               },
             })
             .then(() => {
-              this.$forceUpdate();
-              this.$router.push("/");
               this.showDismissibleAlert = false;
               this.$toast.success("Successfully authenticated", {
                 theme: "bubble",
                 position: "bottom-right",
                 duration: 5000,
               });
+              setTimeout(() => {
+                window.location.reload(true);
+              }, 2000);
             });
         } else {
           this.errors = response.message;

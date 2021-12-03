@@ -88,8 +88,8 @@ export const state = () => ({
   //cart
   cart: [],
   cartLength: 0,
-  cartTotal:0,
-  cartChanged:false,
+  cartTotal: 0,
+  cartChanged: false,
 });
 
 export const actions = {
@@ -177,12 +177,10 @@ export const actions = {
       });
     }
   },
-  setCartChange({commit},value){
-    commit("setCartChangeValue",value);
-  }
-
+  setCartChange({ commit }, value) {
+    commit("setCartChangeValue", value);
+  },
  
-
 };
 
 export const mutations = {
@@ -209,8 +207,6 @@ export const mutations = {
     product.process = 1;
     state.cart.push(product);
   },
-
-
 
   incrementProductQty(state, product) {
     this.$toast.success("Successfully update product quantity", {
@@ -252,11 +248,10 @@ export const mutations = {
     }
   },
 
-  setCartChangeValue(state,value){
-    console.log('set cart to '+value);
-    state.cartChanged = value
-  }
-
+  setCartChangeValue(state, value) {
+    console.log("set cart to " + value);
+    state.cartChanged = value;
+  },
  
 };
 
@@ -291,10 +286,10 @@ export const getters = {
     });
     return temp_cart;
   },
-  getCartTotal(state){
+  getCartTotal(state) {
     return state.cartTotal;
   },
-  getCartChanged(state){
+  getCartChanged(state) {
     return state.cartChanged;
-  }
+  },
 };
