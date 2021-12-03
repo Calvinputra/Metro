@@ -1649,7 +1649,7 @@ class DataRowsTableSeeder extends Seeder
                 'add' => 1,
                 'delete' => 1,
                 'details' => '{}',
-                'order' => 8,
+                'order' => 11,
             ),
             102 => 
             array (
@@ -1665,7 +1665,7 @@ class DataRowsTableSeeder extends Seeder
                 'add' => 1,
                 'delete' => 1,
                 'details' => '{}',
-                'order' => 9,
+                'order' => 12,
             ),
             103 => 
             array (
@@ -1681,7 +1681,7 @@ class DataRowsTableSeeder extends Seeder
                 'add' => 1,
                 'delete' => 1,
                 'details' => '{}',
-                'order' => 10,
+                'order' => 13,
             ),
             104 => 
             array (
@@ -1697,7 +1697,7 @@ class DataRowsTableSeeder extends Seeder
                 'add' => 1,
                 'delete' => 1,
                 'details' => '{}',
-                'order' => 11,
+                'order' => 14,
             ),
             105 => 
             array (
@@ -1713,7 +1713,7 @@ class DataRowsTableSeeder extends Seeder
                 'add' => 1,
                 'delete' => 1,
                 'details' => '{}',
-                'order' => 12,
+                'order' => 15,
             ),
             106 => 
             array (
@@ -1729,7 +1729,7 @@ class DataRowsTableSeeder extends Seeder
                 'add' => 1,
                 'delete' => 1,
                 'details' => '{}',
-                'order' => 13,
+                'order' => 16,
             ),
             107 => 
             array (
@@ -1745,7 +1745,7 @@ class DataRowsTableSeeder extends Seeder
                 'add' => 1,
                 'delete' => 1,
                 'details' => '{}',
-                'order' => 14,
+                'order' => 17,
             ),
             108 => 
             array (
@@ -1761,7 +1761,7 @@ class DataRowsTableSeeder extends Seeder
                 'add' => 1,
                 'delete' => 1,
                 'details' => '{}',
-                'order' => 15,
+                'order' => 18,
             ),
             109 => 
             array (
@@ -1777,7 +1777,7 @@ class DataRowsTableSeeder extends Seeder
                 'add' => 1,
                 'delete' => 1,
                 'details' => '{}',
-                'order' => 16,
+                'order' => 19,
             ),
             110 => 
             array (
@@ -1793,7 +1793,7 @@ class DataRowsTableSeeder extends Seeder
                 'add' => 1,
                 'delete' => 1,
                 'details' => '{}',
-                'order' => 17,
+                'order' => 20,
             ),
             111 => 
             array (
@@ -1809,7 +1809,7 @@ class DataRowsTableSeeder extends Seeder
                 'add' => 1,
                 'delete' => 1,
                 'details' => '{}',
-                'order' => 18,
+                'order' => 21,
             ),
             112 => 
             array (
@@ -1825,7 +1825,7 @@ class DataRowsTableSeeder extends Seeder
                 'add' => 1,
                 'delete' => 1,
                 'details' => '{}',
-                'order' => 19,
+                'order' => 22,
             ),
             113 => 
             array (
@@ -1889,7 +1889,7 @@ class DataRowsTableSeeder extends Seeder
                 'add' => 1,
                 'delete' => 1,
                 'details' => '{}',
-                'order' => 20,
+                'order' => 23,
             ),
             117 => 
             array (
@@ -1905,7 +1905,7 @@ class DataRowsTableSeeder extends Seeder
                 'add' => 1,
                 'delete' => 1,
                 'details' => '{}',
-                'order' => 21,
+                'order' => 24,
             ),
             118 => 
             array (
@@ -1921,7 +1921,7 @@ class DataRowsTableSeeder extends Seeder
                 'add' => 1,
                 'delete' => 1,
                 'details' => '{}',
-                'order' => 22,
+                'order' => 25,
             ),
             119 => 
             array (
@@ -1937,7 +1937,7 @@ class DataRowsTableSeeder extends Seeder
                 'add' => 1,
                 'delete' => 1,
                 'details' => '{}',
-                'order' => 23,
+                'order' => 26,
             ),
             120 => 
             array (
@@ -1953,7 +1953,7 @@ class DataRowsTableSeeder extends Seeder
                 'add' => 1,
                 'delete' => 1,
                 'details' => '{}',
-                'order' => 5,
+                'order' => 6,
             ),
             121 => 
             array (
@@ -1969,7 +1969,7 @@ class DataRowsTableSeeder extends Seeder
                 'add' => 1,
                 'delete' => 1,
                 'details' => '{}',
-                'order' => 6,
+                'order' => 7,
             ),
             122 => 
             array (
@@ -1985,7 +1985,7 @@ class DataRowsTableSeeder extends Seeder
                 'add' => 1,
                 'delete' => 1,
                 'details' => '{}',
-                'order' => 7,
+                'order' => 9,
             ),
             123 => 
             array (
@@ -2001,7 +2001,7 @@ class DataRowsTableSeeder extends Seeder
                 'add' => 0,
                 'delete' => 0,
                 'details' => '{}',
-                'order' => 24,
+                'order' => 27,
             ),
             124 => 
             array (
@@ -2017,7 +2017,7 @@ class DataRowsTableSeeder extends Seeder
                 'add' => 0,
                 'delete' => 0,
                 'details' => '{}',
-                'order' => 25,
+                'order' => 28,
             ),
             125 => 
             array (
@@ -2033,7 +2033,55 @@ class DataRowsTableSeeder extends Seeder
                 'add' => 0,
                 'delete' => 0,
                 'details' => '{}',
-                'order' => 26,
+                'order' => 29,
+            ),
+            126 => 
+            array (
+                'id' => 127,
+                'data_type_id' => 14,
+                'field' => 'transaction_belongsto_city_relationship',
+                'type' => 'relationship',
+                'display_name' => 'Kota Pengiriman',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"model":"App\\\\Models\\\\City","table":"cities","type":"belongsTo","column":"shipping_city_id","key":"id","label":"name","pivot_table":"attributes","pivot":"0","taggable":"0"}',
+                'order' => 10,
+            ),
+            127 => 
+            array (
+                'id' => 128,
+                'data_type_id' => 14,
+                'field' => 'transaction_belongsto_province_relationship',
+                'type' => 'relationship',
+                'display_name' => 'Provinsi Pengiriman',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"model":"App\\\\Models\\\\Province","table":"provinces","type":"belongsTo","column":"shipping_province_id","key":"id","label":"name","pivot_table":"attributes","pivot":"0","taggable":"0"}',
+                'order' => 8,
+            ),
+            128 => 
+            array (
+                'id' => 129,
+                'data_type_id' => 14,
+                'field' => 'transaction_belongsto_transaction_status_relationship',
+                'type' => 'relationship',
+                'display_name' => 'Status',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"model":"App\\\\Models\\\\TransactionStatus","table":"transaction_statuses","type":"belongsTo","column":"status_id","key":"id","label":"name","pivot_table":"attributes","pivot":"0","taggable":"0"}',
+                'order' => 5,
             ),
         ));
         

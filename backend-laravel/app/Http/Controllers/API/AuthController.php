@@ -106,7 +106,6 @@ class AuthController extends Controller
             'success' => true,
             'data'    => $customer,
         ], 200);
-
     }
 
     public function user()

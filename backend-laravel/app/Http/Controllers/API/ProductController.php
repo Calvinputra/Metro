@@ -18,8 +18,8 @@ class ProductController extends Controller
     {
         $paginate_item = $request->paginate ?? 25;
         $products = Product::with('category')->orderBy('created_at', 'DESC');
-        if(isset($request->s)){
-            $products=$products->where('name',"LIKE","%".$request->s."%");
+        if (isset($request->s)) {
+            $products = $products->where('name', "LIKE", "%" . $request->s . "%");
         }
 
         //jika kosong
@@ -50,7 +50,15 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        return  new ProductResource(Product::find($id));
+        $data = Product::find($id);
+        if ($data) {
+            return new ProductResource($data);
+        } else {
+            return response()->json([
+                'data'   => 'Product not Found',
+                'status' => 404,
+            ]);
+        }
     }
 
     /**
@@ -84,6 +92,5 @@ class ProductController extends Controller
 
     public function addToCart($id)
     {
-
     }
 }

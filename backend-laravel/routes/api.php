@@ -10,6 +10,7 @@ use App\Http\Controllers\API\ProvinceController;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\CartController;
 use App\Http\Controllers\API\WishListController;
+use App\Http\Controllers\API\TransactionController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -36,3 +37,4 @@ Route::apiResource('/provinces', ProvinceController::class);
 Route::apiResource('/countries', CountryController::class);
 Route::apiResource('/carts', CartController::class)->middleware('auth:sanctum');
 Route::apiResource('/wishlists', WishListController::class)->middleware('auth:sanctum');
+Route::apiResource('/transaction', TransactionController::class)->middleware('auth:sanctum');
