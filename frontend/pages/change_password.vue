@@ -100,7 +100,6 @@
                   <p style="color: red">
                     Wajib diisi*
                   </p>
-
                   <br />
                   <div class="text-center">
                     <button
