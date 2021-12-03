@@ -235,6 +235,24 @@ class DataTypesTableSeeder extends Seeder
                 'created_at' => '2021-11-09 02:32:16',
                 'updated_at' => '2021-11-09 02:33:52',
             ),
+            12 => 
+            array (
+                'id' => 14,
+                'name' => 'transactions',
+                'slug' => 'transactions',
+                'display_name_singular' => 'Transaction',
+                'display_name_plural' => 'Transactions',
+                'icon' => 'fas fa-shopping-cart',
+                'model_name' => 'App\\Models\\Transaction',
+                'policy_name' => NULL,
+                'controller' => NULL,
+                'description' => NULL,
+                'generate_permissions' => 1,
+                'server_side' => 1,
+                'details' => '{"order_column":null,"order_display_column":null,"order_direction":"asc","default_search_key":null,"scope":null}',
+                'created_at' => '2021-12-03 07:03:32',
+                'updated_at' => '2021-12-03 07:03:55',
+            ),
         ));
         
         

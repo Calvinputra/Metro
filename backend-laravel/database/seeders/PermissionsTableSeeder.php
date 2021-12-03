@@ -579,6 +579,46 @@ class PermissionsTableSeeder extends Seeder
                 'created_at' => '2021-11-09 02:32:17',
                 'updated_at' => '2021-11-09 02:32:17',
             ),
+            70 => 
+            array (
+                'id' => 71,
+                'key' => 'browse_transactions',
+                'table_name' => 'transactions',
+                'created_at' => '2021-12-03 07:03:32',
+                'updated_at' => '2021-12-03 07:03:32',
+            ),
+            71 => 
+            array (
+                'id' => 72,
+                'key' => 'read_transactions',
+                'table_name' => 'transactions',
+                'created_at' => '2021-12-03 07:03:32',
+                'updated_at' => '2021-12-03 07:03:32',
+            ),
+            72 => 
+            array (
+                'id' => 73,
+                'key' => 'edit_transactions',
+                'table_name' => 'transactions',
+                'created_at' => '2021-12-03 07:03:32',
+                'updated_at' => '2021-12-03 07:03:32',
+            ),
+            73 => 
+            array (
+                'id' => 74,
+                'key' => 'add_transactions',
+                'table_name' => 'transactions',
+                'created_at' => '2021-12-03 07:03:32',
+                'updated_at' => '2021-12-03 07:03:32',
+            ),
+            74 => 
+            array (
+                'id' => 75,
+                'key' => 'delete_transactions',
+                'table_name' => 'transactions',
+                'created_at' => '2021-12-03 07:03:32',
+                'updated_at' => '2021-12-03 07:03:32',
+            ),
         ));
         
         
