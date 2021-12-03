@@ -120,9 +120,9 @@
                   <br />
                   <button
                     type="button"
-                    class="btn btn-light text-danger col-sm-2 shadow"
+                    class="btn btn-light text-danger col-sm-3 shadow"
                   >
-                    Light
+                    Ubah Informasi Akun
                   </button>
                 </div>
               </div>
