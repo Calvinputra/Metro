@@ -226,15 +226,15 @@
           </div>
         </div>
       </section>
-      <template v-if="!this.$auth.loggedIn">
-        <Cart
-          v-for="cart in tempCart"
-          :key="cart.id"
-          :product="cart.product"
-          :qty="cart.qty"
-          :id="cart.id"
-          :process="cart.process"
-        />
+      <template>
+        <div class="row" controls>
+          <Card-Product
+            v-for="product in products"
+            :key="product.id"
+            :data="product"
+            :url="'/products/' + product.id"
+          />
+        </div>
       </template>
     </section>
 
@@ -259,6 +259,17 @@ export default {
     },
     onSlideEnd(slide) {
       this.sliding = false;
+    }
+  },
+  async asyncData({ $axios }) {
+    try {
+      let products = await $axios.$get(process.env.API_URL + "/api/products");
+      console.log(products);
+      return {
+        products: products.data
+      };
+    } catch (error) {
+      console.log(error);
     }
   }
 };
