@@ -8,6 +8,7 @@ use App\Models\Cart;
 use App\Models\Customer;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use PDO;
 use Validator;
 
 class CartController extends Controller
@@ -16,7 +17,11 @@ class CartController extends Controller
     {
         $user = Customer::where('token', '=', request()->bearerToken())->first();
         if ($user) {
-            return CartResource::collection(Cart::where('customer_id', $user->id)->with('product')->orderBy('created_at', 'DESC')->get());
+            $carts = Cart::where('customer_id', $user->id)->with('product')->orderBy('created_at', 'DESC');
+            if ($request->checkout) {
+                $carts->where('process', 1);
+            }
+            return CartResource::collection($carts->get());
         } else {
             return response()->json([
                 'data'   => 'Unauthorized Action',
@@ -54,10 +59,8 @@ class CartController extends Controller
             ];
             if ($cart) {
                 $cart = tap($cart)->update($data);
-
             } else {
                 $cart = Cart::create($data);
-
             }
 
             return response([
@@ -70,7 +73,63 @@ class CartController extends Controller
                 'status' => 503,
             ]);
         }
+    }
 
+    public function storeMultiple(Request $request)
+    {
+        //function when logged in push from vuex to database
+        $user = Customer::where('token', '=', request()->bearerToken())->first();
+        if ($user) {
+            //uncheck all prev cart
+            if (count($request->carts) > 0) {
+                Cart::where('customer_id', $user->id)->update([
+                    'process' => 0,
+                ]);
+            }
+            foreach ($request->carts ?? [] as  $key => $c) {
+                $c = (object)$c;
+                $c->product = (object)$c->product;
+
+                $rules = [
+                    'id' => 'required',
+                    'qty' => 'required|min:0',
+                ];
+                $validator = Validator::make((array)$c->product, $rules);
+                if ($validator->fails()) {
+                    return response([
+                        'success' => false,
+                        'message' => $validator->errors(),
+                    ], 200);
+                } else {
+                    //success
+                    //check previous cart exist
+                    $prev_cart = Cart::where('customer_id', $user->id)
+                        ->where('product_id', $c->product->id)->first();
+                    if ($prev_cart) {
+                        $prev_cart = tap($prev_cart)->update([
+                            'qty' => $c->qty,
+                            'process' => 1,
+                        ]);
+                    } else {
+                        Cart::create([
+                            'qty' => $c->qty,
+                            'process' => 1,
+                            'customer_id' => $user->id,
+                            'product_id' => $c->product->id,
+                        ]);
+                    }
+                }
+            }
+            return response()->json([
+                'data' => $request->carts ?? []
+            ]);
+            // $carts = json_decode($request->carts);
+        } else {
+            return response()->json([
+                'data'   => 'Unauthorized Action',
+                'status' => 503,
+            ]);
+        }
     }
 
     public function update(Request $request, $id)
@@ -104,14 +163,12 @@ class CartController extends Controller
                     'process' => $request->process,
                 ];
                 $cart = tap($cart)->update($data);
-
             }
 
             return response([
                 'success' => true,
                 'data'    => $cart,
             ], 200);
-
         }
     }
     public function destroy(Request $request, $id)
@@ -130,7 +187,6 @@ class CartController extends Controller
                 return response([
                     'success' => true,
                 ], 200);
-
             }
         }
     }

@@ -11,6 +11,7 @@ use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\CartController;
 use App\Http\Controllers\API\WishListController;
 use App\Http\Controllers\API\TransactionController;
+use App\Http\Controllers\API\ShippingController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -36,5 +37,8 @@ Route::apiResource('/cities', CityController::class);
 Route::apiResource('/provinces', ProvinceController::class);
 Route::apiResource('/countries', CountryController::class);
 Route::apiResource('/carts', CartController::class)->middleware('auth:sanctum');
+Route::post('/carts/multiple',[CartController::class,'storeMultiple'])->middleware('auth:sanctum');
+Route::post('/checkout/get_jne_cost',[ShippingController::class,'getJNECost'])->middleware('auth:sanctum');
+
 Route::apiResource('/wishlists', WishListController::class)->middleware('auth:sanctum');
 Route::apiResource('/transaction', TransactionController::class)->middleware('auth:sanctum');

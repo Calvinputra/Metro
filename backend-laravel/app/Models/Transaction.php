@@ -25,11 +25,11 @@ class Transaction extends Model
         "customer_id",
         "status_id",
         "shipping_recipient_name",
-        "shipping_recipent_number",
+        "shipping_recipient_number",
         "shipping_address",
         "shipping_postal_code",
         "shipping_country_id",
-        "shpping_province_id",
+        "shipping_province_id",
         "shipping_city_id",
     ];
     public function transactionDetails()

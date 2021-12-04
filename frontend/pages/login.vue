@@ -123,6 +123,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   middleware: "auth",
   auth: "guest",
@@ -151,6 +152,11 @@ export default {
       showDismissibleAlert: false,
     };
   },
+  computed: {
+    ...mapGetters({
+      tempCart: "getCheckout",
+    }),
+  },
   methods: {
     async doLogin() {
       try {
@@ -170,8 +176,15 @@ export default {
                 password: this.password,
               },
             })
-            .then(() => {
+            .then(async () => {
               this.showDismissibleAlert = false;
+              let d = {
+                carts: this.tempCart,
+              };
+              let r = await this.$axios.$post(
+                process.env.API_URL + "/api/carts/multiple",
+                d
+              );
               this.$toast.success("Successfully authenticated", {
                 theme: "bubble",
                 position: "bottom-right",
@@ -184,6 +197,16 @@ export default {
         } else {
           this.errors = response.message;
           this.showDismissibleAlert = true;
+          let err = response.message;
+          Object.keys(err).forEach((key, error) => {
+            Object.keys(err[key]).forEach((key2, e) => {
+              this.$toast.error(err[key][key2], {
+                theme: "bubble",
+                position: "bottom-right",
+                duration: 5000,
+              });
+            });
+          });
         }
         console.log(response);
       } catch (error) {

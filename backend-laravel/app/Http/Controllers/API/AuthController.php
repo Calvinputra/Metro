@@ -31,7 +31,7 @@ class AuthController extends Controller
             ], 201);
         }
 
-        $user = Customer::where('email', $request->email)->first();
+        $user = Customer::where('email', $request->email)->with("addresses")->first();
 
         if (!$user || !password_verify($request->password, $user->password)) {
             return response([
@@ -110,7 +110,7 @@ class AuthController extends Controller
 
     public function user()
     {
-        $user = Customer::where('token', '=', request()->bearerToken())->first();
+        $user = Customer::where('token', '=', request()->bearerToken())->with("addresses")->first();
 
         return $user ?? null;
     }

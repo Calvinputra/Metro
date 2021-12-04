@@ -87,6 +87,7 @@ export const state = () => ({
 
   //cart
   cart: [],
+  checkout: [],
   cartLength: 0,
   cartTotal: 0,
   cartChanged: false,
@@ -180,7 +181,6 @@ export const actions = {
   setCartChange({ commit }, value) {
     commit("setCartChangeValue", value);
   },
- 
 };
 
 export const mutations = {
@@ -252,7 +252,6 @@ export const mutations = {
     console.log("set cart to " + value);
     state.cartChanged = value;
   },
- 
 };
 
 export const getters = {
@@ -285,6 +284,23 @@ export const getters = {
       temp_cart.push(data);
     });
     return temp_cart;
+  },
+  getCheckout(state) {
+    let temp_checkout = [];
+    let id = 0;
+    state.cart.forEach((product) => {
+      if (product.process == 1) {
+        let data = {
+          qty: product.qty,
+          product: product,
+          process: product.process ?? 1,
+          id: id,
+        };
+        id++;
+        temp_checkout.push(data);
+      }
+    });
+    return temp_checkout;
   },
   getCartTotal(state) {
     return state.cartTotal;
