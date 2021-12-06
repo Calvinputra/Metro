@@ -30,9 +30,7 @@
                 style="height: 10%; width: 100%; border-width: 0; color: red"
                 class="col-sm-12 mb-0 mt-0"
               />
-              <p class="mb-">
-                Lacak Pembelian Kamu di halaman ini.
-              </p>
+              <p class="mb-">Lacak Pembelian Kamu di halaman ini.</p>
             </div>
 
             <div>
@@ -40,197 +38,46 @@
               <button
                 type="submit"
                 class="
-                        btn
-                        text-white
-                        btn-danger btn-sm
-                        shadow
-                        rounded
-                        col-sm-2
-                        ms-0
-                        ps-0
-                        py-2
-                        px-2
-                      "
+                  btn
+                  text-white
+                  btn-danger btn-sm
+                  shadow
+                  rounded
+                  col-sm-2
+                  ms-0
+                  ps-0
+                  py-2
+                  px-2
+                "
               >
                 Semua
               </button>
               <button
                 type="submit"
-                class="
-                        
-                        btn
-                        text-black
-                        btn-sm
-                        col-sm-2
-                        ms-0
-                        ps-0
-                        py-2
-                        px-2
-                      "
+                class="btn text-black btn-sm col-sm-2 ms-0 ps-0 py-2 px-2"
+              >
+                Menunggu Pembayaran
+              </button>
+              <button
+                type="submit"
+                class="btn text-black btn-sm col-sm-2 ms-0 ps-0 py-2 px-2"
               >
                 Selesai
               </button>
               <button
                 type="submit"
-                class="
-                        btn
-                        text-black
-                        btn-sm
-                        col-sm-2
-                        ms-0
-                        ps-0
-                        py-2
-                        px-2
-                      "
+                class="btn text-black btn-sm col-sm-2 ms-0 ps-0 py-2 px-2"
               >
                 Tidak Berhasil
               </button>
               <button
                 type="submit"
-                class="
-                        btn
-                        text-black
-                        btn-sm
-                        col-sm-2
-                        ms-0
-                        ps-0
-                        py-2
-                        px-2
-                      "
+                class="btn text-black btn-sm col-sm-2 ms-0 ps-0 py-2 px-2"
               >
                 Berlangsung
               </button>
-              <div style="color: red" class="mt-3">
-                <hr
-                  style="height: 3px; border-width: 0; color: red"
-                  class="col-sm-12 mb-0 mt-0"
-                />
-              </div>
             </div>
-            <div class="d-flex" style="justify-content: space-between">
-              <div class="d-flex ml-2 mt-4">
-                <div>
-                  <img class="mr-2" src="/img/audiblelogo.png" alt="" />
-                </div>
-                <div>
-                  <span
-                    class="border border-success border-2 text-success rounded-3"
-                  >
-                    Selesai</span
-                  >
-                  #ID
-                  <br />
-                  <span>KODE PRODUK</span>
-                  - <span>NAMA PRODUK 1</span>
-                  <p>
-                    1xRp 120.000
-                  </p>
-                </div>
-              </div>
-              <div>
-                <p class="text-right mt-3">Rp. 120.000</p>
-                <span class="d-flex">
-                  <button
-                    type="submit"
-                    class="
-                        mr-3
-                        btn
-                        text-danger
-                        btn-light btn-sm
-                        shadow
-                        rounded
-                        col-sm-9
-                        ms-0
-                        ps-0
-                        py-2
-                        px-2
-                      "
-                  >
-                    <b> Lihat Detail Transaksi </b>
-                  </button>
-                  <button
-                    type="submit"
-                    class="
-                        btn
-                        text-danger
-                        btn-light btn-sm
-                        shadow
-                        rounded
-                        col-sm-4
-                        ms-0
-                        ps-0
-                        py-2
-                        px-2
-                      "
-                  >
-                    <b> Lainnya </b>
-                  </button>
-                </span>
-              </div>
-            </div>
-            <div class="mt-4">
-              <hr
-                style="height: 3px; border-width: 0; color: red"
-                class="col-sm-12 mb-0 mt-0"
-              />
-            </div>
-            <div class="d-flex" style="justify-content: space-between">
-              <div class="d-flex ml-2 mt-4">
-                <div>
-                  <img class="mr-2" src="/img/audiblelogo.png" alt="" />
-                </div>
-                <div>
-                  <span> Selesai</span> #ID
-                  <br />
-                  <span>KODE PRODUK</span>
-                  - <span>NAMA PRODUK 1</span>
-                  <p>
-                    1xRp 120.000
-                  </p>
-                </div>
-              </div>
-              <div>
-                <p class="text-right mt-3">Rp. 120.000</p>
-                <span class="d-flex">
-                  <button
-                    type="submit"
-                    class="
-                        mr-3
-                        btn
-                        text-danger
-                        btn-light btn-sm
-                        shadow-sm
-                        rounded
-                        col-sm-8
-                        ms-0
-                        
-                        ps-0
-                        py-2
-                        px-2
-                      "
-                  >
-                    <b> Detail Transaksi</b>
-                  </button>
-                  <button
-                    type="submit"
-                    class="
-                        btn
-                        text-danger
-                        btn-light btn-sm
-                        shadow-sm
-                        rounded
-                        col-sm-4
-                        ms-0
-                        ps-0
-                        py-2
-                        px-2
-                      "
-                  >
-                    <b> Lainnya </b>
-                  </button>
-                </span>
-              </div>
-            </div>
+
             <historySelesai />
             <historyBerlangsung />
             <historyTidakBerhasil />
