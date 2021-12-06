@@ -368,9 +368,16 @@ export default {
         );
         if (response.success == true) {
           //hapus cart local
+
+
           //router push ke pembayaran (ganti url)
           this.$router.push("/pembayaran/"+response.data.uuid);
-          //kasi toast notifikasi
+          
+          this.$toast.success("Transaksi berhasil dibuat, silahkan lakukan pembayaran", {
+                theme: "bubble",
+                position: "bottom-right",
+                duration: 5000,
+              });
         }else{
           let err = response.message;
           Object.keys(err).forEach((key, error) => {
