@@ -132,7 +132,8 @@
           </div>
         </div>
       </div>
-      <div class="ml-5 mt-5" v-if="$auth.loggedIn">
+      <!-- <div class="ml-5 mt-5" v-if="$auth.loggedIn"> -->
+      <div class="ml-5 mt-5">
         <div class="bg-light text-black col-sm-11 mb-5">
           <label for="step1">
             <h5>Step 2: Pilih Metode Pengiriman</h5>
@@ -161,24 +162,46 @@
           </div>
           <div>
             <div class="d-flex ml-5">
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  name="exampleRadios"
-                  id="exampleRadios2"
-                  value="jne"
-                  @change="setCost($event)"
-                  v-model="shippingRadio"
-                />
-                <label class="form-check-label" for="exampleRadios2">
-                  <p>
-                    JNE - Rp.
-                    {{ Number(jneShippngCost).toLocaleString("id-ID") }}
-                  </p>
-                </label>
+              <p class="fw-bold mr-3">
+                JNE
+              </p>
+              <div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="exampleRadios"
+                    id="exampleRadios2"
+                    value="jne"
+                    @change="setCost($event)"
+                    v-model="shippingRadio"
+                  />
+
+                  <label class="form-check-label" for="exampleRadios2">
+                    <p>
+                      YES - Rp.
+                      {{ Number(jneShippngCost).toLocaleString("id-ID") }}
+                    </p>
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="exampleRadios"
+                    id="exampleRadios2"
+                    value="jne"
+                    @change="setCost($event)"
+                    v-model="shippingRadio"
+                  />
+                  <label class="form-check-label" for="exampleRadios1">
+                    <p>
+                      Regular - Rp.
+                      {{ Number(jneShippngCost).toLocaleString("id-ID") }}
+                    </p>
+                  </label>
+                </div>
               </div>
-              <div></div>
             </div>
           </div>
         </div>
@@ -260,18 +283,18 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50",
+          class: "my-2 ms-3 breadcrumb-item opacity-50"
         },
         {
           url: "/cart",
           name: "Keranjang Saya",
-          class: "my-2 breadcrumb-item opacity-50",
+          class: "my-2 breadcrumb-item opacity-50"
         },
         {
           url: "/checkout",
           name: "Check Out",
-          class: "my-2 breadcrumb-item active opacity-50",
-        },
+          class: "my-2 breadcrumb-item active opacity-50"
+        }
       ],
       carts: {},
       grandTotal: 0,
@@ -283,7 +306,7 @@ export default {
       dakotaShippingCost: 0,
 
       //radio
-      shippingRadio: "",
+      shippingRadio: ""
     };
   },
   methods: {
@@ -291,7 +314,7 @@ export default {
       try {
         let data = {
           email: this.email,
-          password: this.password,
+          password: this.password
         };
         let response = await this.$axios.$post(
           process.env.API_URL + "/api/login",
@@ -302,17 +325,17 @@ export default {
             .loginWith("laravelSanctum", {
               data: {
                 email: this.email,
-                password: this.password,
-              },
+                password: this.password
+              }
             })
             .then(async () => {
               this.$toast.success("Successfully authenticated", {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000,
+                duration: 5000
               });
               let d = {
-                carts: this.tempCart,
+                carts: this.tempCart
               };
               let r = await this.$axios.$post(
                 process.env.API_URL + "/api/carts/multiple",
@@ -331,7 +354,7 @@ export default {
               this.$toast.error(err[key][key2], {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000,
+                duration: 5000
               });
             });
           });
@@ -340,7 +363,7 @@ export default {
         this.$toasted.error(error, {
           theme: "bubble",
           position: "bottom-right",
-          duration: 5000,
+          duration: 5000
         });
         console.log(error);
       }
@@ -360,7 +383,7 @@ export default {
       try {
         let data = {
           courier: this.shippingRadio,
-          address_id: this.$auth.user.addresses[0].id, //nnti set selected
+          address_id: this.$auth.user.addresses[0].id //nnti set selected
         };
         let response = await this.$axios.$post(
           process.env.API_URL + "/api/transactions", //todo ganti link
@@ -369,23 +392,25 @@ export default {
         if (response.success == true) {
           //hapus cart local
 
-
           //router push ke pembayaran (ganti url)
-          this.$router.push("/pembayaran/"+response.data.uuid);
-          
-          this.$toast.success("Transaksi berhasil dibuat, silahkan lakukan pembayaran", {
-                theme: "bubble",
-                position: "bottom-right",
-                duration: 5000,
-              });
-        }else{
+          this.$router.push("/pembayaran/" + response.data.uuid);
+
+          this.$toast.success(
+            "Transaksi berhasil dibuat, silahkan lakukan pembayaran",
+            {
+              theme: "bubble",
+              position: "bottom-right",
+              duration: 5000
+            }
+          );
+        } else {
           let err = response.message;
           Object.keys(err).forEach((key, error) => {
             Object.keys(err[key]).forEach((key2, e) => {
               this.$toast.error(err[key][key2], {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000,
+                duration: 5000
               });
             });
           });
@@ -393,7 +418,7 @@ export default {
       } catch (err) {
         console.log(err);
       }
-    },
+    }
   },
   async mounted() {
     if (this.$auth.loggedIn) {
@@ -403,7 +428,7 @@ export default {
         );
         this.carts = carts.data;
         this.grandTotal = 0 + this.shippingCost;
-        this.carts.forEach((cart) => {
+        this.carts.forEach(cart => {
           this.grandTotal += cart.qty * cart.product.price;
           this.weightTotal += cart.qty * cart.product.weight;
         });
@@ -425,24 +450,24 @@ export default {
   computed: {
     ...mapGetters({
       tempCart: "getCheckout",
-      cartChanged: "getCartChanged",
-    }),
+      cartChanged: "getCartChanged"
+    })
   },
   watch: {
     tempCart: {
-      handler: function (carts) {
+      handler: function(carts) {
         if (!this.$auth.loggedIn && carts) {
           this.grandTotal = 0 + this.shippingCost;
 
-          carts.forEach((cart) => {
+          carts.forEach(cart => {
             if (cart.product.process == 1) {
               this.grandTotal += cart.product.qty * cart.product.price;
             }
           });
         }
       },
-      deep: true,
-    },
-  },
+      deep: true
+    }
+  }
 };
 </script>
