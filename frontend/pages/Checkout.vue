@@ -359,19 +359,30 @@ export default {
     async doCreateTransaction() {
       try {
         let data = {
-          courier:this.shippingRadio
+          courier: this.shippingRadio,
+          address_id: this.$auth.user.addresses[0].id, //nnti set selected
         };
-        let response = await this.$axios.$get(
-          process.env.API_URL + "/api/carts/multiple", //todo ganti link
+        let response = await this.$axios.$post(
+          process.env.API_URL + "/api/transactions", //todo ganti link
           data
-        ).then(()=>{
+        );
+        if (response.success == true) {
           //hapus cart local
-
-          //router push ke pembayaran
-
+          //router push ke pembayaran (ganti url)
+          this.$router.push("/pembayaran/"+response.data.uuid);
           //kasi toast notifikasi
-          
-        });
+        }else{
+          let err = response.message;
+          Object.keys(err).forEach((key, error) => {
+            Object.keys(err[key]).forEach((key2, e) => {
+              this.$toast.error(err[key][key2], {
+                theme: "bubble",
+                position: "bottom-right",
+                duration: 5000,
+              });
+            });
+          });
+        }
       } catch (err) {
         console.log(err);
       }

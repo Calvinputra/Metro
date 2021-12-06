@@ -181,6 +181,7 @@ export const actions = {
   setCartChange({ commit }, value) {
     commit("setCartChangeValue", value);
   },
+ 
 };
 
 export const mutations = {

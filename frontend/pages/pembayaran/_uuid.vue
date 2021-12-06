@@ -6,25 +6,17 @@
       <div class="container"></div>
     </section>
     <div class="text-center">
-      <h5>
-        Selesaikan Pembayaran dalam
-      </h5>
+      <h5>Selesaikan Pembayaran dalam</h5>
       <!-- bootstrap countdown nanti -->
-      <p>
-        Batas Akhir Pembayaran
-      </p>
-      <h5>
-        Kamis, 18 November 2021 23:53
-      </h5>
+      <p>Batas Akhir Pembayaran</p>
+      <h5>Kamis, 18 November 2021 23:53</h5>
     </div>
 
     <div class="container col-sm-6 mt-5">
       <div class="card bg-light">
         <div class="card-header">
           <div class="d-flex justify-content-between">
-            <p>
-              Alfamaret/Alfamidi/Lawson/Dan+dan
-            </p>
+            <p>Alfamaret/Alfamidi/Lawson/Dan+dan</p>
             <img src="/img/audiblelogo.png" alt="" />
           </div>
         </div>
@@ -32,14 +24,10 @@
           <div class="d-flex justify-content-between mb-4">
             <div>
               <span>
-                <h7>
-                  Kode Pembayaran
-                </h7>
+                <h7> Kode Pembayaran </h7>
               </span>
               <span>
-                <h5>
-                  DNK9XXj
-                </h5>
+                <h5>{{ data.uuid }}</h5>
               </span>
             </div>
             <div class="mt-3">
@@ -49,13 +37,11 @@
           <div class="d-flex justify-content-between">
             <div>
               <span>
-                <p>
-                  Total Pembayaran
-                </p>
+                <p>Total Pembayaran</p>
               </span>
               <span>
                 <h5>
-                  Rp25.600
+                  Rp {{ Number(data.grand_total).toLocaleString("id-ID") }}
                 </h5>
               </span>
             </div>
@@ -81,9 +67,7 @@
     </div>
     <br />
     <div class="text-center">
-      <h5 class="col-sm-9 ms-4">
-        Cara Pembayaran
-      </h5>
+      <h5 class="col-sm-9 ms-4">Cara Pembayaran</h5>
       <p class="col-sm-12 ms-5 ps-5">
         Pembayaran dapat dilakukan melalui retail lain dengan biaya layanan
         berikut:
@@ -101,15 +85,29 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50"
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
         },
         {
           url: "/register",
           name: "Register",
-          class: "my-2 breadcrumb-item active opacity-50"
-        }
-      ]
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
+      ],
     };
-  }
+  },
+  async asyncData({ $axios, params }) {
+    try {
+      let response = await $axios(
+        process.env.API_URL + `/api/transactions/${params.uuid}`
+      );
+      let response_data = response.data.data;
+
+      return {
+        data: response_data,
+      };
+    } catch (error) {
+      console.log(error);
+    }
+  },
 };
 </script>

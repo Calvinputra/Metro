@@ -55,6 +55,7 @@ export default {
           logout: { url: "/logout", method: "post" },
           user: { url: "/user", method: "get", propertyName: false },
         },
+        autoLogout:true,
         token: {
           property: "token",
           global: true,

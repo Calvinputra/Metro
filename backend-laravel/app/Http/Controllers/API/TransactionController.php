@@ -19,16 +19,17 @@ class TransactionController extends Controller
         $user = Customer::where('token', '=', request()->bearerToken())->first();
         return TransactionResource::collection(Transaction::where('customer_id', $user->id ?? '0')->get());
     }
-    public function show($id)
+    public function show($uuid)
     {
         $user = Customer::where('token', '=', request()->bearerToken())->first();
-        $data = Transaction::where('customer_id', $user->id ?? '0')->where('id', $id)->first();
+        $data = Transaction::where('customer_id', $user->id ?? '0')->where('uuid', $uuid)->first();
         if ($data) {
-            return new TransactionResource($data);
+            return (new TransactionResource($data))->additional(['success' => true]);
         } else {
             return response([
                 'data'   => 'Unauthorized Action',
                 'status' => 503,
+                'success' => false,
             ]);
         }
     }
@@ -37,7 +38,7 @@ class TransactionController extends Controller
         $user = Customer::where('token', '=', request()->bearerToken())->first();
 
         //validate address
-        $address = CustomerAddress::where('customer_id', $user->id)->where('id', $request->address_id)->first();
+        $address = CustomerAddress::where('customer_id', $user->id ?? 0)->where('id', $request->address_id)->first();
         if (!$address) {
             return response([
                 'success' => false,
@@ -68,7 +69,6 @@ class TransactionController extends Controller
             ], 200);
         }
 
-
         $volume = 0;
         $weight = 0;
         $total_price = 0;
@@ -77,18 +77,18 @@ class TransactionController extends Controller
         //calculate weight
         foreach ($checkout_carts as $key => $cc) {
             $weight += ($cc->qty * $cc->product->weight);
-            $volume += ($cc->product->width * $cc->product->height * $cc->product_depth);
+            $volume += ($cc->product->dimension_width * $cc->product->dimension_height * $cc->dimension_depth);
             $total_price += ($cc->qty * $cc->product->price);
             //untuk transaction detail
-            array_push($details,[
-                'product_id'=>$cc->product->id,
-                'name'=>$cc->product->name,
-                'qty'=>$cc->qty,
-                'price'=>$cc->product->price,
-                'weight'=>$cc->product->weight,
-                'width'=>$cc->product->width,
-                'height'=>$cc->product->height,
-                'depth'=>$cc->product->depth,
+            array_push($details, [
+                'product_id' => $cc->product->id,
+                'name' => $cc->product->name,
+                'qty' => $cc->qty,
+                'price' => $cc->product->price,
+                'weight' => $cc->product->weight,
+                'width' => $cc->product->dimension_width,
+                'height' => $cc->product->dimension_height,
+                'depth' => $cc->product->dimension_depth,
             ]);
         }
 
@@ -96,7 +96,7 @@ class TransactionController extends Controller
 
         //get shipping cost 
         $ship_cost_data = app('App\Http\Controllers\API\ShippingController')->getJNECost($request);
-        
+
         $ship_cost_data = $ship_cost_data->getData();
         if ($request->courier == 'jne') {
             $shipping_cost = $ship_cost_data->data[0]->cost[0]->value;
@@ -108,13 +108,11 @@ class TransactionController extends Controller
             $shipping_multiplier = 1;
         }
 
-
         $total_shipping_cost = $shipping_cost * $shipping_multiplier;
         $discount = 0;
         $grand_total = $total_price + $total_shipping_cost - $discount;
-        dd($details);
         $data = [
-            'uuid'=>Str::uuid()->toString(),
+            'uuid' => Str::uuid()->toString(),
             'customer_id' => $user->id,
             'customer_name' => $user->first_name . ' ' . $user->last_name,
             'customer_email' => $user->email,
@@ -136,11 +134,11 @@ class TransactionController extends Controller
             'shipping_province_id' => $address->province_id,
             'shipping_city_id' => $address->city_id,
         ];
-        $transaction = Transaction::create($data)->transactionDetails()->createMany($details);
+
+        $transaction = Transaction::create($data);
+        $transaction->transactionDetails()->createMany($details);
 
         //hapus checkout cart
-
-
-        return new TransactionResource($transaction);
+        return (new TransactionResource($transaction))->additional(['success' => true]);
     }
 }

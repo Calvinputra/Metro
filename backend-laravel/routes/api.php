@@ -41,4 +41,4 @@ Route::post('/carts/multiple',[CartController::class,'storeMultiple'])->middlewa
 Route::post('/checkout/get_jne_cost',[ShippingController::class,'getJNECost'])->middleware('auth:sanctum');
 
 Route::apiResource('/wishlists', WishListController::class)->middleware('auth:sanctum');
-Route::apiResource('/transaction', TransactionController::class)->middleware('auth:sanctum');
+Route::apiResource('/transactions', TransactionController::class)->middleware('auth:sanctum');

@@ -66,7 +66,9 @@ export default {
       ASSET_URL: process.env.ASSET_URL,
     };
   },
-
+  created(){
+    console.log(this.data);
+  },
   methods: {
     async addToCart(product) {
       try {

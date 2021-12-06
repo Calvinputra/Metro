@@ -22,7 +22,7 @@ class CreateTransactionDetailsTable extends Migration
             $table->double('price')->default(0);
             $table->double('weight')->default(1);
             $table->double('width')->default(1);
-            $table->double('heigth')->default(1);
+            $table->double('height')->default(1);
             $table->double('depth')->default(1);
             $table->foreign('transaction_id')->references('id')->on('transactions');
             $table->timestamps();

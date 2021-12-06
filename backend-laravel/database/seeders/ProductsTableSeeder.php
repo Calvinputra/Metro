@@ -93,7 +93,7 @@ class ProductsTableSeeder extends Seeder
                 'category_id' => 2,
                 'created_at' => '2021-11-09 07:06:07',
                 'updated_at' => '2021-11-09 07:06:07',
-                'deleted_at' => NULL,
+                'deleted_at' => '2021-11-09 07:06:07',
             ),
         ));
         

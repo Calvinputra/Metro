@@ -63,7 +63,6 @@ export default {
   async asyncData({ $axios }) {
     try {
       let wishlists = await $axios.$get(process.env.API_URL + "/api/wishlists");
-      console.log(wishlists);
       return {
         wishlists: wishlists.data,
       };
