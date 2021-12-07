@@ -102,6 +102,16 @@ class AuthController extends Controller
 
         $customer = Customer::create($data);
 
+        $customer->addresses()->create([
+            'name' => 'Home',
+            'address' => $request->address,
+            'postal_code' => $request->postal_code,
+            'country_id' => $request->country,
+            'province_id' => $request->province,
+            'city_id' => $request->city,
+
+        ]);
+
         return response([
             'success' => true,
             'data'    => $customer,
