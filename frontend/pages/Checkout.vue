@@ -208,7 +208,7 @@
       </div>
       <div class="bg-light text-black col-sm-11 ml-5 mt-5">
         <label for="step1">
-          <h5>Step 4: Konfirmasi Pembelian</h5>
+          <h5>Step 3: Konfirmasi Pembelian</h5>
         </label>
         <div class="table-responsive shopping-cart">
           <table class="table">

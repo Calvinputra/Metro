@@ -76,25 +76,29 @@
                 name="address"
                 rows="3"
               ></textarea>
-            </div>
-          </form>
-          <p style="color : red">
-            <span style="color: red">*</span>Wajib diisi
-          </p>
-          <br />
-          <button
-            type="submit"
-            class="  btn
+              <p style="color : red">
+                <span style="color: red">*</span>Wajib diisi
+              </p>
+              <div class="text-center">
+                <button
+                  type="submit"
+                  class="  btn
                   text-danger
+                  text-center
                   btn-light
                   btn-sm
                   shadow
                   rounded
-                  col-sm-4
-                  ms-5"
-          >
-            Buat Akun
-          </button>
+                  col-sm-2
+                  ms-5
+                  mr-5
+                  "
+                >
+                  Kirim
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
       <Footer />

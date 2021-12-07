@@ -9,7 +9,7 @@
             :src="ASSET_URL + '/' + JSON.parse(product.images)[0]"
             alt="Product"
         /></a>
-        <p class="row gx-0 align-items-center">
+        <p class="row gx-0 align-items-center pl-3">
           {{ product.code }} - {{ product.name }}
         </p>
       </div>
@@ -31,10 +31,10 @@
 export default {
   props: ["product", "qty", "id"],
   middleware: "auth",
-   data() {
+  data() {
     return {
       sub_total: 0,
-      ASSET_URL: process.env.ASSET_URL,
+      ASSET_URL: process.env.ASSET_URL
     };
   },
   async asyncData({ $axios }) {
@@ -42,14 +42,14 @@ export default {
       let carts = await $axios.$get(process.env.API_URL + "/api/carts");
       console.log(carts);
       return {
-        carts: carts.data,
+        carts: carts.data
       };
     } catch (error) {
       console.log(error);
     }
   },
-  created(){
-      this.sub_total = this.qty*this.product.price
+  created() {
+    this.sub_total = this.qty * this.product.price;
   }
 };
 </script>

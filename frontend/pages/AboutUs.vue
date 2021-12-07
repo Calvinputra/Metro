@@ -26,7 +26,7 @@
 
         <h4 class="text-center">Kelebihan Metro Jaya</h4>
       </div>
-      <div class="d-flex">
+      <div class="row">
         <img class="w-25 pl-5 pr-5" src="/img/metro.png" alt="" />
         <img class="w-25 pl-5 pr-5" src="/img/metro.png" alt="" />
         <img class="w-25 pl-5 pr-5" src="/img/metro.png" alt="" />

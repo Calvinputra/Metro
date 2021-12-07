@@ -27,7 +27,7 @@
         </a>
         <a
           v-if="this.$auth.loggedIn == false"
-          href="/forgotpassword"
+          href="/forgot_password"
           style="text-decoration: none"
           :class="
             'text-black nav-custom ' +
