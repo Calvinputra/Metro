@@ -62,7 +62,7 @@
         Belanja Lagi
       </button>
       <button type="button" class="btn btn-success col-sm-2">
-        Cek Status Pembayaran
+        Lanjutkan Pembayaran
       </button>
     </div>
     <br />
@@ -85,14 +85,14 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50",
+          class: "my-2 ms-3 breadcrumb-item opacity-50"
         },
         {
           url: "/register",
           name: "Register",
-          class: "my-2 breadcrumb-item active opacity-50",
-        },
-      ],
+          class: "my-2 breadcrumb-item active opacity-50"
+        }
+      ]
     };
   },
   async asyncData({ $axios, params }) {
@@ -103,11 +103,11 @@ export default {
       let response_data = response.data.data;
 
       return {
-        data: response_data,
+        data: response_data
       };
     } catch (error) {
       console.log(error);
     }
-  },
+  }
 };
 </script>

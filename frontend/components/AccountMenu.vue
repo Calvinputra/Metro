@@ -44,10 +44,14 @@
               variant="danger"
               class="m-md-2"
             >
-              <b-dropdown-item href="/change_password">Ubah Kata Sandi</b-dropdown-item>
-              <b-dropdown-item href="/riwayat_pembelian">Riwayat Pembelian</b-dropdown-item>
+              <b-dropdown-item href="/change_password"
+                >Ubah Kata Sandi</b-dropdown-item
+              >
+              <b-dropdown-item href="/riwayat_pembelian"
+                >Riwayat Pembelian</b-dropdown-item
+              >
               <b-dropdown-item href="/undang">Undang Teman</b-dropdown-item>
-              <b-dropdown-item >Keluar</b-dropdown-item>
+              <b-dropdown-item>Keluar</b-dropdown-item>
             </b-dropdown>
           </div>
         </a>
