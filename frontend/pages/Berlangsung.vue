@@ -33,15 +33,13 @@
               <p class="mb-">Lacak Pembelian Kamu di halaman ini.</p>
             </div>
 
-            <div>
-              <span class="mr-5">Status: </span>
+            <div class="mb-2">
+              <span class="mr-3">Status: </span>
               <button
                 type="submit"
                 class="
                   btn
-                  text-white
-                  btn-danger btn-sm
-                  shadow
+                  btn-sm
                   rounded
                   col-sm-2
                   ms-0
@@ -72,15 +70,54 @@
               </button>
               <button
                 type="submit"
-                class="btn text-black btn-sm col-sm-2 ms-0 ps-0 py-2 px-2"
+                class="btn text-white
+                  btn-danger btn-sm col-sm-2 ms-0 ps-0 py-2 px-2"
               >
                 Berlangsung
               </button>
             </div>
-
-            <historySelesai />
+            <hr
+              style="height: 3px; width: 100%; border-width: 0; color: red"
+              class="col-sm-12 mb-0 mt-0"
+            />
+            <div class="pl-5 ml-4 pt-2">
+              <button
+                type="submit"
+                class="
+                  btn
+                  text-white
+                  btn-danger btn-sm
+                  shadow
+                  rounded
+                  col-sm-3
+                  ms-0
+                  ps-0
+                  py-2
+                  px-2
+                "
+              >
+                Menunggu Konfirmasi
+              </button>
+              <button
+                type="submit"
+                class="btn text-black btn-sm col-sm-2 ms-0 ps-0 py-2 px-2"
+              >
+                Pesanan Diproses
+              </button>
+              <button
+                type="submit"
+                class="btn text-black btn-sm col-sm-2 ms-0 ps-0 py-2 px-2"
+              >
+                Sedang Dikirim
+              </button>
+              <button
+                type="submit"
+                class="btn text-black btn-sm col-sm-2 ms-0 ps-0 py-2 px-2"
+              >
+                Sampai Tujuan
+              </button>
+            </div>
             <historyBerlangsung />
-            <historyTidakBerhasil />
           </div>
         </div>
       </div>
