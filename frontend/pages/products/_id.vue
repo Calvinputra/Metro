@@ -115,15 +115,23 @@
                   col-sm-2
                   ms-0
                   ps-0
+                  mb-3
                   py-2
                   px-2
                 "
                 style="background-color: #f3f3f3"
                 >+ Keranjang</a
               >
-              <a class="col-sm-3" href=""
-                ><img src="/img/audiblelogo.png" alt=""
-              /></a>
+              <a
+                class="col-sm-3"
+                href=""
+                onclick="return false;"
+                @click="addToWishList(data.id)"
+                ><i
+                  :class="(data.wishlist_exist ? 'fas' : 'far') + ' fa-heart'"
+                  style="font-size: 30px !important; color: #c63442 !important"
+                ></i
+              ></a>
             </div>
           </div>
           <!-- <div class="col-sm-1"></div> -->
@@ -140,12 +148,73 @@
               <div class="d-flex">
                 <img
                   class="img-thumbnail max-width:100% height:auto"
+                  style="border: 0"
                   src="/img/emojione_star.png"
                   alt=""
                 />
-                <h2 class="">5/5</h2>
+                <h2 class="my-auto">5/5</h2>
               </div>
-              <h5 class="text-danger">Lihat Detail</h5>
+              <!-- test -->
+              <div>
+                <b-button
+                  class="text-danger bg-white btn-outline-light"
+                  v-b-modal.modal-sm
+                  variant=""
+                  >Lihat Detail</b-button
+                >
+                <div class="container">
+                  <div class="d-flex">
+                    <b-modal id="modal-sm" size="sm" title="Rating">
+                      <div class="d-flex my-2">
+                        <img
+                          class="img-thumbnail max-width:100% height:auto"
+                          src="/img/emojione_star.png"
+                          style="border: 0"
+                          alt=""
+                        />
+                        <h3 class="my-auto mx-2">5</h3>
+                      </div>
+                      <div class="d-flex my-2">
+                        <img
+                          class="img-thumbnail max-width:100% height:auto"
+                          src="/img/emojione_star.png"
+                          style="border: 0"
+                          alt=""
+                        />
+                        <h3 class="my-auto mx-2">4</h3>
+                      </div>
+                      <div class="d-flex my-2">
+                        <img
+                          class="img-thumbnail max-width:100% height:auto"
+                          src="/img/emojione_star.png"
+                          style="border: 0"
+                          alt=""
+                        />
+                        <h3 class="my-auto mx-2">3</h3>
+                      </div>
+                      <div class="d-flex my-2">
+                        <img
+                          class="img-thumbnail max-width:100% height:auto"
+                          src="/img/emojione_star.png"
+                          style="border: 0"
+                          alt=""
+                        />
+                        <h3 class="my-auto mx-2">2</h3>
+                      </div>
+                      <div class="d-flex my-2">
+                        <img
+                          class="img-thumbnail max-width:100% height:auto"
+                          src="/img/emojione_star.png"
+                          style="border: 0"
+                          alt=""
+                        />
+                        <h3 class="my-auto mx-2">1</h3>
+                      </div>
+                    </b-modal>
+                  </div>
+                </div>
+              </div>
+              <!-- test -->
             </div>
           </div>
           <div>

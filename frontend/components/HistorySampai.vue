@@ -12,8 +12,8 @@
           <img class="mr-2" src="/img/audiblelogo.png" alt="" />
         </div>
         <div>
-          <span class="border border-warning border-2 text-warning rounded-3">
-            Menunggu Konfirmasi</span
+          <span class="border border-success border-2 text-success rounded-3">
+            Sampai Tujuan</span
           >
           #ID
           <br />
@@ -30,7 +30,7 @@
           type="submit"
           class="
                         btn
-                        text-danger
+                        text-danger text-center
                         btn-light btn-sm
                         shadow
                         rounded
@@ -41,7 +41,7 @@
                         px-2
                       "
         >
-          <b> Lainnya</b>
+          <b> Beri Ulasan</b>
         </button>
       </div>
     </div>
