@@ -48,25 +48,33 @@
                   px-2
                 "
               >
-                Semua
+                <a href="/riwayat_pembelian">
+                  Semua
+                </a>
               </button>
               <button
                 type="submit"
                 class="btn text-black btn-sm col-sm-3 ms-0 ps-0 py-2 px-2"
               >
-                Menunggu Pembayaran
+                <a href="/menungguPembayaran">
+                  Menunggu Pembayaran
+                </a>
               </button>
               <button
                 type="submit"
                 class="btn text-black btn-sm col-sm-1 ms-0 ps-0 py-2 px-2"
               >
-                Selesai
+                <a href="/selesai">
+                  Selesai
+                </a>
               </button>
               <button
                 type="submit"
                 class="btn text-black btn-sm col-sm-2 ms-0 ps-0 py-2 px-2"
               >
-                Tidak Berhasil
+                <a href="/tidakberhasil">
+                  Tidak Berhasil
+                </a>
               </button>
               <button
                 type="submit"
@@ -102,19 +110,25 @@
                 type="submit"
                 class="btn text-black btn-sm col-sm-2 ms-0 ps-0 py-2 px-2"
               >
-                Pesanan Diproses
+                <a href="/prosespesan">
+                  Pesanan Diproses
+                </a>
               </button>
               <button
                 type="submit"
                 class="btn text-black btn-sm col-sm-2 ms-0 ps-0 py-2 px-2"
               >
-                Sedang Dikirim
+                <a href="/sedangkirim">
+                  Sedang Dikirim
+                </a>
               </button>
               <button
                 type="submit"
                 class="btn text-black btn-sm col-sm-2 ms-0 ps-0 py-2 px-2"
               >
-                Sampai Tujuan
+                <a href="/sampaitujuan">
+                  Sampai Tujuan
+                </a>
               </button>
             </div>
             <historyBerlangsung />

@@ -13,7 +13,7 @@
         </div>
         <div>
           <span class="border border-warning border-2 text-warning rounded-3">
-            Menunggu Konfirmasi</span
+            Pesanan Diproses</span
           >
           #ID
           <br />

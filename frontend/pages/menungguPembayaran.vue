@@ -39,10 +39,8 @@
                 type="submit"
                 class="
                   btn
-                  text-white
-                  btn-danger btn-sm
-                  shadow
-                  rounded
+                  text-black
+                  btn-sm
                   col-sm-2
                   ms-0
                   ps-0
@@ -50,15 +48,15 @@
                   px-2
                 "
               >
-                Semua
+                <a href="/riwayat_pembelian">
+                  Semua
+                </a>
               </button>
               <button
                 type="submit"
-                class="btn text-black btn-sm col-sm-3 ms-0 ps-0 py-2 px-2"
+                class="btn text-white btn-danger btn-sm col-sm-3 ms-0 ps-0 py-2 px-2"
               >
-                <a href="/menungguPembayaran">
-                  Menunggu Pembayaran
-                </a>
+                Menunggu Pembayaran
               </button>
               <button
                 type="submit"
@@ -85,10 +83,7 @@
                 </a>
               </button>
             </div>
-
-            <historySelesai />
-            <historyBerlangsung />
-            <historyTidakBerhasil />
+            <historymenungguPembayaran />
           </div>
         </div>
       </div>

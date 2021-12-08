@@ -39,9 +39,7 @@
                 type="submit"
                 class="
                   btn
-                  text-white
-                  btn-danger btn-sm
-                  shadow
+                  btn-sm
                   rounded
                   col-sm-2
                   ms-0
@@ -50,7 +48,9 @@
                   px-2
                 "
               >
-                Semua
+                <a href="/riwayat_pembelian">
+                  Semua
+                </a>
               </button>
               <button
                 type="submit"
@@ -70,11 +70,9 @@
               </button>
               <button
                 type="submit"
-                class="btn text-black btn-sm col-sm-2 ms-0 ps-0 py-2 px-2"
+                class="btn btn-danger btn-sm col-sm-2 ms-0 ps-0 py-2 px-2"
               >
-                <a href="/tidakberhasil">
-                  Tidak Berhasil
-                </a>
+                Tidak Berhasil
               </button>
               <button
                 type="submit"
@@ -86,8 +84,6 @@
               </button>
             </div>
 
-            <historySelesai />
-            <historyBerlangsung />
             <historyTidakBerhasil />
           </div>
         </div>

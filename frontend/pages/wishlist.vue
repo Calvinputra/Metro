@@ -11,12 +11,12 @@
           class="col-sm-11 mb-0 mt-0 ml-5"
         />
         <br />
-        <div class="d-flex flex-row-reverse mr-5 pr-5">
-          <div class="input-group md-form form-sm form-2 pl-0 col-sm-2">
+        <div class="d-flex flex-row-reverse mr-5">
+          <div class="input-group md-form form-sm form-2 pl-0 col-sm-3">
             <input
-              class="form-control my-0 py-1 lime-border"
+              class="form-control my-0 py-1 lime-border pl-4"
               type="text"
-              placeholder="Search"
+              placeholder="cari barang disini"
               aria-label="Search"
             />
             <div class="input-group-append">
@@ -42,33 +42,33 @@
 </template>
 <script>
 export default {
-  middleware:"auth",
+  middleware: "auth",
   data() {
     return {
       breadcrumb: [
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50",
+          class: "my-2 ms-3 breadcrumb-item opacity-50"
         },
 
         {
           url: "/wishlist",
           name: "Daftar Keinginan",
-          class: "my-2 breadcrumb-item active opacity-50",
-        },
-      ],
+          class: "my-2 breadcrumb-item active opacity-50"
+        }
+      ]
     };
   },
   async asyncData({ $axios }) {
     try {
       let wishlists = await $axios.$get(process.env.API_URL + "/api/wishlists");
       return {
-        wishlists: wishlists.data,
+        wishlists: wishlists.data
       };
     } catch (error) {
       console.log(error);
     }
-  },
+  }
 };
 </script>

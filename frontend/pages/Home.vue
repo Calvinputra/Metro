@@ -227,7 +227,7 @@
         </div>
       </section>
       <template>
-        <div class="row" controls>
+        <div class="row m-auto container" controls>
           <Card-Product
             v-for="product in products"
             :key="product.id"
