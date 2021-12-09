@@ -2,7 +2,10 @@
   <section>
     <Header />
 
-    <!-- <OldSavedModal /> -->
+    <OldSavedModal />
+
+    <b-button v-b-modal.modal-2>Detail Modal</b-button>
+
     <ModalUlasan />
 
     <Footer />

@@ -1,8 +1,6 @@
 <template>
   <section>
     <Header />
-   
-    <Footer />
+    <Footer />>
   </section>
 </template>
-

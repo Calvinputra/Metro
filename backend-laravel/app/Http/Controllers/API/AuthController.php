@@ -124,4 +124,55 @@ class AuthController extends Controller
 
         return $user ?? null;
     }
+
+    public function forgot_password(Request $request)
+    {
+        
+        $rules = [
+            'email'    => 'required|email',
+        ];
+        $messages = [
+            'email.required' => 'Email wajib diisi',
+            'email.email'    => 'Format email salah',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+        //
+        if ($validator->fails()) {
+            return response([
+                'success' => false,
+                'message' => $validator->errors(),
+            ], 201);
+        }
+        //
+
+        $user_data = Customer::where('email',$request->email)->first();
+
+
+        //TODO send email
+
+
+
+
+        return response()->json([
+            'success' => true,
+            'user_data' => $user_data,
+            //'password'=>password_hash('CALVIN123',PASSWORD_DEFAULT),
+
+        ]);
+    }
+
+    //VALIDASI TOKEN
+
+
+    //RESET PASSWORD
+    public function reset_password(Request $request){
+        //VALIDASI
+        //pASSWORD required & konfirmasi harus sama
+
+        //UPDATE PASSWORD dengan HASH password_hash(<var>,PASSWORD_DEFAULT);
+
+        //return success
+    }
+    
 }

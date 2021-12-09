@@ -42,3 +42,6 @@ Route::post('/checkout/get_jne_cost',[ShippingController::class,'getJNECost'])->
 
 Route::apiResource('/wishlists', WishListController::class)->middleware('auth:sanctum');
 Route::apiResource('/transactions', TransactionController::class)->middleware('auth:sanctum');
+
+
+Route::post('/forgot_password',[AuthController::class,'forgot_password']);
