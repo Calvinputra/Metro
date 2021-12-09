@@ -61,7 +61,7 @@
       >
         Belanja Lagi
       </button>
-      <button type="button" class="btn btn-success col-sm-2">
+      <button type="button" class="btn btn-success col-sm-2" id="pay-button">
         Lanjutkan Pembayaran
       </button>
     </div>
@@ -74,6 +74,18 @@
       </p>
     </div>
     <Footer />
+    <client-only>
+      <script type="text/javascript">
+        var payButton = document.getElementById("pay-button");
+
+        /* For example trigger on button clicked, or any time you need */
+        payButton.addEventListener("click", function () {
+          /* in this case, the snap token is retrieved from the Input Field */
+          var snapToken = "{{snapToken}}";
+          snap.pay(snapToken);
+        });
+      </script>
+    </client-only>
   </section>
 </template>
 
@@ -85,14 +97,14 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50"
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
         },
         {
           url: "/register",
           name: "Register",
-          class: "my-2 breadcrumb-item active opacity-50"
-        }
-      ]
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
+      ],
     };
   },
   async asyncData({ $axios, params }) {
@@ -103,11 +115,22 @@ export default {
       let response_data = response.data.data;
 
       return {
-        data: response_data
+        data: response_data,
+        snapToken: "b16f2eec-e7fd-40bb-b4c9-895f82fb8a6b",
       };
     } catch (error) {
       console.log(error);
     }
-  }
+  },
+  head() {
+    return {
+      script: [
+        {
+          src: "https://app.sandbox.midtrans.com/snap/snap.js",
+          "data-client-key": "SET_YOUR_CLIENT_KEY_HERE",
+        },
+      ],
+    };
+  },
 };
 </script>
