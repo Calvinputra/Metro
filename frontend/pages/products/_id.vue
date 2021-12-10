@@ -7,52 +7,38 @@
         <div class="row">
           <div class="preview col-md-6">
             <div class="preview-pic tab-content">
-              <div class="tab-pane active" id="pic-1">
-                <img
-                  :src="ASSET_URL + '/' + JSON.parse(data.images)[0]"
-                  alt="Gallery image 1"
-                  class="ecommerce-gallery-main-img active w-100"
-                />
-              </div>
+              <template v-for="(img, itemObjKey) in JSON.parse(data.images)">
+                <div
+                  class="tab-pane"
+                  :id="'pic-' + itemObjKey"
+                  :key="'pic-' + itemObjKey"
+                >
+                  <img
+                    :src="ASSET_URL + '/' + img"
+                    alt="Gallery image 1"
+                    class="ecommerce-gallery-main-img active w-100"
+                  />
+                </div>
+              </template>
+
               <div class="tab-pane" id="pic-2">
                 <img :src="ASSET_URL + '/' + JSON.parse(data.images)[1]" />
               </div>
-              <div class="tab-pane" id="pic-3">
-                <img src="http://placekitten.com/400/252" />
-              </div>
-              <div class="tab-pane" id="pic-4">
-                <img src="http://placekitten.com/400/252" />
-              </div>
-              <div class="tab-pane" id="pic-5">
-                <img src="http://placekitten.com/400/252" />
-              </div>
             </div>
             <ul class="preview-thumbnail nav nav-tabs">
-              <li class="active">
-                <a data-target="#pic-1" data-toggle="tab"
-                  ><img :src="ASSET_URL + '/' + JSON.parse(data.images)[0]"
+               <template v-for="(img, itemObjKey) in JSON.parse(data.images)">
+              <li class="" :key="'pic' + itemObjKey">
+                <a :data-target="'#pic-'+itemObjKey" data-toggle="tab"
+                  ><img :src="ASSET_URL + '/' + img"
                 /></a>
               </li>
+               </template>
               <li>
                 <a data-target="#pic-2" data-toggle="tab"
                   ><img :src="ASSET_URL + '/' + JSON.parse(data.images)[1]"
                 /></a>
               </li>
-              <li>
-                <a data-target="#pic-3" data-toggle="tab"
-                  ><img src="http://placekitten.com/200/126"
-                /></a>
-              </li>
-              <li>
-                <a data-target="#pic-4" data-toggle="tab"
-                  ><img src="http://placekitten.com/200/126"
-                /></a>
-              </li>
-              <li>
-                <a data-target="#pic-5" data-toggle="tab"
-                  ><img src="http://placekitten.com/200/126"
-                /></a>
-              </li>
+             
             </ul>
           </div>
           <div class="col-sm-6 mt-5 container">
@@ -117,6 +103,7 @@
                   py-2
                   px-2
                 "
+                @click="addToCart(data)"
                 style="background-color: #f3f3f3"
                 >+ Keranjang</a
               >
@@ -252,6 +239,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -289,6 +277,66 @@ export default {
     } catch (error) {
       console.log(error);
     }
+  },
+  methods: {
+    async addToWishList(id) {
+      try {
+        if (this.$auth.loggedIn) {
+          let data = {
+            product_id: id,
+          };
+          let response = await this.$axios.$post(
+            process.env.API_URL + "/api/wishlists",
+            data
+          );
+          if (this.data.wishlist_exist) {
+            this.$toast.success("Successfully delete a product from wishlist", {
+              theme: "bubble",
+              position: "bottom-right",
+              duration: 5000,
+            });
+          } else {
+            this.$toast.success("Successfully add a product to wishlist", {
+              theme: "bubble",
+              position: "bottom-right",
+              duration: 5000,
+            });
+          }
+
+          this.$nuxt.refresh();
+          console.log(response);
+        } else {
+          this.$router.push("/login");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async addToCart(product) {
+      try {
+        if (this.$auth.loggedIn) {
+          let data = {
+            product_id: product.id,
+          };
+          let response = await this.$axios.$post(
+            process.env.API_URL + "/api/carts",
+            data
+          );
+          this.$toast.success("Successfully add a product to cart", {
+            theme: "bubble",
+            position: "bottom-right",
+            duration: 5000,
+          });
+          console.log(response);
+        } else {
+          //this.$router.push("/login");
+          this.addProductToCart(product);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    ...mapActions(["addProductToCart"]),
   },
 };
 </script>
