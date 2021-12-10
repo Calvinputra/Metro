@@ -4,3 +4,7 @@
     <Footer />>
   </section>
 </template>
+
+<style scoped>
+
+</style>

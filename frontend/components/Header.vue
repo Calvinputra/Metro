@@ -6,7 +6,7 @@
   >
     <div class="container space-between" style="height: auto">
       <!-- Logo -->
-      <div class="col-sm-2">
+      <div id="header_logo" class="col-sm-2">
         <a href="/"
           ><img
             class="img-fluid rounded mx-auto d-block"
@@ -107,10 +107,19 @@ export default {
           position: "bottom-right",
           duration: 5000,
         });
-        setTimeout(() => {  window.location.reload(true); }, 2000);
-        
+        setTimeout(() => {
+          window.location.reload(true);
+        }, 2000);
       });
     },
   },
 };
 </script>
+
+<style lang="css" scoped>
+@media screen and (max-width: 991px) {
+  #header_logo {
+    display: none !important;
+  }
+}
+</style>

@@ -5,7 +5,10 @@ export default {
     title: "admin",
     meta: [
       { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      {
+        name: "viewport",
+        content: "width=device-width, initial-scale=1, shrink-to-fit=no",
+      },
       { hid: "description", name: "description", content: "" },
       { name: "format-detection", content: "telephone=no" },
     ],
@@ -17,14 +20,11 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ["@/assets/css/bootstrap.css", "vue-select/dist/vue-select.css"],
-  js: [
-    "@/assets/js/bootstrap.min.js",
-    "https://code.jquery.com/jquery-3.2.1.min.js",
-  ],
+  css: ["@/assets/css/bootstrap.min.css", "vue-select/dist/vue-select.css"],
+  js: ["@/assets/js/bootstrap.min.js"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{src:"~/plugins/localStorage.js",ssr:false}],
+  plugins: [{ src: "~/plugins/localStorage.js", ssr: false }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -55,7 +55,7 @@ export default {
           logout: { url: "/logout", method: "post" },
           user: { url: "/user", method: "get", propertyName: false },
         },
-        autoLogout:true,
+        autoLogout: true,
         token: {
           property: "token",
           global: true,
