@@ -40,4 +40,7 @@ class Transaction extends Model
     {
         return $this->hasMany("App\Models\TransactionLog", 'transaction_id');
     }
+    public function transactionReview(){
+        return $this->hasOne("App\Models\TransactionReview","transaction_id");
+    }
 }
