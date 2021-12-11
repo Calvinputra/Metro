@@ -31,6 +31,7 @@ class Transaction extends Model
         "shipping_country_id",
         "shipping_province_id",
         "shipping_city_id",
+        "resi_no",
     ];
     public function transactionDetails()
     {
@@ -40,7 +41,8 @@ class Transaction extends Model
     {
         return $this->hasMany("App\Models\TransactionLog", 'transaction_id');
     }
-    public function transactionReview(){
-        return $this->hasOne("App\Models\TransactionReview","transaction_id");
+    public function transactionReview()
+    {
+        return $this->hasOne("App\Models\TransactionReview", "transaction_id");
     }
 }

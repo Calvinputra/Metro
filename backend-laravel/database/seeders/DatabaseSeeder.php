@@ -42,5 +42,9 @@ class DatabaseSeeder extends Seeder
         $this->call(TransactionLogsTableSeeder::class);
         $this->call(CustomerTokensTableSeeder::class);
         $this->call(TransactionReviewsTableSeeder::class);
+        $this->call(BalancesTableSeeder::class);
+        $this->call(AccountsTableSeeder::class);
+        $this->call(BalanceLedgersTableSeeder::class);
+        $this->call(AccountLedgersTableSeeder::class);
     }
 }

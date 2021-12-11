@@ -5,12 +5,15 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Transaction;
+use App\Models\TransactionStatus;
 use App\Models\Customer;
 use App\Models\CustomerAddress;
 use App\Http\Resources\TransactionResource;
+use App\Models\AccountLedger;
 use PDO;
 use Validator;
 use Illuminate\Support\Str;
+use App\Jobs\RecalculateAccountLedgerJob;
 
 class TransactionController extends Controller
 {
@@ -149,8 +152,131 @@ class TransactionController extends Controller
 
         $transaction = Transaction::create($data);
         $transaction->transactionDetails()->createMany($details);
-
+        $transaction->transactionLogs()->create([
+            'status_id' => 1,
+            'status' => TransactionStatus::find(1)->name,
+        ]);
         //hapus checkout cart
         return (new TransactionResource($transaction))->additional(['success' => true]);
+    }
+
+    public function payment(Request $request)
+    {
+
+        //TODO callback from midtrans
+
+
+
+        $transaction = Transaction::where('id', 1)->first(); //nnti di ganti
+        if (!$transaction) {
+            return response([
+                'data'   => 'Transaction not found',
+                'status' => 404,
+                'success' => false,
+            ]);
+        }
+        //update transaction to sedang di proses
+        $transaction = tap($transaction)->update([
+            'status_id' => 2
+        ]);
+
+        //update log
+        $transaction->transactionLogs()->create([
+            'status_id' => 2,
+            'status' => TransactionStatus::find(2)->name,
+        ]);
+
+        //create ledger
+        $account_ledger = AccountLedger::create([
+            'value' => $transaction->grand_total,
+            'transaction_id' => $transaction->id,
+            'account_id' => 2, //saldo di tahan
+            'description' => 'Transfer dari ' . $transaction->customer_name . ' invoice ' . $transaction->uuid,
+        ]);
+
+        //recalculate account ledger
+        dispatch(new RecalculateAccountLedgerJob($account_ledger));
+
+        //return message
+        return response([
+            'success' => true,
+            'data' => $transaction,
+            'message' => 'Successfully Pay a Transaction'
+        ], 200);
+    }
+
+    public function finishTransaction(Request $request)
+    {
+        $user = Customer::where('token', '=', request()->bearerToken())->first();
+        if ($user) {
+            $rules = [
+                'transaction_id'  => 'required',
+            ];
+            $validator = Validator::make($request->all(), $rules);
+            if ($validator->fails()) {
+                return response([
+                    'success' => false,
+                    'message' => $validator->errors(),
+                ], 200);
+            }
+            $transaction = Transaction::find($request->transaction_id); //mungkin nnti di ganti uuid
+            if (!$transaction) {
+                return response([
+                    'data'   => 'Transaction not found',
+                    'status' => 404,
+                    'success' => false,
+                ]);
+            } else if ($transaction->customer_id != $user->id) {
+                return response([
+                    'data'   => 'Unauthorized Action',
+                    'status' => 503,
+                    'success' => false,
+                ]);
+            } else {
+                //update transaction to sedang di proses
+                $transaction = tap($transaction)->update([
+                    'status_id' => 4
+                ]);
+
+                //update log
+                $transaction->transactionLogs()->create([
+                    'status_id' => 4,
+                    'status' => TransactionStatus::find(2)->name,
+                ]);
+
+                //create ledger
+                $account_ledger = AccountLedger::create([
+                    'value' => $transaction->grand_total * -1,
+                    'transaction_id' => $transaction->id,
+                    'account_id' => 2, //saldo di tahan
+                    'description' => 'Transaksi selesai atas nama ' . $transaction->customer_name . ' invoice ' . $transaction->uuid,
+                ]);
+                //recalculate account ledger
+                dispatch(new RecalculateAccountLedgerJob($account_ledger));
+
+
+                //create ledger
+                $account_ledger = AccountLedger::create([
+                    'value' => $transaction->grand_total,
+                    'transaction_id' => $transaction->id,
+                    'account_id' => 1, //saldo
+                    'description' => 'Transaksi selesai atas nama ' . $transaction->customer_name . ' invoice ' . $transaction->uuid,
+                ]);
+                //recalculate account ledger
+                dispatch(new RecalculateAccountLedgerJob($account_ledger));
+                //return message
+                return response([
+                    'success' => true,
+                    'data' => $transaction,
+                    'message' => 'Successfully Finish a Transaction'
+                ], 200);
+            }
+        } else {
+            return response([
+                'data'   => 'Unauthorized Action',
+                'status' => 503,
+                'success' => false,
+            ]);
+        }
     }
 }

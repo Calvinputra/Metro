@@ -18,6 +18,10 @@ class CreateTransactionsTable extends Migration
             $table->id();
 
             $table->uuid('uuid');
+            $table->unsignedBigInteger('admin_id')->nullable();
+            $table->unsignedBigInteger('customer_id');
+            $table->unsignedBigInteger('status_id');
+            $table->string("resi_no")->nullable();
 
             $table->string('customer_name');
             $table->string('customer_email');
@@ -29,12 +33,8 @@ class CreateTransactionsTable extends Migration
             $table->double('shipping_cost')->default(1);
             $table->double('shipping_multiplier')->default(1);
             $table->double('total_shipping_cost')->default(1);
-            $table->double('grand_total')->default(1);
             $table->double('discount')->default(0);
-
-            $table->unsignedBigInteger('admin_id')->nullable();
-            $table->unsignedBigInteger('customer_id');
-            $table->unsignedBigInteger('status_id');
+            $table->double('grand_total')->default(1);
 
             $table->string('shipping_recipient_name');
             $table->string('shipping_recipient_number');
