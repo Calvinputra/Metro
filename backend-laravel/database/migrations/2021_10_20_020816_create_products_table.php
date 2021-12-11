@@ -28,8 +28,8 @@ class CreateProductsTable extends Migration
             $table->string('images')->nullable();
             $table->unsignedBigInteger('category_id');
             $table->timestamps();
-            $table->foreign('category_id')->references('id')->on('categories');
             $table->softDeletes();
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 

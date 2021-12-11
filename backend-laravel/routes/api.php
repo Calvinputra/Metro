@@ -23,13 +23,13 @@ use App\Http\Controllers\API\ShippingController;
 |
 */
 
-Route::get('/user', [AuthController::class,'user'])->middleware('auth:sanctum');
-
-Route::post('/login', [AuthController::class,'login']);
-Route::post('/logout',  [AuthController::class,'logout'])->middleware('auth:sanctum');
-
-Route::post('/register', [AuthController::class,'register']);
-
+//auth controller
+Route::get('/user', [AuthController::class, 'user'])->middleware('auth:sanctum');
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout',  [AuthController::class, 'logout'])->middleware('auth:sanctum');
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/forgot_password', [AuthController::class, 'forgot_password']);
+Route::post('/verify_email', [AuthController::class, 'verify_email']);
 
 Route::apiResource('/menus', MenuController::class);
 Route::apiResource('/products', ProductController::class);
@@ -37,11 +37,9 @@ Route::apiResource('/cities', CityController::class);
 Route::apiResource('/provinces', ProvinceController::class);
 Route::apiResource('/countries', CountryController::class);
 Route::apiResource('/carts', CartController::class)->middleware('auth:sanctum');
-Route::post('/carts/multiple',[CartController::class,'storeMultiple'])->middleware('auth:sanctum');
-Route::post('/checkout/get_jne_cost',[ShippingController::class,'getJNECost'])->middleware('auth:sanctum');
-
 Route::apiResource('/wishlists', WishListController::class)->middleware('auth:sanctum');
 Route::apiResource('/transactions', TransactionController::class)->middleware('auth:sanctum');
 
 
-Route::post('/forgot_password',[AuthController::class,'forgot_password']);
+Route::post('/carts/multiple', [CartController::class, 'store_multiple'])->middleware('auth:sanctum');
+Route::post('/checkout/get_jne_cost', [ShippingController::class, 'get_jne_cost'])->middleware('auth:sanctum');

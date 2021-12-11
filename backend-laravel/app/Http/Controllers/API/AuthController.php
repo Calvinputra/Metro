@@ -4,9 +4,13 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
+use App\Models\CustomerToken;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\Password;
 use Validator;
+use Carbon\Carbon;
+use Illuminate\Support\Str;
+use App\Jobs\SendEmailRegistrationJob;
 
 class AuthController extends Controller
 {
@@ -72,7 +76,7 @@ class AuthController extends Controller
         $rules = [
             'first_name'  => 'required|min:3',
             'last_name'   => 'required|min:3',
-            'phone'       => 'required|min:8',
+            'phone'       => 'required|min:8|unique:customers,phone|starts_with:08',
             'email'       => 'required|email|unique:customers,email',
             'password'    => ['required', 'confirmed', Password::min(8)->mixedCase()->numbers()->uncompromised()],
             'address'     => 'required|min:10',
@@ -83,8 +87,11 @@ class AuthController extends Controller
             'agreement_1' => 'accepted',
             'agreement_2' => 'accepted',
         ];
+        $messages = [
+            'first_name.required' => 'Nama depan wajib diisi'
+        ];
 
-        $validator = Validator::make($request->all(), $rules);
+        $validator = Validator::make($request->all(), $rules, $messages);
         if ($validator->fails()) {
             return response([
                 'success' => false,
@@ -112,10 +119,70 @@ class AuthController extends Controller
 
         ]);
 
+        $token = $this->generateToken($customer, 'REGISTER CONFIRMATION TOKEN');
+
+        //TODO SEND EMAIL
+        dispatch(new SendEmailRegistrationJob($customer, $token));
+
+       
         return response([
             'success' => true,
             'data'    => $customer,
         ], 200);
+    }
+
+    private function generateToken($customer, $type)
+    {
+        $prev_data = null;
+        do {
+            $token = Str::random(40);
+            $prev_data = CustomerToken::where('token', $token)->first(); //create unique token
+        } while ($prev_data);
+        $customer->customer_tokens()->create([
+            'type' => $type,
+            'expired_at' => Carbon::now()->addDays(3),
+            'token' => $token,
+        ]);
+        return $token;
+    }
+
+    public function verify_email(Request $request)
+    {
+        $rules = ['token' => 'required|min:40|exists:customer_tokens,token'];
+        $messages = ['token.required' => 'token wajib diisi', 'token.min' => 'token invalid'];
+        $validator = Validator::make($request->all(), $rules, $messages);
+        if ($validator->fails()) {
+            return response([
+                'success' => false,
+                'message' => $validator->errors(),
+            ], 200);
+        }
+        $token = CustomerToken::where('token', $request->token)->first();
+        if ($token) {
+            if ($token->used == false) {
+
+                $token->update(['used' => true]);
+                $token->customer()->update([
+                    'email_verified_at' => Carbon::now(),
+                ]);
+                return response()->json([
+                    'success' => true,
+                    'message' => ['msg' => ['Succesfully Verify your email']],
+                    'data' => $token->customer,
+                ]);
+            } else {
+                $response = [
+                    'success' => false,
+                    'message' => ['msg' => ['token expired']],
+                ];
+            }
+        } else {
+            $response = [
+                'success' => false,
+                'message' => ['msg' => ['token invalid']],
+            ];
+        }
+        return response()->json($response);
     }
 
     public function user()
@@ -127,7 +194,7 @@ class AuthController extends Controller
 
     public function forgot_password(Request $request)
     {
-        
+
         $rules = [
             'email'    => 'required|email',
         ];
@@ -146,8 +213,10 @@ class AuthController extends Controller
         }
         //
 
-        $user_data = Customer::where('email',$request->email)->first();
+        $user_data = Customer::where('email', $request->email)->first();
 
+
+        //GENERATE TOKEN
 
         //TODO send email
 
@@ -166,7 +235,8 @@ class AuthController extends Controller
 
 
     //RESET PASSWORD
-    public function reset_password(Request $request){
+    public function reset_password(Request $request)
+    {
         //VALIDASI
         //pASSWORD required & konfirmasi harus sama
 
@@ -174,5 +244,4 @@ class AuthController extends Controller
 
         //return success
     }
-    
 }

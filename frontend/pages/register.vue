@@ -395,10 +395,34 @@ export default {
         if (response.success) {
           //success registration
           this.showDismissibleAlert = false;
-          //this.$router.push("/welcome");
+          this.$toast.success("Successfully register", {
+            theme: "bubble",
+            position: "bottom-right",
+            duration: 5000,
+          });
+          await this.$auth.loginWith("laravelSanctum", {
+            data: {
+              email: this.email,
+              password: this.password,
+            },
+          });
+          setTimeout(() => {
+            window.location.reload(true);
+          }, 1000);
+          this.$router.push("/");
         } else {
           this.errors = response.message;
           this.showDismissibleAlert = true;
+          let err = response.message;
+          Object.keys(err).forEach((key, error) => {
+            Object.keys(err[key]).forEach((key2, e) => {
+              this.$toast.error(err[key][key2], {
+                theme: "bubble",
+                position: "bottom-right",
+                duration: 5000,
+              });
+            });
+          });
         }
         console.log(response);
       } catch (error) {

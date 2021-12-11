@@ -28,14 +28,16 @@ Route::group(['prefix' => 'debug'], function () {
     });
 });
 
-Route::get('send-mail', function () {
+Route::get('send_mail', function () {
     //https://www.itsolutionstuff.com/post/laravel-8-mail-laravel-8-send-email-tutorialexample.html
-    $details = [
-        'title' => 'Mail from ItSolutionStuff.com',
-        'body'  => 'This is for testing email using smtp',
-    ];
-
-    \Mail::to('jonathanchang96@gmail.com')->send(new \App\Mail\MyTestMail($details));
-
-    dd("Email is Sent.");
+    $beautymail = app()->make(Snowfire\Beautymail\Beautymail::class);
+    $beautymail->send('emails.register', [
+        'name' => 'Jonathan',
+        'url' => 'https://google.com',
+    ], function ($message) {
+        $message
+            ->from('bar@example.com')
+            ->to('jonathanchang96@gmail.com', 'John Smith')
+            ->subject('Welcome!');
+    });
 });

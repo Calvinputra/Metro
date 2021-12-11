@@ -75,7 +75,7 @@ class CartController extends Controller
         }
     }
 
-    public function storeMultiple(Request $request)
+    public function store_multiple(Request $request)
     {
         //function when logged in push from vuex to database
         $user = Customer::where('token', '=', request()->bearerToken())->first();

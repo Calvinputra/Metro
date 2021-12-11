@@ -17,7 +17,19 @@ class TransactionController extends Controller
     public function index(Request $request)
     {
         $user = Customer::where('token', '=', request()->bearerToken())->first();
-        return TransactionResource::collection(Transaction::where('customer_id', $user->id ?? '0')->get());
+        $transactions = Transaction::where('customer_id', $user->id ?? '0')->orderBy('created_at', 'DESC');
+        if (strcasecmp(($request->page_filter ?? ''), 'menunggu_pembayaran') == 0) {
+            $transactions->where('status_id', 1);
+        } else if (strcasecmp(($request->page_filter ?? ''), 'selesai') == 0) {
+            $transactions->where('status_id', 4);
+        } else if (strcasecmp(($request->page_filter ?? ''), 'tidak_berhasil') == 0) {
+            $transactions->where('status_id', 5);
+        } else if (strcasecmp(($request->page_filter ?? ''), 'berlangsung') == 0) {
+            $transactions->where(function ($q) {
+                $q->where('status_id', 2)->orWhere('status_id', 3);
+            });
+        }
+        return TransactionResource::collection($transactions->paginate($request->paginate ?? 25));
     }
     public function show($uuid)
     {

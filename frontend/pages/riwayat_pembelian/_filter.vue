@@ -221,3 +221,22 @@
     </client-only>
   </section>
 </template>
+
+<script>
+export default {
+  // middleware: "auth",
+  async asyncData({ $axios }) {
+    try {
+      let transactions = await $axios.$get(
+        process.env.API_URL + "/api/transactions"
+      );
+      console.log(transactions);
+      return {
+        transactions: transactions.data,
+      };
+    } catch (error) {
+      console.log(error);
+    }
+  },
+};
+</script>

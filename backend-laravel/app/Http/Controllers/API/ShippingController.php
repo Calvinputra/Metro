@@ -9,7 +9,7 @@ use App\Models\Customer;
 
 class ShippingController extends Controller
 {
-    public function getJNECost(Request $request)
+    public function get_jne_cost(Request $request)
     {
         $user = Customer::where('token', '=', request()->bearerToken())->first();
         if ($user) {
@@ -19,13 +19,13 @@ class ShippingController extends Controller
             }
             $response = Http::asform()->withHeaders([
                 'key' => env('RAJAONGKIR_KEY')
-            ])->post(env('RAJAONGKIR_API_URL'.'/basic/cost', 'https://api.rajaongkir.com/basic/cost'), [
+            ])->post(env('RAJAONGKIR_API_URL' . '/basic/cost', 'https://api.rajaongkir.com/basic/cost'), [
                 'origin' => 151,
                 'destination' => $user->addresses->first()->city_id,
                 'courier' => 'jne',
                 'weight' => $weight_total,
             ]);
-            $data = json_decode($response->body(),false);
+            $data = json_decode($response->body(), false);
             return response()->json([
                 'data'   => $data->rajaongkir->results[0]->costs,
                 'status' => 200,

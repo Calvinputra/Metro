@@ -192,7 +192,7 @@ export default {
               });
               setTimeout(() => {
                 window.location.reload(true);
-              }, 2000);
+              }, 1000);
             });
         } else {
           this.errors = response.message;

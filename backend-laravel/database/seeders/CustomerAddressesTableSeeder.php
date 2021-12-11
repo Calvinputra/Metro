@@ -33,6 +33,34 @@ class CustomerAddressesTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
+            1 => 
+            array (
+                'id' => 2,
+                'name' => 'Home',
+                'address' => 'Jalan 321 jakarta',
+                'postal_code' => '11111',
+                'customer_id' => 6,
+                'country_id' => 1,
+                'province_id' => 6,
+                'city_id' => 151,
+                'created_at' => '2021-12-11 04:48:02',
+                'updated_at' => '2021-12-11 04:48:02',
+                'deleted_at' => NULL,
+            ),
+            2 => 
+            array (
+                'id' => 3,
+                'name' => 'Home',
+                'address' => 'Jalan ABC Jakarta',
+                'postal_code' => '11111',
+                'customer_id' => 7,
+                'country_id' => 1,
+                'province_id' => 6,
+                'city_id' => 151,
+                'created_at' => '2021-12-11 04:49:35',
+                'updated_at' => '2021-12-11 04:49:35',
+                'deleted_at' => NULL,
+            ),
         ));
         
         
