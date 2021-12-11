@@ -17,6 +17,7 @@ class MenuController extends Controller
     public function index()
     {
         return response()->json([
+            'success' => false,
             'data'   => 'Unauthorized Action',
             'status' => 503,
         ]);
@@ -41,6 +42,7 @@ class MenuController extends Controller
         // return new BookResource($book);
 
         return response()->json([
+            'success' => false,
             'data'   => 'Unauthorized Action',
             'status' => 503,
         ], 503);
@@ -80,6 +82,7 @@ class MenuController extends Controller
 
         // return new BookResource($book);
         return response()->json([
+            'success' => false,
             'data'   => 'Unauthorized Action',
             'status' => 503,
         ], 503);
@@ -97,6 +100,7 @@ class MenuController extends Controller
 
         // return response()->json(null, 204);
         return response()->json([
+            'success' => false,
             'data'   => 'Unauthorized Action',
             'status' => 503,
         ], 503);

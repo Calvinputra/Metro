@@ -29,11 +29,11 @@ class Customer extends Model
     {
         return $this->hasMany('App\Models\Cart', 'customer_id');
     }
-    public function checkout_carts()
+    public function checkoutCarts()
     {
         return $this->hasMany('App\Models\Cart', 'customer_id')->where('process', 1)->with('product');
     }
-    public function customer_tokens()
+    public function customerTokens()
     {
         return $this->hasMany('App\Models\CustomerToken', 'customer_id');
     }

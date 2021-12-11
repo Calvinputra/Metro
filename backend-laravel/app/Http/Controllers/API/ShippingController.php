@@ -9,12 +9,12 @@ use App\Models\Customer;
 
 class ShippingController extends Controller
 {
-    public function get_jne_cost(Request $request)
+    public function getJneCost(Request $request)
     {
         $user = Customer::where('token', '=', request()->bearerToken())->first();
         if ($user) {
             $weight_total = 0;
-            foreach ($user->checkout_carts as $key => $cc) {
+            foreach ($user->checkoutCarts as $key => $cc) {
                 $weight_total += ($cc->product->weight * $cc->qty);
             }
             $response = Http::asform()->withHeaders([
@@ -32,6 +32,7 @@ class ShippingController extends Controller
             ]);
         } else {
             return response()->json([
+                'success' => false,
                 'data'   => 'Unauthorized Action',
                 'status' => 503,
             ]);

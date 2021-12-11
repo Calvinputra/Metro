@@ -19,8 +19,8 @@ class ProductResource extends JsonResource
         $wishlist_exist = false;
         if ($user) {
             foreach ($user->wishlists as $key => $wl) {
-                if($wl->product_id==$this->id){
-                    $wishlist_exist=true;
+                if ($wl->product_id == $this->id) {
+                    $wishlist_exist = true;
                 }
             }
         }
@@ -40,6 +40,8 @@ class ProductResource extends JsonResource
             'code'             => $this->code,
             'attributes'       => $this->attributes,
             'wishlist_exist'   => $wishlist_exist,
+            'reviews'          => $this->reviews,
+            'rating'           => $this->reviews->avg('rating')??0,
 
         ];
     }

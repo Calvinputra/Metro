@@ -24,6 +24,7 @@ class CartController extends Controller
             return CartResource::collection($carts->get());
         } else {
             return response()->json([
+                'success' => false,
                 'data'   => 'Unauthorized Action',
                 'status' => 503,
             ]);
@@ -69,13 +70,14 @@ class CartController extends Controller
             ], 200);
         } else {
             return response()->json([
+                'success' => false,
                 'data'   => 'Unauthorized Action',
                 'status' => 503,
             ]);
         }
     }
 
-    public function store_multiple(Request $request)
+    public function storeMultiple(Request $request)
     {
         //function when logged in push from vuex to database
         $user = Customer::where('token', '=', request()->bearerToken())->first();
@@ -128,6 +130,7 @@ class CartController extends Controller
             return response()->json([
                 'data'   => 'Unauthorized Action',
                 'status' => 503,
+                'success' => false,
             ]);
         }
     }

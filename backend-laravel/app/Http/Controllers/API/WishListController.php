@@ -19,6 +19,7 @@ class WishListController extends Controller
             return WishListResource::collection(Wishlist::where('customer_id', $user->id)->with('product')->orderBy('created_at', 'DESC')->get());
         } else {
             return response()->json([
+                'success' => false,
                 'data'   => 'Unauthorized Action',
                 'status' => 201,
             ]);
@@ -54,10 +55,8 @@ class WishListController extends Controller
             if ($wl) {
                 $wl->delete();
                 $wl = null;
-
             } else {
                 $wl = Wishlist::create($data);
-
             }
 
             return response([
@@ -66,11 +65,10 @@ class WishListController extends Controller
             ], 200);
         } else {
             return response()->json([
+                'success' => false,
                 'data'   => 'Unauthorized Action',
                 'status' => 503,
             ]);
         }
-
     }
-
 }

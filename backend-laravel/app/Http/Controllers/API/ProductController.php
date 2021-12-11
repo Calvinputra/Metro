@@ -37,6 +37,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         return response()->json([
+            'success' => false,
             'data'   => 'Unauthorized Action',
             'status' => 503,
         ]);
@@ -71,6 +72,7 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         return response()->json([
+            'success' => false,
             'data'   => 'Unauthorized Action',
             'status' => 503,
         ]);
@@ -85,6 +87,7 @@ class ProductController extends Controller
     public function destroy($id)
     {
         return response()->json([
+            'success' => false,
             'data'   => 'Unauthorized Action',
             'status' => 503,
         ]);

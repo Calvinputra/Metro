@@ -73,7 +73,7 @@ class TransactionController extends Controller
 
 
         //validate check out not empty
-        $checkout_carts = $user->checkout_carts;
+        $checkout_carts = $user->checkoutCarts;
         if ($checkout_carts->count() < 1) {
             return response([
                 'success' => false,
@@ -107,7 +107,7 @@ class TransactionController extends Controller
         $shipping_cost = 0;
 
         //get shipping cost 
-        $ship_cost_data = app('App\Http\Controllers\API\ShippingController')->getJNECost($request);
+        $ship_cost_data = app('App\Http\Controllers\API\ShippingController')->getJneCost($request);
 
         $ship_cost_data = $ship_cost_data->getData();
         if ($request->courier == 'jne') {

@@ -138,7 +138,7 @@ class AuthController extends Controller
             $token = Str::random(40);
             $prev_data = CustomerToken::where('token', $token)->first(); //create unique token
         } while ($prev_data);
-        $customer->customer_tokens()->create([
+        $customer->customerTokens()->create([
             'type' => $type,
             'expired_at' => Carbon::now()->addDays(3),
             'token' => $token,
@@ -146,7 +146,7 @@ class AuthController extends Controller
         return $token;
     }
 
-    public function verify_email(Request $request)
+    public function verifyEmail(Request $request)
     {
         $rules = ['token' => 'required|min:40|exists:customer_tokens,token'];
         $messages = ['token.required' => 'token wajib diisi', 'token.min' => 'token invalid'];
@@ -192,7 +192,7 @@ class AuthController extends Controller
         return $user ?? null;
     }
 
-    public function forgot_password(Request $request)
+    public function forgotPassword(Request $request)
     {
 
         $rules = [
