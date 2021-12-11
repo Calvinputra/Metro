@@ -233,7 +233,7 @@ class TransactionController extends Controller
                     'success' => false,
                 ]);
             } else {
-                //update transaction to sedang di proses
+                //update transaction to selesai
                 $transaction = tap($transaction)->update([
                     'status_id' => 4
                 ]);
@@ -241,7 +241,7 @@ class TransactionController extends Controller
                 //update log
                 $transaction->transactionLogs()->create([
                     'status_id' => 4,
-                    'status' => TransactionStatus::find(2)->name,
+                    'status' => TransactionStatus::find(4)->name,
                 ]);
 
                 //create ledger
