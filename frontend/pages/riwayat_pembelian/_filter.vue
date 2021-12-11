@@ -191,10 +191,26 @@
                 </a>
               </template>
             </div>
-
-            <historySelesai />
-            <historyBerlangsung />
-            <historyTidakBerhasil />
+            <section v-for="transaction in transactions" :key="transaction.id">
+              <template v-if="transaction.status_id == 1">
+                <historyMenungguPembayaran />
+              </template>
+              <template
+                v-if="transaction.status_id == 2 || transaction.status_id == 3"
+              >
+                <historyBerlangsung />
+              </template>
+              <template v-if="transaction.status_id == 4">
+                <historySelesai />
+              </template>
+              <template v-if="transaction.status_id == 5">
+                <historyTidakBerhasil />
+              </template>
+            </section>
+            <!-- TODO tulisan belum ada transaksi -->
+            <template v-if="Object.keys(transactions).length === 0">
+              Belum ada transaksi
+            </template>
           </div>
         </div>
       </div>
@@ -224,13 +240,22 @@
 
 <script>
 export default {
-  // middleware: "auth",
-  async asyncData({ $axios }) {
+  middleware: "auth",
+  async asyncData({ $axios, params }) {
     try {
-      let transactions = await $axios.$get(
-        process.env.API_URL + "/api/transactions"
-      );
-      console.log(transactions);
+      let url = process.env.API_URL + "/api/transactions";
+      if (params.filter == "menunggu_pembayaran") {
+        url = url + "?page_filter=menunggu_pembayaran";
+      } else if (params.filter == "selesai") {
+        url = url + "?page_filter=selesai";
+      } else if (params.filter == "tidak_berhasil") {
+        url = url + "?page_filter=tidak_berhasil";
+      } else if (params.filter == "berlangsung") {
+        url = url + "?page_filter=berlangsung";
+      }
+      //console.log(url);
+      let transactions = await $axios.$get(url);
+      //console.log(transactions);
       return {
         transactions: transactions.data,
       };
