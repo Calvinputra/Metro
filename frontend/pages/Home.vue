@@ -23,7 +23,7 @@ export default {
   data() {
     return {
       slide: 0,
-      sliding: null,
+      sliding: null
     };
   },
   methods: {
@@ -32,18 +32,18 @@ export default {
     },
     onSlideEnd(slide) {
       this.sliding = false;
-    },
+    }
   },
   async asyncData({ $axios }) {
     try {
       let products = await $axios.$get(process.env.API_URL + "/api/products");
       console.log(products);
       return {
-        products: products.data,
+        products: products.data
       };
     } catch (error) {
       console.log(error);
     }
-  },
+  }
 };
 </script>
