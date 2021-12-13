@@ -38,7 +38,7 @@
               <template
                 v-if="
                   this.$route.params.filter == '' ||
-                  this.$route.params.filter == undefined
+                    this.$route.params.filter == undefined
                 "
               >
                 <a
@@ -50,7 +50,7 @@
                     btn-danger btn-sm
                     shadow
                     rounded
-                    col-sm-2
+                    col-sm-1
                     ms-0
                     ps-0
                     py-2
@@ -64,7 +64,7 @@
                 <a
                   href="/riwayat_pembelian"
                   type="submit"
-                  class="btn text-black btn-sm col-sm-3 ms-0 ps-0 py-2 px-2"
+                  class="btn text-black btn-sm col-sm-1 ms-0 ps-0 py-2 px-2"
                 >
                   Semua
                 </a>
@@ -82,7 +82,7 @@
                     btn-danger btn-sm
                     shadow
                     rounded
-                    col-sm-2
+                    col-sm-3
                     ms-0
                     ps-0
                     py-2
@@ -111,7 +111,7 @@
                     btn-danger btn-sm
                     shadow
                     rounded
-                    col-sm-2
+                    col-sm-1
                     ms-0
                     ps-0
                     py-2
@@ -268,11 +268,11 @@ export default {
       );
       //console.log(transactions);
       return {
-        transactions: transactions.data,
+        transactions: transactions.data
       };
     } catch (error) {
       console.log(error);
     }
-  },
+  }
 };
 </script>

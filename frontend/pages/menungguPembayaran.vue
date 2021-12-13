@@ -54,7 +54,7 @@
               </button>
               <button
                 type="submit"
-                class="btn text-white btn-danger btn-sm col-sm-3 ms-0 ps-0 py-2 px-2"
+                class="btn text-white btn-danger btn-sm col-sm-2 ms-0 ps-0 py-2 px-2"
               >
                 Menunggu Pembayaran
               </button>
