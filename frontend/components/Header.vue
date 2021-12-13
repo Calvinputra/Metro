@@ -4,7 +4,97 @@
     id="navbar"
     class="navbar sticky-top navbar-expand-lg navbar-light bg-light"
   >
-    <div class="container space-between" style="height: auto">
+    <!-- WEB -->
+    <div
+      id="header-webview"
+      class="container space-between"
+      style="height: auto"
+    >
+      <!-- Logo -->
+      <div id="header_logo" class="col-sm-2">
+        <a href="/"
+          ><img
+            class="img-fluid rounded mx-auto d-block"
+            src="/img/audiblelogo.png"
+            alt=""
+        /></a>
+      </div>
+      <Search :data="menu" />
+
+      <!-- hamburger button -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- icon -->
+      <div class="collapse navbar-collapse center" id="navbarScroll">
+        <div id="icon navbar" class="container-fluid ms-4">
+          <div class="col-sm-4" style="padding: 0">
+            <b-dropdown
+              id="dropdown-1"
+              variant="transparent"
+              text=""
+              class="ms-12"
+            >
+              <template slot="button-content">
+                <i
+                  class="py-0 fa fa-user"
+                  style="font-size: 30px !important"
+                ></i>
+                <em></em>
+              </template>
+              <b-dropdown-item v-if="this.$auth.loggedIn"
+                >Akun Saya</b-dropdown-item
+              >
+              <b-dropdown-item
+                v-if="this.$auth.loggedIn"
+                href="/riwayat_pembelian"
+                >Riwayat Pembelian</b-dropdown-item
+              >
+              <b-dropdown-item v-if="!this.$auth.loggedIn" href="/login"
+                >Login</b-dropdown-item
+              >
+              <b-dropdown-item v-if="!this.$auth.loggedIn" href="/register"
+                >Register</b-dropdown-item
+              >
+
+              <b-dropdown-divider></b-dropdown-divider>
+
+              <b-dropdown-item v-if="this.$auth.loggedIn" @click="logout" active
+                >Logout</b-dropdown-item
+              >
+              <b-dropdown-item disabled>Disabled action</b-dropdown-item>
+            </b-dropdown>
+          </div>
+          <div class="col-sm-4">
+            <a href="/wishlist"
+              ><i
+                class="fas fa-heart"
+                style="font-size: 30px !important; color: #c63442 !important"
+              ></i
+            ></a>
+          </div>
+          <div class="col-sm-4">
+            <a href="/cart"><img src="/img/cart.png" alt="" /></a>
+          </div>
+          <!-- Kosong -->
+        </div>
+      </div>
+    </div>
+
+    <!-- MOBILE -->
+    <div
+      id="header-mobileview"
+      class="container space-between"
+      style="height: auto"
+    >
       <!-- Logo -->
       <div id="header_logo" class="col-sm-2">
         <a href="/"
@@ -87,6 +177,7 @@
   <!-- Akhir Navbar -->
 </template>
 
+
 <script>
 import { mapGetters } from "vuex";
 export default {
@@ -117,9 +208,20 @@ export default {
 </script>
 
 <style lang="css" scoped>
+#header-mobileview {
+  display: none;
+}
+/* 0 - 991 px */
 @media screen and (max-width: 991px) {
   #header_logo {
     display: none !important;
+  }
+
+  #header-webview {
+    display: none;
+  }
+  #header-mobileview {
+    display: flex;
   }
 }
 </style>

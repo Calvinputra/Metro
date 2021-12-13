@@ -28,16 +28,34 @@ Route::group(['prefix' => 'debug'], function () {
     });
 });
 
-Route::get('send_mail', function () {
+Route::get('send_mail_register', function () {
     //https://www.itsolutionstuff.com/post/laravel-8-mail-laravel-8-send-email-tutorialexample.html
     $beautymail = app()->make(Snowfire\Beautymail\Beautymail::class);
+
+    //nama viewnya
     $beautymail->send('emails.register', [
         'name' => 'Jonathan',
         'url' => 'https://google.com',
     ], function ($message) {
         $message
             ->from('bar@example.com')
-            ->to('jonathanchang96@gmail.com', 'John Smith')
+            ->to(env('TESTING_EMAIL'), 'John Smith')
+            ->subject('Welcome!');
+    });
+});
+
+Route::get('send_mail_reset_password', function () {
+    //https://www.itsolutionstuff.com/post/laravel-8-mail-laravel-8-send-email-tutorialexample.html
+    $beautymail = app()->make(Snowfire\Beautymail\Beautymail::class);
+
+    //nama viewnya
+    $beautymail->send('emails.register', [
+        'name' => 'Jonathan',
+        'url' => 'https://google.com',
+    ], function ($message) {
+        $message
+            ->from('bar@example.com')
+            ->to(env('TESTING_EMAIL'), 'John Smith')
             ->subject('Welcome!');
     });
 });
