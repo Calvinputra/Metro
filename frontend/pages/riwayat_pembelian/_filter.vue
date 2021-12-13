@@ -243,18 +243,29 @@ export default {
   middleware: "auth",
   async asyncData({ $axios, params }) {
     try {
-      let url = process.env.API_URL + "/api/transactions";
+      let data = {};
       if (params.filter == "menunggu_pembayaran") {
-        url = url + "?page_filter=menunggu_pembayaran";
+        data = {
+          page_filter: "menunggu_pembayaran",
+        };
       } else if (params.filter == "selesai") {
-        url = url + "?page_filter=selesai";
+        data = {
+          page_filter: "selesai",
+        };
       } else if (params.filter == "tidak_berhasil") {
-        url = url + "?page_filter=tidak_berhasil";
+        data = {
+          page_filter: "tidak_berhasil",
+        };
       } else if (params.filter == "berlangsung") {
-        url = url + "?page_filter=berlangsung";
+        data = {
+          page_filter: "berlangsung",
+        };
       }
       //console.log(url);
-      let transactions = await $axios.$get(url);
+      let transactions = await $axios.$get(
+        process.env.API_URL + "/api/transactions",
+        data
+      );
       //console.log(transactions);
       return {
         transactions: transactions.data,
