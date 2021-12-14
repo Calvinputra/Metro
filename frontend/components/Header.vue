@@ -19,6 +19,7 @@
             alt=""
         /></a>
       </div>
+
       <Search :data="menu" />
 
       <!-- hamburger button -->
@@ -82,7 +83,7 @@
             ></a>
           </div>
           <div class="col-sm-4">
-            <a href="/cart"><img src="/img/cart.png" alt="" /></a>
+            <a href="/cart"><img src="/img/cart.png" alt=""/></a>
           </div>
           <!-- Kosong -->
         </div>
@@ -95,20 +96,8 @@
       class="container space-between"
       style="height: auto"
     >
-      <!-- Logo -->
-      <div id="header_logo" class="col-sm-2">
-        <a href="/"
-          ><img
-            class="img-fluid rounded mx-auto d-block"
-            src="/img/audiblelogo.png"
-            alt=""
-        /></a>
-      </div>
-      <Search :data="menu" />
-
-      <!-- hamburger button -->
       <button
-        class="navbar-toggler"
+        class="navbar-toggler text-left"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#navbarScroll"
@@ -118,6 +107,32 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
+      <!-- Logo -->
+      <div id="header_logo" class="col-sm-2">
+        <a href="/"
+          ><img
+            class="img-fluid rounded mx-auto d-block"
+            src="/img/audiblelogo.png"
+            alt=""
+        /></a>
+      </div>
+      <div>
+        <img src="/img/audiblelogo.png" alt="" />
+      </div>
+      <search-mobile />
+
+      <!-- hamburger button -->
+      <!-- <button
+        class="navbar-toggler text-left"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
       <!-- icon -->
       <div class="collapse navbar-collapse center" id="navbarScroll">
         <div id="icon navbar" class="container-fluid ms-4">
@@ -167,7 +182,7 @@
             ></a>
           </div>
           <div class="col-sm-4">
-            <a href="/cart"><img src="/img/cart.png" alt="" /></a>
+            <a href="/cart"><img src="/img/cart.png" alt=""/></a>
           </div>
           <!-- Kosong -->
         </div>
@@ -177,18 +192,19 @@
   <!-- Akhir Navbar -->
 </template>
 
-
 <script>
 import { mapGetters } from "vuex";
+import SearchMobile from "./SearchMobile.vue";
 export default {
+  components: { SearchMobile },
   created() {
     this.$store.dispatch("fetchHeader");
   },
 
   computed: {
     ...mapGetters({
-      menu: "getHeader",
-    }),
+      menu: "getHeader"
+    })
   },
   methods: {
     async logout() {
@@ -196,14 +212,14 @@ export default {
         this.$toast.success("Successfully logout", {
           theme: "bubble",
           position: "bottom-right",
-          duration: 5000,
+          duration: 5000
         });
         setTimeout(() => {
           window.location.reload(true);
         }, 1000);
       });
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -212,7 +228,7 @@ export default {
   display: none;
 }
 /* 0 - 991 px */
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 500px) {
   #header_logo {
     display: none !important;
   }

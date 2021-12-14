@@ -5,7 +5,8 @@
     <!-- Section: Social media -->
 
     <!-- Section: Links  -->
-    <section class="">
+    <!-- Website -->
+    <section class="" id="footer-webview">
       <div class="container text-center text-md-start mt-5">
         <!-- Grid row -->
         <div class="row mt-3">
@@ -132,12 +133,23 @@
     <!-- Section: Links  -->
 
     <!-- Copyright -->
-    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05)">
-      © 2021 Copyright:
-      <a class="text-reset fw-bold" href="https://mdbootstrap.com/"
-        >MDBootstrap.com</a
-      >
-    </div>
+    <!-- mobile -->
+    <section class="mt-2 justify-content-around" id="footer-mobileview">
+      <div class="d-flex">
+        <i
+          class="fas fa-heart mr-5 col-sm-4 pl-5 pr-5"
+          style="font-size: 30px !important; color: #c63442 !important"
+        ></i>
+        <i
+          class="fas fa-heart mr-5 col-sm-4 pl-5 pr-4"
+          style="font-size: 30px !important; color: #c63442 !important"
+        ></i>
+        <i
+          class="fas fa-heart mr-5 col-sm-4 pl-5 pr-3"
+          style="font-size: 30px !important; color: #c63442 !important"
+        ></i>
+      </div>
+    </section>
     <!-- Copyright -->
   </footer>
   <!-- Akhir Footer -->
@@ -160,3 +172,22 @@ export default {
   }
 };
 </script>
+
+<style lang="css" scoped>
+#footer-mobileview {
+  display: none;
+}
+/* 0 - 991 px */
+@media screen and (max-width: 500px) {
+  #footer_logo {
+    display: none !important;
+  }
+
+  #footer-webview {
+    display: none;
+  }
+  #footer-mobileview {
+    display: flex;
+  }
+}
+</style>
