@@ -29,7 +29,8 @@ Route::get('/user', [AuthController::class, 'user'])->middleware('auth:sanctum')
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout',  [AuthController::class, 'logout'])->middleware('auth:sanctum');
 Route::post('/register', [AuthController::class, 'register']);
-Route::post('/forgot_password', [AuthController::class, 'forgotPassword']);
+Route::post('/forgot_password', [AuthController::class, 'forgotPasswordRequest']);
+Route::post('/reset_password', [AuthController::class, 'resetPassword']);
 Route::post('/verify_email', [AuthController::class, 'verifyEmail']);
 
 Route::apiResource('/menus', MenuController::class);

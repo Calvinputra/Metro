@@ -11,6 +11,8 @@ use Validator;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use App\Jobs\SendEmailRegistrationJob;
+use App\Jobs\SendEmailResetPasswordRequestJob;
+
 
 class AuthController extends Controller
 {
@@ -57,6 +59,7 @@ class AuthController extends Controller
 
         return response($response, 201);
     }
+    
     public function logout()
     {
         $user = Customer::where('token', '=', request()->bearerToken())->first();
@@ -71,6 +74,7 @@ class AuthController extends Controller
             'success' => true,
         ], 200);
     }
+
     public function register(Request $request)
     {
         $rules = [
@@ -124,13 +128,14 @@ class AuthController extends Controller
         //TODO SEND EMAIL
         dispatch(new SendEmailRegistrationJob($customer, $token));
 
-       
+
         return response([
             'success' => true,
             'data'    => $customer,
         ], 200);
     }
 
+    //GENERATE TOKEN FUNCTION
     private function generateToken($customer, $type)
     {
         $prev_data = null;
@@ -146,6 +151,7 @@ class AuthController extends Controller
         return $token;
     }
 
+    //TO VERIFY EMAIL FROM TOKEN
     public function verifyEmail(Request $request)
     {
         $rules = ['token' => 'required|min:40|exists:customer_tokens,token'];
@@ -157,19 +163,21 @@ class AuthController extends Controller
                 'message' => $validator->errors(),
             ], 200);
         }
-        $token = CustomerToken::where('token', $request->token)->first();
+        $token = CustomerToken::where('token', $request->token)->where('type', 'REGISTER CONFIRMATION TOKEN')->first();
         if ($token) {
-            if ($token->used == false) {
+            $now = Carbon::now();
+            $expired = Carbon::createFromDate($token->expired_at);
+            if ($token->used == false && $now < $expired) {
 
                 $token->update(['used' => true]);
                 $token->customer()->update([
                     'email_verified_at' => Carbon::now(),
                 ]);
-                return response()->json([
+                $response = [
                     'success' => true,
                     'message' => ['msg' => ['Succesfully Verify your email']],
                     'data' => $token->customer,
-                ]);
+                ];
             } else {
                 $response = [
                     'success' => false,
@@ -192,11 +200,12 @@ class AuthController extends Controller
         return $user ?? null;
     }
 
-    public function forgotPassword(Request $request)
+    //SEND EMAIL TO CUSTOMER TO RESET PASSWORD
+    public function forgotPasswordRequest(Request $request)
     {
 
         $rules = [
-            'email'    => 'required|email',
+            'email'    => 'required|email|exists:customers,email',
         ];
         $messages = [
             'email.required' => 'Email wajib diisi',
@@ -217,31 +226,111 @@ class AuthController extends Controller
 
 
         //GENERATE TOKEN
+        $token = $this->generateToken($user_data, 'RESET PASSWORD TOKEN');
 
         //TODO send email
+        dispatch(new SendEmailResetPasswordRequestJob($user_data, $token));
 
 
 
 
         return response()->json([
             'success' => true,
-            'user_data' => $user_data,
+            'message' => 'Silahkan check email Anda!',
             //'password'=>password_hash('CALVIN123',PASSWORD_DEFAULT),
 
         ]);
     }
 
-    //VALIDASI TOKEN
 
-
-    //RESET PASSWORD
-    public function reset_password(Request $request)
+    //RESET PASSWORD => CHANGE PASSWORD
+    public function resetPassword(Request $request)
     {
         //VALIDASI
         //pASSWORD required & konfirmasi harus sama
 
-        //UPDATE PASSWORD dengan HASH password_hash(<var>,PASSWORD_DEFAULT);
+        $rules = [
+            'token' => 'required|min:40|exists:customer_tokens,token',
+            'password' => ['required', 'confirmed', Password::min(8)->mixedCase()->numbers()->uncompromised()]
+        ];
+        $messages = ['token.required' => 'token wajib diisi', 'token.min' => 'token invalid'];
+        $validator = Validator::make($request->all(), $rules, $messages);
+        if ($validator->fails()) {
+            return response([
+                'success' => false,
+                'message' => $validator->errors(),
+            ], 200);
+        }
+        $token = CustomerToken::where('token', $request->token)->where('type', 'RESET PASSWORD TOKEN')->first();
+        if ($token) {
+            $now = Carbon::now();
+            $expired = Carbon::createFromDate($token->expired_at);
+            if ($token->used == false && $now < $expired) {
+
+                $token->update(['used' => true]);
+                //UPDATE PASSWORD dengan HASH password_hash(<var>,PASSWORD_DEFAULT);
+                $token->customer()->update([
+                    'password' => password_hash($request->password, PASSWORD_DEFAULT),
+                ]);
+                $response = [
+                    'success' => true,
+                    'message' => ['msg' => ['Succesfully Reset your password']],
+                    'data' => $token->customer,
+                ];
+            } else {
+                $response = [
+                    'success' => false,
+                    'message' => ['msg' => ['token expired']],
+                ];
+            }
+        } else {
+            $response = [
+                'success' => false,
+                'message' => ['msg' => ['token invalid']],
+            ];
+        }
+
+
 
         //return success
+        return response()->json($response);
+    }
+
+    //CHANGE PASSWORD
+    public function changePassword(Request $request)
+    {
+        $user = Customer::where('token', '=', request()->bearerToken())->first();
+        if ($user) {
+
+            $rules = [
+                'token' => 'required|min:40|exists:customer_tokens,token',
+                'password' => ['required', 'confirmed', Password::min(8)->mixedCase()->numbers()->uncompromised()]
+            ];
+            $messages = ['token.required' => 'token wajib diisi', 'token.min' => 'token invalid'];
+            $validator = Validator::make($request->all(), $rules, $messages);
+            if ($validator->fails()) {
+                return response([
+                    'success' => false,
+                    'message' => $validator->errors(),
+                ], 200);
+            }
+
+            $user->update([
+                'password' => password_hash($request->password, PASSWORD_DEFAULT),
+            ]);
+
+            //return success
+            return response()->json([
+                'success' => true,
+                'message' => ['msg' => ['Succesfully Reset your password']],
+                'data' => $user,
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'data'   => 'Unauthorized Action',
+                'status' => 503,
+            ]);
+        }
     }
 }

@@ -191,6 +191,12 @@ class CartController extends Controller
                     'success' => true,
                 ], 200);
             }
+        } else {
+            return response()->json([
+                'success' => false,
+                'data'   => 'Unauthorized Action',
+                'status' => 503,
+            ]);
         }
     }
 }
