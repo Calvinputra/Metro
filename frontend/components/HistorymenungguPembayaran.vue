@@ -15,50 +15,55 @@
           <span class="border border-warning border-2 text-warning rounded-3">
             Menunggu Pembayaran</span
           >
-          #ID
+          #{{ data.uuid }}
           <br />
-          <span>KODE PRODUK</span>
-          - <span>NAMA PRODUK 1</span>
+          <span>{{ data.transaction_details[0].name }}</span>
           <p>
-            1xRp 120.000
+            {{ data.transaction_details[0].qty }} x Rp
+            {{
+              Number(data.transaction_details[0].price).toLocaleString("id-ID")
+            }}
+            <template v-if="data.transaction_details.length > 1"><span style="color:red;">dan Lainnya</span></template>
           </p>
         </div>
       </div>
       <div>
-        <p class="text-right mt-3">Rp. 120.000</p>
+        <p class="text-right mt-3">
+          Rp. {{ Number(data.grand_total).toLocaleString("id-ID") }}
+        </p>
         <span class="d-flex">
           <button
             type="submit"
             class="
-                        mr-3
-                        btn
-                        text-danger
-                        btn-light btn-sm
-                        shadow
-                        rounded
-                        col-sm-9
-                        ms-0
-                        ps-0
-                        py-2
-                        px-2
-                      "
+              mr-3
+              btn
+              text-danger
+              btn-light btn-sm
+              shadow
+              rounded
+              col-sm-9
+              ms-0
+              ps-0
+              py-2
+              px-2
+            "
           >
             <b> Lihat Detail Transaksi</b>
           </button>
           <button
             type="submit"
             class="
-                        btn
-                        text-danger
-                        btn-light btn-sm
-                        shadow
-                        rounded
-                        col-sm-4
-                        ms-0
-                        ps-0
-                        py-2
-                        px-2
-                      "
+              btn
+              text-danger
+              btn-light btn-sm
+              shadow
+              rounded
+              col-sm-4
+              ms-0
+              ps-0
+              py-2
+              px-2
+            "
           >
             <b> Lainnya</b>
           </button>
@@ -67,3 +72,9 @@
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  props: ["data"],
+};
+</script>

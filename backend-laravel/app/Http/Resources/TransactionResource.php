@@ -15,6 +15,7 @@ class TransactionResource extends JsonResource
     public function toArray($request)
 
     {
+        $date_view = date('d F Y', strtotime($this->date));
         return [
             'uuid'   => $this->uuid,
             'customer_name' => $this->customer_name,
@@ -40,6 +41,7 @@ class TransactionResource extends JsonResource
             'shipping_city_id' => $this->shipping_city_id,
             'transaction_details' => $this->transactionDetails,
             'transaction_logs' => $this->transactionLogs,
+            'date_view' => $date_view,
         ];
     }
 }

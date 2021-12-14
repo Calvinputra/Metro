@@ -1,6 +1,5 @@
 <template>
   <div style="background-color:white !important;">
-    <b-button v-b-modal.modal-1>Launch demo modal</b-button>
 
     <b-modal id="modal-1" title="BootstrapVue">
       <h5 class="text-center fw-bold">

@@ -193,7 +193,7 @@
             </div>
             <section v-for="transaction in transactions" :key="transaction.id">
               <template v-if="transaction.status_id == 1">
-                <historyMenungguPembayaran />
+                <historyMenungguPembayaran :data="transaction" />
               </template>
               <template
                 v-if="transaction.status_id == 2 || transaction.status_id == 3"
@@ -266,7 +266,7 @@ export default {
         process.env.API_URL + "/api/transactions",
         {params:data}
       );
-      //console.log(transactions);
+      console.log(transactions);
       return {
         transactions: transactions.data
       };

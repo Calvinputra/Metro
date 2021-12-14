@@ -1,8 +1,6 @@
 <template>
   <div>
-    <b-button v-b-modal.modal-center>Launch centered modal</b-button>
-
-    <b-modal id="modal-center" centered title="Konfirmasi">
+    <b-modal id="modal-konfirmasi" centered title="Konfirmasi">
       <p class="my-4">
         Terima kasih, barang yang anda pilih akan segera dikirim. Ingin lanjut
         belanja?
