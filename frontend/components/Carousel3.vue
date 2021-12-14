@@ -1,4 +1,4 @@
-  <template>
+<template>
   <mdb-carousel :items="9" multi indicators controlls slide :interval="8000">
     <template #[i+1] v-for="(img, i) in basic">
       <mdb-card :key="i">
@@ -21,25 +21,25 @@ import { mdbCarousel } from "mdbvue";
 export default {
   name: "CarouselPage",
   components: {
-    mdbCarousel,
+    mdbCarousel
   },
   data() {
     return {
       items: [
         {
           img: true,
-          src: "https://mdbootstrap.com/img/Photos/Slides/img%20(35).jpg",
+          src: "https://mdbootstrap.com/img/Photos/Slides/img%20(35).jpg"
         },
         {
           img: true,
-          src: "https://mdbootstrap.com/img/Photos/Slides/img%20(33).jpg",
+          src: "https://mdbootstrap.com/img/Photos/Slides/img%20(33).jpg"
         },
         {
           img: true,
-          src: "https://mdbootstrap.com/img/Photos/Slides/img%20(31).jpg",
-        },
-      ],
+          src: "https://mdbootstrap.com/img/Photos/Slides/img%20(31).jpg"
+        }
+      ]
     };
-  },
+  }
 };
 </script>

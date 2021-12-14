@@ -19,10 +19,6 @@
         <img src="/img/search.png" alt="" />
       </button>
     </div>
-    <i
-      class="fas fa-heart mr-3"
-      style="font-size: 30px !important; color: #c63442 !important"
-    ></i>
     <!-- kategory -->
     <div class=""></div>
   </div>

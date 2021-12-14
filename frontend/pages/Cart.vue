@@ -86,7 +86,7 @@
             data-toast-title="Your cart"
             data-toast-message="is updated successfully!"
             >Lanjut Belanja</a
-          ><a class="btn btn-danger" href="/checkout">Periksa</a>
+          ><nuxt-link class="btn btn-danger" to="/checkout">Periksa</nuxt-link>
         </div>
       </div>
     </div>
@@ -100,7 +100,7 @@ export default {
   data() {
     return {
       carts: {},
-      grandTotal: 0,
+      grandTotal: 0
     };
   },
 
@@ -121,12 +121,12 @@ export default {
   computed: {
     ...mapGetters({
       tempCart: "getCart",
-      cartChanged: "getCartChanged",
-    }),
+      cartChanged: "getCartChanged"
+    })
   },
   watch: {
     cartChanged: {
-      handler: async function (changed) {
+      handler: async function(changed) {
         if (this.$auth.loggedIn && changed) {
           this.grandTotal = 0;
           try {
@@ -134,7 +134,7 @@ export default {
               process.env.API_URL + "/api/carts"
             );
             let data = carts.data;
-            data.forEach((cart) => {
+            data.forEach(cart => {
               if (cart.process == 1) {
                 this.grandTotal += cart.qty * cart.product.price;
               }
@@ -148,22 +148,22 @@ export default {
           this.$store.dispatch("setCartChange", false);
         }
       },
-      deep: true,
+      deep: true
     },
     tempCart: {
-      handler: function (carts) {
+      handler: function(carts) {
         if (!this.$auth.loggedIn && carts) {
           this.grandTotal = 0;
 
-          carts.forEach((cart) => {
+          carts.forEach(cart => {
             if (cart.product.process == 1) {
               this.grandTotal += cart.product.qty * cart.product.price;
             }
           });
         }
       },
-      deep: true,
-    },
+      deep: true
+    }
   },
   methods: {
     destroyAll() {
@@ -175,7 +175,7 @@ export default {
               this.$toast.success("Successfully clear all cart", {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000,
+                duration: 5000
               });
               this.$nuxt.refresh();
             });
@@ -183,8 +183,8 @@ export default {
         });
       } else {
       }
-    },
-  },
+    }
+  }
 };
 function increment() {
   document.getElementById("demoInput").stepUp();

@@ -1,6 +1,6 @@
 <template>
   <!-- Footer -->
-  <footer class="text-center text-lg-start bg-light text-muted">
+  <footer class="text-center text-lg-start bg-light text-muted ">
     <!-- Section: Social media -->
     <!-- Section: Social media -->
 
@@ -134,20 +134,26 @@
 
     <!-- Copyright -->
     <!-- mobile -->
-    <section class="mt-2 justify-content-around" id="footer-mobileview">
-      <div class="d-flex">
-        <i
-          class="fas fa-heart mr-5 col-sm-4 pl-5 pr-5"
-          style="font-size: 30px !important; color: #c63442 !important"
-        ></i>
-        <i
-          class="fas fa-heart mr-5 col-sm-4 pl-5 pr-4"
-          style="font-size: 30px !important; color: #c63442 !important"
-        ></i>
-        <i
-          class="fas fa-heart mr-5 col-sm-4 pl-5 pr-3"
-          style="font-size: 30px !important; color: #c63442 !important"
-        ></i>
+    <section class="mt-2" id="footer-mobileview">
+      <div class="d-flex justify-content-around">
+        <div>
+          <i
+            class="fas fa-home"
+            style="font-size: 30px !important; color: #c63442 !important"
+          ></i>
+          <i
+            class="fas fa-heart"
+            style="font-size: 30px !important; color: #c63442 !important"
+          ></i>
+          <i
+            class="fas fa-shopping-cart"
+            style="font-size: 30px !important; color: #c63442 !important"
+          ></i>
+          <i
+            class="fas fa-user"
+            style="font-size: 30px !important; color: #c63442 !important"
+          ></i>
+        </div>
       </div>
     </section>
     <!-- Copyright -->
@@ -188,6 +194,12 @@ export default {
   }
   #footer-mobileview {
     display: flex;
+    position: absolute;
+    background-color: lightgray;
+    padding: 2%;
+    bottom: 0;
+    width: 100%;
+    justify-content: space-evenly;
   }
 }
 </style>
