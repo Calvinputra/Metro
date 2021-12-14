@@ -6,7 +6,7 @@
     <ModalKonfirmasiBelanja />
     <b-button v-b-modal.modal-1>Launch demo modal</b-button>
     <br />
-    <b-button v-b-modal.modal-detailtransaksi @click="onShowModal(transactions[0])"
+    <b-button  @click="onShowModal(transactions[0])"
       >Detail Transaksi</b-button
     >
     <br />
@@ -38,6 +38,8 @@ export default {
   methods: {
     onShowModal(transaction) {
       this.selectedTransaction = transaction;
+      this.$bvModal.show('modal-detailtransaksi');
+     
       console.log(transaction);
     },
   },

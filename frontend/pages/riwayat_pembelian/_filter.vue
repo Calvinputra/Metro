@@ -1,5 +1,8 @@
 <template>
   <section>
+    <!-- Modal INIT -->
+    <ModalDetailTransaksi :transaction="selectedTransaction" />
+    <!-- END -->
     <Header />
     <Breadcrumb :links="breadcrumb" />
     <section>
@@ -38,7 +41,7 @@
               <template
                 v-if="
                   this.$route.params.filter == '' ||
-                    this.$route.params.filter == undefined
+                  this.$route.params.filter == undefined
                 "
               >
                 <a
@@ -264,15 +267,26 @@ export default {
       //console.log(url);
       let transactions = await $axios.$get(
         process.env.API_URL + "/api/transactions",
-        {params:data}
+        { params: data }
       );
       console.log(transactions);
       return {
-        transactions: transactions.data
+        transactions: transactions.data,
       };
     } catch (error) {
       console.log(error);
     }
-  }
+  },
+  methods: {
+    showDetailTransaction(transaction) {
+      this.selectedTransaction = transaction;
+    },
+    
+  },
+  data() {
+    return {
+      selectedTransaction: {},
+    };
+  },
 };
 </script>

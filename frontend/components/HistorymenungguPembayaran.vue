@@ -23,7 +23,9 @@
             {{
               Number(data.transaction_details[0].price).toLocaleString("id-ID")
             }}
-            <template v-if="data.transaction_details.length > 1"><span style="color:red;">dan Lainnya</span></template>
+            <template v-if="data.transaction_details.length > 1"
+              ><span style="color: red">dan Lainnya</span></template
+            >
           </p>
         </div>
       </div>
@@ -48,7 +50,9 @@
               px-2
             "
           >
-            <b> Lihat Detail Transaksi</b>
+            <b v-b-modal.modal-detailtransaksi @click="showDetailTransaction">
+              Lihat Detail Transaksi</b
+            >
           </button>
           <button
             type="submit"
@@ -76,5 +80,10 @@
 <script>
 export default {
   props: ["data"],
+  methods: {
+    showDetailTransaction() {
+      this.$parent.showDetailTransaction(this.data);
+    },
+  },
 };
 </script>
