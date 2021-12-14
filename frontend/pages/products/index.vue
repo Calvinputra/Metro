@@ -110,10 +110,14 @@ export default {
       ],
     };
   },
-  async asyncData({ $axios }) {
+  async asyncData({ $axios, query }) {
     try {
-      let products = await $axios.$get(process.env.API_URL + "/api/products");
-      console.log(products);
+      let data = {
+        s: query.s,
+      };
+      let products = await $axios.$get(process.env.API_URL + "/api/products", {
+        params: data,
+      });
       return {
         products: products.data,
       };
@@ -121,5 +125,6 @@ export default {
       console.log(error);
     }
   },
+  watchQuery: ["s"],
 };
 </script>

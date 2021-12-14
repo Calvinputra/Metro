@@ -264,7 +264,7 @@ export default {
       //console.log(url);
       let transactions = await $axios.$get(
         process.env.API_URL + "/api/transactions",
-        data
+        {params:data}
       );
       //console.log(transactions);
       return {

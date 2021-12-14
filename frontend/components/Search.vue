@@ -1,22 +1,24 @@
 <template>
   <!-- search -->
   <div id="search" class="nav-item col-sm-8 align-self-start mt-4">
-    <form class="d-flex" action="/products" method="get">
+    <div class="d-flex">
       <input
         class="form-control"
         type="search"
         placeholder="Cari Barang Di sini"
         aria-label="Search"
         name="s"
+        v-model="query"
       />
       <button
         class="btn btn-outline-success mx-auto"
         style="background-color: #e5e5e5"
         type="submit"
+        @click="onSearch"
       >
         <img src="/img/search.png" alt="" />
       </button>
-    </form>
+    </div>
     <!-- kategory -->
     <div id="kategory" class="nav-item col-sm-12 align-self-end">
       <ul
@@ -28,12 +30,12 @@
           v-for="menu_item in data.items"
           :key="menu_item.id"
         >
-          <a
+          <nuxt-link
             class="nav-link active text-danger"
             aria-current="page"
             :target="menu_item.target"
-            :href="menu_item.url"
-            >{{ menu_item.title }}</a
+            :to="menu_item.url"
+            >{{ menu_item.title }}</nuxt-link
           >
         </li>
       </ul>
@@ -43,6 +45,16 @@
 
 <script>
 export default {
-    props: ["data"],
-}
+  props: ["data"],
+  data() {
+    return {
+      query: "",
+    };
+  },
+  methods: {
+    onSearch() {
+      this.$router.push({ path: "/products", query: { s: this.query } });
+    },
+  },
+};
 </script>
