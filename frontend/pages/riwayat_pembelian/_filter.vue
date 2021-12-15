@@ -195,20 +195,7 @@
               </template>
             </div>
             <section v-for="transaction in transactions" :key="transaction.id">
-              <template v-if="transaction.status_id == 1">
-                <historyMenungguPembayaran :data="transaction" />
-              </template>
-              <template
-                v-if="transaction.status_id == 2 || transaction.status_id == 3"
-              >
-                <historyBerlangsung />
-              </template>
-              <template v-if="transaction.status_id == 4">
-                <historySelesai />
-              </template>
-              <template v-if="transaction.status_id == 5">
-                <historyTidakBerhasil />
-              </template>
+              <HistoryTransactionItem  :data="transaction" />
             </section>
             <!-- TODO tulisan belum ada transaksi -->
             <template v-if="Object.keys(transactions).length === 0">
@@ -281,7 +268,6 @@ export default {
     showDetailTransaction(transaction) {
       this.selectedTransaction = transaction;
     },
-    
   },
   data() {
     return {

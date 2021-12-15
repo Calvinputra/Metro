@@ -45,4 +45,7 @@ class Transaction extends Model
     {
         return $this->hasOne("App\Models\TransactionReview", "transaction_id");
     }
+    public function status(){
+        return $this->belongsTo('App\Models\TransactionStatus','status_id');
+    }
 }

@@ -1,6 +1,6 @@
 <template>
   <div style="background-color: white !important">
-    <b-modal id="modal-detailtransaksi" title="Detail Transaksi">
+    <b-modal id="modal-detailtransaksi" title="Detail Transaksi" ok-only>
       <div class="border border-danger rounded">
         <div class="d-flex justify-content-between">
           <div class="d-flex justify-content-around">

@@ -1,5 +1,7 @@
 <template>
   <section>
+    <ModalDetailTransaksi :transaction="data" />
+
     <Header />
     <Breadcrumb :links="breadcrumb" />
     <section>
@@ -31,7 +33,12 @@
               </span>
             </div>
             <div class="mt-3">
-              <a class="text-success" href="">Salin</a>
+              <button
+                class="text-success"
+                @click="copyText(app_url + $nuxt.$route.fullPath)"
+              >
+                Salin
+              </button>
             </div>
           </div>
           <div class="d-flex justify-content-between">
@@ -47,7 +54,11 @@
             </div>
 
             <div class="mt-3">
-              <a class="text-success" href="">Lihat Detail</a>
+              <b
+                v-b-modal.modal-detailtransaksi
+                class="text-success"
+                >Lihat Detail</b
+              >
             </div>
           </div>
         </div>
@@ -55,12 +66,13 @@
     </div>
     <br />
     <div class="text-center">
-      <button
+      <nuxt-link
+        to="/products"
         type="button"
         class="border border-success btn col-sm-2 text-success"
       >
         Belanja Lagi
-      </button>
+      </nuxt-link>
       <button type="button" class="btn btn-success col-sm-2" id="pay-button">
         Lanjutkan Pembayaran
       </button>
@@ -100,11 +112,22 @@ export default {
           class: "my-2 ms-3 breadcrumb-item opacity-50",
         },
         {
-          url: "/register",
-          name: "Register",
+          url: "/cart",
+          name: "Keranjang Saya",
+          class: "my-2 breadcrumb-item opacity-50",
+        },
+        {
+          url: "/checkout",
+          name: "Check Out",
+          class: "my-2 breadcrumb-item opacity-50",
+        },
+        {
+          url: "/pembayaran/" + this.$route.params.uuid,
+          name: "Pembayaran",
           class: "my-2 breadcrumb-item active opacity-50",
         },
       ],
+      app_url: process.env.APP_URL + ":" + process.env.PORT,
     };
   },
   async asyncData({ $axios, params }) {
@@ -131,6 +154,15 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    async copyText(text) {
+      try {
+        await this.$copyText(text);
+      } catch (e) {
+        console.error(e);
+      }
+    },
   },
 };
 </script>

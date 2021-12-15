@@ -43,6 +43,7 @@ export default {
     "@nuxtjs/dotenv",
     "@nuxtjs/auth-next",
     "@nuxtjs/toast",
+    "nuxt-clipboard2",
   ],
   auth: {
     // Options
