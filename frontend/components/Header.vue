@@ -96,6 +96,7 @@
       class="container space-between"
       style="height: auto"
     >
+      <!-- hamburger button -->
       <button
         class="navbar-toggler text-left"
         type="button"
@@ -121,18 +122,6 @@
       </div>
       <search-mobile />
 
-      <!-- hamburger button -->
-      <!-- <button
-        class="navbar-toggler text-left"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarScroll"
-        aria-controls="navbarScroll"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button> -->
       <!-- icon -->
       <div class="collapse navbar-collapse center" id="navbarScroll">
         <div id="icon navbar" class="container-fluid ms-4">
