@@ -13,6 +13,9 @@ use App\Http\Controllers\API\WishListController;
 use App\Http\Controllers\API\TransactionController;
 use App\Http\Controllers\API\ShippingController;
 use App\Http\Controllers\API\ReviewController;
+use App\Http\Controllers\API\WebsiteFeedbackController;
+use App\Models\WebsiteFeedback;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -42,6 +45,7 @@ Route::apiResource('/carts', CartController::class)->middleware('auth:sanctum');
 Route::apiResource('/wishlists', WishListController::class)->middleware('auth:sanctum');
 Route::apiResource('/transactions', TransactionController::class)->middleware('auth:sanctum');
 Route::apiResource('/reviews', ReviewController::class)->middleware('auth:sanctum');
+Route::apiResource('/feedbacks', WebsiteFeedbackController::class);
 
 
 Route::post('/carts/multiple', [CartController::class, 'storeMultiple'])->middleware('auth:sanctum');
