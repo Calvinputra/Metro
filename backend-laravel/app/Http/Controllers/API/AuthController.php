@@ -59,7 +59,7 @@ class AuthController extends Controller
 
         return response($response, 201);
     }
-    
+
     public function logout()
     {
         $user = Customer::where('token', '=', request()->bearerToken())->first();
@@ -196,8 +196,15 @@ class AuthController extends Controller
     public function user()
     {
         $user = Customer::where('token', '=', request()->bearerToken())->with("addresses")->first();
-
-        return $user ?? null;
+        if ($user) {
+            return response()->json(['data' => $user] ?? ['message' => 'Unauthenticated']);
+        } else {
+            request()->user()->update([
+                'token' => null,
+            ]);
+            request()->user()->currentAccessToken()->delete();
+            return response()->json(['message' => 'Unauthenticated']);
+        }
     }
 
     //SEND EMAIL TO CUSTOMER TO RESET PASSWORD

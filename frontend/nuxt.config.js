@@ -24,7 +24,7 @@ export default {
   js: ["@/assets/js/bootstrap.min.js"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: "~/plugins/localStorage.js", ssr: false }],
+  plugins: [{ src: "~/plugins/localStorage.js",ssr:false }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -51,6 +51,9 @@ export default {
       laravelSanctum: {
         provider: "laravel/sanctum",
         url: process.env.API_URL + "/api",
+        user:{
+          property:"data"
+        },
         endpoints: {
           login: { url: "/login", method: "post" },
           logout: { url: "/logout", method: "post" },
