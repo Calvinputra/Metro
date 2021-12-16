@@ -64,28 +64,32 @@
           style="width: 100%"
         >
           <img
-            style="width: 100%; height: 183px"
+            style="width: 100%"
             :src="ASSET_URL + '/' + JSON.parse(data.images)[0]"
             class="card-img-top height:auto"
             alt="..."
           />
           <div class="card-body">
             <div class="row">
-              <h5 class="card-title">{{ data.name }}</h5>
-              <a
-                class="col-sm-3"
-                href=""
-                onclick="return false;"
-                @click="addToWishList(data.id)"
-                ><i
-                  :class="(data.wishlist_exist ? 'fas' : 'far') + ' fa-heart'"
-                  style="font-size: 30px !important; color: #c63442 !important"
-                ></i
-              ></a>
+              <div class="col">
+                <h5 class="card-title" style="font-size : 80%">
+                  {{ data.name }}
+                </h5>
+                <a
+                  class="col-sm-3"
+                  href=""
+                  onclick="return false;"
+                  @click="addToWishList(data.id)"
+                  ><i
+                    :class="(data.wishlist_exist ? 'fas' : 'far') + ' fa-heart'"
+                    style="font-size: 30px !important; color: #c63442 !important"
+                  ></i
+                ></a>
+              </div>
+              <p class="card-text mb-2 font-weight-bold">
+                Rp.{{ Number(data.display_price).toLocaleString("id-ID") }}
+              </p>
             </div>
-            <p class="card-text mb-4 font-weight-bold">
-              Rp.{{ Number(data.display_price).toLocaleString("id-ID") }}
-            </p>
             <a
               class="btn text-danger btn-sm shadow pt-2"
               style="background-color: #f3f3f3"
@@ -214,12 +218,13 @@ export default {
     display: flex;
   }
   #whatsapp {
-    width: 25%;
+    width: 50%;
     margin-top: 10%;
+    margin-left: 30%;
   }
   #tokopedia {
-    width: 25%;
-    margin-top: 10%;
+    width: 30%;
+    margin-top: 7%;
   }
 }
 </style>
