@@ -134,9 +134,8 @@
 
     <!-- Copyright -->
     <!-- mobile -->
-    <section class="mt-2" id="footer-mobileview">
-      <div class="d-flex justify-content-around">
-        <div>
+    <section class="mt-2" id="footer-mobile" >
+      <div class="d-flex justify-content-around" id="footer-mobileview" >
           <i
             class="fas fa-home"
             style="font-size: 30px !important; color: #c63442 !important"
@@ -153,7 +152,6 @@
             class="fas fa-user"
             style="font-size: 30px !important; color: #c63442 !important"
           ></i>
-        </div>
       </div>
     </section>
     <!-- Copyright -->
@@ -180,6 +178,9 @@ export default {
 </script>
 
 <style lang="css" scoped>
+#footer-mobile {
+  display: none;
+}
 #footer-mobileview {
   display: none;
 }
@@ -192,13 +193,14 @@ export default {
   #footer-webview {
     display: none;
   }
+
   #footer-mobileview {
     display: flex;
     background-color: lightgray;
+    position: fixed;
     padding: 2%;
     bottom: 0;
     width: 100%;
-    justify-content: space-evenly;
   }
 }
 </style>
