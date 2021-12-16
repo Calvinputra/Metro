@@ -194,7 +194,6 @@ export default {
   }
   #footer-mobileview {
     display: flex;
-    position: absolute;
     background-color: lightgray;
     padding: 2%;
     bottom: 0;

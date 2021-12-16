@@ -1,72 +1,137 @@
 <template>
-  <div class="col-md-4">
-    <NuxtLink :to="'/products/' + data.id">
-      <div
-        class="card rounded shadow mb-5 bg-white rounded"
-        style="width: 100%"
-      >
-        <img
-          style="width: 100%; height: 183px"
-          :src="ASSET_URL + '/' + JSON.parse(data.images)[0]"
-          class="card-img-top height:auto"
-          alt="..."
-        />
-        <div class="card-body">
-          <div class="row">
-            <h5 class="col-sm-9 card-title">{{ data.name }}</h5>
-            <a
-              class="col-sm-3"
-              href=""
-              onclick="return false;"
-              @click="addToWishList(data.id)"
-              ><i
-                :class="(data.wishlist_exist ? 'fas' : 'far') + ' fa-heart'"
-                style="font-size: 30px !important; color: #c63442 !important"
-              ></i
-            ></a>
+  <section class="col-md-4">
+    <section id="card-webview">
+      <NuxtLink :to="'/products/' + data.id">
+        <div
+          class="card rounded shadow mb-5 bg-white rounded"
+          style="width: 100%"
+        >
+          <img
+            style="width: 100%; height: 183px"
+            :src="ASSET_URL + '/' + JSON.parse(data.images)[0]"
+            class="card-img-top height:auto"
+            alt="..."
+          />
+          <div class="card-body">
+            <div class="row">
+              <h5 class="col-sm-9 card-title">{{ data.name }}</h5>
+              <a
+                class="col-sm-3"
+                href=""
+                onclick="return false;"
+                @click="addToWishList(data.id)"
+                ><i
+                  :class="(data.wishlist_exist ? 'fas' : 'far') + ' fa-heart'"
+                  style="font-size: 30px !important; color: #c63442 !important"
+                ></i
+              ></a>
+            </div>
+            <p class="card-text mb-4 font-weight-bold">
+              Rp.{{ Number(data.display_price).toLocaleString("id-ID") }}
+            </p>
+            <div class="row">
+              <a
+                class="btn text-danger btn-sm shadow rounded col-sm-5 ms-2 pt-2"
+                style="background-color: #f3f3f3"
+                onclick="return false;"
+                @click="addToCart(data)"
+                >+ Keranjang</a
+              >
+              <a class="col-sm-3" href="" onclick="return false;"
+                ><img
+                  class="img-fluid max-width:100% height:auto rounded"
+                  style="background-color: #f3f3f3"
+                  src="/img/Whatsapp_new.png"
+                  alt=""
+              /></a>
+              <a class="col-sm-3" href="" onclick="return false;"
+                ><img
+                  class="img-fluid max-width:100% height:auto rounded"
+                  style="background-color: #f3f3f3"
+                  src="/img/tokopedia.png"
+                  alt=""
+              /></a>
+            </div>
           </div>
-          <p class="card-text mb-4 font-weight-bold">
-            Rp.{{ Number(data.display_price).toLocaleString("id-ID") }}
-          </p>
-          <div class="row">
+        </div>
+      </NuxtLink>
+    </section>
+
+    <section id="card-mobileview">
+      <NuxtLink :to="'/products/' + data.id">
+        <div
+          class="card rounded shadow mb-5 bg-white rounded"
+          style="width: 100%"
+        >
+          <img
+            style="width: 100%; height: 183px"
+            :src="ASSET_URL + '/' + JSON.parse(data.images)[0]"
+            class="card-img-top height:auto"
+            alt="..."
+          />
+          <div class="card-body">
+            <div class="row">
+              <h5 class="card-title">{{ data.name }}</h5>
+              <a
+                class="col-sm-3"
+                href=""
+                onclick="return false;"
+                @click="addToWishList(data.id)"
+                ><i
+                  :class="(data.wishlist_exist ? 'fas' : 'far') + ' fa-heart'"
+                  style="font-size: 30px !important; color: #c63442 !important"
+                ></i
+              ></a>
+            </div>
+            <p class="card-text mb-4 font-weight-bold">
+              Rp.{{ Number(data.display_price).toLocaleString("id-ID") }}
+            </p>
             <a
-              class="btn text-danger btn-sm shadow rounded col-sm-5 ms-2 pt-2"
+              class="btn text-danger btn-sm shadow pt-2"
               style="background-color: #f3f3f3"
               onclick="return false;"
               @click="addToCart(data)"
               >+ Keranjang</a
             >
-            <a class="col-sm-3" href="" onclick="return false;"
-              ><img
-                class="img-fluid max-width:100% height:auto rounded"
-                style="background-color: #f3f3f3"
-                src="/img/Whatsapp_new.png"
-                alt=""
-            /></a>
-            <a class="col-sm-3" href="" onclick="return false;"
-              ><img
-                class="img-fluid max-width:100% height:auto rounded"
-                style="background-color: #f3f3f3"
-                src="/img/tokopedia.png"
-                alt=""
-            /></a>
+            <div class="d-flex">
+              <div>
+                <a class="" href="" onclick="return false;"
+                  ><img
+                    id="whatsapp"
+                    class="img-fluid rounded"
+                    style="background-color: #f3f3f3"
+                    src="/img/Whatsapp_new.png"
+                    alt=""
+                /></a>
+              </div>
+              <div>
+                <a class="" href="" onclick="return false;"
+                  ><img
+                    id="tokopedia"
+                    class="img-fluid rounded"
+                    style="background-color: #f3f3f3"
+                    src="/img/tokopedia.png"
+                    alt=""
+                /></a>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </NuxtLink>
-  </div>
+      </NuxtLink>
+    </section>
+  </section>
 </template>
 
 <script>
-import {mapActions} from "vuex";
+import { mapActions } from "vuex";
 export default {
   props: ["data", "url"],
   data() {
     return {
-      ASSET_URL: process.env.ASSET_URL,
+      ASSET_URL: process.env.ASSET_URL
     };
   },
-  created(){
+  created() {
     console.log(this.data);
   },
   methods: {
@@ -74,7 +139,7 @@ export default {
       try {
         if (this.$auth.loggedIn) {
           let data = {
-            product_id: product.id,
+            product_id: product.id
           };
           let response = await this.$axios.$post(
             process.env.API_URL + "/api/carts",
@@ -83,13 +148,12 @@ export default {
           this.$toast.success("Successfully add a product to cart", {
             theme: "bubble",
             position: "bottom-right",
-            duration: 5000,
+            duration: 5000
           });
           console.log(response);
         } else {
           //this.$router.push("/login");
           this.addProductToCart(product);
-          
         }
       } catch (error) {
         console.log(error);
@@ -99,7 +163,7 @@ export default {
       try {
         if (this.$auth.loggedIn) {
           let data = {
-            product_id: id,
+            product_id: id
           };
           let response = await this.$axios.$post(
             process.env.API_URL + "/api/wishlists",
@@ -109,13 +173,13 @@ export default {
             this.$toast.success("Successfully delete a product from wishlist", {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000,
+              duration: 5000
             });
           } else {
             this.$toast.success("Successfully add a product to wishlist", {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000,
+              duration: 5000
             });
           }
 
@@ -125,12 +189,37 @@ export default {
           this.$router.push("/login");
         }
       } catch (error) {
-        
         console.log(error);
       }
     },
     ...mapActions(["addProductToCart"])
-  },
+  }
 };
 </script>
 
+<style lang="css" scoped>
+#card-mobileview {
+  display: none;
+}
+/* 0 - 991 px */
+@media screen and (max-width: 500px) {
+  #card_logo {
+    display: none !important;
+  }
+
+  #card-webview {
+    display: none;
+  }
+  #card-mobileview {
+    display: flex;
+  }
+  #whatsapp {
+    width: 25%;
+    margin-top: 10%;
+  }
+  #tokopedia {
+    width: 25%;
+    margin-top: 10%;
+  }
+}
+</style>
