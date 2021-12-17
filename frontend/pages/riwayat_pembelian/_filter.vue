@@ -494,7 +494,7 @@ export default {
     },
     linkGen(pageNum) {
       //console.log("PARAMS:"+this.$route.params.filter);
-      let url = "/riwayat_pembelian";
+      let url = "riwayat_pembelian";
       if (typeof this.$route.params.filter !== "undefined") {
         url += "/" + this.$route.params.filter;
       }
