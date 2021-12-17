@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section  style="margin-bottom:100px;">
     <!-- Website -->
     <section id="product-webview">
       <Header />
@@ -186,7 +186,16 @@
           </div>
         </div>
       </div>
-
+      <div class="overflow-auto">
+        <b-pagination-nav
+          :link-gen="linkGen"
+          :number-of-pages="this.totalPage"
+          first-text="First"
+          prev-text="Prev"
+          next-text="Next"
+          last-text="Last"
+        ></b-pagination-nav>
+      </div>
       <Footer />
     </section>
   </section>
