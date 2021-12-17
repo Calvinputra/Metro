@@ -34,8 +34,8 @@
               </p>
             </div>
 
-            <div class="mr-5 pr-5">
-              <h2 class="text-center mr-5 pr-5">Masuk Ke Akun</h2>
+            <div>
+              <h2 class="text-center">Masuk Ke Akun</h2>
             </div>
             <div>
               <b-alert
@@ -51,8 +51,8 @@
                   <li v-for="(e, key) in error" :key="key">{{ e }}</li>
                 </ul>
               </b-alert>
-              <div class="row justify-content-start">
-                <form>
+              <div class="row">
+                <form class="ps-5 ms-5">
                   <div class="form-group col-sm-10">
                     <label for="email"
                       >Email<span style="color: red">*</span>:</label
@@ -80,10 +80,14 @@
                     />
                   </div>
 
-                  <p style="color: red">*Wajib diisi</p>
+                  <p style="color: red" class="ms-3">*Wajib diisi</p>
                   <br />
-                  Lupa kata sandi?
-                  <a href="/forgot_password" style="color: red">Klik disini</a>
+                  <p class="ms-3">
+                    Lupa kata sandi?
+                    <a href="/forgot_password" style="color: red"
+                      >Klik disini</a
+                    >
+                  </p>
                   <br />
                 </form>
                 <div class="text-center">
@@ -94,22 +98,22 @@
                       btn
                       text-danger
                       btn-light btn-sm
-                      shadow
                       rounded
                       col-sm-2
-                      ms-0
-                      ps-0
                       py-2
                       px-2
+                      mb-4
+                    "
+                    style="
+                      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                     "
                   >
                     Masuk
                   </button>
                 </div>
-                <p></p>
-                <div>
+                <div class="ms-5" style="padding-left: 4rem!important;">
                   Belum mempunyai akun?
-                  <a href="/forgot_password" style="color: red">Buat Akun</a>
+                  <a href="/register" style="color: red">Buat Akun</a>
                 </div>
               </div>
             </div>

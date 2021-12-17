@@ -135,7 +135,7 @@
                     />
                   </div>
 
-                  <div class="register-form-title">Alamat Pengiriman</div>
+                  <div class="register-form-title pe-5 me-5">Alamat Pengiriman</div>
                   <div class="form-group col-sm-10">
                     <label for="address"
                       >Alamat Lengkap<span style="color: red">*</span>:</label
@@ -231,14 +231,13 @@
                         btn
                         text-danger
                         btn-light btn-sm
-                        shadow
                         rounded
                         col-sm-2
                         ms-0
-                        ps-0
                         py-2
                         px-2
                       "
+                      style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
                     >
                       Buat Akun
                     </button>

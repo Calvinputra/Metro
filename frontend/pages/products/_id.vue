@@ -45,48 +45,102 @@
               <h5>Nama Merek</h5>
               <div class="row">
                 <div class="col-sm-8">
-                  <h3>{{ data.code }} - {{ data.name }}</h3>
+                  <h3>
+                    <b>{{ data.code }} - {{ data.name }}</b>
+                  </h3>
                 </div>
-                <!-- <div class="row"> -->
                 <a class="col-sm-1 me-0 pe-1" href=""
                   ><img
                     class="img-fluid max-width:100% height:auto rounded"
                     src="/img/Whatsapp_new.png"
-                    style="background-color: #f3f3f3"
+                    style="
+                      background-color: #f3f3f3;
+                      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                    "
                     alt=""
                 /></a>
                 <a class="col-sm-1 ms-0 ps-1" href=""
                   ><img
                     class="img-fluid max-width:100% height:auto rounded"
                     src="/img/tokopedia.png"
-                    style="background-color: #f3f3f3"
+                    style="
+                      background-color: #f3f3f3;
+                      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                    "
                     alt=""
                 /></a>
-                <!-- </div> -->
               </div>
               <h4>Rp.{{ Number(data.price).toLocaleString("id-ID") }}</h4>
               <hr class="style1" style="background-color: red; height: 2px" />
               <div>
-                <h5 v-for="attribute in data.attributes" :key="attribute.id">
-                  {{ attribute.attribute.name }} : {{ attribute.value }}
-                </h5>
-                <h5>
-                  Pengukuran Produk :
-                  {{ parseFloat(data.dimension_width / 10).toFixed(2) }}cm x
-                  {{ parseFloat(data.dimension_height / 10).toFixed(2) }}cm x
-                  {{ parseFloat(data.dimension_depth / 10).toFixed(2) }}cm
-                </h5>
-                <h5>
-                  Berat Barang :
-                  {{
-                  parseFloat(
-                    (data.weight &lt; 10 ? 10 : data.weight) / 1000
-                  ).toFixed(2)
-                  }}
-                  Kg
-                </h5>
-                <br />
-                <h5>Stok : {{ Number(data.stock).toLocaleString("id-ID") }}</h5>
+                <table>
+                  <tbody>
+                    <tr
+                      v-for="attribute in data.attributes"
+                      :key="attribute.id"
+                    >
+                      <th scope="row" class="pe-3">
+                        <h5>{{ attribute.attribute.name }}</h5>
+                      </th>
+                      <td>
+                        <h5><b class="pe-1">:</b></h5>
+                      </td>
+                      <td>
+                        <h5>{{ attribute.value }}</h5>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="pe-3">
+                        <h5>Pengukuran Produk</h5>
+                      </th>
+                      <td>
+                        <h5><b class="pe-1">:</b></h5>
+                      </td>
+                      <td>
+                        <h5>
+                          {{
+                            parseFloat(data.dimension_width / 10).toFixed(2)
+                          }}cm x
+                          {{
+                            parseFloat(data.dimension_height / 10).toFixed(2)
+                          }}cm x
+                          {{
+                            parseFloat(data.dimension_depth / 10).toFixed(2)
+                          }}cm
+                        </h5>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="pe-3"><h5>Berat Barang</h5></th>
+                      <td>
+                        <h5><b class="pe-1">:</b></h5>
+                      </td>
+                      <td>
+                        <h5>
+                          {{
+                            parseFloat(
+                              (data.weight &lt; 10 ? 10 : data.weight) / 1000
+                            ).toFixed(2)
+                          }}
+                          Kg
+                        </h5>
+                      </td>
+                    </tr>
+                    <br />
+                    <tr>
+                      <th scope="row" class="pe-3"><h5>Stok</h5></th>
+                      <td>
+                        <h5><b class="pe-1">:</b></h5>
+                      </td>
+                      <td>
+                        <h5>
+                          {{ Number(data.stock).toLocaleString("id-ID") }}
+                        </h5>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
                 <br />
                 <a
                   href="#"
@@ -94,17 +148,18 @@
                     btn
                     text-danger
                     btn-sm
-                    shadow
                     rounded
-                    col-sm-2
+                    col-sm-3
                     ms-0
-                    ps-0
                     mb-3
                     py-2
                     px-2
                   "
                   @click="addToCart(data)"
-                  style="background-color: #f3f3f3"
+                  style="
+                    background-color: #f3f3f3;
+                    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                  "
                   >+ Keranjang</a
                 >
                 <a
@@ -124,7 +179,7 @@
             </div>
           </div>
         </div>
-        <div class="container">
+        <div class="container mt-5">
           <div class="row">
             <div class="col-sm-1"></div>
             <div class="pt-2 col-sm 3 d-flex align-items-center">
@@ -330,7 +385,10 @@
                     ><img
                       id="logo"
                       class="img-fluid rounded"
-                      style="background-color: #f3f3f3"
+                      style="
+                        background-color: #f3f3f3;
+                        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                      "
                       src="/img/Whatsapp_new.png"
                       alt=""
                   /></a>
@@ -343,26 +401,22 @@
                     ><img
                       id="logo"
                       class="img-fluid rounded"
-                      style="background-color: #f3f3f3"
+                      style="
+                        background-color: #f3f3f3;
+                        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                      "
                       src="/img/tokopedia.png"
                       alt=""
                   /></a>
                 </div>
                 <a
                   href="#"
-                  class="
-                    col
-                    btn
-                    text-danger
-                    btn-sm
-                    shadow
-                    rounded
-                    me-3
-                    py-2
-                    px-2
-                  "
+                  class="col btn text-danger btn-sm rounded me-3 py-2 px-2"
                   @click="addToCart(data)"
-                  style="background-color: #f3f3f3"
+                  style="
+                    background-color: #f3f3f3;
+                    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                  "
                   >+ Keranjang</a
                 >
               </div>

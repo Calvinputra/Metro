@@ -1,7 +1,7 @@
 <template>
-  <tr>
-    <td class="d-flex">
-      <div class="product-item text-middle d-flex">
+  <tr class="border-bottom-top">
+    <td class="d-flex px-0">
+      <div class="product-item text-middle d-flex mb-2">
         <div class="form-check mt-auto mb-auto">
           <input
             class="form-check-input"
@@ -13,21 +13,20 @@
         </div>
         <a class="product-thumb" href="#"
           ><img
-            class="mt-4"
             style="border-radius: 5%; width: 80px; height: 80px"
             :src="ASSET_URL + '/' + JSON.parse(product.images)[0]"
             alt="Product"
         /></a>
       </div>
-      <pre></pre>
       <span class="pr-5">
-        <p class="">{{ product.code }} - {{ product.name }}</p>
+        <p class="mb-0">{{ product.code }}</p>
+        <p class="mb-0"><b>{{ product.name }}</b></p>
         <p class="text-center text-lg text-medium align-middle">
           Rp.{{ Number(sub_total).toLocaleString("id-ID") }}
         </p>
       </span>
     </td>
-    <td class="text-center align-middle">
+    <td class="text-center align-middle py-0 border-bottom-top">
       <div>
         <div class="count-input">
           <input
@@ -41,7 +40,7 @@
         </div>
       </div>
     </td>
-    <td class="text-center align-middle">
+    <td class="text-center align-middle p-0 border-bottom-top">
       <a
         class="remove-from-cart"
         data-toggle="tooltip"
@@ -53,6 +52,14 @@
     </td>
   </tr>
 </template>
+
+<style scoped>
+  .border-bottom-top{
+    border-bottom: 1px solid #C63442 !important;
+    border-top: 1px solid #C63442 !important;
+  }
+</style>
+
 <script>
 export default {
   props: ["product", "qty", "id", "process"],

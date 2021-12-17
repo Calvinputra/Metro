@@ -9,10 +9,15 @@
           style="text-decoration: none"
           :class="
             'text-black nav-custom ' +
-              (name == 'register' ? 'nav-custom-active' : '')
+            (name == 'register' ? 'nav-custom-active' : '')
           "
         >
-          <p :class="name == 'register' ? 'py-2 ps-2' : 'ms-2'">Buat Akun</p>
+          <p
+            :class="name == 'register' ? 'py-2 ps-2' : 'ms-2'"
+            style="border-radius: 5px !important"
+          >
+            Buat Akun
+          </p>
         </a>
         <a
           v-if="this.$auth.loggedIn == false"
@@ -20,10 +25,15 @@
           style="text-decoration: none"
           :class="
             'text-black nav-custom ' +
-              (name == 'login' ? 'nav-custom-active' : '')
+            (name == 'login' ? 'nav-custom-active' : '')
           "
         >
-          <p :class="name == 'login' ? 'py-2 ps-2' : 'ms-2'">Masuk Akun</p>
+          <p
+            :class="name == 'login' ? 'py-2 ps-2' : 'ms-2'"
+            style="border-radius: 5px !important"
+          >
+            Masuk Akun
+          </p>
         </a>
         <a
           v-if="this.$auth.loggedIn == false"
@@ -31,10 +41,15 @@
           style="text-decoration: none"
           :class="
             'text-black nav-custom ' +
-              (name == 'forgot' ? 'nav-custom-active' : '')
+            (name == 'forgot' ? 'nav-custom-active' : '')
           "
         >
-          <p :class="name == 'forgot' ? 'py-2 ps-2' : 'ms-2'">Lupa Password</p>
+          <p
+            :class="name == 'forgot' ? 'py-2 ps-2' : 'ms-2'"
+            style="border-radius: 5px !important"
+          >
+            Lupa Password
+          </p>
         </a>
         <a href="" style="text-decoration: none" class="text-black bg-danger">
           <div>
@@ -62,6 +77,6 @@
 
 <script>
 export default {
-  props: ["name"]
+  props: ["name"],
 };
 </script>

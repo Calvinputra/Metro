@@ -25,7 +25,7 @@
             </div>
             <div class="mb-4">
               <hr
-                style="height:10%; width:100%; border-width:0; color:red"
+                style="height: 10%; width: 100%; border-width: 0; color: red"
                 class="col-sm-12 mb-0 mt-0"
               />
               <p class="mb-">
@@ -33,47 +33,46 @@
               </p>
             </div>
 
-            <div class="pr-5 mr-5 mb-0">
-              <h3 class="text-center mr-5 pr-5">Masukkan email anda</h3>
+            <div class="mb-0">
+              <h3 class="text-center">Masukkan email anda</h3>
             </div>
             <div>
-              <div class="row justify-content-start">
-                <form>
-                  <div class="form-group mb-0">
-                    <label for="email"
-                      >Email<span style="color: red">*</span>:</label
-                    >
-                    <input
-                      type="email"
-                      class="form-control mb-2 col-sm-9"
-                      id="email"
-                      name="email"
-                      placeholder="Email"
-                    />
-                    <p class="mb-0" style="color: red">*Wajib diisi</p>
-                    <br />
-                  </div>
-                </form>
-                <div class="text-center">
-                  <button
-                    type="submit"
-                    class="  btn
-                  text-danger
-                  btn-light
-                  btn-sm
-                  shadow
-                  rounded
-                  col-sm-2
-                  py-2
-                  px-2"
+              <form class="ms-5 ps-5">
+                <div class="form-group mb-0">
+                  <label for="email"
+                    >Email<span style="color: red">*</span>:</label
                   >
-                    Perbarui kata sandi
-                  </button>
+                  <input
+                    type="email"
+                    class="form-control mb-2 col-sm-10"
+                    id="email"
+                    name="email"
+                    placeholder="Email"
+                  />
+                  <p class="mb-0" style="color: red">*Wajib diisi</p>
+                  <br />
                 </div>
-                <div class="mt-4">
-                  Belum mempunyai akun?
-                  <a href="/forgot_password" style="color: red">Buat Akun</a>
-                </div>
+              </form>
+              <div class="text-center">
+                <button
+                  type="submit"
+                  class="
+                    btn
+                    text-danger
+                    btn-light btn-sm
+                    rounded
+                    col-sm-3
+                    py-2
+                    px-2
+                  "
+                  style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+                >
+                  Perbarui kata sandi
+                </button>
+              </div>
+              <div class="mt-5 ms-5 ps-5">
+                Belum mempunyai akun?
+                <a href="/register" style="color: red">Buat Akun</a>
               </div>
             </div>
           </div>
@@ -93,15 +92,15 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50"
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
         },
         {
           url: "/register",
           name: "Register",
-          class: "my-2 breadcrumb-item active opacity-50"
-        }
-      ]
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
+      ],
     };
-  }
+  },
 };
 </script>

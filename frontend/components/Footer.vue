@@ -173,6 +173,13 @@ export default {
       footer_2: "getFooter2",
       footer_3: "getFooter3"
     })
+  },
+  methods: {
+    bottomNavBar: function(index) {
+      if(index == 1){
+         window.location.href('/');
+      }
+    }
   }
 };
 </script>
