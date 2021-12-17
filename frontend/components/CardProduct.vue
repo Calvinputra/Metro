@@ -63,56 +63,56 @@
       <NuxtLink :to="'/products/' + data.id">
         <div
           class="card shadow mb-5 bg-white"
-          style="width: 100%; border-radius: 10px;"
+          style="width: 100%; border-radius: 10px"
         >
           <div
             v-bind:style="{
               backgroundImage:
                 'url(' + ASSET_URL + '/' + JSON.parse(data.images)[0] + ')',
             }"
-            style="background-size: cover; height: 150px; border-radius: 10px 10px 0px 0px;"
+            style="
+              background-size: cover;
+              height: 150px;
+              border-radius: 10px 10px 0px 0px;
+            "
             class="card-img-top d-flex align-items-end"
             alt="..."
             id="product-image-mobile"
-          >
-            <a
-              class="pb-2 ps-2"
-              href=""
-              onclick="return false;"
-              @click="addToWishList(data.id)"
-            >
-              <i
-                :class="(data.wishlist_exist ? 'fas' : 'far') + ' fa-heart'"
-                style="font-size: 30px !important; color: #c63442 !important"
-              ></i>
-            </a>
-          </div>
+          ></div>
           <div class="card-body">
             <div class="row justify-content-between">
               <div class="col">
-                <h5 class="card-title" style="font-size: 100%">
+                <h5 class="card-title mb-0" style="font-size: 100%">
                   {{ data.name }}
                 </h5>
               </div>
               <div class="col-4 justify-content-end d-flex pe-2">
                 <a
-                  class="btn text-danger btn-sm shadow"
-                  style="background-color: #f3f3f3; width: 70%;"
+                  href=""
                   onclick="return false;"
-                  @click="addToCart(data)"
-                  >+</a
+                  @click="addToWishList(data.id)"
                 >
+                  <i
+                    :class="(data.wishlist_exist ? 'fas' : 'far') + ' fa-heart'"
+                    style="
+                      font-size: 25px !important;
+                      color: #c63442 !important;
+                    "
+                  ></i>
+                </a>
               </div>
 
               <p class="card-text mb-2 font-weight-bold">
                 Rp.{{ Number(data.display_price).toLocaleString("id-ID") }}
               </p>
-
             </div>
 
             <div class="d-flex mt-3">
               <div class="col ps-0 pe-0">
-                <a class="d-flex justify-content-center" href="" onclick="return false;"
+                <a
+                  class="d-flex justify-content-center"
+                  href=""
+                  onclick="return false;"
                   ><img
                     id="logo"
                     class="img-fluid rounded"
@@ -122,7 +122,10 @@
                 /></a>
               </div>
               <div class="col ps-0 pe-0">
-                <a class="d-flex justify-content-center" href="" onclick="return false;"
+                <a
+                  class="d-flex justify-content-center"
+                  href=""
+                  onclick="return false;"
                   ><img
                     id="logo"
                     class="img-fluid rounded"
@@ -131,78 +134,21 @@
                     alt=""
                 /></a>
               </div>
+            </div>
+
+            <div class="d-flex mt-3">
+              <a
+                class="btn text-danger btn-sm shadow py-1"
+                style="background-color: #f3f3f3; width: 100%;"
+                onclick="return false;"
+                @click="addToCart(data)"
+                >+ Keranjang</a
+              >
             </div>
           </div>
         </div>
       </NuxtLink>
     </section>
-
-    <!-- <section id="card-mobileview">
-      <NuxtLink :to="'/products/' + data.id">
-        <div
-          class="card rounded shadow mb-5 bg-white rounded"
-          style="width: 100%"
-        >
-          <img
-            style="width: 100%"
-            :src="ASSET_URL + '/' + JSON.parse(data.images)[0]"
-            class="card-img-top height:auto"
-            alt="..."
-          />
-          <div class="card-body">
-            <div class="row">
-              <div class="col">
-                <h5 class="card-title" style="font-size : 80%">
-                  {{ data.name }}
-                </h5>
-                <a
-                  class="col-sm-3"
-                  href=""
-                  onclick="return false;"
-                  @click="addToWishList(data.id)"
-                  ><i
-                    :class="(data.wishlist_exist ? 'fas' : 'far') + ' fa-heart'"
-                    style="font-size: 30px !important; color: #c63442 !important"
-                  ></i
-                ></a>
-              </div>
-              <p class="card-text mb-2 font-weight-bold">
-                Rp.{{ Number(data.display_price).toLocaleString("id-ID") }}
-              </p>
-            </div>
-            <a
-              class="btn text-danger btn-sm shadow pt-2"
-              style="background-color: #f3f3f3"
-              onclick="return false;"
-              @click="addToCart(data)"
-              >+ Keranjang</a
-            >
-            <div class="d-flex">
-              <div>
-                <a class="" href="" onclick="return false;"
-                  ><img
-                    id="whatsapp"
-                    class="img-fluid rounded"
-                    style="background-color: #f3f3f3"
-                    src="/img/Whatsapp_new.png"
-                    alt=""
-                /></a>
-              </div>
-              <div>
-                <a class="" href="" onclick="return false;"
-                  ><img
-                    id="tokopedia"
-                    class="img-fluid rounded"
-                    style="background-color: #f3f3f3"
-                    src="/img/tokopedia.png"
-                    alt=""
-                /></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </NuxtLink>
-    </section> -->
   </section>
 </template>
 
