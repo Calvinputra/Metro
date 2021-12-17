@@ -4,6 +4,7 @@
     <div class="d-flex">
       <input
         class="form-control"
+        style="border-radius: 10px 0px 0px 10px;"
         type="search"
         placeholder="Cari Barang Di sini"
         aria-label="Search"
@@ -12,11 +13,11 @@
       />
       <button
         class="btn btn-outline-success mx-auto"
-        style="background-color: #e5e5e5"
+        style="background-color: #e5e5e5; border-radius: 0px 10px 10px 0px; width: 40px;"
         type="submit"
         @click="onSearch"
       >
-        <img src="/img/search.png" alt="" />
+       <i class="fas fa-search" style="font-size: 15px !important; color: black !important;"></i>
       </button>
     </div>
     <!-- kategory -->
@@ -26,7 +27,7 @@
         style="--bs-scroll-height: 100px"
       >
         <li
-          class="nav-item col-2"
+          class="nav-item col justify-content-center d-flex"
           v-for="menu_item in data.items"
           :key="menu_item.id"
         >

@@ -41,7 +41,7 @@
               <template
                 v-if="
                   this.$route.params.filter == '' ||
-                    this.$route.params.filter == undefined
+                  this.$route.params.filter == undefined
                 "
               >
                 <a
@@ -51,14 +51,13 @@
                     btn
                     text-white
                     btn-danger btn-sm
-                    shadow
                     rounded
                     col-sm-1
                     ms-0
-                    ps-0
                     py-2
                     px-2
                   "
+                  style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;"
                 >
                   Semua
                 </a>
@@ -201,6 +200,16 @@
             <template v-if="Object.keys(transactions).length === 0">
               Belum ada transaksi
             </template>
+            <div class="overflow-auto" style="margin-top: 20px">
+              <b-pagination-nav
+                :link-gen="linkGen"
+                :number-of-pages="this.totalPage"
+                first-text="First"
+                prev-text="Prev"
+                next-text="Next"
+                last-text="Last"
+              ></b-pagination-nav>
+            </div>
           </div>
         </div>
       </div>
@@ -242,7 +251,7 @@
               <template
                 v-if="
                   this.$route.params.filter == '' ||
-                    this.$route.params.filter == undefined
+                  this.$route.params.filter == undefined
                 "
               >
                 <a
@@ -427,34 +436,52 @@
 <script>
 export default {
   middleware: "auth",
-  async asyncData({ $axios, params }) {
+  async asyncData({ $axios, params, query }) {
     try {
       let data = {};
       if (params.filter == "menunggu_pembayaran") {
         data = {
-          page_filter: "menunggu_pembayaran"
+          page_filter: "menunggu_pembayaran",
+          page: query.page,
+          paginate: query.paginate,
         };
       } else if (params.filter == "selesai") {
         data = {
-          page_filter: "selesai"
+          page_filter: "selesai",
+          page: query.page,
+          paginate: query.paginate,
         };
       } else if (params.filter == "tidak_berhasil") {
         data = {
-          page_filter: "tidak_berhasil"
+          page_filter: "tidak_berhasil",
+          page: query.page,
+          paginate: query.paginate,
         };
       } else if (params.filter == "berlangsung") {
         data = {
-          page_filter: "berlangsung"
+          page_filter: "berlangsung",
+          page: query.page,
+          paginate: query.paginate,
+        };
+      } else {
+        data = {
+          page: query.page,
+          paginate: query.paginate,
         };
       }
-      //console.log(url);
       let transactions = await $axios.$get(
         process.env.API_URL + "/api/transactions",
         { params: data }
       );
       console.log(transactions);
+      let links = [];
+      for (let i = 1; i <= transactions.meta.last_page; i++) {
+        links.push(i);
+      }
       return {
-        transactions: transactions.data
+        transactions: transactions.data,
+        links: links,
+        totalPage: transactions.meta.last_page,
       };
     } catch (error) {
       console.log(error);
@@ -463,13 +490,31 @@ export default {
   methods: {
     showDetailTransaction(transaction) {
       this.selectedTransaction = transaction;
-    }
+    },
+    linkGen(pageNum) {
+      //console.log("PARAMS:"+this.$route.params.filter);
+      let url = "riwayat_pembelian";
+      if (typeof this.$route.params.filter !== "undefined") {
+        url += "/" + this.$route.params.filter;
+      }
+      return {
+        path: "/"+url+"?",
+        query: {
+          page: pageNum,
+          paginate: this.$route.query.paginate,
+        },
+      };
+    },
+    pageGen(pageNum) {
+      return this.links[pageNum - 1].slice(1);
+    },
   },
   data() {
     return {
-      selectedTransaction: {}
+      selectedTransaction: {},
     };
-  }
+  },
+  watchQuery: ["page", "paginate"],
 };
 </script>
 

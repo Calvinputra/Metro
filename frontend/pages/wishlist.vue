@@ -1,5 +1,6 @@
 <template>
   <section>
+    <!-- web -->
     <section id="wishlist-webview">
       <Header />
       <Breadcrumb :links="breadcrumb" />
@@ -16,6 +17,7 @@
             <div class="input-group md-form form-sm form-2 pl-0 col-sm-3">
               <input
                 class="form-control my-0 py-1 line-border pl-4"
+                style="border-radius: 10px 0px 0px 10px;"
                 type="text"
                 placeholder="cari barang disini"
                 aria-label="Search"
@@ -23,11 +25,11 @@
               <div class="input-group-append">
                 <button
                   class="btn btn-outline-success mx-auto"
-                  style="background-color: #e5e5e5"
+                   style="background-color: #e5e5e5; border-radius: 0px 10px 10px 0px; width: 40px;"
                   type="submit"
                   @click="onSearch"
                 >
-                  <img src="/img/search.png" alt="" />
+                  <i class="fas fa-search" style="font-size: 15px !important; color: black !important;"></i>
                 </button>
               </div>
             </div>
@@ -45,6 +47,8 @@
         </section>
       </div>
     </section>
+
+    <!-- mobile -->
     <section id="wishlist-mobileview">
       <Header />
       <Breadcrumb :links="breadcrumb" />

@@ -1,219 +1,462 @@
 <template>
   <section>
-    <Header />
-    <section>
-      <Breadcrumb :links="breadcrumb" />
-      <div class="container">
-        <div class="row">
-          <div class="preview col-md-6">
-            <div class="preview-pic tab-content">
-              <template v-for="(img, itemObjKey) in JSON.parse(data.images)">
-                <div
-                  class="tab-pane"
-                  :id="'pic-' + itemObjKey"
-                  :key="'pic-' + itemObjKey"
-                >
-                  <img
-                    :src="ASSET_URL + '/' + img"
-                    alt="Gallery image 1"
-                    class="ecommerce-gallery-main-img active w-100"
-                  />
-                </div>
-              </template>
+    <section id="product-detail-web">
+      <Header />
+      <section>
+        <Breadcrumb :links="breadcrumb" />
+        <div class="container">
+          <div class="row">
+            <div class="preview col-md-6">
+              <div class="preview-pic tab-content">
+                <template v-for="(img, itemObjKey) in JSON.parse(data.images)">
+                  <div
+                    class="tab-pane"
+                    :id="'pic-' + itemObjKey"
+                    :key="'pic-' + itemObjKey"
+                  >
+                    <img
+                      :src="ASSET_URL + '/' + img"
+                      alt="Gallery image 1"
+                      class="ecommerce-gallery-main-img active w-100"
+                    />
+                  </div>
+                </template>
 
-              <div class="tab-pane" id="pic-2">
-                <img :src="ASSET_URL + '/' + JSON.parse(data.images)[1]" />
+                <div class="tab-pane" id="pic-2">
+                  <img :src="ASSET_URL + '/' + JSON.parse(data.images)[1]" />
+                </div>
               </div>
+              <ul class="preview-thumbnail nav nav-tabs">
+                <template v-for="(img, itemObjKey) in JSON.parse(data.images)">
+                  <li class="" :key="'pic' + itemObjKey">
+                    <a :data-target="'#pic-' + itemObjKey" data-toggle="tab"
+                      ><img :src="ASSET_URL + '/' + img"
+                    /></a>
+                  </li>
+                </template>
+                <li>
+                  <a data-target="#pic-2" data-toggle="tab"
+                    ><img :src="ASSET_URL + '/' + JSON.parse(data.images)[1]"
+                  /></a>
+                </li>
+              </ul>
             </div>
-            <ul class="preview-thumbnail nav nav-tabs">
-               <template v-for="(img, itemObjKey) in JSON.parse(data.images)">
-              <li class="" :key="'pic' + itemObjKey">
-                <a :data-target="'#pic-'+itemObjKey" data-toggle="tab"
-                  ><img :src="ASSET_URL + '/' + img"
+            <div class="col-sm-6 mt-5 container">
+              <h5>Nama Merek</h5>
+              <div class="row">
+                <div class="col-sm-8">
+                  <h3>{{ data.code }} - {{ data.name }}</h3>
+                </div>
+                <!-- <div class="row"> -->
+                <a class="col-sm-1 me-0 pe-1" href=""
+                  ><img
+                    class="img-fluid max-width:100% height:auto rounded"
+                    src="/img/Whatsapp_new.png"
+                    style="background-color: #f3f3f3"
+                    alt=""
                 /></a>
-              </li>
-               </template>
-              <li>
-                <a data-target="#pic-2" data-toggle="tab"
-                  ><img :src="ASSET_URL + '/' + JSON.parse(data.images)[1]"
+                <a class="col-sm-1 ms-0 ps-1" href=""
+                  ><img
+                    class="img-fluid max-width:100% height:auto rounded"
+                    src="/img/tokopedia.png"
+                    style="background-color: #f3f3f3"
+                    alt=""
                 /></a>
-              </li>
-             
-            </ul>
-          </div>
-          <div class="col-sm-6 mt-5 container">
-            <h5>Nama Merek</h5>
-            <div class="row">
-              <div class="col-sm-8">
-                <h3>{{ data.code }} - {{ data.name }}</h3>
+                <!-- </div> -->
               </div>
-              <!-- <div class="row"> -->
-              <a class="col-sm-1 me-0 pe-1" href=""
-                ><img
-                  class="img-fluid max-width:100% height:auto rounded"
-                  src="/img/Whatsapp_new.png"
-                  style="background-color: #f3f3f3"
-                  alt=""
-              /></a>
-              <a class="col-sm-1 ms-0 ps-1" href=""
-                ><img
-                  class="img-fluid max-width:100% height:auto rounded"
-                  src="/img/tokopedia.png"
-                  style="background-color: #f3f3f3"
-                  alt=""
-              /></a>
-              <!-- </div> -->
-            </div>
-            <h4>Rp.{{ Number(data.price).toLocaleString("id-ID") }}</h4>
-            <hr class="style1" style="background-color: red; height: 2px" />
-            <div>
-              <h5 v-for="attribute in data.attributes" :key="attribute.id">
-                {{ attribute.attribute.name }} : {{ attribute.value }}
-              </h5>
-              <h5>
-                Pengukuran Produk :
-                {{ parseFloat(data.dimension_width / 10).toFixed(2) }}cm x
-                {{ parseFloat(data.dimension_height / 10).toFixed(2) }}cm x
-                {{ parseFloat(data.dimension_depth / 10).toFixed(2) }}cm
-              </h5>
-              <h5>
-                Berat Barang :
-                {{
+              <h4>Rp.{{ Number(data.price).toLocaleString("id-ID") }}</h4>
+              <hr class="style1" style="background-color: red; height: 2px" />
+              <div>
+                <h5 v-for="attribute in data.attributes" :key="attribute.id">
+                  {{ attribute.attribute.name }} : {{ attribute.value }}
+                </h5>
+                <h5>
+                  Pengukuran Produk :
+                  {{ parseFloat(data.dimension_width / 10).toFixed(2) }}cm x
+                  {{ parseFloat(data.dimension_height / 10).toFixed(2) }}cm x
+                  {{ parseFloat(data.dimension_depth / 10).toFixed(2) }}cm
+                </h5>
+                <h5>
+                  Berat Barang :
+                  {{
                   parseFloat(
                     (data.weight &lt; 10 ? 10 : data.weight) / 1000
                   ).toFixed(2)
-                }}
-                Kg
-              </h5>
-              <br />
-              <h5>Stok : {{ Number(data.stock).toLocaleString("id-ID") }}</h5>
-              <br />
-              <a
-                href="#"
-                class="
-                  btn
-                  text-danger
-                  btn-sm
-                  shadow
-                  rounded
-                  col-sm-2
-                  ms-0
-                  ps-0
-                  mb-3
-                  py-2
-                  px-2
-                "
-                @click="addToCart(data)"
-                style="background-color: #f3f3f3"
-                >+ Keranjang</a
-              >
-              <a
-                class="col-sm-3"
-                href=""
-                onclick="return false;"
-                @click="addToWishList(data.id)"
-                ><i
-                  :class="(data.wishlist_exist ? 'fas' : 'far') + ' fa-heart'"
-                  style="font-size: 30px !important; color: #c63442 !important"
-                ></i
-              ></a>
+                  }}
+                  Kg
+                </h5>
+                <br />
+                <h5>Stok : {{ Number(data.stock).toLocaleString("id-ID") }}</h5>
+                <br />
+                <a
+                  href="#"
+                  class="
+                    btn
+                    text-danger
+                    btn-sm
+                    shadow
+                    rounded
+                    col-sm-2
+                    ms-0
+                    ps-0
+                    mb-3
+                    py-2
+                    px-2
+                  "
+                  @click="addToCart(data)"
+                  style="background-color: #f3f3f3"
+                  >+ Keranjang</a
+                >
+                <a
+                  class="col-sm-3"
+                  href=""
+                  onclick="return false;"
+                  @click="addToWishList(data.id)"
+                  ><i
+                    :class="(data.wishlist_exist ? 'fas' : 'far') + ' fa-heart'"
+                    style="
+                      font-size: 30px !important;
+                      color: #c63442 !important;
+                    "
+                  ></i
+                ></a>
+              </div>
             </div>
           </div>
-          <!-- <div class="col-sm-1"></div> -->
         </div>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="pt-2 col-sm 3 d-flex align-items-center">
-            <h1>Ulasan</h1>
-            <h5 class="pt-1">(2)</h5>
-            <div class="col-sm-8"></div>
-            <div class="">
-              <div class="d-flex">
-                <img
-                  class="img-thumbnail max-width:100% height:auto"
-                  style="border: 0"
-                  src="/img/emojione_star.png"
-                  alt=""
-                />
-                <h2 class="my-auto">5/5</h2>
-              </div>
-              <!-- test -->
-              <div>
-                <b-button
-                  class="text-danger bg-white btn-outline-light"
-                  v-b-modal.modal-sm
-                  variant=""
-                  >Lihat Detail</b-button
-                >
-                <div class="container">
-                  <div class="d-flex">
-                    <b-modal id="modal-sm" size="sm" title="Rating">
-                      <div class="d-flex my-2">
-                        <img
-                          class="img-thumbnail max-width:100% height:auto"
-                          src="/img/emojione_star.png"
-                          style="border: 0"
-                          alt=""
-                        />
-                        <h3 class="my-auto mx-2">5</h3>
-                      </div>
-                      <div class="d-flex my-2">
-                        <img
-                          class="img-thumbnail max-width:100% height:auto"
-                          src="/img/emojione_star.png"
-                          style="border: 0"
-                          alt=""
-                        />
-                        <h3 class="my-auto mx-2">4</h3>
-                      </div>
-                      <div class="d-flex my-2">
-                        <img
-                          class="img-thumbnail max-width:100% height:auto"
-                          src="/img/emojione_star.png"
-                          style="border: 0"
-                          alt=""
-                        />
-                        <h3 class="my-auto mx-2">3</h3>
-                      </div>
-                      <div class="d-flex my-2">
-                        <img
-                          class="img-thumbnail max-width:100% height:auto"
-                          src="/img/emojione_star.png"
-                          style="border: 0"
-                          alt=""
-                        />
-                        <h3 class="my-auto mx-2">2</h3>
-                      </div>
-                      <div class="d-flex my-2">
-                        <img
-                          class="img-thumbnail max-width:100% height:auto"
-                          src="/img/emojione_star.png"
-                          style="border: 0"
-                          alt=""
-                        />
-                        <h3 class="my-auto mx-2">1</h3>
-                      </div>
-                    </b-modal>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="pt-2 col-sm 3 d-flex align-items-center">
+              <h1>Ulasan</h1>
+              <h5 class="pt-1">(2)</h5>
+              <div class="col-sm-8"></div>
+              <div class="">
+                <div class="d-flex">
+                  <img
+                    class="img-thumbnail max-width:100% height:auto"
+                    style="border: 0"
+                    src="/img/emojione_star.png"
+                    alt=""
+                  />
+                  <h2 class="my-auto">5/5</h2>
+                </div>
+                <!-- test -->
+                <div>
+                  <b-button
+                    class="text-danger bg-white btn-outline-light"
+                    v-b-modal.modal-sm
+                    variant=""
+                    >Lihat Detail</b-button
+                  >
+                  <div class="container">
+                    <div class="d-flex">
+                      <b-modal id="modal-sm" size="sm" title="Rating">
+                        <div class="d-flex my-2">
+                          <img
+                            class="img-thumbnail max-width:100% height:auto"
+                            src="/img/emojione_star.png"
+                            style="border: 0"
+                            alt=""
+                          />
+                          <h3 class="my-auto mx-2">5</h3>
+                        </div>
+                        <div class="d-flex my-2">
+                          <img
+                            class="img-thumbnail max-width:100% height:auto"
+                            src="/img/emojione_star.png"
+                            style="border: 0"
+                            alt=""
+                          />
+                          <h3 class="my-auto mx-2">4</h3>
+                        </div>
+                        <div class="d-flex my-2">
+                          <img
+                            class="img-thumbnail max-width:100% height:auto"
+                            src="/img/emojione_star.png"
+                            style="border: 0"
+                            alt=""
+                          />
+                          <h3 class="my-auto mx-2">3</h3>
+                        </div>
+                        <div class="d-flex my-2">
+                          <img
+                            class="img-thumbnail max-width:100% height:auto"
+                            src="/img/emojione_star.png"
+                            style="border: 0"
+                            alt=""
+                          />
+                          <h3 class="my-auto mx-2">2</h3>
+                        </div>
+                        <div class="d-flex my-2">
+                          <img
+                            class="img-thumbnail max-width:100% height:auto"
+                            src="/img/emojione_star.png"
+                            style="border: 0"
+                            alt=""
+                          />
+                          <h3 class="my-auto mx-2">1</h3>
+                        </div>
+                      </b-modal>
+                    </div>
                   </div>
                 </div>
+                <!-- test -->
               </div>
-              <!-- test -->
+            </div>
+            <div>
+              <div class="col-sm-1"></div>
+              <hr class="style1" style="background-color: red; height: 2px" />
             </div>
           </div>
-          <div>
-            <div class="col-sm-1"></div>
-            <hr class="style1" style="background-color: red; height: 2px" />
+        </div>
+        <Ulasan />
+        <Ulasan />
+        <Ulasan />
+        <Ulasan />
+      </section>
+      <Footer />
+    </section>
+
+    <!-- mobile -->
+    <section id="product-detail-mobile">
+      <Header />
+      <section>
+        <Breadcrumb :links="breadcrumb" />
+        <div class="container">
+          <div class="row">
+            <div>
+              <b-carousel
+                id="carousel-1"
+                v-model="slide"
+                :interval="4000"
+                controls
+                indicators
+                img-width="100%"
+                img-height="480"
+                style="text-shadow: 1px 1px 2px #333"
+                @sliding-start="onSlideStart"
+                @sliding-end="onSlideEnd"
+              >
+                <b-carousel-slide
+                  v-for="(img, itemObjKey) in JSON.parse(data.images)"
+                  :key="itemObjKey"
+                  :img-src="ASSET_URL + '/' + img"
+                >
+                </b-carousel-slide>
+              </b-carousel>
+            </div>
+            <div class="col-sm-6 mt-5 container">
+              <h5>Nama Merek</h5>
+              <div class="row">
+                <div class="col-10">
+                  <h3>{{ data.code }} - {{ data.name }}</h3>
+                </div>
+                <div class="col-2">
+                  <a
+                    href=""
+                    onclick="return false;"
+                    @click="addToWishList(data.id)"
+                  >
+                    <i
+                      :class="
+                        (data.wishlist_exist ? 'fas' : 'far') + ' fa-heart'
+                      "
+                      style="
+                        font-size: 25px !important;
+                        color: #c63442 !important;
+                      "
+                    ></i>
+                  </a>
+                </div>
+              </div>
+              <h4>
+                <b>Rp.{{ Number(data.price).toLocaleString("id-ID") }}</b>
+              </h4>
+              <hr class="style1" style="background-color: red; height: 2px" />
+              <div>
+                <table>
+                  <tbody>
+                    <tr
+                      v-for="attribute in data.attributes"
+                      :key="attribute.id"
+                    >
+                      <th scope="row" class="pe-3">
+                        {{ attribute.attribute.name }}
+                      </th>
+                      <td><b class="pe-1">:</b></td>
+                      <td>{{ attribute.value }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="pe-3">Pengukuran Produk</th>
+                      <td><b class="pe-1">:</b></td>
+                      <td>
+                        {{ parseFloat(data.dimension_width / 10).toFixed(2) }}cm
+                        x
+                        {{
+                          parseFloat(data.dimension_height / 10).toFixed(2)
+                        }}cm x
+                        {{ parseFloat(data.dimension_depth / 10).toFixed(2) }}cm
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="pe-3">Berat Barang</th>
+                      <td><b class="pe-1">:</b></td>
+                      <td>
+                        {{
+                            parseFloat(
+                              (data.weight &lt; 10 ? 10 : data.weight) / 1000
+                            ).toFixed(2)
+                        }}
+                        Kg
+                      </td>
+                    </tr>
+                    <br />
+                    <tr>
+                      <th scope="row" class="pe-3">Stok</th>
+                      <td><b class="pe-1">:</b></td>
+                      <td>{{ Number(data.stock).toLocaleString("id-ID") }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <hr class="style1" style="background-color: red; height: 2px" />
+              </div>
+              <div class="row">
+                <div class="col-2 ps-0 pe-0">
+                  <a
+                    class="d-flex justify-content-start ms-3"
+                    href=""
+                    onclick="return false;"
+                    ><img
+                      id="logo"
+                      class="img-fluid rounded"
+                      style="background-color: #f3f3f3"
+                      src="/img/Whatsapp_new.png"
+                      alt=""
+                  /></a>
+                </div>
+                <div class="col ps-0 pe-0">
+                  <a
+                    class="d-flex justify-content-start"
+                    href=""
+                    onclick="return false;"
+                    ><img
+                      id="logo"
+                      class="img-fluid rounded"
+                      style="background-color: #f3f3f3"
+                      src="/img/tokopedia.png"
+                      alt=""
+                  /></a>
+                </div>
+                <a
+                  href="#"
+                  class="
+                    col
+                    btn
+                    text-danger
+                    btn-sm
+                    shadow
+                    rounded
+                    me-3
+                    py-2
+                    px-2
+                  "
+                  @click="addToCart(data)"
+                  style="background-color: #f3f3f3"
+                  >+ Keranjang</a
+                >
+              </div>
+              <hr class="style1" style="background-color: red; height: 2px" />
+            </div>
           </div>
         </div>
-      </div>
-      <Ulasan />
-      <Ulasan />
-      <Ulasan />
-      <Ulasan />
+        <div class="container">
+          <div class="row">
+            <div class="pt-0 d-flex align-items-center">
+              <h4 class="col-2 me-2 ps-0">Ulasan</h4>
+              <h6 class="col ps-0 pb-2">(2)</h6>
+              <div class="">
+                <div class="d-flex">
+                  <img
+                    class="img-thumbnail max-width:100% height:auto"
+                    style="border: 0"
+                    src="/img/emojione_star.png"
+                    alt=""
+                  />
+                  <h3 class="my-auto me-3">5/5</h3>
+                </div>
+                <!-- test -->
+                <div>
+                  <b-button
+                    class="text-danger bg-white btn-outline-light"
+                    v-b-modal.modal-sm
+                    variant=""
+                    >Lihat Detail</b-button
+                  >
+                  <div class="container">
+                    <div class="d-flex">
+                      <b-modal id="modal-sm" size="sm" title="Rating">
+                        <div class="d-flex my-2">
+                          <img
+                            class="img-thumbnail max-width:100% height:auto"
+                            src="/img/emojione_star.png"
+                            style="border: 0"
+                            alt=""
+                          />
+                          <h3 class="my-auto mx-2">5</h3>
+                        </div>
+                        <div class="d-flex my-2">
+                          <img
+                            class="img-thumbnail max-width:100% height:auto"
+                            src="/img/emojione_star.png"
+                            style="border: 0"
+                            alt=""
+                          />
+                          <h3 class="my-auto mx-2">4</h3>
+                        </div>
+                        <div class="d-flex my-2">
+                          <img
+                            class="img-thumbnail max-width:100% height:auto"
+                            src="/img/emojione_star.png"
+                            style="border: 0"
+                            alt=""
+                          />
+                          <h3 class="my-auto mx-2">3</h3>
+                        </div>
+                        <div class="d-flex my-2">
+                          <img
+                            class="img-thumbnail max-width:100% height:auto"
+                            src="/img/emojione_star.png"
+                            style="border: 0"
+                            alt=""
+                          />
+                          <h3 class="my-auto mx-2">2</h3>
+                        </div>
+                        <div class="d-flex my-2">
+                          <img
+                            class="img-thumbnail max-width:100% height:auto"
+                            src="/img/emojione_star.png"
+                            style="border: 0"
+                            alt=""
+                          />
+                          <h3 class="my-auto mx-2">1</h3>
+                        </div>
+                      </b-modal>
+                    </div>
+                  </div>
+                </div>
+                <!-- test -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <Ulasan />
+        <Ulasan />
+        <Ulasan />
+        <Ulasan />
+      </section>
+      <Footer />
     </section>
-    <Footer />
 
     <!-- JQuery -->
     <script
@@ -235,8 +478,35 @@
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"
     ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
   </section>
 </template>
+
+<style lang="css" scoped>
+#product-detail-mobile {
+  display: none;
+}
+
+/* 0 - 991 px */
+@media screen and (max-width: 500px) {
+  #product-detail-web {
+    display: none;
+  }
+
+  #product-detail-mobile {
+    display: contents;
+  }
+
+  #logo {
+    width: 40px;
+  }
+}
+</style>
+
 
 <script>
 import { mapActions } from "vuex";
@@ -244,6 +514,8 @@ export default {
   data() {
     return {
       ASSET_URL: process.env.ASSET_URL,
+      slide: 0,
+      sliding: null,
     };
   },
   async asyncData({ $axios, params }) {
@@ -279,6 +551,12 @@ export default {
     }
   },
   methods: {
+    onSlideStart(slide) {
+      this.sliding = true;
+    },
+    onSlideEnd(slide) {
+      this.sliding = false;
+    },
     async addToWishList(id) {
       try {
         if (this.$auth.loggedIn) {
