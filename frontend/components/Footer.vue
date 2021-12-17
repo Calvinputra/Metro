@@ -174,18 +174,6 @@ export default {
     ...mapGetters({
       footer_1: "getFooter1",
       footer_2: "getFooter2",
-<<<<<<< HEAD
-      footer_3: "getFooter3"
-    })
-  },
-  methods: {
-    bottomNavBar: function(index) {
-      if(index == 1){
-         window.location.href('/');
-      }
-    }
-  }
-=======
       footer_3: "getFooter3",
     }),
   },
@@ -194,7 +182,6 @@ export default {
       this.$router.push(url);
     },
   },
->>>>>>> d7e8bcaba0d9efe192f6d188d059b72a83038cb6
 };
 </script>
 
