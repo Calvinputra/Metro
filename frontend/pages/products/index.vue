@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section  style="margin-bottom:100px;">
     <!-- Website -->
     <section id="product-webview">
       <Header />
@@ -85,11 +85,22 @@
                   :data="product"
                   :url="'/products/' + product.id"
                 />
+                <div class="overflow-auto">
+                  <b-pagination-nav
+                    :link-gen="linkGen"
+                    :number-of-pages="this.totalPage"
+                    first-text="First"
+                    prev-text="Prev"
+                    next-text="Next"
+                    last-text="Last"
+                  ></b-pagination-nav>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
       <Footer />
     </section>
 
@@ -175,6 +186,16 @@
           </div>
         </div>
       </div>
+      <div class="overflow-auto">
+        <b-pagination-nav
+          :link-gen="linkGen"
+          :number-of-pages="this.totalPage"
+          first-text="First"
+          prev-text="Prev"
+          next-text="Next"
+          last-text="Last"
+        ></b-pagination-nav>
+      </div>
       <Footer />
     </section>
   </section>
@@ -218,17 +239,40 @@ export default {
     try {
       let data = {
         s: query.s,
+        page: query.page,
+        paginate: query.paginate,
       };
       let products = await $axios.$get(process.env.API_URL + "/api/products", {
         params: data,
       });
+      let links = [];
+      for (let i = 1; i <= products.meta.last_page; i++) {
+        links.push(i);
+      }
       return {
         products: products.data,
+        links: links,
+        totalPage: products.meta.last_page,
       };
     } catch (error) {
       console.log(error);
     }
   },
-  watchQuery: ["s"],
+  methods: {
+    linkGen(pageNum) {
+      return {
+        path: "/products?",
+        query: {
+          page: pageNum,
+          s: this.$route.query.s,
+          paginate: this.$route.query.paginate,
+        },
+      };
+    },
+    pageGen(pageNum) {
+      return this.links[pageNum - 1].slice(1);
+    },
+  },
+  watchQuery: ["s", "page", "paginate"],
 };
 </script>
