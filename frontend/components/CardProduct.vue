@@ -1,11 +1,11 @@
 <template>
-  <!-- webview -->
   <section class="col pe-1 ps-3">
+    <!-- webview -->
     <section id="card-webview">
-      <NuxtLink :to="'/products/' + data.id">
+      <NuxtLink :to="'/products/' + data.id" style="text-decoration: none !important; color: black;">
         <div
-          class="card rounded shadow mb-5 bg-white rounded"
-          style="width: 100%"
+          class="card mb-5 bg-white rounded"
+          style="width: 100%; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25) !important; border-radius: 10px;"
         >
           <img
             style="width: 100%; height: 183px"
@@ -32,7 +32,7 @@
             </p>
             <div class="row">
               <a
-                class="btn text-danger btn-sm shadow rounded col-sm-5 ms-2 pt-2"
+                class="btn text-danger btn-sm rounded col-sm-5 ms-2 pt-2"
                 style="background-color: #f3f3f3; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
                 onclick="return false;"
                 @click="addToCart(data)"
@@ -60,10 +60,10 @@
 
     <!-- Mobile View -->
     <section id="card-mobileview">
-      <NuxtLink :to="'/products/' + data.id">
+      <NuxtLink :to="'/products/' + data.id" style="text-decoration: none !important; color: black;">
         <div
-          class="card shadow mb-5 bg-white"
-          style="width: 100%; border-radius: 10px"
+          class="card mb-5 bg-white"
+          style="width: 100%; border-radius: 10px; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25) !important;"
         >
           <div
             v-bind:style="{
@@ -82,7 +82,7 @@
           <div class="card-body">
             <div class="row justify-content-between">
               <div class="col">
-                <h5 class="card-title mb-0" style="font-size: 100%">
+                <h5 class="card-title mb-0" style="font-size: 100%;">
                   {{ data.name }}
                 </h5>
               </div>
@@ -116,7 +116,7 @@
                   ><img
                     id="logo"
                     class="img-fluid rounded"
-                    style="background-color: #f3f3f3"
+                    style="background-color: #f3f3f3; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
                     src="/img/Whatsapp_new.png"
                     alt=""
                 /></a>
@@ -129,7 +129,7 @@
                   ><img
                     id="logo"
                     class="img-fluid rounded"
-                    style="background-color: #f3f3f3"
+                    style="background-color: #f3f3f3; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
                     src="/img/tokopedia.png"
                     alt=""
                 /></a>
@@ -139,7 +139,7 @@
             <div class="d-flex mt-3">
               <a
                 class="btn text-danger btn-sm py-1"
-                style="background-color: #f3f3f3; width: 100%;"
+                style="background-color: #f3f3f3; width: 100%; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
                 onclick="return false;"
                 @click="addToCart(data)"
                 >+ Keranjang</a

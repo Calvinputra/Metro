@@ -82,7 +82,6 @@
                     btn
                     text-white
                     btn-danger btn-sm
-                    shadow
                     rounded
                     col-sm-3
                     ms-0
@@ -90,6 +89,7 @@
                     py-2
                     px-2
                   "
+                  style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
                 >
                   Menunggu Pembayaran
                 </a>
@@ -111,7 +111,6 @@
                     btn
                     text-white
                     btn-danger btn-sm
-                    shadow
                     rounded
                     col-sm-1
                     ms-0
@@ -119,6 +118,7 @@
                     py-2
                     px-2
                   "
+                  style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
                 >
                   Selesai
                 </a>
@@ -141,7 +141,6 @@
                     btn
                     text-white
                     btn-danger btn-sm
-                    shadow
                     rounded
                     col-sm-2
                     ms-0
@@ -149,6 +148,7 @@
                     py-2
                     px-2
                   "
+                  style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
                 >
                   Tidak Berhasil
                 </a>
@@ -171,7 +171,6 @@
                     btn
                     text-white
                     btn-danger btn-sm
-                    shadow
                     rounded
                     col-sm-2
                     ms-0
@@ -179,6 +178,7 @@
                     py-2
                     px-2
                   "
+                  style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
                 >
                   Berlangsung
                 </a>
@@ -261,13 +261,13 @@
                     btn
                     text-white
                     btn-danger btn-sm
-                    shadow
                     rounded
                     ms-0
                     ps-0
                     py-2
                     px-2
                   "
+                  style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
                 >
                   Semua
                 </a>
@@ -292,13 +292,13 @@
                     btn
                     text-white
                     btn-danger btn-sm
-                    shadow
                     rounded
                     ms-0
                     ps-0
                     py-2
                     px-2
                   "
+                  style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
                 >
                   Menunggu Pembayaran
                 </a>
@@ -320,13 +320,13 @@
                     btn
                     text-white
                     btn-danger btn-sm
-                    shadow
                     rounded
                     ms-0
                     ps-0
                     py-2
                     px-2
                   "
+                  style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
                 >
                   Selesai
                 </a>
@@ -349,13 +349,13 @@
                     btn
                     text-white
                     btn-danger btn-sm
-                    shadow
                     rounded
                     ms-0
                     ps-0
                     py-2
                     px-2
                   "
+                  style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
                 >
                   Tidak Berhasil
                 </a>
@@ -378,13 +378,13 @@
                     btn
                     text-white
                     btn-danger btn-sm
-                    shadow
                     rounded
                     ms-0
                     ps-0
                     py-2
                     px-2
                   "
+                  style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
                 >
                   Berlangsung
                 </a>

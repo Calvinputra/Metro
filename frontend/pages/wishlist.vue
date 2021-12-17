@@ -17,7 +17,7 @@
             <div class="input-group md-form form-sm form-2 pl-0 col-sm-3">
               <input
                 class="form-control my-0 py-1 line-border pl-4"
-                style="border-radius: 10px 0px 0px 10px;"
+                style="border-radius: 10px 0px 0px 10px"
                 type="text"
                 placeholder="cari barang disini"
                 aria-label="Search"
@@ -25,16 +25,23 @@
               <div class="input-group-append">
                 <button
                   class="btn btn-outline-success mx-auto"
-                   style="background-color: #e5e5e5; border-radius: 0px 10px 10px 0px; width: 40px;"
+                  style="
+                    background-color: #e5e5e5;
+                    border-radius: 0px 10px 10px 0px;
+                    width: 40px;
+                  "
                   type="submit"
                   @click="onSearch"
                 >
-                  <i class="fas fa-search" style="font-size: 15px !important; color: black !important;"></i>
+                  <i
+                    class="fas fa-search"
+                    style="font-size: 15px !important; color: black !important"
+                  ></i>
                 </button>
               </div>
             </div>
           </div>
-          <div class="container my-4" style="width:80%;">
+          <div class="container my-4" style="width: 80%">
             <div class="row">
               <Card-Product
                 v-for="wishlist in wishlists"
@@ -52,42 +59,56 @@
     <section id="wishlist-mobileview">
       <Header />
       <Breadcrumb :links="breadcrumb" />
-      <div class="container">
+      <div class="container pe-4 mb-5">
         <section>
-          <h3 class="ml-5">Daftar Keinginan</h3>
-
-          <hr
-            style="height: 2px; border-width: 0; color: red"
-            class="col-sm-11 mb-0 mt-0 ml-5"
-          />
-          <br />
-          <div class="d-flex flex-row-reverse col-sm-2 pr-5 pl-5 ">
-            <div class="input-group md-form form-sm form-2 pl-0 col-sm-3">
+          <h3 class="mb-3 ms-1">Daftar Keinginan</h3>
+          <div class="d-flex flex-row-reverse col-sm-2 p-0 ms-1">
+            <div class="input-group md-form form-sm form-2 p-0 col-sm-3">
               <input
                 class="form-control my-0 py-1 line-border pl-4"
                 type="text"
+                style="border-radius: 10px 0px 0px 10px"
                 placeholder="cari barang disini"
                 aria-label="Search"
               />
               <div class="input-group-append">
                 <button
                   class="btn btn-outline-success mx-auto"
-                  style="background-color: #e5e5e5"
+                  style="
+                    background-color: #e5e5e5;
+                    border-radius: 0px 10px 10px 0px;
+                    width: 40px;
+                  "
                   type="submit"
                 >
-                  <img src="/img/search.png" alt="" />
+                  <i
+                    class="fas fa-search"
+                    style="font-size: 15px !important; color: black !important"
+                  ></i>
                 </button>
               </div>
             </div>
           </div>
-          <div class="container my-4" style="width:80%;">
-            <div class="row">
-              <Card-Product
-                v-for="wishlist in wishlists"
-                :key="wishlist.id"
-                :data="wishlist.product"
-                :url="'/products/' + wishlist.id"
-              />
+          <div class="mt-4">
+            <div class="row justify-content-start">
+              <!-- palingan ini kasih if else ganjil genap -->
+              <div class="col pe-0 ps-0">
+                <Card-Product
+                  v-for="wishlist in wishlists"
+                  :key="wishlist.id"
+                  :data="wishlist.product"
+                  :url="'/products/' + wishlist.id"
+                />
+              </div>
+
+              <div class="col pe-0 ps-0">
+                <Card-Product
+                  v-for="wishlist in wishlists"
+                  :key="wishlist.id"
+                  :data="wishlist.product"
+                  :url="'/products/' + wishlist.id"
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -106,27 +127,27 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50"
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
         },
 
         {
           url: "/wishlist",
           name: "Daftar Keinginan",
-          class: "my-2 breadcrumb-item active opacity-50"
-        }
-      ]
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
+      ],
     };
   },
   async asyncData({ $axios }) {
     try {
       let wishlists = await $axios.$get(process.env.API_URL + "/api/wishlists");
       return {
-        wishlists: wishlists.data
+        wishlists: wishlists.data,
       };
     } catch (error) {
       console.log(error);
     }
-  }
+  },
 };
 </script>
 

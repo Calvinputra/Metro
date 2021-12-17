@@ -120,7 +120,8 @@
                   <br />
                   <button
                     type="button"
-                    class="btn btn-light text-danger col-sm-3 shadow"
+                    class="btn btn-light text-danger col-sm-3"
+                    style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
                   >
                     Ubah Informasi Akun
                   </button>
