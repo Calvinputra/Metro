@@ -13,7 +13,7 @@
           <!-- Grid column -->
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <!-- Content -->
-            <a href=""><img src="img/audiblelogo.png" class="mb-3" alt=""/></a>
+            <a href=""><img src="img/audiblelogo.png" class="mb-3" alt="" /></a>
             <p>
               Jl.Raya kb.Jeruk, No.27, RT 2/RW 9, Kb. Jeruk Kec Kb.Jeruk, Kota
               Jakarta Barat, Daerah Khusus Ibukota Jakarta 11520
@@ -137,14 +137,17 @@
     <section class="mt-2" id="footer-mobile">
       <div class="d-flex justify-content-around" id="footer-mobileview">
         <i
+          @click="redirectTo('/home')"
           class="fas fa-home"
           style="font-size: 30px !important; color: #c63442 !important"
         ></i>
         <i
+          @click="redirectTo('/wishlist')"
           class="fas fa-heart"
           style="font-size: 30px !important; color: #c63442 !important"
         ></i>
         <i
+          @click="redirectTo('/cart')"
           class="fas fa-shopping-cart"
           style="font-size: 30px !important; color: #c63442 !important"
         ></i>
@@ -171,6 +174,7 @@ export default {
     ...mapGetters({
       footer_1: "getFooter1",
       footer_2: "getFooter2",
+<<<<<<< HEAD
       footer_3: "getFooter3"
     })
   },
@@ -181,6 +185,16 @@ export default {
       }
     }
   }
+=======
+      footer_3: "getFooter3",
+    }),
+  },
+  methods: {
+    redirectTo(url) {
+      this.$router.push(url);
+    },
+  },
+>>>>>>> d7e8bcaba0d9efe192f6d188d059b72a83038cb6
 };
 </script>
 
