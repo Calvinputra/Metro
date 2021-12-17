@@ -1,5 +1,6 @@
 <template>
-  <section class="col-md-4">
+  <!-- webview -->
+  <section class="col pe-1 ps-3">
     <section id="card-webview">
       <NuxtLink :to="'/products/' + data.id">
         <div
@@ -57,7 +58,86 @@
       </NuxtLink>
     </section>
 
+    <!-- Mobile View -->
     <section id="card-mobileview">
+      <NuxtLink :to="'/products/' + data.id">
+        <div
+          class="card shadow mb-5 bg-white"
+          style="width: 100%; border-radius: 10px;"
+        >
+          <div
+            v-bind:style="{
+              backgroundImage:
+                'url(' + ASSET_URL + '/' + JSON.parse(data.images)[0] + ')',
+            }"
+            style="background-size: cover; height: 150px; border-radius: 10px 10px 0px 0px;"
+            class="card-img-top d-flex align-items-end"
+            alt="..."
+            id="product-image-mobile"
+          >
+            <a
+              class="pb-2 ps-2"
+              href=""
+              onclick="return false;"
+              @click="addToWishList(data.id)"
+            >
+              <i
+                :class="(data.wishlist_exist ? 'fas' : 'far') + ' fa-heart'"
+                style="font-size: 30px !important; color: #c63442 !important"
+              ></i>
+            </a>
+          </div>
+          <div class="card-body">
+            <div class="row justify-content-between">
+              <div class="col">
+                <h5 class="card-title" style="font-size: 100%">
+                  {{ data.name }}
+                </h5>
+              </div>
+              <div class="col-4 justify-content-end d-flex pe-2">
+                <a
+                  class="btn text-danger btn-sm shadow"
+                  style="background-color: #f3f3f3; width: 70%;"
+                  onclick="return false;"
+                  @click="addToCart(data)"
+                  >+</a
+                >
+              </div>
+
+              <p class="card-text mb-2 font-weight-bold">
+                Rp.{{ Number(data.display_price).toLocaleString("id-ID") }}
+              </p>
+
+            </div>
+
+            <div class="d-flex mt-3">
+              <div class="col ps-0 pe-0">
+                <a class="d-flex justify-content-center" href="" onclick="return false;"
+                  ><img
+                    id="logo"
+                    class="img-fluid rounded"
+                    style="background-color: #f3f3f3"
+                    src="/img/Whatsapp_new.png"
+                    alt=""
+                /></a>
+              </div>
+              <div class="col ps-0 pe-0">
+                <a class="d-flex justify-content-center" href="" onclick="return false;"
+                  ><img
+                    id="logo"
+                    class="img-fluid rounded"
+                    style="background-color: #f3f3f3"
+                    src="/img/tokopedia.png"
+                    alt=""
+                /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </NuxtLink>
+    </section>
+
+    <!-- <section id="card-mobileview">
       <NuxtLink :to="'/products/' + data.id">
         <div
           class="card rounded shadow mb-5 bg-white rounded"
@@ -122,7 +202,7 @@
           </div>
         </div>
       </NuxtLink>
-    </section>
+    </section> -->
   </section>
 </template>
 
@@ -132,7 +212,7 @@ export default {
   props: ["data", "url"],
   data() {
     return {
-      ASSET_URL: process.env.ASSET_URL
+      ASSET_URL: process.env.ASSET_URL,
     };
   },
   created() {
@@ -143,7 +223,7 @@ export default {
       try {
         if (this.$auth.loggedIn) {
           let data = {
-            product_id: product.id
+            product_id: product.id,
           };
           let response = await this.$axios.$post(
             process.env.API_URL + "/api/carts",
@@ -152,7 +232,7 @@ export default {
           this.$toast.success("Successfully add a product to cart", {
             theme: "bubble",
             position: "bottom-right",
-            duration: 5000
+            duration: 5000,
           });
           console.log(response);
         } else {
@@ -167,7 +247,7 @@ export default {
       try {
         if (this.$auth.loggedIn) {
           let data = {
-            product_id: id
+            product_id: id,
           };
           let response = await this.$axios.$post(
             process.env.API_URL + "/api/wishlists",
@@ -177,13 +257,13 @@ export default {
             this.$toast.success("Successfully delete a product from wishlist", {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000
+              duration: 5000,
             });
           } else {
             this.$toast.success("Successfully add a product to wishlist", {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000
+              duration: 5000,
             });
           }
 
@@ -196,8 +276,8 @@ export default {
         console.log(error);
       }
     },
-    ...mapActions(["addProductToCart"])
-  }
+    ...mapActions(["addProductToCart"]),
+  },
 };
 </script>
 
@@ -217,14 +297,9 @@ export default {
   #card-mobileview {
     display: flex;
   }
-  #whatsapp {
-    width: 50%;
-    margin-top: 10%;
-    margin-left: 30%;
-  }
-  #tokopedia {
-    width: 30%;
-    margin-top: 7%;
+
+  #logo {
+    width: 40px;
   }
 }
 </style>

@@ -1,9 +1,10 @@
 <template>
   <!-- search -->
-  <div id="search" class="nav-item  align-self-start mt-2 mr-5">
+  <div id="search" class="nav-item  align-self-start mt-2">
     <div class="d-flex">
       <input
         class="form-control"
+        style="border-radius: 10px 0px 0px 10px;"
         type="search"
         placeholder="Cari Barang Di sini"
         aria-label="Search"
@@ -12,11 +13,11 @@
       />
       <button
         class="btn btn-outline-success mx-auto"
-        style="background-color: #e5e5e5"
+        style="background-color: #e5e5e5; width: 40px; border-radius: 0px 10px 10px 0px;"
         type="submit"
         @click="onSearch"
       >
-        <img src="/img/search.png" alt="" />
+        <i class="fas fa-search" style="font-size: 15px !important; color: black !important;"></i>
       </button>
     </div>
     <!-- kategory -->
