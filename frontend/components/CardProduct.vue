@@ -33,7 +33,7 @@
             <div class="row">
               <a
                 class="btn text-danger btn-sm shadow rounded col-sm-5 ms-2 pt-2"
-                style="background-color: #f3f3f3"
+                style="background-color: #f3f3f3; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
                 onclick="return false;"
                 @click="addToCart(data)"
                 >+ Keranjang</a
@@ -41,14 +41,14 @@
               <a class="col-sm-3" href="" onclick="return false;"
                 ><img
                   class="img-fluid max-width:100% height:auto rounded"
-                  style="background-color: #f3f3f3"
+                  style="background-color: #f3f3f3; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
                   src="/img/Whatsapp_new.png"
                   alt=""
               /></a>
               <a class="col-sm-3" href="" onclick="return false;"
                 ><img
                   class="img-fluid max-width:100% height:auto rounded"
-                  style="background-color: #f3f3f3"
+                  style="background-color: #f3f3f3; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
                   src="/img/tokopedia.png"
                   alt=""
               /></a>
@@ -138,7 +138,7 @@
 
             <div class="d-flex mt-3">
               <a
-                class="btn text-danger btn-sm shadow py-1"
+                class="btn text-danger btn-sm py-1"
                 style="background-color: #f3f3f3; width: 100%;"
                 onclick="return false;"
                 @click="addToCart(data)"
