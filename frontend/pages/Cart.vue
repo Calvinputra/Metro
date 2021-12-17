@@ -1,5 +1,5 @@
 <template>
-  <section class="container">
+  <section>
     <div id="cart-webview">
       <Header />
       <div class="container padding-bottom-3x mb-1">
@@ -123,25 +123,9 @@
         <!-- Shopping Cart-->
         <div class="table-responsive shopping-cart">
           <table class="table">
-            <thead>
-              <tr>
-                <th>Produk</th>
-                <th class="text-center">Jumlah</th>
-                <th class="text-center">Harga</th>
-                <th class="text-center">Sub total</th>
-                <th class="text-center">
-                  <a
-                    @click="destroyAll"
-                    class="btn btn-sm btn-outline-danger"
-                    href="#"
-                    >Clear Cart</a
-                  >
-                </th>
-              </tr>
-            </thead>
             <tbody></tbody>
             <template v-if="!this.$auth.loggedIn">
-              <Cart
+              <CartMobile
                 v-for="cart in tempCart"
                 :key="cart.id"
                 :product="cart.product"
@@ -152,7 +136,7 @@
             </template>
 
             <template v-if="this.$auth.loggedIn">
-              <Cart
+              <CartMobile
                 v-for="cart in carts"
                 :key="cart.id"
                 :product="cart.product"
