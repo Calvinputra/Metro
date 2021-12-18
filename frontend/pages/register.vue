@@ -1,15 +1,16 @@
 <template>
   <section>
-    <Header />
-    <Breadcrumb :links="breadcrumb" />
-    <section>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-2">
-            <AccountMenu :name="'register'" />
-          </div>
-          <div
-            class="
+    <section id="register-webview">
+      <Header />
+      <Breadcrumb :links="breadcrumb" />
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-2">
+              <AccountMenu :name="'register'" />
+            </div>
+            <div
+              class="
               col-sm-9
               offset-md-1
               align-self-start
@@ -17,217 +18,221 @@
               row
               justify-content-between
             "
-          >
-            <div class="col-sm-12">
-              <label class="mb-0"
-                ><h2 class="font-weight-bold">
-                  Registrasi Akun di Metro Jaya<span style="color: red">*</span>
-                </h2></label
-              >
-            </div>
-            <div class="mb-4">
-              <hr
-                style="height: 10%; width: 100%; border-width: 0; color: red"
-                class="col-sm-12 mb-0 mt-0"
-              />
-              <p class="mb-">
-                Jika sudah memiliki akun, dapat pergi ke halaman Masuk Akun.
-              </p>
-            </div>
+            >
+              <div class="col-sm-12">
+                <label class="mb-0"
+                  ><h2 class="font-weight-bold">
+                    Registrasi Akun di Metro Jaya<span style="color: red"
+                      >*</span
+                    >
+                  </h2></label
+                >
+              </div>
+              <div class="mb-4">
+                <hr
+                  style="height: 10%; width: 100%; border-width: 0; color: red"
+                  class="col-sm-12 mb-0 mt-0"
+                />
+                <p class="mb-">
+                  Jika sudah memiliki akun, dapat pergi ke halaman Masuk Akun.
+                </p>
+              </div>
 
-            <div>
-              <div class="row justify-content-start">
-                <form>
-                  <div class="register-form-title mr-5 pr-5">
-                    Pengisian Data Diri
-                  </div>
-                  <b-alert
-                    v-model="showDismissibleAlert"
-                    variant="danger"
-                    dismissible
-                  >
-                    <ul
-                      style="color: black; padding: 0"
-                      v-for="(error, key) in errors"
-                      :key="key"
+              <div>
+                <div class="row justify-content-start">
+                  <form>
+                    <div class="register-form-title mr-5 pr-5">
+                      Pengisian Data Diri
+                    </div>
+                    <b-alert
+                      v-model="showDismissibleAlert"
+                      variant="danger"
+                      dismissible
                     >
-                      <li v-for="(e, key) in error" :key="key">{{ e }}</li>
-                    </ul>
-                  </b-alert>
-                  <div class="form-group col-sm-10 center">
-                    <label for="first_name"
-                      >Nama Depan<span style="color: red">*</span>:</label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="first_name"
-                      name="first_name"
-                      placeholder="Nama Depan"
-                      v-model="first_name"
-                    />
-                  </div>
-                  <div class="form-group form-group col-sm-10">
-                    <label for="last_name"
-                      >Nama Belakang<span style="color: red">*</span>:</label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="last_name"
-                      name="last_name"
-                      placeholder="Nama Belakang"
-                      v-model="last_name"
-                    />
-                  </div>
+                      <ul
+                        style="color: black; padding: 0"
+                        v-for="(error, key) in errors"
+                        :key="key"
+                      >
+                        <li v-for="(e, key) in error" :key="key">{{ e }}</li>
+                      </ul>
+                    </b-alert>
+                    <div class="form-group col-sm-10 center">
+                      <label for="first_name"
+                        >Nama Depan<span style="color: red">*</span>:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="first_name"
+                        name="first_name"
+                        placeholder="Nama Depan"
+                        v-model="first_name"
+                      />
+                    </div>
+                    <div class="form-group form-group col-sm-10">
+                      <label for="last_name"
+                        >Nama Belakang<span style="color: red">*</span>:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="last_name"
+                        name="last_name"
+                        placeholder="Nama Belakang"
+                        v-model="last_name"
+                      />
+                    </div>
 
-                  <div class="form-group form-group col-sm-10">
-                    <label for="phone]"
-                      >Nomor Telepon<span style="color: red">*</span>:</label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="phone"
-                      name="phone"
-                      placeholder="Nomor Telepon"
-                      v-model="phone"
-                    />
-                  </div>
-                  <div class="form-group col-sm-10">
-                    <label for="email"
-                      >Email<span style="color: red">*</span>:</label
-                    >
-                    <input
-                      type="email"
-                      class="form-control"
-                      id="email"
-                      name="email"
-                      placeholder="Email"
-                      v-model="email"
-                    />
-                  </div>
-                  <div class="form-group col-sm-10">
-                    <label for="password"
-                      >Kata Sandi<span style="color: red">*</span>:</label
-                    >
-                    <input
-                      type="password"
-                      class="form-control"
-                      id="password"
-                      name="password"
-                      placeholder="Password"
-                      v-model="password"
-                    />
-                  </div>
-                  <div class="form-group col-sm-10">
-                    <label for="password_confirmation"
-                      >Konfirmasi Kata Sandi<span style="color: red">*</span
-                      >:</label
-                    >
-                    <input
-                      type="password"
-                      class="form-control"
-                      id="password_confirmation"
-                      name="password_confirmation"
-                      placeholder="Password"
-                      v-model="password_confirmation"
-                    />
-                  </div>
+                    <div class="form-group form-group col-sm-10">
+                      <label for="phone]"
+                        >Nomor Telepon<span style="color: red">*</span>:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="phone"
+                        name="phone"
+                        placeholder="Nomor Telepon"
+                        v-model="phone"
+                      />
+                    </div>
+                    <div class="form-group col-sm-10">
+                      <label for="email"
+                        >Email<span style="color: red">*</span>:</label
+                      >
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        name="email"
+                        placeholder="Email"
+                        v-model="email"
+                      />
+                    </div>
+                    <div class="form-group col-sm-10">
+                      <label for="password"
+                        >Kata Sandi<span style="color: red">*</span>:</label
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="password"
+                        name="password"
+                        placeholder="Password"
+                        v-model="password"
+                      />
+                    </div>
+                    <div class="form-group col-sm-10">
+                      <label for="password_confirmation"
+                        >Konfirmasi Kata Sandi<span style="color: red">*</span
+                        >:</label
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="password_confirmation"
+                        name="password_confirmation"
+                        placeholder="Password"
+                        v-model="password_confirmation"
+                      />
+                    </div>
 
-                  <div class="register-form-title pe-5 me-5">Alamat Pengiriman</div>
-                  <div class="form-group col-sm-10">
-                    <label for="address"
-                      >Alamat Lengkap<span style="color: red">*</span>:</label
-                    >
-                    <textarea
-                      class="form-control"
-                      id="address"
-                      name="address"
-                      rows="3"
-                      v-model="address"
-                    ></textarea>
-                  </div>
-                  <div class="form-group col-sm-10">
-                    <label for="country"
-                      >Negara<span style="color: red">*</span>:</label
-                    >
-                    <v-select
-                      v-model="country_id"
-                      :reduce="(countries) => countries.code"
-                      @input="getProvince"
-                      :options="countries"
-                    ></v-select>
-                  </div>
-                  <div class="form-group col-sm-10 text">
-                    <label for="province"
-                      >Provinsi<span style="color: red">*</span>:</label
-                    >
-                    <v-select
-                      v-model="province_id"
-                      :reduce="(provinces) => provinces.code"
-                      @input="getCity"
-                      :options="provinces"
-                    ></v-select>
-                  </div>
-                  <div class="form-group col-sm-10">
-                    <label for="city"
-                      >Kota<span style="color: red">*</span>:</label
-                    >
-                    <v-select
-                      v-model="city_id"
-                      :reduce="(cities) => cities.code"
-                      :options="cities"
-                    ></v-select>
-                  </div>
-                  <div class="form-group col-sm-10">
-                    <label for="postal_code"
-                      >Kode Pos<span style="color: red">*</span>:</label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="postal_code"
-                      name="postal_code"
-                      placeholder="Kode Pos"
-                      v-model="postal_code"
-                    />
-                  </div>
+                    <div class="register-form-title pe-5 me-5">
+                      Alamat Pengiriman
+                    </div>
+                    <div class="form-group col-sm-10">
+                      <label for="address"
+                        >Alamat Lengkap<span style="color: red">*</span>:</label
+                      >
+                      <textarea
+                        class="form-control"
+                        id="address"
+                        name="address"
+                        rows="3"
+                        v-model="address"
+                      ></textarea>
+                    </div>
+                    <div class="form-group col-sm-10">
+                      <label for="country"
+                        >Negara<span style="color: red">*</span>:</label
+                      >
+                      <v-select
+                        v-model="country_id"
+                        :reduce="countries => countries.code"
+                        @input="getProvince"
+                        :options="countries"
+                      ></v-select>
+                    </div>
+                    <div class="form-group col-sm-10 text">
+                      <label for="province"
+                        >Provinsi<span style="color: red">*</span>:</label
+                      >
+                      <v-select
+                        v-model="province_id"
+                        :reduce="provinces => provinces.code"
+                        @input="getCity"
+                        :options="provinces"
+                      ></v-select>
+                    </div>
+                    <div class="form-group col-sm-10">
+                      <label for="city"
+                        >Kota<span style="color: red">*</span>:</label
+                      >
+                      <v-select
+                        v-model="city_id"
+                        :reduce="cities => cities.code"
+                        :options="cities"
+                      ></v-select>
+                    </div>
+                    <div class="form-group col-sm-10">
+                      <label for="postal_code"
+                        >Kode Pos<span style="color: red">*</span>:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="postal_code"
+                        name="postal_code"
+                        placeholder="Kode Pos"
+                        v-model="postal_code"
+                      />
+                    </div>
 
-                  <br />
-                  <label style="color: red"
-                    ><span style="color: red">*</span>Wajib diisi</label
-                  >
-                  <div class="form-check">
-                    <input
-                      type="checkbox"
-                      class="form-check-input"
-                      id="exampleCheck1"
-                      v-model="agreement_1"
-                    />
-                    <label class="form-check-label" for="exampleCheck1"
-                      >Saya telah membaca dan menyetujui Kebijakan
-                      Privasi</label
+                    <br />
+                    <label style="color: red"
+                      ><span style="color: red">*</span>Wajib diisi</label
                     >
-                  </div>
-                  <div class="form-check">
-                    <input
-                      type="checkbox"
-                      class="form-check-input"
-                      id="exampleCheck2"
-                      v-model="agreement_2"
-                    />
+                    <div class="form-check">
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="exampleCheck1"
+                        v-model="agreement_1"
+                      />
+                      <label class="form-check-label" for="exampleCheck1"
+                        >Saya telah membaca dan menyetujui Kebijakan
+                        Privasi</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="exampleCheck2"
+                        v-model="agreement_2"
+                      />
 
-                    <label class="form-check-label" for="exampleCheck2"
-                      >Perbarui Saya dengan berita dan promo terbaru</label
-                    >
-                  </div>
-                  <br />
-                  <div class="text-center">
-                    <button
-                      @click.prevent="doRegister"
-                      type="submit"
-                      class="
+                      <label class="form-check-label" for="exampleCheck2"
+                        >Perbarui Saya dengan berita dan promo terbaru</label
+                      >
+                    </div>
+                    <br />
+                    <div class="text-center">
+                      <button
+                        @click.prevent="doRegister"
+                        type="submit"
+                        class="
                         btn
                         text-danger
                         btn-light btn-sm
@@ -237,38 +242,309 @@
                         py-2
                         px-2
                       "
-                      style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
-                    >
-                      Buat Akun
-                    </button>
-                  </div>
-                </form>
+                        style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+                      >
+                        Buat Akun
+                      </button>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      <Footer />
+      <client-only>
+        <!-- include VueJS first -->
+        <script src="https://unpkg.com/vue@latest"></script>
+
+        <!-- use the latest vue-select release -->
+        <script src="https://unpkg.com/vue-select@latest"></script>
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/vue-select@latest/dist/vue-select.css"
+        />
+
+        <!-- or point to a specific vue-select release -->
+        <script src="https://unpkg.com/vue-select@3.0.0"></script>
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/vue-select@3.0.0/dist/vue-select.css"
+        />
+      </client-only>
     </section>
+    <section id="register-mobileview">
+      <Header />
+      <section>
+        <div class="container">
+          <div class="row">
+            <div
+              class="
+              col-sm-9
+              offset-md-1
+              align-self-start
+              mt-2
+              row
+              justify-content-between
+            "
+            >
+              <div class="col-sm-12">
+                <label class="mb-0"
+                  ><h2 class="font-weight-bold">
+                    Registrasi Akun di Metro Jaya<span style="color: red"
+                      >*</span
+                    >
+                  </h2></label
+                >
+              </div>
+              <div class="mb-4">
+                <hr
+                  style="height: 10%; width: 100%; border-width: 0; color: red"
+                  class="col-sm-12 mb-0 mt-0"
+                />
+                <p class="mb-">
+                  Jika sudah memiliki akun, dapat pergi ke halaman Masuk Akun.
+                </p>
+              </div>
 
-    <Footer />
-    <client-only>
-      <!-- include VueJS first -->
-      <script src="https://unpkg.com/vue@latest"></script>
+              <div>
+                <div class="row justify-content-start">
+                  <form>
+                    <div class="register-form-title mr-5 pr-5">
+                      Pengisian Data Diri
+                    </div>
+                    <b-alert
+                      v-model="showDismissibleAlert"
+                      variant="danger"
+                      dismissible
+                    >
+                      <ul
+                        style="color: black; padding: 0"
+                        v-for="(error, key) in errors"
+                        :key="key"
+                      >
+                        <li v-for="(e, key) in error" :key="key">{{ e }}</li>
+                      </ul>
+                    </b-alert>
+                    <div class="form-group col-sm-10 center">
+                      <label for="first_name"
+                        >Nama Depan<span style="color: red">*</span>:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="first_name"
+                        name="first_name"
+                        placeholder="Nama Depan"
+                        v-model="first_name"
+                      />
+                    </div>
+                    <div class="form-group form-group col-sm-10">
+                      <label for="last_name"
+                        >Nama Belakang<span style="color: red">*</span>:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="last_name"
+                        name="last_name"
+                        placeholder="Nama Belakang"
+                        v-model="last_name"
+                      />
+                    </div>
 
-      <!-- use the latest vue-select release -->
-      <script src="https://unpkg.com/vue-select@latest"></script>
-      <link
-        rel="stylesheet"
-        href="https://unpkg.com/vue-select@latest/dist/vue-select.css"
-      />
+                    <div class="form-group form-group col-sm-10">
+                      <label for="phone]"
+                        >Nomor Telepon<span style="color: red">*</span>:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="phone"
+                        name="phone"
+                        placeholder="Nomor Telepon"
+                        v-model="phone"
+                      />
+                    </div>
+                    <div class="form-group col-sm-10">
+                      <label for="email"
+                        >Email<span style="color: red">*</span>:</label
+                      >
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        name="email"
+                        placeholder="Email"
+                        v-model="email"
+                      />
+                    </div>
+                    <div class="form-group col-sm-10">
+                      <label for="password"
+                        >Kata Sandi<span style="color: red">*</span>:</label
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="password"
+                        name="password"
+                        placeholder="Password"
+                        v-model="password"
+                      />
+                    </div>
+                    <div class="form-group col-sm-10">
+                      <label for="password_confirmation"
+                        >Konfirmasi Kata Sandi<span style="color: red">*</span
+                        >:</label
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="password_confirmation"
+                        name="password_confirmation"
+                        placeholder="Password"
+                        v-model="password_confirmation"
+                      />
+                    </div>
 
-      <!-- or point to a specific vue-select release -->
-      <script src="https://unpkg.com/vue-select@3.0.0"></script>
-      <link
-        rel="stylesheet"
-        href="https://unpkg.com/vue-select@3.0.0/dist/vue-select.css"
-      />
-    </client-only>
+                    <div class="register-form-title pe-5 me-5">
+                      Alamat Pengiriman
+                    </div>
+                    <div class="form-group col-sm-10">
+                      <label for="address"
+                        >Alamat Lengkap<span style="color: red">*</span>:</label
+                      >
+                      <textarea
+                        class="form-control"
+                        id="address"
+                        name="address"
+                        rows="3"
+                        v-model="address"
+                      ></textarea>
+                    </div>
+                    <div class="form-group col-sm-10">
+                      <label for="country"
+                        >Negara<span style="color: red">*</span>:</label
+                      >
+                      <v-select
+                        v-model="country_id"
+                        :reduce="countries => countries.code"
+                        @input="getProvince"
+                        :options="countries"
+                      ></v-select>
+                    </div>
+                    <div class="form-group col-sm-10 text">
+                      <label for="province"
+                        >Provinsi<span style="color: red">*</span>:</label
+                      >
+                      <v-select
+                        v-model="province_id"
+                        :reduce="provinces => provinces.code"
+                        @input="getCity"
+                        :options="provinces"
+                      ></v-select>
+                    </div>
+                    <div class="form-group col-sm-10">
+                      <label for="city"
+                        >Kota<span style="color: red">*</span>:</label
+                      >
+                      <v-select
+                        v-model="city_id"
+                        :reduce="cities => cities.code"
+                        :options="cities"
+                      ></v-select>
+                    </div>
+                    <div class="form-group col-sm-10">
+                      <label for="postal_code"
+                        >Kode Pos<span style="color: red">*</span>:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="postal_code"
+                        name="postal_code"
+                        placeholder="Kode Pos"
+                        v-model="postal_code"
+                      />
+                    </div>
+
+                    <br />
+                    <label style="color: red"
+                      ><span style="color: red">*</span>Wajib diisi</label
+                    >
+                    <div class="form-check">
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="exampleCheck1"
+                        v-model="agreement_1"
+                      />
+                      <label class="form-check-label" for="exampleCheck1"
+                        >Saya telah membaca dan menyetujui Kebijakan
+                        Privasi</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="exampleCheck2"
+                        v-model="agreement_2"
+                      />
+
+                      <label class="form-check-label" for="exampleCheck2"
+                        >Perbarui Saya dengan berita dan promo terbaru</label
+                      >
+                    </div>
+                    <br />
+                    <div class="text-center p-2">
+                      <button
+                        @click.prevent="doRegister"
+                        type="submit"
+                        class="
+                        btn
+                        text-danger
+                        btn-light btn-sm
+                        rounded
+                        p-2
+                        mb-5
+                        
+                      "
+                        style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+                      >
+                        Buat Akun
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+      </section>
+      <Footer />
+      <client-only>
+        <!-- include VueJS first -->
+        <script src="https://unpkg.com/vue@latest"></script>
+
+        <!-- use the latest vue-select release -->
+        <script src="https://unpkg.com/vue-select@latest"></script>
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/vue-select@latest/dist/vue-select.css"
+        />
+
+        <!-- or point to a specific vue-select release -->
+        <script src="https://unpkg.com/vue-select@3.0.0"></script>
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/vue-select@3.0.0/dist/vue-select.css"
+        />
+      </client-only>
+    </section>
   </section>
 </template>
 
@@ -305,19 +581,19 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50",
+          class: "my-2 ms-3 breadcrumb-item opacity-50"
         },
         {
           url: "/register",
           name: "Register",
-          class: "my-2 breadcrumb-item active opacity-50",
-        },
+          class: "my-2 breadcrumb-item active opacity-50"
+        }
       ],
       //alert
       errors: null,
       dismissSecs: 10,
       dismissCountDown: 0,
-      showDismissibleAlert: false,
+      showDismissibleAlert: false
     };
   },
   methods: {
@@ -329,7 +605,7 @@ export default {
         response.data.forEach((value, index) => {
           this.countries.push({
             label: value.name,
-            code: value.id,
+            code: value.id
           });
         });
         console.log(this.countries);
@@ -346,7 +622,7 @@ export default {
         response.data.forEach((value, index) => {
           this.provinces.push({
             label: value.name,
-            code: value.id,
+            code: value.id
           });
         });
       } catch (error) {
@@ -362,7 +638,7 @@ export default {
         response.data.forEach((value, index) => {
           this.cities.push({
             label: value.name,
-            code: value.id,
+            code: value.id
           });
         });
       } catch (error) {
@@ -384,7 +660,7 @@ export default {
           city: this.city_id,
           postal_code: this.postal_code,
           agreement_1: this.agreement_1,
-          agreement_2: this.agreement_2,
+          agreement_2: this.agreement_2
         };
         console.log(data);
         let response = await this.$axios.$post(
@@ -397,13 +673,13 @@ export default {
           this.$toast.success("Successfully register", {
             theme: "bubble",
             position: "bottom-right",
-            duration: 5000,
+            duration: 5000
           });
           await this.$auth.loginWith("laravelSanctum", {
             data: {
               email: this.email,
-              password: this.password,
-            },
+              password: this.password
+            }
           });
           setTimeout(() => {
             window.location.reload(true);
@@ -418,7 +694,7 @@ export default {
               this.$toast.error(err[key][key2], {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000,
+                duration: 5000
               });
             });
           });
@@ -427,28 +703,58 @@ export default {
       } catch (error) {
         console.log(error);
       }
-    },
+    }
   },
   head() {
     return {
       script: [
         {
-          src: "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js",
+          src:
+            "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         },
         {
-          src: "https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js",
-        },
+          src:
+            "https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"
+        }
       ],
       link: [
         {
           rel: "stylesheet",
-          href: "https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css",
-        },
-      ],
+          href:
+            "https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+        }
+      ]
     };
   },
   created() {
     this.getCountry();
-  },
+  }
 };
 </script>
+
+<style lang="css" scoped>
+#register-mobile {
+  display: none;
+}
+#register-mobileview {
+  display: none;
+}
+/* 0 - 991 px */
+@media screen and (max-width: 500px) {
+  #register_logo {
+    display: none !important;
+  }
+
+  #register-webview {
+    display: none;
+  }
+
+  #register-mobile {
+    display: contents;
+  }
+
+  #register-mobileview {
+    display: grid;
+  }
+}
+</style>
