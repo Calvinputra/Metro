@@ -52,7 +52,7 @@
           </p>
         </a>
         <a href="" style="text-decoration: none" class="text-black bg-danger">
-          <div>
+          <div  v-if="this.$auth.loggedIn == true">
             <b-dropdown
               id="dropdown-1"
               text="Akun Saya"

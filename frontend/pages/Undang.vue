@@ -75,7 +75,6 @@
                       btn
                       text-danger
                       btn-light btn-sm
-                      shadow
                       rounded
                       col-sm-2
                       ms-0
@@ -83,6 +82,7 @@
                       py-2
                       px-2
                     "
+                    style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;"
                     >
                       Kirim
                     </button>
@@ -106,10 +106,6 @@
                     >
                       Salin Tautan Undangan
                     </button>
-                  </div>
-                  <div>
-                    Belum mempunyai akun?
-                    <a href="/forgot_password" style="color: red">Buat Akun</a>
                   </div>
                 </div>
               </div>

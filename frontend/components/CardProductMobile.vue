@@ -1,5 +1,5 @@
 <template>
-  <section class="col pe-1 ps-3">
+  <section class="col-6 pe-1 ps-3">
       <NuxtLink :to="'/products/' + data.id" style="text-decoration: none !important; color: black;">
         <div
           class="card mb-5 bg-white"
@@ -89,6 +89,7 @@
         </div>
       </NuxtLink>
     </section>
+
 </template>
 
 <script>

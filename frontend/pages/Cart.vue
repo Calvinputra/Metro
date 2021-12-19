@@ -78,11 +78,8 @@
         <div class="shopping-cart-footer">
           <div class="column text-center">
             <a
-              style="
-                color: red;
-                box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
-              "
-              class="btn btn-light mx-2"
+              class="btn btn-light mx-2 btn-shadow"
+              style="color: red;"
               href="#"
               data-toast=""
               data-toast-type="success"
@@ -93,9 +90,8 @@
               >Lanjut Belanja</a
             >
             <nuxt-link
-              class="btn btn-danger"
+              class="btn btn-danger btn-shadow"
               to="/checkout"
-              style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
             >
               Periksa
             </nuxt-link>
@@ -170,9 +166,8 @@
             <a
               style="
                 color: red;
-                box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
               "
-              class="btn btn-light mx-2 py-1 px-3"
+              class="btn btn-light mx-2 py-1 px-3 btn-shadow"
               href="#"
               data-toast=""
               data-toast-type="success"
@@ -183,9 +178,8 @@
               >Lanjut Belanja</a
             >
             <nuxt-link
-              class="btn btn-danger py-1 px-3"
+              class="btn btn-danger py-1 px-3 btn-shadow"
               to="/checkout"
-              style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
             >
               Periksa
             </nuxt-link>
@@ -298,6 +292,9 @@ function decrement() {
 </script>
 
 <style lang="css" scoped>
+.btn-shadow{
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+}
 #cart-mobileview {
   display: none;
 }

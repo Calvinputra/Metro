@@ -86,17 +86,7 @@
           </div>
           <div class="mt-4">
             <div class="row justify-content-start">
-              <!-- palingan ini kasih if else ganjil genap -->
-              <div class="col pe-0 ps-0">
-                <Card-Product-Mobile
-                  v-for="wishlist in wishlists"
-                  :key="wishlist.id"
-                  :data="wishlist.product"
-                  :url="'/products/' + wishlist.id"
-                />
-              </div>
-
-              <div class="col pe-0 ps-0">
+              <div class="row pe-0 ps-3">
                 <Card-Product-Mobile
                   v-for="wishlist in wishlists"
                   :key="wishlist.id"
