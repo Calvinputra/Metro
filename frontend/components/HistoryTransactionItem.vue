@@ -185,7 +185,7 @@
                     {{ data.status.name }}
                   </div>
                 </template>
-                <p class="my-1">{{ data.transaction_details[0].name }}</p class="my-1">
+                <p class="my-1">{{ data.transaction_details[0].name }}</p>
                 <p class="font-weight-bold">
                   {{ data.transaction_details[0].qty }} x Rp
                   {{

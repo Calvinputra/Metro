@@ -2,6 +2,7 @@
   <section>
     <Header />
     <Breadcrumb :links="breadcrumb" />
+    <!-- belum log in -->
     <section class="container-md" style="min-width: 95%">
       <div class="ml-5 pr-5 mb-0">
         <h1>Periksa</h1>
@@ -12,8 +13,8 @@
           />
         </div>
         <div class="bg-light text-black col-sm-11" v-if="!$auth.loggedIn">
-          <label for="step1">
-            <h5>Step 1: Periksa Akun</h5>
+          <label for="step1" class="mt-2">
+            <h5 class="mt-2">Step 1: Periksa Akun</h5>
           </label>
         </div>
       </div>
@@ -84,11 +85,11 @@
                 btn
                 text-danger
                 btn-light btn-sm
-                shadow
                 rounded
                 col-sm-3
                 ms-5
               "
+              style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
             >
               Masuk Akun
             </button>
@@ -102,10 +103,12 @@
           </p>
         </div>
       </div>
+
+      <!-- Log in -->
       <div class="ml-5" v-if="$auth.loggedIn">
         <div class="bg-light text-black col-sm-11">
-          <label for="step1">
-            <h5>Step 1: Periksa Akun</h5>
+          <label for="step1" class="mt-2">
+            <h5 class="mt-2">Step 1: Periksa Akun</h5>
           </label>
         </div>
       </div>
@@ -135,14 +138,14 @@
       <!-- <div class="ml-5 mt-5" v-if="$auth.loggedIn"> -->
       <div class="ml-5 mt-5">
         <div class="bg-light text-black col-sm-11 mb-5">
-          <label for="step1">
-            <h5>Step 2: Pilih Metode Pengiriman</h5>
+          <label for="step1" class="mt-2">
+            <h5 class="mt-2">Step 2: Pilih Metode Pengiriman</h5>
           </label>
         </div>
-        <div>
-          <p class="fw-bold mt-4">Pilih Metode Lain:</p>
+        <div class="ms-3">
+          <p class="fw-bold mt-3">Pilih Metode Lain:</p>
         </div>
-        <div class="d-flex">
+        <div class="d-flex ms-3 pt-2">
           <div class="form-check">
             <input
               class="form-check-input"
@@ -189,12 +192,12 @@
                     class="form-check-input"
                     type="radio"
                     name="exampleRadios"
-                    id="exampleRadios2"
+                    id="exampleRadios3"
                     value="jne"
                     @change="setCost($event)"
                     v-model="shippingRadio"
                   />
-                  <label class="form-check-label" for="exampleRadios1">
+                  <label class="form-check-label" for="exampleRadios3">
                     <p>
                       Regular - Rp.
                       {{ Number(jneShippngCost).toLocaleString("id-ID") }}
@@ -207,17 +210,17 @@
         </div>
       </div>
       <div class="bg-light text-black col-sm-11 ml-5 mt-5">
-        <label for="step1">
-          <h5>Step 3: Konfirmasi Pembelian</h5>
+        <label for="step1" class="mt-2">
+          <h5 class="mt-2">Step 3: Konfirmasi Pembelian</h5>
         </label>
         <div class="table-responsive shopping-cart">
           <table class="table">
             <thead>
               <tr>
-                <th>Produk</th>
-                <th class="text-center">Jumlah</th>
-                <th class="text-center">Harga</th>
-                <th class="text-center">Sub total</th>
+                <th class="py-2">Produk</th>
+                <th class="text-center py-2">Jumlah</th>
+                <th class="text-center py-2">Harga</th>
+                <th class="text-center py-2">Sub total</th>
               </tr>
             </thead>
             <tbody>
@@ -262,6 +265,7 @@
             v-if="$auth.loggedIn"
             @click="doCreateTransaction"
             class="btn btn-danger"
+            style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
             >Bayar</a
           >
           <p v-if="!$auth.loggedIn" style="color: red">

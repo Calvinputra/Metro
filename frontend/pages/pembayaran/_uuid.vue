@@ -18,7 +18,7 @@
       <div class="card bg-light">
         <div class="card-header">
           <div class="d-flex justify-content-between">
-            <p>Alfamaret/Alfamidi/Lawson/Dan+dan</p>
+            <p class="mb-0">Alfamaret/Alfamidi/Lawson/Dan+dan</p>
             <img src="/img/audiblelogo.png" alt="" />
           </div>
         </div>
@@ -33,12 +33,12 @@
               </span>
             </div>
             <div class="mt-3">
-              <button
-                class="text-success"
+              <b
+                class="text-success rounded bu"
                 @click="copyText(app_url + $nuxt.$route.fullPath)"
               >
                 Salin
-              </button>
+              </b>
             </div>
           </div>
           <div class="d-flex justify-content-between">
@@ -79,8 +79,8 @@
     </div>
     <br />
     <div class="text-center">
-      <h5 class="col-sm-9 ms-4">Cara Pembayaran</h5>
-      <p class="col-sm-12 ms-5 ps-5">
+      <h5 class="col-sm-8">Cara Pembayaran</h5>
+      <p class="col-sm-11 ps-5 ms-4">
         Pembayaran dapat dilakukan melalui retail lain dengan biaya layanan
         berikut:
       </p>
