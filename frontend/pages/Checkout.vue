@@ -1,87 +1,92 @@
 <template>
   <section>
-    <Header />
-    <Breadcrumb :links="breadcrumb" />
-    <!-- belum log in -->
-    <section class="container-md" style="min-width: 95%">
-      <div class="ml-5 pr-5 mb-0">
-        <h1>Periksa</h1>
-        <div>
-          <hr
-            style="height: 3px; border-width: 10; color: red"
-            class="col-sm-12"
-          />
+    <section id="checkout-webview">
+      <Header />
+      <Breadcrumb :links="breadcrumb" />
+      <!-- belum log in -->
+      <section class="container-md" style="min-width: 95%">
+        <div class="ml-5 pr-5 mb-0">
+          <h1>Periksa</h1>
+          <div>
+            <hr
+              style="height: 3px; border-width: 10; color: red"
+              class="col-sm-12"
+            />
+          </div>
+          <div class="bg-light text-black col-sm-11" v-if="!$auth.loggedIn">
+            <label for="step1" class="mt-2">
+              <h5 class="mt-2">Step 1: Periksa Akun</h5>
+            </label>
+          </div>
         </div>
-        <div class="bg-light text-black col-sm-11" v-if="!$auth.loggedIn">
-          <label for="step1" class="mt-2">
-            <h5 class="mt-2">Step 1: Periksa Akun</h5>
-          </label>
-        </div>
-      </div>
-      <div
-        class="d-flex"
-        style="justify-content: space-evenly"
-        v-if="!$auth.loggedIn"
-      >
-        <div style="col-sm">
-          <img src="/img/metro.png" alt="" />
-        </div>
-        <div class="mr-5 col-sm-5 mb-0">
-          <form class="mr-5">
-            <div class="col-sm-12">
-              <label class="mb-0 mt-5"
-                ><h2 class="font-weight-bold">
-                  Masuk ke Akun
-                  <hr
-                    style="
+        <div
+          class="d-flex"
+          style="justify-content: space-evenly"
+          v-if="!$auth.loggedIn"
+        >
+          <div style="col-sm">
+            <img src="/img/metro.png" alt="" />
+          </div>
+          <div class="mr-5 col-sm-5 mb-0">
+            <form class="mr-5">
+              <div class="col-sm-12">
+                <label class="mb-0 mt-5"
+                  ><h2 class="font-weight-bold">
+                    Masuk ke Akun
+                    <hr
+                      style="
                       height: 10%;
                       width: 100%;
                       border-width: 0;
                       color: red;
                     "
-                    class="col-sm-12 mb-0 mt-0"
-                  /></h2
-              ></label>
-            </div>
+                      class="col-sm-12 mb-0 mt-0"
+                    /></h2
+                ></label>
+              </div>
 
-            <div class="form-group">
-              <label for="email">Email<span style="color: red">*</span>:</label>
-              <input
-                v-model="email"
-                type="email"
-                class="form-control col-sm-12"
-                id="email"
-                name="email"
-                placeholder="Email"
-              />
-            </div>
-            <div class="form-group">
-              <label for="password"
-                >Kata Sandi<span style="color: red">*</span>:</label
-              >
-              <input
-                v-model="password"
-                type="password"
-                class="form-control"
-                id="password"
-                name="password"
-                placeholder="Password"
-              />
-            </div>
-          </form>
-          <p style="color: red"><span style="color: red">*</span>Wajib diisi</p>
-          <br />
-          <P
-            >Lupa kata sandi?
-            <nuxt-link :to="{ path: '/forgot_password' }" class="text-danger">
-              klik disini.</nuxt-link
-            ></P
-          >
-          <div class="text-center">
-            <button
-              @click="doLogin"
-              type="submit"
-              class="
+              <div class="form-group">
+                <label for="email"
+                  >Email<span style="color: red">*</span>:</label
+                >
+                <input
+                  v-model="email"
+                  type="email"
+                  class="form-control col-sm-12"
+                  id="email"
+                  name="email"
+                  placeholder="Email"
+                />
+              </div>
+              <div class="form-group">
+                <label for="password"
+                  >Kata Sandi<span style="color: red">*</span>:</label
+                >
+                <input
+                  v-model="password"
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  name="password"
+                  placeholder="Password"
+                />
+              </div>
+            </form>
+            <p style="color: red">
+              <span style="color: red">*</span>Wajib diisi
+            </p>
+            <br />
+            <P
+              >Lupa kata sandi?
+              <nuxt-link :to="{ path: '/forgot_password' }" class="text-danger">
+                klik disini.</nuxt-link
+              ></P
+            >
+            <div class="text-center">
+              <button
+                @click="doLogin"
+                type="submit"
+                class="
                 btn
                 text-danger
                 btn-light btn-sm
@@ -89,190 +94,467 @@
                 col-sm-3
                 ms-5
               "
-              style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
-            >
-              Masuk Akun
-            </button>
-          </div>
-          <p class="mt-5">
-            Belum mempunyai akun?<nuxt-link
-              :to="{ path: '/register' }"
-              class="text-danger"
-              >Buat Akun.</nuxt-link
-            >
-          </p>
-        </div>
-      </div>
-
-      <!-- Log in -->
-      <div class="ml-5" v-if="$auth.loggedIn">
-        <div class="bg-light text-black col-sm-11">
-          <label for="step1" class="mt-2">
-            <h5 class="mt-2">Step 1: Periksa Akun</h5>
-          </label>
-        </div>
-      </div>
-      <div
-        class="d-flex justify-content-around mt-3"
-        style=""
-        v-if="$auth.loggedIn"
-      >
-        <div>
-          <p>Nama : {{ $auth.user.first_name + " " + $auth.user.last_name }}</p>
-          <p>Nomor Telepon : {{ $auth.user.phone }}</p>
-          <p>Email : {{ $auth.user.email }}</p>
-        </div>
-        <div class="d-flex justify-content-around">
-          <div>
-            <p>Alamat:</p>
-          </div>
-          <div>
-            <p class="ml-5" style="max-width: 30%">
-              {{ $auth.user.addresses[0].address }}
-              {{ $auth.user.addresses[0].city.name }}
-              {{ $auth.user.addresses[0].country.name }}
+                style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+              >
+                Masuk Akun
+              </button>
+            </div>
+            <p class="mt-5">
+              Belum mempunyai akun?<nuxt-link
+                :to="{ path: '/register' }"
+                class="text-danger"
+                >Buat Akun.</nuxt-link
+              >
             </p>
           </div>
         </div>
-      </div>
-      <!-- <div class="ml-5 mt-5" v-if="$auth.loggedIn"> -->
-      <div class="ml-5 mt-5">
-        <div class="bg-light text-black col-sm-11 mb-5">
-          <label for="step1" class="mt-2">
-            <h5 class="mt-2">Step 2: Pilih Metode Pengiriman</h5>
-          </label>
-        </div>
-        <div class="ms-3">
-          <p class="fw-bold mt-3">Pilih Metode Lain:</p>
-        </div>
-        <div class="d-flex ms-3 pt-2">
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="exampleRadios"
-              id="exampleRadios1"
-              value="dakota"
-              @change="setCost($event)"
-              v-model="shippingRadio"
-            />
-            <label class="form-check-label" for="exampleRadios1">
-              <p>
-                Dakota - Rp.
-                {{ Number(dakotaShippingCost).toLocaleString("id-ID") }}
-              </p>
+
+        <!-- Log in -->
+        <div class="ml-5" v-if="$auth.loggedIn">
+          <div class="bg-light text-black col-sm-11">
+            <label for="step1" class="mt-2">
+              <h5 class="mt-2">Step 1: Periksa Akun</h5>
             </label>
           </div>
+        </div>
+        <div
+          class="d-flex justify-content-around mt-3"
+          style=""
+          v-if="$auth.loggedIn"
+        >
           <div>
-            <div class="d-flex ml-5">
-              <p class="fw-bold mr-3">
-                JNE
+            <p>
+              Nama : {{ $auth.user.first_name + " " + $auth.user.last_name }}
+            </p>
+            <p>Nomor Telepon : {{ $auth.user.phone }}</p>
+            <p>Email : {{ $auth.user.email }}</p>
+          </div>
+          <div class="d-flex justify-content-around">
+            <div>
+              <p>Alamat:</p>
+            </div>
+            <div>
+              <p class="ml-5" style="max-width: 30%">
+                {{ $auth.user.addresses[0].address }}
+                {{ $auth.user.addresses[0].city.name }}
+                {{ $auth.user.addresses[0].country.name }}
               </p>
-              <div>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="exampleRadios"
-                    id="exampleRadios2"
-                    value="jne"
-                    @change="setCost($event)"
-                    v-model="shippingRadio"
-                  />
+            </div>
+          </div>
+        </div>
+        <!-- <div class="ml-5 mt-5" v-if="$auth.loggedIn"> -->
+        <div class="ml-5 mt-5">
+          <div class="bg-light text-black col-sm-11 mb-5">
+            <label for="step1" class="mt-2">
+              <h5 class="mt-2">Step 2: Pilih Metode Pengiriman</h5>
+            </label>
+          </div>
+          <div class="ms-3">
+            <p class="fw-bold mt-3">Pilih Metode Lain:</p>
+          </div>
+          <div class="d-flex ms-3 pt-2">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="exampleRadios"
+                id="exampleRadios1"
+                value="dakota"
+                @change="setCost($event)"
+                v-model="shippingRadio"
+              />
+              <label class="form-check-label" for="exampleRadios1">
+                <p>
+                  Dakota - Rp.
+                  {{ Number(dakotaShippingCost).toLocaleString("id-ID") }}
+                </p>
+              </label>
+            </div>
+            <div>
+              <div class="d-flex ml-5">
+                <p class="fw-bold mr-3">
+                  JNE
+                </p>
+                <div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="exampleRadios"
+                      id="exampleRadios2"
+                      value="jne"
+                      @change="setCost($event)"
+                      v-model="shippingRadio"
+                    />
 
-                  <label class="form-check-label" for="exampleRadios2">
-                    <p>
-                      YES - Rp.
-                      {{ Number(jneShippngCost).toLocaleString("id-ID") }}
-                    </p>
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="exampleRadios"
-                    id="exampleRadios3"
-                    value="jne"
-                    @change="setCost($event)"
-                    v-model="shippingRadio"
-                  />
-                  <label class="form-check-label" for="exampleRadios3">
-                    <p>
-                      Regular - Rp.
-                      {{ Number(jneShippngCost).toLocaleString("id-ID") }}
-                    </p>
-                  </label>
+                    <label class="form-check-label" for="exampleRadios2">
+                      <p>
+                        YES - Rp.
+                        {{ Number(jneShippngCost).toLocaleString("id-ID") }}
+                      </p>
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="exampleRadios"
+                      id="exampleRadios3"
+                      value="jne"
+                      @change="setCost($event)"
+                      v-model="shippingRadio"
+                    />
+                    <label class="form-check-label" for="exampleRadios3">
+                      <p>
+                        Regular - Rp.
+                        {{ Number(jneShippngCost).toLocaleString("id-ID") }}
+                      </p>
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="bg-light text-black col-sm-11 ml-5 mt-5">
-        <label for="step1" class="mt-2">
-          <h5 class="mt-2">Step 3: Konfirmasi Pembelian</h5>
-        </label>
-        <div class="table-responsive shopping-cart">
-          <table class="table">
-            <thead>
-              <tr>
-                <th class="py-2">Produk</th>
-                <th class="text-center py-2">Jumlah</th>
-                <th class="text-center py-2">Harga</th>
-                <th class="text-center py-2">Sub total</th>
-              </tr>
-            </thead>
-            <tbody>
-              <template v-if="$auth.loggedIn">
-                <ProductCheckout
-                  v-for="cart in carts"
-                  :key="cart.id"
-                  :product="cart.product"
-                  :qty="cart.qty"
-                  :id="cart.id"
-                  :process="cart.process"
-                />
-              </template>
-              <template v-if="!$auth.loggedIn">
-                <ProductCheckout
-                  v-for="cart in tempCart"
-                  :key="cart.id"
-                  :product="cart.product"
-                  :qty="cart.qty"
-                  :id="cart.id"
-                  :process="cart.process"
-                />
-              </template>
-            </tbody>
-          </table>
+        <div class="bg-light text-black col-sm-11 ml-5 mt-5">
+          <label for="step1" class="mt-2">
+            <h5 class="mt-2">Step 3: Konfirmasi Pembelian</h5>
+          </label>
+          <div class="table-responsive shopping-cart">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="py-2">Produk</th>
+                  <th class="text-center py-2">Jumlah</th>
+                  <th class="text-center py-2">Harga</th>
+                  <th class="text-center py-2">Sub total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <template v-if="$auth.loggedIn">
+                  <ProductCheckout
+                    v-for="cart in carts"
+                    :key="cart.id"
+                    :product="cart.product"
+                    :qty="cart.qty"
+                    :id="cart.id"
+                    :process="cart.process"
+                  />
+                </template>
+                <template v-if="!$auth.loggedIn">
+                  <ProductCheckout
+                    v-for="cart in tempCart"
+                    :key="cart.id"
+                    :product="cart.product"
+                    :qty="cart.qty"
+                    :id="cart.id"
+                    :process="cart.process"
+                  />
+                </template>
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
-      <div class="text-right text-right col-sm-11">
-        <span class="text-center mr-5 pl-5">Total Harga</span>
-        <span class="pl-5"
-          >Rp. {{ Number(grandTotal).toLocaleString("id-ID") }}</span
-        >
-      </div>
-      <br />
-      <br />
-      <div class="shopping-cart-footer">
-        <div class="column"></div>
-      </div>
-      <div class="shopping-cart-footer">
-        <div class="column text-center">
-          <a
-            v-if="$auth.loggedIn"
-            @click="doCreateTransaction"
-            class="btn btn-danger"
-            style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
-            >Bayar</a
+        <div class="text-right text-right col-sm-11">
+          <span class="text-center mr-5 pl-5">Total Harga</span>
+          <span class="pl-5"
+            >Rp. {{ Number(grandTotal).toLocaleString("id-ID") }}</span
           >
-          <p v-if="!$auth.loggedIn" style="color: red">
-            Silahkan Login untuk melanjutkan transaksi
-          </p>
         </div>
-      </div>
+        <br />
+        <br />
+        <div class="shopping-cart-footer">
+          <div class="column"></div>
+        </div>
+        <div class="shopping-cart-footer">
+          <div class="column text-center">
+            <a
+              v-if="$auth.loggedIn"
+              @click="doCreateTransaction"
+              class="btn btn-danger"
+              style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+              >Bayar</a
+            >
+            <p v-if="!$auth.loggedIn" style="color: red">
+              Silahkan Login untuk melanjutkan transaksi
+            </p>
+          </div>
+        </div>
+      </section>
+      <Footer />
+    </section>
+
+    <section id="checkout-mobileview" style="font-size: 75%">
+      <Header />
+      <!-- belum log in -->
+      <section class="container-md" style="min-width: 95%">
+        <div class="pr-5 mb-0">
+          <h1>Periksa</h1>
+          <div>
+            <hr
+              style="height: 3px; border-width: 10; color: red"
+              class="col-sm-12"
+            />
+          </div>
+          <div class="bg-light text-black col-sm-11" v-if="!$auth.loggedIn">
+            <label for="step1" class="mt-2">
+              <h5 class="mt-2">Step 1: Periksa Akun</h5>
+            </label>
+          </div>
+        </div>
+        <div v-if="!$auth.loggedIn">
+          <div class="col-sm-5 mb-0">
+            <form class="mr-5">
+              <div class="col-sm-12 text-center">
+                <label class="mb-0 mt-2 mb-2"
+                  ><h2 class="">
+                    Masuk ke Akun
+                    <hr
+                      style="
+                      height: 10%;
+                      width: 100%;
+                      border-width: 0;
+                      color: red;
+                    "
+                      class="col-sm-12 mb-0 mt-0"
+                    /></h2
+                ></label>
+              </div>
+
+              <div class="form-group">
+                <label for="email"
+                  >Email<span style="color: red">*</span>:</label
+                >
+                <input
+                  v-model="email"
+                  type="email"
+                  class="form-control col-sm-12"
+                  id="email"
+                  name="email"
+                  placeholder="Email"
+                />
+              </div>
+              <div class="form-group">
+                <label for="password"
+                  >Kata Sandi<span style="color: red">*</span>:</label
+                >
+                <input
+                  v-model="password"
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  name="password"
+                  placeholder="Password"
+                />
+              </div>
+            </form>
+            <p style="color: red">
+              <span style="color: red">*</span>Wajib diisi
+            </p>
+            <p>
+              Lupa kata sandi?
+              <nuxt-link :to="{ path: '/forgot_password' }" class="text-danger">
+                klik disini.</nuxt-link
+              >
+            </p>
+            <div class="text-center">
+              <button
+                @click="doLogin"
+                type="submit"
+                class="
+                btn
+                text-danger
+                btn-light btn-sm
+                rounded
+                p-2
+              "
+                style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+              >
+                Masuk Akun
+              </button>
+            </div>
+            <p class="mt-3">
+              Belum mempunyai akun?<nuxt-link
+                :to="{ path: '/register' }"
+                class="text-danger"
+                >Buat Akun.</nuxt-link
+              >
+            </p>
+          </div>
+        </div>
+
+        <!-- Log in -->
+        <div v-if="$auth.loggedIn">
+          <div class="bg-light text-black col-sm-11">
+            <label for="step1" class="mt-2">
+              <h5 class="mt-2">Step 1: Periksa Akun</h5>
+            </label>
+          </div>
+        </div>
+        <div
+          class="d-flex justify-content-around mt-3"
+          style=""
+          v-if="$auth.loggedIn"
+        >
+          <div>
+            <p>
+              Nama : {{ $auth.user.first_name + " " + $auth.user.last_name }}
+            </p>
+            <p>Nomor Telepon : {{ $auth.user.phone }}</p>
+            <p>Email : {{ $auth.user.email }}</p>
+          </div>
+          <div class="d-flex justify-content-around">
+            <div class="ps-5">
+              <p>Alamat:</p>
+            </div>
+            <div>
+              <p class="ml-2" style="max-width: 80%">
+                {{ $auth.user.addresses[0].address }}
+                {{ $auth.user.addresses[0].city.name }}
+                {{ $auth.user.addresses[0].country.name }}
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="ml-5 mt-5" v-if="$auth.loggedIn"> -->
+        <div class="mt-2">
+          <div class="bg-light text-black col-sm-11 mb-2">
+            <label for="step1" class="mt-2">
+              <h5 class="mt-2">Step 2: Pilih Metode Pengiriman</h5>
+            </label>
+          </div>
+          <div class="ms-3">
+            <p class="fw-bold mt-3">Pilih Metode Lain:</p>
+          </div>
+          <div class="d-flex ms-3 pt-2">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="exampleRadios"
+                id="exampleRadios1"
+                value="dakota"
+                @change="setCost($event)"
+                v-model="shippingRadio"
+              />
+              <label class="form-check-label" for="exampleRadios1">
+                <p>
+                  Dakota - Rp.
+                  {{ Number(dakotaShippingCost).toLocaleString("id-ID") }}
+                </p>
+              </label>
+            </div>
+            <div>
+              <div class="d-flex ml-5">
+                <p class="fw-bold mr-3">
+                  JNE
+                </p>
+                <div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="exampleRadios"
+                      id="exampleRadios2"
+                      value="jne"
+                      @change="setCost($event)"
+                      v-model="shippingRadio"
+                    />
+
+                    <label class="form-check-label" for="exampleRadios2">
+                      <p>
+                        YES - Rp.
+                        {{ Number(jneShippngCost).toLocaleString("id-ID") }}
+                      </p>
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="exampleRadios"
+                      id="exampleRadios3"
+                      value="jne"
+                      @change="setCost($event)"
+                      v-model="shippingRadio"
+                    />
+                    <label class="form-check-label" for="exampleRadios3">
+                      <p>
+                        Regular - Rp.
+                        {{ Number(jneShippngCost).toLocaleString("id-ID") }}
+                      </p>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-light text-black col-sm-11">
+          <label for="step1" class="mt-2">
+            <h5 class="mt-2">Step 3: Konfirmasi Pembelian</h5>
+          </label>
+          <div class="table-responsive shopping-cart">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="py-2">Produk</th>
+                  <th class="text-center py-2">Jumlah</th>
+                  <th class="text-center py-2">Harga</th>
+                  <th class="text-center py-2">Sub total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <template v-if="$auth.loggedIn">
+                  <ProductCheckoutMobile
+                    v-for="cart in carts"
+                    :key="cart.id"
+                    :product="cart.product"
+                    :qty="cart.qty"
+                    :id="cart.id"
+                    :process="cart.process"
+                  />
+                </template>
+                <template v-if="!$auth.loggedIn">
+                  <ProductCheckoutMobile
+                    v-for="cart in tempCart"
+                    :key="cart.id"
+                    :product="cart.product"
+                    :qty="cart.qty"
+                    :id="cart.id"
+                    :process="cart.process"
+                  />
+                </template>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="text-right text-right col-sm-11">
+          <span class="text-center mr-5 pl-5">Total Harga</span>
+          <span class="pl-5"
+            >Rp. {{ Number(grandTotal).toLocaleString("id-ID") }}</span
+          >
+        </div>
+        <br />
+        <br />
+        <div class="shopping-cart-footer">
+          <div class="column"></div>
+        </div>
+        <div class="shopping-cart-footer">
+          <div class="column text-center mb-5 pb-3">
+            <a
+              v-if="$auth.loggedIn"
+              @click="doCreateTransaction"
+              class="btn btn-danger p-1"
+              style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+              >Bayar</a
+            >
+            <p v-if="!$auth.loggedIn" style="color: red">
+              Silahkan Login untuk melanjutkan transaksi
+            </p>
+          </div>
+        </div>
+      </section>
       <Footer />
     </section>
   </section>
@@ -475,3 +757,29 @@ export default {
   }
 };
 </script>
+<style lang="css" scoped>
+#checkout-mobile {
+  display: none;
+}
+#checkout-mobileview {
+  display: none;
+}
+/* 0 - 991 px */
+@media screen and (max-width: 500px) {
+  #checkout_logo {
+    display: none !important;
+  }
+
+  #checkout-webview {
+    display: none;
+  }
+
+  #checkout-mobile {
+    display: contents;
+  }
+
+  #checkout-mobileview {
+    display: grid;
+  }
+}
+</style>
