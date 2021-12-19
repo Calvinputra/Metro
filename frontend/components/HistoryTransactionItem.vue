@@ -57,7 +57,7 @@
             </template>
 
             #{{ data.uuid }}
-            <br/>
+            <br />
             <span class="mt-4">{{ data.transaction_details[0].name }}</span>
             <p>
               {{ data.transaction_details[0].qty }} x Rp
@@ -154,70 +154,65 @@
         </div>
       </div>
     </section>
-    <section id="history-mobileview">
-      <div class="mt-3">
-        <hr style="height: 3px; color: red" class="col-sm-12 m-0" />
-      </div>
-      <div class="mt-3" style="justify-content: space-between">
-        <div class="d-flex ml-2 mt-4">
-          <div>
-            <img class="mr-2" src="/img/audiblelogo.png" alt="" />
-          </div>
-          <div>
-            <template v-if="data.status_id == 1">
-              <div class="border border-danger col-sm-2 text-danger rounded-3">
-                {{ data.status.name }}
-              </div>
-            </template>
-            <template v-else-if="data.status_id == 4">
-              <div
-                class="border border-success border-2 text-success rounded-3"
-              >
-                {{ data.status.name }}
-              </div>
-            </template>
-            <template v-else>
-              <div
-                class="border border-warning border-2 text-warning rounded-3"
-              >
-                {{ data.status.name }}
-              </div>
-            </template>
 
-            #{{ data.uuid }}
-            <br />
-            <span>{{ data.transaction_details[0].name }}</span>
-            <p>
-              {{ data.transaction_details[0].qty }} x Rp
-              {{
-                Number(data.transaction_details[0].price).toLocaleString(
-                  "id-ID"
-                )
-              }}
-              <template v-if="data.transaction_details.length > 1"
-                ><div style="color: red">dan Lainnya</div></template
-              >
-            </p>
-          </div>
-          <p class="text-right ml-4">
-            Rp. {{ Number(data.grand_total).toLocaleString("id-ID") }}
-          </p>
+    <!-- Mobile -->
+    <section id="history-mobileview" class="border-top">
+      <div class="my-3 mx-1 row">
+        <div class="row pe-0 ps-2">
+            <div class="d-flex col-2 align-self-center justify-content-center">
+              <img src="/img/audiblelogo.png" alt="" />
+            </div>
+
+            <div class="col pe-0">
+                <p class="mb-1">#{{ data.uuid }}</p>
+                <template v-if="data.status_id == 1">
+                  <div class="border border-danger col-sm- text-danger rounded-3 text-center p-0">
+                    {{ data.status.name }}
+                  </div>
+                </template>
+                <template v-else-if="data.status_id == 4">
+                  <div
+                    class="border border-success col-5 border-2 text-success rounded-3 text-center p-0"
+                    style=""
+                  >
+                    {{ data.status.name }}
+                  </div>
+                </template>
+                <template v-else>
+                  <div
+                    class="border border-warning col-11 border-2 text-warning rounded-3 text-center p-0"
+                  >
+                    {{ data.status.name }}
+                  </div>
+                </template>
+                <p class="my-1">{{ data.transaction_details[0].name }}</p class="my-1">
+                <p class="font-weight-bold">
+                  {{ data.transaction_details[0].qty }} x Rp
+                  {{
+                    Number(data.transaction_details[0].price).toLocaleString(
+                      "id-ID"
+                    )
+                  }}
+                </p>
+            </div>
+
+            <div class="col-3 p-0">
+              <p class="text-right">
+                Rp. {{ Number(data.grand_total).toLocaleString("id-ID") }}
+              </p>
+            </div>
         </div>
-        <div>
-          <span class="d-flex mt-2">
+
+        <div class="row p-0">
+          <div class="col-2 p-0"></div>
+          <div class="col-2 p-0"></div>
+          <span class="d-flex mt-2 col p-0 justify-content-end">
             <b-button
               v-b-modal.modal-detailtransaksi
               @click="showDetailTransaction"
               type="submit"
-              class="
-                mr-3
-                btn
-                text-danger
-                btn-light btn-sm
-                shadow
-                rounded
-                col-sm-2
-              "
+              class="mr-3 btn text-danger btn-light btn-sm rounded col-8"
+              style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
             >
               <b> Lihat Detail Transaksi</b>
             </b-button>
@@ -225,7 +220,8 @@
               <nuxt-link
                 :to="'/pembayaran/' + data.uuid"
                 type="submit"
-                class="btn text-danger btn-light btn-sm col-sm-2 rounded p-1"
+                class="btn text-danger btn-light btn-sm rounded py-1 px-3"
+                style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
               >
                 <b> Bayar</b>
               </nuxt-link>
@@ -233,7 +229,8 @@
             <template v-else-if="data.status_id == 4">
               <button
                 type="submit"
-                class="btn text-danger btn-light btn-sm rounded"
+                class="btn text-danger btn-light btn-sm rounded py-1 px-3"
+                style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
               >
                 <b> Beri Ulasan</b>
               </button>
@@ -241,7 +238,8 @@
             <template v-else>
               <button
                 type="submit"
-                class="btn text-danger btn-light btn-sm rounded"
+                class="btn text-danger btn-light btn-sm rounded py-1 px-3"
+                style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
               >
                 <b> Lainnya</b>
               </button>
@@ -270,6 +268,10 @@ export default {
 }
 /* 0 - 991 px */
 @media screen and (max-width: 500px) {
+  .border-top {
+    border-top: 1px solid #c63442 !important;
+  }
+
   #history_logo {
     display: none !important;
   }

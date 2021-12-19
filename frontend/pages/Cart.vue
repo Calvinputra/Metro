@@ -20,17 +20,17 @@
             </li>
           </ol>
         </nav>
-        <h2>Keranjang Belanja</h2>
+        <h2 class="ml-2">Keranjang Belanja</h2>
         <!-- Shopping Cart-->
         <div class="table-responsive shopping-cart">
           <table class="table">
             <thead>
               <tr>
-                <th>Produk</th>
-                <th class="text-center">Jumlah</th>
-                <th class="text-center">Harga</th>
-                <th class="text-center">Sub total</th>
-                <th class="text-center">
+                <th class="py-2 align-middle">Produk</th>
+                <th class="text-center py-2 align-middle">Jumlah</th>
+                <th class="text-center py-2 align-middle">Harga</th>
+                <th class="text-center py-2 align-middle">Sub total</th>
+                <th class="text-center py-2 align-middle">
                   <a
                     @click="destroyAll"
                     class="btn btn-sm btn-outline-danger"
@@ -64,7 +64,7 @@
             </template>
           </table>
         </div>
-        <div class="text-right text-right col-sm-11">
+        <div class="text-right text-right col-11">
           <span class="text-center mr-5 pl-5">Total Harga</span>
           <span class="pl-5"
             >Rp. {{ Number(grandTotal).toLocaleString("id-ID") }}</span
@@ -172,7 +172,7 @@
                 color: red;
                 box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
               "
-              class="btn btn-light mx-2 py-1 px-2"
+              class="btn btn-light mx-2 py-1 px-3"
               href="#"
               data-toast=""
               data-toast-type="success"
@@ -183,7 +183,7 @@
               >Lanjut Belanja</a
             >
             <nuxt-link
-              class="btn btn-danger py-1 px-2"
+              class="btn btn-danger py-1 px-3"
               to="/checkout"
               style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
             >

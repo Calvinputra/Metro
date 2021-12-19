@@ -73,12 +73,7 @@
               />
               <div class="input-group-append">
                 <button
-                  class="btn btn-outline-success mx-auto"
-                  style="
-                    background-color: #e5e5e5;
-                    border-radius: 0px 10px 10px 0px;
-                    width: 40px;
-                  "
+                  class="btn btn-outline-success mx-auto search-button"
                   type="submit"
                 >
                   <i
@@ -93,7 +88,7 @@
             <div class="row justify-content-start">
               <!-- palingan ini kasih if else ganjil genap -->
               <div class="col pe-0 ps-0">
-                <Card-Product
+                <Card-Product-Mobile
                   v-for="wishlist in wishlists"
                   :key="wishlist.id"
                   :data="wishlist.product"
@@ -102,7 +97,7 @@
               </div>
 
               <div class="col pe-0 ps-0">
-                <Card-Product
+                <Card-Product-Mobile
                   v-for="wishlist in wishlists"
                   :key="wishlist.id"
                   :data="wishlist.product"
@@ -119,7 +114,9 @@
 </template>
 
 <script>
+import CardProductMobile from "../components/CardProductMobile.vue";
 export default {
+  components: { CardProductMobile },
   middleware: "auth",
   data() {
     return {
@@ -157,6 +154,11 @@ export default {
 }
 /* 0 - 991 px */
 @media screen and (max-width: 500px) {
+  .search-button {
+    background-color: #e5e5e5 !important;
+    border-radius: 0px 10px 10px 0px !important;
+    width: 40px !important;
+  }
   #wishlist_logo {
     display: none !important;
   }

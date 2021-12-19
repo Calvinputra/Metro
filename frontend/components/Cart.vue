@@ -18,13 +18,13 @@
             :src="ASSET_URL + '/' + JSON.parse(product.images)[0]"
             alt="Product"
         /></a>
-        <p class="row gx-0 align-items-center ml-5">
+        <p class="row gx-0 align-items-center ml-5 pt-3">
           {{ product.code }} - {{ product.name }}
         </p>
       </div>
       <pre></pre>
     </td>
-    <td class="text-center align-middle">
+    <td class="text-center align-middle pt-0">
       <div class="count-input">
         <input
           @change="updateSubTotal()"
@@ -36,13 +36,13 @@
         />
       </div>
     </td>
-    <td class="text-center text-lg text-medium align-middle">
+    <td class="text-center text-lg text-medium align-middle pt-0">
       Rp.{{ Number(product.price).toLocaleString("id-ID") }}
     </td>
-    <td class="text-center text-lg text-medium align-middle">
+    <td class="text-center text-lg text-medium align-middle pt-0">
       Rp.{{ Number(sub_total).toLocaleString("id-ID") }}
     </td>
-    <td class="text-center align-middle">
+    <td class="text-center align-middle  pt-0">
       <a
         class="remove-from-cart"
         data-toggle="tooltip"

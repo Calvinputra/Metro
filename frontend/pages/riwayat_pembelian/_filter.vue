@@ -53,8 +53,8 @@
                     btn-danger btn-sm
                     rounded
                     col-sm-1
-                    ms-0
-                    py-2
+                    mx-1 my-1
+                    py-1
                     px-2
                   "
                   style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;"
@@ -66,7 +66,7 @@
                 <a
                   href="/riwayat_pembelian"
                   type="submit"
-                  class="btn text-black btn-sm col-sm-1 ms-0 ps-0 py-2 px-2"
+                  class="btn text-black btn-sm col-sm-1 mx-1 my-1 py-1 px-2"
                 >
                   Semua
                 </a>
@@ -84,9 +84,8 @@
                     btn-danger btn-sm
                     rounded
                     col-sm-3
-                    ms-0
-                    ps-0
-                    py-2
+                    mx-1 my-1
+                    py-1
                     px-2
                   "
                   style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
@@ -98,7 +97,7 @@
                 <a
                   href="/riwayat_pembelian/menunggu_pembayaran"
                   type="submit"
-                  class="btn text-black btn-sm col-sm-3 ms-0 ps-0 py-2 px-2"
+                  class="btn text-black btn-sm col-sm-3 mx-1 my-1 py-1 px-2"
                 >
                   Menunggu Pembayaran
                 </a>
@@ -113,9 +112,8 @@
                     btn-danger btn-sm
                     rounded
                     col-sm-1
-                    ms-0
-                    ps-0
-                    py-2
+                    mx-1 my-1
+                    py-1
                     px-2
                   "
                   style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
@@ -127,7 +125,7 @@
                 <a
                   href="/riwayat_pembelian/selesai"
                   type="submit"
-                  class="btn text-black btn-sm col-sm-1 ms-0 ps-0 py-2 px-2"
+                  class="btn text-black btn-sm col-sm-1 mx-1 my-1 py-1 px-2"
                 >
                   Selesai
                 </a>
@@ -143,9 +141,8 @@
                     btn-danger btn-sm
                     rounded
                     col-sm-2
-                    ms-0
-                    ps-0
-                    py-2
+                    mx-1 my-1
+                    py-1
                     px-2
                   "
                   style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
@@ -157,7 +154,7 @@
                 <a
                   href="/riwayat_pembelian/tidak_berhasil"
                   type="submit"
-                  class="btn text-black btn-sm col-sm-2 ms-0 ps-0 py-2 px-2"
+                  class="btn text-black btn-sm col-sm-2 mx-1 my-1 py-1 px-2"
                 >
                   Tidak Berhasil
                 </a>
@@ -173,9 +170,8 @@
                     btn-danger btn-sm
                     rounded
                     col-sm-2
-                    ms-0
-                    ps-0
-                    py-2
+                    mx-1 my-1
+                    py-1
                     px-2
                   "
                   style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
@@ -187,7 +183,7 @@
                 <a
                   href="/riwayat_pembelian/berlangsung"
                   type="submit"
-                  class="btn text-black btn-sm col-sm-2 ms-0 ps-0 py-2 px-2"
+                  class="btn text-black btn-sm col-sm-2 mx-1 my-1 py-1 px-2"
                 >
                   Berlangsung
                 </a>
@@ -219,7 +215,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-2">
-            <AccountMenu :name="'register'" />
+            <AccountMenuMobile :name="'register'" />
           </div>
           <div
             class="
@@ -227,6 +223,7 @@
               offset-md-1
               align-self-start
               mt-2
+              mb-5
               row
               justify-content-between
             "
@@ -243,12 +240,13 @@
                 style="height: 10%; width: 100%; border-width: 0; color: red"
                 class="col-sm-12 mb-0 mt-0"
               />
-              <p class="mb-">Lacak Pembelian Kamu di halaman ini.</p>
+              <h6 class="mt-2">Lacak Pembelian Kamu di halaman ini.</h6>
             </div>
 
-            <div>
-              <div class="mr-5">Status:</div>
-              <template
+            <div class="mb-3">
+              <h6 class="text-center">Status:</h6>
+              <div class="col d-flex justify-content-center" style="flex-wrap: wrap;">
+                <template
                 v-if="
                   this.$route.params.filter == '' ||
                   this.$route.params.filter == undefined
@@ -262,9 +260,8 @@
                     text-white
                     btn-danger btn-sm
                     rounded
-                    ms-0
-                    ps-0
-                    py-2
+                    mx-1 my-1
+                    py-1
                     px-2
                   "
                   style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
@@ -276,7 +273,7 @@
                 <a
                   href="/riwayat_pembelian"
                   type="submit"
-                  class="btn text-black btn-sm ms-0 ps-0 py-2 px-2"
+                  class="btn text-black btn-sm mx-1 my-1 py-1 px-2"
                 >
                   Semua
                 </a>
@@ -293,9 +290,8 @@
                     text-white
                     btn-danger btn-sm
                     rounded
-                    ms-0
-                    ps-0
-                    py-2
+                    mx-1 my-1
+                    py-1
                     px-2
                   "
                   style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
@@ -307,7 +303,7 @@
                 <a
                   href="/riwayat_pembelian/menunggu_pembayaran"
                   type="submit"
-                  class="btn text-black btn-sm ms-0 ps-0 py-2 px-2"
+                  class="btn text-black btn-sm mx-1 my-1 py-1 px-2"
                 >
                   Menunggu Pembayaran
                 </a>
@@ -321,9 +317,8 @@
                     text-white
                     btn-danger btn-sm
                     rounded
-                    ms-0
-                    ps-0
-                    py-2
+                    mx-1 my-1
+                    py-1
                     px-2
                   "
                   style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
@@ -335,7 +330,7 @@
                 <a
                   href="/riwayat_pembelian/selesai"
                   type="submit"
-                  class="btn text-black btn-sm ms-0 ps-0 py-2 px-2"
+                  class="btn text-black btn-sm mx-1 my-1 py-1 px-2"
                 >
                   Selesai
                 </a>
@@ -350,9 +345,8 @@
                     text-white
                     btn-danger btn-sm
                     rounded
-                    ms-0
-                    ps-0
-                    py-2
+                    mx-1 my-1
+                    py-1
                     px-2
                   "
                   style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
@@ -364,7 +358,7 @@
                 <a
                   href="/riwayat_pembelian/tidak_berhasil"
                   type="submit"
-                  class="btn text-black btn-sm ms-0 ps-0 py-2 px-2"
+                  class="btn text-black btn-sm mx-1 my-1 py-1 px-2"
                 >
                   Tidak Berhasil
                 </a>
@@ -379,9 +373,8 @@
                     text-white
                     btn-danger btn-sm
                     rounded
-                    ms-0
-                    ps-0
-                    py-2
+                    mx-1 my-1
+                    py-1
                     px-2
                   "
                   style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
@@ -393,18 +386,22 @@
                 <a
                   href="/riwayat_pembelian/berlangsung"
                   type="submit"
-                  class="btn text-black btn-sm ms-0 ps-0 py-2 px-2"
+                  class="btn text-black btn-sm mx-1 my-1 py-1 px-2"
                 >
                   Berlangsung
                 </a>
               </template>
+
+              </div>
             </div>
-            <section v-for="transaction in transactions" :key="transaction.id">
+            <section v-for="transaction in transactions" :key="transaction.id" class="pe-0">
               <HistoryTransactionItem :data="transaction" />
             </section>
             <!-- TODO tulisan belum ada transaksi -->
             <template v-if="Object.keys(transactions).length === 0">
-              Belum ada transaksi
+              <h6 class="text-center pt-5 ms-2" style="border-top: 1px solid #c63442 !important;">
+                Belum ada transaksi
+              </h6>
             </template>
           </div>
         </div>
