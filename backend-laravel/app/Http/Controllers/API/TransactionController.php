@@ -64,6 +64,7 @@ class TransactionController extends Controller
         //validate rules
         $rules = [
             'courier'  => 'required|in:jne',
+            'type' => 'required',
             'address_id' => 'required',
         ];
         $validator = Validator::make($request->all(), $rules);
@@ -110,12 +111,27 @@ class TransactionController extends Controller
         $shipping_cost = 0;
 
         //get shipping cost 
-        $ship_cost_data = app('App\Http\Controllers\API\ShippingController')->getJneCost($request);
 
-        $ship_cost_data = $ship_cost_data->getData();
         if ($request->courier == 'jne') {
-            $shipping_cost = $ship_cost_data->data[0]->cost[0]->value;
+            $ship_cost_data = app('App\Http\Controllers\API\ShippingController')->getJneCost($request);
+
+            $ship_cost_data = $ship_cost_data->getData();
+            $shipping_cost = 0;
+            foreach ($ship_cost_data->data ?? [] as $scd) {
+                if ($scd->service == $request->type) {
+                    $shipping_cost = $scd->cost[0]->value;
+                }
+            }
         }
+
+        //jika shipping cost 0 return error
+        if ($shipping_cost==0) {
+            return response([
+                'success' => false,
+                'message' => ['msg' => ['Get Shipping Cost Error, Please try again later']],
+            ], 200);
+        }
+
 
         //untuk dimension
         $shipping_multiplier = 1;

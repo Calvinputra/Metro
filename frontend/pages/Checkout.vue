@@ -35,11 +35,11 @@
                     Masuk ke Akun
                     <hr
                       style="
-                      height: 10%;
-                      width: 100%;
-                      border-width: 0;
-                      color: red;
-                    "
+                        height: 10%;
+                        width: 100%;
+                        border-width: 0;
+                        color: red;
+                      "
                       class="col-sm-12 mb-0 mt-0"
                     /></h2
                 ></label>
@@ -86,14 +86,7 @@
               <button
                 @click="doLogin"
                 type="submit"
-                class="
-                btn
-                text-danger
-                btn-light btn-sm
-                rounded
-                col-sm-3
-                ms-5
-              "
+                class="btn text-danger btn-light btn-sm rounded col-sm-3 ms-5"
                 style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
               >
                 Masuk Akun
@@ -157,57 +150,42 @@
               <input
                 class="form-check-input"
                 type="radio"
-                name="exampleRadios"
-                id="exampleRadios1"
+                name="radioShippingDakota_wv"
+                id="radioShippingDakota_wv"
                 value="dakota"
-                @change="setCost($event)"
+                @change="setCostDakota($event)"
                 v-model="shippingRadio"
               />
-              <label class="form-check-label" for="exampleRadios1">
+              <label class="form-check-label" for="radioShippingDakota_wv">
                 <p>
                   Dakota - Rp.
-                  {{ Number(dakotaShippingCost).toLocaleString("id-ID") }}
+                  {{ Number(0).toLocaleString("id-ID") }}
                 </p>
               </label>
             </div>
             <div>
               <div class="d-flex ml-5">
-                <p class="fw-bold mr-3">
-                  JNE
-                </p>
+                <p class="fw-bold mr-3">JNE</p>
                 <div>
-                  <div class="form-check">
+                  <div
+                    class="form-check"
+                    v-for="(cost, index) in this.costs"
+                    :key="index"
+                  >
                     <input
                       class="form-check-input"
                       type="radio"
-                      name="exampleRadios"
-                      id="exampleRadios2"
-                      value="jne"
-                      @change="setCost($event)"
+                      name="radioShippingJne_wv"
+                      :id="'radioShippingJne_wv'+index"
+                      :value="cost.service"
+                      @change="setCostJne($event, cost.cost[0].value)"
                       v-model="shippingRadio"
                     />
 
-                    <label class="form-check-label" for="exampleRadios2">
+                    <label class="form-check-label"  :for="'radioShippingJne_wv'+index">
                       <p>
-                        YES - Rp.
-                        {{ Number(jneShippngCost).toLocaleString("id-ID") }}
-                      </p>
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="radio"
-                      name="exampleRadios"
-                      id="exampleRadios3"
-                      value="jne"
-                      @change="setCost($event)"
-                      v-model="shippingRadio"
-                    />
-                    <label class="form-check-label" for="exampleRadios3">
-                      <p>
-                        Regular - Rp.
-                        {{ Number(jneShippngCost).toLocaleString("id-ID") }}
+                        {{ cost.service }} ({{ cost.cost[0].etd }} hari) - Rp.
+                        {{ Number(cost.cost[0].value).toLocaleString("id-ID") }}
                       </p>
                     </label>
                   </div>
@@ -311,11 +289,11 @@
                     Masuk ke Akun
                     <hr
                       style="
-                      height: 10%;
-                      width: 100%;
-                      border-width: 0;
-                      color: red;
-                    "
+                        height: 10%;
+                        width: 100%;
+                        border-width: 0;
+                        color: red;
+                      "
                       class="col-sm-12 mb-0 mt-0"
                     /></h2
                 ></label>
@@ -361,13 +339,7 @@
               <button
                 @click="doLogin"
                 type="submit"
-                class="
-                btn
-                text-danger
-                btn-light btn-sm
-                rounded
-                p-2
-              "
+                class="btn text-danger btn-light btn-sm rounded p-2"
                 style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
               >
                 Masuk Akun
@@ -431,57 +403,42 @@
               <input
                 class="form-check-input"
                 type="radio"
-                name="exampleRadios"
-                id="exampleRadios1"
+                name="radioShippingDakota_mv"
+                id="radioShippingDakota_mv"
                 value="dakota"
-                @change="setCost($event)"
+                @change="setCostDakota($event)"
                 v-model="shippingRadio"
               />
-              <label class="form-check-label" for="exampleRadios1">
+              <label class="form-check-label" for="radioShippingDakota_mv">
                 <p>
                   Dakota - Rp.
-                  {{ Number(dakotaShippingCost).toLocaleString("id-ID") }}
+                  {{ Number(0).toLocaleString("id-ID") }}
                 </p>
               </label>
             </div>
             <div>
               <div class="d-flex ml-5">
-                <p class="fw-bold mr-3">
-                  JNE
-                </p>
+                <p class="fw-bold mr-3">JNE</p>
                 <div>
-                  <div class="form-check">
+                  <div
+                    class="form-check"
+                    v-for="(cost, index) in this.costs"
+                    :key="index"
+                  >
                     <input
                       class="form-check-input"
                       type="radio"
-                      name="exampleRadios"
-                      id="exampleRadios2"
-                      value="jne"
-                      @change="setCost($event)"
+                      name="radioShippingJne_mv"
+                      :id="'radioShippingJne_mv'+index"
+                      :value="cost.service"
+                      @change="setCostJne($event, cost.cost[0].value)"
                       v-model="shippingRadio"
                     />
 
-                    <label class="form-check-label" for="exampleRadios2">
+                    <label class="form-check-label" :for="'radioShippingJne_mv'+index">
                       <p>
-                        YES - Rp.
-                        {{ Number(jneShippngCost).toLocaleString("id-ID") }}
-                      </p>
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="radio"
-                      name="exampleRadios"
-                      id="exampleRadios3"
-                      value="jne"
-                      @change="setCost($event)"
-                      v-model="shippingRadio"
-                    />
-                    <label class="form-check-label" for="exampleRadios3">
-                      <p>
-                        Regular - Rp.
-                        {{ Number(jneShippngCost).toLocaleString("id-ID") }}
+                        {{ cost.service }} ({{ cost.cost[0].etd }} hari) - Rp.
+                        {{ Number(cost.cost[0].value).toLocaleString("id-ID") }}
                       </p>
                     </label>
                   </div>
@@ -569,30 +526,33 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50"
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
         },
         {
           url: "/cart",
           name: "Keranjang Saya",
-          class: "my-2 breadcrumb-item opacity-50"
+          class: "my-2 breadcrumb-item opacity-50",
         },
         {
           url: "/checkout",
           name: "Check Out",
-          class: "my-2 breadcrumb-item active opacity-50"
-        }
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
       ],
       carts: {},
       grandTotal: 0,
       weightTotal: 0,
       email: "",
       password: "",
+
       shippingCost: 0,
-      jneShippngCost: 0,
-      dakotaShippingCost: 0,
+      shippingMethod: "",
+
+      //costs
+      costs: {},
 
       //radio
-      shippingRadio: ""
+      shippingRadio: "",
     };
   },
   methods: {
@@ -600,7 +560,7 @@ export default {
       try {
         let data = {
           email: this.email,
-          password: this.password
+          password: this.password,
         };
         let response = await this.$axios.$post(
           process.env.API_URL + "/api/login",
@@ -611,17 +571,17 @@ export default {
             .loginWith("laravelSanctum", {
               data: {
                 email: this.email,
-                password: this.password
-              }
+                password: this.password,
+              },
             })
             .then(async () => {
               this.$toast.success("Successfully authenticated", {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000
+                duration: 5000,
               });
               let d = {
-                carts: this.tempCart
+                carts: this.tempCart,
               };
               let r = await this.$axios.$post(
                 process.env.API_URL + "/api/carts/multiple",
@@ -629,9 +589,9 @@ export default {
               );
 
               this.$router.push("/checkout");
-              setTimeout(() => {
-                window.location.reload(true);
-              }, 2000);
+              // setTimeout(() => {
+              //   window.location.reload(true);
+              // }, 2000);
             });
         } else {
           let err = response.message;
@@ -640,7 +600,7 @@ export default {
               this.$toast.error(err[key][key2], {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000
+                duration: 5000,
               });
             });
           });
@@ -649,27 +609,36 @@ export default {
         this.$toasted.error(error, {
           theme: "bubble",
           position: "bottom-right",
-          duration: 5000
+          duration: 5000,
         });
         console.log(error);
       }
     },
-    setCost(event) {
-      if (event.target.value == "jne") {
-        this.grandTotal -= this.shippingCost;
-        this.shippingCost = this.jneShippngCost;
-        this.grandTotal += this.shippingCost;
-      } else {
-        this.grandTotal -= this.shippingCost;
-        this.shippingCost = 0;
-        this.grandTotal += this.shippingCost;
-      }
+    setCostJne(event, cost) {
+      this.shippingCost = cost;
+      this.shippingMethod = "jne";
+      this.recalculateTotal();
+    },
+    setCostDakota(event) {
+      //dakota
+
+      this.shippingCost = 0;
+      this.shippingMethod = "dakota";
+      this.recalculateTotal();
+    },
+    recalculateTotal() {
+      this.grandTotal = 0 + this.shippingCost;
+      this.carts.forEach((cart) => {
+        this.grandTotal += cart.qty * cart.product.price;
+        this.weightTotal += cart.qty * cart.product.weight;
+      });
     },
     async doCreateTransaction() {
       try {
         let data = {
-          courier: this.shippingRadio,
-          address_id: this.$auth.user.addresses[0].id //nnti set selected
+          courier: this.shippingMethod,
+          type: this.shippingRadio,
+          address_id: this.$auth.user.addresses[0].id, //nnti set selected
         };
         let response = await this.$axios.$post(
           process.env.API_URL + "/api/transactions", //todo ganti link
@@ -686,7 +655,7 @@ export default {
             {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000
+              duration: 5000,
             }
           );
         } else {
@@ -696,7 +665,7 @@ export default {
               this.$toast.error(err[key][key2], {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000
+                duration: 5000,
               });
             });
           });
@@ -704,29 +673,29 @@ export default {
       } catch (err) {
         console.log(err);
       }
-    }
+    },
   },
+
   async mounted() {
     if (this.$auth.loggedIn) {
       try {
-        let carts = await this.$axios.$get(
-          process.env.API_URL + "/api/carts?checkout=true"
-        );
-        this.carts = carts.data;
-        this.grandTotal = 0 + this.shippingCost;
-        this.carts.forEach(cart => {
-          this.grandTotal += cart.qty * cart.product.price;
-          this.weightTotal += cart.qty * cart.product.weight;
+        let carts = await this.$axios.$get(process.env.API_URL + "/api/carts", {
+          params: {
+            checkout: true,
+          },
         });
+        this.carts = carts.data;
+        this.recalculateTotal();
       } catch (error) {
         console.log(error);
       }
 
       try {
-        let cost = await this.$axios.$post(
+        let costs = await this.$axios.$post(
           process.env.API_URL + "/api/checkout/get_jne_cost"
         );
-        this.jneShippngCost = cost.data[0].cost[0].value;
+        console.log(costs);
+        this.costs = costs.data;
       } catch (error) {
         console.log(error);
       }
@@ -736,25 +705,25 @@ export default {
   computed: {
     ...mapGetters({
       tempCart: "getCheckout",
-      cartChanged: "getCartChanged"
-    })
+      cartChanged: "getCartChanged",
+    }),
   },
   watch: {
     tempCart: {
-      handler: function(carts) {
+      handler: function (carts) {
         if (!this.$auth.loggedIn && carts) {
           this.grandTotal = 0 + this.shippingCost;
 
-          carts.forEach(cart => {
+          carts.forEach((cart) => {
             if (cart.product.process == 1) {
               this.grandTotal += cart.product.qty * cart.product.price;
             }
           });
         }
       },
-      deep: true
-    }
-  }
+      deep: true,
+    },
+  },
 };
 </script>
 <style lang="css" scoped>
