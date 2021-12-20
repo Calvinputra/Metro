@@ -2,10 +2,10 @@
   <section>
     <Header />
     <Breadcrumb :links="breadcrumb" />
-    <section>
-      <div class="ml-5 mr-5 pl-5 pr-5">
+    <section class="text-center">
+      <div class="text-center">
         <h4 class="text-center">Metro Jaya</h4>
-        <p class="ml-5 mr-5 pl-5 pr-5">
+        <p class="pe-5 ps-5">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet
           dui non metus aliquet laoreet in mollis lorem. Interdum et malesuada
           fames ac ante ipsum primis in faucibus. Proin sollicitudin, dolor ut
@@ -21,19 +21,19 @@
       <br />
       <div class="text-center">
         <h4 class="text-center">Road Map</h4>
-        <img class="pb-5" src="/img/metro.png" alt="" />
+        <img style="width: 300px" src="/img/metro.png" alt="" />
         <br />
 
         <h4 class="text-center">Kelebihan Metro Jaya</h4>
       </div>
-      <div class="row">
-        <img class="w-25 pl-5 pr-5" src="/img/metro.png" alt="" />
-        <img class="w-25 pl-5 pr-5" src="/img/metro.png" alt="" />
-        <img class="w-25 pl-5 pr-5" src="/img/metro.png" alt="" />
-        <img class="w-25 pl-5 pr-5" src="/img/metro.png" alt="" />
+      <div class="row justify-content-center">
+        <img style="width: 250px" src="/img/metro.png" alt="" />
+        <img style="width: 250px" src="/img/metro.png" alt="" />
+        <img style="width: 250px" src="/img/metro.png" alt="" />
+        <img style="width: 250px" src="/img/metro.png" alt="" />
       </div>
-      <div class="mr-5 ml-5 pr-5 pl-5">
-        <p class="mr-5 ml-5 pr-5 pl-5">
+      <div class="text-center ps-5 pe-5">
+        <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet
           dui non metus aliquet laoreet in mollis lorem. Interdum et malesuada
           fames ac ante ipsum primis in faucibus. Proin sollicitudin, dolor ut
@@ -49,7 +49,7 @@
       <br />
       <div class="text-center">
         <h4>Lokasi Kami</h4>
-        <img src="/img/metro.png" alt="" />
+        <img style="width: 300px" src="/img/metro.png" alt="" />
       </div>
     </section>
 
