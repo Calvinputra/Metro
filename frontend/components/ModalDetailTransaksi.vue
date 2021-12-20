@@ -46,13 +46,47 @@
               <td class="py-2">{{ td.name }}</td>
               <td class="py-2">{{ td.qty }}</td>
               <td class="py-2">{{ td.weight }}gr</td>
-              <td class="py-2">Rp {{ Number(td.price).toLocaleString("id-ID") }}</td>
               <td class="py-2">
-                Rp {{ Number(td.price * td.qty).toLocaleString("id-ID") }}
+                Rp. {{ Number(td.price).toLocaleString("id-ID") }}
+              </td>
+              <td class="py-2">
+                Rp. {{ Number(td.price * td.qty).toLocaleString("id-ID") }}
               </td>
             </tr>
           </tbody>
         </table>
+
+        <div class="d-flex justify-content-around mt-3">
+          <div class="text-right col-sm-9 fw-bold">
+            <span>
+              <p>Subtotal</p>
+            </span>
+            <span>
+              <p>Biaya Pengiriman</p>
+            </span>
+            <p>Total</p>
+          </div>
+          <div class="text-right">
+            <span>
+              <p>
+                Rp. {{ Number(transaction.total_price).toLocaleString("id-ID") }}
+              </p>
+            </span>
+            <span>
+              <p>
+                Rp.
+                {{
+                  Number(transaction.total_shipping_cost).toLocaleString(
+                    "id-ID"
+                  )
+                }}
+              </p>
+            </span>
+            <p class="fw-bold">
+              Rp. {{ Number(transaction.grand_total).toLocaleString("id-ID") }}
+            </p>
+          </div>
+        </div>
       </div>
     </b-modal>
   </div>
