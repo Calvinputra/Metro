@@ -203,9 +203,9 @@ export default {
           position: "bottom-right",
           duration: 5000
         });
-        setTimeout(() => {
-          window.location.reload(true);
-        }, 1000);
+        // setTimeout(() => {
+        //   window.location.reload(true);
+        // }, 1000);
       });
     }
   }
