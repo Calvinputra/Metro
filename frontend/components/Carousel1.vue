@@ -14,7 +14,6 @@
           caption="First slide"
           img-src="https://picsum.photos/1024/480/?image=10"
         >
-      
         </b-carousel-slide>
         <b-carousel-slide
           caption="Second Slide"
@@ -32,4 +31,3 @@
     <br />
   </section>
 </template>
-

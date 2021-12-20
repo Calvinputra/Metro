@@ -1,10 +1,8 @@
 <template>
-  <section class="pt-5 pb-5">
+  <section class="pb-5">
     <div class="container">
       <div class="row">
-        <div class="col-6">
-          <h3 class="mb-3">Carousel cards title</h3>
-        </div>
+        <div class="col-6"></div>
         <div class="col-6 text-right">
           <a
             class="btn btn-primary mb-3 mr-1"
@@ -90,7 +88,6 @@ export default {
   props: ["products"],
   created() {
     console.log(this.products);
-  },
+  }
 };
 </script>
-
