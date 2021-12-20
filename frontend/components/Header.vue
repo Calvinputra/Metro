@@ -51,7 +51,7 @@
                 ></i>
                 <em></em>
               </template>
-              <b-dropdown-item v-if="this.$auth.loggedIn"
+              <b-dropdown-item v-if="this.$auth.loggedIn" href="/profile"
                 >Akun Saya</b-dropdown-item
               >
               <b-dropdown-item

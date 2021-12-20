@@ -73,7 +73,8 @@
       <a class="text-black p-2" href="">Akun saya</a>
       <p class="p-2">|</p>
       <a class="text-black p-2" href="">Tentang Kami</a>
-      <a class="text-black" href="">Kebijakan Privasi</a>
+      <p class="p-2">|</p>
+      <a class="text-black p-2" href="">Kebijakan Privasi</a>
     </div>
   </section>
 </template>

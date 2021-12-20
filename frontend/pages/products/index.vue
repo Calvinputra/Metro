@@ -1,5 +1,5 @@
 <template>
-  <section  style="margin-bottom:100px;">
+  <section style="margin-bottom:100px;">
     <!-- Website -->
     <section id="product-webview">
       <Header />
@@ -70,10 +70,10 @@
                   <div class="dropdown-menu">...</div>
                 </div>
                 <div class="col">
-                  <a href=""><img src="img/grid.png" alt="" height="20px" /></a>
+                  <a href=""><img src="img/grid.png" alt="" height="20px"/></a>
                 </div>
                 <div class="col">
-                  <a href=""><img src="img/list.png" alt="" height="20px" /></a>
+                  <a href=""><img src="img/list.png" alt="" height="20px"/></a>
                 </div>
               </div>
             </div>
@@ -215,14 +215,14 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50",
+          class: "my-2 ms-3 breadcrumb-item opacity-50"
         },
         {
           url: "/",
           name: "Product",
-          class: "my-2 breadcrumb-item active opacity-50",
-        },
-      ],
+          class: "my-2 breadcrumb-item active opacity-50"
+        }
+      ]
     };
   },
   async asyncData({ $axios, query }) {
@@ -230,10 +230,10 @@ export default {
       let data = {
         s: query.s,
         page: query.page,
-        paginate: query.paginate,
+        paginate: query.paginate
       };
       let products = await $axios.$get(process.env.API_URL + "/api/products", {
-        params: data,
+        params: data
       });
       let links = [];
       for (let i = 1; i <= products.meta.last_page; i++) {
@@ -242,7 +242,7 @@ export default {
       return {
         products: products.data,
         links: links,
-        totalPage: products.meta.last_page,
+        totalPage: products.meta.last_page
       };
     } catch (error) {
       console.log(error);
@@ -255,14 +255,14 @@ export default {
         query: {
           page: pageNum,
           s: this.$route.query.s,
-          paginate: this.$route.query.paginate,
-        },
+          paginate: this.$route.query.paginate
+        }
       };
     },
     pageGen(pageNum) {
       return this.links[pageNum - 1].slice(1);
-    },
+    }
   },
-  watchQuery: ["s", "page", "paginate"],
+  watchQuery: ["s", "page", "paginate"]
 };
 </script>

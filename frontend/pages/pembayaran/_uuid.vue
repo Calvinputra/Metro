@@ -1,8 +1,7 @@
 <template>
   <section>
+    <ModalDetailTransaksi :transaction="data" />
     <section id="pembayaran-webview">
-      <ModalDetailTransaksi :transaction="data" />
-
       <Header />
       <Breadcrumb :links="breadcrumb" />
       <section>
@@ -93,8 +92,6 @@
     </section>
 
     <section id="pembayaran-mobileview">
-      <ModalDetailTransaksi :transaction="data" />
-
       <Header />
       <section class="mt-3">
         <div class="container"></div>
