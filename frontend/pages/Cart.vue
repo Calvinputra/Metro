@@ -103,7 +103,7 @@
 
     <div id="cart-mobileview">
       <Header />
-      <div class="container padding-bottom-3x mb-1">
+      <div class="container mb-5">
         <!-- Alert-->
         <nav class="container my-4" aria-label="breadcrumb">
           <ol class="py-1 breadcrumb">
@@ -150,18 +150,13 @@
             </template>
           </table>
         </div>
-        <div class="text-right text-right col-sm-11">
+        <div class="text-right text-right col-sm-11 mb-5">
           <span class="text-center">Total Harga</span>
           <span class="pl-5"
             ><b>Rp. {{ Number(grandTotal).toLocaleString("id-ID") }}</b></span
           >
         </div>
-        <br />
-        <br />
-        <div class="shopping-cart-footer">
-          <div class="column"></div>
-        </div>
-        <div class="shopping-cart-footer">
+        <div class="shopping-cart-footer mb-5">
           <div class="column text-center">
             <a
               style="

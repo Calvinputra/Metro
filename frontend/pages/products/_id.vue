@@ -276,7 +276,7 @@
     <!-- mobile -->
     <section id="product-detail-mobile">
       <Header />
-      <section>
+      <section class="mb-5">
         <Breadcrumb :links="breadcrumb" />
         <div class="container">
           <div class="row">

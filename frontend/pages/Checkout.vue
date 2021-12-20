@@ -303,7 +303,7 @@
           </div>
         </div>
         <div v-if="!$auth.loggedIn">
-          <div class="col-sm-5 mb-0">
+          <div class="col-sm-5 mb-3">
             <form class="mr-5">
               <div class="col-sm-12 text-center">
                 <label class="mb-0 mt-2 mb-2"
@@ -392,7 +392,7 @@
           </div>
         </div>
         <div
-          class="d-flex justify-content-around mt-3"
+          class="d-flex justify-content-around mt-3 mb-3"
           style=""
           v-if="$auth.loggedIn"
         >
@@ -417,7 +417,7 @@
           </div>
         </div>
         <!-- <div class="ml-5 mt-5" v-if="$auth.loggedIn"> -->
-        <div class="mt-2">
+        <div class="mt-2 mb-3">
           <div class="bg-light text-black col-sm-11 mb-2">
             <label for="step1" class="mt-2">
               <h5 class="mt-2">Step 2: Pilih Metode Pengiriman</h5>

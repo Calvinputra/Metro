@@ -231,7 +231,7 @@
                       Masuk
                     </button>
                   </div>
-                  <div class="ms-5" style="padding-left: 4rem!important;">
+                  <div class="ms-5">
                     Belum mempunyai akun?
                     <a href="/register" style="color: red">Buat Akun</a>
                   </div>

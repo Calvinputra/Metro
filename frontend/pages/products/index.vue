@@ -163,18 +163,8 @@
             </div>
             <div class="mt-4">
               <div class="row justify-content-start">
-                <!-- palingan ini kasih if else ganjil genap -->
-                <div class="col pe-0 ps-0">
-                  <Card-Product
-                    v-for="product in products"
-                    :key="product.id"
-                    :data="product"
-                    :url="'/products/' + product.id"
-                  />
-                </div>
-
-                <div class="col pe-0 ps-0">
-                  <Card-Product
+                <div class="row pe-0 ps-3">
+                  <Card-Product-Mobile
                     v-for="product in products"
                     :key="product.id"
                     :data="product"

@@ -91,6 +91,7 @@
         </script>
       </client-only>
     </section>
+
     <section id="pembayaran-mobileview">
       <ModalDetailTransaksi :transaction="data" />
 
@@ -154,7 +155,7 @@
         </div>
       </div>
       <br />
-      <div class="text-center mt-3">
+      <div class="text-center mt-3 mb-5">
         <nuxt-link
           to="/products"
           type="button"
