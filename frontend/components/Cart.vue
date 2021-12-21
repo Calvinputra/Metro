@@ -2,9 +2,9 @@
   <tr>
     <td>
       <div class="product-item text-middle" style="display: flex">
-        <div class="form-check mt-auto mb-auto">
+        <div class="form-check mt-auto mb-auto ">
           <input
-            class="form-check-input"
+            class="form-check-input p-2 me-3 "
             type="checkbox"
             id="flexCheckChecked"
             v-model="process_model"

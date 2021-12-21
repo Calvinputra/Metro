@@ -34,17 +34,17 @@
         <table class="table pt-2">
           <thead>
             <tr>
-              <th scope="col" class="py-2">Nama Produk</th>
-              <th scope="col" class="py-2">Jumlah</th>
-              <th scope="col" class="py-2">Berat</th>
-              <th scope="col" class="py-2">Harga</th>
-              <th scope="col" class="py-2">Sub total</th>
+              <th scope="col" class="py-2 text-center">Nama Produk</th>
+              <th scope="col" class="py-2 text-center">Jumlah</th>
+              <th scope="col" class="py-2 text-center">Berat</th>
+              <th scope="col" class="py-2 text-center">Harga</th>
+              <th scope="col" class="py-2 text-center">Sub total</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="td in transaction.transaction_details" :key="td.id">
               <td class="py-2">{{ td.name }}</td>
-              <td class="py-2">{{ td.qty }}</td>
+              <td class="py-2 text-center">{{ td.qty }}</td>
               <td class="py-2">{{ td.weight }}gr</td>
               <td class="py-2">
                 Rp. {{ Number(td.price).toLocaleString("id-ID") }}
@@ -69,7 +69,8 @@
           <div class="text-right">
             <span>
               <p>
-                Rp. {{ Number(transaction.total_price).toLocaleString("id-ID") }}
+                Rp.
+                {{ Number(transaction.total_price).toLocaleString("id-ID") }}
               </p>
             </span>
             <span>
@@ -92,9 +93,8 @@
   </div>
 </template>
 
-
 <script>
 export default {
-  props: ["transaction"],
+  props: ["transaction"]
 };
 </script>

@@ -23,11 +23,11 @@ export default {
       });
       return {
         message: message,
-        success: response.success,
+        success: response.success
       };
     } catch (error) {
       console.log(error);
     }
-  },
+  }
 };
 </script>

@@ -89,10 +89,7 @@
               data-toast-message="is updated successfully!"
               >Lanjut Belanja</a
             >
-            <nuxt-link
-              class="btn btn-danger btn-shadow"
-              to="/checkout"
-            >
+            <nuxt-link class="btn btn-danger btn-shadow" to="/checkout">
               Periksa
             </nuxt-link>
           </div>
@@ -103,24 +100,9 @@
 
     <div id="cart-mobileview">
       <Header />
-      <div class="container mb-5">
+      <div class="container mb-5 mt-4">
         <!-- Alert-->
-        <nav class="container my-4" aria-label="breadcrumb">
-          <ol class="py-1 breadcrumb">
-            <li class="my-2 ms-3 breadcrumb-item opacity-50">
-              <a style="text-decoration: none; color: black" href="/"
-                >Beranda</a
-              >
-            </li>
-            <li
-              class="my-2 breadcrumb-item active opacity-50"
-              style="color: black"
-              aria-current="page"
-            >
-              Keranjang Saya
-            </li>
-          </ol>
-        </nav>
+
         <h2>Keranjang Belanja</h2>
         <pre></pre>
         <!-- Shopping Cart-->
@@ -192,7 +174,7 @@ export default {
   data() {
     return {
       carts: {},
-      grandTotal: 0,
+      grandTotal: 0
     };
   },
 
@@ -213,12 +195,12 @@ export default {
   computed: {
     ...mapGetters({
       tempCart: "getCart",
-      cartChanged: "getCartChanged",
-    }),
+      cartChanged: "getCartChanged"
+    })
   },
   watch: {
     cartChanged: {
-      handler: async function (changed) {
+      handler: async function(changed) {
         if (this.$auth.loggedIn && changed) {
           this.grandTotal = 0;
           try {
@@ -226,7 +208,7 @@ export default {
               process.env.API_URL + "/api/carts"
             );
             let data = carts.data;
-            data.forEach((cart) => {
+            data.forEach(cart => {
               if (cart.process == 1) {
                 this.grandTotal += cart.qty * cart.product.price;
               }
@@ -240,22 +222,22 @@ export default {
           this.$store.dispatch("setCartChange", false);
         }
       },
-      deep: true,
+      deep: true
     },
     tempCart: {
-      handler: function (carts) {
+      handler: function(carts) {
         if (!this.$auth.loggedIn && carts) {
           this.grandTotal = 0;
 
-          carts.forEach((cart) => {
+          carts.forEach(cart => {
             if (cart.product.process == 1) {
               this.grandTotal += cart.product.qty * cart.product.price;
             }
           });
         }
       },
-      deep: true,
-    },
+      deep: true
+    }
   },
   methods: {
     destroyAll() {
@@ -267,7 +249,7 @@ export default {
               this.$toast.success("Successfully clear all cart", {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000,
+                duration: 5000
               });
               this.$nuxt.refresh();
             });
@@ -275,8 +257,8 @@ export default {
         });
       } else {
       }
-    },
-  },
+    }
+  }
 };
 function increment() {
   document.getElementById("demoInput").stepUp();
@@ -287,7 +269,7 @@ function decrement() {
 </script>
 
 <style lang="css" scoped>
-.btn-shadow{
+.btn-shadow {
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
 }
 #cart-mobileview {

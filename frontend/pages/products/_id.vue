@@ -561,7 +561,6 @@
 }
 </style>
 
-
 <script>
 import { mapActions } from "vuex";
 export default {
@@ -569,7 +568,7 @@ export default {
     return {
       ASSET_URL: process.env.ASSET_URL,
       slide: 0,
-      sliding: null,
+      sliding: null
     };
   },
   async asyncData({ $axios, params }) {
@@ -586,19 +585,19 @@ export default {
           {
             url: "/",
             name: "Beranda",
-            class: "my-2 ms-3 breadcrumb-item opacity-50",
+            class: "my-2 ms-3 breadcrumb-item opacity-50"
           },
           {
             url: "/",
             name: "Product",
-            class: "my-2 breadcrumb-item active opacity-50",
+            class: "my-2 breadcrumb-item active opacity-50"
           },
           {
             url: "/",
             name: response_data.name,
-            class: "my-2 breadcrumb-item active opacity-50",
-          },
-        ],
+            class: "my-2 breadcrumb-item active opacity-50"
+          }
+        ]
       };
     } catch (error) {
       console.log(error);
@@ -615,7 +614,7 @@ export default {
       try {
         if (this.$auth.loggedIn) {
           let data = {
-            product_id: id,
+            product_id: id
           };
           let response = await this.$axios.$post(
             process.env.API_URL + "/api/wishlists",
@@ -625,13 +624,13 @@ export default {
             this.$toast.success("Successfully delete a product from wishlist", {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000,
+              duration: 5000
             });
           } else {
             this.$toast.success("Successfully add a product to wishlist", {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000,
+              duration: 5000
             });
           }
 
@@ -648,7 +647,7 @@ export default {
       try {
         if (this.$auth.loggedIn) {
           let data = {
-            product_id: product.id,
+            product_id: product.id
           };
           let response = await this.$axios.$post(
             process.env.API_URL + "/api/carts",
@@ -657,7 +656,7 @@ export default {
           this.$toast.success("Successfully add a product to cart", {
             theme: "bubble",
             position: "bottom-right",
-            duration: 5000,
+            duration: 5000
           });
           console.log(response);
         } else {
@@ -668,8 +667,8 @@ export default {
         console.log(error);
       }
     },
-    ...mapActions(["addProductToCart"]),
-  },
+    ...mapActions(["addProductToCart"])
+  }
 };
 </script>
 
@@ -889,4 +888,3 @@ img {
 
 /*# sourceMappingURL=style.css.map */
 </style>
-
