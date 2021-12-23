@@ -40,11 +40,14 @@
             :url="'/products/' + this.products[2].id"
           />
         </div>
-        ...
       </div>
       <!-- If we need navigation buttons -->
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
+      <div>
+        <div class="swiper-button-prev pr-5 me-5"></div>
+      </div>
+      <div>
+        <div class="swiper-button-next  ps-5 ml-5"></div>
+      </div>
     </div>
   </section>
 </template>
@@ -63,22 +66,22 @@ export default {
       spaceBetween: 30,
       breakpoints: {
         768: {
-          slidesPerView: 3,
+          slidesPerView: 3
         },
         500: {
-          slidesPerView: 2,
-        },
+          slidesPerView: 2
+        }
       },
       pagination: {
-        el: ".swiper-pagination",
+        el: ".swiper-pagination"
       },
       navigation: {
         nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
+        prevEl: ".swiper-button-prev"
+      }
     });
   },
-  props: ["products"],
+  props: ["products"]
 };
 </script>
 
@@ -88,4 +91,3 @@ export default {
   height: 400px;
 }
 </style>
-
