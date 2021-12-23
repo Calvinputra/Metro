@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\Vendor\Voyager\TransactionController;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +19,9 @@ Route::get('/', function () {
 
 Route::group(['prefix' => ''], function () {
     Voyager::routes();
+    Route::group(['prefix' => 'transactions'], function () {
+        Route::post('shipping_no', [TransactionController::class, 'addShippingNo']);
+    });
 });
 Route::group(['prefix' => 'debug'], function () {
     Route::get('/check_user', function () {

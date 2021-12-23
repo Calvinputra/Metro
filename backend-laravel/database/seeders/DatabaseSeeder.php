@@ -46,5 +46,6 @@ class DatabaseSeeder extends Seeder
         $this->call(AccountsTableSeeder::class);
         $this->call(BalanceLedgersTableSeeder::class);
         $this->call(AccountLedgersTableSeeder::class);
+        $this->call(WebsiteFeedbackTableSeeder::class);
     }
 }

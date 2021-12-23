@@ -20,7 +20,7 @@ class TransactionController extends Controller
     public function index(Request $request)
     {
         $user = Customer::where('token', '=', request()->bearerToken())->first();
-        $transactions = Transaction::where('customer_id', $user->id ?? '0')->orderBy('created_at', 'DESC');
+        $transactions = Transaction::where('customer_id', $user->id ?? '0')->orderBy('updated_at', 'DESC');
         if (strcasecmp(($request->page_filter ?? ''), 'menunggu_pembayaran') == 0) {
             $transactions->where('status_id', 1);
         } else if (strcasecmp(($request->page_filter ?? ''), 'selesai') == 0) {

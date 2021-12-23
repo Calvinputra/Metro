@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-
+use Voyager;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -13,7 +13,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        Voyager::addAction(\App\Actions\TransactionDetailAction::class);
+        Voyager::addAction(\App\Actions\ShippingAction::class);
     }
 
     /**

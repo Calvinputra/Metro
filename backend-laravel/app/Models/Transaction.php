@@ -48,4 +48,8 @@ class Transaction extends Model
     public function status(){
         return $this->belongsTo('App\Models\TransactionStatus','status_id');
     }
+    public function city(){
+        return $this->belongsTo('App\Models\City','shipping_city_id');
+    }
+
 }

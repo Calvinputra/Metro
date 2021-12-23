@@ -619,6 +619,62 @@ class PermissionsTableSeeder extends Seeder
                 'created_at' => '2021-12-03 07:03:32',
                 'updated_at' => '2021-12-03 07:03:32',
             ),
+            75 => 
+            array (
+                'id' => 76,
+                'key' => 'browse_permissions',
+                'table_name' => 'permissions',
+                'created_at' => '2021-12-22 13:49:44',
+                'updated_at' => '2021-12-22 13:49:44',
+            ),
+            76 => 
+            array (
+                'id' => 77,
+                'key' => 'read_permissions',
+                'table_name' => 'permissions',
+                'created_at' => '2021-12-22 13:49:44',
+                'updated_at' => '2021-12-22 13:49:44',
+            ),
+            77 => 
+            array (
+                'id' => 78,
+                'key' => 'edit_permissions',
+                'table_name' => 'permissions',
+                'created_at' => '2021-12-22 13:49:44',
+                'updated_at' => '2021-12-22 13:49:44',
+            ),
+            78 => 
+            array (
+                'id' => 79,
+                'key' => 'add_permissions',
+                'table_name' => 'permissions',
+                'created_at' => '2021-12-22 13:49:44',
+                'updated_at' => '2021-12-22 13:49:44',
+            ),
+            79 => 
+            array (
+                'id' => 80,
+                'key' => 'delete_permissions',
+                'table_name' => 'permissions',
+                'created_at' => '2021-12-22 13:49:44',
+                'updated_at' => '2021-12-22 13:49:44',
+            ),
+            80 => 
+            array (
+                'id' => 81,
+                'key' => 'read_detail_transactions',
+                'table_name' => 'transactions',
+                'created_at' => '2021-12-22 13:50:28',
+                'updated_at' => '2021-12-22 13:50:49',
+            ),
+            81 => 
+            array (
+                'id' => 82,
+                'key' => 'shipping_transactions',
+                'table_name' => 'transactions',
+                'created_at' => '2021-12-22 13:51:15',
+                'updated_at' => '2021-12-22 13:51:15',
+            ),
         ));
         
         

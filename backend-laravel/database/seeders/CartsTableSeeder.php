@@ -47,9 +47,9 @@ class CartsTableSeeder extends Seeder
                 'process' => 1,
                 'customer_id' => 1,
                 'product_id' => 3,
-                'qty' => 4,
+                'qty' => 2,
                 'created_at' => '2021-12-10 09:24:43',
-                'updated_at' => '2021-12-10 09:24:43',
+                'updated_at' => '2021-12-23 09:03:51',
                 'deleted_at' => NULL,
             ),
             3 => 
@@ -105,6 +105,28 @@ class CartsTableSeeder extends Seeder
                 'qty' => 3,
                 'created_at' => '2021-12-11 18:25:52',
                 'updated_at' => '2021-12-11 18:26:05',
+                'deleted_at' => NULL,
+            ),
+            8 => 
+            array (
+                'id' => 32,
+                'process' => 1,
+                'customer_id' => 1,
+                'product_id' => 2,
+                'qty' => 2,
+                'created_at' => '2021-12-15 13:44:37',
+                'updated_at' => '2021-12-23 09:03:51',
+                'deleted_at' => NULL,
+            ),
+            9 => 
+            array (
+                'id' => 33,
+                'process' => 1,
+                'customer_id' => 1,
+                'product_id' => 1,
+                'qty' => 2,
+                'created_at' => '2021-12-15 14:04:15',
+                'updated_at' => '2021-12-23 09:03:51',
                 'deleted_at' => NULL,
             ),
         ));

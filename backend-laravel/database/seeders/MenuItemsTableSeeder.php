@@ -451,6 +451,22 @@ class MenuItemsTableSeeder extends Seeder
                 'route' => 'voyager.transactions.index',
                 'parameters' => 'null',
             ),
+            27 => 
+            array (
+                'id' => 28,
+                'menu_id' => 1,
+                'title' => 'Permissions',
+                'url' => '',
+                'target' => '_self',
+                'icon_class' => 'voyager-lock',
+                'color' => NULL,
+                'parent_id' => NULL,
+                'order' => 32,
+                'created_at' => '2021-12-22 13:49:44',
+                'updated_at' => '2021-12-22 13:49:44',
+                'route' => 'voyager.permissions.index',
+                'parameters' => NULL,
+            ),
         ));
         
         

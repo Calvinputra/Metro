@@ -18,6 +18,7 @@ class CreateTransactionLogsTable extends Migration
             $table->unsignedBigInteger('status_id');
             $table->unsignedBigInteger('transaction_id');
             $table->string('status');
+            $table->string('notes')->nullable();
             $table->foreign('transaction_id')->references('id')->on('transactions');
             $table->timestamps();
             $table->softDeletes();
