@@ -1,54 +1,107 @@
 <template>
   <section>
-    <div class="swiper-container">
-      <!-- Additional required wrapper -->
-      <div class="swiper-wrapper">
-        <!-- Slides -->
-        <div class="swiper-slide">
-          <CardProductSwiper
-            :data="this.products[0]"
-            :url="'/products/' + this.products[0].id"
-          />
+    <section id="swipercard-webview">
+      <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <CardProductSwiper
+              :data="this.products[0]"
+              :url="'/products/' + this.products[0].id"
+            />
+          </div>
+          <div class="swiper-slide">
+            <CardProductSwiper
+              :data="this.products[1]"
+              :url="'/products/' + this.products[1].id"
+            />
+          </div>
+          <div class="swiper-slide">
+            <CardProductSwiper
+              :data="this.products[2]"
+              :url="'/products/' + this.products[2].id"
+            />
+          </div>
+          <div class="swiper-slide">
+            <CardProductSwiper
+              :data="this.products[2]"
+              :url="'/products/' + this.products[2].id"
+            />
+          </div>
+          <div class="swiper-slide">
+            <CardProductSwiper
+              :data="this.products[2]"
+              :url="'/products/' + this.products[2].id"
+            />
+          </div>
+          <div class="swiper-slide">
+            <CardProductSwiper
+              :data="this.products[2]"
+              :url="'/products/' + this.products[2].id"
+            />
+          </div>
         </div>
-        <div class="swiper-slide">
-          <CardProductSwiper
-            :data="this.products[1]"
-            :url="'/products/' + this.products[1].id"
-          />
+        <!-- If we need navigation buttons -->
+        <div>
+          <div class="swiper-button-prev pr-5 me-5"></div>
         </div>
-        <div class="swiper-slide">
-          <CardProductSwiper
-            :data="this.products[2]"
-            :url="'/products/' + this.products[2].id"
-          />
-        </div>
-        <div class="swiper-slide">
-          <CardProductSwiper
-            :data="this.products[2]"
-            :url="'/products/' + this.products[2].id"
-          />
-        </div>
-        <div class="swiper-slide">
-          <CardProductSwiper
-            :data="this.products[2]"
-            :url="'/products/' + this.products[2].id"
-          />
-        </div>
-        <div class="swiper-slide">
-          <CardProductSwiper
-            :data="this.products[2]"
-            :url="'/products/' + this.products[2].id"
-          />
+        <div>
+          <div class="swiper-button-next  ps-5 ml-5"></div>
         </div>
       </div>
-      <!-- If we need navigation buttons -->
-      <div>
-        <div class="swiper-button-prev pr-5 me-5"></div>
+    </section>
+    <section id="swipercard-mobileview">
+      <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <CardProductSwiper
+              :data="this.products[0]"
+              :url="'/products/' + this.products[0].id"
+            />
+          </div>
+          <div class="swiper-slide">
+            <CardProductSwiper
+              :data="this.products[1]"
+              :url="'/products/' + this.products[1].id"
+            />
+          </div>
+          <div class="swiper-slide">
+            <CardProductSwiper
+              :data="this.products[2]"
+              :url="'/products/' + this.products[2].id"
+            />
+          </div>
+          <div class="swiper-slide">
+            <CardProductSwiper
+              :data="this.products[2]"
+              :url="'/products/' + this.products[2].id"
+            />
+          </div>
+          <div class="swiper-slide">
+            <CardProductSwiper
+              :data="this.products[2]"
+              :url="'/products/' + this.products[2].id"
+            />
+          </div>
+          <div class="swiper-slide">
+            <CardProductSwiper
+              :data="this.products[2]"
+              :url="'/products/' + this.products[2].id"
+            />
+          </div>
+        </div>
+        <!-- If we need navigation buttons -->
+        <div>
+          <div class="swiper-button-prev pr-5 me-5"></div>
+        </div>
+        <div>
+          <div class="swiper-button-next  ps-5 ml-5"></div>
+        </div>
       </div>
-      <div>
-        <div class="swiper-button-next  ps-5 ml-5"></div>
-      </div>
-    </div>
+    </section>
   </section>
 </template>
 
@@ -85,7 +138,31 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="css" scoped>
+#swipercard-mobile {
+  display: none;
+}
+#swipercard-mobileview {
+  display: none;
+}
+/* 0 - 991 px */
+@media screen and (max-width: 500px) {
+  #swipercard_logo {
+    display: none !important;
+  }
+
+  #swipercard-webview {
+    display: none;
+  }
+
+  #swipercard-mobile {
+    display: contents;
+  }
+
+  #swipercard-mobileview {
+    display: grid;
+  }
+}
 .swiper-container {
   width: 80%;
   height: 400px;
