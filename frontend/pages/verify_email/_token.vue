@@ -1,8 +1,7 @@
 <template>
-  <section>
+  <section class="mb-5">
     <Header />
     <Breadcrumb :links="breadcrumb" />
-    <div>{{ message }}</div>
     <section>
       <div class="container">
         <div class="row">
@@ -55,8 +54,7 @@
                       <li v-for="(e, key) in error" :key="key">{{ e }}</li>
                     </ul>
                   </b-alert>
-
-                  <div class="form-group col-sm-10">
+                  <div class="form-group col-sm-11">
                     <label for="password"
                       >Kata Sandi Baru<span style="color: red">*</span>:</label
                     >
@@ -70,7 +68,7 @@
                     />
                   </div>
 
-                  <div class="form-group col-sm-10">
+                  <div class="form-group col-sm-11">
                     <label for="password_confirmation"
                       >Konfirmasi Kata Sandi Baru<span style="color: red"
                         >*</span
@@ -86,24 +84,17 @@
                     />
                   </div>
 
-                  <p style="color: red">
-                    Wajib diisi*
-                  </p>
                   <br />
                   <div class="text-center">
                     <button
                       @click.prevent="doRegister"
                       type="submit"
                       class="
-                        mr-5
                         btn
                         text-danger
                         btn-light btn-sm
                         rounded
-                        col-sm-3
-                        ms-0
-                        py-2
-                        px-2
+                        p-2
                       "
                       style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;"
                     >
@@ -139,29 +130,3 @@
     </client-only>
   </section>
 </template>
-
-<script>
-export default {
-  async asyncData({ $axios, params }) {
-    try {
-      let data = { token: params.token };
-      let response = await $axios.$post(
-        process.env.API_URL + "/api/verify_email",
-        data
-      );
-      let message = "";
-      Object.keys(response.message).forEach((key, error) => {
-        Object.keys(response.message[key]).forEach((key2, e) => {
-          message = response.message[key][key2];
-        });
-      });
-      return {
-        message: message,
-        success: response.success
-      };
-    } catch (error) {
-      console.log(error);
-    }
-  }
-};
-</script>

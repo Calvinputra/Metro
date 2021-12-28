@@ -1,17 +1,17 @@
 <template>
   <section class="">
     <div class="row">
-        <div class="col-2 me-3">
-          <h1>Akun</h1>
-        </div>
-        <div class="col">
-          <a
+      <div class="col-2 me-3">
+        <h1>Akun</h1>
+      </div>
+      <div class="col">
+        <a
           v-if="this.$auth.loggedIn == false"
           href="/register"
           style="text-decoration: none"
           :class="
             'text-black nav-custom ' +
-            (name == 'register' ? 'nav-custom-active' : '')
+              (name == 'register' ? 'nav-custom-active' : '')
           "
         >
           <p
@@ -27,7 +27,7 @@
           style="text-decoration: none"
           :class="
             'text-black nav-custom ' +
-            (name == 'login' ? 'nav-custom-active' : '')
+              (name == 'login' ? 'nav-custom-active' : '')
           "
         >
           <p
@@ -43,7 +43,7 @@
           style="text-decoration: none"
           :class="
             'text-black nav-custom ' +
-            (name == 'forgot' ? 'nav-custom-active' : '')
+              (name == 'forgot' ? 'nav-custom-active' : '')
           "
         >
           <p
@@ -72,13 +72,13 @@
             </b-dropdown>
           </div>
         </a>
-        </div>
       </div>
+    </div>
   </section>
 </template>
 
 <script>
 export default {
-  props: ["name"],
+  props: ["name"]
 };
 </script>

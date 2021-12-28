@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="mb-5">
     <Header />
     <Breadcrumb :links="breadcrumb" />
     <section>
@@ -54,7 +54,7 @@
                       <li v-for="(e, key) in error" :key="key">{{ e }}</li>
                     </ul>
                   </b-alert>
-                  <div class="form-group col-sm-10">
+                  <div class="form-group col-sm-11">
                     <label for="Password"
                       >Kata Sandi Lama<span style="color: red">*</span>:</label
                     >
@@ -67,7 +67,7 @@
                       v-model="password"
                     />
                   </div>
-                  <div class="form-group col-sm-10">
+                  <div class="form-group col-sm-11">
                     <label for="password"
                       >Kata Sandi Baru<span style="color: red">*</span>:</label
                     >
@@ -81,7 +81,7 @@
                     />
                   </div>
 
-                  <div class="form-group col-sm-10">
+                  <div class="form-group col-sm-11">
                     <label for="password_confirmation"
                       >Konfirmasi Kata Sandi Baru<span style="color: red"
                         >*</span
@@ -106,15 +106,11 @@
                       @click.prevent="doRegister"
                       type="submit"
                       class="
-                        mr-5
                         btn
                         text-danger
                         btn-light btn-sm
                         rounded
-                        col-sm-3
-                        ms-0
-                        py-2
-                        px-2
+                        p-2
                       "
                       style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;"
                     >
