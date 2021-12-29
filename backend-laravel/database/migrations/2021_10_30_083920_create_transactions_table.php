@@ -21,6 +21,7 @@ class CreateTransactionsTable extends Migration
             $table->unsignedBigInteger('admin_id')->nullable();
             $table->unsignedBigInteger('customer_id');
             $table->unsignedBigInteger('status_id');
+            $table->string("snap_token")->nullable();
             $table->string("resi_no")->nullable();
 
             $table->string('customer_name');

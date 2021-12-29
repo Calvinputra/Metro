@@ -32,6 +32,7 @@ class Transaction extends Model
         "shipping_province_id",
         "shipping_city_id",
         "resi_no",
+        "snap_token",
     ];
     public function transactionDetails()
     {
@@ -45,11 +46,12 @@ class Transaction extends Model
     {
         return $this->hasOne("App\Models\TransactionReview", "transaction_id");
     }
-    public function status(){
-        return $this->belongsTo('App\Models\TransactionStatus','status_id');
+    public function status()
+    {
+        return $this->belongsTo('App\Models\TransactionStatus', 'status_id');
     }
-    public function city(){
-        return $this->belongsTo('App\Models\City','shipping_city_id');
+    public function city()
+    {
+        return $this->belongsTo('App\Models\City', 'shipping_city_id');
     }
-
 }

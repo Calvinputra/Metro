@@ -42,7 +42,8 @@ class TransactionResource extends JsonResource
             'transaction_details' => $this->transactionDetails,
             'transaction_logs' => $this->transactionLogs,
             'date_view' => $date_view,
-            'status'=>$this->status,
+            'status' => $this->status,
+            'snap_token' => $this->snap_token,
         ];
     }
 }

@@ -11,13 +11,13 @@
             </div>
             <div
               class="
-              col-sm-9
-              offset-md-1
-              align-self-start
-              mt-2
-              row
-              justify-content-between
-            "
+                col-sm-9
+                offset-md-1
+                align-self-start
+                mt-2
+                row
+                justify-content-between
+              "
             >
               <div class="col-sm-12">
                 <label class="mb-0"
@@ -31,9 +31,7 @@
                   style="height: 10%; width: 100%; border-width: 0; color: red"
                   class="col-sm-12 mb-0 mt-0"
                 />
-                <p class="mb-">
-                  Halaman ini berisi informasi Detail Akun
-                </p>
+                <p class="mb-">Halaman ini berisi informasi Detail Akun</p>
               </div>
 
               <div>
@@ -57,63 +55,31 @@
                     </b-alert>
                     <div class="d-flex justify-content-around">
                       <div>
-                        <p>
-                          Nama Depan
-                        </p>
-                        <p>
-                          Nama Belakang
-                        </p>
-                        <p>
-                          Nomor Telepon
-                        </p>
-                        <p>
-                          Alamat
-                        </p>
-                        <p>
-                          Kode Pos
-                        </p>
-                        <p>
-                          Negara
-                        </p>
-                        <p>
-                          Provinsi
-                        </p>
-                        <p>
-                          Kota
-                        </p>
-                        <p>
-                          Email
-                        </p>
+                        <p>Nama Depan</p>
+                        <p>Nama Belakang</p>
+                        <p>Nomor Telepon</p>
+                        <p>Alamat</p>
+                        <p>Kode Pos</p>
+                        <p>Negara</p>
+                        <p>Provinsi</p>
+                        <p>Kota</p>
+                        <p>Email</p>
                       </div>
                       <div class="">
+                        <p>: {{ this.$auth.user.first_name }}</p>
+                        <p>: {{ this.$auth.user.last_name }}</p>
+                        <p>: {{ this.$auth.user.phone }}</p>
+                        <p>: {{ this.$auth.user.addresses[0].address }}</p>
+                        <p>: {{ this.$auth.user.addresses[0].postal_code }}</p>
+                        <p>: {{ this.$auth.user.addresses[0].country.name }}</p>
                         <p>
-                          :Calvin Hage
+                          : {{ this.$auth.user.addresses[0].province.name }}
                         </p>
                         <p>
-                          :Wijaya
+                          :
+                          {{ this.$auth.user.addresses[0].city.province_name }}
                         </p>
-                        <p>
-                          :081788672567
-                        </p>
-                        <p>
-                          :Araya Mansion No 8 - 22, Genitry Tirtomoyo, kec
-                          pakis, Malang, Jawa Timur
-                        </p>
-                        <p>
-                          :65154
-                        </p>
-                        <p>
-                          :Indoneisa
-                        </p>
-                        <p>
-                          :Jawa Timur
-                        </p>
-                        <p>
-                          :Malang
-                        </p>
-                        <p>
-                          :calvinhage@aye.com
-                        </p>
+                        <p>: {{ this.$auth.user.email }}</p>
                       </div>
                     </div>
                   </form>
@@ -122,7 +88,9 @@
                     <button
                       type="button"
                       class="btn btn-light text-danger col-sm-3"
-                      style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+                      style="
+                        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                      "
                     >
                       Ubah Informasi Akun
                     </button>
@@ -165,19 +133,17 @@
             </div>
             <div
               class="
-              col-sm-9
-              offset-md-1
-              align-self-start
-              mt-2
-              row
-              justify-content-between
-            "
+                col-sm-9
+                offset-md-1
+                align-self-start
+                mt-2
+                row
+                justify-content-between
+              "
             >
               <div class="col-sm-12">
                 <label class="mt-3"
-                  ><h2 class="font-weight-bold">
-                    Akun Saya
-                  </h2></label
+                  ><h2 class="font-weight-bold">Akun Saya</h2></label
                 >
               </div>
               <div class="mb-4">
@@ -185,9 +151,7 @@
                   style="height: 10%; width: 100%; border-width: 0; color: red"
                   class="col-sm-12 mb-0 mt-0"
                 />
-                <p class="mb-">
-                  Halaman ini berisi informasi Detail Akun
-                </p>
+                <p class="mb-">Halaman ini berisi informasi Detail Akun</p>
               </div>
 
               <div>
@@ -206,67 +170,41 @@
                         <li v-for="(e, key) in error" :key="key">{{ e }}</li>
                       </ul>
                     </b-alert>
-                    <div class="d-flex justify-content-around ">
+                    <div class="d-flex justify-content-around">
                       <div class="me-4">
                         <span class="me-5 pe-5">
-                          <p>
-                            Nama Depan
-                          </p>
-                          <p class="mt-4">
-                            Nama Belakang
-                          </p>
-                          <p class="mt-4">
-                            Nomor Telepon
-                          </p>
-                          <p class="mt-4">
-                            Alamat
-                          </p>
-                          <p class="mt-4">
-                            Kode Pos
-                          </p>
-                          <p class="mt-4">
-                            Negara
-                          </p>
-                          <p class="mt-4">
-                            Provinsi
-                          </p>
-                          <p class="mt-4">
-                            Kota
-                          </p>
-                          <p class="mt-4">
-                            Email
-                          </p>
+                          <p>Nama Depan</p>
+                          <p class="mt-4">Nama Belakang</p>
+                          <p class="mt-4">Nomor Telepon</p>
+                          <p class="mt-4">Alamat</p>
+                          <p class="mt-4">Kode Pos</p>
+                          <p class="mt-4">Negara</p>
+                          <p class="mt-4">Provinsi</p>
+                          <p class="mt-4">Kota</p>
+                          <p class="mt-4">Email</p>
                         </span>
                       </div>
                       <div class="">
-                        <p>
-                          :Calvin Hage
+                        <p>: {{ this.$auth.user.first_name }}</p>
+                        <p class="mt-4">: {{ this.$auth.user.last_name }}</p>
+                        <p class="mt-4">: {{ this.$auth.user.phone }}</p>
+                        <p class="mt-4">
+                          : {{ this.$auth.user.addresses[0].address }}
                         </p>
                         <p class="mt-4">
-                          :Wijaya
+                          : {{ this.$auth.user.addresses[0].postal_code }}
                         </p>
                         <p class="mt-4">
-                          :081788672567
+                          : {{ this.$auth.user.addresses[0].country.name }}
                         </p>
                         <p class="mt-4">
-                          :Araya Mansion No 8 - 22, Genitry Tirtomoyo, kec
-                          pakis, Malang, Jawa Timur
+                          : {{ this.$auth.user.addresses[0].province.name }}
                         </p>
                         <p class="mt-4">
-                          :65154
+                          :
+                          {{ this.$auth.user.addresses[0].city.province_name }}
                         </p>
-                        <p class="mt-4">
-                          :Indoneisa
-                        </p>
-                        <p class="mt-4">
-                          :Jawa Timur
-                        </p>
-                        <p class="mt-4">
-                          :Malang
-                        </p>
-                        <p class="mt-4">
-                          :calvinhage@aye.com
-                        </p>
+                        <p class="mt-4">: {{ this.$auth.user.email }}</p>
                       </div>
                     </div>
                   </form>
@@ -275,7 +213,9 @@
                     <button
                       type="button"
                       class="btn btn-light text-danger p-2"
-                      style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+                      style="
+                        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                      "
                     >
                       Ubah Informasi Akun
                     </button>
@@ -309,7 +249,11 @@
     </section>
   </section>
 </template>
-
+<script>
+export default {
+  middleware: "auth",
+};
+</script>
 <style lang="css" scoped>
 #profile-mobileview {
   display: none;

@@ -219,9 +219,10 @@ export default {
       );
       let response_data = response.data.data;
 
+     
       return {
         data: response_data,
-        snapToken: "b16f2eec-e7fd-40bb-b4c9-895f82fb8a6b"
+        snapToken: response_data.snap_token
       };
     } catch (error) {
       console.log(error);

@@ -14,6 +14,7 @@ use PDO;
 use Validator;
 use Illuminate\Support\Str;
 use App\Jobs\RecalculateAccountLedgerJob;
+use Illuminate\Support\Facades\Http;
 
 class TransactionController extends Controller
 {
@@ -39,7 +40,23 @@ class TransactionController extends Controller
         $user = Customer::where('token', '=', request()->bearerToken())->first();
         $data = Transaction::where('customer_id', $user->id ?? '0')->where('uuid', $uuid)->first();
         if ($data) {
-            return (new TransactionResource($data))->additional(['success' => true]);
+            if ($data->snap_token) {
+                return (new TransactionResource($data))->additional(['success' => true]);
+            } else {
+                $snapToken = json_decode($this->getSnapToken($data));
+                $data = tap($data)->update([
+                    "snap_token" => $snapToken->data
+                ]);
+                if ($snapToken->success) {
+                    return (new TransactionResource($data))->additional(['success' => true]);
+                } else {
+                    return response([
+                        'data'   => 'Get token failed, Please try again later',
+                        'status' => 503,
+                        'success' => false,
+                    ]);
+                }
+            }
         } else {
             return response([
                 'data'   => 'Unauthorized Action',
@@ -125,7 +142,7 @@ class TransactionController extends Controller
         }
 
         //jika shipping cost 0 return error
-        if ($shipping_cost==0) {
+        if ($shipping_cost == 0) {
             return response([
                 'success' => false,
                 'message' => ['msg' => ['Get Shipping Cost Error, Please try again later']],
@@ -174,6 +191,56 @@ class TransactionController extends Controller
         ]);
         //hapus checkout cart
         return (new TransactionResource($transaction))->additional(['success' => true]);
+    }
+
+
+    //MIDTRANS
+    private function getSnapToken($transaction)
+    {
+        $data = ['success' => true];
+
+        $names = explode(" ", $transaction->customer_name);
+        $customer_first_name = "";
+        $customer_last_name = "";
+        $counter = 0;
+        foreach ($names as $name) {
+            if ($counter == count($names) - 1) {
+                //ambil paling belakang 
+                $customer_last_name = $name;
+            } else {
+                $customer_first_name .= $name;
+            }
+            $counter++;
+        }
+
+
+
+        $params = [
+            'transaction_details' => [
+                'order_id' => $transaction->uuid,
+                'gross_amount' => $transaction->grand_total
+            ],
+            'customer_details' => [
+                'first_name' => $customer_first_name,
+                'last_name' => $customer_last_name,
+                'email' => $transaction->customer_email,
+                'phone' => $transaction->customer_phone
+            ]
+        ];
+
+
+
+        // Set your Merchant Server Key
+        \Midtrans\Config::$serverKey = env('MIDTRANS_SECRET_KEY');;
+        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        \Midtrans\Config::$isProduction = false;
+        // Set sanitization on (default)
+        \Midtrans\Config::$isSanitized = true;
+        // Set 3DS transaction for credit card to true
+        \Midtrans\Config::$is3ds = true;
+        $snapToken = \Midtrans\Snap::getSnapToken($params);
+        $data['data'] = $snapToken;
+        return json_encode($data);
     }
 
     public function payment(Request $request)
