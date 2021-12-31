@@ -3,18 +3,32 @@
 @section('content')
 
 @include ('beautymail::templates.sunny.heading' , [
-'heading' => 'Hello '.$name.'!',
+'heading' =>'Change Password',
 'level' => 'h1',
 ])
 
 @include('beautymail::templates.sunny.contentStart')
-<p>Thank you for joining with us!<br>One more step to shop with us, <br>Please Verify your email with link below!</p>
+<div style="color:black; text-align:center">
+    <p>
+        If you lost your password, use the link below to get started
+    </p>
 
+</div>
 @include('beautymail::templates.sunny.contentEnd')
+<div>
 
-@include('beautymail::templates.sunny.button', [
-'title' => 'Verify email',
-'link' => $url
-])
+    @include('beautymail::templates.sunny.button', [
+    'title' => 'Reset your Password',
+    'link' => $url
+    ])
+</div>
 
+@include('beautymail::templates.sunny.contentStart')
+<div style="color:gray; padding: 5%; font-size: 80%; text-align: center">
+    <p>
+        if you didn't request or forgot your password you can ignore this email!
+        Only person with access to your email can reset your account password.
+    </p>
+
+</div>
 @stop
