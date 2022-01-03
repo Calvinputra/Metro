@@ -100,8 +100,9 @@
           </div>
         </div>
       </div>
-
-      <Footer />
+      <span style="position: absolute; width: 100%">
+        <Footer />
+      </span>
     </section>
 
     <!-- Mobile -->
@@ -186,6 +187,7 @@
           last-text="Last"
         ></b-pagination-nav>
       </div>
+      <Footer2mobile />
       <Footer />
     </section>
   </section>

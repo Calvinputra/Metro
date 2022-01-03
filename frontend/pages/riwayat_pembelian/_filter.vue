@@ -41,7 +41,7 @@
               <template
                 v-if="
                   this.$route.params.filter == '' ||
-                  this.$route.params.filter == undefined
+                    this.$route.params.filter == undefined
                 "
               >
                 <nuxt-link
@@ -245,17 +245,20 @@
 
             <div class="mb-3">
               <h6 class="text-center">Status:</h6>
-              <div class="col d-flex justify-content-center" style="flex-wrap: wrap;">
+              <div
+                class="col d-flex justify-content-center"
+                style="flex-wrap: wrap;"
+              >
                 <template
-                v-if="
-                  this.$route.params.filter == '' ||
-                  this.$route.params.filter == undefined
-                "
-              >
-                <nuxt-link
-                  to="/riwayat_pembelian"
-                  type="submit"
-                  class="
+                  v-if="
+                    this.$route.params.filter == '' ||
+                      this.$route.params.filter == undefined
+                  "
+                >
+                  <nuxt-link
+                    to="/riwayat_pembelian"
+                    type="submit"
+                    class="
                     btn
                     text-white
                     btn-danger btn-sm
@@ -264,28 +267,28 @@
                     py-1
                     px-2
                   "
-                  style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
-                >
-                  Semua
-                </nuxt-link>
-              </template>
-              <template v-else>
-                <a
-                  href="/riwayat_pembelian"
-                  type="submit"
-                  class="btn text-black btn-sm mx-1 my-1 py-1 px-2"
-                >
-                  Semua
-                </a>
-              </template>
+                    style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+                  >
+                    Semua
+                  </nuxt-link>
+                </template>
+                <template v-else>
+                  <a
+                    href="/riwayat_pembelian"
+                    type="submit"
+                    class="btn text-black btn-sm mx-1 my-1 py-1 px-2"
+                  >
+                    Semua
+                  </a>
+                </template>
 
-              <template
-                v-if="this.$route.params.filter == 'menunggu_pembayaran'"
-              >
-                <a
-                  href="/riwayat_pembelian/menunggu_pembayaran"
-                  type="submit"
-                  class="
+                <template
+                  v-if="this.$route.params.filter == 'menunggu_pembayaran'"
+                >
+                  <a
+                    href="/riwayat_pembelian/menunggu_pembayaran"
+                    type="submit"
+                    class="
                     btn
                     text-white
                     btn-danger btn-sm
@@ -294,25 +297,25 @@
                     py-1
                     px-2
                   "
-                  style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
-                >
-                  Menunggu Pembayaran
-                </a>
-              </template>
-              <template v-else>
-                <a
-                  href="/riwayat_pembelian/menunggu_pembayaran"
-                  type="submit"
-                  class="btn text-black btn-sm mx-1 my-1 py-1 px-2"
-                >
-                  Menunggu Pembayaran
-                </a>
-              </template>
-              <template v-if="this.$route.params.filter == 'selesai'">
-                <a
-                  href="/riwayat_pembelian/selesai"
-                  type="submit"
-                  class="
+                    style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+                  >
+                    Menunggu Pembayaran
+                  </a>
+                </template>
+                <template v-else>
+                  <a
+                    href="/riwayat_pembelian/menunggu_pembayaran"
+                    type="submit"
+                    class="btn text-black btn-sm mx-1 my-1 py-1 px-2"
+                  >
+                    Menunggu Pembayaran
+                  </a>
+                </template>
+                <template v-if="this.$route.params.filter == 'selesai'">
+                  <a
+                    href="/riwayat_pembelian/selesai"
+                    type="submit"
+                    class="
                     btn
                     text-white
                     btn-danger btn-sm
@@ -321,26 +324,26 @@
                     py-1
                     px-2
                   "
-                  style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
-                >
-                  Selesai
-                </a>
-              </template>
-              <template v-else>
-                <a
-                  href="/riwayat_pembelian/selesai"
-                  type="submit"
-                  class="btn text-black btn-sm mx-1 my-1 py-1 px-2"
-                >
-                  Selesai
-                </a>
-              </template>
+                    style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+                  >
+                    Selesai
+                  </a>
+                </template>
+                <template v-else>
+                  <a
+                    href="/riwayat_pembelian/selesai"
+                    type="submit"
+                    class="btn text-black btn-sm mx-1 my-1 py-1 px-2"
+                  >
+                    Selesai
+                  </a>
+                </template>
 
-              <template v-if="this.$route.params.filter == 'tidak_berhasil'">
-                <a
-                  href="/riwayat_pembelian/tidak_berhasil"
-                  type="submit"
-                  class="
+                <template v-if="this.$route.params.filter == 'tidak_berhasil'">
+                  <a
+                    href="/riwayat_pembelian/tidak_berhasil"
+                    type="submit"
+                    class="
                     btn
                     text-white
                     btn-danger btn-sm
@@ -349,26 +352,26 @@
                     py-1
                     px-2
                   "
-                  style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
-                >
-                  Tidak Berhasil
-                </a>
-              </template>
-              <template v-else>
-                <a
-                  href="/riwayat_pembelian/tidak_berhasil"
-                  type="submit"
-                  class="btn text-black btn-sm mx-1 my-1 py-1 px-2"
-                >
-                  Tidak Berhasil
-                </a>
-              </template>
+                    style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+                  >
+                    Tidak Berhasil
+                  </a>
+                </template>
+                <template v-else>
+                  <a
+                    href="/riwayat_pembelian/tidak_berhasil"
+                    type="submit"
+                    class="btn text-black btn-sm mx-1 my-1 py-1 px-2"
+                  >
+                    Tidak Berhasil
+                  </a>
+                </template>
 
-              <template v-if="this.$route.params.filter == 'berlangsung'">
-                <a
-                  href="/riwayat_pembelian/berlangsung"
-                  type="submit"
-                  class="
+                <template v-if="this.$route.params.filter == 'berlangsung'">
+                  <a
+                    href="/riwayat_pembelian/berlangsung"
+                    type="submit"
+                    class="
                     btn
                     text-white
                     btn-danger btn-sm
@@ -377,35 +380,42 @@
                     py-1
                     px-2
                   "
-                  style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
-                >
-                  Berlangsung
-                </a>
-              </template>
-              <template v-else>
-                <a
-                  href="/riwayat_pembelian/berlangsung"
-                  type="submit"
-                  class="btn text-black btn-sm mx-1 my-1 py-1 px-2"
-                >
-                  Berlangsung
-                </a>
-              </template>
-
+                    style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+                  >
+                    Berlangsung
+                  </a>
+                </template>
+                <template v-else>
+                  <a
+                    href="/riwayat_pembelian/berlangsung"
+                    type="submit"
+                    class="btn text-black btn-sm mx-1 my-1 py-1 px-2"
+                  >
+                    Berlangsung
+                  </a>
+                </template>
               </div>
             </div>
-            <section v-for="transaction in transactions" :key="transaction.id" class="pe-0">
+            <section
+              v-for="transaction in transactions"
+              :key="transaction.id"
+              class="pe-0"
+            >
               <HistoryTransactionItem :data="transaction" />
             </section>
             <!-- TODO tulisan belum ada transaksi -->
             <template v-if="Object.keys(transactions).length === 0">
-              <h6 class="text-center pt-5 ms-2" style="border-top: 1px solid #c63442 !important;">
+              <h6
+                class="text-center pt-5 ms-2"
+                style="border-top: 1px solid #c63442 !important;"
+              >
                 Belum ada transaksi
               </h6>
             </template>
           </div>
         </div>
       </div>
+      <Footer2mobile />
     </section>
 
     <Footer />
@@ -440,30 +450,30 @@ export default {
         data = {
           page_filter: "menunggu_pembayaran",
           page: query.page,
-          paginate: query.paginate,
+          paginate: query.paginate
         };
       } else if (params.filter == "selesai") {
         data = {
           page_filter: "selesai",
           page: query.page,
-          paginate: query.paginate,
+          paginate: query.paginate
         };
       } else if (params.filter == "tidak_berhasil") {
         data = {
           page_filter: "tidak_berhasil",
           page: query.page,
-          paginate: query.paginate,
+          paginate: query.paginate
         };
       } else if (params.filter == "berlangsung") {
         data = {
           page_filter: "berlangsung",
           page: query.page,
-          paginate: query.paginate,
+          paginate: query.paginate
         };
       } else {
         data = {
           page: query.page,
-          paginate: query.paginate,
+          paginate: query.paginate
         };
       }
       let transactions = await $axios.$get(
@@ -478,7 +488,7 @@ export default {
       return {
         transactions: transactions.data,
         links: links,
-        totalPage: transactions.meta.last_page,
+        totalPage: transactions.meta.last_page
       };
     } catch (error) {
       console.log(error);
@@ -495,23 +505,23 @@ export default {
         url += "/" + this.$route.params.filter;
       }
       return {
-        path: "/"+url+"?",
+        path: "/" + url + "?",
         query: {
           page: pageNum,
-          paginate: this.$route.query.paginate,
-        },
+          paginate: this.$route.query.paginate
+        }
       };
     },
     pageGen(pageNum) {
       return this.links[pageNum - 1].slice(1);
-    },
+    }
   },
   data() {
     return {
-      selectedTransaction: {},
+      selectedTransaction: {}
     };
   },
-  watchQuery: ["page", "paginate"],
+  watchQuery: ["page", "paginate"]
 };
 </script>
 
@@ -529,7 +539,7 @@ export default {
     display: none;
   }
   #riwayat-mobileview {
-    display: flex;
+    display: grid;
     font-size: 80%;
   }
 }

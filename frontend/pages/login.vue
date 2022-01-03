@@ -109,7 +109,7 @@
                       box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                     "
                     >
-                      Masuk
+                      Masuk Akun
                     </button>
                   </div>
                   <div class="ms-5" style="padding-left: 4rem!important;">
@@ -228,7 +228,7 @@
                       box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                     "
                     >
-                      Masuk
+                      Masuk Akun
                     </button>
                   </div>
                   <div class="ms-5">
@@ -240,6 +240,7 @@
             </div>
           </div>
         </div>
+        <Footer2mobile />
       </section>
     </section>
   </section>

@@ -38,7 +38,7 @@
             <div>
               <div class="row justify-content-start">
                 <form>
-                  <div class="register-form-title mr-5 pr-5">
+                  <div class="register-form-title">
                     Masukan Kata Sandi
                   </div>
                   <b-alert
@@ -123,6 +123,7 @@
           </div>
         </div>
       </div>
+      <Footer2mobile />
     </section>
 
     <Footer />

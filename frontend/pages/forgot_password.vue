@@ -154,7 +154,7 @@
                     Perbarui kata sandi
                   </button>
                 </div>
-                <div class="mt-5 ms-5 ps-5">
+                <div class="mt-5 ms-5">
                   Belum mempunyai akun?
                   <a href="/register" style="color: red">Buat Akun</a>
                 </div>
@@ -162,6 +162,7 @@
             </div>
           </div>
         </div>
+        <Footer2mobile />
       </section>
 
       <Footer />

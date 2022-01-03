@@ -292,16 +292,16 @@
             >
               <div class="col-sm-12">
                 <label class="mb-0"
-                  ><h2 class="font-weight-bold">
+                  ><h4 class="font-weight-bold" st>
                     Registrasi Akun di Metro Jaya<span style="color: red"
                       >*</span
                     >
-                  </h2></label
+                  </h4></label
                 >
               </div>
               <div class="mb-4">
                 <hr
-                  style="height: 10%; width: 100%; border-width: 0; color: red"
+                  style="height: 5%; width: 100%; border-width: 0; color: red"
                   class="col-sm-12 mb-0 mt-0"
                 />
                 <p class="mb-">
@@ -312,7 +312,7 @@
               <div>
                 <div class="row justify-content-start">
                   <form>
-                    <div class="register-form-title mr-5 pr-5">
+                    <div class="register-form-title">
                       Pengisian Data Diri
                     </div>
                     <b-alert
@@ -356,7 +356,7 @@
                     </div>
 
                     <div class="form-group form-group col-sm-10">
-                      <label for="phone]"
+                      <label for="phone"
                         >Nomor Telepon<span style="color: red">*</span>:</label
                       >
                       <input
@@ -409,7 +409,7 @@
                       />
                     </div>
 
-                    <div class="register-form-title pe-5 me-5">
+                    <div class="register-form-title">
                       Alamat Pengiriman
                     </div>
                     <div class="form-group col-sm-10">
@@ -524,6 +524,7 @@
           </div>
         </div>
         <br />
+        <Footer2mobile />
       </section>
       <Footer />
       <client-only>
