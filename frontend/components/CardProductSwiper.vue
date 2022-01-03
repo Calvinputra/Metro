@@ -180,59 +180,63 @@
           </div>
         </NuxtLink>
       </section>
-      <section class="ps-5" id="cardswipe-mobileview" style="font-size: 60%">
+      <section class="" id="cardswipe-mobileview" style="font-size: 60%">
         <NuxtLink
           :to="'/products/' + data.id"
           style="text-decoration: none !important; color: black;"
         >
-          <div
-            class="card bg-white rounded"
-            style="width: 125%; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25) !important; border-radius: 10px;"
-          >
-            <img
-              style="width: 100%; height: 100px"
-              :src="ASSET_URL + '/' + JSON.parse(data.images)[0]"
-              class="card-img-top height:auto"
-              alt="..."
-            />
-            <div class="card-body">
-              <div class="row" style="font-size: 60%">
-                <h5 class="card-title">{{ data.name }}</h5>
-                <a
-                  href=""
-                  onclick="return false;"
-                  @click="addToWishList(data.id)"
-                  ><i
-                    :class="(data.wishlist_exist ? 'fas' : 'far') + ' fa-heart'"
-                    style="font-size: 30px !important; color: #c63442 !important"
-                  ></i
-                ></a>
-              </div>
-              <p class="card-text font-weight-bold">
-                Rp.{{ Number(data.display_price).toLocaleString("id-ID") }}
-              </p>
-              <div class="row">
-                <a
-                  class="btn text-danger btn-sm rounded ms-2 pt-2"
-                  style="background-color: #f3f3f3; width: 30%; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
-                  onclick="return false;"
-                  @click="addToCart(data)"
-                  >+</a
-                >
-                <a class="col-sm-3" href="" onclick="return false;"
-                  ><img
-                    class="img-fluid height:auto rounded"
-                    style="background-color: #f3f3f3;width: 30%; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
-                    src="/img/Whatsapp_new.png"
-                    alt=""
-                /></a>
-                <a class="col-sm-3" href="" onclick="return false;"
-                  ><img
-                    class="img-fluid height:auto rounded"
-                    style="background-color: #f3f3f3;width: 30%; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
-                    src="/img/tokopedia.png"
-                    alt=""
-                /></a>
+          <div class="pe-5">
+            <div
+              class="card bg-white rounded me-3"
+              style="width: 125%; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25) !important; border-radius: 10px;"
+            >
+              <img
+                style="width: 100%; height: 100px"
+                :src="ASSET_URL + '/' + JSON.parse(data.images)[0]"
+                class="card-img-top height:auto"
+                alt="..."
+              />
+              <div class="card-body">
+                <div class="row" style="font-size: 60%">
+                  <h5 class="card-title">{{ data.name }}</h5>
+                  <a
+                    href=""
+                    onclick="return false;"
+                    @click="addToWishList(data.id)"
+                    ><i
+                      :class="
+                        (data.wishlist_exist ? 'fas' : 'far') + ' fa-heart'
+                      "
+                      style="font-size: 30px !important; color: #c63442 !important"
+                    ></i
+                  ></a>
+                </div>
+                <p class="card-text font-weight-bold">
+                  Rp.{{ Number(data.display_price).toLocaleString("id-ID") }}
+                </p>
+                <div class="d-flex">
+                  <a
+                    class="btn text-danger btn-sm rounded p-1"
+                    style="background-color: #f3f3f3; width: 30%; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+                    onclick="return false;"
+                    @click="addToCart(data)"
+                    >+</a
+                  >
+                  <a class="ps-2" href="" onclick="return false;"
+                    ><img
+                      class="img-fluid height:auto rounded"
+                      style="background-color: #f3f3f3;width: 30px; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+                      src="/img/Whatsapp_new.png"
+                      alt=""
+                  /></a>
+                  <a class="ps-2" href="" onclick="return false;"
+                    ><img
+                      class="img-fluid height:auto rounded"
+                      style="background-color: #f3f3f3;width:30px; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+                      src="/img/tokopedia.png"
+                      alt=""
+                  /></a>
+                </div>
               </div>
             </div>
           </div>
