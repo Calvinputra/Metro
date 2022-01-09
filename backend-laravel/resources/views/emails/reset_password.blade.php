@@ -1,34 +1,30 @@
-@extends('beautymail::templates.sunny')
+<div style="text-align: center;">
+    <h1 style="color: #841C26;">Metro Jaya</h1>
+    <h2>
+        Forgot Password
+    </h2>
+</div>
+<div style="margin-bottom: 2%; padding-left:5%;">
+    Seems like you forgot your password to enter Metro Jaya. <br> Click this button to reset your password!
+</div>
 
-@section('content')
-
-@include ('beautymail::templates.sunny.heading' , [
-'heading' =>'Change Password',
-'level' => 'h1',
-])
-
-@include('beautymail::templates.sunny.contentStart')
-<div style="color:black; text-align:center">
-    <p>
-        If you lost your password, use the link below to get started
+<div style="text-align:center;">
+    <button type="button" class="buttonforgot">Continue</button>
+</div>
+<div style="padding-left: 5%;">
+    <p style="color:gray;">
+        If you did not forgot your password you can safely ignore this email.
     </p>
-
 </div>
-@include('beautymail::templates.sunny.contentEnd')
-<div>
-
-    @include('beautymail::templates.sunny.button', [
-    'title' => 'Reset your Password',
-    'link' => $url
-    ])
 </div>
 
-@include('beautymail::templates.sunny.contentStart')
-<div style="color:gray; padding: 5%; font-size: 80%; text-align: center">
-    <p>
-        if you didn't request or forgot your password you can ignore this email!
-        Only person with access to your email can reset your account password.
-    </p>
-
-</div>
-@stop
+<style>
+.buttonforgot {
+    background-color: #841C26;
+    border-radius: 10px;
+    padding: 10px;
+    width: 150px;
+    height: 40px;
+    color: white
+}
+</style>
