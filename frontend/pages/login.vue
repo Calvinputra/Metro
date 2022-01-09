@@ -241,6 +241,7 @@
           </div>
         </div>
         <Footer2mobile />
+        <Footer />
       </section>
     </section>
   </section>

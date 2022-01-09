@@ -163,6 +163,7 @@
           </div>
         </div>
       </div>
+      <Footer2mobile />
       <Footer />
     </div>
   </section>

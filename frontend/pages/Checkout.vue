@@ -176,13 +176,16 @@
                       class="form-check-input"
                       type="radio"
                       name="radioShippingJne_wv"
-                      :id="'radioShippingJne_wv'+index"
+                      :id="'radioShippingJne_wv' + index"
                       :value="cost.service"
                       @change="setCostJne($event, cost.cost[0].value)"
                       v-model="shippingRadio"
                     />
 
-                    <label class="form-check-label"  :for="'radioShippingJne_wv'+index">
+                    <label
+                      class="form-check-label"
+                      :for="'radioShippingJne_wv' + index"
+                    >
                       <p>
                         {{ cost.service }} ({{ cost.cost[0].etd }} hari) - Rp.
                         {{ Number(cost.cost[0].value).toLocaleString("id-ID") }}
@@ -429,13 +432,16 @@
                       class="form-check-input"
                       type="radio"
                       name="radioShippingJne_mv"
-                      :id="'radioShippingJne_mv'+index"
+                      :id="'radioShippingJne_mv' + index"
                       :value="cost.service"
                       @change="setCostJne($event, cost.cost[0].value)"
                       v-model="shippingRadio"
                     />
 
-                    <label class="form-check-label" :for="'radioShippingJne_mv'+index">
+                    <label
+                      class="form-check-label"
+                      :for="'radioShippingJne_mv' + index"
+                    >
                       <p>
                         {{ cost.service }} ({{ cost.cost[0].etd }} hari) - Rp.
                         {{ Number(cost.cost[0].value).toLocaleString("id-ID") }}
@@ -512,6 +518,7 @@
           </div>
         </div>
       </section>
+      <Footer2mobile />
       <Footer />
     </section>
   </section>
@@ -526,18 +533,18 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50",
+          class: "my-2 ms-3 breadcrumb-item opacity-50"
         },
         {
           url: "/cart",
           name: "Keranjang Saya",
-          class: "my-2 breadcrumb-item opacity-50",
+          class: "my-2 breadcrumb-item opacity-50"
         },
         {
           url: "/checkout",
           name: "Check Out",
-          class: "my-2 breadcrumb-item active opacity-50",
-        },
+          class: "my-2 breadcrumb-item active opacity-50"
+        }
       ],
       carts: {},
       grandTotal: 0,
@@ -552,7 +559,7 @@ export default {
       costs: {},
 
       //radio
-      shippingRadio: "",
+      shippingRadio: ""
     };
   },
   methods: {
@@ -560,7 +567,7 @@ export default {
       try {
         let data = {
           email: this.email,
-          password: this.password,
+          password: this.password
         };
         let response = await this.$axios.$post(
           process.env.API_URL + "/api/login",
@@ -571,17 +578,17 @@ export default {
             .loginWith("laravelSanctum", {
               data: {
                 email: this.email,
-                password: this.password,
-              },
+                password: this.password
+              }
             })
             .then(async () => {
               this.$toast.success("Successfully authenticated", {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000,
+                duration: 5000
               });
               let d = {
-                carts: this.tempCart,
+                carts: this.tempCart
               };
               let r = await this.$axios.$post(
                 process.env.API_URL + "/api/carts/multiple",
@@ -600,7 +607,7 @@ export default {
               this.$toast.error(err[key][key2], {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000,
+                duration: 5000
               });
             });
           });
@@ -609,7 +616,7 @@ export default {
         this.$toasted.error(error, {
           theme: "bubble",
           position: "bottom-right",
-          duration: 5000,
+          duration: 5000
         });
         console.log(error);
       }
@@ -628,7 +635,7 @@ export default {
     },
     recalculateTotal() {
       this.grandTotal = 0 + this.shippingCost;
-      this.carts.forEach((cart) => {
+      this.carts.forEach(cart => {
         this.grandTotal += cart.qty * cart.product.price;
         this.weightTotal += cart.qty * cart.product.weight;
       });
@@ -638,7 +645,7 @@ export default {
         let data = {
           courier: this.shippingMethod,
           type: this.shippingRadio,
-          address_id: this.$auth.user.addresses[0].id, //nnti set selected
+          address_id: this.$auth.user.addresses[0].id //nnti set selected
         };
         let response = await this.$axios.$post(
           process.env.API_URL + "/api/transactions", //todo ganti link
@@ -655,7 +662,7 @@ export default {
             {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000,
+              duration: 5000
             }
           );
         } else {
@@ -665,7 +672,7 @@ export default {
               this.$toast.error(err[key][key2], {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000,
+                duration: 5000
               });
             });
           });
@@ -673,7 +680,7 @@ export default {
       } catch (err) {
         console.log(err);
       }
-    },
+    }
   },
 
   async mounted() {
@@ -681,8 +688,8 @@ export default {
       try {
         let carts = await this.$axios.$get(process.env.API_URL + "/api/carts", {
           params: {
-            checkout: true,
-          },
+            checkout: true
+          }
         });
         this.carts = carts.data;
         this.recalculateTotal();
@@ -705,25 +712,25 @@ export default {
   computed: {
     ...mapGetters({
       tempCart: "getCheckout",
-      cartChanged: "getCartChanged",
-    }),
+      cartChanged: "getCartChanged"
+    })
   },
   watch: {
     tempCart: {
-      handler: function (carts) {
+      handler: function(carts) {
         if (!this.$auth.loggedIn && carts) {
           this.grandTotal = 0 + this.shippingCost;
 
-          carts.forEach((cart) => {
+          carts.forEach(cart => {
             if (cart.product.process == 1) {
               this.grandTotal += cart.product.qty * cart.product.price;
             }
           });
         }
       },
-      deep: true,
-    },
-  },
+      deep: true
+    }
+  }
 };
 </script>
 <style lang="css" scoped>

@@ -98,6 +98,7 @@
           </div>
         </section>
       </div>
+      <Footer2mobile />
       <Footer />
     </section>
   </section>
@@ -114,27 +115,27 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50",
+          class: "my-2 ms-3 breadcrumb-item opacity-50"
         },
 
         {
           url: "/wishlist",
           name: "Daftar Keinginan",
-          class: "my-2 breadcrumb-item active opacity-50",
-        },
-      ],
+          class: "my-2 breadcrumb-item active opacity-50"
+        }
+      ]
     };
   },
   async asyncData({ $axios }) {
     try {
       let wishlists = await $axios.$get(process.env.API_URL + "/api/wishlists");
       return {
-        wishlists: wishlists.data,
+        wishlists: wishlists.data
       };
     } catch (error) {
       console.log(error);
     }
-  },
+  }
 };
 </script>
 

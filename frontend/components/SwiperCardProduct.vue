@@ -52,7 +52,7 @@
       </div>
     </section>
     <section id="swipercard-mobileview">
-      <div class="swiper-container">
+      <div class="swiper-container" style="width:100%">
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
           <!-- Slides -->
@@ -95,10 +95,10 @@
         </div>
         <!-- If we need navigation buttons -->
         <div>
-          <div class="swiper-button-prev pr-5 me-5"></div>
+          <div class="swiper-button-prev pe-5"></div>
         </div>
         <div>
-          <div class="swiper-button-next  ps-5 ml-5"></div>
+          <div class="swiper-button-next  ps-5"></div>
         </div>
       </div>
     </section>
@@ -121,7 +121,7 @@ export default {
         768: {
           slidesPerView: 3
         },
-        500: {
+        250: {
           slidesPerView: 2
         }
       },

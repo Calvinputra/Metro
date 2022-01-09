@@ -185,10 +185,10 @@
           :to="'/products/' + data.id"
           style="text-decoration: none !important; color: black;"
         >
-          <div class="pe-5">
+          <div class="me-4 ms-4">
             <div
-              class="card bg-white rounded me-3"
-              style="width: 125%; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25) !important; border-radius: 10px;"
+              class="card bg-white rounded"
+              style="width: 100%;; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25) !important; border-radius: 10px;"
             >
               <img
                 style="width: 100%; height: 100px"
@@ -201,13 +201,14 @@
                   <h5 class="card-title">{{ data.name }}</h5>
                   <a
                     href=""
+                    class="me-5 pe-3"
                     onclick="return false;"
                     @click="addToWishList(data.id)"
                     ><i
                       :class="
                         (data.wishlist_exist ? 'fas' : 'far') + ' fa-heart'
                       "
-                      style="font-size: 30px !important; color: #c63442 !important"
+                      style="font-size: 20px !important; color: #c63442 !important"
                     ></i
                   ></a>
                 </div>

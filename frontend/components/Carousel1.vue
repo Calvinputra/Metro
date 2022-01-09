@@ -60,7 +60,7 @@
         </b-carousel>
       </div>
       <div
-        class="bg-image container mb-5 "
+        class="bg-image container "
         style=" background-color: #841C26;
     height: 30px"
       >

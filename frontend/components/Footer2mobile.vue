@@ -1,5 +1,5 @@
 <template>
-  <section class="ps-5 bg-light mb-5 mt-4">
+  <section class="ps-5 bg-light mt-4">
     <img class="ps-5" style="width : 300px" src="/img/metro.png" alt="" />
     <p style="max-width: 80%" class="text-center ps-4">
       Jl. Raya Kb. Jeruk No.27, RT.2/RW.9, Kb. Jeruk, Kec. Kb. Jeruk, Kota
