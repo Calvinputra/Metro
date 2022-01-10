@@ -1,88 +1,91 @@
 <template>
   <section>
-    <Header />
-    <Breadcrumb :links="breadcrumb" />
-    <section>
-      <div class="d-flex" style="justify-content : space-evenly">
-        <div style="col-sm">
-          <img src="/img/metro.png" alt="" />
-        </div>
-        <div class="mr-5 col-sm-5">
-          <form class="mr-5">
-            <div class="col-sm-12">
-              <label class="mb-0 mt-5"
-                ><h2 class="font-weight-bold">
-                  Formulir umpan balik
-                </h2></label
-              >
-              <hr
-                style="height:3px; border-width:0; color:red"
-                class="col-sm-12"
-              />
-            </div>
-            <div class="form-group mt-2">
-              <label for="first_name"
-                >Nama Depan<span style="color: red">*</span>:</label
-              >
-              <input
-                type="text"
-                class="form-control col-sm-12"
-                id="first_name"
-                name="first_name"
-                placeholder="Nama Depan"
-              />
-            </div>
-            <div class="form-group">
-              <label for="last_name"
-                >Nama Belakang<span style="color: red">*</span>:</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                id="last_name"
-                name="last_name"
-                placeholder="Nama Belakang"
-              />
-            </div>
-            <div class="form-group">
-              <label for="email">Email<span style="color: red">*</span>:</label>
-              <input
-                type="email"
-                class="form-control"
-                id="email"
-                name="email"
-                placeholder="Email"
-              />
-            </div>
-            <div class="form-group">
-              <label for="last_name"
-                >Nomor Telepon<span style="color: red">*</span>:</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                id="last_name"
-                name="last_name"
-                placeholder="Nomor Telepon"
-              />
-            </div>
-            <div class="form-group">
-              <label for="address"
-                >Tuliskan Pesan<span style="color: red">*</span>:</label
-              >
-              <textarea
-                class="form-control"
-                id="address"
-                name="address"
-                rows="3"
-              ></textarea>
-              <p style="color : red">
-                <span style="color: red">*</span>Wajib diisi
-              </p>
-              <div class="text-center">
-                <button
-                  type="submit"
-                  class="  btn
+    <section id="contact-webview">
+      <Header />
+      <Breadcrumb :links="breadcrumb" />
+      <section>
+        <div class="d-flex" style="justify-content : space-evenly">
+          <div style="col-sm">
+            <img src="/img/metro.png" alt="" />
+          </div>
+          <div class="mr-5 col-sm-5">
+            <form class="mr-5">
+              <div class="col-sm-12">
+                <label class="mb-0 mt-5"
+                  ><h2 class="font-weight-bold">
+                    Formulir umpan balik
+                  </h2></label
+                >
+                <hr
+                  style="height:3px; border-width:0; color:red"
+                  class="col-sm-12"
+                />
+              </div>
+              <div class="form-group mt-2">
+                <label for="first_name"
+                  >Nama Depan<span style="color: red">*</span>:</label
+                >
+                <input
+                  type="text"
+                  class="form-control col-sm-12"
+                  id="first_name"
+                  name="first_name"
+                  placeholder="Nama Depan"
+                />
+              </div>
+              <div class="form-group">
+                <label for="last_name"
+                  >Nama Belakang<span style="color: red">*</span>:</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="last_name"
+                  name="last_name"
+                  placeholder="Nama Belakang"
+                />
+              </div>
+              <div class="form-group">
+                <label for="email"
+                  >Email<span style="color: red">*</span>:</label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  placeholder="Email"
+                />
+              </div>
+              <div class="form-group">
+                <label for="last_name"
+                  >Nomor Telepon<span style="color: red">*</span>:</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="last_name"
+                  name="last_name"
+                  placeholder="Nomor Telepon"
+                />
+              </div>
+              <div class="form-group">
+                <label for="address"
+                  >Tuliskan Pesan<span style="color: red">*</span>:</label
+                >
+                <textarea
+                  class="form-control"
+                  id="address"
+                  name="address"
+                  rows="3"
+                ></textarea>
+                <p style="color : red">
+                  <span style="color: red">*</span>Wajib diisi
+                </p>
+                <div class="text-center">
+                  <button
+                    type="submit"
+                    class="  btn
                   text-danger
                   text-center
                   btn-light
@@ -93,15 +96,148 @@
                   ms-5
                   mr-5
                   "
-                >
-                  Kirim
-                </button>
+                  >
+                    Kirim
+                  </button>
+                </div>
               </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
+        <Footer />
+      </section>
+    </section>
+    <section id="contact-mobileview">
+      <Header />
+      <Breadcrumb :links="breadcrumb" />
+      <div class="col-sm-12">
+        <label class="mb-0"
+          ><h2 class="font-weight-bold">
+            Formulir umpan balik
+          </h2></label
+        >
+        <hr
+          style="height:2px; border-width:0; color:red"
+          class="col-sm-12 me-2"
+        />
       </div>
+      <section class="container">
+        <div>
+          <div style="col-sm">
+            <img style="width: 100%" src="/img/metro.png" alt="" />
+          </div>
+          <div>
+            <form class="mr-5">
+              <div class="form-group mt-2">
+                <label for="first_name"
+                  >Nama Depan<span style="color: red">*</span>:</label
+                >
+                <input
+                  type="text"
+                  class="form-control col-sm-12"
+                  id="first_name"
+                  name="first_name"
+                  placeholder="Nama Depan"
+                />
+              </div>
+              <div class="form-group">
+                <label for="last_name"
+                  >Nama Belakang<span style="color: red">*</span>:</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="last_name"
+                  name="last_name"
+                  placeholder="Nama Belakang"
+                />
+              </div>
+              <div class="form-group">
+                <label for="email"
+                  >Email<span style="color: red">*</span>:</label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  placeholder="Email"
+                />
+              </div>
+              <div class="form-group">
+                <label for="last_name"
+                  >Nomor Telepon<span style="color: red">*</span>:</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="last_name"
+                  name="last_name"
+                  placeholder="Nomor Telepon"
+                />
+              </div>
+              <div class="form-group">
+                <label for="address"
+                  >Tuliskan Pesan<span style="color: red">*</span>:</label
+                >
+                <textarea
+                  class="form-control"
+                  id="address"
+                  name="address"
+                  rows="3"
+                ></textarea>
+                <p style="color : red">
+                  <span style="color: red">*</span>Wajib diisi
+                </p>
+                <div class="text-center ms-2">
+                  <button
+                    type="submit"
+                    class="  btn
+                  text-danger
+                  text-center
+                  btn-light
+                  btn-sm
+                  shadow
+                  rounded
+                  p-2
+                  "
+                  >
+                    Kirim
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
       <Footer />
     </section>
   </section>
 </template>
+
+<style lang="css" scoped>
+#contact-mobile {
+  display: none;
+}
+#contact-mobileview {
+  display: none;
+}
+/* 0 - 991 px */
+@media screen and (max-width: 500px) {
+  #footer_logo {
+    display: none !important;
+  }
+
+  #contact-webview {
+    display: none;
+  }
+
+  #contact-mobile {
+    display: contents;
+  }
+
+  #contact-mobileview {
+    display: grid;
+  }
+}
+</style>

@@ -219,7 +219,6 @@ export default {
       );
       let response_data = response.data.data;
 
-     
       return {
         data: response_data,
         snapToken: response_data.snap_token
@@ -273,6 +272,7 @@ export default {
 
   #pembayaran-mobileview {
     display: grid;
+    position: sticky;
   }
 }
 </style>

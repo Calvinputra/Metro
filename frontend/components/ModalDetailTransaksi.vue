@@ -56,7 +56,7 @@
           </tbody>
         </table>
 
-        <div class="d-flex justify-content-around mt-3">
+        <div class="d-flex justify-content-around mt-3 mb-4">
           <div class="text-right col-sm-9 fw-bold">
             <span>
               <p>Subtotal</p>

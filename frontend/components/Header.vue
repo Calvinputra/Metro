@@ -163,16 +163,19 @@
               <b-dropdown-item disabled>Disabled action</b-dropdown-item>
             </b-dropdown>
           </div>
-          <div class="col-sm-4">
-            <a href="/wishlist"
-              ><i
-                class="fas fa-heart"
-                style="font-size: 30px !important; color: #c63442 !important"
-              ></i
-            ></a>
+          <div class="col-sm-4 mb-2 mt-2">
+            <a
+              href="/wishlist"
+              class="text-black"
+              style="text-decoration: none"
+            >
+              Wishlist
+            </a>
           </div>
           <div class="col-sm-4">
-            <a href="/cart"><img src="/img/cart.png" alt=""/></a>
+            <a href="/cart" class="text-black" style="text-decoration: none">
+              Cart</a
+            >
           </div>
           <!-- Kosong -->
         </div>
