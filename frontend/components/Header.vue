@@ -14,8 +14,9 @@
       <div id="header_logo" class="col-sm-2">
         <a href="/"
           ><img
+            style="width: 80%"
             class="img-fluid rounded mx-auto d-block"
-            src="/img/audiblelogo.png"
+            src="/img/metro.png"
             alt=""
         /></a>
       </div>
@@ -113,7 +114,7 @@
         <a href="/"
           ><img
             class="img-fluid rounded mx-auto d-block"
-            src="/img/audiblelogo.png"
+            src="/img/metro.png"
             alt=""
         /></a>
       </div>

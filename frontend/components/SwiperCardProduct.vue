@@ -56,7 +56,7 @@
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
           <!-- Slides -->
-          <div class="swiper-slide">
+          <div class="swiper-slide me-3 ms-3">
             <CardProductSwiper
               :data="this.products[0]"
               :url="'/products/' + this.products[0].id"

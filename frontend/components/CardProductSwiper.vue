@@ -184,11 +184,12 @@
         <NuxtLink
           :to="'/products/' + data.id"
           style="text-decoration: none !important; color: black;"
+          class=""
         >
-          <div class="me-4 ms-4">
+          <div class="me-4 pe-2 ps-2 ms-4 mt-5">
             <div
               class="card bg-white rounded"
-              style="width: 100%;; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25) !important; border-radius: 10px;"
+              style="width: 100%; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25) !important; border-radius: 10px;"
             >
               <img
                 style="width: 100%; height: 100px"

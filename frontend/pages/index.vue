@@ -72,7 +72,7 @@
       <Carousel1 />
       <SwiperCardProduct :products="products" />
       <!-- produk unggulan -->
-      <div class="d-flex container mb-3 ">
+      <div class="d-flex container">
         <h5 class="text-danger fw-bold">Produk Unggulan</h5>
         <button
           type="submit"
@@ -92,7 +92,7 @@
       <SwiperCardProduct :products="products" />
 
       <!-- Paling banyak dibeli -->
-      <div class="d-flex container mb-3">
+      <div class="d-flex container">
         <h5 class="text-danger fw-bold">Paling Banyak Dibeli</h5>
         <button
           type="submit"
@@ -112,7 +112,7 @@
       <SwiperCardProduct :products="products" />
 
       <!-- Produk Terbaru -->
-      <div class="d-flex container mb-3">
+      <div class="d-flex container">
         <h5 class="text-danger fw-bold">Produk Terbaru</h5>
         <button
           type="submit"

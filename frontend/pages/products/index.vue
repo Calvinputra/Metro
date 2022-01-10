@@ -12,37 +12,37 @@
               <div class="row">
                 <div>
                   <h1>Kategory</h1>
-                  <div class="bg-danger rounded">
-                    <a href="" class="text-black" style="text-decoration: none"
-                      ><p class="py-2 ps-2">Kategory1</p></a
+                  <div class="rounded" style="background-color: #841C26">
+                    <a href="" class="text-white" style="text-decoration: none"
+                      ><p class="py-2 ps-2 mb-2">Kategory1</p></a
                     >
                   </div>
                   <a href="" style="text-decoration: none" class="text-black"
-                    ><p class="ms-2">Kategory2</p></a
+                    ><p class="ms-2 mb-3">Kategory2</p></a
                   >
                   <a href="" style="text-decoration: none" class="text-black"
-                    ><p class="ms-2">Kategory3</p></a
+                    ><p class="ms-2 mb-3">Kategory3</p></a
                   >
                   <a href="" style="text-decoration: none" class="text-black"
-                    ><p class="ms-2">Kategory4</p></a
+                    ><p class="ms-2 mb-3">Kategory4</p></a
                   >
                   <a href="" style="text-decoration: none" class="text-black"
-                    ><p class="ms-2">Kategory5</p></a
+                    ><p class="ms-2 mb-3">Kategory5</p></a
                   >
                   <a href="" style="text-decoration: none" class="text-black"
-                    ><p class="ms-2">Kategory6</p></a
+                    ><p class="ms-2 mb-3">Kategory6</p></a
                   >
                   <a href="" style="text-decoration: none" class="text-black"
-                    ><p class="ms-2">Kategory7</p></a
+                    ><p class="ms-2 mb-3">Kategory7</p></a
                   >
                   <a href="" style="text-decoration: none" class="text-black"
-                    ><p class="ms-2">Kategory8</p></a
+                    ><p class="ms-2 mb-3">Kategory8</p></a
                   >
                   <a href="" style="text-decoration: none" class="text-black"
-                    ><p class="ms-2">Kategory9</p></a
+                    ><p class="ms-2 mb-3">Kategory9</p></a
                   >
                   <a href="" style="text-decoration: none" class="text-black"
-                    ><p class="ms-2">Kategory10</p></a
+                    ><p class="ms-2 mb-3">Kategory10</p></a
                   >
                 </div>
               </div>
@@ -69,12 +69,6 @@
                   </button>
                   <div class="dropdown-menu">...</div>
                 </div>
-                <div class="col">
-                  <a href=""><img src="img/grid.png" alt="" height="20px"/></a>
-                </div>
-                <div class="col">
-                  <a href=""><img src="img/list.png" alt="" height="20px"/></a>
-                </div>
               </div>
             </div>
             <div>
@@ -85,16 +79,6 @@
                   :data="product"
                   :url="'/products/' + product.id"
                 />
-                <div class="overflow-auto">
-                  <b-pagination-nav
-                    :link-gen="linkGen"
-                    :number-of-pages="this.totalPage"
-                    first-text="First"
-                    prev-text="Prev"
-                    next-text="Next"
-                    last-text="Last"
-                  ></b-pagination-nav>
-                </div>
               </div>
             </div>
           </div>
@@ -137,28 +121,6 @@
                     Small button
                   </button>
                   <div class="dropdown-menu">...</div>
-                </div>
-                <div class="col justify-content-end d-flex me-2">
-                  <a href="">
-                    <i
-                      class="fas fa-th-large"
-                      style="
-                        font-size: 25px !important;
-                        color: #c63442 !important;
-                      "
-                    ></i>
-                  </a>
-                </div>
-                <div class="col-1 justify-content-end d-flex">
-                  <a href="">
-                    <i
-                      class="fas fa-list-ul"
-                      style="
-                        font-size: 25px !important;
-                        color: lightgrey !important;
-                      "
-                    ></i>
-                  </a>
                 </div>
               </div>
             </div>

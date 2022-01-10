@@ -105,7 +105,32 @@
                         v-model="address"
                       ></textarea>
                     </div>
-
+                    <div class="form-group ms-3 pe-3">
+                      <label for="exampleFormControlSelect1">Provinsi</label>
+                      <select
+                        class="form-control col-sm-10"
+                        id="exampleFormControlSelect1"
+                      >
+                        <option>Jakarta</option>
+                        <option>Bali</option>
+                        <option>Yogyakarta</option>
+                        <option>Bandung</option>
+                        <option>Riau</option>
+                      </select>
+                    </div>
+                    <div class="form-group ms-3 pe-3">
+                      <label for="exampleFormControlSelect1">Kota</label>
+                      <select
+                        class="form-control col-sm-10"
+                        id="exampleFormControlSelect1"
+                      >
+                        <option>Jakarta Utara</option>
+                        <option>Jakarta Timur</option>
+                        <option>Jakarta Barat</option>
+                        <option>Jakarta Pusat</option>
+                        <option>Jakarta Selatan</option>
+                      </select>
+                    </div>
                     <br />
 
                     <div class="text-center me-5 pe-5">
@@ -259,7 +284,32 @@
                         v-model="address"
                       ></textarea>
                     </div>
-
+                    <div class="form-group ms-3 pe-3">
+                      <label for="exampleFormControlSelect1">Provinsi</label>
+                      <select
+                        class="form-control col-sm-10"
+                        id="exampleFormControlSelect1"
+                      >
+                        <option>Jakarta</option>
+                        <option>Bali</option>
+                        <option>Yogyakarta</option>
+                        <option>Bandung</option>
+                        <option>Riau</option>
+                      </select>
+                    </div>
+                    <div class="form-group ms-3 pe-3">
+                      <label for="exampleFormControlSelect1">Kota</label>
+                      <select
+                        class="form-control col-sm-10"
+                        id="exampleFormControlSelect1"
+                      >
+                        <option>Jakarta Utara</option>
+                        <option>Jakarta Timur</option>
+                        <option>Jakarta Barat</option>
+                        <option>Jakarta Pusat</option>
+                        <option>Jakarta Selatan</option>
+                      </select>
+                    </div>
                     <br />
 
                     <div class="text-center">
@@ -272,6 +322,7 @@
                         btn-light btn-sm
                         rounded
                         ms-0
+                        mb-3
                         p-2
                       "
                         style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
