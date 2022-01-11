@@ -79,6 +79,12 @@
                   :data="product"
                   :url="'/products/' + product.id"
                 />
+                <!-- jika data kosong -->
+                <!-- <div class="ms-5 mt-5">
+                  <i class="fas fa-exclamation-triangle"></i>
+                  Tidak ada produk pada Kategori ini, Silahkan coba lagi
+                  beberapa saat kemudian.
+                </div> -->
               </div>
             </div>
           </div>

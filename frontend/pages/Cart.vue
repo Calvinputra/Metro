@@ -63,6 +63,13 @@
               />
             </template>
           </table>
+
+          <!-- Jika data kosong -->
+          <!-- <div class="text-center mt-5">
+            <i class="fas fa-exclamation-triangle"></i>
+            Tidak ada produk yang anda tambah, Silahkan tambah ke eranjang
+            terlebih dahulu.
+          </div> -->
         </div>
         <div class="text-right text-right col-11">
           <span class="text-center mr-5 pl-5">Total Harga</span>

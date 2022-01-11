@@ -51,7 +51,16 @@
               />
             </div>
           </div>
+
+          <!-- Jika data kosong -->
+          <!-- <div class="text-center mt-5">
+            <i class="fas fa-exclamation-triangle"></i>
+            Tidak ada produk yang di pilih pada wishlist ini, Tekan tanda
+            <i class="fas fa-heart" style=" color: #c63442 !important"></i>
+            untuk menambahkan produk pada halaman ini.
+          </div> -->
         </section>
+        <Footer />
       </div>
     </section>
 
