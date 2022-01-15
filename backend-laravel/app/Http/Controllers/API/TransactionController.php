@@ -194,7 +194,8 @@ class TransactionController extends Controller
     }
 
 
-    //MIDTRANS
+  
+   
     private function getSnapToken($transaction)
     {
         $data = ['success' => true];
@@ -245,12 +246,10 @@ class TransactionController extends Controller
 
     public function payment(Request $request)
     {
+        //data transaction_status , status_code, uuid
+        // callback from midtrans
 
-        //TODO callback from midtrans
-
-
-
-        $transaction = Transaction::where('id', 1)->first(); //nnti di ganti
+        $transaction = Transaction::where("uuid", $request->uuid)->first(); //nnti di ganti
         if (!$transaction) {
             return response([
                 'data'   => 'Transaction not found',

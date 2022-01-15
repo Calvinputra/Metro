@@ -82,7 +82,7 @@
           var payButton = document.getElementById("pay-button");
 
           /* For example trigger on button clicked, or any time you need */
-          payButton.addEventListener("click", function() {
+          payButton.addEventListener("click", function () {
             /* in this case, the snap token is retrieved from the Input Field */
             var snapToken = "{{snapToken}}";
             snap.pay(snapToken);
@@ -172,7 +172,7 @@
           var payButton = document.getElementById("pay-button");
 
           /* For example trigger on button clicked, or any time you need */
-          payButton.addEventListener("click", function() {
+          payButton.addEventListener("click", function () {
             /* in this case, the snap token is retrieved from the Input Field */
             var snapToken = "{{snapToken}}";
             snap.pay(snapToken);
@@ -191,37 +191,37 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50"
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
         },
         {
           url: "/cart",
           name: "Keranjang Saya",
-          class: "my-2 breadcrumb-item opacity-50"
+          class: "my-2 breadcrumb-item opacity-50",
         },
         {
           url: "/checkout",
           name: "Check Out",
-          class: "my-2 breadcrumb-item opacity-50"
+          class: "my-2 breadcrumb-item opacity-50",
         },
         {
           url: "/pembayaran/" + this.$route.params.uuid,
           name: "Pembayaran",
-          class: "my-2 breadcrumb-item active opacity-50"
-        }
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
       ],
-      app_url: process.env.APP_URL + ":" + process.env.PORT
+      app_url: process.env.APP_URL + ":" + process.env.PORT,
     };
   },
   async asyncData({ $axios, params }) {
     try {
-      let response = await $axios(
+      let response = await $axios.$get(
         process.env.API_URL + `/api/transactions/${params.uuid}`
       );
-      let response_data = response.data.data;
+      let response_data = response.data;
 
       return {
         data: response_data,
-        snapToken: response_data.snap_token
+        snapToken: response_data.snap_token,
       };
     } catch (error) {
       console.log(error);
@@ -232,9 +232,9 @@ export default {
       script: [
         {
           src: "https://app.sandbox.midtrans.com/snap/snap.js",
-          "data-client-key": "SET_YOUR_CLIENT_KEY_HERE"
-        }
-      ]
+          "data-client-key": process.env.MIDTRANS_CLIENT_KEY,
+        },
+      ],
     };
   },
   methods: {
@@ -244,8 +244,8 @@ export default {
       } catch (e) {
         console.error(e);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

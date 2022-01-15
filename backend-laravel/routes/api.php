@@ -50,3 +50,4 @@ Route::apiResource('/feedbacks', WebsiteFeedbackController::class);
 
 Route::post('/carts/multiple', [CartController::class, 'storeMultiple'])->middleware('auth:sanctum');
 Route::post('/checkout/get_jne_cost', [ShippingController::class, 'getJneCost'])->middleware('auth:sanctum');
+Route::post('/transactions/payment/success', [TransactionController::class, 'payment'])->middleware('auth:sanctum');
