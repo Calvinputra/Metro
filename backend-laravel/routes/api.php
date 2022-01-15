@@ -9,6 +9,7 @@ use App\Http\Controllers\API\CityController;
 use App\Http\Controllers\API\ProvinceController;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\CartController;
+use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\WishListController;
 use App\Http\Controllers\API\TransactionController;
 use App\Http\Controllers\API\ShippingController;
@@ -46,6 +47,7 @@ Route::apiResource('/wishlists', WishListController::class)->middleware('auth:sa
 Route::apiResource('/transactions', TransactionController::class)->middleware('auth:sanctum');
 Route::apiResource('/reviews', ReviewController::class)->middleware('auth:sanctum');
 Route::apiResource('/feedbacks', WebsiteFeedbackController::class);
+Route::apiResource('/categories', CategoryController::class);
 
 
 Route::post('/carts/multiple', [CartController::class, 'storeMultiple'])->middleware('auth:sanctum');

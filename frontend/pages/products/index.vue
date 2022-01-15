@@ -1,5 +1,5 @@
 <template>
-  <section style="margin-bottom:100px;">
+  <section style="margin-bottom: 100px">
     <!-- Website -->
     <section id="product-webview">
       <Header />
@@ -12,38 +12,33 @@
               <div class="row">
                 <div>
                   <h1>Kategory</h1>
-                  <div class="rounded" style="background-color: #841C26">
-                    <a href="" class="text-white" style="text-decoration: none"
-                      ><p class="py-2 ps-2 mb-2">Kategory1</p></a
-                    >
-                  </div>
-                  <a href="" style="text-decoration: none" class="text-black"
-                    ><p class="ms-2 mb-3">Kategory2</p></a
-                  >
-                  <a href="" style="text-decoration: none" class="text-black"
-                    ><p class="ms-2 mb-3">Kategory3</p></a
-                  >
-                  <a href="" style="text-decoration: none" class="text-black"
-                    ><p class="ms-2 mb-3">Kategory4</p></a
-                  >
-                  <a href="" style="text-decoration: none" class="text-black"
-                    ><p class="ms-2 mb-3">Kategory5</p></a
-                  >
-                  <a href="" style="text-decoration: none" class="text-black"
-                    ><p class="ms-2 mb-3">Kategory6</p></a
-                  >
-                  <a href="" style="text-decoration: none" class="text-black"
-                    ><p class="ms-2 mb-3">Kategory7</p></a
-                  >
-                  <a href="" style="text-decoration: none" class="text-black"
-                    ><p class="ms-2 mb-3">Kategory8</p></a
-                  >
-                  <a href="" style="text-decoration: none" class="text-black"
-                    ><p class="ms-2 mb-3">Kategory9</p></a
-                  >
-                  <a href="" style="text-decoration: none" class="text-black"
-                    ><p class="ms-2 mb-3">Kategory10</p></a
-                  >
+                  <template v-for="category in categories">
+                    <template v-if="$route.query.category == category.id">
+                      <div
+                        :key="category.id"
+                        class="rounded"
+                        style="background-color: #841c26"
+                      >
+                        <nuxt-link
+                          :to="'/products?category=' + category.id"
+                          class="text-white"
+                          style="text-decoration: none"
+                          ><p class="py-2 ps-2 mb-2">
+                            {{ category.name }}
+                          </p>
+                        </nuxt-link>
+                      </div>
+                    </template>
+                    <template v-else>
+                      <nuxt-link
+                        :key="category.id"
+                        :to="'/products?category=' + category.id"
+                        style="text-decoration: none"
+                        class="text-black"
+                        ><p class="ms-2 mb-3">{{ category.name }}</p>
+                      </nuxt-link>
+                    </template>
+                  </template>
                 </div>
               </div>
             </section>
@@ -52,7 +47,7 @@
             class="col-sm-10 align-self-start mt-2 row justify-content-between"
           >
             <div class="col-sm-4">
-              <h2>Kategory 1</h2>
+              <h2>{{ title }}</h2>
             </div>
             <div class="col-sm-8 mx-auto my-auto">
               <div class="row" style="float: right">
@@ -185,14 +180,14 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50"
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
         },
         {
           url: "/",
           name: "Product",
-          class: "my-2 breadcrumb-item active opacity-50"
-        }
-      ]
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
+      ],
     };
   },
   async asyncData({ $axios, query }) {
@@ -200,19 +195,25 @@ export default {
       let data = {
         s: query.s,
         page: query.page,
-        paginate: query.paginate
+        paginate: query.paginate,
+        category: query.category,
       };
       let products = await $axios.$get(process.env.API_URL + "/api/products", {
-        params: data
+        params: data,
       });
       let links = [];
       for (let i = 1; i <= products.meta.last_page; i++) {
         links.push(i);
       }
+      let categories = await $axios.$get(
+        process.env.API_URL + "/api/categories"
+      );
       return {
         products: products.data,
         links: links,
-        totalPage: products.meta.last_page
+        totalPage: products.meta.last_page,
+        title: products.title,
+        categories: categories.data,
       };
     } catch (error) {
       console.log(error);
@@ -225,14 +226,15 @@ export default {
         query: {
           page: pageNum,
           s: this.$route.query.s,
-          paginate: this.$route.query.paginate
-        }
+          paginate: this.$route.query.paginate,
+          category: this.$route.query.category,
+        },
       };
     },
     pageGen(pageNum) {
       return this.links[pageNum - 1].slice(1);
-    }
+    },
   },
-  watchQuery: ["s", "page", "paginate"]
+  watchQuery: ["s", "page", "paginate", "category"],
 };
 </script>

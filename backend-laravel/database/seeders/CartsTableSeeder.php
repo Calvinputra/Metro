@@ -43,17 +43,6 @@ class CartsTableSeeder extends Seeder
             ),
             2 => 
             array (
-                'id' => 26,
-                'process' => 1,
-                'customer_id' => 1,
-                'product_id' => 3,
-                'qty' => 2,
-                'created_at' => '2021-12-10 09:24:43',
-                'updated_at' => '2021-12-23 09:03:51',
-                'deleted_at' => NULL,
-            ),
-            3 => 
-            array (
                 'id' => 27,
                 'process' => 1,
                 'customer_id' => 6,
@@ -63,7 +52,7 @@ class CartsTableSeeder extends Seeder
                 'updated_at' => '2021-12-11 18:21:21',
                 'deleted_at' => NULL,
             ),
-            4 => 
+            3 => 
             array (
                 'id' => 28,
                 'process' => 1,
@@ -74,7 +63,7 @@ class CartsTableSeeder extends Seeder
                 'updated_at' => '2021-12-11 18:19:42',
                 'deleted_at' => NULL,
             ),
-            5 => 
+            4 => 
             array (
                 'id' => 29,
                 'process' => 1,
@@ -85,7 +74,7 @@ class CartsTableSeeder extends Seeder
                 'updated_at' => '2021-12-11 18:26:02',
                 'deleted_at' => NULL,
             ),
-            6 => 
+            5 => 
             array (
                 'id' => 30,
                 'process' => 1,
@@ -96,7 +85,7 @@ class CartsTableSeeder extends Seeder
                 'updated_at' => '2021-12-11 18:26:01',
                 'deleted_at' => NULL,
             ),
-            7 => 
+            6 => 
             array (
                 'id' => 31,
                 'process' => 1,
@@ -107,26 +96,37 @@ class CartsTableSeeder extends Seeder
                 'updated_at' => '2021-12-11 18:26:05',
                 'deleted_at' => NULL,
             ),
-            8 => 
+            7 => 
             array (
-                'id' => 32,
-                'process' => 1,
-                'customer_id' => 1,
-                'product_id' => 2,
-                'qty' => 2,
-                'created_at' => '2021-12-15 13:44:37',
-                'updated_at' => '2021-12-23 09:03:51',
-                'deleted_at' => NULL,
-            ),
-            9 => 
-            array (
-                'id' => 33,
+                'id' => 34,
                 'process' => 1,
                 'customer_id' => 1,
                 'product_id' => 1,
                 'qty' => 2,
-                'created_at' => '2021-12-15 14:04:15',
-                'updated_at' => '2021-12-23 09:03:51',
+                'created_at' => '2022-01-10 10:37:36',
+                'updated_at' => '2022-01-15 15:46:10',
+                'deleted_at' => NULL,
+            ),
+            8 => 
+            array (
+                'id' => 35,
+                'process' => 1,
+                'customer_id' => 1,
+                'product_id' => 3,
+                'qty' => 2,
+                'created_at' => '2022-01-15 15:46:10',
+                'updated_at' => '2022-01-15 15:46:10',
+                'deleted_at' => NULL,
+            ),
+            9 => 
+            array (
+                'id' => 36,
+                'process' => 1,
+                'customer_id' => 1,
+                'product_id' => 2,
+                'qty' => 2,
+                'created_at' => '2022-01-15 15:46:10',
+                'updated_at' => '2022-01-15 15:46:10',
                 'deleted_at' => NULL,
             ),
         ));

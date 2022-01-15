@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -18,14 +19,25 @@ class ProductController extends Controller
     {
         $paginate_item = $request->paginate ?? 25;
         $products = Product::with('category')->orderBy('created_at', 'DESC');
+        $category = Category::find($request->category ?? 0);
         if (isset($request->s)) {
-            $products = $products->where('name', "LIKE", "%" . $request->s . "%");
+            $products->where('name', "LIKE", "%" . $request->s . "%");
+        }
+
+        if (isset($request->category)) {
+            $products->where('category_id', $request->category);
         }
 
         //jika kosong
 
         $products = $products->paginate($paginate_item);
-        return ProductResource::collection($products);
+
+        //category data title
+        $header_title = "All Product";
+        if ($category) {
+            $header_title = $category->name;
+        }
+        return ProductResource::collection($products)->additional(["title" => $header_title]);
     }
 
     /**
