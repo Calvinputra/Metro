@@ -3,13 +3,17 @@
 namespace App\Http\Controllers\Vendor\Voyager;
 
 use App\Models\Attribute;
-use App\Models\ProductAttribute;
+use App\Models\Category;
+use App\Models\Brand;
+use App\Models\Product;
 use Auth;
 use Illuminate\Http\Request;
 use TCG\Voyager\Events\BreadDataAdded;
 use TCG\Voyager\Events\BreadDataUpdated;
 use Validator;
 use Voyager;
+use App\Imports\ProductImport;
+use Excel;
 
 class ProductController extends \TCG\Voyager\Http\Controllers\VoyagerBaseController
 {
@@ -32,7 +36,6 @@ class ProductController extends \TCG\Voyager\Http\Controllers\VoyagerBaseControl
             }
         }
         return $errors;
-
     }
 
     public function validateLines(Request $request)
@@ -69,7 +72,8 @@ class ProductController extends \TCG\Voyager\Http\Controllers\VoyagerBaseControl
             $attribute = Attribute::find($td['product_attribute_belongsto_attribute_relationship'] ?? $td['attribute_id']);
             if (!$attribute) {
                 $validator->errors()->add(
-                    'product_attribute_belongsto_attribute_relationship', 'Attribute not found!'
+                    'product_attribute_belongsto_attribute_relationship',
+                    'Attribute not found!'
                 );
             }
 
@@ -103,7 +107,6 @@ class ProductController extends \TCG\Voyager\Http\Controllers\VoyagerBaseControl
             $prev = \App\Models\ProductAttribute::where('product_id', $product->id)->delete();
             \App\Models\ProductAttribute::insert($data);
         }
-
     }
 
     // POST BR(E)AD
@@ -205,5 +208,199 @@ class ProductController extends \TCG\Voyager\Http\Controllers\VoyagerBaseControl
         } else {
             return response()->json(['success' => true, 'data' => $data]);
         }
+    }
+
+
+    public function import_data(Request $request)
+    {
+        //protect route 
+        $dataType = Voyager::model('DataType')->where('slug', '=', 'products')->first();
+        $this->authorize('import', app($dataType->model_name));
+
+        //send to preview
+        $this->validate($request, [
+            'import_file' => 'required|mimes:xlsx',
+        ], []);
+        $data = Excel::toCollection(new ProductImport, $request->file('import_file'));
+        return view('vendor.voyager.products.import_preview', [
+            'data' => $data,
+            'excel_name' => $request->file('import_file')->getClientOriginalName(),
+        ]);
+    }
+    public function confirm_import_data(Request $request)
+    {
+        //protect route 
+        $dataType = Voyager::model('DataType')->where('slug', '=', 'products')->first();
+        $this->authorize('import', app($dataType->model_name));
+
+        ini_set('max_execution_time', 900);
+        $validator = Validator::make($request->all(), [
+            'import_data' => 'required',
+            'excel_name' => 'required'
+        ], []);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }
+
+        $data = json_decode($request->import_data);
+
+        $validated_data = array();
+        foreach ($data->Data as $row) {
+            //TODO Row Validation
+            $validator = Validator::make((array)$row, [
+                'code' => 'required',
+                'name' => 'required',
+                'description' => 'required',
+                'brand' => 'required',
+                'price' => 'required|integer',
+                'stock' => 'required|integer',
+                'weight_gr' => 'required',
+                'dimensionmm' => 'required',
+                'image' => 'required',
+                'category' => 'required',
+            ], []);
+            if ($validator->fails()) {
+                $errorString = implode(",", $validator->messages()->all());
+                return redirect('products')->with([
+                    'message'    => "Failed import data " . $errorString,
+                    'alert-type' => 'error',
+                ]);
+            }
+            //split dimension
+            $dimension = $row->dimensionmm;
+            $dimension = str_replace("mm", "", $dimension);
+            $dimension = explode("x", $dimension);
+
+            //images 
+            $images = array();
+            if ($row->image != "") {
+                array_push($images, $row->image);
+            }
+            if ($row->image_2 != "") {
+                array_push($images, $row->image_2);
+            }
+            if ($row->image_3 != "") {
+                array_push($images, $row->image_3);
+            }
+            if ($row->image_4 != "") {
+                array_push($images, $row->image_4);
+            }
+            if ($row->image_5 != "") {
+                array_push($images, $row->image_5);
+            }
+
+
+
+            //product category
+            $category = Category::where('name', 'LIKE', $row->category)->first();
+            if (!$category) {
+                //kalo category not found
+                $category = Category::create([
+                    'name' => $row->category
+                ]);
+            }
+
+            //product brand
+            // $brand = Brand::where('name', 'LIKE', $row['brand'])->first();
+            // if (!$brand) {
+            //     //kalo category not found
+            //     $brand = Brand::create([
+            //         'name' => $row['Brand']
+            //     ]);
+            // }
+
+            //product attribute
+            $product_attributes = array();
+            if ($row->material != "") {
+                $attribute = Attribute::where('name', 'LIKE', 'Material')->first();
+                if (!$attribute) {
+                    $attribute = Attribute::create([
+                        'name' => 'Material',
+                        'required' => 0,
+                    ]);
+                }
+                array_push($product_attributes, [
+                    'attribute_id' => $attribute->id,
+                    'value' => $row->material
+                ]);
+            }
+            if ($row->warna != "") {
+                $attribute = Attribute::where('name', 'LIKE', 'Warna')->first();
+                if (!$attribute) {
+                    $attribute = Attribute::create([
+                        'name' => 'Warna',
+                        'required' => 0,
+                    ]);
+                }
+                array_push($product_attributes, [
+                    'attribute_id' => $attribute->id,
+                    'value' => $row->warna
+                ]);
+            }
+
+            if ($row->link_tokopedia != "") {
+                $attribute = Attribute::where('name', 'LIKE', 'url_tokopedia')->first();
+                if (!$attribute) {
+                    $attribute = Attribute::create([
+                        'name' => 'url_tokopedia',
+                        'required' => 0,
+                    ]);
+                }
+                array_push($product_attributes, [
+                    'attribute_id' => $attribute->id,
+                    'value' => $row->link_tokopedia
+                ]);
+            }
+
+            if ($row->link_shopee != "") {
+                $attribute = Attribute::where('name', 'LIKE', 'url_shopee')->first();
+                if (!$attribute) {
+                    $attribute = Attribute::create([
+                        'name' => 'url_shopee',
+                        'required' => 0,
+                    ]);
+                }
+                array_push($product_attributes, [
+                    'attribute_id' => $attribute->id,
+                    'value' => $row->link_shopee
+                ]);
+            }
+
+
+            $product_data = [
+                'id' => $row->no,
+                'code' => $row->code,
+                'name' => $row->name,
+                'description' => $row->description,
+                //'brand_id' => 1,
+                'price' => $row->price,
+                'display_price' => $row->price,
+                'weight' => $row->weight_gr,
+                'dimension_width' => $dimension[0] ?? '1',
+                'dimension_height' => $dimension[1] ?? '1',
+                'dimension_depth' => $dimension[2] ?? '1',
+                'stock' => $row->stock,
+                'category_id' => $category->id,
+                'images' => json_encode($images),
+            ];
+
+            //Insert to validated data
+            array_push($validated_data, [
+                'product_data' => $product_data,
+                'product_attributes' => $product_attributes,
+            ]);
+        }
+
+        foreach ($validated_data as $d) {
+            $product = Product::create($d['product_data']);
+            $product->attributes()->createMany($d['product_attributes']);
+        }
+
+
+
+        return redirect('products')->with([
+            'message'    => "Successfully import data",
+            'alert-type' => 'success',
+        ]);
     }
 }

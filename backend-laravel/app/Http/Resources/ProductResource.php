@@ -24,6 +24,23 @@ class ProductResource extends JsonResource
                 }
             }
         }
+        $attributes = array();
+        $url_tokopedia = null;
+        $url_shopee = null;
+        foreach ($this->attributes as $key => $attr) {
+            if (strpos($attr->attribute->name, "url_") !== false) {
+                if (strpos($attr->attribute->name, "url_tokopedia") !==  0) {
+                    $url_tokopedia = $attr->attribute->value;
+                }
+                if (strpos($attr->attribute->name, "url_shopee") !==  0) {
+                    $url_shopee = $attr->attribute->value;
+                }
+            } else {
+                array_push($attributes, $attr);
+            }
+        }
+
+
         return [
             'id'               => $this->id,
             'name'             => $this->name,
@@ -38,10 +55,12 @@ class ProductResource extends JsonResource
             'images'           => $this->images,
             'category'         => $this->category->name,
             'code'             => $this->code,
-            'attributes'       => $this->attributes,
+            'attributes'       => $attributes,
             'wishlist_exist'   => $wishlist_exist,
             'reviews'          => $this->reviews,
-            'rating'           => $this->reviews->avg('rating')??0,
+            'rating'           => $this->reviews->avg('rating') ?? 0,
+            'url_tokopedia'    => $url_tokopedia,
+            'url_shopee'       => $url_shopee,
 
         ];
     }

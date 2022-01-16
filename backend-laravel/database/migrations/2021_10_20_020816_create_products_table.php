@@ -27,9 +27,11 @@ class CreateProductsTable extends Migration
             $table->double('stock')->default(0);
             $table->string('images')->nullable();
             $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('brand_id');
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('brand_id')->references('id')->on('brands');
         });
     }
 

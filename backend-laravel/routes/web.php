@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Vendor\Voyager\ProductController;
 use App\Http\Controllers\Vendor\Voyager\TransactionController;
 use Illuminate\Support\Facades\Route;
 /*
@@ -22,6 +23,10 @@ Route::group(['prefix' => ''], function () {
     Route::group(['prefix' => 'transactions'], function () {
         Route::post('shipping_no', [TransactionController::class, 'addShippingNo']);
     });
+    Route::group(['prefix' => 'products'], function () {
+        Route::post('import', [ProductController::class, 'import_data']);
+        Route::post('confirm_import_data', [ProductController::class, 'confirm_import_data']);
+    });
 });
 Route::group(['prefix' => 'debug'], function () {
     Route::get('/check_user', function () {
@@ -30,6 +35,7 @@ Route::group(['prefix' => 'debug'], function () {
         $verify = password_verify('Sycar12345!@#$%', '$2y$10$6qTN5MnXqQCidcAk9nn4qOIkM/mCE5nP0OOn2ZspNq/wzPhMHn6BC');
     });
 });
+
 
 Route::get('send_mail_register', function () {
     //https://www.itsolutionstuff.com/post/laravel-8-mail-laravel-8-send-email-tutorialexample.html

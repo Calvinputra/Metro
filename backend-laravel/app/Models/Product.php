@@ -9,6 +9,21 @@ use OwenIt\Auditing\Contracts\Auditable;
 
 class Product extends Model implements Auditable
 {
+    protected $fillable = [
+        "code",
+        "name",
+        "description",
+        "display_price",
+        "price",
+        "weight",
+        "dimension_width",
+        "dimension_height",
+        "dimension_depth",
+        "stock",
+        "images",
+        "category_id",
+        "brand_id",
+    ];
     use HasFactory, SoftDeletes, \OwenIt\Auditing\Auditable;
     public function category()
     {

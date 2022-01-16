@@ -10,4 +10,9 @@ use OwenIt\Auditing\Contracts\Auditable;
 class Attribute extends Model implements Auditable
 {
     use HasFactory, SoftDeletes, \OwenIt\Auditing\Auditable;
+    protected $fillable = [
+        "name",
+        "required",
+        "options",
+    ];
 }
