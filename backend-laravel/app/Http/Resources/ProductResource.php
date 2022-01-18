@@ -29,11 +29,11 @@ class ProductResource extends JsonResource
         $url_shopee = null;
         foreach ($this->attributes as $key => $attr) {
             if (strpos($attr->attribute->name, "url_") !== false) {
-                if (strpos($attr->attribute->name, "url_tokopedia") !==  0) {
-                    $url_tokopedia = $attr->attribute->value;
+                if (strpos($attr->attribute->name, "url_tokopedia") !==  false) {
+                    $url_tokopedia = $attr->value;
                 }
-                if (strpos($attr->attribute->name, "url_shopee") !==  0) {
-                    $url_shopee = $attr->attribute->value;
+                if (strpos($attr->attribute->name, "url_shopee") !==  false) {
+                    $url_shopee = $attr->value;
                 }
             } else {
                 array_push($attributes, $attr);

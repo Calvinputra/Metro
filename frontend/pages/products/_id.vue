@@ -49,7 +49,15 @@
                     <b>{{ data.code }} - {{ data.name }}</b>
                   </h3>
                 </div>
-                <a class="col-sm-1 me-0 pe-1" href=""
+                <a
+                  class="col-sm-1 me-0 pe-1"
+                  target="_blank"
+                  :href="
+                    'https://wa.me/628988606069?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
+                    data.code +
+                    ' - ' +
+                    data.name
+                  "
                   ><img
                     class="img-fluid max-width:100% height:auto rounded"
                     src="/img/Whatsapp_new.png"
@@ -59,7 +67,10 @@
                     "
                     alt=""
                 /></a>
-                <a class="col-sm-1 ms-0 ps-1" href=""
+                <a
+                  class="col-sm-1 ms-0 ps-1"
+                  target="_blank"
+                  :href="data.url_tokopedia"
                   ><img
                     class="img-fluid max-width:100% height:auto rounded"
                     src="/img/tokopedia.png"
@@ -184,7 +195,7 @@
             <div class="col-sm-1"></div>
             <div class="pt-2 col-sm 3 d-flex align-items-center">
               <h1>Ulasan</h1>
-              <h5 class="pt-1">(2)</h5>
+              <h5 class="pt-1">({{ data.reviews.length }})</h5>
               <div class="col-sm-8"></div>
               <div class="">
                 <div class="d-flex">
@@ -265,10 +276,14 @@
             </div>
           </div>
         </div>
-        <Ulasan />
-        <Ulasan />
-        <Ulasan />
-        <Ulasan />
+        <div class="container">
+          <template v-for="review in data.reviews">
+            <Ulasan :review="review" :key="review.id" />
+          </template>
+          <template v-if="data.reviews.length == 0">
+            Data Rating Masih Kosong
+          </template>
+        </div>
       </section>
       <Footer />
     </section>
@@ -380,8 +395,13 @@
                 <div class="col-2 ps-0 pe-0">
                   <a
                     class="d-flex justify-content-start ms-3"
-                    href=""
-                    onclick="return false;"
+                    target="_blank"
+                    :href="
+                      'https://wa.me/628988606069?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
+                      data.code +
+                      ' - ' +
+                      data.name
+                    "
                     ><img
                       id="logo"
                       class="img-fluid rounded"
@@ -396,8 +416,8 @@
                 <div class="col ps-0 pe-0">
                   <a
                     class="d-flex justify-content-start"
-                    href=""
-                    onclick="return false;"
+                    target="_blank"
+                    :href="data.url_tokopedia"
                     ><img
                       id="logo"
                       class="img-fluid rounded"
@@ -428,7 +448,7 @@
           <div class="row">
             <div class="pt-0 d-flex align-items-center">
               <h4 class="col-2 me-2 ps-0">Ulasan</h4>
-              <h6 class="col ps-0 pb-2">(2)</h6>
+              <h6 class="col ps-0 pb-2">({{data.reviews.length}})</h6>
               <div class="">
                 <div class="d-flex">
                   <img
@@ -504,10 +524,14 @@
             </div>
           </div>
         </div>
-        <Ulasan />
-        <Ulasan />
-        <Ulasan />
-        <Ulasan />
+        <div class="container">
+          <template v-for="review in data.reviews">
+            <Ulasan :review="review" :key="review.id" />
+          </template>
+          <template v-if="data.reviews.length == 0">
+            Data Rating Masih Kosong
+          </template>
+        </div>
       </section>
       <Footer />
     </section>
@@ -568,7 +592,7 @@ export default {
     return {
       ASSET_URL: process.env.ASSET_URL,
       slide: 0,
-      sliding: null
+      sliding: null,
     };
   },
   async asyncData({ $axios, params }) {
@@ -585,19 +609,19 @@ export default {
           {
             url: "/",
             name: "Beranda",
-            class: "my-2 ms-3 breadcrumb-item opacity-50"
+            class: "my-2 ms-3 breadcrumb-item opacity-50",
           },
           {
             url: "/",
             name: "Product",
-            class: "my-2 breadcrumb-item active opacity-50"
+            class: "my-2 breadcrumb-item active opacity-50",
           },
           {
             url: "/",
             name: response_data.name,
-            class: "my-2 breadcrumb-item active opacity-50"
-          }
-        ]
+            class: "my-2 breadcrumb-item active opacity-50",
+          },
+        ],
       };
     } catch (error) {
       console.log(error);
@@ -614,7 +638,7 @@ export default {
       try {
         if (this.$auth.loggedIn) {
           let data = {
-            product_id: id
+            product_id: id,
           };
           let response = await this.$axios.$post(
             process.env.API_URL + "/api/wishlists",
@@ -624,13 +648,13 @@ export default {
             this.$toast.success("Successfully delete a product from wishlist", {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000
+              duration: 5000,
             });
           } else {
             this.$toast.success("Successfully add a product to wishlist", {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000
+              duration: 5000,
             });
           }
 
@@ -647,7 +671,7 @@ export default {
       try {
         if (this.$auth.loggedIn) {
           let data = {
-            product_id: product.id
+            product_id: product.id,
           };
           let response = await this.$axios.$post(
             process.env.API_URL + "/api/carts",
@@ -656,7 +680,7 @@ export default {
           this.$toast.success("Successfully add a product to cart", {
             theme: "bubble",
             position: "bottom-right",
-            duration: 5000
+            duration: 5000,
           });
           console.log(response);
         } else {
@@ -667,8 +691,8 @@ export default {
         console.log(error);
       }
     },
-    ...mapActions(["addProductToCart"])
-  }
+    ...mapActions(["addProductToCart"]),
+  },
 };
 </script>
 
