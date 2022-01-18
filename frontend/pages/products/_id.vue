@@ -205,7 +205,7 @@
                     src="/img/emojione_star.png"
                     alt=""
                   />
-                  <h2 class="my-auto">5/5</h2>
+                  <h2 class="my-auto">{{data.rating}}/5</h2>
                 </div>
                 <!-- test -->
                 <div>
@@ -457,7 +457,7 @@
                     src="/img/emojione_star.png"
                     alt=""
                   />
-                  <h3 class="my-auto me-3">5/5</h3>
+                  <h3 class="my-auto me-3">{{data.rating}}/5</h3>
                 </div>
                 <!-- test -->
                 <div>
