@@ -209,7 +209,7 @@ export default {
   #footer-mobileview {
     display: flex;
     background-color: lightgray;
-    position: static;
+    position: fixed;
     padding: 2%;
     bottom: 0;
     width: 100%;

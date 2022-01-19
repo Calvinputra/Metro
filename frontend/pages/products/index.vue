@@ -140,16 +140,7 @@
           </div>
         </div>
       </div>
-      <div class="overflow-auto">
-        <b-pagination-nav
-          :link-gen="linkGen"
-          :number-of-pages="this.totalPage"
-          first-text="First"
-          prev-text="Prev"
-          next-text="Next"
-          last-text="Last"
-        ></b-pagination-nav>
-      </div>
+
       <Footer2mobile />
       <Footer />
     </section>
@@ -180,14 +171,14 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50",
+          class: "my-2 ms-3 breadcrumb-item opacity-50"
         },
         {
           url: "/",
           name: "Product",
-          class: "my-2 breadcrumb-item active opacity-50",
-        },
-      ],
+          class: "my-2 breadcrumb-item active opacity-50"
+        }
+      ]
     };
   },
   async asyncData({ $axios, query }) {
@@ -196,10 +187,10 @@ export default {
         s: query.s,
         page: query.page,
         paginate: query.paginate,
-        category: query.category,
+        category: query.category
       };
       let products = await $axios.$get(process.env.API_URL + "/api/products", {
-        params: data,
+        params: data
       });
       let links = [];
       for (let i = 1; i <= products.meta.last_page; i++) {
@@ -213,7 +204,7 @@ export default {
         links: links,
         totalPage: products.meta.last_page,
         title: products.title,
-        categories: categories.data,
+        categories: categories.data
       };
     } catch (error) {
       console.log(error);
@@ -227,14 +218,14 @@ export default {
           page: pageNum,
           s: this.$route.query.s,
           paginate: this.$route.query.paginate,
-          category: this.$route.query.category,
-        },
+          category: this.$route.query.category
+        }
       };
     },
     pageGen(pageNum) {
       return this.links[pageNum - 1].slice(1);
-    },
+    }
   },
-  watchQuery: ["s", "page", "paginate", "category"],
+  watchQuery: ["s", "page", "paginate", "category"]
 };
 </script>

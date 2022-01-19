@@ -30,7 +30,7 @@
         data-bs-toggle="collapse"
         data-bs-target="#navbarScroll"
         aria-controls="navbarScroll"
-        aria-expanded="false"
+        aria-expanded="true"
         aria-label="Toggle navigation"
       >
         <span class="navbar-toggler-icon"></span>
@@ -95,20 +95,15 @@
     <div
       id="header-mobileview"
       class="container space-between"
-      style="height: auto"
+      style="height: auto; "
     >
-      <!-- hamburger button -->
-      <button
-        class="navbar-toggler text-left"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarScroll"
-        aria-controls="navbarScroll"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <!-- Navbar brand -->
+      <b-nav-item-dropdown text="Menu">
+        <b-dropdown-item href="/login">Login</b-dropdown-item>
+        <b-dropdown-item href="/register">Register</b-dropdown-item>
+        <b-dropdown-item href="#">RU</b-dropdown-item>
+        <b-dropdown-item href="#">FA</b-dropdown-item>
+      </b-nav-item-dropdown>
       <!-- Logo -->
       <div id="header_logo" class="col-sm-2">
         <a href="/"
