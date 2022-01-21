@@ -98,12 +98,30 @@
       style="height: auto; "
     >
       <!-- Navbar brand -->
-      <b-nav-item-dropdown text="Menu">
-        <b-dropdown-item href="/login">Login</b-dropdown-item>
-        <b-dropdown-item href="/register">Register</b-dropdown-item>
-        <b-dropdown-item href="#">RU</b-dropdown-item>
-        <b-dropdown-item href="#">FA</b-dropdown-item>
-      </b-nav-item-dropdown>
+      <div>
+        <b-nav-item-dropdown
+          text="☰"
+          style="font-size: 20px;"
+          class=""
+          no-caret
+        >
+          <b-dropdown-item v-if="!this.$auth.loggedIn" href="/login"
+            >Login</b-dropdown-item
+          >
+          <b-dropdown-item v-if="!this.$auth.loggedIn" href="/register"
+            >Register</b-dropdown-item
+          >
+          <b-dropdown-item v-if="this.$auth.loggedIn" href="/riwayat_pembelian"
+            >Riwayat Pembelian</b-dropdown-item
+          >
+          <b-dropdown-item v-if="this.$auth.loggedIn"
+            >Akun Saya</b-dropdown-item
+          >
+          <b-dropdown-item v-if="this.$auth.loggedIn" @click="logout" active
+            >Logout</b-dropdown-item
+          >
+        </b-nav-item-dropdown>
+      </div>
       <!-- Logo -->
       <div id="header_logo" class="col-sm-2">
         <a href="/"
@@ -155,7 +173,6 @@
               <b-dropdown-item v-if="this.$auth.loggedIn" @click="logout" active
                 >Logout</b-dropdown-item
               >
-              <b-dropdown-item disabled>Disabled action</b-dropdown-item>
             </b-dropdown>
           </div>
           <div class="col-sm-4 mb-2 mt-2">

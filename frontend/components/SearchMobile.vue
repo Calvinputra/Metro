@@ -3,7 +3,7 @@
   <div id="search" class="nav-item  align-self-start mt-2">
     <div class="d-flex">
       <input
-        class="form-control"
+        class="form-control-sm"
         style="border-radius: 10px 0px 0px 10px;"
         type="search"
         placeholder="Cari Barang Di sini"
@@ -17,7 +17,10 @@
         type="submit"
         @click="onSearch"
       >
-        <i class="fas fa-search" style="font-size: 15px !important; color: black !important;"></i>
+        <i
+          class="fas fa-search"
+          style="font-size: 15px !important; color: black !important;"
+        ></i>
       </button>
     </div>
     <!-- kategory -->
