@@ -248,10 +248,10 @@ class ProductController extends \TCG\Voyager\Http\Controllers\VoyagerBaseControl
         foreach ($data->Data as $row) {
             //TODO Row Validation
             $validator = Validator::make((array)$row, [
-                'code' => 'required',
+                'code' => 'nullable',
                 'name' => 'required',
-                'description' => 'required',
-                'brand' => 'required',
+                'description' => 'nullable',
+                'brand' => 'nullable',
                 'price' => 'required|integer',
                 'stock' => 'required|integer',
                 'weight_gr' => 'required',
@@ -274,19 +274,19 @@ class ProductController extends \TCG\Voyager\Http\Controllers\VoyagerBaseControl
             //images 
             $images = array();
             if ($row->image != "") {
-                array_push($images, $row->image);
+                array_push($images, '/products/' . $row->image);
             }
             if ($row->image_2 != "") {
-                array_push($images, $row->image_2);
+                array_push($images, '/products/' . $row->image_2);
             }
             if ($row->image_3 != "") {
-                array_push($images, $row->image_3);
+                array_push($images, '/products/' . $row->image_3);
             }
             if ($row->image_4 != "") {
-                array_push($images, $row->image_4);
+                array_push($images, '/products/' . $row->image_4);
             }
             if ($row->image_5 != "") {
-                array_push($images, $row->image_5);
+                array_push($images, '/products/' . $row->image_5);
             }
 
 
@@ -301,13 +301,17 @@ class ProductController extends \TCG\Voyager\Http\Controllers\VoyagerBaseControl
             }
 
             //product brand
-            // $brand = Brand::where('name', 'LIKE', $row['brand'])->first();
-            // if (!$brand) {
-            //     //kalo category not found
-            //     $brand = Brand::create([
-            //         'name' => $row['Brand']
-            //     ]);
-            // }
+            if (isset($row->brand)) {
+                $brand = Brand::where('name', 'LIKE', $row->brand)->first();
+                if (!$brand) {
+                    //kalo category not found
+                    $brand = Brand::create([
+                        'name' => $row->brand,
+                    ]);
+                }
+            } else {
+                $brand = null;
+            }
 
             //product attribute
             $product_attributes = array();
@@ -369,17 +373,17 @@ class ProductController extends \TCG\Voyager\Http\Controllers\VoyagerBaseControl
 
             $product_data = [
                 'id' => $row->no,
-                'code' => $row->code,
+                'code' => isset($row->code) ? strtoupper($row->code) : null,
                 'name' => $row->name,
-                'description' => $row->description,
-                //'brand_id' => 1,
+                'description' => $row->description ?? '',
+                'brand_id' => ($brand->id) ?? null,
                 'price' => $row->price,
                 'display_price' => $row->price,
                 'weight' => $row->weight_gr,
                 'dimension_width' => $dimension[0] ?? '1',
                 'dimension_height' => $dimension[1] ?? '1',
                 'dimension_depth' => $dimension[2] ?? '1',
-                'stock' => $row->stock,
+                'stock' => $row->stock ?? 0,
                 'category_id' => $category->id,
                 'images' => json_encode($images),
             ];
@@ -392,6 +396,7 @@ class ProductController extends \TCG\Voyager\Http\Controllers\VoyagerBaseControl
         }
 
         foreach ($validated_data as $d) {
+
             $product = Product::create($d['product_data']);
             $product->attributes()->createMany($d['product_attributes']);
         }
