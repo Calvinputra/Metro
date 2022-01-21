@@ -1569,6 +1569,986 @@ class ProductAttributesTableSeeder extends Seeder
                 'updated_at' => '2022-01-21 10:05:02',
                 'deleted_at' => NULL,
             ),
+            155 => 
+            array (
+                'id' => 156,
+                'attribute_id' => 3,
+                'product_id' => 1,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-bath-ub-mixer-tx-496-srsn',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            156 => 
+            array (
+                'id' => 157,
+                'attribute_id' => 3,
+                'product_id' => 2,
+                'value' => 'https://www.tokopedia.com/metro-jaya/shower-tiang-tx-492-srs',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            157 => 
+            array (
+                'id' => 158,
+                'attribute_id' => 3,
+                'product_id' => 3,
+                'value' => 'https://www.tokopedia.com/metro-jaya/shower-tiang-toto-tx-493-srs',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            158 => 
+            array (
+                'id' => 159,
+                'attribute_id' => 3,
+                'product_id' => 4,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-shower-toto-tx-474-srsn',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            159 => 
+            array (
+                'id' => 160,
+                'attribute_id' => 3,
+                'product_id' => 5,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-bath-tub-tx-47-srsn',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            160 => 
+            array (
+                'id' => 161,
+                'attribute_id' => 3,
+                'product_id' => 6,
+                'value' => 'https://www.tokopedia.com/metro-jaya/shower-tiang-toto-492-srs',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            161 => 
+            array (
+                'id' => 162,
+                'attribute_id' => 3,
+                'product_id' => 7,
+                'value' => 'https://www.tokopedia.com/metro-jaya/shower-tiang-set-toto-tx-492-sun',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            162 => 
+            array (
+                'id' => 163,
+                'attribute_id' => 3,
+                'product_id' => 8,
+                'value' => 'https://www.tokopedia.com/metro-jaya/dorma-bts65',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            163 => 
+            array (
+                'id' => 164,
+                'attribute_id' => 3,
+                'product_id' => 9,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-wastafel-elite-e3201b',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            164 => 
+            array (
+                'id' => 165,
+                'attribute_id' => 3,
+                'product_id' => 10,
+                'value' => 'https://www.tokopedia.com/metro-jaya/stopkran-wasser-handle-bintang',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            165 => 
+            array (
+                'id' => 166,
+                'attribute_id' => 3,
+                'product_id' => 11,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-wastafel-wasser-putaran-baling',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            166 => 
+            array (
+                'id' => 167,
+                'attribute_id' => 3,
+                'product_id' => 12,
+                'value' => 'https://www.tokopedia.com/metro-jaya/stop-kran-cabang-sus-304',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            167 => 
+            array (
+                'id' => 168,
+                'attribute_id' => 3,
+                'product_id' => 13,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-wastafel-wasser',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            168 => 
+            array (
+                'id' => 169,
+                'attribute_id' => 3,
+                'product_id' => 14,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-tembok-sus-304',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            169 => 
+            array (
+                'id' => 170,
+                'attribute_id' => 3,
+                'product_id' => 15,
+                'value' => 'https://www.tokopedia.com/metro-jaya/floor-drain-stainless-merk-executive',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            170 => 
+            array (
+                'id' => 171,
+                'attribute_id' => 3,
+                'product_id' => 16,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-cabang-sus-304-merk-kedeng',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            171 => 
+            array (
+                'id' => 172,
+                'attribute_id' => 3,
+                'product_id' => 17,
+                'value' => 'https://www.tokopedia.com/metro-jaya/grease-trap-penyaring-lemak-khusus-gosend-grab',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            172 => 
+            array (
+                'id' => 173,
+                'attribute_id' => 3,
+                'product_id' => 18,
+                'value' => 'https://www.tokopedia.com/metro-jaya/shower-tiang-set-stainless',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            173 => 
+            array (
+                'id' => 174,
+                'attribute_id' => 3,
+                'product_id' => 19,
+                'value' => 'https://www.tokopedia.com/metro-jaya/grease-strap-stainles-304',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            174 => 
+            array (
+                'id' => 175,
+                'attribute_id' => 3,
+                'product_id' => 20,
+                'value' => 'https://www.tokopedia.com/metro-jaya/semprotan-air-kenmaster',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            175 => 
+            array (
+                'id' => 176,
+                'attribute_id' => 3,
+                'product_id' => 21,
+                'value' => 'https://www.tokopedia.com/metro-jaya/semprotan-air-kuningan-kenmaster',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            176 => 
+            array (
+                'id' => 177,
+                'attribute_id' => 3,
+                'product_id' => 22,
+                'value' => 'https://www.tokopedia.com/metro-jaya/safety-valve-water-heate',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            177 => 
+            array (
+                'id' => 178,
+                'attribute_id' => 3,
+                'product_id' => 23,
+                'value' => 'https://www.tokopedia.com/metro-jaya/gembok-cisa-60-ml',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            178 => 
+            array (
+                'id' => 179,
+                'attribute_id' => 3,
+                'product_id' => 24,
+                'value' => 'https://www.tokopedia.com/metro-jaya/gembok-kend-50-ml',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            179 => 
+            array (
+                'id' => 180,
+                'attribute_id' => 3,
+                'product_id' => 25,
+                'value' => 'https://www.tokopedia.com/metro-jaya/gembok-cisa-50ml',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            180 => 
+            array (
+                'id' => 181,
+                'attribute_id' => 3,
+                'product_id' => 26,
+                'value' => 'https://www.tokopedia.com/metro-jaya/gembok-cisa-60mm',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            181 => 
+            array (
+                'id' => 182,
+                'attribute_id' => 3,
+                'product_id' => 27,
+                'value' => 'https://www.tokopedia.com/metro-jaya/gembok-masterlock-150d',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            182 => 
+            array (
+                'id' => 183,
+                'attribute_id' => 3,
+                'product_id' => 28,
+                'value' => 'https://www.tokopedia.com/metro-jaya/gembok-masterlock-2960-d',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            183 => 
+            array (
+                'id' => 184,
+                'attribute_id' => 3,
+                'product_id' => 29,
+                'value' => 'https://www.tokopedia.com/metro-jaya/ariston-an-15-r',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            184 => 
+            array (
+                'id' => 185,
+                'attribute_id' => 3,
+                'product_id' => 30,
+                'value' => 'https://www.tokopedia.com/metro-jaya/grease-trap-penyaring-minyak',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            185 => 
+            array (
+                'id' => 186,
+                'attribute_id' => 3,
+                'product_id' => 31,
+                'value' => 'https://www.tokopedia.com/metro-jaya/set-dual-flush-toto',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            186 => 
+            array (
+                'id' => 187,
+                'attribute_id' => 3,
+                'product_id' => 32,
+                'value' => 'https://www.tokopedia.com/metro-jaya/cylinder-knob-coin-solid',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            187 => 
+            array (
+                'id' => 188,
+                'attribute_id' => 3,
+                'product_id' => 33,
+                'value' => 'https://www.tokopedia.com/metro-jaya/set-dual-flush-mekanik-gerberit-toto-type-g516-g660',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            188 => 
+            array (
+                'id' => 189,
+                'attribute_id' => 3,
+                'product_id' => 34,
+                'value' => 'https://www.tokopedia.com/metro-jaya/pt-10-dorma',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            189 => 
+            array (
+                'id' => 190,
+                'attribute_id' => 3,
+                'product_id' => 35,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-angsa-tembok-elite-e-3212x',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            190 => 
+            array (
+                'id' => 191,
+                'attribute_id' => 3,
+                'product_id' => 36,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-elite-e-3205x',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            191 => 
+            array (
+                'id' => 192,
+                'attribute_id' => 3,
+                'product_id' => 37,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-panas-dingin-flexible-meja-1',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            192 => 
+            array (
+                'id' => 193,
+                'attribute_id' => 3,
+                'product_id' => 38,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-panas-dingin-flexible-meja',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            193 => 
+            array (
+                'id' => 194,
+                'attribute_id' => 3,
+                'product_id' => 39,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-panas-dingin-meja-elite-e3355',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            194 => 
+            array (
+                'id' => 195,
+                'attribute_id' => 3,
+                'product_id' => 40,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kunci-tambahan-db2-solid',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            195 => 
+            array (
+                'id' => 196,
+                'attribute_id' => 3,
+                'product_id' => 41,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kunci-tambahan-db1-solid',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            196 => 
+            array (
+                'id' => 197,
+                'attribute_id' => 3,
+                'product_id' => 42,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kunci-tambahan-db0-solid',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            197 => 
+            array (
+                'id' => 198,
+                'attribute_id' => 3,
+                'product_id' => 43,
+                'value' => 'https://www.tokopedia.com/metro-jaya/silinder-kunci-komputer-solid-double-cylinder',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            198 => 
+            array (
+                'id' => 199,
+                'attribute_id' => 3,
+                'product_id' => 44,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-cabang-ina-1',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            199 => 
+            array (
+                'id' => 200,
+                'attribute_id' => 3,
+                'product_id' => 45,
+                'value' => 'https://www.tokopedia.com/metro-jaya/door-closer-ts68-ho',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            200 => 
+            array (
+                'id' => 201,
+                'attribute_id' => 3,
+                'product_id' => 46,
+                'value' => 'https://www.tokopedia.com/metro-jaya/closet-toto-cw421ecowasser',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            201 => 
+            array (
+                'id' => 202,
+                'attribute_id' => 3,
+                'product_id' => 47,
+                'value' => 'https://www.tokopedia.com/metro-jaya/closet-toto-cw421j',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            202 => 
+            array (
+                'id' => 203,
+                'attribute_id' => 3,
+                'product_id' => 48,
+                'value' => 'https://www.tokopedia.com/metro-jaya/body-pelor-solid-badan-kunci',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            203 => 
+            array (
+                'id' => 204,
+                'attribute_id' => 3,
+                'product_id' => 49,
+                'value' => 'https://www.tokopedia.com/metro-jaya/handle-solid-hre-6141',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            204 => 
+            array (
+                'id' => 205,
+                'attribute_id' => 3,
+                'product_id' => 50,
+                'value' => 'https://www.tokopedia.com/metro-jaya/swing-lockcase-solidbody-lidah-solidbadan-kunci',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            205 => 
+            array (
+                'id' => 206,
+                'attribute_id' => 3,
+                'product_id' => 51,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-bathup-1-set',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            206 => 
+            array (
+                'id' => 207,
+                'attribute_id' => 3,
+                'product_id' => 52,
+                'value' => 'https://www.tokopedia.com/metro-jaya/floor-drain-injak-stainless',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            207 => 
+            array (
+                'id' => 208,
+                'attribute_id' => 3,
+                'product_id' => 53,
+                'value' => 'https://www.tokopedia.com/metro-jaya/tombol-closet-dual-flush',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            208 => 
+            array (
+                'id' => 209,
+                'attribute_id' => 3,
+                'product_id' => 54,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-angsa-meja-flexibel-kotak-elite-e2339',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            209 => 
+            array (
+                'id' => 210,
+                'attribute_id' => 3,
+                'product_id' => 55,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-angsa-tembok-flexibel-kotak-elite-e2337',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            210 => 
+            array (
+                'id' => 211,
+                'attribute_id' => 3,
+                'product_id' => 56,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-angsa-flexibel-meja-elite-e2239',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            211 => 
+            array (
+                'id' => 212,
+                'attribute_id' => 3,
+                'product_id' => 57,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-angs-flexibel-tembok-elite-e2237',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            212 => 
+            array (
+                'id' => 213,
+                'attribute_id' => 3,
+                'product_id' => 58,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-angsa-setengah-tegak-elite-e3213n',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            213 => 
+            array (
+                'id' => 214,
+                'attribute_id' => 3,
+                'product_id' => 59,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-bebek-elite-e3211n',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            214 => 
+            array (
+                'id' => 215,
+                'attribute_id' => 3,
+                'product_id' => 60,
+                'value' => 'https://www.tokopedia.com/metro-jaya/stopkran-elite-e4124',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            215 => 
+            array (
+                'id' => 216,
+                'attribute_id' => 3,
+                'product_id' => 61,
+                'value' => 'https://www.tokopedia.com/metro-jaya/stopkran-elite-e4123n',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            216 => 
+            array (
+                'id' => 217,
+                'attribute_id' => 3,
+                'product_id' => 62,
+                'value' => 'https://www.tokopedia.com/metro-jaya/stopkran-elite-e4127',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            217 => 
+            array (
+                'id' => 218,
+                'attribute_id' => 3,
+                'product_id' => 63,
+                'value' => 'https://www.tokopedia.com/metro-jaya/stopkran-tanam-elite-e3208k',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            218 => 
+            array (
+                'id' => 219,
+                'attribute_id' => 3,
+                'product_id' => 64,
+                'value' => 'https://www.tokopedia.com/metro-jaya/stopkran-tanam-elite-e3208n',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            219 => 
+            array (
+                'id' => 220,
+                'attribute_id' => 3,
+                'product_id' => 65,
+                'value' => 'https://www.tokopedia.com/metro-jaya/stopkran-elite-e3207n',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            220 => 
+            array (
+                'id' => 221,
+                'attribute_id' => 3,
+                'product_id' => 66,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-wastafel-elite-e3201n',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            221 => 
+            array (
+                'id' => 222,
+                'attribute_id' => 3,
+                'product_id' => 67,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-angsa-meja-elite-e3205n',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            222 => 
+            array (
+                'id' => 223,
+                'attribute_id' => 3,
+                'product_id' => 68,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-cabang-elite-e3204n',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            223 => 
+            array (
+                'id' => 224,
+                'attribute_id' => 3,
+                'product_id' => 69,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-taman-elite-e3203n-bergaransi',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            224 => 
+            array (
+                'id' => 225,
+                'attribute_id' => 3,
+                'product_id' => 70,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-tembok-elite-e3202n-bergaransi',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            225 => 
+            array (
+                'id' => 226,
+                'attribute_id' => 3,
+                'product_id' => 71,
+                'value' => 'https://www.tokopedia.com/metro-jaya/patch-fitting-solid-pt10',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            226 => 
+            array (
+                'id' => 227,
+                'attribute_id' => 3,
+                'product_id' => 72,
+                'value' => 'https://www.tokopedia.com/metro-jaya/pt21-solid',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            227 => 
+            array (
+                'id' => 228,
+                'attribute_id' => 3,
+                'product_id' => 73,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-tembok-cello-cl110',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            228 => 
+            array (
+                'id' => 229,
+                'attribute_id' => 3,
+                'product_id' => 74,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-tembok-fio',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            229 => 
+            array (
+                'id' => 230,
+                'attribute_id' => 3,
+                'product_id' => 75,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-panas-dingin-1-set',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            230 => 
+            array (
+                'id' => 231,
+                'attribute_id' => 3,
+                'product_id' => 76,
+                'value' => 'https://www.tokopedia.com/metro-jaya/double-neple-1',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            231 => 
+            array (
+                'id' => 232,
+                'attribute_id' => 3,
+                'product_id' => 77,
+                'value' => 'https://www.tokopedia.com/metro-jaya/selang-bak-cuci-piring-1m',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            232 => 
+            array (
+                'id' => 233,
+                'attribute_id' => 3,
+                'product_id' => 78,
+                'value' => 'https://www.tokopedia.com/metro-jaya/grandel-tanam-dekson-8',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            233 => 
+            array (
+                'id' => 234,
+                'attribute_id' => 3,
+                'product_id' => 79,
+                'value' => 'https://www.tokopedia.com/metro-jaya/afur-stainless-bcp',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            234 => 
+            array (
+                'id' => 235,
+                'attribute_id' => 3,
+                'product_id' => 80,
+                'value' => 'https://www.tokopedia.com/metro-jaya/karet-buat-pembilas-toto',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            235 => 
+            array (
+                'id' => 236,
+                'attribute_id' => 3,
+                'product_id' => 81,
+                'value' => 'https://www.tokopedia.com/metro-jaya/grease-trap-khusus-gosend',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            236 => 
+            array (
+                'id' => 237,
+                'attribute_id' => 3,
+                'product_id' => 82,
+                'value' => 'https://www.tokopedia.com/metro-jaya/bts-84-dorma-komplit',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            237 => 
+            array (
+                'id' => 238,
+                'attribute_id' => 3,
+                'product_id' => 83,
+                'value' => 'https://www.tokopedia.com/metro-jaya/pelampung-radar',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            238 => 
+            array (
+                'id' => 239,
+                'attribute_id' => 3,
+                'product_id' => 84,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-sink-waterplus-mkn-035',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            239 => 
+            array (
+                'id' => 240,
+                'attribute_id' => 3,
+                'product_id' => 85,
+                'value' => 'https://www.tokopedia.com/metro-jaya/lubangin-sink',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            240 => 
+            array (
+                'id' => 241,
+                'attribute_id' => 3,
+                'product_id' => 86,
+                'value' => 'https://www.tokopedia.com/metro-jaya/keran-kran-angsa-stainles-kran-dapur',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            241 => 
+            array (
+                'id' => 242,
+                'attribute_id' => 3,
+                'product_id' => 87,
+                'value' => 'https://www.tokopedia.com/metro-jaya/door-closer-dekson-302-hold-open',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            242 => 
+            array (
+                'id' => 243,
+                'attribute_id' => 3,
+                'product_id' => 88,
+                'value' => 'https://www.tokopedia.com/metro-jaya/selang-bcp-tarik',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            243 => 
+            array (
+                'id' => 244,
+                'attribute_id' => 3,
+                'product_id' => 89,
+                'value' => 'https://www.tokopedia.com/metro-jaya/selang-bak-cuci-piring-95cm',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            244 => 
+            array (
+                'id' => 245,
+                'attribute_id' => 3,
+                'product_id' => 90,
+                'value' => 'https://www.tokopedia.com/metro-jaya/handle-pintu-1-set-vnr-511',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            245 => 
+            array (
+                'id' => 246,
+                'attribute_id' => 3,
+                'product_id' => 91,
+                'value' => 'https://www.tokopedia.com/metro-jaya/bak-cuci-piring',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            246 => 
+            array (
+                'id' => 247,
+                'attribute_id' => 3,
+                'product_id' => 92,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-angsa-flexible-1',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            247 => 
+            array (
+                'id' => 248,
+                'attribute_id' => 3,
+                'product_id' => 93,
+                'value' => 'https://www.tokopedia.com/metro-jaya/wall-shower-bagus-murah',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            248 => 
+            array (
+                'id' => 249,
+                'attribute_id' => 3,
+                'product_id' => 94,
+                'value' => 'https://www.tokopedia.com/metro-jaya/shower-tiang-kran',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            249 => 
+            array (
+                'id' => 250,
+                'attribute_id' => 3,
+                'product_id' => 95,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-panas-dingin-1',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            250 => 
+            array (
+                'id' => 251,
+                'attribute_id' => 3,
+                'product_id' => 96,
+                'value' => 'https://www.tokopedia.com/metro-jaya/kran-cabang-murah',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            251 => 
+            array (
+                'id' => 252,
+                'attribute_id' => 3,
+                'product_id' => 97,
+                'value' => 'https://www.tokopedia.com/metro-jaya/hordeng-kamar-mandi',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
+            252 => 
+            array (
+                'id' => 253,
+                'attribute_id' => 3,
+                'product_id' => 98,
+                'value' => 'https://www.tokopedia.com/metro-jaya/tiang-hordeng',
+                'created_at' => '2022-01-21 11:23:13',
+                'updated_at' => '2022-01-21 11:23:13',
+                'deleted_at' => NULL,
+            ),
         ));
         
         
