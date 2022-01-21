@@ -12,6 +12,31 @@
               <div class="row">
                 <div>
                   <h1>Kategory</h1>
+                  <template v-if="!($route.query.category)">
+                      <div
+                        class="rounded"
+                        style="background-color: #841c26"
+                      >
+                      <nuxt-link
+                          to="/products"
+                          class="text-white"
+                          style="text-decoration: none"
+                          ><p class="py-2 ps-2 mb-2">
+                            Semua Kategori
+                          </p>
+                        </nuxt-link>
+                      </div>
+                  </template>
+                  <template v-else>
+                     <nuxt-link
+                        to="/products"
+                        style="text-decoration: none"
+                        class="text-black"
+                        ><p class="ms-2 mb-3">Semua Kategori</p>
+                      </nuxt-link>
+                  </template>
+
+                  
                   <template v-for="category in categories">
                     <template v-if="$route.query.category == category.id">
                       <div
