@@ -675,6 +675,14 @@ class PermissionsTableSeeder extends Seeder
                 'created_at' => '2021-12-22 13:51:15',
                 'updated_at' => '2021-12-22 13:51:15',
             ),
+            82 => 
+            array (
+                'id' => 83,
+                'key' => 'import_products',
+                'table_name' => 'products',
+                'created_at' => '2022-01-16 13:28:41',
+                'updated_at' => '2022-01-16 13:28:41',
+            ),
         ));
         
         

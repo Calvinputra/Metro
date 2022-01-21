@@ -2391,9 +2391,33 @@ class PersonalAccessTokensTableSeeder extends Seeder
                 'name' => 'ApiToken',
                 'token' => 'eabf245fdb9f2ccd228d003f5f411114610460b8074c346dc938c9286fc2c1b4',
                 'abilities' => '["*"]',
-                'last_used_at' => '2022-01-15 16:28:52',
+                'last_used_at' => '2022-01-18 17:15:53',
                 'created_at' => '2022-01-15 15:46:09',
-                'updated_at' => '2022-01-15 16:28:52',
+                'updated_at' => '2022-01-18 17:15:53',
+            ),
+            198 => 
+            array (
+                'id' => 207,
+                'tokenable_type' => 'App\\Models\\Customer',
+                'tokenable_id' => 1,
+                'name' => 'ApiToken',
+                'token' => '9123d4068be5c4c77568202874a818712affa3fea7f828c879861ad485e849fb',
+                'abilities' => '["*"]',
+                'last_used_at' => NULL,
+                'created_at' => '2022-01-21 09:17:31',
+                'updated_at' => '2022-01-21 09:17:31',
+            ),
+            199 => 
+            array (
+                'id' => 208,
+                'tokenable_type' => 'App\\Models\\Customer',
+                'tokenable_id' => 1,
+                'name' => 'ApiToken',
+                'token' => '71327fa8dd588b6a5b2321a7a5b8dfd0a672cc9fa44b2b85e312dc34be687451',
+                'abilities' => '["*"]',
+                'last_used_at' => '2022-01-21 09:17:34',
+                'created_at' => '2022-01-21 09:17:32',
+                'updated_at' => '2022-01-21 09:17:34',
             ),
         ));
         

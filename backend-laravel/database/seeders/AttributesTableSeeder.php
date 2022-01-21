@@ -39,6 +39,16 @@ class AttributesTableSeeder extends Seeder
                 'updated_at' => '2021-11-09 02:36:53',
                 'deleted_at' => NULL,
             ),
+            2 => 
+            array (
+                'id' => 3,
+                'name' => 'url_tokopedia',
+                'required' => 0,
+                'options' => NULL,
+                'created_at' => '2022-01-16 16:57:07',
+                'updated_at' => '2022-01-16 16:57:07',
+                'deleted_at' => NULL,
+            ),
         ));
         
         
