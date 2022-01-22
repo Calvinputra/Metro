@@ -11,19 +11,17 @@
             </div>
             <div
               class="
-              col-sm-9
-              offset-md-1
-              align-self-start
-              mt-2
-              row
-              justify-content-between
-            "
+                col-sm-9
+                offset-md-1
+                align-self-start
+                mt-2
+                row
+                justify-content-between
+              "
             >
               <div class="col-sm-12">
                 <label class="mb-0"
-                  ><h2 class="font-weight-bold">
-                    Ubah profile
-                  </h2></label
+                  ><h2 class="font-weight-bold">Ubah profile</h2></label
                 >
               </div>
               <div class="mb-4">
@@ -135,18 +133,20 @@
 
                     <div class="text-center me-5 pe-5">
                       <button
-                        @click.prevent="doRegister"
+                        @click.prevent="doEditProfile"
                         type="submit"
                         class="
-                        btn
-                        text-danger
-                        btn-light btn-sm
-                        rounded
-                        col-sm-2
-                        ms-0
-                        p-2
-                      "
-                        style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+                          btn
+                          text-danger
+                          btn-light btn-sm
+                          rounded
+                          col-sm-2
+                          ms-0
+                          p-2
+                        "
+                        style="
+                          box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                        "
                       >
                         Ubah profile
                       </button>
@@ -190,19 +190,17 @@
             </div>
             <div
               class="
-              col-sm-9
-              offset-md-1
-              align-self-start
-              mt-2
-              row
-              justify-content-between
-            "
+                col-sm-9
+                offset-md-1
+                align-self-start
+                mt-2
+                row
+                justify-content-between
+              "
             >
               <div class="col-sm-12">
                 <label class="mb-0"
-                  ><h2 class="font-weight-bold">
-                    Ubah profile
-                  </h2></label
+                  ><h2 class="font-weight-bold">Ubah profile</h2></label
                 >
               </div>
               <div class="mb-4">
@@ -218,9 +216,7 @@
               <div>
                 <div class="row justify-content-start">
                   <form>
-                    <div class="register-form-title">
-                      Ubah Data Diri
-                    </div>
+                    <div class="register-form-title">Ubah Data Diri</div>
                     <b-alert
                       v-model="showDismissibleAlert"
                       variant="danger"
@@ -271,9 +267,7 @@
                       />
                     </div>
 
-                    <div class="register-form-title">
-                      Alamat Pengiriman
-                    </div>
+                    <div class="register-form-title">Alamat Pengiriman</div>
                     <div class="form-group col-sm-10">
                       <label for="address">Alamat Lengkap:</label>
                       <textarea
@@ -314,18 +308,20 @@
 
                     <div class="text-center">
                       <button
-                        @click.prevent="doRegister"
+                        @click.prevent="doEditProfile"
                         type="submit"
                         class="
-                        btn
-                        text-danger
-                        btn-light btn-sm
-                        rounded
-                        ms-0
-                        mb-3
-                        p-2
-                      "
-                        style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+                          btn
+                          text-danger
+                          btn-light btn-sm
+                          rounded
+                          ms-0
+                          mb-3
+                          p-2
+                        "
+                        style="
+                          box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                        "
                       >
                         Ubah profile
                       </button>
@@ -394,19 +390,19 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50"
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
         },
         {
           url: "/register",
           name: "Register",
-          class: "my-2 breadcrumb-item active opacity-50"
-        }
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
       ],
       //alert
       errors: null,
       dismissSecs: 10,
       dismissCountDown: 0,
-      showDismissibleAlert: false
+      showDismissibleAlert: false,
     };
   },
   methods: {
@@ -418,7 +414,7 @@ export default {
         response.data.forEach((value, index) => {
           this.countries.push({
             label: value.name,
-            code: value.id
+            code: value.id,
           });
         });
         console.log(this.countries);
@@ -435,7 +431,7 @@ export default {
         response.data.forEach((value, index) => {
           this.provinces.push({
             label: value.name,
-            code: value.id
+            code: value.id,
           });
         });
       } catch (error) {
@@ -451,53 +447,38 @@ export default {
         response.data.forEach((value, index) => {
           this.cities.push({
             label: value.name,
-            code: value.id
+            code: value.id,
           });
         });
       } catch (error) {
         console.log(error);
       }
     },
-    async doRegister() {
+    async doEditProfile() {
       try {
         let data = {
           first_name: this.first_name,
           last_name: this.last_name,
           phone: this.phone,
-          email: this.email,
-          password: this.password,
-          password_confirmation: this.password_confirmation,
           address: this.address,
-          country: this.country_id,
-          province: this.province_id,
-          city: this.city_id,
-          postal_code: this.postal_code,
-          agreement_1: this.agreement_1,
-          agreement_2: this.agreement_2
+          //country: this.country_id,
+          //province: this.province_id,
+          //city: this.city_id,
+          //postal_code: this.postal_code,
         };
-        console.log(data);
         let response = await this.$axios.$post(
-          process.env.API_URL + "/api/register",
+          process.env.API_URL + "/api/edit_profile",
           data
         );
         if (response.success) {
           //success registration
           this.showDismissibleAlert = false;
-          this.$toast.success("Successfully register", {
+          this.$toast.success("Successfully Edit profile", {
             theme: "bubble",
             position: "bottom-right",
-            duration: 5000
+            duration: 5000,
           });
-          await this.$auth.loginWith("laravelSanctum", {
-            data: {
-              email: this.email,
-              password: this.password
-            }
-          });
-          setTimeout(() => {
-            window.location.reload(true);
-          }, 1000);
-          this.$router.push("/");
+          this.$router.push("/profile");
         } else {
           this.errors = response.message;
           this.showDismissibleAlert = true;
@@ -507,7 +488,7 @@ export default {
               this.$toast.error(err[key][key2], {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000
+                duration: 5000,
               });
             });
           });
@@ -516,32 +497,29 @@ export default {
       } catch (error) {
         console.log(error);
       }
-    }
+    },
   },
   head() {
     return {
       script: [
         {
-          src:
-            "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+          src: "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js",
         },
         {
-          src:
-            "https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"
-        }
+          src: "https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js",
+        },
       ],
       link: [
         {
           rel: "stylesheet",
-          href:
-            "https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
-        }
-      ]
+          href: "https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css",
+        },
+      ],
     };
   },
   created() {
     this.getCountry();
-  }
+  },
 };
 </script>
 
@@ -571,3 +549,19 @@ export default {
   }
 }
 </style>
+
+<script>
+export default {
+  middleware: "auth",
+  data() {
+    return {
+      first_name: this.$auth.user.first_name,
+      last_name: this.$auth.user.last_name,
+      phone: this.$auth.user.phone,
+      address: this.$auth.user.addresses[0].address,
+      province_id: this.$auth.user.addresses[0].province_id,
+      city_id: this.$auth.user.addresses[0].province_id,
+    };
+  },
+};
+</script>

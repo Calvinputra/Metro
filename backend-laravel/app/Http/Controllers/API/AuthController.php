@@ -135,6 +135,53 @@ class AuthController extends Controller
         ], 200);
     }
 
+    public function editProfile(Request $request)
+    {
+        $user = Customer::where('token', '=', request()->bearerToken())->first();
+        if ($user) {
+            $rules = [
+                'first_name'  => 'required|min:3',
+                'last_name'   => 'required|min:3',
+                'phone'       => 'required|min:8|unique:customers,phone|starts_with:08',
+                'address'     => 'required|min:10',
+                // 'country'     => 'required',
+                //'province'    => 'required',
+                //'city'        => 'required',
+            ];
+            $messages = [
+                'first_name.required' => 'Nama depan wajib diisi'
+            ];
+            $validator = Validator::make($request->all(), $rules, $messages);
+
+
+            if ($validator->fails()) {
+                return response([
+                    'success' => false,
+                    'message' => $validator->errors(),
+                ], 200);
+            }
+            $user->update([
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'phone' => $request->phone,
+                'address' => $request->address,
+            ]);
+
+            //return success
+            return response()->json([
+                'success' => true,
+                'message' => ['msg' => ['Succesfully Edit Profile ']],
+                'data' => $user,
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'data'   => 'Unauthorized Action',
+                'status' => 503,
+            ]);
+        }
+    }
+
     //GENERATE TOKEN FUNCTION
     private function generateToken($customer, $type)
     {
@@ -304,7 +351,7 @@ class AuthController extends Controller
     }
 
     //CHANGE PASSWORD
-    public function changePassword(Request $request)
+    public function changePasswordReset(Request $request)
     {
         $user = Customer::where('token', '=', request()->bearerToken())->first();
         if ($user) {
@@ -332,6 +379,60 @@ class AuthController extends Controller
                 'message' => ['msg' => ['Succesfully Reset your password']],
                 'data' => $user,
             ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'data'   => 'Unauthorized Action',
+                'status' => 503,
+            ]);
+        }
+    }
+
+    public function changePassword(Request $request)
+    {
+        $user = Customer::where('token', '=', request()->bearerToken())->first();
+        if ($user) {
+            if (password_verify($request->old_password, $user->password)) {
+                if (password_verify($request->password, $user->password)) {
+                    return response()->json([
+                        'success' => false,
+                        'message' => ['msg' => ['Password lama dengan password baru sama']],
+                    ]);
+                }
+
+                $rules = [
+                    'old_password' => 'required',
+                    'password' => ['required', 'confirmed', Password::min(8)->mixedCase()->numbers()->uncompromised()]
+                ];
+                $messages = [
+                    'old_password.required' => 'password lama wajib diisi',
+                    'password.required' => 'password wajib diisi',
+                    'password.confirmed' => 'konfirmasi password tidak sama'
+                ];
+                $validator = Validator::make($request->all(), $rules, $messages);
+                if ($validator->fails()) {
+                    return response([
+                        'success' => false,
+                        'message' => $validator->errors(),
+                    ], 200);
+                }
+                $user->update([
+                    'password' => password_hash($request->password, PASSWORD_DEFAULT),
+                ]);
+
+                //return success
+                return response()->json([
+                    'success' => true,
+                    'message' => ['msg' => ['Succesfully Reset your password']],
+                    'data' => $user,
+                ]);
+            } else {
+                //not authenticate
+                return response()->json([
+                    'success' => false,
+                    'message' => ['msg' => ['Password lama salah']],
+                ]);
+            }
         } else {
             return response()->json([
                 'success' => false,

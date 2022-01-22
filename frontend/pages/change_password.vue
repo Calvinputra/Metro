@@ -38,9 +38,7 @@
             <div>
               <div class="row justify-content-start">
                 <form>
-                  <div class="register-form-title">
-                    Masukan Kata Sandi
-                  </div>
+                  <div class="register-form-title">Masukan Kata Sandi</div>
                   <b-alert
                     v-model="showDismissibleAlert"
                     variant="danger"
@@ -59,12 +57,12 @@
                       >Kata Sandi Lama<span style="color: red">*</span>:</label
                     >
                     <input
-                      type="text"
+                      type="password"
                       class="form-control"
                       id="password"
                       name="password"
                       placeholder="Password"
-                      v-model="password"
+                      v-model="old_password"
                     />
                   </div>
                   <div class="form-group col-sm-11">
@@ -97,22 +95,16 @@
                     />
                   </div>
 
-                  <p style="color: red">
-                    Wajib diisi*
-                  </p>
+                  <p style="color: red">Wajib diisi*</p>
                   <br />
                   <div class="text-center">
                     <button
-                      @click.prevent="doRegister"
+                      @click.prevent="doChangePassword"
                       type="submit"
-                      class="
-                        btn
-                        text-danger
-                        btn-light btn-sm
-                        rounded
-                        p-2
+                      class="btn text-danger btn-light btn-sm rounded p-2"
+                      style="
+                        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                       "
-                      style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;"
                     >
                       Perbarui Kata Sandi
                     </button>
@@ -147,31 +139,51 @@
     </client-only>
   </section>
 </template>
-<!-- @extends('beautymail::templates.sunny')
-
-@section('content')
-
-@include ('beautymail::templates.sunny.heading' , [
-'heading' =>'Verify your email to finish signing up for Metro Jaya',
-'level' => 'h1',
-])
-
-@include('beautymail::templates.sunny.contentStart')
-<div style="background-color: #841C26; color:white; padding: 5%;">
-    <p class="text-white">
-        Hello Jason Renata,
-    </p>
-    <p>Thank you for choosing Metro Jaya!<br>One more step to shop with us, please confirm
-        your email by clicking on the button below</p>
-
-</div>
-@include('beautymail::templates.sunny.contentEnd')
-<div style="background-color: #841C26;">
-
-    @include('beautymail::templates.sunny.button', [
-    'title' => 'Verify email',
-    'link' => $url
-    ])
-</div>
-
-@stop -->
+<script>
+export default {
+  middleware: "auth",
+  data() {
+    return {
+      old_password: "",
+      password: "",
+      password_confirmation: "",
+    };
+  },
+  methods: {
+    async doChangePassword() {
+      try {
+        let data = {
+          old_password: this.old_password,
+          password: this.password,
+          password_confirmation: this.password_confirmation,
+        };
+        let response = await this.$axios.$post(
+          process.env.API_URL + "/api/change_password",
+          data
+        );
+        if (response.success) {
+          this.$toast.success("Successfully change password", {
+            theme: "bubble",
+            position: "bottom-right",
+            duration: 5000,
+          });
+          this.$router.push("/profile");
+        } else {
+          let err = response.message;
+          Object.keys(err).forEach((key, error) => {
+            Object.keys(err[key]).forEach((key2, e) => {
+              this.$toast.error(err[key][key2], {
+                theme: "bubble",
+                position: "bottom-right",
+                duration: 5000,
+              });
+            });
+          });
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
+};
+</script>

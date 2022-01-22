@@ -85,7 +85,8 @@
                   </form>
                   <div class="text-center">
                     <br />
-                    <button
+                    <Nuxt-link
+                      to="/editprofile"
                       type="button"
                       class="btn btn-light text-danger col-sm-3"
                       style="
@@ -93,7 +94,7 @@
                       "
                     >
                       Ubah Informasi Akun
-                    </button>
+                    </Nuxt-link>
                   </div>
                 </div>
               </div>

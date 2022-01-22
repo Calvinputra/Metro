@@ -35,7 +35,10 @@ Route::post('/logout',  [AuthController::class, 'logout'])->middleware('auth:san
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/forgot_password', [AuthController::class, 'forgotPasswordRequest']);
 Route::post('/reset_password', [AuthController::class, 'resetPassword']);
+Route::post('/change_password', [AuthController::class, 'changePassword']);
+Route::post('/change_password_reset', [AuthController::class, 'changePasswordReset']);
 Route::post('/verify_email', [AuthController::class, 'verifyEmail']);
+Route::post('/edit_profile', [AuthController::class, 'editProfile']);
 
 Route::apiResource('/menus', MenuController::class);
 Route::apiResource('/products', ProductController::class);
