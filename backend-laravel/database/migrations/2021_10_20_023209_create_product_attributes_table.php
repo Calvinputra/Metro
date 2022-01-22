@@ -19,8 +19,8 @@ class CreateProductAttributesTable extends Migration
             $table->unsignedBigInteger('product_id');
             $table->string('value');
             $table->timestamps();
-            //$table->foreign('attribute_id')->references('id')->on('attributes');
-            //$table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('attribute_id')->references('id')->on('attributes');
+            $table->foreign('product_id')->references('id')->on('products');
             $table->softDeletes();
         });
     }

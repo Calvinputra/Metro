@@ -14,13 +14,14 @@ class AccountsTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
+
 
         \DB::table('accounts')->delete();
-        
-        \DB::table('accounts')->insert(array (
-            0 => 
-            array (
+
+        \DB::table('accounts')->insert(array(
+            0 =>
+            array(
                 'id' => 1,
                 'code' => '1000',
                 'name' => 'Saldo',
@@ -28,8 +29,8 @@ class AccountsTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            1 => 
-            array (
+            1 =>
+            array(
                 'id' => 2,
                 'code' => '2000',
                 'name' => 'Saldo ditahan',
@@ -38,7 +39,5 @@ class AccountsTableSeeder extends Seeder
                 'updated_at' => NULL,
             ),
         ));
-        
-        
     }
 }

@@ -14,13 +14,14 @@ class CustomerAddressesTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
+
 
         \DB::table('customer_addresses')->delete();
-        
-        \DB::table('customer_addresses')->insert(array (
-            0 => 
-            array (
+
+        \DB::table('customer_addresses')->insert(array(
+            0 =>
+            array(
                 'id' => 1,
                 'name' => 'Alamat Rumah',
                 'address' => 'Kav hankam Blok W2 No 6b',
@@ -33,8 +34,8 @@ class CustomerAddressesTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            1 => 
-            array (
+            1 =>
+            array(
                 'id' => 2,
                 'name' => 'Home',
                 'address' => 'Jalan 321 jakarta',
@@ -47,8 +48,8 @@ class CustomerAddressesTableSeeder extends Seeder
                 'updated_at' => '2021-12-11 04:48:02',
                 'deleted_at' => NULL,
             ),
-            2 => 
-            array (
+            2 =>
+            array(
                 'id' => 3,
                 'name' => 'Home',
                 'address' => 'Jalan ABC Jakarta',
@@ -61,8 +62,8 @@ class CustomerAddressesTableSeeder extends Seeder
                 'updated_at' => '2021-12-11 04:49:35',
                 'deleted_at' => NULL,
             ),
-            3 => 
-            array (
+            3 =>
+            array(
                 'id' => 4,
                 'name' => 'Home',
                 'address' => 'Jalan abc123 jakarta',
@@ -76,7 +77,5 @@ class CustomerAddressesTableSeeder extends Seeder
                 'deleted_at' => NULL,
             ),
         ));
-        
-        
     }
 }

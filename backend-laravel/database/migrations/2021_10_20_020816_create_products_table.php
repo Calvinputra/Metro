@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('code')->unique()->nullable();
             $table->string('name');
-            $table->text('description',1000);
+            $table->text('description',2000);
             $table->double('display_price')->default(0);
             $table->double('price')->default(0);
             $table->double('weight')->default(0);
@@ -25,7 +25,7 @@ class CreateProductsTable extends Migration
             $table->double('dimension_height')->default(0);
             $table->double('dimension_depth')->default(0);
             $table->double('stock')->default(0);
-            $table->string('images')->nullable();
+            $table->json('images')->nullable();
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('brand_id')->nullable(); //sementara nullable
             $table->timestamps();

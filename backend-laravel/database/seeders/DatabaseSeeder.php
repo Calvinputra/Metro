@@ -25,10 +25,8 @@ class DatabaseSeeder extends Seeder
         $this->call(SettingsTableSeeder::class);
         $this->call(UsersTableSeeder::class);
         $this->call(PersonalAccessTokensTableSeeder::class);
-        $this->call(AttributesTableSeeder::class);
-        $this->call(BrandsTableSeeder::class);
-
         $this->call(CategoriesTableSeeder::class);
+        $this->call(AttributesTableSeeder::class);
         $this->call(ProductsTableSeeder::class);
         $this->call(ProductAttributesTableSeeder::class);
         $this->call(CountriesTableSeeder::class);
@@ -47,7 +45,8 @@ class DatabaseSeeder extends Seeder
         $this->call(BalancesTableSeeder::class);
         $this->call(AccountsTableSeeder::class);
         $this->call(BalanceLedgersTableSeeder::class);
-        //$this->call(AccountLedgersTableSeeder::class);
+        $this->call(AccountLedgersTableSeeder::class);
         $this->call(WebsiteFeedbackTableSeeder::class);
+        $this->call(BrandsTableSeeder::class);
     }
 }

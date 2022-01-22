@@ -16,6 +16,7 @@ class TransactionStatusesTableSeeder extends Seeder
     {
         
 
+       
         \DB::table('transaction_statuses')->delete();
         
         \DB::table('transaction_statuses')->insert(array (
@@ -55,6 +56,9 @@ class TransactionStatusesTableSeeder extends Seeder
                 'updated_at' => NULL,
             ),
         ));
+        
+        
+        
         
         
     }

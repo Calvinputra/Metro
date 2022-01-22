@@ -16,6 +16,7 @@ class CustomersTableSeeder extends Seeder
     {
         
 
+       
         \DB::table('customers')->delete();
         
         \DB::table('customers')->insert(array (
@@ -110,6 +111,9 @@ class CustomersTableSeeder extends Seeder
                 'deleted_at' => NULL,
             ),
         ));
+        
+        
+        
         
         
     }
