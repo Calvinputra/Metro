@@ -122,7 +122,7 @@ export default {
           slidesPerView: 3
         },
         250: {
-          slidesPerView: 2
+          slidesPerView: 1
         }
       },
       pagination: {

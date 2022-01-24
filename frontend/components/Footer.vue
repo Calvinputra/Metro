@@ -13,7 +13,9 @@
           <!-- Grid column -->
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <!-- Content -->
-            <a href=""><img src="img/audiblelogo.png" class="mb-3" alt=""/></a>
+            <a href=""
+              ><img style="width:50%" src="img/logo.png" class="mb-3" alt=""
+            /></a>
             <p>
               Jl.Raya kb.Jeruk, No.27, RT 2/RW 9, Kb. Jeruk Kec Kb.Jeruk, Kota
               Jakarta Barat, Daerah Khusus Ibukota Jakarta 11520

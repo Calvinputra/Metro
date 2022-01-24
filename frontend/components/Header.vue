@@ -16,7 +16,7 @@
           ><img
             style="width: 80%"
             class="img-fluid rounded mx-auto d-block"
-            src="/img/metro.png"
+            src="/img/logo.png"
             alt=""
         /></a>
       </div>
@@ -131,9 +131,8 @@
             alt=""
         /></a>
       </div>
-      <div>
-        <img src="/img/audiblelogo.png" alt="" />
-      </div>
+      <img style="width: 20%" src="/img/logo.png" alt="" />
+
       <search-mobile />
 
       <!-- icon -->

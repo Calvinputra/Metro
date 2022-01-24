@@ -66,7 +66,7 @@
           style="text-decoration: none !important; color: black;"
         >
           <div
-            class="card mb-5 bg-white rounded"
+            class="card mb-5 bg-black"
             style="width: 100%; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25) !important; border-radius: 10px;"
           >
             <img
