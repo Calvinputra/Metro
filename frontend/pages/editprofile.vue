@@ -368,19 +368,14 @@ export default {
   // auth: "guest",
   data() {
     return {
-      first_name: null,
-      last_name: null,
-      phone: null,
-      email: null,
-      password: null,
-      password_confirmation: null,
-      address: null,
-      country_id: 0,
-      city_id: 0,
-      province_id: 0,
+      first_name: this.$auth.user.first_name,
+      last_name: this.$auth.user.last_name,
+      phone: this.$auth.user.phone,
+      address: this.$auth.user.addresses[0].address,
+      province_id: this.$auth.user.addresses[0].province_id,
+      city_id: this.$auth.user.addresses[0].province_id,
+      citcountry_idy_id: this.$auth.user.addresses[0].country_id,
       postal_code: null,
-      agreement_1: false,
-      agreement_2: false,
       //data v select
       cities: [],
       countries: [],
@@ -472,6 +467,7 @@ export default {
         );
         if (response.success) {
           //success registration
+          this.$auth.fetchUser() //refresh user data
           this.showDismissibleAlert = false;
           this.$toast.success("Successfully Edit profile", {
             theme: "bubble",
@@ -550,18 +546,3 @@ export default {
 }
 </style>
 
-<script>
-export default {
-  middleware: "auth",
-  data() {
-    return {
-      first_name: this.$auth.user.first_name,
-      last_name: this.$auth.user.last_name,
-      phone: this.$auth.user.phone,
-      address: this.$auth.user.addresses[0].address,
-      province_id: this.$auth.user.addresses[0].province_id,
-      city_id: this.$auth.user.addresses[0].province_id,
-    };
-  },
-};
-</script>

@@ -12,7 +12,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Str;
 use App\Jobs\SendEmailRegistrationJob;
 use App\Jobs\SendEmailResetPasswordRequestJob;
-
+use Illuminate\Validation\Rule;
 
 class AuthController extends Controller
 {
@@ -142,7 +142,11 @@ class AuthController extends Controller
             $rules = [
                 'first_name'  => 'required|min:3',
                 'last_name'   => 'required|min:3',
-                'phone'       => 'required|min:8|unique:customers,phone|starts_with:08',
+                'phone'       => [
+                    'required', 'min:8',
+                    'starts_with:08',
+                    Rule::unique('customers', 'phone')->ignore($user->id)
+                ],
                 'address'     => 'required|min:10',
                 // 'country'     => 'required',
                 //'province'    => 'required',
@@ -164,7 +168,9 @@ class AuthController extends Controller
                 'first_name' => $request->first_name,
                 'last_name' => $request->last_name,
                 'phone' => $request->phone,
-                'address' => $request->address,
+            ]);
+            $user->addresses()->first()->update([
+                'address'=>$request->address
             ]);
 
             //return success

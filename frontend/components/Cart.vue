@@ -2,9 +2,9 @@
   <tr>
     <td>
       <div class="product-item text-middle" style="display: flex">
-        <div class="form-check mt-auto mb-auto ">
+        <div class="form-check mt-auto mb-auto">
           <input
-            class="form-check-input p-2 me-3 "
+            class="form-check-input p-2 me-3"
             type="checkbox"
             id="flexCheckChecked"
             v-model="process_model"
@@ -42,12 +42,12 @@
     <td class="text-center text-lg text-medium align-middle pt-0">
       Rp.{{ Number(sub_total).toLocaleString("id-ID") }}
     </td>
-    <td class="text-center align-middle  pt-0">
+    <td class="text-center align-middle pt-0">
       <a
         class="remove-from-cart"
         data-toggle="tooltip"
         title=""
-        @click="deleteCart"
+        @click="confirmationDeleteCart"
         data-original-title="Remove item"
         ><i class="fa fa-trash"></i
       ></a>
@@ -62,7 +62,7 @@ export default {
       sub_total: 0,
       ASSET_URL: process.env.ASSET_URL,
       qty_model: 0,
-      process_model: false
+      process_model: false,
     };
   },
   methods: {
@@ -74,7 +74,7 @@ export default {
         try {
           let data = {
             qty: this.qty_model,
-            process: this.process_model
+            process: this.process_model,
           };
 
           let response = await this.$axios
@@ -93,7 +93,7 @@ export default {
         this.$store.dispatch("updateCart", {
           product: this.product,
           qty: this.qty_model,
-          process: this.process_model
+          process: this.process_model,
         });
       }
     },
@@ -107,7 +107,7 @@ export default {
               this.$toast.success("Successfully delete a product from cart", {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000
+                duration: 5000,
               });
               this.$store.dispatch("setCartChange", true);
               this.$nuxt.refresh();
@@ -119,13 +119,38 @@ export default {
       } else {
         this.$store.dispatch("deleteCart", this.product);
       }
-    }
+    },
+    async confirmationDeleteCart() {
+      this.$bvModal
+        .msgBoxConfirm("Please confirm that you want to delete this product.", {
+          title: "Please Confirm",
+          size: "sm",
+          buttonSize: "sm",
+          okVariant: "danger",
+          okTitle: "YES",
+          cancelTitle: "NO",
+          footerClass: "p-2",
+          hideHeaderClose: false,
+          centered: true,
+        })
+        .then((value) => {
+          this.boxTwo = value;
+          if (value) {
+            //console.log("Yes Clicked"+value);
+
+            this.deleteCart();
+          }
+        })
+        .catch((err) => {
+          // An error occurred
+        });
+    },
   },
 
   created() {
     this.sub_total = this.qty * this.product.price;
     this.qty_model = this.qty;
     this.process_model = this.process;
-  }
+  },
 };
 </script>

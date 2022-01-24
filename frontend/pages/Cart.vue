@@ -32,7 +32,7 @@
                 <th class="text-center py-2 align-middle">Sub total</th>
                 <th class="text-center py-2 align-middle">
                   <a
-                    @click="destroyAll"
+                    @click="confirmationDestroyAll"
                     class="btn btn-sm btn-outline-danger"
                     href="#"
                     >Clear Cart</a
@@ -86,7 +86,7 @@
           <div class="column text-center">
             <a
               class="btn btn-light mx-2 btn-shadow"
-              style="color: red;"
+              style="color: red"
               href="#"
               data-toast=""
               data-toast-type="success"
@@ -148,9 +148,7 @@
         <div class="shopping-cart-footer mb-5">
           <div class="column text-center">
             <a
-              style="
-                color: red;
-              "
+              style="color: red"
               class="btn btn-light mx-2 py-1 px-3 btn-shadow"
               href="#"
               data-toast=""
@@ -182,7 +180,8 @@ export default {
   data() {
     return {
       carts: {},
-      grandTotal: 0
+      grandTotal: 0,
+      boxTwo: "",
     };
   },
 
@@ -203,12 +202,12 @@ export default {
   computed: {
     ...mapGetters({
       tempCart: "getCart",
-      cartChanged: "getCartChanged"
-    })
+      cartChanged: "getCartChanged",
+    }),
   },
   watch: {
     cartChanged: {
-      handler: async function(changed) {
+      handler: async function (changed) {
         if (this.$auth.loggedIn && changed) {
           this.grandTotal = 0;
           try {
@@ -216,12 +215,12 @@ export default {
               process.env.API_URL + "/api/carts"
             );
             let data = carts.data;
-            data.forEach(cart => {
+            data.forEach((cart) => {
               if (cart.process == 1) {
                 this.grandTotal += cart.qty * cart.product.price;
               }
             });
-            console.log(carts);
+            //console.log(carts);
             this.carts = carts.data;
           } catch (error) {
             console.log(error);
@@ -230,24 +229,50 @@ export default {
           this.$store.dispatch("setCartChange", false);
         }
       },
-      deep: true
+      deep: true,
     },
     tempCart: {
-      handler: function(carts) {
+      handler: function (carts) {
         if (!this.$auth.loggedIn && carts) {
           this.grandTotal = 0;
 
-          carts.forEach(cart => {
+          carts.forEach((cart) => {
             if (cart.product.process == 1) {
               this.grandTotal += cart.product.qty * cart.product.price;
             }
           });
         }
       },
-      deep: true
-    }
+      deep: true,
+    },
   },
   methods: {
+    confirmationDestroyAll() {
+      this.boxTwo = "";
+      this.$bvModal
+        .msgBoxConfirm("Please confirm that you want to delete everything.", {
+          title: "Please Confirm",
+          size: "sm",
+          buttonSize: "sm",
+          okVariant: "danger",
+          okTitle: "YES",
+          cancelTitle: "NO",
+          footerClass: "p-2",
+          hideHeaderClose: false,
+          centered: true,
+        })
+        .then((value) => {
+          this.boxTwo = value;
+          if (value) {
+            //console.log("Yes Clicked"+value);
+
+            this.destroyAll();
+          }
+        })
+        .catch((err) => {
+          // An error occurred
+        });
+    },
     destroyAll() {
       if (this.$auth.loggedIn) {
         this.carts.forEach(async (cart, index) => {
@@ -257,16 +282,17 @@ export default {
               this.$toast.success("Successfully clear all cart", {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000
+                duration: 5000,
               });
               this.$nuxt.refresh();
             });
           console.log(response);
         });
       } else {
+        this.$store.dispatch("deleteAllCart");
       }
-    }
-  }
+    },
+  },
 };
 function increment() {
   document.getElementById("demoInput").stepUp();

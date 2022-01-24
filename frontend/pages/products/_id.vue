@@ -9,17 +9,32 @@
             <div class="preview col-md-6">
               <div class="preview-pic tab-content">
                 <template v-for="(img, itemObjKey) in JSON.parse(data.images)">
-                  <div
-                    class="tab-pane"
-                    :id="'pic-' + itemObjKey"
-                    :key="'pic-' + itemObjKey"
-                  >
-                    <img
-                      :src="ASSET_URL + '/' + img"
-                      alt="Gallery image 1"
-                      class="ecommerce-gallery-main-img active w-100"
-                    />
-                  </div>
+                  <template v-if="itemObjKey == 0">
+                    <div
+                      class="tab-pane active"
+                      :id="'pic-' + itemObjKey"
+                      :key="'pic-' + itemObjKey"
+                    >
+                      <img
+                        :src="ASSET_URL + '/' + img"
+                        alt="Gallery image 1"
+                        class="ecommerce-gallery-main-img active w-100"
+                      />
+                    </div>
+                  </template>
+                  <template v-else>
+                    <div
+                      class="tab-pane"
+                      :id="'pic-' + itemObjKey"
+                      :key="'pic-' + itemObjKey"
+                    >
+                      <img
+                        :src="ASSET_URL + '/' + img"
+                        alt="Gallery image 1"
+                        class="ecommerce-gallery-main-img active w-100"
+                      />
+                    </div>
+                  </template>
                 </template>
 
                 <div class="tab-pane" id="pic-2">
@@ -205,7 +220,7 @@
                     src="/img/emojione_star.png"
                     alt=""
                   />
-                  <h2 class="my-auto">{{data.rating}}/5</h2>
+                  <h2 class="my-auto">{{ data.rating }}/5</h2>
                 </div>
                 <!-- test -->
                 <div>
@@ -448,7 +463,7 @@
           <div class="row">
             <div class="pt-0 d-flex align-items-center">
               <h4 class="col-2 me-2 ps-0">Ulasan</h4>
-              <h6 class="col ps-0 pb-2">({{data.reviews.length}})</h6>
+              <h6 class="col ps-0 pb-2">({{ data.reviews.length }})</h6>
               <div class="">
                 <div class="d-flex">
                   <img
@@ -457,7 +472,7 @@
                     src="/img/emojione_star.png"
                     alt=""
                   />
-                  <h3 class="my-auto me-3">{{data.rating}}/5</h3>
+                  <h3 class="my-auto me-3">{{ data.rating }}/5</h3>
                 </div>
                 <!-- test -->
                 <div>

@@ -178,10 +178,20 @@ export const actions = {
       });
     }
   },
+  deleteAllCart({ state, commit }) {
+    if (state.cart.length == 0) {
+      this.$toast.error("Cart is empty", {
+        theme: "bubble",
+        position: "bottom-right",
+        duration: 5000,
+      });
+    } else {
+      commit("clearCart");
+    }
+  },
   setCartChange({ commit }, value) {
     commit("setCartChangeValue", value);
   },
- 
 };
 
 export const mutations = {
@@ -228,6 +238,14 @@ export const mutations = {
     let indexOfProduct = state.cart.indexOf(product);
     state.cart.splice(indexOfProduct, 1);
     this.$toast.success("Successfully delete a product from cart", {
+      theme: "bubble",
+      position: "bottom-right",
+      duration: 5000,
+    });
+  },
+  clearCart(state) {
+    state.cart = [];
+    this.$toast.success("Successfully clear cart", {
       theme: "bubble",
       position: "bottom-right",
       duration: 5000,
