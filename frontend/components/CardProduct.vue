@@ -8,12 +8,13 @@
         class="card mb-5 bg-white rounded"
         style="
           width: 100%;
+          height: auto;
           box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25) !important;
           border-radius: 10px;
         "
       >
         <img
-          style="width: 100%; height: 183px"
+          style="width: 100%; height: 180px"
           :src="ASSET_URL + '/' + JSON.parse(data.images)[0]"
           class="card-img-top height:auto"
           alt="..."
@@ -50,12 +51,11 @@
               class="col-sm-3"
               :href="
                 'https://wa.me/628988606069?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
-                data.code +
-                ' - ' +
-                data.name
+                  data.code +
+                  ' - ' +
+                  data.name
               "
               target="_blank"
-            
               ><img
                 class="img-fluid max-width:100% height:auto rounded"
                 style="
@@ -88,7 +88,7 @@ export default {
   props: ["data", "url"],
   data() {
     return {
-      ASSET_URL: process.env.ASSET_URL,
+      ASSET_URL: process.env.ASSET_URL
     };
   },
   created() {
@@ -99,7 +99,7 @@ export default {
       try {
         if (this.$auth.loggedIn) {
           let data = {
-            product_id: product.id,
+            product_id: product.id
           };
           let response = await this.$axios.$post(
             process.env.API_URL + "/api/carts",
@@ -108,7 +108,7 @@ export default {
           this.$toast.success("Successfully add a product to cart", {
             theme: "bubble",
             position: "bottom-right",
-            duration: 5000,
+            duration: 5000
           });
           console.log(response);
         } else {
@@ -123,7 +123,7 @@ export default {
       try {
         if (this.$auth.loggedIn) {
           let data = {
-            product_id: id,
+            product_id: id
           };
           let response = await this.$axios.$post(
             process.env.API_URL + "/api/wishlists",
@@ -133,13 +133,13 @@ export default {
             this.$toast.success("Successfully delete a product from wishlist", {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000,
+              duration: 5000
             });
           } else {
             this.$toast.success("Successfully add a product to wishlist", {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000,
+              duration: 5000
             });
           }
 
@@ -152,7 +152,7 @@ export default {
         console.log(error);
       }
     },
-    ...mapActions(["addProductToCart"]),
-  },
+    ...mapActions(["addProductToCart"])
+  }
 };
 </script>

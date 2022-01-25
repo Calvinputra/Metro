@@ -17,7 +17,10 @@
         type="submit"
         @click="onSearch"
       >
-       <i class="fas fa-search" style="font-size: 15px !important; color: black !important;"></i>
+        <i
+          class="fas fa-search"
+          style="font-size: 15px !important; color: black !important;"
+        ></i>
       </button>
     </div>
     <!-- kategory -->

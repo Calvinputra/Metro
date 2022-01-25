@@ -15,7 +15,7 @@
         <a href="/"
           ><img
             style="width: 80%"
-            class="img-fluid rounded mx-auto d-block"
+            class="img-fluid rounded d-block "
             src="/img/logo.png"
             alt=""
         /></a>
@@ -43,6 +43,7 @@
               id="dropdown-1"
               variant="transparent"
               text=""
+              no-caret
               class="ms-12"
             >
               <template slot="button-content">
