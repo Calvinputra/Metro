@@ -12,31 +12,25 @@
               <div class="row">
                 <div>
                   <h1>Kategory</h1>
-                  <template v-if="!($route.query.category)">
-                      <div
-                        class="rounded"
-                        style="background-color: #841c26"
-                      >
+                  <template v-if="!$route.query.category">
+                    <div class="rounded" style="background-color: #841c26">
                       <nuxt-link
-                          to="/products"
-                          class="text-white"
-                          style="text-decoration: none"
-                          ><p class="py-2 ps-2 mb-2">
-                            Semua Kategori
-                          </p>
-                        </nuxt-link>
-                      </div>
+                        to="/products"
+                        class="text-white"
+                        style="text-decoration: none"
+                        ><p class="py-2 ps-2 mb-2">Semua Kategori</p>
+                      </nuxt-link>
+                    </div>
                   </template>
                   <template v-else>
-                     <nuxt-link
-                        to="/products"
-                        style="text-decoration: none"
-                        class="text-black"
-                        ><p class="ms-2 mb-3">Semua Kategori</p>
-                      </nuxt-link>
+                    <nuxt-link
+                      to="/products"
+                      style="text-decoration: none"
+                      class="text-black"
+                      ><p class="ms-2 mb-3">Semua Kategori</p>
+                    </nuxt-link>
                   </template>
 
-                  
                   <template v-for="category in categories">
                     <template v-if="$route.query.category == category.id">
                       <div
@@ -100,11 +94,25 @@
                   :url="'/products/' + product.id"
                 />
                 <!-- jika data kosong -->
-                <!-- <div class="ms-5 mt-5">
-                  <i class="fas fa-exclamation-triangle"></i>
-                  Tidak ada produk pada Kategori ini, Silahkan coba lagi
-                  beberapa saat kemudian.
-                </div> -->
+                <template v-if="products.length == 0">
+                  <div class="ms-5 mt-5">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Tidak ada produk pada Kategori ini, Silahkan coba lagi
+                    beberapa saat kemudian.
+                  </div>
+                </template>
+                <template v-else>
+                  <div class="overflow-auto">
+                    <b-pagination-nav
+                      :link-gen="linkGen"
+                      :number-of-pages="this.totalPage"
+                      first-text="First"
+                      prev-text="Prev"
+                      next-text="Next"
+                      last-text="Last"
+                    ></b-pagination-nav>
+                  </div>
+                </template>
               </div>
             </div>
           </div>
@@ -159,6 +167,26 @@
                     :data="product"
                     :url="'/products/' + product.id"
                   />
+                  <!-- jika data kosong -->
+                  <template v-if="products.length == 0">
+                    <div class="ms-5 mt-5">
+                      <i class="fas fa-exclamation-triangle"></i>
+                      Tidak ada produk pada Kategori ini, Silahkan coba lagi
+                      beberapa saat kemudian.
+                    </div>
+                  </template>
+                  <template v-else>
+                    <div class="overflow-auto">
+                      <b-pagination-nav
+                        :link-gen="linkGen"
+                        :number-of-pages="this.totalPage"
+                        first-text="First"
+                        prev-text="Prev"
+                        next-text="Next"
+                        last-text="Last"
+                      ></b-pagination-nav>
+                    </div>
+                  </template>
                 </div>
               </div>
             </div>
@@ -196,14 +224,14 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50"
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
         },
         {
           url: "/",
           name: "Product",
-          class: "my-2 breadcrumb-item active opacity-50"
-        }
-      ]
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
+      ],
     };
   },
   async asyncData({ $axios, query }) {
@@ -212,10 +240,10 @@ export default {
         s: query.s,
         page: query.page,
         paginate: query.paginate,
-        category: query.category
+        category: query.category,
       };
       let products = await $axios.$get(process.env.API_URL + "/api/products", {
-        params: data
+        params: data,
       });
       let links = [];
       for (let i = 1; i <= products.meta.last_page; i++) {
@@ -229,7 +257,7 @@ export default {
         links: links,
         totalPage: products.meta.last_page,
         title: products.title,
-        categories: categories.data
+        categories: categories.data,
       };
     } catch (error) {
       console.log(error);
@@ -243,14 +271,14 @@ export default {
           page: pageNum,
           s: this.$route.query.s,
           paginate: this.$route.query.paginate,
-          category: this.$route.query.category
-        }
+          category: this.$route.query.category,
+        },
       };
     },
     pageGen(pageNum) {
       return this.links[pageNum - 1].slice(1);
-    }
+    },
   },
-  watchQuery: ["s", "page", "paginate", "category"]
+  watchQuery: ["s", "page", "paginate", "category"],
 };
 </script>

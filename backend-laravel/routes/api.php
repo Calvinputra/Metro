@@ -15,7 +15,7 @@ use App\Http\Controllers\API\TransactionController;
 use App\Http\Controllers\API\ShippingController;
 use App\Http\Controllers\API\ReviewController;
 use App\Http\Controllers\API\WebsiteFeedbackController;
-use App\Models\WebsiteFeedback;
+use App\Http\Controllers\API\SettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,3 +56,4 @@ Route::apiResource('/categories', CategoryController::class);
 Route::post('/carts/multiple', [CartController::class, 'storeMultiple'])->middleware('auth:sanctum');
 Route::post('/checkout/get_jne_cost', [ShippingController::class, 'getJneCost'])->middleware('auth:sanctum');
 Route::post('/transactions/payment/success', [TransactionController::class, 'payment'])->middleware('auth:sanctum');
+Route::get('/settings/{key}', [SettingController::class, 'show']);

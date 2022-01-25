@@ -9,7 +9,7 @@
 </div>
 
 <div style="text-align:center;">
-    <button type="button" class="buttonforgot">Continue</button>
+    <a href="{{$url}}" target="_blank" type="button" class="buttonforgot">Continue</a>
 </div>
 <div style="padding-left: 5%;">
     <p style="color:gray;">

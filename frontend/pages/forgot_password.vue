@@ -11,13 +11,13 @@
             </div>
             <div
               class="
-              col-sm-9
-              offset-md-1
-              align-self-start
-              mt-2
-              row
-              justify-content-between
-            "
+                col-sm-9
+                offset-md-1
+                align-self-start
+                mt-2
+                row
+                justify-content-between
+              "
             >
               <div class="col-sm-12">
                 <label class="mb-0"
@@ -36,6 +36,13 @@
 
               <div class="mb-0">
                 <h3 class="text-center">Masukkan email anda</h3>
+                <b-alert
+                  v-model="showDismissibleAlert"
+                  variant="success"
+                  dismissible
+                >
+                  {{ message }}
+                </b-alert>
               </div>
               <div>
                 <form class="ms-5 ps-5">
@@ -44,6 +51,7 @@
                       >Email<span style="color: red">*</span>:</label
                     >
                     <input
+                      v-model="email"
                       type="email"
                       class="form-control mb-2 col-sm-10"
                       id="email"
@@ -57,16 +65,19 @@
                 <div class="text-center">
                   <button
                     type="submit"
+                    @click.prevent="delay"
                     class="
-                    btn
-                    text-danger
-                    btn-light btn-sm
-                    rounded
-                    col-sm-3
-                    py-2
-                    px-2
-                  "
-                    style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+                      btn
+                      text-danger
+                      btn-light btn-sm
+                      rounded
+                      col-sm-3
+                      py-2
+                      px-2
+                    "
+                    style="
+                      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                    "
                   >
                     Perbarui kata sandi
                   </button>
@@ -91,13 +102,13 @@
           <div class="row">
             <div
               class="
-              col-sm-9
-              offset-md-1
-              align-self-start
-              mt-2
-              row
-              justify-content-between
-            "
+                col-sm-9
+                offset-md-1
+                align-self-start
+                mt-2
+                row
+                justify-content-between
+              "
             >
               <div class="col-sm-12">
                 <label class="mb-0"
@@ -116,6 +127,13 @@
 
               <div class="mb-0">
                 <h3 class="text-center">Masukkan email anda</h3>
+                <b-alert
+                  v-model="showDismissibleAlert"
+                  variant="success"
+                  dismissible
+                >
+                  {{ message }}
+                </b-alert>
               </div>
               <div>
                 <form>
@@ -124,6 +142,7 @@
                       >Email<span style="color: red">*</span>:</label
                     >
                     <input
+                      v-model="email"
                       type="email"
                       class="form-control mb-2 col-sm-10"
                       id="email"
@@ -141,15 +160,12 @@
                 </form>
                 <div class="text-center">
                   <button
+                    @click.prevent="delay"
                     type="submit"
-                    class="
-                    btn
-                    text-danger
-                    btn-light btn-sm
-                    rounded
-                    p-2
-                  "
-                    style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+                    class="btn text-danger btn-light btn-sm rounded p-2"
+                    style="
+                      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                    "
                   >
                     Perbarui kata sandi
                   </button>
@@ -178,16 +194,65 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50"
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
         },
         {
-          url: "/register",
-          name: "Register",
-          class: "my-2 breadcrumb-item active opacity-50"
-        }
-      ]
+          url: "/forgot_password",
+          name: "Lupa Password",
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
+      ],
+      email: "",
+      disabled: false,
+
+      message: null,
+      dismissSecs: 10,
+      dismissCountDown: 0,
+      showDismissibleAlert: false,
     };
-  }
+  },
+  methods: {
+    delay() {
+      this.disabled = true;
+
+      // Re-enable after 5 seconds
+      this.timeout = setTimeout(() => {
+        this.disabled = false;
+      }, 5000);
+
+      this.doSendForgotPassword();
+    },
+    async doSendForgotPassword() {
+      let data = {
+        email: this.email,
+      };
+      let response = await this.$axios.$post(
+        process.env.API_URL + "/api/forgot_password",
+        data
+      );
+      if (response.success) {
+        this.message =
+          "Email request untuk reset password telah dikirim, silahkan cek email Anda untuk melanjutkan";
+        this.showDismissibleAlert = true;
+          this.$toast.success(this.message, {
+            theme: "bubble",
+            position: "bottom-right",
+            duration: 5000
+          });
+      } else {
+        const err = response.message;
+        Object.keys(err).forEach((key, error) => {
+          Object.keys(err[key]).forEach((key2, e) => {
+            this.$toast.error(err[key][key2], {
+              theme: "bubble",
+              position: "bottom-right",
+              duration: 5000,
+            });
+          });
+        });
+      }
+    },
+  },
 };
 </script>
 

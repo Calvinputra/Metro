@@ -17,7 +17,7 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $paginate_item = $request->paginate ?? 25;
+        $paginate_item = $request->paginate ?? 18;
         $products = Product::with('category')->orderBy('created_at', 'DESC');
         $category = Category::find($request->category ?? 0);
         if (isset($request->s)) {

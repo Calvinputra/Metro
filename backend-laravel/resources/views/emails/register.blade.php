@@ -8,7 +8,7 @@
     <div style="padding-left: 5%; padding: bottom 20px;">
         <span>
             <p>
-                Hello $name,
+                Hello {{$name}},
             </p>
         </span>
         <div>
@@ -19,7 +19,7 @@
         </div>
     </div>
     <div style="text-align:center;">
-        <button type="button" class="buttonverif">Verify</button>
+        <a href="{{$url}}" target="_blank" type="button" class="buttonverif">Verify</a>
     </div>
 
 </div>

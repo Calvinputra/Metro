@@ -36,7 +36,7 @@ class SendEmailRegistrationJob implements ShouldQueue
         $beautymail = app()->make(\Snowfire\Beautymail\Beautymail::class);
         $beautymail->send('emails.register', [
             'name' => $name,
-            'url' => 'http://localhost:8000/verify_email/' . $this->token,
+            'url' => env('SANCTUM_STATEFUL_DOMAINS') . '/verify_email/' . $this->token,
         ], function ($message) use ($name) {
             $message
                 ->from('admin@gmail.com')
