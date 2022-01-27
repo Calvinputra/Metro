@@ -102,8 +102,8 @@
       <div>
         <b-nav-item-dropdown
           text="☰"
-          style="font-size: 20px;"
-          class=""
+          style="font-size: 15px;list-style-type: none;"
+          right
           no-caret
         >
           <b-dropdown-item v-if="!this.$auth.loggedIn" href="/login"
@@ -132,7 +132,7 @@
             alt=""
         /></a>
       </div>
-      <img style="width: 20%" src="/img/logo.png" alt="" />
+      <img style="width: 15%" src="/img/logo.png" alt="" />
 
       <search-mobile />
 
