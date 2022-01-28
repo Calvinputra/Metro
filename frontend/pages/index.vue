@@ -131,7 +131,9 @@
       </div>
       <SwiperCardProduct :products="products" />
       <Footer2mobile />
-      <Footer />
+      <div style="position: inherit;">
+        <Footer />
+      </div>
     </section>
   </section>
 </template>
