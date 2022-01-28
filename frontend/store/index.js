@@ -91,6 +91,14 @@ export const state = () => ({
   cartLength: 0,
   cartTotal: 0,
   cartChanged: false,
+
+  //company profile footer
+  company_email: "",
+  company_phone: "",
+  company_fax: "",
+  company_address: "",
+  company_city: "",
+  company_wa_phone: "",
 });
 
 export const actions = {
@@ -192,6 +200,67 @@ export const actions = {
   setCartChange({ commit }, value) {
     commit("setCartChangeValue", value);
   },
+  async fetchCompanyEmail({ commit }) {
+    try {
+      let response = await this.$axios.$get(
+        process.env.API_URL + "/api/settings/site.company_email"
+      );
+
+      commit("FETCH_SETTING", response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  async fetchCompanyPhone({ commit }) {
+    try {
+      let response = await this.$axios.$get(
+        process.env.API_URL + "/api/settings/site.company_phone"
+      );
+      commit("FETCH_SETTING", response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  async fetchCompanyFax({ commit }) {
+    try {
+      let response = await this.$axios.$get(
+        process.env.API_URL + "/api/settings/site.company_fax"
+      );
+      commit("FETCH_SETTING", response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  async fetchCompanyAddress({ commit }) {
+    try {
+      let response = await this.$axios.$get(
+        process.env.API_URL + "/api/settings/site.company_address"
+      );
+      commit("FETCH_SETTING", response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  async fetchCompanyCity({ commit }) {
+    try {
+      let response = await this.$axios.$get(
+        process.env.API_URL + "/api/settings/site.company_city"
+      );
+      commit("FETCH_SETTING", response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  async fetchCompanyWaPhone({ commit }) {
+    try {
+      let response = await this.$axios.$get(
+        process.env.API_URL + "/api/settings/site.company_wa_phone"
+      );
+      commit("FETCH_SETTING", response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  },
 };
 
 export const mutations = {
@@ -271,6 +340,21 @@ export const mutations = {
     console.log("set cart to " + value);
     state.cartChanged = value;
   },
+  FETCH_SETTING(state, value) {
+    if (value.key == "site.company_email") {
+      state.company_email = value.value;
+    } else if (value.key == "site.company_phone") {
+      state.company_phone = value.value;
+    } else if (value.key == "site.company_fax") {
+      state.company_fax = value.value;
+    } else if (value.key == "site.company_address") {
+      state.company_address = value.value;
+    } else if (value.key == "site.company_city") {
+      state.company_city = value.value;
+    } else if (value.key == "site.company_wa_phone") {
+      state.company_wa_phone = value.value;
+    }
+  },
 };
 
 export const getters = {
@@ -326,5 +410,15 @@ export const getters = {
   },
   getCartChanged(state) {
     return state.cartChanged;
+  },
+  getSetting(state, key) {
+    return {
+      company_email: state.company_email,
+      company_phone: state.company_phone,
+      company_fax: state.company_fax,
+      company_address: state.company_address,
+      company_city: state.company_city,
+      company_wa_phone: state.company_wa_phone,
+    };
   },
 };

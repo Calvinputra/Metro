@@ -94,7 +94,7 @@
                   :url="'/products/' + product.id"
                 />
                 <!-- jika data kosong -->
-                <template v-if="products.length == 0">
+                <template v-if="products&&products.length == 0">
                   <div class="ms-5 mt-5">
                     <i class="fas fa-exclamation-triangle"></i>
                     Tidak ada produk pada Kategori ini, Silahkan coba lagi

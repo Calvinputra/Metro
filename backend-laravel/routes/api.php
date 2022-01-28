@@ -38,6 +38,7 @@ Route::post('/reset_password', [AuthController::class, 'resetPassword']);
 Route::post('/change_password', [AuthController::class, 'changePassword']);
 Route::post('/change_password_reset', [AuthController::class, 'changePasswordReset']);
 Route::post('/verify_email', [AuthController::class, 'verifyEmail']);
+Route::post('/email_verification_request', [AuthController::class, 'emailVerificationRequest']);
 Route::post('/edit_profile', [AuthController::class, 'editProfile']);
 
 Route::apiResource('/menus', MenuController::class);

@@ -170,7 +170,7 @@ class AuthController extends Controller
                 'phone' => $request->phone,
             ]);
             $user->addresses()->first()->update([
-                'address'=>$request->address
+                'address' => $request->address
             ]);
 
             //return success
@@ -202,6 +202,34 @@ class AuthController extends Controller
             'token' => $token,
         ]);
         return $token;
+    }
+
+    public function emailVerificationRequest(Request $request)
+    {
+        $user = Customer::where('token', '=', request()->bearerToken())->first();
+        if ($user) {
+            if ($user->email_verified_at) {
+                return response()->json([
+                    'success' => true,
+                    'data'   => 'Email sudah terverifikasi',
+                ]);
+            } else {
+                $token = $this->generateToken($user, 'REGISTER CONFIRMATION TOKEN');
+
+                //TODO SEND EMAIL
+                dispatch(new SendEmailRegistrationJob($user, $token));
+                return response()->json([
+                    'success' => true,
+                    'data'   => 'Kode verifikasi telah dikirim, silahkan cek email Anda',
+                ]);
+            }
+        } else {
+            return response()->json([
+                'success' => false,
+                'data'   => 'Unauthorized Action',
+                'status' => 503,
+            ]);
+        }
     }
 
     //TO VERIFY EMAIL FROM TOKEN
