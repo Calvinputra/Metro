@@ -149,8 +149,8 @@ class AuthController extends Controller
                 ],
                 'address'     => 'required|min:10',
                 // 'country'     => 'required',
-                //'province'    => 'required',
-                //'city'        => 'required',
+                'province'    => 'required',
+                'city'        => 'required',
             ];
             $messages = [
                 'first_name.required' => 'Nama depan wajib diisi'
@@ -170,7 +170,9 @@ class AuthController extends Controller
                 'phone' => $request->phone,
             ]);
             $user->addresses()->first()->update([
-                'address' => $request->address
+                'address' => $request->address,
+                'city_id' => $request->city,
+                'province_id' => $request->province,
             ]);
 
             //return success
@@ -330,6 +332,35 @@ class AuthController extends Controller
         ]);
     }
 
+    public function checkForgetPasswordToken(Request $request)
+    {
+        $rules = [
+            'token' => 'required|min:40|exists:customer_tokens,token',
+        ];
+        $messages = ['token.required' => 'token wajib diisi', 'token.min' => 'token invalid'];
+        $validator = Validator::make($request->all(), $rules, $messages);
+        if ($validator->fails()) {
+            return response([
+                'success' => false,
+                'message' => $validator->errors(),
+            ], 200);
+        }
+
+        $token = CustomerToken::where('token', $request->token)->where('type', 'RESET PASSWORD TOKEN')->first();
+        if ($token) {
+            $response = [
+                'success' => true,
+                'message' => ['msg' => ['token valid']],
+            ];
+        } else {
+            $response = [
+                'success' => false,
+                'message' => ['msg' => ['token invalid']],
+            ];
+        }
+        //return success
+        return response()->json($response);
+    }
 
     //RESET PASSWORD => CHANGE PASSWORD
     public function resetPassword(Request $request)
@@ -384,7 +415,7 @@ class AuthController extends Controller
         return response()->json($response);
     }
 
-    //CHANGE PASSWORD
+    //CHANGE PASSWORD FROM LOGGED USER
     public function changePasswordReset(Request $request)
     {
         $user = Customer::where('token', '=', request()->bearerToken())->first();

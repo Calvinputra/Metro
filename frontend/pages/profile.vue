@@ -77,14 +77,14 @@
                         </p>
                         <p>
                           :
-                          {{ this.$auth.user.addresses[0].city.province_name }}
+                          {{ this.$auth.user.addresses[0].city.name }}
                         </p>
                         <p>
                           : {{ this.$auth.user.email }}
                           <template
                             v-if="this.$auth.user.email_verified_at === null"
                             >-
-                            <button @click="doEmailVerification" class="btn"  style="color: red; weight: 700">
+                            <button @click.prevent="doEmailVerification" class="btn"  style="color: red; weight: 700">
                               Verifikasi sekarang
                             </button>
                           </template>
@@ -212,7 +212,7 @@
                         </p>
                         <p class="mt-4">
                           :
-                          {{ this.$auth.user.addresses[0].city.province_name }}
+                          {{ this.$auth.user.addresses[0].city.name }}
                         </p>
                         <p class="mt-4">: {{ this.$auth.user.email }}</p>
                       </div>
@@ -288,6 +288,7 @@ export default {
         let response = await this.$axios.$post(
           process.env.API_URL + "/api/email_verification_request"
         );
+        console.log(response);
         if (response.success) {
           this.$toast.success(response.data, {
             theme: "bubble",

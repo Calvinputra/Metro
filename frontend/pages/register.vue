@@ -631,6 +631,8 @@ export default {
     },
     async getCity() {
       try {
+        this.cities = [];
+
         let response = await this.$axios.$get(
           process.env.API_URL + "/api/cities?province_id=" + this.province_id
         );
@@ -681,9 +683,9 @@ export default {
               password: this.password,
             },
           });
-          setTimeout(() => {
-            window.location.reload(true);
-          }, 1000);
+          // setTimeout(() => {
+          //   window.location.reload(true);
+          // }, 1000);
           this.$router.push("/");
         } else {
           this.errors = response.message;

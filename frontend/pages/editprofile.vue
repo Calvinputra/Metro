@@ -105,29 +105,20 @@
                     </div>
                     <div class="form-group ms-3 pe-3">
                       <label for="exampleFormControlSelect1">Provinsi</label>
-                      <select
-                        class="form-control col-sm-10"
-                        id="exampleFormControlSelect1"
-                      >
-                        <option>Jakarta</option>
-                        <option>Bali</option>
-                        <option>Yogyakarta</option>
-                        <option>Bandung</option>
-                        <option>Riau</option>
-                      </select>
+                      <v-select
+                        v-model="province_id"
+                        :reduce="(provinces) => provinces.code"
+                        @input="getCity"
+                        :options="provinces"
+                      ></v-select>
                     </div>
                     <div class="form-group ms-3 pe-3">
                       <label for="exampleFormControlSelect1">Kota</label>
-                      <select
-                        class="form-control col-sm-10"
-                        id="exampleFormControlSelect1"
-                      >
-                        <option>Jakarta Utara</option>
-                        <option>Jakarta Timur</option>
-                        <option>Jakarta Barat</option>
-                        <option>Jakarta Pusat</option>
-                        <option>Jakarta Selatan</option>
-                      </select>
+                      <v-select
+                        v-model="city_id"
+                        :reduce="(cities) => cities.code"
+                        :options="cities"
+                      ></v-select>
                     </div>
                     <br />
 
@@ -280,29 +271,20 @@
                     </div>
                     <div class="form-group ms-3 pe-3">
                       <label for="exampleFormControlSelect1">Provinsi</label>
-                      <select
-                        class="form-control col-sm-10"
-                        id="exampleFormControlSelect1"
-                      >
-                        <option>Jakarta</option>
-                        <option>Bali</option>
-                        <option>Yogyakarta</option>
-                        <option>Bandung</option>
-                        <option>Riau</option>
-                      </select>
+                      <v-select
+                        v-model="province_id"
+                        :reduce="(provinces) => provinces.code"
+                        @input="getCity"
+                        :options="provinces"
+                      ></v-select>
                     </div>
                     <div class="form-group ms-3 pe-3">
                       <label for="exampleFormControlSelect1">Kota</label>
-                      <select
-                        class="form-control col-sm-10"
-                        id="exampleFormControlSelect1"
-                      >
-                        <option>Jakarta Utara</option>
-                        <option>Jakarta Timur</option>
-                        <option>Jakarta Barat</option>
-                        <option>Jakarta Pusat</option>
-                        <option>Jakarta Selatan</option>
-                      </select>
+                      <v-select
+                        v-model="city_id"
+                        :reduce="(cities) => cities.code"
+                        :options="cities"
+                      ></v-select>
                     </div>
                     <br />
 
@@ -373,8 +355,8 @@ export default {
       phone: this.$auth.user.phone,
       address: this.$auth.user.addresses[0].address,
       province_id: this.$auth.user.addresses[0].province_id,
-      city_id: this.$auth.user.addresses[0].province_id,
-      citcountry_idy_id: this.$auth.user.addresses[0].country_id,
+      city_id: this.$auth.user.addresses[0].city_id,
+      country_id: this.$auth.user.addresses[0].country_id,
       postal_code: null,
       //data v select
       cities: [],
@@ -420,7 +402,7 @@ export default {
     async getProvince() {
       try {
         let response = await this.$axios.$get(
-          process.env.API_URL + "/api/provinces?country_id=" + this.country_id
+          process.env.API_URL + "/api/provinces?country_id="+this.country_id
         );
         console.log(response);
         response.data.forEach((value, index) => {
@@ -429,12 +411,14 @@ export default {
             code: value.id,
           });
         });
+        this.getCity();
       } catch (error) {
         console.log(error);
       }
     },
     async getCity() {
       try {
+        this.cities = [];
         let response = await this.$axios.$get(
           process.env.API_URL + "/api/cities?province_id=" + this.province_id
         );
@@ -457,8 +441,8 @@ export default {
           phone: this.phone,
           address: this.address,
           //country: this.country_id,
-          //province: this.province_id,
-          //city: this.city_id,
+          province: this.province_id,
+          city: this.city_id,
           //postal_code: this.postal_code,
         };
         let response = await this.$axios.$post(
@@ -467,7 +451,7 @@ export default {
         );
         if (response.success) {
           //success registration
-          this.$auth.fetchUser() //refresh user data
+          this.$auth.fetchUser(); //refresh user data
           this.showDismissibleAlert = false;
           this.$toast.success("Successfully Edit profile", {
             theme: "bubble",
@@ -514,7 +498,7 @@ export default {
     };
   },
   created() {
-    this.getCountry();
+    this.getProvince();
   },
 };
 </script>
@@ -543,6 +527,13 @@ export default {
   #edit-mobileview {
     display: grid;
   }
+}
+</style>
+
+<style>
+.vs__selected-options .vs__search {
+  border: none;
+  box-shadow: 0;
 }
 </style>
 

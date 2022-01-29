@@ -40,6 +40,7 @@ Route::post('/change_password_reset', [AuthController::class, 'changePasswordRes
 Route::post('/verify_email', [AuthController::class, 'verifyEmail']);
 Route::post('/email_verification_request', [AuthController::class, 'emailVerificationRequest']);
 Route::post('/edit_profile', [AuthController::class, 'editProfile']);
+Route::post('/check_forget_password_token', [AuthController::class, 'checkForgetPasswordToken']);
 
 Route::apiResource('/menus', MenuController::class);
 Route::apiResource('/products', ProductController::class);

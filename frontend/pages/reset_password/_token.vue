@@ -21,7 +21,7 @@
             <div class="col-sm-12">
               <label class="mb-0"
                 ><h2 class="font-weight-bold">
-                  Ingin mengubah kata sandi?<span style="color: red">*</span>
+                  Reset Password<span style="color: red">*</span>
                 </h2></label
               >
             </div>
@@ -36,7 +36,7 @@
             </div>
 
             <div>
-              <div class="row justify-content-start">
+              <div class="row justify-content-start" v-if="success">
                 <form>
                   <div class="register-form-title mr-5 pr-5">
                     Masukan Kata Sandi
@@ -87,21 +87,26 @@
                   <br />
                   <div class="text-center">
                     <button
-                      @click.prevent="doRegister"
+                      @click.prevent="doResetPassword"
                       type="submit"
-                      class="
-                        btn
-                        text-danger
-                        btn-light btn-sm
-                        rounded
-                        p-2
+                      class="btn text-danger btn-light btn-sm rounded p-2"
+                      style="
+                        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                       "
-                      style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;"
                     >
                       Perbarui Kata Sandi
                     </button>
                   </div>
                 </form>
+              </div>
+              <div v-else>
+                <div class="container border border-2 mt-3 rounded col-sm-8">
+                  <span>
+                    <p class="text-center">
+                      {{ message }}
+                    </p>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -130,3 +135,87 @@
     </client-only>
   </section>
 </template>
+
+<script>
+export default {
+  async asyncData({ $axios, params }) {
+    try {
+      let data = { token: params.token };
+      let response = await $axios.$post(
+        process.env.API_URL + "/api/check_forget_password_token",
+        data
+      );
+      let message = "";
+      Object.keys(response.message).forEach((key, error) => {
+        Object.keys(response.message[key]).forEach((key2, e) => {
+          message = response.message[key][key2];
+        });
+      });
+      return {
+        success: response.success,
+        message: message,
+      };
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  data() {
+    return {
+      password: "",
+      password_confirmation: "",
+
+      //alert
+      errors: null,
+      dismissSecs: 10,
+      dismissCountDown: 0,
+      showDismissibleAlert: false,
+    };
+  },
+  methods: {
+    async doResetPassword() {
+      try {
+        let data = {
+          password: this.password,
+          password_confirmation: this.password_confirmation,
+          token: this.$route.params.token,
+        };
+        let response = await this.$axios.$post(
+          process.env.API_URL + "/api/reset_password",
+          data
+        );
+        if (response.success) {
+          //success registration
+          this.showDismissibleAlert = false;
+          this.$toast.success("Successfully Change your password", {
+            theme: "bubble",
+            position: "bottom-right",
+            duration: 5000,
+          });
+          await this.$auth.loginWith("laravelSanctum", {
+            data: {
+              email: response.data.email,
+              password: this.password,
+            },
+          });
+          this.$router.push("/");
+        } else {
+          this.errors = response.message;
+          this.showDismissibleAlert = true;
+          let err = response.message;
+          Object.keys(err).forEach((key, error) => {
+            Object.keys(err[key]).forEach((key2, e) => {
+              this.$toast.error(err[key][key2], {
+                theme: "bubble",
+                position: "bottom-right",
+                duration: 5000,
+              });
+            });
+          });
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
+};
+</script>
