@@ -276,8 +276,8 @@ class ProductAttributesTableSeeder extends Seeder
                 'product_id' => 26,
                 'value' => 'https://www.tokopedia.com/metro-jaya/gembok-cisa-60mm',
                 'created_at' => '2022-01-21 13:31:31',
-                'updated_at' => '2022-01-21 13:31:31',
-                'deleted_at' => NULL,
+                'updated_at' => '2022-01-28 10:42:33',
+                'deleted_at' => '2022-01-28 10:42:33',
             ),
             26 => 
             array (
@@ -736,8 +736,8 @@ class ProductAttributesTableSeeder extends Seeder
                 'product_id' => 72,
                 'value' => 'https://www.tokopedia.com/metro-jaya/pt21-solid',
                 'created_at' => '2022-01-21 13:31:31',
-                'updated_at' => '2022-01-21 13:31:31',
-                'deleted_at' => NULL,
+                'updated_at' => '2022-01-28 10:26:30',
+                'deleted_at' => '2022-01-28 10:26:30',
             ),
             72 => 
             array (
@@ -816,8 +816,8 @@ class ProductAttributesTableSeeder extends Seeder
                 'product_id' => 80,
                 'value' => 'https://www.tokopedia.com/metro-jaya/karet-buat-pembilas-toto',
                 'created_at' => '2022-01-21 13:31:31',
-                'updated_at' => '2022-01-21 13:31:31',
-                'deleted_at' => NULL,
+                'updated_at' => '2022-01-28 10:36:25',
+                'deleted_at' => '2022-01-28 10:36:25',
             ),
             80 => 
             array (
@@ -997,6 +997,46 @@ class ProductAttributesTableSeeder extends Seeder
                 'value' => 'https://www.tokopedia.com/metro-jaya/tiang-hordeng',
                 'created_at' => '2022-01-21 13:31:31',
                 'updated_at' => '2022-01-21 13:31:31',
+                'deleted_at' => NULL,
+            ),
+            98 => 
+            array (
+                'id' => 99,
+                'attribute_id' => 3,
+                'product_id' => 72,
+                'value' => 'https://www.tokopedia.com/metro-jaya/pt21-solid',
+                'created_at' => NULL,
+                'updated_at' => '2022-01-28 10:27:01',
+                'deleted_at' => '2022-01-28 10:27:01',
+            ),
+            99 => 
+            array (
+                'id' => 100,
+                'attribute_id' => 3,
+                'product_id' => 72,
+                'value' => 'https://www.tokopedia.com/metro-jaya/pt21-solid',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            100 => 
+            array (
+                'id' => 101,
+                'attribute_id' => 3,
+                'product_id' => 80,
+                'value' => 'https://www.tokopedia.com/metro-jaya/karet-buat-pembilas-toto',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            101 => 
+            array (
+                'id' => 102,
+                'attribute_id' => 3,
+                'product_id' => 26,
+                'value' => 'https://www.tokopedia.com/metro-jaya/gembok-cisa-60mm',
+                'created_at' => NULL,
+                'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
         ));

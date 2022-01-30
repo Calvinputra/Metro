@@ -40,7 +40,7 @@ class SendEmailResetPasswordRequestJob implements ShouldQueue
             $message
                 ->from('admin@gmail.com')
                 ->to(env('TESTING_EMAIL'), $name)
-                ->subject('Send Password Confirmation!');
+                ->subject('Password Reset Request!');
         });
     }
 }

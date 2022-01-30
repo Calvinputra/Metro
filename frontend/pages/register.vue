@@ -11,13 +11,13 @@
             </div>
             <div
               class="
-              col-sm-9
-              offset-md-1
-              align-self-start
-              mt-2
-              row
-              justify-content-between
-            "
+                col-sm-9
+                offset-md-1
+                align-self-start
+                mt-2
+                row
+                justify-content-between
+              "
             >
               <div class="col-sm-12">
                 <label class="mb-0"
@@ -159,7 +159,7 @@
                       >
                       <v-select
                         v-model="country_id"
-                        :reduce="countries => countries.code"
+                        :reduce="(countries) => countries.code"
                         @input="getProvince"
                         :options="countries"
                       ></v-select>
@@ -170,7 +170,7 @@
                       >
                       <v-select
                         v-model="province_id"
-                        :reduce="provinces => provinces.code"
+                        :reduce="(provinces) => provinces.code"
                         @input="getCity"
                         :options="provinces"
                       ></v-select>
@@ -181,7 +181,7 @@
                       >
                       <v-select
                         v-model="city_id"
-                        :reduce="cities => cities.code"
+                        :reduce="(cities) => cities.code"
                         :options="cities"
                       ></v-select>
                     </div>
@@ -233,16 +233,18 @@
                         @click.prevent="doRegister"
                         type="submit"
                         class="
-                        btn
-                        text-danger
-                        btn-light btn-sm
-                        rounded
-                        col-sm-2
-                        ms-0
-                        py-2
-                        px-2
-                      "
-                        style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+                          btn
+                          text-danger
+                          btn-light btn-sm
+                          rounded
+                          col-sm-2
+                          ms-0
+                          py-2
+                          px-2
+                        "
+                        style="
+                          box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                        "
                       >
                         Buat Akun
                       </button>
@@ -282,13 +284,13 @@
           <div class="row">
             <div
               class="
-              col-sm-9
-              offset-md-1
-              align-self-start
-              mt-2
-              row
-              justify-content-between
-            "
+                col-sm-9
+                offset-md-1
+                align-self-start
+                mt-2
+                row
+                justify-content-between
+              "
             >
               <div class="col-sm-12">
                 <label class="mb-0"
@@ -312,9 +314,7 @@
               <div>
                 <div class="row justify-content-start">
                   <form>
-                    <div class="register-form-title">
-                      Pengisian Data Diri
-                    </div>
+                    <div class="register-form-title">Pengisian Data Diri</div>
                     <b-alert
                       v-model="showDismissibleAlert"
                       variant="danger"
@@ -409,9 +409,7 @@
                       />
                     </div>
 
-                    <div class="register-form-title">
-                      Alamat Pengiriman
-                    </div>
+                    <div class="register-form-title">Alamat Pengiriman</div>
                     <div class="form-group col-sm-10">
                       <label for="address"
                         >Alamat Lengkap<span style="color: red">*</span>:</label
@@ -430,7 +428,7 @@
                       >
                       <v-select
                         v-model="country_id"
-                        :reduce="countries => countries.code"
+                        :reduce="(countries) => countries.code"
                         @input="getProvince"
                         :options="countries"
                       ></v-select>
@@ -441,7 +439,7 @@
                       >
                       <v-select
                         v-model="province_id"
-                        :reduce="provinces => provinces.code"
+                        :reduce="(provinces) => provinces.code"
                         @input="getCity"
                         :options="provinces"
                       ></v-select>
@@ -452,7 +450,7 @@
                       >
                       <v-select
                         v-model="city_id"
-                        :reduce="cities => cities.code"
+                        :reduce="(cities) => cities.code"
                         :options="cities"
                       ></v-select>
                     </div>
@@ -504,15 +502,16 @@
                         @click.prevent="doRegister"
                         type="submit"
                         class="
-                        btn
-                        text-danger
-                        btn-light btn-sm
-                        rounded
-                        p-2
-                        mb-5
-                        
-                      "
-                        style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+                          btn
+                          text-danger
+                          btn-light btn-sm
+                          rounded
+                          p-2
+                          mb-5
+                        "
+                        style="
+                          box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                        "
                       >
                         Buat Akun
                       </button>
@@ -582,19 +581,19 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50"
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
         },
         {
           url: "/register",
           name: "Register",
-          class: "my-2 breadcrumb-item active opacity-50"
-        }
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
       ],
       //alert
       errors: null,
       dismissSecs: 10,
       dismissCountDown: 0,
-      showDismissibleAlert: false
+      showDismissibleAlert: false,
     };
   },
   methods: {
@@ -606,7 +605,7 @@ export default {
         response.data.forEach((value, index) => {
           this.countries.push({
             label: value.name,
-            code: value.id
+            code: value.id,
           });
         });
         console.log(this.countries);
@@ -623,7 +622,7 @@ export default {
         response.data.forEach((value, index) => {
           this.provinces.push({
             label: value.name,
-            code: value.id
+            code: value.id,
           });
         });
       } catch (error) {
@@ -632,6 +631,8 @@ export default {
     },
     async getCity() {
       try {
+        this.cities = [];
+
         let response = await this.$axios.$get(
           process.env.API_URL + "/api/cities?province_id=" + this.province_id
         );
@@ -639,7 +640,7 @@ export default {
         response.data.forEach((value, index) => {
           this.cities.push({
             label: value.name,
-            code: value.id
+            code: value.id,
           });
         });
       } catch (error) {
@@ -661,7 +662,7 @@ export default {
           city: this.city_id,
           postal_code: this.postal_code,
           agreement_1: this.agreement_1,
-          agreement_2: this.agreement_2
+          agreement_2: this.agreement_2,
         };
         console.log(data);
         let response = await this.$axios.$post(
@@ -674,17 +675,17 @@ export default {
           this.$toast.success("Successfully register", {
             theme: "bubble",
             position: "bottom-right",
-            duration: 5000
+            duration: 5000,
           });
           await this.$auth.loginWith("laravelSanctum", {
             data: {
               email: this.email,
-              password: this.password
-            }
+              password: this.password,
+            },
           });
-          setTimeout(() => {
-            window.location.reload(true);
-          }, 1000);
+          // setTimeout(() => {
+          //   window.location.reload(true);
+          // }, 1000);
           this.$router.push("/");
         } else {
           this.errors = response.message;
@@ -695,7 +696,7 @@ export default {
               this.$toast.error(err[key][key2], {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000
+                duration: 5000,
               });
             });
           });
@@ -704,32 +705,29 @@ export default {
       } catch (error) {
         console.log(error);
       }
-    }
+    },
   },
   head() {
     return {
       script: [
         {
-          src:
-            "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+          src: "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js",
         },
         {
-          src:
-            "https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"
-        }
+          src: "https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js",
+        },
       ],
       link: [
         {
           rel: "stylesheet",
-          href:
-            "https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
-        }
-      ]
+          href: "https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css",
+        },
+      ],
     };
   },
   created() {
     this.getCountry();
-  }
+  },
 };
 </script>
 
@@ -757,5 +755,12 @@ export default {
   #register-mobileview {
     display: grid;
   }
+}
+</style>
+
+<style>
+.vs__selected-options .vs__search {
+  border: none;
+  box-shadow: 0;
 }
 </style>

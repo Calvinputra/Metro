@@ -37,9 +37,7 @@
                   </template>
                 </template>
 
-                <div class="tab-pane" id="pic-2">
-                  <img :src="ASSET_URL + '/' + JSON.parse(data.images)[1]" />
-                </div>
+              
               </div>
               <ul class="preview-thumbnail nav nav-tabs">
                 <template v-for="(img, itemObjKey) in JSON.parse(data.images)">
@@ -49,11 +47,7 @@
                     /></a>
                   </li>
                 </template>
-                <li>
-                  <a data-target="#pic-2" data-toggle="tab"
-                    ><img :src="ASSET_URL + '/' + JSON.parse(data.images)[1]"
-                  /></a>
-                </li>
+             
               </ul>
             </div>
             <div class="col-sm-6 mt-5 container">

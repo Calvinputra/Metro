@@ -19,7 +19,7 @@
         </div>
     </div>
     <div style="text-align:center;">
-        <a href="{{$url}}" target="_blank" type="button" class="buttonverif">Verify</a>
+        <a href="{{$url}}" target="_blank" type="button" class="buttonverif">Verify Email</a>
     </div>
 
 </div>

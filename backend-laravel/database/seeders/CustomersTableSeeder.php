@@ -16,7 +16,6 @@ class CustomersTableSeeder extends Seeder
     {
         
 
-       
         \DB::table('customers')->delete();
         
         \DB::table('customers')->insert(array (
@@ -24,15 +23,15 @@ class CustomersTableSeeder extends Seeder
             array (
                 'id' => 1,
                 'email' => 'Jonathanchang96@gmail.com',
-                'password' => '$2y$10$t.aSPPwL6SsRXI/xtpusQ.U6VPEMT4kAm7.uLtsW3dCqLXS7soSUy',
-                'token' => '208|nDbNDgUbjpurq9QgoOKsAc1ztO6M2VgwPWNDZLcc',
+                'password' => '$2y$10$bgNZlq.WHbsOBgUJJTcyqOWGhpUS1GNENSzMuVJJHc/WB9r5G0RuS',
+                'token' => '245|HnXnOhQZ73O4CuHeYKGuggfEScQAw8TRg2mmRR4c',
                 'first_name' => 'Jonathan',
                 'last_name' => 'Jonathan',
-                'phone' => '08988606069',
-                'email_verified_at' => '2021-10-30 13:24:00',
+                'phone' => '08988606067',
+                'email_verified_at' => '2022-01-29 16:25:46',
                 'phone_verified_at' => '2021-10-30 13:24:00',
                 'created_at' => '2021-10-30 06:24:26',
-                'updated_at' => '2022-01-21 09:17:32',
+                'updated_at' => '2022-01-29 17:16:49',
                 'deleted_at' => NULL,
             ),
             1 => 
@@ -58,7 +57,8 @@ class CustomersTableSeeder extends Seeder
                 'token' => '22|aYAUqjJWIIMnJkRLG3ukDWQoBtH5gqFonzdz71xJ',
                 'first_name' => 'Jonathan',
                 'last_name' => 'Jonathan',
-                'phone' => '08988606069',
+                'phone' => '08988606068
+',
                 'email_verified_at' => NULL,
                 'phone_verified_at' => NULL,
                 'created_at' => '2021-11-07 10:50:07',
@@ -110,10 +110,37 @@ class CustomersTableSeeder extends Seeder
                 'updated_at' => '2021-12-13 16:24:07',
                 'deleted_at' => NULL,
             ),
+            6 => 
+            array (
+                'id' => 9,
+                'email' => 'jonathan@grahacitrapratama.co.id',
+                'password' => '$2y$10$0Vwr7mL.IvNtSyD5kHpsZORwYLawGtc/Ef7aiMeh0d4jK8oF4J4Ru',
+                'token' => NULL,
+                'first_name' => 'algania',
+                'last_name' => 'kurniawan',
+                'phone' => '08123578120938',
+                'email_verified_at' => NULL,
+                'phone_verified_at' => NULL,
+                'created_at' => '2022-01-25 23:11:50',
+                'updated_at' => '2022-01-25 23:16:15',
+                'deleted_at' => NULL,
+            ),
+            7 => 
+            array (
+                'id' => 10,
+                'email' => 'sugianto210671@gmail.com',
+                'password' => '$2y$10$kyHvVKBf8SFUY1idtX2eDe57eQSuBpqqLrmdM2dEwcqHE3twHgfQ.',
+                'token' => NULL,
+                'first_name' => 'vel',
+                'last_name' => 'vel',
+                'phone' => '0812368741203',
+                'email_verified_at' => NULL,
+                'phone_verified_at' => NULL,
+                'created_at' => '2022-01-28 13:57:21',
+                'updated_at' => '2022-01-28 13:58:53',
+                'deleted_at' => NULL,
+            ),
         ));
-        
-        
-        
         
         
     }

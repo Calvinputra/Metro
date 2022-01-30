@@ -57,7 +57,9 @@
                 class="d-flex justify-content-center"
                 target="_blank"
                 :href="
-                  'https://wa.me/628988606069?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
+                  'https://wa.me/' +
+                  settings.company_wa_phone +
+                  '?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
                   data.code +
                   ' - ' +
                   data.name
@@ -111,7 +113,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 export default {
   props: ["data", "url"],
   data() {
@@ -181,6 +183,11 @@ export default {
       }
     },
     ...mapActions(["addProductToCart"]),
+  },
+  computed: {
+    ...mapGetters({
+      settings: "getSetting",
+    }),
   },
 };
 </script>

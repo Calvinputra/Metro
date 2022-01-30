@@ -77,9 +77,18 @@
                         </p>
                         <p>
                           :
-                          {{ this.$auth.user.addresses[0].city.province_name }}
+                          {{ this.$auth.user.addresses[0].city.name }}
                         </p>
-                        <p>: {{ this.$auth.user.email }}</p>
+                        <p>
+                          : {{ this.$auth.user.email }}
+                          <template
+                            v-if="this.$auth.user.email_verified_at === null"
+                            >-
+                            <button @click.prevent="doEmailVerification" class="btn"  style="color: red; weight: 700">
+                              Verifikasi sekarang
+                            </button>
+                          </template>
+                        </p>
                       </div>
                     </div>
                   </form>
@@ -203,7 +212,7 @@
                         </p>
                         <p class="mt-4">
                           :
-                          {{ this.$auth.user.addresses[0].city.province_name }}
+                          {{ this.$auth.user.addresses[0].city.name }}
                         </p>
                         <p class="mt-4">: {{ this.$auth.user.email }}</p>
                       </div>
@@ -250,11 +259,7 @@
     </section>
   </section>
 </template>
-<script>
-export default {
-  middleware: "auth",
-};
-</script>
+
 <style lang="css" scoped>
 #profile-mobileview {
   display: none;
@@ -273,3 +278,34 @@ export default {
   }
 }
 </style>
+
+<script>
+export default {
+  middleware: "auth",
+  methods: {
+    async doEmailVerification() {
+      try {
+        let response = await this.$axios.$post(
+          process.env.API_URL + "/api/email_verification_request"
+        );
+        console.log(response);
+        if (response.success) {
+          this.$toast.success(response.data, {
+            theme: "bubble",
+            position: "bottom-right",
+            duration: 5000,
+          });
+        } else {
+          this.$toast.error(response.data, {
+            theme: "bubble",
+            position: "bottom-right",
+            duration: 5000,
+          });
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
+};
+</script>

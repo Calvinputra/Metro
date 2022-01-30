@@ -14,11 +14,10 @@
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <!-- Content -->
             <a href=""
-              ><img style="width:50%" src="img/logo.png" class="mb-3" alt=""
+              ><img style="width: 50%" src="img/logo.png" class="mb-3" alt=""
             /></a>
             <p>
-              Jl.Raya kb.Jeruk, No.27, RT 2/RW 9, Kb. Jeruk Kec Kb.Jeruk, Kota
-              Jakarta Barat, Daerah Khusus Ibukota Jakarta 11520
+              {{settings.company_address}}
             </p>
             <div>
               <a href="" class="me-4 text-reset">
@@ -119,13 +118,13 @@
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-            <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+            <p><i class="fas fa-home me-3"></i> {{settings.company_city}}</p>
             <p>
               <i class="fas fa-envelope me-3"></i>
-              info@example.com
+              {{settings.company_email}}
             </p>
-            <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-            <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+            <p><i class="fas fa-phone me-3"></i> {{settings.company_phone}}</p>
+            <p><i class="fas fa-print me-3"></i> {{settings.company_fax}}</p>
           </div>
           <!-- Grid column -->
         </div>
@@ -171,19 +170,27 @@ export default {
     this.$store.dispatch("fetchFooter1");
     this.$store.dispatch("fetchFooter2");
     this.$store.dispatch("fetchFooter3");
+    //get setting
+    this.$store.dispatch("fetchCompanyEmail");
+    this.$store.dispatch("fetchCompanyPhone");
+    this.$store.dispatch("fetchCompanyFax");
+    this.$store.dispatch("fetchCompanyAddress");
+    this.$store.dispatch("fetchCompanyCity");
+    this.$store.dispatch("fetchCompanyWaPhone");
   },
   computed: {
     ...mapGetters({
       footer_1: "getFooter1",
       footer_2: "getFooter2",
-      footer_3: "getFooter3"
-    })
+      footer_3: "getFooter3",
+      settings: "getSetting",
+    }),
   },
   methods: {
     redirectTo(url) {
       this.$router.push(url);
-    }
-  }
+    },
+  },
 };
 </script>
 

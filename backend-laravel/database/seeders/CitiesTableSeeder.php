@@ -14,135 +14,134 @@ class CitiesTableSeeder extends Seeder
      */
     public function run()
     {
-
+        
 
         \DB::table('cities')->delete();
-
-
-        \DB::table('cities')->insert(array(
-            0 =>
-            array(
+        
+        \DB::table('cities')->insert(array (
+            0 => 
+            array (
                 'id' => 1,
                 'name' => 'Aceh Barat',
                 'province_id' => 21,
-                'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
+            'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
                 'type' => 'Kabupaten',
                 'postal_code' => '23681',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            1 =>
-            array(
+            1 => 
+            array (
                 'id' => 2,
                 'name' => 'Aceh Barat Daya',
                 'province_id' => 21,
-                'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
+            'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
                 'type' => 'Kabupaten',
                 'postal_code' => '23764',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            2 =>
-            array(
+            2 => 
+            array (
                 'id' => 3,
                 'name' => 'Aceh Besar',
                 'province_id' => 21,
-                'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
+            'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
                 'type' => 'Kabupaten',
                 'postal_code' => '23951',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            3 =>
-            array(
+            3 => 
+            array (
                 'id' => 4,
                 'name' => 'Aceh Jaya',
                 'province_id' => 21,
-                'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
+            'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
                 'type' => 'Kabupaten',
                 'postal_code' => '23654',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            4 =>
-            array(
+            4 => 
+            array (
                 'id' => 5,
                 'name' => 'Aceh Selatan',
                 'province_id' => 21,
-                'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
+            'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
                 'type' => 'Kabupaten',
                 'postal_code' => '23719',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            5 =>
-            array(
+            5 => 
+            array (
                 'id' => 6,
                 'name' => 'Aceh Singkil',
                 'province_id' => 21,
-                'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
+            'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
                 'type' => 'Kabupaten',
                 'postal_code' => '24785',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            6 =>
-            array(
+            6 => 
+            array (
                 'id' => 7,
                 'name' => 'Aceh Tamiang',
                 'province_id' => 21,
-                'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
+            'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
                 'type' => 'Kabupaten',
                 'postal_code' => '24476',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            7 =>
-            array(
+            7 => 
+            array (
                 'id' => 8,
                 'name' => 'Aceh Tengah',
                 'province_id' => 21,
-                'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
+            'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
                 'type' => 'Kabupaten',
                 'postal_code' => '24511',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            8 =>
-            array(
+            8 => 
+            array (
                 'id' => 9,
                 'name' => 'Aceh Tenggara',
                 'province_id' => 21,
-                'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
+            'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
                 'type' => 'Kabupaten',
                 'postal_code' => '24611',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            9 =>
-            array(
+            9 => 
+            array (
                 'id' => 10,
                 'name' => 'Aceh Timur',
                 'province_id' => 21,
-                'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
+            'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
                 'type' => 'Kabupaten',
                 'postal_code' => '24454',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            10 =>
-            array(
+            10 => 
+            array (
                 'id' => 11,
                 'name' => 'Aceh Utara',
                 'province_id' => 21,
-                'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
+            'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
                 'type' => 'Kabupaten',
                 'postal_code' => '24382',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            11 =>
-            array(
+            11 => 
+            array (
                 'id' => 12,
                 'name' => 'Agam',
                 'province_id' => 32,
@@ -152,19 +151,19 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            12 =>
-            array(
+            12 => 
+            array (
                 'id' => 13,
                 'name' => 'Alor',
                 'province_id' => 23,
-                'province_name' => 'Nusa Tenggara Timur (NTT)',
+            'province_name' => 'Nusa Tenggara Timur (NTT)',
                 'type' => 'Kabupaten',
                 'postal_code' => '85811',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            13 =>
-            array(
+            13 => 
+            array (
                 'id' => 14,
                 'name' => 'Ambon',
                 'province_id' => 19,
@@ -174,8 +173,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            14 =>
-            array(
+            14 => 
+            array (
                 'id' => 15,
                 'name' => 'Asahan',
                 'province_id' => 34,
@@ -185,8 +184,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            15 =>
-            array(
+            15 => 
+            array (
                 'id' => 16,
                 'name' => 'Asmat',
                 'province_id' => 24,
@@ -196,8 +195,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            16 =>
-            array(
+            16 => 
+            array (
                 'id' => 17,
                 'name' => 'Badung',
                 'province_id' => 1,
@@ -207,8 +206,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            17 =>
-            array(
+            17 => 
+            array (
                 'id' => 18,
                 'name' => 'Balangan',
                 'province_id' => 13,
@@ -218,8 +217,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            18 =>
-            array(
+            18 => 
+            array (
                 'id' => 19,
                 'name' => 'Balikpapan',
                 'province_id' => 15,
@@ -229,19 +228,19 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            19 =>
-            array(
+            19 => 
+            array (
                 'id' => 20,
                 'name' => 'Banda Aceh',
                 'province_id' => 21,
-                'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
+            'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
                 'type' => 'Kota',
                 'postal_code' => '23238',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            20 =>
-            array(
+            20 => 
+            array (
                 'id' => 21,
                 'name' => 'Bandar Lampung',
                 'province_id' => 18,
@@ -251,8 +250,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            21 =>
-            array(
+            21 => 
+            array (
                 'id' => 22,
                 'name' => 'Bandung',
                 'province_id' => 9,
@@ -262,8 +261,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            22 =>
-            array(
+            22 => 
+            array (
                 'id' => 23,
                 'name' => 'Bandung',
                 'province_id' => 9,
@@ -273,8 +272,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            23 =>
-            array(
+            23 => 
+            array (
                 'id' => 24,
                 'name' => 'Bandung Barat',
                 'province_id' => 9,
@@ -284,8 +283,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            24 =>
-            array(
+            24 => 
+            array (
                 'id' => 25,
                 'name' => 'Banggai',
                 'province_id' => 29,
@@ -295,8 +294,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            25 =>
-            array(
+            25 => 
+            array (
                 'id' => 26,
                 'name' => 'Banggai Kepulauan',
                 'province_id' => 29,
@@ -306,8 +305,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            26 =>
-            array(
+            26 => 
+            array (
                 'id' => 27,
                 'name' => 'Bangka',
                 'province_id' => 2,
@@ -317,8 +316,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            27 =>
-            array(
+            27 => 
+            array (
                 'id' => 28,
                 'name' => 'Bangka Barat',
                 'province_id' => 2,
@@ -328,8 +327,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            28 =>
-            array(
+            28 => 
+            array (
                 'id' => 29,
                 'name' => 'Bangka Selatan',
                 'province_id' => 2,
@@ -339,8 +338,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            29 =>
-            array(
+            29 => 
+            array (
                 'id' => 30,
                 'name' => 'Bangka Tengah',
                 'province_id' => 2,
@@ -350,8 +349,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            30 =>
-            array(
+            30 => 
+            array (
                 'id' => 31,
                 'name' => 'Bangkalan',
                 'province_id' => 11,
@@ -361,8 +360,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            31 =>
-            array(
+            31 => 
+            array (
                 'id' => 32,
                 'name' => 'Bangli',
                 'province_id' => 1,
@@ -372,8 +371,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            32 =>
-            array(
+            32 => 
+            array (
                 'id' => 33,
                 'name' => 'Banjar',
                 'province_id' => 13,
@@ -383,8 +382,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            33 =>
-            array(
+            33 => 
+            array (
                 'id' => 34,
                 'name' => 'Banjar',
                 'province_id' => 9,
@@ -394,8 +393,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            34 =>
-            array(
+            34 => 
+            array (
                 'id' => 35,
                 'name' => 'Banjarbaru',
                 'province_id' => 13,
@@ -405,8 +404,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            35 =>
-            array(
+            35 => 
+            array (
                 'id' => 36,
                 'name' => 'Banjarmasin',
                 'province_id' => 13,
@@ -416,8 +415,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            36 =>
-            array(
+            36 => 
+            array (
                 'id' => 37,
                 'name' => 'Banjarnegara',
                 'province_id' => 10,
@@ -427,8 +426,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            37 =>
-            array(
+            37 => 
+            array (
                 'id' => 38,
                 'name' => 'Bantaeng',
                 'province_id' => 28,
@@ -438,8 +437,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            38 =>
-            array(
+            38 => 
+            array (
                 'id' => 39,
                 'name' => 'Bantul',
                 'province_id' => 5,
@@ -449,8 +448,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            39 =>
-            array(
+            39 => 
+            array (
                 'id' => 40,
                 'name' => 'Banyuasin',
                 'province_id' => 33,
@@ -460,8 +459,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            40 =>
-            array(
+            40 => 
+            array (
                 'id' => 41,
                 'name' => 'Banyumas',
                 'province_id' => 10,
@@ -471,8 +470,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            41 =>
-            array(
+            41 => 
+            array (
                 'id' => 42,
                 'name' => 'Banyuwangi',
                 'province_id' => 11,
@@ -482,8 +481,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            42 =>
-            array(
+            42 => 
+            array (
                 'id' => 43,
                 'name' => 'Barito Kuala',
                 'province_id' => 13,
@@ -493,8 +492,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            43 =>
-            array(
+            43 => 
+            array (
                 'id' => 44,
                 'name' => 'Barito Selatan',
                 'province_id' => 14,
@@ -504,8 +503,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            44 =>
-            array(
+            44 => 
+            array (
                 'id' => 45,
                 'name' => 'Barito Timur',
                 'province_id' => 14,
@@ -515,8 +514,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            45 =>
-            array(
+            45 => 
+            array (
                 'id' => 46,
                 'name' => 'Barito Utara',
                 'province_id' => 14,
@@ -526,8 +525,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            46 =>
-            array(
+            46 => 
+            array (
                 'id' => 47,
                 'name' => 'Barru',
                 'province_id' => 28,
@@ -537,8 +536,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            47 =>
-            array(
+            47 => 
+            array (
                 'id' => 48,
                 'name' => 'Batam',
                 'province_id' => 17,
@@ -548,8 +547,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            48 =>
-            array(
+            48 => 
+            array (
                 'id' => 49,
                 'name' => 'Batang',
                 'province_id' => 10,
@@ -559,8 +558,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            49 =>
-            array(
+            49 => 
+            array (
                 'id' => 50,
                 'name' => 'Batang Hari',
                 'province_id' => 8,
@@ -570,8 +569,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            50 =>
-            array(
+            50 => 
+            array (
                 'id' => 51,
                 'name' => 'Batu',
                 'province_id' => 11,
@@ -581,8 +580,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            51 =>
-            array(
+            51 => 
+            array (
                 'id' => 52,
                 'name' => 'Batu Bara',
                 'province_id' => 34,
@@ -592,8 +591,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            52 =>
-            array(
+            52 => 
+            array (
                 'id' => 53,
                 'name' => 'Bau-Bau',
                 'province_id' => 30,
@@ -603,8 +602,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            53 =>
-            array(
+            53 => 
+            array (
                 'id' => 54,
                 'name' => 'Bekasi',
                 'province_id' => 9,
@@ -614,8 +613,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            54 =>
-            array(
+            54 => 
+            array (
                 'id' => 55,
                 'name' => 'Bekasi',
                 'province_id' => 9,
@@ -625,8 +624,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            55 =>
-            array(
+            55 => 
+            array (
                 'id' => 56,
                 'name' => 'Belitung',
                 'province_id' => 2,
@@ -636,8 +635,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            56 =>
-            array(
+            56 => 
+            array (
                 'id' => 57,
                 'name' => 'Belitung Timur',
                 'province_id' => 2,
@@ -647,30 +646,30 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            57 =>
-            array(
+            57 => 
+            array (
                 'id' => 58,
                 'name' => 'Belu',
                 'province_id' => 23,
-                'province_name' => 'Nusa Tenggara Timur (NTT)',
+            'province_name' => 'Nusa Tenggara Timur (NTT)',
                 'type' => 'Kabupaten',
                 'postal_code' => '85711',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            58 =>
-            array(
+            58 => 
+            array (
                 'id' => 59,
                 'name' => 'Bener Meriah',
                 'province_id' => 21,
-                'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
+            'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
                 'type' => 'Kabupaten',
                 'postal_code' => '24581',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            59 =>
-            array(
+            59 => 
+            array (
                 'id' => 60,
                 'name' => 'Bengkalis',
                 'province_id' => 26,
@@ -680,8 +679,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            60 =>
-            array(
+            60 => 
+            array (
                 'id' => 61,
                 'name' => 'Bengkayang',
                 'province_id' => 12,
@@ -691,8 +690,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            61 =>
-            array(
+            61 => 
+            array (
                 'id' => 62,
                 'name' => 'Bengkulu',
                 'province_id' => 4,
@@ -702,8 +701,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            62 =>
-            array(
+            62 => 
+            array (
                 'id' => 63,
                 'name' => 'Bengkulu Selatan',
                 'province_id' => 4,
@@ -713,8 +712,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            63 =>
-            array(
+            63 => 
+            array (
                 'id' => 64,
                 'name' => 'Bengkulu Tengah',
                 'province_id' => 4,
@@ -724,8 +723,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            64 =>
-            array(
+            64 => 
+            array (
                 'id' => 65,
                 'name' => 'Bengkulu Utara',
                 'province_id' => 4,
@@ -735,8 +734,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            65 =>
-            array(
+            65 => 
+            array (
                 'id' => 66,
                 'name' => 'Berau',
                 'province_id' => 15,
@@ -746,8 +745,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            66 =>
-            array(
+            66 => 
+            array (
                 'id' => 67,
                 'name' => 'Biak Numfor',
                 'province_id' => 24,
@@ -757,30 +756,30 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            67 =>
-            array(
+            67 => 
+            array (
                 'id' => 68,
                 'name' => 'Bima',
                 'province_id' => 22,
-                'province_name' => 'Nusa Tenggara Barat (NTB)',
+            'province_name' => 'Nusa Tenggara Barat (NTB)',
                 'type' => 'Kabupaten',
                 'postal_code' => '84171',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            68 =>
-            array(
+            68 => 
+            array (
                 'id' => 69,
                 'name' => 'Bima',
                 'province_id' => 22,
-                'province_name' => 'Nusa Tenggara Barat (NTB)',
+            'province_name' => 'Nusa Tenggara Barat (NTB)',
                 'type' => 'Kota',
                 'postal_code' => '84139',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            69 =>
-            array(
+            69 => 
+            array (
                 'id' => 70,
                 'name' => 'Binjai',
                 'province_id' => 34,
@@ -790,8 +789,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            70 =>
-            array(
+            70 => 
+            array (
                 'id' => 71,
                 'name' => 'Bintan',
                 'province_id' => 17,
@@ -801,19 +800,19 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            71 =>
-            array(
+            71 => 
+            array (
                 'id' => 72,
                 'name' => 'Bireuen',
                 'province_id' => 21,
-                'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
+            'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
                 'type' => 'Kabupaten',
                 'postal_code' => '24219',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            72 =>
-            array(
+            72 => 
+            array (
                 'id' => 73,
                 'name' => 'Bitung',
                 'province_id' => 31,
@@ -823,8 +822,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            73 =>
-            array(
+            73 => 
+            array (
                 'id' => 74,
                 'name' => 'Blitar',
                 'province_id' => 11,
@@ -834,8 +833,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            74 =>
-            array(
+            74 => 
+            array (
                 'id' => 75,
                 'name' => 'Blitar',
                 'province_id' => 11,
@@ -845,8 +844,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            75 =>
-            array(
+            75 => 
+            array (
                 'id' => 76,
                 'name' => 'Blora',
                 'province_id' => 10,
@@ -856,8 +855,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            76 =>
-            array(
+            76 => 
+            array (
                 'id' => 77,
                 'name' => 'Boalemo',
                 'province_id' => 7,
@@ -867,8 +866,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            77 =>
-            array(
+            77 => 
+            array (
                 'id' => 78,
                 'name' => 'Bogor',
                 'province_id' => 9,
@@ -878,8 +877,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            78 =>
-            array(
+            78 => 
+            array (
                 'id' => 79,
                 'name' => 'Bogor',
                 'province_id' => 9,
@@ -889,8 +888,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            79 =>
-            array(
+            79 => 
+            array (
                 'id' => 80,
                 'name' => 'Bojonegoro',
                 'province_id' => 11,
@@ -900,10 +899,10 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            80 =>
-            array(
+            80 => 
+            array (
                 'id' => 81,
-                'name' => 'Bolaang Mongondow (Bolmong)',
+            'name' => 'Bolaang Mongondow (Bolmong)',
                 'province_id' => 31,
                 'province_name' => 'Sulawesi Utara',
                 'type' => 'Kabupaten',
@@ -911,8 +910,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            81 =>
-            array(
+            81 => 
+            array (
                 'id' => 82,
                 'name' => 'Bolaang Mongondow Selatan',
                 'province_id' => 31,
@@ -922,8 +921,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            82 =>
-            array(
+            82 => 
+            array (
                 'id' => 83,
                 'name' => 'Bolaang Mongondow Timur',
                 'province_id' => 31,
@@ -933,8 +932,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            83 =>
-            array(
+            83 => 
+            array (
                 'id' => 84,
                 'name' => 'Bolaang Mongondow Utara',
                 'province_id' => 31,
@@ -944,8 +943,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            84 =>
-            array(
+            84 => 
+            array (
                 'id' => 85,
                 'name' => 'Bombana',
                 'province_id' => 30,
@@ -955,8 +954,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            85 =>
-            array(
+            85 => 
+            array (
                 'id' => 86,
                 'name' => 'Bondowoso',
                 'province_id' => 11,
@@ -966,8 +965,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            86 =>
-            array(
+            86 => 
+            array (
                 'id' => 87,
                 'name' => 'Bone',
                 'province_id' => 28,
@@ -977,8 +976,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            87 =>
-            array(
+            87 => 
+            array (
                 'id' => 88,
                 'name' => 'Bone Bolango',
                 'province_id' => 7,
@@ -988,8 +987,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            88 =>
-            array(
+            88 => 
+            array (
                 'id' => 89,
                 'name' => 'Bontang',
                 'province_id' => 15,
@@ -999,8 +998,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            89 =>
-            array(
+            89 => 
+            array (
                 'id' => 90,
                 'name' => 'Boven Digoel',
                 'province_id' => 24,
@@ -1010,8 +1009,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            90 =>
-            array(
+            90 => 
+            array (
                 'id' => 91,
                 'name' => 'Boyolali',
                 'province_id' => 10,
@@ -1021,8 +1020,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            91 =>
-            array(
+            91 => 
+            array (
                 'id' => 92,
                 'name' => 'Brebes',
                 'province_id' => 10,
@@ -1032,8 +1031,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            92 =>
-            array(
+            92 => 
+            array (
                 'id' => 93,
                 'name' => 'Bukittinggi',
                 'province_id' => 32,
@@ -1043,8 +1042,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            93 =>
-            array(
+            93 => 
+            array (
                 'id' => 94,
                 'name' => 'Buleleng',
                 'province_id' => 1,
@@ -1054,8 +1053,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            94 =>
-            array(
+            94 => 
+            array (
                 'id' => 95,
                 'name' => 'Bulukumba',
                 'province_id' => 28,
@@ -1065,10 +1064,10 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            95 =>
-            array(
+            95 => 
+            array (
                 'id' => 96,
-                'name' => 'Bulungan (Bulongan)',
+            'name' => 'Bulungan (Bulongan)',
                 'province_id' => 16,
                 'province_name' => 'Kalimantan Utara',
                 'type' => 'Kabupaten',
@@ -1076,8 +1075,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            96 =>
-            array(
+            96 => 
+            array (
                 'id' => 97,
                 'name' => 'Bungo',
                 'province_id' => 8,
@@ -1087,8 +1086,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            97 =>
-            array(
+            97 => 
+            array (
                 'id' => 98,
                 'name' => 'Buol',
                 'province_id' => 29,
@@ -1098,8 +1097,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            98 =>
-            array(
+            98 => 
+            array (
                 'id' => 99,
                 'name' => 'Buru',
                 'province_id' => 19,
@@ -1109,8 +1108,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            99 =>
-            array(
+            99 => 
+            array (
                 'id' => 100,
                 'name' => 'Buru Selatan',
                 'province_id' => 19,
@@ -1120,8 +1119,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            100 =>
-            array(
+            100 => 
+            array (
                 'id' => 101,
                 'name' => 'Buton',
                 'province_id' => 30,
@@ -1131,8 +1130,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            101 =>
-            array(
+            101 => 
+            array (
                 'id' => 102,
                 'name' => 'Buton Utara',
                 'province_id' => 30,
@@ -1142,8 +1141,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            102 =>
-            array(
+            102 => 
+            array (
                 'id' => 103,
                 'name' => 'Ciamis',
                 'province_id' => 9,
@@ -1153,8 +1152,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            103 =>
-            array(
+            103 => 
+            array (
                 'id' => 104,
                 'name' => 'Cianjur',
                 'province_id' => 9,
@@ -1164,8 +1163,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            104 =>
-            array(
+            104 => 
+            array (
                 'id' => 105,
                 'name' => 'Cilacap',
                 'province_id' => 10,
@@ -1175,8 +1174,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            105 =>
-            array(
+            105 => 
+            array (
                 'id' => 106,
                 'name' => 'Cilegon',
                 'province_id' => 3,
@@ -1186,8 +1185,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            106 =>
-            array(
+            106 => 
+            array (
                 'id' => 107,
                 'name' => 'Cimahi',
                 'province_id' => 9,
@@ -1197,8 +1196,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            107 =>
-            array(
+            107 => 
+            array (
                 'id' => 108,
                 'name' => 'Cirebon',
                 'province_id' => 9,
@@ -1208,8 +1207,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            108 =>
-            array(
+            108 => 
+            array (
                 'id' => 109,
                 'name' => 'Cirebon',
                 'province_id' => 9,
@@ -1219,8 +1218,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            109 =>
-            array(
+            109 => 
+            array (
                 'id' => 110,
                 'name' => 'Dairi',
                 'province_id' => 34,
@@ -1230,10 +1229,10 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            110 =>
-            array(
+            110 => 
+            array (
                 'id' => 111,
-                'name' => 'Deiyai (Deliyai)',
+            'name' => 'Deiyai (Deliyai)',
                 'province_id' => 24,
                 'province_name' => 'Papua',
                 'type' => 'Kabupaten',
@@ -1241,8 +1240,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            111 =>
-            array(
+            111 => 
+            array (
                 'id' => 112,
                 'name' => 'Deli Serdang',
                 'province_id' => 34,
@@ -1252,8 +1251,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            112 =>
-            array(
+            112 => 
+            array (
                 'id' => 113,
                 'name' => 'Demak',
                 'province_id' => 10,
@@ -1263,8 +1262,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            113 =>
-            array(
+            113 => 
+            array (
                 'id' => 114,
                 'name' => 'Denpasar',
                 'province_id' => 1,
@@ -1274,8 +1273,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            114 =>
-            array(
+            114 => 
+            array (
                 'id' => 115,
                 'name' => 'Depok',
                 'province_id' => 9,
@@ -1285,8 +1284,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            115 =>
-            array(
+            115 => 
+            array (
                 'id' => 116,
                 'name' => 'Dharmasraya',
                 'province_id' => 32,
@@ -1296,8 +1295,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            116 =>
-            array(
+            116 => 
+            array (
                 'id' => 117,
                 'name' => 'Dogiyai',
                 'province_id' => 24,
@@ -1307,19 +1306,19 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            117 =>
-            array(
+            117 => 
+            array (
                 'id' => 118,
                 'name' => 'Dompu',
                 'province_id' => 22,
-                'province_name' => 'Nusa Tenggara Barat (NTB)',
+            'province_name' => 'Nusa Tenggara Barat (NTB)',
                 'type' => 'Kabupaten',
                 'postal_code' => '84217',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            118 =>
-            array(
+            118 => 
+            array (
                 'id' => 119,
                 'name' => 'Donggala',
                 'province_id' => 29,
@@ -1329,8 +1328,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            119 =>
-            array(
+            119 => 
+            array (
                 'id' => 120,
                 'name' => 'Dumai',
                 'province_id' => 26,
@@ -1340,8 +1339,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            120 =>
-            array(
+            120 => 
+            array (
                 'id' => 121,
                 'name' => 'Empat Lawang',
                 'province_id' => 33,
@@ -1351,19 +1350,19 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            121 =>
-            array(
+            121 => 
+            array (
                 'id' => 122,
                 'name' => 'Ende',
                 'province_id' => 23,
-                'province_name' => 'Nusa Tenggara Timur (NTT)',
+            'province_name' => 'Nusa Tenggara Timur (NTT)',
                 'type' => 'Kabupaten',
                 'postal_code' => '86351',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            122 =>
-            array(
+            122 => 
+            array (
                 'id' => 123,
                 'name' => 'Enrekang',
                 'province_id' => 28,
@@ -1373,8 +1372,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            123 =>
-            array(
+            123 => 
+            array (
                 'id' => 124,
                 'name' => 'Fakfak',
                 'province_id' => 25,
@@ -1384,19 +1383,19 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            124 =>
-            array(
+            124 => 
+            array (
                 'id' => 125,
                 'name' => 'Flores Timur',
                 'province_id' => 23,
-                'province_name' => 'Nusa Tenggara Timur (NTT)',
+            'province_name' => 'Nusa Tenggara Timur (NTT)',
                 'type' => 'Kabupaten',
                 'postal_code' => '86213',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            125 =>
-            array(
+            125 => 
+            array (
                 'id' => 126,
                 'name' => 'Garut',
                 'province_id' => 9,
@@ -1406,19 +1405,19 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            126 =>
-            array(
+            126 => 
+            array (
                 'id' => 127,
                 'name' => 'Gayo Lues',
                 'province_id' => 21,
-                'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
+            'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
                 'type' => 'Kabupaten',
                 'postal_code' => '24653',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            127 =>
-            array(
+            127 => 
+            array (
                 'id' => 128,
                 'name' => 'Gianyar',
                 'province_id' => 1,
@@ -1428,8 +1427,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            128 =>
-            array(
+            128 => 
+            array (
                 'id' => 129,
                 'name' => 'Gorontalo',
                 'province_id' => 7,
@@ -1439,8 +1438,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            129 =>
-            array(
+            129 => 
+            array (
                 'id' => 130,
                 'name' => 'Gorontalo',
                 'province_id' => 7,
@@ -1450,8 +1449,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            130 =>
-            array(
+            130 => 
+            array (
                 'id' => 131,
                 'name' => 'Gorontalo Utara',
                 'province_id' => 7,
@@ -1461,8 +1460,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            131 =>
-            array(
+            131 => 
+            array (
                 'id' => 132,
                 'name' => 'Gowa',
                 'province_id' => 28,
@@ -1472,8 +1471,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            132 =>
-            array(
+            132 => 
+            array (
                 'id' => 133,
                 'name' => 'Gresik',
                 'province_id' => 11,
@@ -1483,8 +1482,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            133 =>
-            array(
+            133 => 
+            array (
                 'id' => 134,
                 'name' => 'Grobogan',
                 'province_id' => 10,
@@ -1494,8 +1493,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            134 =>
-            array(
+            134 => 
+            array (
                 'id' => 135,
                 'name' => 'Gunung Kidul',
                 'province_id' => 5,
@@ -1505,8 +1504,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            135 =>
-            array(
+            135 => 
+            array (
                 'id' => 136,
                 'name' => 'Gunung Mas',
                 'province_id' => 14,
@@ -1516,8 +1515,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            136 =>
-            array(
+            136 => 
+            array (
                 'id' => 137,
                 'name' => 'Gunungsitoli',
                 'province_id' => 34,
@@ -1527,8 +1526,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            137 =>
-            array(
+            137 => 
+            array (
                 'id' => 138,
                 'name' => 'Halmahera Barat',
                 'province_id' => 20,
@@ -1538,8 +1537,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            138 =>
-            array(
+            138 => 
+            array (
                 'id' => 139,
                 'name' => 'Halmahera Selatan',
                 'province_id' => 20,
@@ -1549,8 +1548,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            139 =>
-            array(
+            139 => 
+            array (
                 'id' => 140,
                 'name' => 'Halmahera Tengah',
                 'province_id' => 20,
@@ -1560,8 +1559,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            140 =>
-            array(
+            140 => 
+            array (
                 'id' => 141,
                 'name' => 'Halmahera Timur',
                 'province_id' => 20,
@@ -1571,8 +1570,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            141 =>
-            array(
+            141 => 
+            array (
                 'id' => 142,
                 'name' => 'Halmahera Utara',
                 'province_id' => 20,
@@ -1582,8 +1581,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            142 =>
-            array(
+            142 => 
+            array (
                 'id' => 143,
                 'name' => 'Hulu Sungai Selatan',
                 'province_id' => 13,
@@ -1593,8 +1592,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            143 =>
-            array(
+            143 => 
+            array (
                 'id' => 144,
                 'name' => 'Hulu Sungai Tengah',
                 'province_id' => 13,
@@ -1604,8 +1603,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            144 =>
-            array(
+            144 => 
+            array (
                 'id' => 145,
                 'name' => 'Hulu Sungai Utara',
                 'province_id' => 13,
@@ -1615,8 +1614,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            145 =>
-            array(
+            145 => 
+            array (
                 'id' => 146,
                 'name' => 'Humbang Hasundutan',
                 'province_id' => 34,
@@ -1626,8 +1625,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            146 =>
-            array(
+            146 => 
+            array (
                 'id' => 147,
                 'name' => 'Indragiri Hilir',
                 'province_id' => 26,
@@ -1637,8 +1636,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            147 =>
-            array(
+            147 => 
+            array (
                 'id' => 148,
                 'name' => 'Indragiri Hulu',
                 'province_id' => 26,
@@ -1648,8 +1647,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            148 =>
-            array(
+            148 => 
+            array (
                 'id' => 149,
                 'name' => 'Indramayu',
                 'province_id' => 9,
@@ -1659,8 +1658,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            149 =>
-            array(
+            149 => 
+            array (
                 'id' => 150,
                 'name' => 'Intan Jaya',
                 'province_id' => 24,
@@ -1670,8 +1669,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            150 =>
-            array(
+            150 => 
+            array (
                 'id' => 151,
                 'name' => 'Jakarta Barat',
                 'province_id' => 6,
@@ -1681,8 +1680,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            151 =>
-            array(
+            151 => 
+            array (
                 'id' => 152,
                 'name' => 'Jakarta Pusat',
                 'province_id' => 6,
@@ -1692,8 +1691,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            152 =>
-            array(
+            152 => 
+            array (
                 'id' => 153,
                 'name' => 'Jakarta Selatan',
                 'province_id' => 6,
@@ -1703,8 +1702,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            153 =>
-            array(
+            153 => 
+            array (
                 'id' => 154,
                 'name' => 'Jakarta Timur',
                 'province_id' => 6,
@@ -1714,8 +1713,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            154 =>
-            array(
+            154 => 
+            array (
                 'id' => 155,
                 'name' => 'Jakarta Utara',
                 'province_id' => 6,
@@ -1725,8 +1724,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            155 =>
-            array(
+            155 => 
+            array (
                 'id' => 156,
                 'name' => 'Jambi',
                 'province_id' => 8,
@@ -1736,8 +1735,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            156 =>
-            array(
+            156 => 
+            array (
                 'id' => 157,
                 'name' => 'Jayapura',
                 'province_id' => 24,
@@ -1747,8 +1746,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            157 =>
-            array(
+            157 => 
+            array (
                 'id' => 158,
                 'name' => 'Jayapura',
                 'province_id' => 24,
@@ -1758,8 +1757,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            158 =>
-            array(
+            158 => 
+            array (
                 'id' => 159,
                 'name' => 'Jayawijaya',
                 'province_id' => 24,
@@ -1769,8 +1768,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            159 =>
-            array(
+            159 => 
+            array (
                 'id' => 160,
                 'name' => 'Jember',
                 'province_id' => 11,
@@ -1780,8 +1779,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            160 =>
-            array(
+            160 => 
+            array (
                 'id' => 161,
                 'name' => 'Jembrana',
                 'province_id' => 1,
@@ -1791,8 +1790,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            161 =>
-            array(
+            161 => 
+            array (
                 'id' => 162,
                 'name' => 'Jeneponto',
                 'province_id' => 28,
@@ -1802,8 +1801,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            162 =>
-            array(
+            162 => 
+            array (
                 'id' => 163,
                 'name' => 'Jepara',
                 'province_id' => 10,
@@ -1813,8 +1812,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            163 =>
-            array(
+            163 => 
+            array (
                 'id' => 164,
                 'name' => 'Jombang',
                 'province_id' => 11,
@@ -1824,8 +1823,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            164 =>
-            array(
+            164 => 
+            array (
                 'id' => 165,
                 'name' => 'Kaimana',
                 'province_id' => 25,
@@ -1835,8 +1834,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            165 =>
-            array(
+            165 => 
+            array (
                 'id' => 166,
                 'name' => 'Kampar',
                 'province_id' => 26,
@@ -1846,8 +1845,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            166 =>
-            array(
+            166 => 
+            array (
                 'id' => 167,
                 'name' => 'Kapuas',
                 'province_id' => 14,
@@ -1857,8 +1856,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            167 =>
-            array(
+            167 => 
+            array (
                 'id' => 168,
                 'name' => 'Kapuas Hulu',
                 'province_id' => 12,
@@ -1868,8 +1867,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            168 =>
-            array(
+            168 => 
+            array (
                 'id' => 169,
                 'name' => 'Karanganyar',
                 'province_id' => 10,
@@ -1879,8 +1878,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            169 =>
-            array(
+            169 => 
+            array (
                 'id' => 170,
                 'name' => 'Karangasem',
                 'province_id' => 1,
@@ -1890,8 +1889,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            170 =>
-            array(
+            170 => 
+            array (
                 'id' => 171,
                 'name' => 'Karawang',
                 'province_id' => 9,
@@ -1901,8 +1900,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            171 =>
-            array(
+            171 => 
+            array (
                 'id' => 172,
                 'name' => 'Karimun',
                 'province_id' => 17,
@@ -1912,8 +1911,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            172 =>
-            array(
+            172 => 
+            array (
                 'id' => 173,
                 'name' => 'Karo',
                 'province_id' => 34,
@@ -1923,8 +1922,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            173 =>
-            array(
+            173 => 
+            array (
                 'id' => 174,
                 'name' => 'Katingan',
                 'province_id' => 14,
@@ -1934,8 +1933,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            174 =>
-            array(
+            174 => 
+            array (
                 'id' => 175,
                 'name' => 'Kaur',
                 'province_id' => 4,
@@ -1945,8 +1944,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            175 =>
-            array(
+            175 => 
+            array (
                 'id' => 176,
                 'name' => 'Kayong Utara',
                 'province_id' => 12,
@@ -1956,8 +1955,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            176 =>
-            array(
+            176 => 
+            array (
                 'id' => 177,
                 'name' => 'Kebumen',
                 'province_id' => 10,
@@ -1967,8 +1966,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            177 =>
-            array(
+            177 => 
+            array (
                 'id' => 178,
                 'name' => 'Kediri',
                 'province_id' => 11,
@@ -1978,8 +1977,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            178 =>
-            array(
+            178 => 
+            array (
                 'id' => 179,
                 'name' => 'Kediri',
                 'province_id' => 11,
@@ -1989,8 +1988,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            179 =>
-            array(
+            179 => 
+            array (
                 'id' => 180,
                 'name' => 'Keerom',
                 'province_id' => 24,
@@ -2000,8 +1999,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            180 =>
-            array(
+            180 => 
+            array (
                 'id' => 181,
                 'name' => 'Kendal',
                 'province_id' => 10,
@@ -2011,8 +2010,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            181 =>
-            array(
+            181 => 
+            array (
                 'id' => 182,
                 'name' => 'Kendari',
                 'province_id' => 30,
@@ -2022,8 +2021,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            182 =>
-            array(
+            182 => 
+            array (
                 'id' => 183,
                 'name' => 'Kepahiang',
                 'province_id' => 4,
@@ -2033,8 +2032,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            183 =>
-            array(
+            183 => 
+            array (
                 'id' => 184,
                 'name' => 'Kepulauan Anambas',
                 'province_id' => 17,
@@ -2044,8 +2043,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            184 =>
-            array(
+            184 => 
+            array (
                 'id' => 185,
                 'name' => 'Kepulauan Aru',
                 'province_id' => 19,
@@ -2055,8 +2054,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            185 =>
-            array(
+            185 => 
+            array (
                 'id' => 186,
                 'name' => 'Kepulauan Mentawai',
                 'province_id' => 32,
@@ -2066,8 +2065,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            186 =>
-            array(
+            186 => 
+            array (
                 'id' => 187,
                 'name' => 'Kepulauan Meranti',
                 'province_id' => 26,
@@ -2077,8 +2076,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            187 =>
-            array(
+            187 => 
+            array (
                 'id' => 188,
                 'name' => 'Kepulauan Sangihe',
                 'province_id' => 31,
@@ -2088,8 +2087,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            188 =>
-            array(
+            188 => 
+            array (
                 'id' => 189,
                 'name' => 'Kepulauan Seribu',
                 'province_id' => 6,
@@ -2099,10 +2098,10 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            189 =>
-            array(
+            189 => 
+            array (
                 'id' => 190,
-                'name' => 'Kepulauan Siau Tagulandang Biaro (Sitaro)',
+            'name' => 'Kepulauan Siau Tagulandang Biaro (Sitaro)',
                 'province_id' => 31,
                 'province_name' => 'Sulawesi Utara',
                 'type' => 'Kabupaten',
@@ -2110,8 +2109,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            190 =>
-            array(
+            190 => 
+            array (
                 'id' => 191,
                 'name' => 'Kepulauan Sula',
                 'province_id' => 20,
@@ -2121,8 +2120,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            191 =>
-            array(
+            191 => 
+            array (
                 'id' => 192,
                 'name' => 'Kepulauan Talaud',
                 'province_id' => 31,
@@ -2132,10 +2131,10 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            192 =>
-            array(
+            192 => 
+            array (
                 'id' => 193,
-                'name' => 'Kepulauan Yapen (Yapen Waropen)',
+            'name' => 'Kepulauan Yapen (Yapen Waropen)',
                 'province_id' => 24,
                 'province_name' => 'Papua',
                 'type' => 'Kabupaten',
@@ -2143,8 +2142,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            193 =>
-            array(
+            193 => 
+            array (
                 'id' => 194,
                 'name' => 'Kerinci',
                 'province_id' => 8,
@@ -2154,8 +2153,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            194 =>
-            array(
+            194 => 
+            array (
                 'id' => 195,
                 'name' => 'Ketapang',
                 'province_id' => 12,
@@ -2165,8 +2164,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            195 =>
-            array(
+            195 => 
+            array (
                 'id' => 196,
                 'name' => 'Klaten',
                 'province_id' => 10,
@@ -2176,8 +2175,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            196 =>
-            array(
+            196 => 
+            array (
                 'id' => 197,
                 'name' => 'Klungkung',
                 'province_id' => 1,
@@ -2187,8 +2186,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            197 =>
-            array(
+            197 => 
+            array (
                 'id' => 198,
                 'name' => 'Kolaka',
                 'province_id' => 30,
@@ -2198,8 +2197,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            198 =>
-            array(
+            198 => 
+            array (
                 'id' => 199,
                 'name' => 'Kolaka Utara',
                 'province_id' => 30,
@@ -2209,8 +2208,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            199 =>
-            array(
+            199 => 
+            array (
                 'id' => 200,
                 'name' => 'Konawe',
                 'province_id' => 30,
@@ -2220,8 +2219,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            200 =>
-            array(
+            200 => 
+            array (
                 'id' => 201,
                 'name' => 'Konawe Selatan',
                 'province_id' => 30,
@@ -2231,8 +2230,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            201 =>
-            array(
+            201 => 
+            array (
                 'id' => 202,
                 'name' => 'Konawe Utara',
                 'province_id' => 30,
@@ -2242,8 +2241,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            202 =>
-            array(
+            202 => 
+            array (
                 'id' => 203,
                 'name' => 'Kotabaru',
                 'province_id' => 13,
@@ -2253,8 +2252,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            203 =>
-            array(
+            203 => 
+            array (
                 'id' => 204,
                 'name' => 'Kotamobagu',
                 'province_id' => 31,
@@ -2264,8 +2263,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            204 =>
-            array(
+            204 => 
+            array (
                 'id' => 205,
                 'name' => 'Kotawaringin Barat',
                 'province_id' => 14,
@@ -2275,8 +2274,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            205 =>
-            array(
+            205 => 
+            array (
                 'id' => 206,
                 'name' => 'Kotawaringin Timur',
                 'province_id' => 14,
@@ -2286,8 +2285,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            206 =>
-            array(
+            206 => 
+            array (
                 'id' => 207,
                 'name' => 'Kuantan Singingi',
                 'province_id' => 26,
@@ -2297,8 +2296,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            207 =>
-            array(
+            207 => 
+            array (
                 'id' => 208,
                 'name' => 'Kubu Raya',
                 'province_id' => 12,
@@ -2308,8 +2307,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            208 =>
-            array(
+            208 => 
+            array (
                 'id' => 209,
                 'name' => 'Kudus',
                 'province_id' => 10,
@@ -2319,8 +2318,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            209 =>
-            array(
+            209 => 
+            array (
                 'id' => 210,
                 'name' => 'Kulon Progo',
                 'province_id' => 5,
@@ -2330,8 +2329,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            210 =>
-            array(
+            210 => 
+            array (
                 'id' => 211,
                 'name' => 'Kuningan',
                 'province_id' => 9,
@@ -2341,30 +2340,30 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            211 =>
-            array(
+            211 => 
+            array (
                 'id' => 212,
                 'name' => 'Kupang',
                 'province_id' => 23,
-                'province_name' => 'Nusa Tenggara Timur (NTT)',
+            'province_name' => 'Nusa Tenggara Timur (NTT)',
                 'type' => 'Kabupaten',
                 'postal_code' => '85362',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            212 =>
-            array(
+            212 => 
+            array (
                 'id' => 213,
                 'name' => 'Kupang',
                 'province_id' => 23,
-                'province_name' => 'Nusa Tenggara Timur (NTT)',
+            'province_name' => 'Nusa Tenggara Timur (NTT)',
                 'type' => 'Kota',
                 'postal_code' => '85119',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            213 =>
-            array(
+            213 => 
+            array (
                 'id' => 214,
                 'name' => 'Kutai Barat',
                 'province_id' => 15,
@@ -2374,8 +2373,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            214 =>
-            array(
+            214 => 
+            array (
                 'id' => 215,
                 'name' => 'Kutai Kartanegara',
                 'province_id' => 15,
@@ -2385,8 +2384,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            215 =>
-            array(
+            215 => 
+            array (
                 'id' => 216,
                 'name' => 'Kutai Timur',
                 'province_id' => 15,
@@ -2396,8 +2395,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            216 =>
-            array(
+            216 => 
+            array (
                 'id' => 217,
                 'name' => 'Labuhan Batu',
                 'province_id' => 34,
@@ -2407,8 +2406,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            217 =>
-            array(
+            217 => 
+            array (
                 'id' => 218,
                 'name' => 'Labuhan Batu Selatan',
                 'province_id' => 34,
@@ -2418,8 +2417,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            218 =>
-            array(
+            218 => 
+            array (
                 'id' => 219,
                 'name' => 'Labuhan Batu Utara',
                 'province_id' => 34,
@@ -2429,8 +2428,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            219 =>
-            array(
+            219 => 
+            array (
                 'id' => 220,
                 'name' => 'Lahat',
                 'province_id' => 33,
@@ -2440,8 +2439,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            220 =>
-            array(
+            220 => 
+            array (
                 'id' => 221,
                 'name' => 'Lamandau',
                 'province_id' => 14,
@@ -2451,8 +2450,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            221 =>
-            array(
+            221 => 
+            array (
                 'id' => 222,
                 'name' => 'Lamongan',
                 'province_id' => 11,
@@ -2462,8 +2461,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            222 =>
-            array(
+            222 => 
+            array (
                 'id' => 223,
                 'name' => 'Lampung Barat',
                 'province_id' => 18,
@@ -2473,8 +2472,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            223 =>
-            array(
+            223 => 
+            array (
                 'id' => 224,
                 'name' => 'Lampung Selatan',
                 'province_id' => 18,
@@ -2484,8 +2483,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            224 =>
-            array(
+            224 => 
+            array (
                 'id' => 225,
                 'name' => 'Lampung Tengah',
                 'province_id' => 18,
@@ -2495,8 +2494,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            225 =>
-            array(
+            225 => 
+            array (
                 'id' => 226,
                 'name' => 'Lampung Timur',
                 'province_id' => 18,
@@ -2506,8 +2505,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            226 =>
-            array(
+            226 => 
+            array (
                 'id' => 227,
                 'name' => 'Lampung Utara',
                 'province_id' => 18,
@@ -2517,8 +2516,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            227 =>
-            array(
+            227 => 
+            array (
                 'id' => 228,
                 'name' => 'Landak',
                 'province_id' => 12,
@@ -2528,8 +2527,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            228 =>
-            array(
+            228 => 
+            array (
                 'id' => 229,
                 'name' => 'Langkat',
                 'province_id' => 34,
@@ -2539,19 +2538,19 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            229 =>
-            array(
+            229 => 
+            array (
                 'id' => 230,
                 'name' => 'Langsa',
                 'province_id' => 21,
-                'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
+            'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
                 'type' => 'Kota',
                 'postal_code' => '24412',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            230 =>
-            array(
+            230 => 
+            array (
                 'id' => 231,
                 'name' => 'Lanny Jaya',
                 'province_id' => 24,
@@ -2561,8 +2560,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            231 =>
-            array(
+            231 => 
+            array (
                 'id' => 232,
                 'name' => 'Lebak',
                 'province_id' => 3,
@@ -2572,8 +2571,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            232 =>
-            array(
+            232 => 
+            array (
                 'id' => 233,
                 'name' => 'Lebong',
                 'province_id' => 4,
@@ -2583,30 +2582,30 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            233 =>
-            array(
+            233 => 
+            array (
                 'id' => 234,
                 'name' => 'Lembata',
                 'province_id' => 23,
-                'province_name' => 'Nusa Tenggara Timur (NTT)',
+            'province_name' => 'Nusa Tenggara Timur (NTT)',
                 'type' => 'Kabupaten',
                 'postal_code' => '86611',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            234 =>
-            array(
+            234 => 
+            array (
                 'id' => 235,
                 'name' => 'Lhokseumawe',
                 'province_id' => 21,
-                'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
+            'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
                 'type' => 'Kota',
                 'postal_code' => '24352',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            235 =>
-            array(
+            235 => 
+            array (
                 'id' => 236,
                 'name' => 'Lima Puluh Koto/Kota',
                 'province_id' => 32,
@@ -2616,8 +2615,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            236 =>
-            array(
+            236 => 
+            array (
                 'id' => 237,
                 'name' => 'Lingga',
                 'province_id' => 17,
@@ -2627,52 +2626,52 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            237 =>
-            array(
+            237 => 
+            array (
                 'id' => 238,
                 'name' => 'Lombok Barat',
                 'province_id' => 22,
-                'province_name' => 'Nusa Tenggara Barat (NTB)',
+            'province_name' => 'Nusa Tenggara Barat (NTB)',
                 'type' => 'Kabupaten',
                 'postal_code' => '83311',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            238 =>
-            array(
+            238 => 
+            array (
                 'id' => 239,
                 'name' => 'Lombok Tengah',
                 'province_id' => 22,
-                'province_name' => 'Nusa Tenggara Barat (NTB)',
+            'province_name' => 'Nusa Tenggara Barat (NTB)',
                 'type' => 'Kabupaten',
                 'postal_code' => '83511',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            239 =>
-            array(
+            239 => 
+            array (
                 'id' => 240,
                 'name' => 'Lombok Timur',
                 'province_id' => 22,
-                'province_name' => 'Nusa Tenggara Barat (NTB)',
+            'province_name' => 'Nusa Tenggara Barat (NTB)',
                 'type' => 'Kabupaten',
                 'postal_code' => '83612',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            240 =>
-            array(
+            240 => 
+            array (
                 'id' => 241,
                 'name' => 'Lombok Utara',
                 'province_id' => 22,
-                'province_name' => 'Nusa Tenggara Barat (NTB)',
+            'province_name' => 'Nusa Tenggara Barat (NTB)',
                 'type' => 'Kabupaten',
                 'postal_code' => '83711',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            241 =>
-            array(
+            241 => 
+            array (
                 'id' => 242,
                 'name' => 'Lubuk Linggau',
                 'province_id' => 33,
@@ -2682,8 +2681,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            242 =>
-            array(
+            242 => 
+            array (
                 'id' => 243,
                 'name' => 'Lumajang',
                 'province_id' => 11,
@@ -2693,8 +2692,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            243 =>
-            array(
+            243 => 
+            array (
                 'id' => 244,
                 'name' => 'Luwu',
                 'province_id' => 28,
@@ -2704,8 +2703,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            244 =>
-            array(
+            244 => 
+            array (
                 'id' => 245,
                 'name' => 'Luwu Timur',
                 'province_id' => 28,
@@ -2715,8 +2714,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            245 =>
-            array(
+            245 => 
+            array (
                 'id' => 246,
                 'name' => 'Luwu Utara',
                 'province_id' => 28,
@@ -2726,8 +2725,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            246 =>
-            array(
+            246 => 
+            array (
                 'id' => 247,
                 'name' => 'Madiun',
                 'province_id' => 11,
@@ -2737,8 +2736,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            247 =>
-            array(
+            247 => 
+            array (
                 'id' => 248,
                 'name' => 'Madiun',
                 'province_id' => 11,
@@ -2748,8 +2747,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            248 =>
-            array(
+            248 => 
+            array (
                 'id' => 249,
                 'name' => 'Magelang',
                 'province_id' => 10,
@@ -2759,8 +2758,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            249 =>
-            array(
+            249 => 
+            array (
                 'id' => 250,
                 'name' => 'Magelang',
                 'province_id' => 10,
@@ -2770,8 +2769,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            250 =>
-            array(
+            250 => 
+            array (
                 'id' => 251,
                 'name' => 'Magetan',
                 'province_id' => 11,
@@ -2781,8 +2780,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            251 =>
-            array(
+            251 => 
+            array (
                 'id' => 252,
                 'name' => 'Majalengka',
                 'province_id' => 9,
@@ -2792,8 +2791,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            252 =>
-            array(
+            252 => 
+            array (
                 'id' => 253,
                 'name' => 'Majene',
                 'province_id' => 27,
@@ -2803,8 +2802,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            253 =>
-            array(
+            253 => 
+            array (
                 'id' => 254,
                 'name' => 'Makassar',
                 'province_id' => 28,
@@ -2814,8 +2813,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            254 =>
-            array(
+            254 => 
+            array (
                 'id' => 255,
                 'name' => 'Malang',
                 'province_id' => 11,
@@ -2825,8 +2824,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            255 =>
-            array(
+            255 => 
+            array (
                 'id' => 256,
                 'name' => 'Malang',
                 'province_id' => 11,
@@ -2836,8 +2835,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            256 =>
-            array(
+            256 => 
+            array (
                 'id' => 257,
                 'name' => 'Malinau',
                 'province_id' => 16,
@@ -2847,8 +2846,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            257 =>
-            array(
+            257 => 
+            array (
                 'id' => 258,
                 'name' => 'Maluku Barat Daya',
                 'province_id' => 19,
@@ -2858,8 +2857,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            258 =>
-            array(
+            258 => 
+            array (
                 'id' => 259,
                 'name' => 'Maluku Tengah',
                 'province_id' => 19,
@@ -2869,8 +2868,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            259 =>
-            array(
+            259 => 
+            array (
                 'id' => 260,
                 'name' => 'Maluku Tenggara',
                 'province_id' => 19,
@@ -2880,8 +2879,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            260 =>
-            array(
+            260 => 
+            array (
                 'id' => 261,
                 'name' => 'Maluku Tenggara Barat',
                 'province_id' => 19,
@@ -2891,8 +2890,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            261 =>
-            array(
+            261 => 
+            array (
                 'id' => 262,
                 'name' => 'Mamasa',
                 'province_id' => 27,
@@ -2902,8 +2901,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            262 =>
-            array(
+            262 => 
+            array (
                 'id' => 263,
                 'name' => 'Mamberamo Raya',
                 'province_id' => 24,
@@ -2913,8 +2912,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            263 =>
-            array(
+            263 => 
+            array (
                 'id' => 264,
                 'name' => 'Mamberamo Tengah',
                 'province_id' => 24,
@@ -2924,8 +2923,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            264 =>
-            array(
+            264 => 
+            array (
                 'id' => 265,
                 'name' => 'Mamuju',
                 'province_id' => 27,
@@ -2935,8 +2934,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            265 =>
-            array(
+            265 => 
+            array (
                 'id' => 266,
                 'name' => 'Mamuju Utara',
                 'province_id' => 27,
@@ -2946,8 +2945,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            266 =>
-            array(
+            266 => 
+            array (
                 'id' => 267,
                 'name' => 'Manado',
                 'province_id' => 31,
@@ -2957,8 +2956,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            267 =>
-            array(
+            267 => 
+            array (
                 'id' => 268,
                 'name' => 'Mandailing Natal',
                 'province_id' => 34,
@@ -2968,41 +2967,41 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            268 =>
-            array(
+            268 => 
+            array (
                 'id' => 269,
                 'name' => 'Manggarai',
                 'province_id' => 23,
-                'province_name' => 'Nusa Tenggara Timur (NTT)',
+            'province_name' => 'Nusa Tenggara Timur (NTT)',
                 'type' => 'Kabupaten',
                 'postal_code' => '86551',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            269 =>
-            array(
+            269 => 
+            array (
                 'id' => 270,
                 'name' => 'Manggarai Barat',
                 'province_id' => 23,
-                'province_name' => 'Nusa Tenggara Timur (NTT)',
+            'province_name' => 'Nusa Tenggara Timur (NTT)',
                 'type' => 'Kabupaten',
                 'postal_code' => '86711',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            270 =>
-            array(
+            270 => 
+            array (
                 'id' => 271,
                 'name' => 'Manggarai Timur',
                 'province_id' => 23,
-                'province_name' => 'Nusa Tenggara Timur (NTT)',
+            'province_name' => 'Nusa Tenggara Timur (NTT)',
                 'type' => 'Kabupaten',
                 'postal_code' => '86811',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            271 =>
-            array(
+            271 => 
+            array (
                 'id' => 272,
                 'name' => 'Manokwari',
                 'province_id' => 25,
@@ -3012,8 +3011,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            272 =>
-            array(
+            272 => 
+            array (
                 'id' => 273,
                 'name' => 'Manokwari Selatan',
                 'province_id' => 25,
@@ -3023,8 +3022,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            273 =>
-            array(
+            273 => 
+            array (
                 'id' => 274,
                 'name' => 'Mappi',
                 'province_id' => 24,
@@ -3034,8 +3033,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            274 =>
-            array(
+            274 => 
+            array (
                 'id' => 275,
                 'name' => 'Maros',
                 'province_id' => 28,
@@ -3045,19 +3044,19 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            275 =>
-            array(
+            275 => 
+            array (
                 'id' => 276,
                 'name' => 'Mataram',
                 'province_id' => 22,
-                'province_name' => 'Nusa Tenggara Barat (NTB)',
+            'province_name' => 'Nusa Tenggara Barat (NTB)',
                 'type' => 'Kota',
                 'postal_code' => '83131',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            276 =>
-            array(
+            276 => 
+            array (
                 'id' => 277,
                 'name' => 'Maybrat',
                 'province_id' => 25,
@@ -3067,8 +3066,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            277 =>
-            array(
+            277 => 
+            array (
                 'id' => 278,
                 'name' => 'Medan',
                 'province_id' => 34,
@@ -3078,8 +3077,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            278 =>
-            array(
+            278 => 
+            array (
                 'id' => 279,
                 'name' => 'Melawi',
                 'province_id' => 12,
@@ -3089,8 +3088,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            279 =>
-            array(
+            279 => 
+            array (
                 'id' => 280,
                 'name' => 'Merangin',
                 'province_id' => 8,
@@ -3100,8 +3099,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            280 =>
-            array(
+            280 => 
+            array (
                 'id' => 281,
                 'name' => 'Merauke',
                 'province_id' => 24,
@@ -3111,8 +3110,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            281 =>
-            array(
+            281 => 
+            array (
                 'id' => 282,
                 'name' => 'Mesuji',
                 'province_id' => 18,
@@ -3122,8 +3121,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            282 =>
-            array(
+            282 => 
+            array (
                 'id' => 283,
                 'name' => 'Metro',
                 'province_id' => 18,
@@ -3133,8 +3132,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            283 =>
-            array(
+            283 => 
+            array (
                 'id' => 284,
                 'name' => 'Mimika',
                 'province_id' => 24,
@@ -3144,8 +3143,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            284 =>
-            array(
+            284 => 
+            array (
                 'id' => 285,
                 'name' => 'Minahasa',
                 'province_id' => 31,
@@ -3155,8 +3154,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            285 =>
-            array(
+            285 => 
+            array (
                 'id' => 286,
                 'name' => 'Minahasa Selatan',
                 'province_id' => 31,
@@ -3166,8 +3165,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            286 =>
-            array(
+            286 => 
+            array (
                 'id' => 287,
                 'name' => 'Minahasa Tenggara',
                 'province_id' => 31,
@@ -3177,8 +3176,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            287 =>
-            array(
+            287 => 
+            array (
                 'id' => 288,
                 'name' => 'Minahasa Utara',
                 'province_id' => 31,
@@ -3188,8 +3187,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            288 =>
-            array(
+            288 => 
+            array (
                 'id' => 289,
                 'name' => 'Mojokerto',
                 'province_id' => 11,
@@ -3199,8 +3198,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            289 =>
-            array(
+            289 => 
+            array (
                 'id' => 290,
                 'name' => 'Mojokerto',
                 'province_id' => 11,
@@ -3210,8 +3209,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            290 =>
-            array(
+            290 => 
+            array (
                 'id' => 291,
                 'name' => 'Morowali',
                 'province_id' => 29,
@@ -3221,8 +3220,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            291 =>
-            array(
+            291 => 
+            array (
                 'id' => 292,
                 'name' => 'Muara Enim',
                 'province_id' => 33,
@@ -3232,8 +3231,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            292 =>
-            array(
+            292 => 
+            array (
                 'id' => 293,
                 'name' => 'Muaro Jambi',
                 'province_id' => 8,
@@ -3243,8 +3242,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            293 =>
-            array(
+            293 => 
+            array (
                 'id' => 294,
                 'name' => 'Muko Muko',
                 'province_id' => 4,
@@ -3254,8 +3253,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            294 =>
-            array(
+            294 => 
+            array (
                 'id' => 295,
                 'name' => 'Muna',
                 'province_id' => 30,
@@ -3265,8 +3264,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            295 =>
-            array(
+            295 => 
+            array (
                 'id' => 296,
                 'name' => 'Murung Raya',
                 'province_id' => 14,
@@ -3276,8 +3275,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            296 =>
-            array(
+            296 => 
+            array (
                 'id' => 297,
                 'name' => 'Musi Banyuasin',
                 'province_id' => 33,
@@ -3287,8 +3286,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            297 =>
-            array(
+            297 => 
+            array (
                 'id' => 298,
                 'name' => 'Musi Rawas',
                 'province_id' => 33,
@@ -3298,8 +3297,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            298 =>
-            array(
+            298 => 
+            array (
                 'id' => 299,
                 'name' => 'Nabire',
                 'province_id' => 24,
@@ -3309,30 +3308,30 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            299 =>
-            array(
+            299 => 
+            array (
                 'id' => 300,
                 'name' => 'Nagan Raya',
                 'province_id' => 21,
-                'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
+            'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
                 'type' => 'Kabupaten',
                 'postal_code' => '23674',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            300 =>
-            array(
+            300 => 
+            array (
                 'id' => 301,
                 'name' => 'Nagekeo',
                 'province_id' => 23,
-                'province_name' => 'Nusa Tenggara Timur (NTT)',
+            'province_name' => 'Nusa Tenggara Timur (NTT)',
                 'type' => 'Kabupaten',
                 'postal_code' => '86911',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            301 =>
-            array(
+            301 => 
+            array (
                 'id' => 302,
                 'name' => 'Natuna',
                 'province_id' => 17,
@@ -3342,8 +3341,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            302 =>
-            array(
+            302 => 
+            array (
                 'id' => 303,
                 'name' => 'Nduga',
                 'province_id' => 24,
@@ -3353,19 +3352,19 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            303 =>
-            array(
+            303 => 
+            array (
                 'id' => 304,
                 'name' => 'Ngada',
                 'province_id' => 23,
-                'province_name' => 'Nusa Tenggara Timur (NTT)',
+            'province_name' => 'Nusa Tenggara Timur (NTT)',
                 'type' => 'Kabupaten',
                 'postal_code' => '86413',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            304 =>
-            array(
+            304 => 
+            array (
                 'id' => 305,
                 'name' => 'Nganjuk',
                 'province_id' => 11,
@@ -3375,8 +3374,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            305 =>
-            array(
+            305 => 
+            array (
                 'id' => 306,
                 'name' => 'Ngawi',
                 'province_id' => 11,
@@ -3386,8 +3385,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            306 =>
-            array(
+            306 => 
+            array (
                 'id' => 307,
                 'name' => 'Nias',
                 'province_id' => 34,
@@ -3397,8 +3396,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            307 =>
-            array(
+            307 => 
+            array (
                 'id' => 308,
                 'name' => 'Nias Barat',
                 'province_id' => 34,
@@ -3408,8 +3407,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            308 =>
-            array(
+            308 => 
+            array (
                 'id' => 309,
                 'name' => 'Nias Selatan',
                 'province_id' => 34,
@@ -3419,8 +3418,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            309 =>
-            array(
+            309 => 
+            array (
                 'id' => 310,
                 'name' => 'Nias Utara',
                 'province_id' => 34,
@@ -3430,8 +3429,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            310 =>
-            array(
+            310 => 
+            array (
                 'id' => 311,
                 'name' => 'Nunukan',
                 'province_id' => 16,
@@ -3441,8 +3440,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            311 =>
-            array(
+            311 => 
+            array (
                 'id' => 312,
                 'name' => 'Ogan Ilir',
                 'province_id' => 33,
@@ -3452,8 +3451,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            312 =>
-            array(
+            312 => 
+            array (
                 'id' => 313,
                 'name' => 'Ogan Komering Ilir',
                 'province_id' => 33,
@@ -3463,8 +3462,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            313 =>
-            array(
+            313 => 
+            array (
                 'id' => 314,
                 'name' => 'Ogan Komering Ulu',
                 'province_id' => 33,
@@ -3474,8 +3473,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            314 =>
-            array(
+            314 => 
+            array (
                 'id' => 315,
                 'name' => 'Ogan Komering Ulu Selatan',
                 'province_id' => 33,
@@ -3485,8 +3484,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            315 =>
-            array(
+            315 => 
+            array (
                 'id' => 316,
                 'name' => 'Ogan Komering Ulu Timur',
                 'province_id' => 33,
@@ -3496,8 +3495,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            316 =>
-            array(
+            316 => 
+            array (
                 'id' => 317,
                 'name' => 'Pacitan',
                 'province_id' => 11,
@@ -3507,8 +3506,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            317 =>
-            array(
+            317 => 
+            array (
                 'id' => 318,
                 'name' => 'Padang',
                 'province_id' => 32,
@@ -3518,8 +3517,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            318 =>
-            array(
+            318 => 
+            array (
                 'id' => 319,
                 'name' => 'Padang Lawas',
                 'province_id' => 34,
@@ -3529,8 +3528,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            319 =>
-            array(
+            319 => 
+            array (
                 'id' => 320,
                 'name' => 'Padang Lawas Utara',
                 'province_id' => 34,
@@ -3540,8 +3539,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            320 =>
-            array(
+            320 => 
+            array (
                 'id' => 321,
                 'name' => 'Padang Panjang',
                 'province_id' => 32,
@@ -3551,8 +3550,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            321 =>
-            array(
+            321 => 
+            array (
                 'id' => 322,
                 'name' => 'Padang Pariaman',
                 'province_id' => 32,
@@ -3562,8 +3561,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            322 =>
-            array(
+            322 => 
+            array (
                 'id' => 323,
                 'name' => 'Padang Sidempuan',
                 'province_id' => 34,
@@ -3573,8 +3572,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            323 =>
-            array(
+            323 => 
+            array (
                 'id' => 324,
                 'name' => 'Pagar Alam',
                 'province_id' => 33,
@@ -3584,8 +3583,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            324 =>
-            array(
+            324 => 
+            array (
                 'id' => 325,
                 'name' => 'Pakpak Bharat',
                 'province_id' => 34,
@@ -3595,8 +3594,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            325 =>
-            array(
+            325 => 
+            array (
                 'id' => 326,
                 'name' => 'Palangka Raya',
                 'province_id' => 14,
@@ -3606,8 +3605,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            326 =>
-            array(
+            326 => 
+            array (
                 'id' => 327,
                 'name' => 'Palembang',
                 'province_id' => 33,
@@ -3617,8 +3616,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            327 =>
-            array(
+            327 => 
+            array (
                 'id' => 328,
                 'name' => 'Palopo',
                 'province_id' => 28,
@@ -3628,8 +3627,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            328 =>
-            array(
+            328 => 
+            array (
                 'id' => 329,
                 'name' => 'Palu',
                 'province_id' => 29,
@@ -3639,8 +3638,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            329 =>
-            array(
+            329 => 
+            array (
                 'id' => 330,
                 'name' => 'Pamekasan',
                 'province_id' => 11,
@@ -3650,8 +3649,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            330 =>
-            array(
+            330 => 
+            array (
                 'id' => 331,
                 'name' => 'Pandeglang',
                 'province_id' => 3,
@@ -3661,8 +3660,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            331 =>
-            array(
+            331 => 
+            array (
                 'id' => 332,
                 'name' => 'Pangandaran',
                 'province_id' => 9,
@@ -3672,8 +3671,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            332 =>
-            array(
+            332 => 
+            array (
                 'id' => 333,
                 'name' => 'Pangkajene Kepulauan',
                 'province_id' => 28,
@@ -3683,8 +3682,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            333 =>
-            array(
+            333 => 
+            array (
                 'id' => 334,
                 'name' => 'Pangkal Pinang',
                 'province_id' => 2,
@@ -3694,8 +3693,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            334 =>
-            array(
+            334 => 
+            array (
                 'id' => 335,
                 'name' => 'Paniai',
                 'province_id' => 24,
@@ -3705,8 +3704,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            335 =>
-            array(
+            335 => 
+            array (
                 'id' => 336,
                 'name' => 'Parepare',
                 'province_id' => 28,
@@ -3716,8 +3715,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            336 =>
-            array(
+            336 => 
+            array (
                 'id' => 337,
                 'name' => 'Pariaman',
                 'province_id' => 32,
@@ -3727,8 +3726,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            337 =>
-            array(
+            337 => 
+            array (
                 'id' => 338,
                 'name' => 'Parigi Moutong',
                 'province_id' => 29,
@@ -3738,8 +3737,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            338 =>
-            array(
+            338 => 
+            array (
                 'id' => 339,
                 'name' => 'Pasaman',
                 'province_id' => 32,
@@ -3749,8 +3748,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            339 =>
-            array(
+            339 => 
+            array (
                 'id' => 340,
                 'name' => 'Pasaman Barat',
                 'province_id' => 32,
@@ -3760,8 +3759,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            340 =>
-            array(
+            340 => 
+            array (
                 'id' => 341,
                 'name' => 'Paser',
                 'province_id' => 15,
@@ -3771,8 +3770,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            341 =>
-            array(
+            341 => 
+            array (
                 'id' => 342,
                 'name' => 'Pasuruan',
                 'province_id' => 11,
@@ -3782,8 +3781,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            342 =>
-            array(
+            342 => 
+            array (
                 'id' => 343,
                 'name' => 'Pasuruan',
                 'province_id' => 11,
@@ -3793,8 +3792,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            343 =>
-            array(
+            343 => 
+            array (
                 'id' => 344,
                 'name' => 'Pati',
                 'province_id' => 10,
@@ -3804,8 +3803,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            344 =>
-            array(
+            344 => 
+            array (
                 'id' => 345,
                 'name' => 'Payakumbuh',
                 'province_id' => 32,
@@ -3815,8 +3814,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            345 =>
-            array(
+            345 => 
+            array (
                 'id' => 346,
                 'name' => 'Pegunungan Arfak',
                 'province_id' => 25,
@@ -3826,8 +3825,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            346 =>
-            array(
+            346 => 
+            array (
                 'id' => 347,
                 'name' => 'Pegunungan Bintang',
                 'province_id' => 24,
@@ -3837,8 +3836,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            347 =>
-            array(
+            347 => 
+            array (
                 'id' => 348,
                 'name' => 'Pekalongan',
                 'province_id' => 10,
@@ -3848,8 +3847,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            348 =>
-            array(
+            348 => 
+            array (
                 'id' => 349,
                 'name' => 'Pekalongan',
                 'province_id' => 10,
@@ -3859,8 +3858,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            349 =>
-            array(
+            349 => 
+            array (
                 'id' => 350,
                 'name' => 'Pekanbaru',
                 'province_id' => 26,
@@ -3870,8 +3869,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            350 =>
-            array(
+            350 => 
+            array (
                 'id' => 351,
                 'name' => 'Pelalawan',
                 'province_id' => 26,
@@ -3881,8 +3880,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            351 =>
-            array(
+            351 => 
+            array (
                 'id' => 352,
                 'name' => 'Pemalang',
                 'province_id' => 10,
@@ -3892,8 +3891,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            352 =>
-            array(
+            352 => 
+            array (
                 'id' => 353,
                 'name' => 'Pematang Siantar',
                 'province_id' => 34,
@@ -3903,8 +3902,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            353 =>
-            array(
+            353 => 
+            array (
                 'id' => 354,
                 'name' => 'Penajam Paser Utara',
                 'province_id' => 15,
@@ -3914,8 +3913,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            354 =>
-            array(
+            354 => 
+            array (
                 'id' => 355,
                 'name' => 'Pesawaran',
                 'province_id' => 18,
@@ -3925,8 +3924,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            355 =>
-            array(
+            355 => 
+            array (
                 'id' => 356,
                 'name' => 'Pesisir Barat',
                 'province_id' => 18,
@@ -3936,8 +3935,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            356 =>
-            array(
+            356 => 
+            array (
                 'id' => 357,
                 'name' => 'Pesisir Selatan',
                 'province_id' => 32,
@@ -3947,30 +3946,30 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            357 =>
-            array(
+            357 => 
+            array (
                 'id' => 358,
                 'name' => 'Pidie',
                 'province_id' => 21,
-                'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
+            'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
                 'type' => 'Kabupaten',
                 'postal_code' => '24116',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            358 =>
-            array(
+            358 => 
+            array (
                 'id' => 359,
                 'name' => 'Pidie Jaya',
                 'province_id' => 21,
-                'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
+            'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
                 'type' => 'Kabupaten',
                 'postal_code' => '24186',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            359 =>
-            array(
+            359 => 
+            array (
                 'id' => 360,
                 'name' => 'Pinrang',
                 'province_id' => 28,
@@ -3980,8 +3979,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            360 =>
-            array(
+            360 => 
+            array (
                 'id' => 361,
                 'name' => 'Pohuwato',
                 'province_id' => 7,
@@ -3991,8 +3990,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            361 =>
-            array(
+            361 => 
+            array (
                 'id' => 362,
                 'name' => 'Polewali Mandar',
                 'province_id' => 27,
@@ -4002,8 +4001,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            362 =>
-            array(
+            362 => 
+            array (
                 'id' => 363,
                 'name' => 'Ponorogo',
                 'province_id' => 11,
@@ -4013,8 +4012,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            363 =>
-            array(
+            363 => 
+            array (
                 'id' => 364,
                 'name' => 'Pontianak',
                 'province_id' => 12,
@@ -4024,8 +4023,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            364 =>
-            array(
+            364 => 
+            array (
                 'id' => 365,
                 'name' => 'Pontianak',
                 'province_id' => 12,
@@ -4035,8 +4034,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            365 =>
-            array(
+            365 => 
+            array (
                 'id' => 366,
                 'name' => 'Poso',
                 'province_id' => 29,
@@ -4046,8 +4045,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            366 =>
-            array(
+            366 => 
+            array (
                 'id' => 367,
                 'name' => 'Prabumulih',
                 'province_id' => 33,
@@ -4057,8 +4056,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            367 =>
-            array(
+            367 => 
+            array (
                 'id' => 368,
                 'name' => 'Pringsewu',
                 'province_id' => 18,
@@ -4068,8 +4067,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            368 =>
-            array(
+            368 => 
+            array (
                 'id' => 369,
                 'name' => 'Probolinggo',
                 'province_id' => 11,
@@ -4079,8 +4078,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            369 =>
-            array(
+            369 => 
+            array (
                 'id' => 370,
                 'name' => 'Probolinggo',
                 'province_id' => 11,
@@ -4090,8 +4089,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            370 =>
-            array(
+            370 => 
+            array (
                 'id' => 371,
                 'name' => 'Pulang Pisau',
                 'province_id' => 14,
@@ -4101,8 +4100,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            371 =>
-            array(
+            371 => 
+            array (
                 'id' => 372,
                 'name' => 'Pulau Morotai',
                 'province_id' => 20,
@@ -4112,8 +4111,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            372 =>
-            array(
+            372 => 
+            array (
                 'id' => 373,
                 'name' => 'Puncak',
                 'province_id' => 24,
@@ -4123,8 +4122,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            373 =>
-            array(
+            373 => 
+            array (
                 'id' => 374,
                 'name' => 'Puncak Jaya',
                 'province_id' => 24,
@@ -4134,8 +4133,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            374 =>
-            array(
+            374 => 
+            array (
                 'id' => 375,
                 'name' => 'Purbalingga',
                 'province_id' => 10,
@@ -4145,8 +4144,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            375 =>
-            array(
+            375 => 
+            array (
                 'id' => 376,
                 'name' => 'Purwakarta',
                 'province_id' => 9,
@@ -4156,8 +4155,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            376 =>
-            array(
+            376 => 
+            array (
                 'id' => 377,
                 'name' => 'Purworejo',
                 'province_id' => 10,
@@ -4167,8 +4166,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            377 =>
-            array(
+            377 => 
+            array (
                 'id' => 378,
                 'name' => 'Raja Ampat',
                 'province_id' => 25,
@@ -4178,8 +4177,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            378 =>
-            array(
+            378 => 
+            array (
                 'id' => 379,
                 'name' => 'Rejang Lebong',
                 'province_id' => 4,
@@ -4189,8 +4188,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            379 =>
-            array(
+            379 => 
+            array (
                 'id' => 380,
                 'name' => 'Rembang',
                 'province_id' => 10,
@@ -4200,8 +4199,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            380 =>
-            array(
+            380 => 
+            array (
                 'id' => 381,
                 'name' => 'Rokan Hilir',
                 'province_id' => 26,
@@ -4211,8 +4210,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            381 =>
-            array(
+            381 => 
+            array (
                 'id' => 382,
                 'name' => 'Rokan Hulu',
                 'province_id' => 26,
@@ -4222,41 +4221,41 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            382 =>
-            array(
+            382 => 
+            array (
                 'id' => 383,
                 'name' => 'Rote Ndao',
                 'province_id' => 23,
-                'province_name' => 'Nusa Tenggara Timur (NTT)',
+            'province_name' => 'Nusa Tenggara Timur (NTT)',
                 'type' => 'Kabupaten',
                 'postal_code' => '85982',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            383 =>
-            array(
+            383 => 
+            array (
                 'id' => 384,
                 'name' => 'Sabang',
                 'province_id' => 21,
-                'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
+            'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
                 'type' => 'Kota',
                 'postal_code' => '23512',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            384 =>
-            array(
+            384 => 
+            array (
                 'id' => 385,
                 'name' => 'Sabu Raijua',
                 'province_id' => 23,
-                'province_name' => 'Nusa Tenggara Timur (NTT)',
+            'province_name' => 'Nusa Tenggara Timur (NTT)',
                 'type' => 'Kabupaten',
                 'postal_code' => '85391',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            385 =>
-            array(
+            385 => 
+            array (
                 'id' => 386,
                 'name' => 'Salatiga',
                 'province_id' => 10,
@@ -4266,8 +4265,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            386 =>
-            array(
+            386 => 
+            array (
                 'id' => 387,
                 'name' => 'Samarinda',
                 'province_id' => 15,
@@ -4277,8 +4276,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            387 =>
-            array(
+            387 => 
+            array (
                 'id' => 388,
                 'name' => 'Sambas',
                 'province_id' => 12,
@@ -4288,8 +4287,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            388 =>
-            array(
+            388 => 
+            array (
                 'id' => 389,
                 'name' => 'Samosir',
                 'province_id' => 34,
@@ -4299,8 +4298,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            389 =>
-            array(
+            389 => 
+            array (
                 'id' => 390,
                 'name' => 'Sampang',
                 'province_id' => 11,
@@ -4310,8 +4309,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            390 =>
-            array(
+            390 => 
+            array (
                 'id' => 391,
                 'name' => 'Sanggau',
                 'province_id' => 12,
@@ -4321,8 +4320,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            391 =>
-            array(
+            391 => 
+            array (
                 'id' => 392,
                 'name' => 'Sarmi',
                 'province_id' => 24,
@@ -4332,8 +4331,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            392 =>
-            array(
+            392 => 
+            array (
                 'id' => 393,
                 'name' => 'Sarolangun',
                 'province_id' => 8,
@@ -4343,8 +4342,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            393 =>
-            array(
+            393 => 
+            array (
                 'id' => 394,
                 'name' => 'Sawah Lunto',
                 'province_id' => 32,
@@ -4354,8 +4353,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            394 =>
-            array(
+            394 => 
+            array (
                 'id' => 395,
                 'name' => 'Sekadau',
                 'province_id' => 12,
@@ -4365,10 +4364,10 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            395 =>
-            array(
+            395 => 
+            array (
                 'id' => 396,
-                'name' => 'Selayar (Kepulauan Selayar)',
+            'name' => 'Selayar (Kepulauan Selayar)',
                 'province_id' => 28,
                 'province_name' => 'Sulawesi Selatan',
                 'type' => 'Kabupaten',
@@ -4376,8 +4375,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            396 =>
-            array(
+            396 => 
+            array (
                 'id' => 397,
                 'name' => 'Seluma',
                 'province_id' => 4,
@@ -4387,8 +4386,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            397 =>
-            array(
+            397 => 
+            array (
                 'id' => 398,
                 'name' => 'Semarang',
                 'province_id' => 10,
@@ -4398,8 +4397,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            398 =>
-            array(
+            398 => 
+            array (
                 'id' => 399,
                 'name' => 'Semarang',
                 'province_id' => 10,
@@ -4409,8 +4408,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            399 =>
-            array(
+            399 => 
+            array (
                 'id' => 400,
                 'name' => 'Seram Bagian Barat',
                 'province_id' => 19,
@@ -4420,8 +4419,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            400 =>
-            array(
+            400 => 
+            array (
                 'id' => 401,
                 'name' => 'Seram Bagian Timur',
                 'province_id' => 19,
@@ -4431,8 +4430,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            401 =>
-            array(
+            401 => 
+            array (
                 'id' => 402,
                 'name' => 'Serang',
                 'province_id' => 3,
@@ -4442,8 +4441,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            402 =>
-            array(
+            402 => 
+            array (
                 'id' => 403,
                 'name' => 'Serang',
                 'province_id' => 3,
@@ -4453,8 +4452,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            403 =>
-            array(
+            403 => 
+            array (
                 'id' => 404,
                 'name' => 'Serdang Bedagai',
                 'province_id' => 34,
@@ -4464,8 +4463,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            404 =>
-            array(
+            404 => 
+            array (
                 'id' => 405,
                 'name' => 'Seruyan',
                 'province_id' => 14,
@@ -4475,8 +4474,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            405 =>
-            array(
+            405 => 
+            array (
                 'id' => 406,
                 'name' => 'Siak',
                 'province_id' => 26,
@@ -4486,8 +4485,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            406 =>
-            array(
+            406 => 
+            array (
                 'id' => 407,
                 'name' => 'Sibolga',
                 'province_id' => 34,
@@ -4497,8 +4496,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            407 =>
-            array(
+            407 => 
+            array (
                 'id' => 408,
                 'name' => 'Sidenreng Rappang/Rapang',
                 'province_id' => 28,
@@ -4508,8 +4507,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            408 =>
-            array(
+            408 => 
+            array (
                 'id' => 409,
                 'name' => 'Sidoarjo',
                 'province_id' => 11,
@@ -4519,8 +4518,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            409 =>
-            array(
+            409 => 
+            array (
                 'id' => 410,
                 'name' => 'Sigi',
                 'province_id' => 29,
@@ -4530,10 +4529,10 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            410 =>
-            array(
+            410 => 
+            array (
                 'id' => 411,
-                'name' => 'Sijunjung (Sawah Lunto Sijunjung)',
+            'name' => 'Sijunjung (Sawah Lunto Sijunjung)',
                 'province_id' => 32,
                 'province_name' => 'Sumatera Barat',
                 'type' => 'Kabupaten',
@@ -4541,19 +4540,19 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            411 =>
-            array(
+            411 => 
+            array (
                 'id' => 412,
                 'name' => 'Sikka',
                 'province_id' => 23,
-                'province_name' => 'Nusa Tenggara Timur (NTT)',
+            'province_name' => 'Nusa Tenggara Timur (NTT)',
                 'type' => 'Kabupaten',
                 'postal_code' => '86121',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            412 =>
-            array(
+            412 => 
+            array (
                 'id' => 413,
                 'name' => 'Simalungun',
                 'province_id' => 34,
@@ -4563,19 +4562,19 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            413 =>
-            array(
+            413 => 
+            array (
                 'id' => 414,
                 'name' => 'Simeulue',
                 'province_id' => 21,
-                'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
+            'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
                 'type' => 'Kabupaten',
                 'postal_code' => '23891',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            414 =>
-            array(
+            414 => 
+            array (
                 'id' => 415,
                 'name' => 'Singkawang',
                 'province_id' => 12,
@@ -4585,8 +4584,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            415 =>
-            array(
+            415 => 
+            array (
                 'id' => 416,
                 'name' => 'Sinjai',
                 'province_id' => 28,
@@ -4596,8 +4595,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            416 =>
-            array(
+            416 => 
+            array (
                 'id' => 417,
                 'name' => 'Sintang',
                 'province_id' => 12,
@@ -4607,8 +4606,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            417 =>
-            array(
+            417 => 
+            array (
                 'id' => 418,
                 'name' => 'Situbondo',
                 'province_id' => 11,
@@ -4618,8 +4617,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            418 =>
-            array(
+            418 => 
+            array (
                 'id' => 419,
                 'name' => 'Sleman',
                 'province_id' => 5,
@@ -4629,8 +4628,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            419 =>
-            array(
+            419 => 
+            array (
                 'id' => 420,
                 'name' => 'Solok',
                 'province_id' => 32,
@@ -4640,8 +4639,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            420 =>
-            array(
+            420 => 
+            array (
                 'id' => 421,
                 'name' => 'Solok',
                 'province_id' => 32,
@@ -4651,8 +4650,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            421 =>
-            array(
+            421 => 
+            array (
                 'id' => 422,
                 'name' => 'Solok Selatan',
                 'province_id' => 32,
@@ -4662,8 +4661,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            422 =>
-            array(
+            422 => 
+            array (
                 'id' => 423,
                 'name' => 'Soppeng',
                 'province_id' => 28,
@@ -4673,8 +4672,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            423 =>
-            array(
+            423 => 
+            array (
                 'id' => 424,
                 'name' => 'Sorong',
                 'province_id' => 25,
@@ -4684,8 +4683,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            424 =>
-            array(
+            424 => 
+            array (
                 'id' => 425,
                 'name' => 'Sorong',
                 'province_id' => 25,
@@ -4695,8 +4694,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            425 =>
-            array(
+            425 => 
+            array (
                 'id' => 426,
                 'name' => 'Sorong Selatan',
                 'province_id' => 25,
@@ -4706,8 +4705,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            426 =>
-            array(
+            426 => 
+            array (
                 'id' => 427,
                 'name' => 'Sragen',
                 'province_id' => 10,
@@ -4717,8 +4716,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            427 =>
-            array(
+            427 => 
+            array (
                 'id' => 428,
                 'name' => 'Subang',
                 'province_id' => 9,
@@ -4728,19 +4727,19 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            428 =>
-            array(
+            428 => 
+            array (
                 'id' => 429,
                 'name' => 'Subulussalam',
                 'province_id' => 21,
-                'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
+            'province_name' => 'Nanggroe Aceh Darussalam (NAD)',
                 'type' => 'Kota',
                 'postal_code' => '24882',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            429 =>
-            array(
+            429 => 
+            array (
                 'id' => 430,
                 'name' => 'Sukabumi',
                 'province_id' => 9,
@@ -4750,8 +4749,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            430 =>
-            array(
+            430 => 
+            array (
                 'id' => 431,
                 'name' => 'Sukabumi',
                 'province_id' => 9,
@@ -4761,8 +4760,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            431 =>
-            array(
+            431 => 
+            array (
                 'id' => 432,
                 'name' => 'Sukamara',
                 'province_id' => 14,
@@ -4772,8 +4771,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            432 =>
-            array(
+            432 => 
+            array (
                 'id' => 433,
                 'name' => 'Sukoharjo',
                 'province_id' => 10,
@@ -4783,74 +4782,74 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            433 =>
-            array(
+            433 => 
+            array (
                 'id' => 434,
                 'name' => 'Sumba Barat',
                 'province_id' => 23,
-                'province_name' => 'Nusa Tenggara Timur (NTT)',
+            'province_name' => 'Nusa Tenggara Timur (NTT)',
                 'type' => 'Kabupaten',
                 'postal_code' => '87219',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            434 =>
-            array(
+            434 => 
+            array (
                 'id' => 435,
                 'name' => 'Sumba Barat Daya',
                 'province_id' => 23,
-                'province_name' => 'Nusa Tenggara Timur (NTT)',
+            'province_name' => 'Nusa Tenggara Timur (NTT)',
                 'type' => 'Kabupaten',
                 'postal_code' => '87453',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            435 =>
-            array(
+            435 => 
+            array (
                 'id' => 436,
                 'name' => 'Sumba Tengah',
                 'province_id' => 23,
-                'province_name' => 'Nusa Tenggara Timur (NTT)',
+            'province_name' => 'Nusa Tenggara Timur (NTT)',
                 'type' => 'Kabupaten',
                 'postal_code' => '87358',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            436 =>
-            array(
+            436 => 
+            array (
                 'id' => 437,
                 'name' => 'Sumba Timur',
                 'province_id' => 23,
-                'province_name' => 'Nusa Tenggara Timur (NTT)',
+            'province_name' => 'Nusa Tenggara Timur (NTT)',
                 'type' => 'Kabupaten',
                 'postal_code' => '87112',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            437 =>
-            array(
+            437 => 
+            array (
                 'id' => 438,
                 'name' => 'Sumbawa',
                 'province_id' => 22,
-                'province_name' => 'Nusa Tenggara Barat (NTB)',
+            'province_name' => 'Nusa Tenggara Barat (NTB)',
                 'type' => 'Kabupaten',
                 'postal_code' => '84315',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            438 =>
-            array(
+            438 => 
+            array (
                 'id' => 439,
                 'name' => 'Sumbawa Barat',
                 'province_id' => 22,
-                'province_name' => 'Nusa Tenggara Barat (NTB)',
+            'province_name' => 'Nusa Tenggara Barat (NTB)',
                 'type' => 'Kabupaten',
                 'postal_code' => '84419',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            439 =>
-            array(
+            439 => 
+            array (
                 'id' => 440,
                 'name' => 'Sumedang',
                 'province_id' => 9,
@@ -4860,8 +4859,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            440 =>
-            array(
+            440 => 
+            array (
                 'id' => 441,
                 'name' => 'Sumenep',
                 'province_id' => 11,
@@ -4871,8 +4870,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            441 =>
-            array(
+            441 => 
+            array (
                 'id' => 442,
                 'name' => 'Sungaipenuh',
                 'province_id' => 8,
@@ -4882,8 +4881,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            442 =>
-            array(
+            442 => 
+            array (
                 'id' => 443,
                 'name' => 'Supiori',
                 'province_id' => 24,
@@ -4893,8 +4892,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            443 =>
-            array(
+            443 => 
+            array (
                 'id' => 444,
                 'name' => 'Surabaya',
                 'province_id' => 11,
@@ -4904,10 +4903,10 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            444 =>
-            array(
+            444 => 
+            array (
                 'id' => 445,
-                'name' => 'Surakarta (Solo)',
+            'name' => 'Surakarta (Solo)',
                 'province_id' => 10,
                 'province_name' => 'Jawa Tengah',
                 'type' => 'Kota',
@@ -4915,8 +4914,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            445 =>
-            array(
+            445 => 
+            array (
                 'id' => 446,
                 'name' => 'Tabalong',
                 'province_id' => 13,
@@ -4926,8 +4925,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            446 =>
-            array(
+            446 => 
+            array (
                 'id' => 447,
                 'name' => 'Tabanan',
                 'province_id' => 1,
@@ -4937,8 +4936,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            447 =>
-            array(
+            447 => 
+            array (
                 'id' => 448,
                 'name' => 'Takalar',
                 'province_id' => 28,
@@ -4948,8 +4947,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            448 =>
-            array(
+            448 => 
+            array (
                 'id' => 449,
                 'name' => 'Tambrauw',
                 'province_id' => 25,
@@ -4959,8 +4958,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            449 =>
-            array(
+            449 => 
+            array (
                 'id' => 450,
                 'name' => 'Tana Tidung',
                 'province_id' => 16,
@@ -4970,8 +4969,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            450 =>
-            array(
+            450 => 
+            array (
                 'id' => 451,
                 'name' => 'Tana Toraja',
                 'province_id' => 28,
@@ -4981,8 +4980,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            451 =>
-            array(
+            451 => 
+            array (
                 'id' => 452,
                 'name' => 'Tanah Bumbu',
                 'province_id' => 13,
@@ -4992,8 +4991,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            452 =>
-            array(
+            452 => 
+            array (
                 'id' => 453,
                 'name' => 'Tanah Datar',
                 'province_id' => 32,
@@ -5003,8 +5002,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            453 =>
-            array(
+            453 => 
+            array (
                 'id' => 454,
                 'name' => 'Tanah Laut',
                 'province_id' => 13,
@@ -5014,8 +5013,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            454 =>
-            array(
+            454 => 
+            array (
                 'id' => 455,
                 'name' => 'Tangerang',
                 'province_id' => 3,
@@ -5025,8 +5024,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            455 =>
-            array(
+            455 => 
+            array (
                 'id' => 456,
                 'name' => 'Tangerang',
                 'province_id' => 3,
@@ -5036,8 +5035,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            456 =>
-            array(
+            456 => 
+            array (
                 'id' => 457,
                 'name' => 'Tangerang Selatan',
                 'province_id' => 3,
@@ -5047,8 +5046,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            457 =>
-            array(
+            457 => 
+            array (
                 'id' => 458,
                 'name' => 'Tanggamus',
                 'province_id' => 18,
@@ -5058,8 +5057,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            458 =>
-            array(
+            458 => 
+            array (
                 'id' => 459,
                 'name' => 'Tanjung Balai',
                 'province_id' => 34,
@@ -5069,8 +5068,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            459 =>
-            array(
+            459 => 
+            array (
                 'id' => 460,
                 'name' => 'Tanjung Jabung Barat',
                 'province_id' => 8,
@@ -5080,8 +5079,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            460 =>
-            array(
+            460 => 
+            array (
                 'id' => 461,
                 'name' => 'Tanjung Jabung Timur',
                 'province_id' => 8,
@@ -5091,8 +5090,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            461 =>
-            array(
+            461 => 
+            array (
                 'id' => 462,
                 'name' => 'Tanjung Pinang',
                 'province_id' => 17,
@@ -5102,8 +5101,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            462 =>
-            array(
+            462 => 
+            array (
                 'id' => 463,
                 'name' => 'Tapanuli Selatan',
                 'province_id' => 34,
@@ -5113,8 +5112,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            463 =>
-            array(
+            463 => 
+            array (
                 'id' => 464,
                 'name' => 'Tapanuli Tengah',
                 'province_id' => 34,
@@ -5124,8 +5123,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            464 =>
-            array(
+            464 => 
+            array (
                 'id' => 465,
                 'name' => 'Tapanuli Utara',
                 'province_id' => 34,
@@ -5135,8 +5134,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            465 =>
-            array(
+            465 => 
+            array (
                 'id' => 466,
                 'name' => 'Tapin',
                 'province_id' => 13,
@@ -5146,8 +5145,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            466 =>
-            array(
+            466 => 
+            array (
                 'id' => 467,
                 'name' => 'Tarakan',
                 'province_id' => 16,
@@ -5157,8 +5156,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            467 =>
-            array(
+            467 => 
+            array (
                 'id' => 468,
                 'name' => 'Tasikmalaya',
                 'province_id' => 9,
@@ -5168,8 +5167,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            468 =>
-            array(
+            468 => 
+            array (
                 'id' => 469,
                 'name' => 'Tasikmalaya',
                 'province_id' => 9,
@@ -5179,8 +5178,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            469 =>
-            array(
+            469 => 
+            array (
                 'id' => 470,
                 'name' => 'Tebing Tinggi',
                 'province_id' => 34,
@@ -5190,8 +5189,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            470 =>
-            array(
+            470 => 
+            array (
                 'id' => 471,
                 'name' => 'Tebo',
                 'province_id' => 8,
@@ -5201,8 +5200,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            471 =>
-            array(
+            471 => 
+            array (
                 'id' => 472,
                 'name' => 'Tegal',
                 'province_id' => 10,
@@ -5212,8 +5211,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            472 =>
-            array(
+            472 => 
+            array (
                 'id' => 473,
                 'name' => 'Tegal',
                 'province_id' => 10,
@@ -5223,8 +5222,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            473 =>
-            array(
+            473 => 
+            array (
                 'id' => 474,
                 'name' => 'Teluk Bintuni',
                 'province_id' => 25,
@@ -5234,8 +5233,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            474 =>
-            array(
+            474 => 
+            array (
                 'id' => 475,
                 'name' => 'Teluk Wondama',
                 'province_id' => 25,
@@ -5245,8 +5244,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            475 =>
-            array(
+            475 => 
+            array (
                 'id' => 476,
                 'name' => 'Temanggung',
                 'province_id' => 10,
@@ -5256,8 +5255,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            476 =>
-            array(
+            476 => 
+            array (
                 'id' => 477,
                 'name' => 'Ternate',
                 'province_id' => 20,
@@ -5267,8 +5266,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            477 =>
-            array(
+            477 => 
+            array (
                 'id' => 478,
                 'name' => 'Tidore Kepulauan',
                 'province_id' => 20,
@@ -5278,30 +5277,30 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            478 =>
-            array(
+            478 => 
+            array (
                 'id' => 479,
                 'name' => 'Timor Tengah Selatan',
                 'province_id' => 23,
-                'province_name' => 'Nusa Tenggara Timur (NTT)',
+            'province_name' => 'Nusa Tenggara Timur (NTT)',
                 'type' => 'Kabupaten',
                 'postal_code' => '85562',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            479 =>
-            array(
+            479 => 
+            array (
                 'id' => 480,
                 'name' => 'Timor Tengah Utara',
                 'province_id' => 23,
-                'province_name' => 'Nusa Tenggara Timur (NTT)',
+            'province_name' => 'Nusa Tenggara Timur (NTT)',
                 'type' => 'Kabupaten',
                 'postal_code' => '85612',
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            480 =>
-            array(
+            480 => 
+            array (
                 'id' => 481,
                 'name' => 'Toba Samosir',
                 'province_id' => 34,
@@ -5311,8 +5310,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            481 =>
-            array(
+            481 => 
+            array (
                 'id' => 482,
                 'name' => 'Tojo Una-Una',
                 'province_id' => 29,
@@ -5322,8 +5321,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            482 =>
-            array(
+            482 => 
+            array (
                 'id' => 483,
                 'name' => 'Toli-Toli',
                 'province_id' => 29,
@@ -5333,8 +5332,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            483 =>
-            array(
+            483 => 
+            array (
                 'id' => 484,
                 'name' => 'Tolikara',
                 'province_id' => 24,
@@ -5344,8 +5343,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            484 =>
-            array(
+            484 => 
+            array (
                 'id' => 485,
                 'name' => 'Tomohon',
                 'province_id' => 31,
@@ -5355,8 +5354,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            485 =>
-            array(
+            485 => 
+            array (
                 'id' => 486,
                 'name' => 'Toraja Utara',
                 'province_id' => 28,
@@ -5366,8 +5365,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            486 =>
-            array(
+            486 => 
+            array (
                 'id' => 487,
                 'name' => 'Trenggalek',
                 'province_id' => 11,
@@ -5377,8 +5376,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            487 =>
-            array(
+            487 => 
+            array (
                 'id' => 488,
                 'name' => 'Tual',
                 'province_id' => 19,
@@ -5388,8 +5387,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            488 =>
-            array(
+            488 => 
+            array (
                 'id' => 489,
                 'name' => 'Tuban',
                 'province_id' => 11,
@@ -5399,8 +5398,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            489 =>
-            array(
+            489 => 
+            array (
                 'id' => 490,
                 'name' => 'Tulang Bawang',
                 'province_id' => 18,
@@ -5410,8 +5409,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            490 =>
-            array(
+            490 => 
+            array (
                 'id' => 491,
                 'name' => 'Tulang Bawang Barat',
                 'province_id' => 18,
@@ -5421,8 +5420,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            491 =>
-            array(
+            491 => 
+            array (
                 'id' => 492,
                 'name' => 'Tulungagung',
                 'province_id' => 11,
@@ -5432,8 +5431,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            492 =>
-            array(
+            492 => 
+            array (
                 'id' => 493,
                 'name' => 'Wajo',
                 'province_id' => 28,
@@ -5443,8 +5442,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            493 =>
-            array(
+            493 => 
+            array (
                 'id' => 494,
                 'name' => 'Wakatobi',
                 'province_id' => 30,
@@ -5454,8 +5453,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            494 =>
-            array(
+            494 => 
+            array (
                 'id' => 495,
                 'name' => 'Waropen',
                 'province_id' => 24,
@@ -5465,8 +5464,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            495 =>
-            array(
+            495 => 
+            array (
                 'id' => 496,
                 'name' => 'Way Kanan',
                 'province_id' => 18,
@@ -5476,8 +5475,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            496 =>
-            array(
+            496 => 
+            array (
                 'id' => 497,
                 'name' => 'Wonogiri',
                 'province_id' => 10,
@@ -5487,8 +5486,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            497 =>
-            array(
+            497 => 
+            array (
                 'id' => 498,
                 'name' => 'Wonosobo',
                 'province_id' => 10,
@@ -5498,8 +5497,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            498 =>
-            array(
+            498 => 
+            array (
                 'id' => 499,
                 'name' => 'Yahukimo',
                 'province_id' => 24,
@@ -5509,8 +5508,8 @@ class CitiesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            499 =>
-            array(
+            499 => 
+            array (
                 'id' => 500,
                 'name' => 'Yalimo',
                 'province_id' => 24,
@@ -5521,9 +5520,9 @@ class CitiesTableSeeder extends Seeder
                 'updated_at' => NULL,
             ),
         ));
-        \DB::table('cities')->insert(array(
-            0 =>
-            array(
+        \DB::table('cities')->insert(array (
+            0 => 
+            array (
                 'id' => 501,
                 'name' => 'Yogyakarta',
                 'province_id' => 5,
@@ -5534,5 +5533,7 @@ class CitiesTableSeeder extends Seeder
                 'updated_at' => NULL,
             ),
         ));
+        
+        
     }
 }
