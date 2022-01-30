@@ -23,10 +23,10 @@ class AttributesTableSeeder extends Seeder
             array (
                 'id' => 1,
                 'name' => 'Material',
-                'required' => 1,
+                'required' => 0,
                 'options' => NULL,
                 'created_at' => '2021-11-09 02:36:41',
-                'updated_at' => '2021-11-09 02:36:41',
+                'updated_at' => '2022-01-28 10:26:27',
                 'deleted_at' => NULL,
             ),
             1 => 
