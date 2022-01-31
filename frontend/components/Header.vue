@@ -132,7 +132,6 @@
             alt=""
         /></nuxt-link>
       </div>
-      <img style="width: 15%" src="/img/logo.png" alt="" />
 
       <search-mobile />
 
@@ -238,8 +237,10 @@ export default {
 }
 /* 0 - 991 px */
 @media screen and (max-width: 500px) {
-  #header_logo {
-    display: none !important;
+  #header_logo{
+    width:15%;
+    padding: 0;
+    margin-right: auto;
   }
 
   #header-webview {

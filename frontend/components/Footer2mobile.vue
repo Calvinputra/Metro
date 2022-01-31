@@ -25,10 +25,7 @@
     <div class="d-flex p-2 justify-content-center">
       <div class="pe-3 ps-3">
         <img
-          style="
-            width: 40px;
-            background-color: #f3f3f3;
-            box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+          style="width: 40px;background-color: #f3f3f3;box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
           "
           src="/img/tokopedia.png"
           alt=""
@@ -36,10 +33,7 @@
       </div>
       <div class="pe-3">
         <img
-          style="
-            width: 40px;
-            background-color: #f3f3f3;
-            box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+          style="width: 40px;background-color: #f3f3f3;box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
           "
           src="/img/tokopedia.png"
           alt=""
@@ -47,10 +41,7 @@
       </div>
       <div class="pe-3">
         <img
-          style="
-            width: 40px;
-            background-color: #f3f3f3;
-            box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+          style="width: 40px;background-color: #f3f3f3;box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
           "
           src="/img/tokopedia.png"
           alt=""
@@ -58,10 +49,7 @@
       </div>
       <div class="pe-3">
         <img
-          style="
-            width: 40px;
-            background-color: #f3f3f3;
-            box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+          style="width: 40px;background-color: #f3f3f3;box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
           "
           src="/img/tokopedia.png"
           alt=""

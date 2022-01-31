@@ -82,7 +82,7 @@ class AuthController extends Controller
             'last_name'   => 'required|min:3',
             'phone'       => 'required|min:8|unique:customers,phone|starts_with:08',
             'email'       => 'required|email|unique:customers,email',
-            'password'    => ['required', 'confirmed', Password::min(8)->mixedCase()->numbers()->uncompromised()],
+            'password'    => ['required', 'confirmed', Password::min(8)->mixedCase()->numbers()],
             'address'     => 'required|min:10',
             'country'     => 'required',
             'province'    => 'required',
@@ -370,7 +370,7 @@ class AuthController extends Controller
 
         $rules = [
             'token' => 'required|min:40|exists:customer_tokens,token',
-            'password' => ['required', 'confirmed', Password::min(8)->mixedCase()->numbers()->uncompromised()]
+            'password' => ['required', 'confirmed', Password::min(8)->mixedCase()->numbers()]
         ];
         $messages = ['token.required' => 'token wajib diisi', 'token.min' => 'token invalid'];
         $validator = Validator::make($request->all(), $rules, $messages);

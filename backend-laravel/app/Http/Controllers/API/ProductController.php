@@ -15,6 +15,57 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function getInitialData(Request $request)
+    {
+        $data = json_decode(htmlspecialchars_decode($request->data));
+        $product_data = array();
+        if ($data) {
+            foreach ($data as $d) {
+                $product = Product::find($d);
+                if ($product) {
+                    array_push($product_data, $product);
+                }
+            }
+            return response()->json([
+                'success' => true,
+                'data' => $product_data,
+            ]);
+        } else {
+            return response()->json(['success' => false, 'data' => null]);
+        }
+    }
+    public function getSelect2Format(Request $request)
+    {
+        $paginate_item = $request->paginate ?? 18;
+        $products = Product::with('category')->orderBy('created_at', 'DESC');
+
+        //filter
+        if ($request->s) {
+            //params s
+            $products->where(function ($q) use ($request) {
+                $q->where('name', 'LIKE', '%' . $request->s . '%');
+            });
+        }
+
+        $products = $products->paginate($paginate_item);
+        $more = true;
+        if ($products->lastPage() == $products->currentPage()) {
+            $more = false;
+        }
+        $response = array();
+        $results = array();
+        foreach ($products as $key => $p) {
+            array_push($results, [
+                'id' => $p->id,
+                'text' => $p->name
+            ]);
+        }
+
+        $response["results"] = $results;
+        $response["pagination"] = ["more" => $more];
+        return response()->json($response);
+    }
+
     public function index(Request $request)
     {
         $paginate_item = $request->paginate ?? 18;
