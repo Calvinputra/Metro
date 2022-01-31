@@ -12,13 +12,13 @@
     >
       <!-- Logo -->
       <div id="header_logo" class="col-sm-2">
-        <a href="/"
+        <nuxt-link to="/"
           ><img
             style="width: 80%"
-            class="img-fluid rounded d-block "
+            class="img-fluid rounded d-block"
             src="/img/logo.png"
             alt=""
-        /></a>
+        /></nuxt-link>
       </div>
 
       <Search :data="menu" />
@@ -77,15 +77,15 @@
             </b-dropdown>
           </div>
           <div class="col-sm-4">
-            <a href="/wishlist"
+            <nuxt-link to="/wishlist"
               ><i
                 class="fas fa-heart"
                 style="font-size: 30px !important; color: #c63442 !important"
               ></i
-            ></a>
+            ></nuxt-link>
           </div>
           <div class="col-sm-4">
-            <a href="/cart"><img src="/img/cart.png" alt=""/></a>
+            <nuxt-link to="/cart"><img src="/img/cart.png" alt="" /></nuxt-link>
           </div>
           <!-- Kosong -->
         </div>
@@ -96,13 +96,13 @@
     <div
       id="header-mobileview"
       class="container space-between"
-      style="height: auto; "
+      style="height: auto"
     >
       <!-- Navbar brand -->
       <div>
         <b-nav-item-dropdown
           text="☰"
-          style="font-size: 15px;list-style-type: none;"
+          style="font-size: 15px; list-style-type: none"
           right
           no-caret
         >
@@ -125,12 +125,12 @@
       </div>
       <!-- Logo -->
       <div id="header_logo" class="col-sm-2">
-        <a href="/"
+        <nuxt-link to="/"
           ><img
             class="img-fluid rounded mx-auto d-block"
             src="/img/metro.png"
             alt=""
-        /></a>
+        /></nuxt-link>
       </div>
       <img style="width: 15%" src="/img/logo.png" alt="" />
 
@@ -185,8 +185,12 @@
             </a>
           </div>
           <div class="col-sm-4">
-            <a href="/cart" class="text-black" style="text-decoration: none">
-              Cart</a
+            <nuxt-link
+              to="/cart"
+              class="text-black"
+              style="text-decoration: none"
+            >
+              Cart</nuxt-link
             >
           </div>
           <!-- Kosong -->
@@ -208,8 +212,8 @@ export default {
 
   computed: {
     ...mapGetters({
-      menu: "getHeader"
-    })
+      menu: "getHeader",
+    }),
   },
   methods: {
     async logout() {
@@ -217,14 +221,14 @@ export default {
         this.$toast.success("Successfully logout", {
           theme: "bubble",
           position: "bottom-right",
-          duration: 5000
+          duration: 5000,
         });
         // setTimeout(() => {
         //   window.location.reload(true);
         // }, 1000);
       });
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -13,11 +13,11 @@
           <!-- Grid column -->
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <!-- Content -->
-            <a href=""
+            <nuxt-link to="/"
               ><img style="width: 50%" src="img/logo.png" class="mb-3" alt=""
-            /></a>
+            /></nuxt-link>
             <p>
-              {{settings.company_address}}
+              {{ settings.company_address }}
             </p>
             <div>
               <a href="" class="me-4 text-reset">
@@ -118,13 +118,15 @@
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-            <p><i class="fas fa-home me-3"></i> {{settings.company_city}}</p>
+            <p><i class="fas fa-home me-3"></i> {{ settings.company_city }}</p>
             <p>
               <i class="fas fa-envelope me-3"></i>
-              {{settings.company_email}}
+              {{ settings.company_email }}
             </p>
-            <p><i class="fas fa-phone me-3"></i> {{settings.company_phone}}</p>
-            <p><i class="fas fa-print me-3"></i> {{settings.company_fax}}</p>
+            <p>
+              <i class="fas fa-phone me-3"></i> {{ settings.company_phone }}
+            </p>
+            <p><i class="fas fa-print me-3"></i> {{ settings.company_fax }}</p>
           </div>
           <!-- Grid column -->
         </div>

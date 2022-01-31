@@ -2,8 +2,8 @@
   <section>
     <section id="cardswipe-webview">
       <section class="ps-5 pe-5" id="cardswipe-webview">
-        <NuxtLink
-          :to="'/products/' + data.id"
+        <div
+          @click="redirectTo('/products/' + data.id)"
           style="text-decoration: none !important; color: black"
         >
           <div
@@ -34,14 +34,14 @@
                       font-size: 30px !important;
                       color: #c63442 !important;
                     "
-                  ></i
-                ></a>
+                  ></i>
+                </a>
               </div>
               <p class="card-text mb-4 font-weight-bold">
                 Rp.{{ Number(data.display_price).toLocaleString("id-ID") }}
               </p>
               <div class="row" @click.stop>
-                <a
+                <button
                   class="btn text-danger btn-sm rounded col-sm-5 ms-2 pt-2"
                   style="
                     background-color: #f3f3f3;
@@ -49,8 +49,9 @@
                   "
                   onclick="return false;"
                   @click="addToCart(data)"
-                  >+ Keranjang</a
                 >
+                  + Keranjang
+                </button>
                 <a
                   class="col-sm-3"
                   :href="
@@ -84,12 +85,14 @@
               </div>
             </div>
           </div>
-        </NuxtLink>
+        </div>
       </section>
     </section>
     <section class="" id="cardswipe-mobileview" style="font-size: 60%">
-      <NuxtLink
-        :to="'/products/' + data.id"
+      <!-- TODO harus pake div / section karena nested a href -->
+      <!-- NOTE : Kalo a dibawah ini di ganti icon toped di mobilenya berantakan -->
+      <a
+        @click="redirectTo('/products/' + data.id)"
         style="text-decoration: none !important; color: black"
         class=""
       >
@@ -178,7 +181,7 @@
             </div>
           </div>
         </div>
-      </NuxtLink>
+      </a>
     </section>
   </section>
 </template>
@@ -197,9 +200,7 @@ export default {
       settings: "getSetting",
     }),
   },
-  created() {
-    console.log(this.data);
-  },
+
   methods: {
     async addToCart(product) {
       try {
@@ -259,6 +260,9 @@ export default {
       }
     },
     ...mapActions(["addProductToCart"]),
+    redirectTo(url) {
+      this.$router.push(url);
+    },
   },
 };
 </script>
