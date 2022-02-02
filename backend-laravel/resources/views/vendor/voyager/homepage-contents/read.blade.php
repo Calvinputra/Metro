@@ -71,23 +71,16 @@
                             )
                                 <?php echo $row->details->options->{$dataTypeContent->{$row->field}};?>
                             @elseif($row->type == 'select_multiple')
-                                @if(property_exists($row->details, 'relationship'))
-
-                                    @foreach(json_decode($dataTypeContent->{$row->field}) as $item)
-                                        {{ $item->{$row->field}  }}
-                                    @endforeach
-
-                                @elseif(property_exists($row->details, 'options'))
-                                    @if (!empty(json_decode($dataTypeContent->{$row->field})))
-                                        @foreach(json_decode($dataTypeContent->{$row->field}) as $item)
-                                            @if (@$row->details->options->{$item})
-                                                {{ $row->details->options->{$item} . (!$loop->last ? ', ' : '') }}
-                                            @endif
-                                        @endforeach
-                                    @else
-                                        {{ __('voyager::generic.none') }}
-                                    @endif
-                                @endif
+                               @php
+                                $parsed_data = json_decode( $dataTypeContent->{$row->field});
+                                $products = array();
+                                foreach($parsed_data as $key => $id){
+                                    $product = \App\Models\Product::find($id);
+                                    if($product)array_push($products,$product->name);
+                                }
+                                   
+                               @endphp
+                                {!!implode("<br>",$products)!!}
                             @elseif($row->type == 'date' || $row->type == 'timestamp')
                                 @if ( property_exists($row->details, 'format') && !is_null($dataTypeContent->{$row->field}) )
                                     {{ \Carbon\Carbon::parse($dataTypeContent->{$row->field})->formatLocalized($row->details->format) }}

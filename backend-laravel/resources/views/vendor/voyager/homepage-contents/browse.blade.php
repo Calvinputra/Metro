@@ -126,34 +126,26 @@
                                                 @elseif($row->type == 'relationship')
                                                     @include('voyager::formfields.relationship', ['view' => 'browse','options' => $row->details])
                                                 @elseif($row->type == 'select_multiple')
-                                                    @if(property_exists($row->details, 'relationship'))
-
-                                                        @foreach($data->{$row->field} as $item)
-                                                            {{ $item->{$row->field} }}
+                                                   @php
+                                                        $parsed_data = json_decode( $data->{$row->field});
+                                                        $products = array();
+                                                        foreach($parsed_data as $key => $id){
+                                                            $product = \App\Models\Product::find($id);
+                                                            if($product)array_push($products,$product->name);
+                                                        }
+                                                        
+                                                   @endphp
+                                                   {!!implode("<br>",$products)!!}
+                                                @elseif($row->type == 'multiple_checkbox' && property_exists($row->details, 'options'))
+                                                    @if (@count(json_decode($data->{$row->field})) > 0)
+                                                        @foreach(json_decode($data->{$row->field}) as $item)
+                                                            @if (@$row->details->options->{$item})
+                                                                {{ $row->details->options->{$item} . (!$loop->last ? ', ' : '') }}
+                                                            @endif
                                                         @endforeach
-
-                                                    @elseif(property_exists($row->details, 'options'))
-                                                        @if (!empty(json_decode($data->{$row->field})))
-                                                            @foreach(json_decode($data->{$row->field}) as $item)
-                                                                @if (@$row->details->options->{$item})
-                                                                    {{ $row->details->options->{$item} . (!$loop->last ? ', ' : '') }}
-                                                                @endif
-                                                            @endforeach
-                                                        @else
-                                                            {{ __('voyager::generic.none') }}
-                                                        @endif
+                                                    @else
+                                                        {{ __('voyager::generic.none') }}
                                                     @endif
-
-                                                    @elseif($row->type == 'multiple_checkbox' && property_exists($row->details, 'options'))
-                                                        @if (@count(json_decode($data->{$row->field})) > 0)
-                                                            @foreach(json_decode($data->{$row->field}) as $item)
-                                                                @if (@$row->details->options->{$item})
-                                                                    {{ $row->details->options->{$item} . (!$loop->last ? ', ' : '') }}
-                                                                @endif
-                                                            @endforeach
-                                                        @else
-                                                            {{ __('voyager::generic.none') }}
-                                                        @endif
 
                                                 @elseif(($row->type == 'select_dropdown' || $row->type == 'radio_btn') && property_exists($row->details, 'options'))
 
