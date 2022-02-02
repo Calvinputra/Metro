@@ -84,7 +84,11 @@
                           <template
                             v-if="this.$auth.user.email_verified_at === null"
                             >-
-                            <button @click.prevent="doEmailVerification" class="btn"  style="color: red; weight: 700">
+                            <button
+                              @click.prevent="doEmailVerification"
+                              class="btn"
+                              style="color: red; weight: 700"
+                            >
                               Verifikasi sekarang
                             </button>
                           </template>
@@ -282,6 +286,22 @@
 <script>
 export default {
   middleware: "auth",
+  data() {
+    return {
+      breadcrumb: [
+        {
+          url: "/",
+          name: "Beranda",
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
+        },
+        {
+          url: "/profile",
+          name: "Akun Saya",
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
+      ],
+    };
+  },
   methods: {
     async doEmailVerification() {
       try {

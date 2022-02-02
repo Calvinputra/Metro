@@ -147,6 +147,23 @@ export default {
       old_password: "",
       password: "",
       password_confirmation: "",
+      breadcrumb: [
+        {
+          url: "/",
+          name: "Beranda",
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
+        },
+        {
+          url: "/profile",
+          name: "Akun Saya",
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
+        },
+        {
+          url: "/change_password",
+          name: "Ubah Password",
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
+      ],
     };
   },
   methods: {

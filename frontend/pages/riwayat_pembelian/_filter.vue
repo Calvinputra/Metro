@@ -41,7 +41,7 @@
               <template
                 v-if="
                   this.$route.params.filter == '' ||
-                    this.$route.params.filter == undefined
+                  this.$route.params.filter == undefined
                 "
               >
                 <nuxt-link
@@ -53,11 +53,12 @@
                     btn-danger btn-sm
                     rounded
                     col-sm-1
-                    mx-1 my-1
+                    mx-1
+                    my-1
                     py-1
                     px-2
                   "
-                  style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;"
+                  style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
                 >
                   Semua
                 </nuxt-link>
@@ -84,7 +85,8 @@
                     btn-danger btn-sm
                     rounded
                     col-sm-3
-                    mx-1 my-1
+                    mx-1
+                    my-1
                     py-1
                     px-2
                   "
@@ -112,7 +114,8 @@
                     btn-danger btn-sm
                     rounded
                     col-sm-1
-                    mx-1 my-1
+                    mx-1
+                    my-1
                     py-1
                     px-2
                   "
@@ -141,7 +144,8 @@
                     btn-danger btn-sm
                     rounded
                     col-sm-2
-                    mx-1 my-1
+                    mx-1
+                    my-1
                     py-1
                     px-2
                   "
@@ -170,7 +174,8 @@
                     btn-danger btn-sm
                     rounded
                     col-sm-2
-                    mx-1 my-1
+                    mx-1
+                    my-1
                     py-1
                     px-2
                   "
@@ -247,27 +252,30 @@
               <h6 class="text-center">Status:</h6>
               <div
                 class="col d-flex justify-content-center"
-                style="flex-wrap: wrap;"
+                style="flex-wrap: wrap"
               >
                 <template
                   v-if="
                     this.$route.params.filter == '' ||
-                      this.$route.params.filter == undefined
+                    this.$route.params.filter == undefined
                   "
                 >
                   <nuxt-link
                     to="/riwayat_pembelian"
                     type="submit"
                     class="
-                    btn
-                    text-white
-                    btn-danger btn-sm
-                    rounded
-                    mx-1 my-1
-                    py-1
-                    px-2
-                  "
-                    style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+                      btn
+                      text-white
+                      btn-danger btn-sm
+                      rounded
+                      mx-1
+                      my-1
+                      py-1
+                      px-2
+                    "
+                    style="
+                      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                    "
                   >
                     Semua
                   </nuxt-link>
@@ -289,15 +297,18 @@
                     href="/riwayat_pembelian/menunggu_pembayaran"
                     type="submit"
                     class="
-                    btn
-                    text-white
-                    btn-danger btn-sm
-                    rounded
-                    mx-1 my-1
-                    py-1
-                    px-2
-                  "
-                    style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+                      btn
+                      text-white
+                      btn-danger btn-sm
+                      rounded
+                      mx-1
+                      my-1
+                      py-1
+                      px-2
+                    "
+                    style="
+                      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                    "
                   >
                     Menunggu Pembayaran
                   </a>
@@ -316,15 +327,18 @@
                     href="/riwayat_pembelian/selesai"
                     type="submit"
                     class="
-                    btn
-                    text-white
-                    btn-danger btn-sm
-                    rounded
-                    mx-1 my-1
-                    py-1
-                    px-2
-                  "
-                    style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+                      btn
+                      text-white
+                      btn-danger btn-sm
+                      rounded
+                      mx-1
+                      my-1
+                      py-1
+                      px-2
+                    "
+                    style="
+                      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                    "
                   >
                     Selesai
                   </a>
@@ -344,15 +358,18 @@
                     href="/riwayat_pembelian/tidak_berhasil"
                     type="submit"
                     class="
-                    btn
-                    text-white
-                    btn-danger btn-sm
-                    rounded
-                    mx-1 my-1
-                    py-1
-                    px-2
-                  "
-                    style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+                      btn
+                      text-white
+                      btn-danger btn-sm
+                      rounded
+                      mx-1
+                      my-1
+                      py-1
+                      px-2
+                    "
+                    style="
+                      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                    "
                   >
                     Tidak Berhasil
                   </a>
@@ -372,15 +389,18 @@
                     href="/riwayat_pembelian/berlangsung"
                     type="submit"
                     class="
-                    btn
-                    text-white
-                    btn-danger btn-sm
-                    rounded
-                    mx-1 my-1
-                    py-1
-                    px-2
-                  "
-                    style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+                      btn
+                      text-white
+                      btn-danger btn-sm
+                      rounded
+                      mx-1
+                      my-1
+                      py-1
+                      px-2
+                    "
+                    style="
+                      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                    "
                   >
                     Berlangsung
                   </a>
@@ -407,7 +427,7 @@
             <template v-if="Object.keys(transactions).length === 0">
               <h6
                 class="text-center pt-5 ms-2"
-                style="border-top: 1px solid #c63442 !important;"
+                style="border-top: 1px solid #c63442 !important"
               >
                 Belum ada transaksi
               </h6>
@@ -450,30 +470,30 @@ export default {
         data = {
           page_filter: "menunggu_pembayaran",
           page: query.page,
-          paginate: query.paginate
+          paginate: query.paginate,
         };
       } else if (params.filter == "selesai") {
         data = {
           page_filter: "selesai",
           page: query.page,
-          paginate: query.paginate
+          paginate: query.paginate,
         };
       } else if (params.filter == "tidak_berhasil") {
         data = {
           page_filter: "tidak_berhasil",
           page: query.page,
-          paginate: query.paginate
+          paginate: query.paginate,
         };
       } else if (params.filter == "berlangsung") {
         data = {
           page_filter: "berlangsung",
           page: query.page,
-          paginate: query.paginate
+          paginate: query.paginate,
         };
       } else {
         data = {
           page: query.page,
-          paginate: query.paginate
+          paginate: query.paginate,
         };
       }
       let transactions = await $axios.$get(
@@ -488,7 +508,7 @@ export default {
       return {
         transactions: transactions.data,
         links: links,
-        totalPage: transactions.meta.last_page
+        totalPage: transactions.meta.last_page,
       };
     } catch (error) {
       console.log(error);
@@ -508,20 +528,37 @@ export default {
         path: "/" + url + "?",
         query: {
           page: pageNum,
-          paginate: this.$route.query.paginate
-        }
+          paginate: this.$route.query.paginate,
+        },
       };
     },
     pageGen(pageNum) {
       return this.links[pageNum - 1].slice(1);
-    }
+    },
   },
   data() {
     return {
-      selectedTransaction: {}
+      selectedTransaction: {},
+      breadcrumb: [
+        {
+          url: "/",
+          name: "Beranda",
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
+        },
+        {
+          url: "/profile",
+          name: "Akun Saya",
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
+        },
+        {
+          url: "/riwayat_pembelian",
+          name: "Riwayat Pembelian",
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
+      ],
     };
   },
-  watchQuery: ["page", "paginate"]
+  watchQuery: ["page", "paginate"],
 };
 </script>
 
