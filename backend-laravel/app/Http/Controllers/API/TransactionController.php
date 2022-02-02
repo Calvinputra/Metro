@@ -192,10 +192,39 @@ class TransactionController extends Controller
         //hapus checkout cart
         return (new TransactionResource($transaction))->additional(['success' => true]);
     }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        return response()->json([
+            'data'   => 'Unauthorized Action',
+            'status' => 503,
+            'success' => false,
+        ]);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        return response()->json([
+            'data'   => 'Unauthorized Action',
+            'status' => 503,
+            'success' => false,
+        ]);
+    }
 
 
-  
-   
+
     private function getSnapToken($transaction)
     {
         $data = ['success' => true];

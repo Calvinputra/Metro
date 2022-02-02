@@ -10,27 +10,18 @@
           indicators
         >
           <b-carousel-slide
-            caption="First slide"
-            img-src="https://picsum.photos/1024/480/?image=10"
+            v-for="slide in data"
+            :key="slide.id"
+            :caption="slide.id"
+            :img-src="slide.src"
             style="width: 100%; height: 300px"
           >
           </b-carousel-slide>
-          <b-carousel-slide
-            caption="Second Slide"
-            img-src="https://picsum.photos/1024/480/?image=12"
-            style="width: 100%; height: 300px"
-          ></b-carousel-slide>
-          <b-carousel-slide
-            caption="Third Slide"
-            img-src="https://picsum.photos/1024/480/?image=22"
-            style="width: 100%; height: 300px"
-          ></b-carousel-slide>
         </b-carousel>
       </div>
       <div
-        class="bg-image container "
-        style=" background-color: #841C26;
-    height: 50px"
+        class="bg-image container"
+        style="background-color: #841c26; height: 50px"
       >
         <h3 class="text-white text-center mt-5">Kejar DISKON!!!</h3>
       </div>
@@ -45,24 +36,18 @@
           controls
         >
           <b-carousel-slide
-            img-src="https://picsum.photos/1024/480/?image=10"
+            v-for="slide in data"
+            :key="slide.id"
+            :caption="slide.id"
+            :img-src="slide.src"
             style="width: 100%; height: 230px"
           >
           </b-carousel-slide>
-          <b-carousel-slide
-            img-src="https://picsum.photos/1024/480/?image=12"
-            style="width: 100%; height: 230px"
-          ></b-carousel-slide>
-          <b-carousel-slide
-            img-src="https://picsum.photos/1024/480/?image=22"
-            style="width: 100%; height: 230px"
-          ></b-carousel-slide>
         </b-carousel>
       </div>
       <div
-        class="bg-image container "
-        style=" background-color: #841C26;
-    height: 30px"
+        class="bg-image container"
+        style="background-color: #841c26; height: 30px"
       >
         <h3 class="text-white text-center">Kejar DISKON!!!</h3>
       </div>
@@ -97,3 +82,9 @@
   }
 }
 </style>
+
+<script>
+export default {
+  props: ["data"],
+};
+</script>

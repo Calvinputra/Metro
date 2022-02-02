@@ -16,7 +16,8 @@ class ProvinceController extends Controller
      */
     public function index(Request $request)
     {
-        return ProvinceResource::collection(Province::where('country_id', $request->country_id ?? '0')->orderBy('name')->get());
+        $provinces = Province::where('country_id', $request->country_id ?? '0')->orderBy('name')->get();
+        return ProvinceResource::collection($provinces)->additional(['success' => true]);
     }
 
     /**
@@ -27,7 +28,11 @@ class ProvinceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return response()->json([
+            'success' => false,
+            'data'   => 'Unauthorized Action',
+            'status' => 503,
+        ]);
     }
 
     /**
@@ -38,7 +43,11 @@ class ProvinceController extends Controller
      */
     public function show($id)
     {
-        //
+        return response()->json([
+            'success' => false,
+            'data'   => 'Unauthorized Action',
+            'status' => 503,
+        ]);
     }
 
     /**
@@ -50,7 +59,11 @@ class ProvinceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return response()->json([
+            'success' => false,
+            'data'   => 'Unauthorized Action',
+            'status' => 503,
+        ]);
     }
 
     /**
@@ -61,6 +74,10 @@ class ProvinceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return response()->json([
+            'success' => false,
+            'data'   => 'Unauthorized Action',
+            'status' => 503,
+        ]);
     }
 }

@@ -21,7 +21,7 @@ class CartController extends Controller
             if ($request->checkout) {
                 $carts->where('process', 1);
             }
-            return CartResource::collection($carts->get());
+            return CartResource::collection($carts->get())->additional(['success' => true]);
         } else {
             return response()->json([
                 'success' => false,

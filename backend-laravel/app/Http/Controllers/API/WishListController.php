@@ -71,4 +71,49 @@ class WishListController extends Controller
             ]);
         }
     }
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        return response()->json([
+            'data'   => 'Unauthorized Action',
+            'status' => 503,
+            'success' => false,
+        ]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        return response()->json([
+            'data'   => 'Unauthorized Action',
+            'status' => 503,
+            'success' => false,
+        ]);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        return response()->json([
+            'data'   => 'Unauthorized Action',
+            'status' => 503,
+            'success' => false,
+        ]);
+    }
 }

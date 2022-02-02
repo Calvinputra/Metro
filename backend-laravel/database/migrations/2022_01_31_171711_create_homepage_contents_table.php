@@ -18,6 +18,7 @@ class CreateHomepageContentsTable extends Migration
             $table->json('products');
             $table->string('title')->nullable();
             $table->string('code');
+            $table->integer('order')->default(1);
             $table->timestamps();
         });
     }

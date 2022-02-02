@@ -3,20 +3,22 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\CountryResource;
-use App\Models\Country;
+use App\Http\Resources\SliderResource;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
-class CountryController extends Controller
+class SliderController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return CountryResource::collection(Country::orderBy('name')->get())->additional(['success' => true]);
+        $take = $request->take ?? 10;
+        $sliders = Slider::orderBy('order', 'DESC')->get()->take($take);
+        return SliderResource::collection($sliders)->additional(['success'=>true]);
     }
 
     /**

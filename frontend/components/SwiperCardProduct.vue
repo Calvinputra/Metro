@@ -6,40 +6,15 @@
           <!-- Additional required wrapper -->
           <div class="swiper-wrapper">
             <!-- Slides -->
-            <div class="swiper-slide">
+            
+             <div
+              class="swiper-slide"
+              v-for="product in this.products"
+              :key="product.id"
+            >
               <CardProductSwiper
-                :data="this.products[0]"
-                :url="'/products/' + this.products[0].id"
-              />
-            </div>
-            <div class="swiper-slide">
-              <CardProductSwiper
-                :data="this.products[1]"
-                :url="'/products/' + this.products[1].id"
-              />
-            </div>
-            <div class="swiper-slide">
-              <CardProductSwiper
-                :data="this.products[2]"
-                :url="'/products/' + this.products[2].id"
-              />
-            </div>
-            <div class="swiper-slide">
-              <CardProductSwiper
-                :data="this.products[2]"
-                :url="'/products/' + this.products[2].id"
-              />
-            </div>
-            <div class="swiper-slide">
-              <CardProductSwiper
-                :data="this.products[2]"
-                :url="'/products/' + this.products[2].id"
-              />
-            </div>
-            <div class="swiper-slide">
-              <CardProductSwiper
-                :data="this.products[2]"
-                :url="'/products/' + this.products[2].id"
+                :data="product"
+                :url="'/products/' + product.id"
               />
             </div>
           </div>
@@ -57,40 +32,14 @@
           <!-- Additional required wrapper -->
           <div class="swiper-wrapper">
             <!-- Slides -->
-            <div class="swiper-slide me-3 ms-3">
+            <div
+              class="swiper-slide me-3 ms-3"
+              v-for="product in this.products"
+              :key="product.id"
+            >
               <CardProductSwiper
-                :data="this.products[0]"
-                :url="'/products/' + this.products[0].id"
-              />
-            </div>
-            <div class="swiper-slide">
-              <CardProductSwiper
-                :data="this.products[1]"
-                :url="'/products/' + this.products[1].id"
-              />
-            </div>
-            <div class="swiper-slide">
-              <CardProductSwiper
-                :data="this.products[2]"
-                :url="'/products/' + this.products[2].id"
-              />
-            </div>
-            <div class="swiper-slide">
-              <CardProductSwiper
-                :data="this.products[2]"
-                :url="'/products/' + this.products[2].id"
-              />
-            </div>
-            <div class="swiper-slide">
-              <CardProductSwiper
-                :data="this.products[2]"
-                :url="'/products/' + this.products[2].id"
-              />
-            </div>
-            <div class="swiper-slide">
-              <CardProductSwiper
-                :data="this.products[2]"
-                :url="'/products/' + this.products[2].id"
+                :data="product"
+                :url="'/products/' + product.id"
               />
             </div>
           </div>

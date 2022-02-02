@@ -16,7 +16,8 @@ class CityController extends Controller
      */
     public function index(Request $request)
     {
-        return CityResource::collection(City::where('province_id', $request->province_id ?? '0')->orderBy('name')->get());
+        $cities =  City::where('province_id', $request->province_id ?? '0')->orderBy('name')->get();
+        return CityResource::collection($cities)->additional(['success' => true]);
     }
     /**
      * Store a newly created resource in storage.
@@ -26,7 +27,11 @@ class CityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return response()->json([
+            'success' => false,
+            'data'   => 'Unauthorized Action',
+            'status' => 503,
+        ]);
     }
 
     /**
@@ -37,7 +42,11 @@ class CityController extends Controller
      */
     public function show($id)
     {
-        //
+        return response()->json([
+            'success' => false,
+            'data'   => 'Unauthorized Action',
+            'status' => 503,
+        ]);
     }
 
     /**
@@ -49,7 +58,11 @@ class CityController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return response()->json([
+            'success' => false,
+            'data'   => 'Unauthorized Action',
+            'status' => 503,
+        ]);
     }
 
     /**
@@ -60,6 +73,10 @@ class CityController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return response()->json([
+            'success' => false,
+            'data'   => 'Unauthorized Action',
+            'status' => 503,
+        ]);
     }
 }

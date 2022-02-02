@@ -16,6 +16,9 @@ use App\Http\Controllers\API\ShippingController;
 use App\Http\Controllers\API\ReviewController;
 use App\Http\Controllers\API\WebsiteFeedbackController;
 use App\Http\Controllers\API\SettingController;
+use App\Http\Controllers\API\HomepageContentController;
+use App\Http\Controllers\API\SliderController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +56,8 @@ Route::apiResource('/transactions', TransactionController::class)->middleware('a
 Route::apiResource('/reviews', ReviewController::class)->middleware('auth:sanctum');
 Route::apiResource('/feedbacks', WebsiteFeedbackController::class);
 Route::apiResource('/categories', CategoryController::class);
+Route::apiResource('/homepage_contents', HomepageContentController::class);
+Route::apiResource('/sliders', SliderController::class);
 
 
 Route::post('/carts/multiple', [CartController::class, 'storeMultiple'])->middleware('auth:sanctum');

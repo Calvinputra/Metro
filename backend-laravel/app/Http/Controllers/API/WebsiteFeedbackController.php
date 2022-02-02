@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\WebsiteFeedback;
 use Validator;
+
 class WebsiteFeedbackController extends Controller
 {
     /**
@@ -15,7 +16,11 @@ class WebsiteFeedbackController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json([
+            'data'   => 'Unauthorized Action',
+            'status' => 503,
+            'success' => false,
+        ]);
     }
 
     /**
@@ -68,7 +73,11 @@ class WebsiteFeedbackController extends Controller
      */
     public function show($id)
     {
-        //
+        return response()->json([
+            'data'   => 'Unauthorized Action',
+            'status' => 503,
+            'success' => false,
+        ]);
     }
 
     /**
@@ -80,7 +89,11 @@ class WebsiteFeedbackController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return response()->json([
+            'data'   => 'Unauthorized Action',
+            'status' => 503,
+            'success' => false,
+        ]);
     }
 
     /**
@@ -91,6 +104,10 @@ class WebsiteFeedbackController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return response()->json([
+            'data'   => 'Unauthorized Action',
+            'status' => 503,
+            'success' => false,
+        ]);
     }
 }

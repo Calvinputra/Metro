@@ -16,7 +16,11 @@ class SettingController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json([
+            'data'   => 'Unauthorized Action',
+            'status' => 503,
+            'success' => false,
+        ]);
     }
 
     /**
@@ -27,7 +31,11 @@ class SettingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return response()->json([
+            'data'   => 'Unauthorized Action',
+            'status' => 503,
+            'success' => false,
+        ]);
     }
 
     /**
@@ -41,8 +49,8 @@ class SettingController extends Controller
         $data = Setting::where('group', 'Site')->where('key', $key)->first();
         if ($data) {
             return (new SettingResource($data))->additional(["success" => true]);
-        }else{
-            return response()->json(['success'=>false,'msg'=>'Data not found']);
+        } else {
+            return response()->json(['success' => false, 'msg' => 'Data not found']);
         }
     }
 
@@ -55,7 +63,11 @@ class SettingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return response()->json([
+            'data'   => 'Unauthorized Action',
+            'status' => 503,
+            'success' => false,
+        ]);
     }
 
     /**
@@ -66,6 +78,10 @@ class SettingController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return response()->json([
+            'data'   => 'Unauthorized Action',
+            'status' => 503,
+            'success' => false,
+        ]);
     }
 }

@@ -2,92 +2,51 @@
   <section>
     <section id="home-webview">
       <Header />
-      <Carousel1 />
-      <SwiperCardProduct :products="products" />
-      <!-- produk unggulan -->
-      <div class="d-flex container mb-3 mt-5">
-        <h5 class="text-danger fw-bold">Produk Unggulan</h5>
-        <button
-          type="submit"
-          class="btn text-danger btn-light btn-sm rounded p-2 ms-3"
-          style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
-        >
-          Lebih lanjut
-        </button>
-      </div>
-      <SwiperCardProduct :products="products" />
+      <Carousel1 :data="sliderData" />
 
-      <!-- Paling banyak dibeli -->
-      <div class="d-flex container mb-3 mt-5">
-        <h5 class="text-danger fw-bold">Paling Banyak Dibeli</h5>
-        <button
-          type="submit"
-          class="btn text-danger btn-light btn-sm rounded p-2 ms-3"
-          style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
-        >
-          Lebih lanjut
-        </button>
-      </div>
-      <SwiperCardProduct :products="products" />
-
-      <!-- Produk Terbaru -->
-      <div class="d-flex container mb-3 mt-5">
-        <h5 class="text-danger fw-bold">Produk Terbaru</h5>
-        <button
-          type="submit"
-          class="btn text-danger btn-light btn-sm rounded p-2 ms-3"
-          style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
-        >
-          Lebih lanjut
-        </button>
-      </div>
-      <SwiperCardProduct :products="products" />
+      <template v-for="content in contents">
+        <template v-if="content.title">
+          <div :key="content.id" class="d-flex container mb-3 mt-5">
+            <h5 class="text-danger fw-bold">{{ content.title }}</h5>
+            <button
+              type="button"
+              class="btn text-danger btn-light btn-sm rounded p-2 ms-3"
+              style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+            >
+              Lebih lanjut
+            </button>
+          </div>
+        </template>
+        <section :key="content.id">
+          <SwiperCardProduct :products="content.products" />
+        </section>
+      </template>
 
       <Footer />
     </section>
 
     <section id="home-mobileview">
       <Header />
-      <Carousel1 />
-      <SwiperCardProduct :products="products" />
-      <!-- produk unggulan -->
-      <div class="d-flex container">
-        <h5 class="text-danger fw-bold">Produk Unggulan</h5>
-        <button
-          type="submit"
-          class="btn text-danger btn-light btn-sm rounded p-2 ms-3"
-          style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
-        >
-          Lebih lanjut
-        </button>
-      </div>
-      <SwiperCardProduct :products="products" />
+      <Carousel1 :data="sliderData" />
 
-      <!-- Paling banyak dibeli -->
-      <div class="d-flex container">
-        <h5 class="text-danger fw-bold">Paling Banyak Dibeli</h5>
-        <button
-          type="submit"
-          class="btn text-danger btn-light btn-sm rounded p-2 ms-3"
-          style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
-        >
-          Lebih lanjut
-        </button>
-      </div>
-      <SwiperCardProduct :products="products" />
+      <template v-for="content in contents">
+        <template v-if="content.title">
+          <div :key="content.id" class="d-flex container">
+            <h5 class="text-danger fw-bold">{{ content.title }}</h5>
+            <button
+              type="submit"
+              class="btn text-danger btn-light btn-sm rounded p-2 ms-3"
+              style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+            >
+              Lebih lanjut
+            </button>
+          </div>
+        </template>
+        <section :key="content.id">
+          <SwiperCardProduct :products="content.products" />
+        </section>
+      </template>
 
-      <!-- Produk Terbaru -->
-      <div class="d-flex container">
-        <h5 class="text-danger fw-bold">Produk Terbaru</h5>
-        <button
-          type="submit"
-          class="btn text-danger btn-light btn-sm rounded p-2 ms-3"
-          style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
-        >
-          Lebih lanjut
-        </button>
-      </div>
-      <SwiperCardProduct :products="products" />
       <Footer2mobile />
       <div style="position: inherit">
         <Footer />
@@ -95,26 +54,8 @@
     </section>
   </section>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      products: [],
-    };
-  },
-  async asyncData({ $axios }) {
-    try {
-      let products = await $axios.$get(process.env.API_URL + "/api/products");
-      console.log(products);
-      return {
-        products: products.data,
-      };
-    } catch (error) {
-      console.log(error);
-    }
-  },
-};
-</script>
+
+
 <style scoped></style>
 
 <style lang="css" scoped>
@@ -143,3 +84,42 @@ export default {
   }
 }
 </style>
+
+
+
+<script>
+export default {
+  data() {
+    return {
+      products: [],
+      sliderData: [
+        { src: "https://picsum.photos/1024/480/?image=10", key: 1 },
+        { src: "https://picsum.photos/1024/480/?image=12", key: 2 },
+        { src: "https://picsum.photos/1024/480/?image=22", key: 3 },
+      ],
+      contents: [],
+    };
+  },
+  async asyncData({ $axios }) {
+    try {
+      let sliders = await $axios.$get(process.env.API_URL + "/api/sliders");
+      let contents = await $axios.get(
+        process.env.API_URL + "/api/homepage_contents?take=10:"
+      );
+      let sliderData = sliders.data.map((slide) => {
+        return {
+          src: process.env.ASSET_URL + "/" + slide.image,
+          key: slide.id,
+        };
+      });
+      console.log(contents.data.data);
+      return {
+        sliderData: sliderData,
+        contents: contents.data.data,
+      };
+    } catch (error) {
+      console.log(error);
+    }
+  },
+};
+</script>

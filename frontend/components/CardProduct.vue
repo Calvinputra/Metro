@@ -1,7 +1,7 @@
 <template>
   <section class="col-4 pe-1 ps-3">
-    <NuxtLink
-      :to="'/products/' + data.id"
+    <section
+      @click="redirectTo('/products/' + data.id)"
       style="text-decoration: none !important; color: black"
     >
       <div
@@ -80,7 +80,7 @@
           </div>
         </div>
       </div>
-    </NuxtLink>
+    </section>
   </section>
 </template>
 
@@ -97,6 +97,9 @@ export default {
     console.log(this.data);
   },
   methods: {
+    redirectTo(url) {
+      this.$router.push(url);
+    },
     async addToCart(product) {
       try {
         if (this.$auth.loggedIn) {

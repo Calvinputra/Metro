@@ -3,20 +3,23 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\CountryResource;
-use App\Models\Country;
+use App\Http\Resources\HomepageContentResource;
+use App\Models\HomepageContent;
 use Illuminate\Http\Request;
 
-class CountryController extends Controller
+class HomepageContentController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return CountryResource::collection(Country::orderBy('name')->get())->additional(['success' => true]);
+        $take = $request->take ?? 10;
+        $homepage_contents = HomepageContent::get();
+        return  HomepageContentResource::collection($homepage_contents)->setTake($take)->additional(['success' => true]);
+   
     }
 
     /**
@@ -40,13 +43,11 @@ class CountryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($code, Request $request)
     {
-        return response()->json([
-            'success' => false,
-            'data'   => 'Unauthorized Action',
-            'status' => 503,
-        ]);
+        $take = $request->take ?? 20;
+        $homepage_content = HomepageContent::where('code', $code ?? 'NOT SET')->first();
+        return (new HomepageContentResource($homepage_content))->setTake($take)->additional(['success' => true]);
     }
 
     /**
