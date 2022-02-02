@@ -683,6 +683,126 @@ class PermissionsTableSeeder extends Seeder
                 'created_at' => '2022-01-16 13:28:41',
                 'updated_at' => '2022-01-16 13:28:41',
             ),
+            83 => 
+            array (
+                'id' => 84,
+                'key' => 'browse_website_feedback',
+                'table_name' => 'website_feedback',
+                'created_at' => '2022-01-31 17:24:18',
+                'updated_at' => '2022-01-31 17:24:18',
+            ),
+            84 => 
+            array (
+                'id' => 85,
+                'key' => 'read_website_feedback',
+                'table_name' => 'website_feedback',
+                'created_at' => '2022-01-31 17:24:18',
+                'updated_at' => '2022-01-31 17:24:18',
+            ),
+            85 => 
+            array (
+                'id' => 86,
+                'key' => 'edit_website_feedback',
+                'table_name' => 'website_feedback',
+                'created_at' => '2022-01-31 17:24:18',
+                'updated_at' => '2022-01-31 17:24:18',
+            ),
+            86 => 
+            array (
+                'id' => 87,
+                'key' => 'add_website_feedback',
+                'table_name' => 'website_feedback',
+                'created_at' => '2022-01-31 17:24:18',
+                'updated_at' => '2022-01-31 17:24:18',
+            ),
+            87 => 
+            array (
+                'id' => 88,
+                'key' => 'delete_website_feedback',
+                'table_name' => 'website_feedback',
+                'created_at' => '2022-01-31 17:24:18',
+                'updated_at' => '2022-01-31 17:24:18',
+            ),
+            88 => 
+            array (
+                'id' => 89,
+                'key' => 'browse_sliders',
+                'table_name' => 'sliders',
+                'created_at' => '2022-01-31 17:27:53',
+                'updated_at' => '2022-01-31 17:27:53',
+            ),
+            89 => 
+            array (
+                'id' => 90,
+                'key' => 'read_sliders',
+                'table_name' => 'sliders',
+                'created_at' => '2022-01-31 17:27:53',
+                'updated_at' => '2022-01-31 17:27:53',
+            ),
+            90 => 
+            array (
+                'id' => 91,
+                'key' => 'edit_sliders',
+                'table_name' => 'sliders',
+                'created_at' => '2022-01-31 17:27:53',
+                'updated_at' => '2022-01-31 17:27:53',
+            ),
+            91 => 
+            array (
+                'id' => 92,
+                'key' => 'add_sliders',
+                'table_name' => 'sliders',
+                'created_at' => '2022-01-31 17:27:53',
+                'updated_at' => '2022-01-31 17:27:53',
+            ),
+            92 => 
+            array (
+                'id' => 93,
+                'key' => 'delete_sliders',
+                'table_name' => 'sliders',
+                'created_at' => '2022-01-31 17:27:53',
+                'updated_at' => '2022-01-31 17:27:53',
+            ),
+            93 => 
+            array (
+                'id' => 94,
+                'key' => 'browse_homepage_contents',
+                'table_name' => 'homepage_contents',
+                'created_at' => '2022-01-31 17:34:24',
+                'updated_at' => '2022-01-31 17:34:24',
+            ),
+            94 => 
+            array (
+                'id' => 95,
+                'key' => 'read_homepage_contents',
+                'table_name' => 'homepage_contents',
+                'created_at' => '2022-01-31 17:34:24',
+                'updated_at' => '2022-01-31 17:34:24',
+            ),
+            95 => 
+            array (
+                'id' => 96,
+                'key' => 'edit_homepage_contents',
+                'table_name' => 'homepage_contents',
+                'created_at' => '2022-01-31 17:34:24',
+                'updated_at' => '2022-01-31 17:34:24',
+            ),
+            96 => 
+            array (
+                'id' => 97,
+                'key' => 'add_homepage_contents',
+                'table_name' => 'homepage_contents',
+                'created_at' => '2022-01-31 17:34:24',
+                'updated_at' => '2022-01-31 17:34:24',
+            ),
+            97 => 
+            array (
+                'id' => 98,
+                'key' => 'delete_homepage_contents',
+                'table_name' => 'homepage_contents',
+                'created_at' => '2022-01-31 17:34:24',
+                'updated_at' => '2022-01-31 17:34:24',
+            ),
         ));
         
         

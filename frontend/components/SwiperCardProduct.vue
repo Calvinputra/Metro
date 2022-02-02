@@ -6,8 +6,8 @@
           <!-- Additional required wrapper -->
           <div class="swiper-wrapper">
             <!-- Slides -->
-            
-             <div
+
+            <div
               class="swiper-slide"
               v-for="product in this.products"
               :key="product.id"
@@ -35,7 +35,7 @@
             <div
               class="swiper-slide me-3 ms-3"
               v-for="product in this.products"
-              :key="product.id"
+              :key="'mobile' + product.id"
             >
               <CardProductSwiper
                 :data="product"
