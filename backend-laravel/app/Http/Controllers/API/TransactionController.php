@@ -14,10 +14,10 @@ use PDO;
 use Validator;
 use Illuminate\Support\Str;
 use App\Jobs\RecalculateAccountLedgerJob;
-use Illuminate\Support\Facades\Http;
 
 class TransactionController extends Controller
 {
+
     public function index(Request $request)
     {
         $user = Customer::where('token', '=', request()->bearerToken())->first();
@@ -35,26 +35,53 @@ class TransactionController extends Controller
         }
         return TransactionResource::collection($transactions->paginate($request->paginate ?? 25));
     }
-    public function show($uuid)
+
+    public function checkTransaction($uuid)
+    {
+        $status = app('App\Http\Controllers\API\PaymentController')->checkTransactionStatus($uuid);
+        $status = $status->getData();
+        $data = [
+            'order_id' => $uuid,
+            'signature_key' => $status->data->signature_key,
+            'gross_amount' => $status->data->gross_amount,
+            'transaction_status' => $status->data->transaction_status,
+            'status_code' => $status->data->status_code,
+        ];
+        $request = new Request($data);
+        //call manually
+        app('App\Http\Controllers\API\PaymentController')->midtransNotification($request);
+    }
+    public function show($uuid, Request $request)
     {
         $user = Customer::where('token', '=', request()->bearerToken())->first();
         $data = Transaction::where('customer_id', $user->id ?? '0')->where('uuid', $uuid)->first();
         if ($data) {
-            if ($data->snap_token) {
+            if ($data->status_id == 1) {
+                //kalo masi menunggu pembayaran
+                $this->checkTransaction($data->uuid); //nnti kalo lama di dispatch ke job aja
+                $data = Transaction::where('customer_id', $user->id ?? '0')->where('uuid', $uuid)->first();
+            }
+            //refresh data
+
+            if ($request->action && $request->action == 'get') {
                 return (new TransactionResource($data))->additional(['success' => true]);
             } else {
-                $snapToken = json_decode($this->getSnapToken($data));
-                $data = tap($data)->update([
-                    "snap_token" => $snapToken->data
-                ]);
-                if ($snapToken->success) {
+                if ($data->snap_token) {
                     return (new TransactionResource($data))->additional(['success' => true]);
                 } else {
-                    return response([
-                        'data'   => 'Get token failed, Please try again later',
-                        'status' => 503,
-                        'success' => false,
+                    $snapToken = json_decode(app('App\Http\Controllers\API\PaymentController')->getSnapToken($data));
+                    $data = tap($data)->update([
+                        "snap_token" => $snapToken->data
                     ]);
+                    if ($snapToken->success) {
+                        return (new TransactionResource($data))->additional(['success' => true]);
+                    } else {
+                        return response([
+                            'data'   => 'Get token failed, Please try again later',
+                            'status' => 503,
+                            'success' => false,
+                        ]);
+                    }
                 }
             }
         } else {
@@ -225,96 +252,9 @@ class TransactionController extends Controller
 
 
 
-    private function getSnapToken($transaction)
-    {
-        $data = ['success' => true];
-
-        $names = explode(" ", $transaction->customer_name);
-        $customer_first_name = "";
-        $customer_last_name = "";
-        $counter = 0;
-        foreach ($names as $name) {
-            if ($counter == count($names) - 1) {
-                //ambil paling belakang 
-                $customer_last_name = $name;
-            } else {
-                $customer_first_name .= $name;
-            }
-            $counter++;
-        }
 
 
 
-        $params = [
-            'transaction_details' => [
-                'order_id' => $transaction->uuid,
-                'gross_amount' => $transaction->grand_total
-            ],
-            'customer_details' => [
-                'first_name' => $customer_first_name,
-                'last_name' => $customer_last_name,
-                'email' => $transaction->customer_email,
-                'phone' => $transaction->customer_phone
-            ]
-        ];
-
-
-
-        // Set your Merchant Server Key
-        \Midtrans\Config::$serverKey = env('MIDTRANS_SECRET_KEY');;
-        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-        \Midtrans\Config::$isProduction = false;
-        // Set sanitization on (default)
-        \Midtrans\Config::$isSanitized = true;
-        // Set 3DS transaction for credit card to true
-        \Midtrans\Config::$is3ds = true;
-        $snapToken = \Midtrans\Snap::getSnapToken($params);
-        $data['data'] = $snapToken;
-        return json_encode($data);
-    }
-
-    public function payment(Request $request)
-    {
-        //data transaction_status , status_code, uuid
-        // callback from midtrans
-
-        $transaction = Transaction::where("uuid", $request->uuid)->first(); //nnti di ganti
-        if (!$transaction) {
-            return response([
-                'data'   => 'Transaction not found',
-                'status' => 404,
-                'success' => false,
-            ]);
-        }
-        //update transaction to sedang di proses
-        $transaction = tap($transaction)->update([
-            'status_id' => 2
-        ]);
-
-        //update log
-        $transaction->transactionLogs()->create([
-            'status_id' => 2,
-            'status' => TransactionStatus::find(2)->name,
-        ]);
-
-        //create ledger
-        $account_ledger = AccountLedger::create([
-            'value' => $transaction->grand_total,
-            'transaction_id' => $transaction->id,
-            'account_id' => 2, //saldo di tahan
-            'description' => 'Transfer dari ' . $transaction->customer_name . ' invoice ' . $transaction->uuid,
-        ]);
-
-        //recalculate account ledger
-        dispatch(new RecalculateAccountLedgerJob($account_ledger));
-
-        //return message
-        return response([
-            'success' => true,
-            'data' => $transaction,
-            'message' => 'Successfully Pay a Transaction'
-        ], 200);
-    }
 
     public function finishTransaction(Request $request)
     {

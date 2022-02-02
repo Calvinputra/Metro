@@ -18,6 +18,7 @@ use App\Http\Controllers\API\WebsiteFeedbackController;
 use App\Http\Controllers\API\SettingController;
 use App\Http\Controllers\API\HomepageContentController;
 use App\Http\Controllers\API\SliderController;
+use App\Http\Controllers\API\PaymentController;
 
 
 /*
@@ -62,8 +63,12 @@ Route::apiResource('/sliders', SliderController::class);
 
 Route::post('/carts/multiple', [CartController::class, 'storeMultiple'])->middleware('auth:sanctum');
 Route::post('/checkout/get_jne_cost', [ShippingController::class, 'getJneCost'])->middleware('auth:sanctum');
-Route::post('/transactions/payment/success', [TransactionController::class, 'payment'])->middleware('auth:sanctum');
 Route::get('/settings/{key}', [SettingController::class, 'show']);
 
 Route::get('/select2/products', [ProductController::class, 'getSelect2Format']);
 Route::post('/select2/products/initial', [ProductController::class, 'getInitialData']);
+
+
+//payment, midtrans yg call link ini
+Route::post('/transactions/midtrans/notification/handler',[PaymentController::class,'midtransNotification']);
+Route::get('/transactions/check_status/{uuid}',[PaymentController::class,"checkTransactionStatus"])->middleware('auth:sanctum');

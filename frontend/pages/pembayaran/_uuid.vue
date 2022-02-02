@@ -212,7 +212,7 @@ export default {
       app_url: process.env.APP_URL + ":" + process.env.PORT,
     };
   },
-  async asyncData({ $axios, params }) {
+  async asyncData({ $axios, params, redirect }) {
     try {
       let response = await $axios.$get(
         process.env.API_URL + `/api/transactions/${params.uuid}`
@@ -225,6 +225,16 @@ export default {
       };
     } catch (error) {
       console.log(error);
+    }
+  },
+  mounted() {
+    if (this.data.status.id != 1) {
+      this.$toast.success("Terima kasih atas pembayaran Anda", {
+        theme: "bubble",
+        position: "bottom-right",
+        duration: 5000,
+      });
+      this.$router.push("/riwayat_pembelian");
     }
   },
   head() {
