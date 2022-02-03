@@ -76,7 +76,7 @@ class PaymentController extends Controller
                 } else if ($request->transaction_status == 'expire') {
                     //update
                     $transaction = tap($transaction)->update([
-                        'snap_token' => null
+                        'status_id' => 5,
                     ]);
 
                     //update log
