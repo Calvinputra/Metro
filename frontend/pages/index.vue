@@ -1,6 +1,7 @@
 <template>
   <section>
-    <section id="home-webview">
+    <LoadingSpinner v-if="!isLoaded" />
+    <section id="home-webview" v-if="isLoaded">
       <Header />
       <Carousel1 :data="sliderData" />
 
@@ -25,7 +26,7 @@
       <Footer />
     </section>
 
-    <section id="home-mobileview">
+    <section id="home-mobileview" v-if="isLoaded">
       <Header />
       <Carousel1 :data="sliderData" />
 
@@ -91,6 +92,7 @@
 export default {
   data() {
     return {
+      isLoaded: false,
       products: [],
       sliderData: [
         { src: "https://picsum.photos/1024/480/?image=10", key: 1 },
@@ -112,7 +114,7 @@ export default {
           key: slide.id,
         };
       });
-      console.log(contents.data.data);
+
       return {
         sliderData: sliderData,
         contents: contents.data.data,
@@ -120,6 +122,9 @@ export default {
     } catch (error) {
       console.log(error);
     }
+  },
+  mounted() {
+    this.isLoaded = true;
   },
 };
 </script>

@@ -1,6 +1,8 @@
 <template>
   <section>
-    <div id="cart-webview">
+    <LoadingSpinner v-if="!isLoaded" />
+
+    <div id="cart-webview" v-if="isLoaded">
       <Header />
       <div class="container padding-bottom-3x mb-1">
         <!-- Alert-->
@@ -105,7 +107,7 @@
       <Footer />
     </div>
 
-    <div id="cart-mobileview">
+    <div id="cart-mobileview" v-if="isLoaded">
       <Header />
       <div class="container mb-5 mt-4">
         <!-- Alert-->
@@ -182,6 +184,7 @@ export default {
       carts: {},
       grandTotal: 0,
       boxTwo: "",
+      isLoaded: false,
     };
   },
 
@@ -193,6 +196,7 @@ export default {
         console.log(carts);
         this.carts = carts.data;
         this.$store.dispatch("setCartChange", false);
+        this.isLoaded = true;
       } catch (error) {
         console.log(error);
       }
@@ -286,11 +290,13 @@ export default {
               });
               this.$nuxt.refresh();
             });
-          console.log(response);
         });
       } else {
         this.$store.dispatch("deleteAllCart");
       }
+    },
+    setIsLoaded(value) {
+      this.isLoaded = value;
     },
   },
 };
