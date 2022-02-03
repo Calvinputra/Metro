@@ -56,7 +56,7 @@ class TransactionController extends Controller
         $user = Customer::where('token', '=', request()->bearerToken())->first();
         $data = Transaction::where('customer_id', $user->id ?? '0')->where('uuid', $uuid)->first();
         if ($data) {
-            if ($data->status_id == 1) {
+            if ($data->status_id == 1 && $data->snap_token) {
                 //kalo masi menunggu pembayaran
                 $this->checkTransaction($data->uuid); //nnti kalo lama di dispatch ke job aja
                 $data = Transaction::where('customer_id', $user->id ?? '0')->where('uuid', $uuid)->first();
