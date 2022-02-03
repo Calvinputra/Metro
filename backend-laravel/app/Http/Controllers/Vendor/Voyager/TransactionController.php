@@ -12,9 +12,63 @@ use Validator;
 use Voyager;
 use App\Models\Transaction;
 use App\Models\TransactionStatus;
+use App\Models\AccountLedger;
+use App\Jobs\RecalculateAccountLedgerJob;
 
 class TransactionController extends \TCG\Voyager\Http\Controllers\VoyagerBaseController
 {
+
+    public function finishTransaction(Request $request)
+    {
+        $this->validate($request, [
+            '_key' => 'required',
+            'uuid' => 'exists:transactions,uuid',
+        ]);
+        //validate token
+        $transaction = Transaction::where('uuid', $request->uuid)->first();
+        $token = '9636421f4dc2c0d40762a2d92b67391c' . $transaction->id . $transaction->created_at . $transaction->updated_at;
+        if (!password_verify($token, $request->_key)) {
+            return redirect()->back()->with(['error' => 'Injected Key, Please try again!']);
+        }
+
+        if ($transaction) {
+            //update transaction to selesai
+            $transaction = tap($transaction)->update([
+                'status_id' => 4
+            ]);
+
+            //update log
+            $transaction->transactionLogs()->create([
+                'status_id' => 4,
+                'status' => TransactionStatus::find(4)->name,
+            ]);
+
+            //create ledger
+            $account_ledger = AccountLedger::create([
+                'value' => $transaction->grand_total * -1,
+                'transaction_id' => $transaction->id,
+                'account_id' => 2, //saldo di tahan
+                'description' => 'Transaksi selesai atas nama ' . $transaction->customer_name . ' invoice ' . $transaction->uuid,
+            ]);
+            //recalculate account ledger
+            dispatch(new RecalculateAccountLedgerJob($account_ledger));
+
+
+            //create ledger
+            $account_ledger = AccountLedger::create([
+                'value' => $transaction->grand_total,
+                'transaction_id' => $transaction->id,
+                'account_id' => 1, //saldo
+                'description' => 'Transaksi selesai atas nama ' . $transaction->customer_name . ' invoice ' . $transaction->uuid,
+            ]);
+            //recalculate account ledger
+            dispatch(new RecalculateAccountLedgerJob($account_ledger));
+            //return message
+            return redirect()->back()->with(['success' => 'Successfully Finish a Transaction!']);
+        } else {
+            return redirect()->back()->with(['error' => 'Transaction not found!']);
+        }
+    }
     public function addShippingNo(Request $request)
     {
         $this->validate($request, [

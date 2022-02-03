@@ -557,6 +557,29 @@
     </form>
 
 </div>
+
+<div class="modal fade" id="finishModal" tabindex="-1" role="dialog" aria-labelledby="finishModalLabel"
+    aria-hidden="true">
+    <form method="post" action="{{url('/transactions')}}/finish_transaction">
+        {{ csrf_field() }}
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Selesaikan Transaksi
+                </div>
+                <div class="modal-body">
+                    Apakah Anda yakin ingin menyelesaikan transaksi ini?
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" id="mf-key" name="_key">
+                    <input type="hidden" id="mf-uuid" name="uuid">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-success btn-ok">Ya</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
 {{-- /.modal shipping --}}
 @stop
 
@@ -945,6 +968,13 @@
         var key = button.data('key') // Extract info from data-* attributes
         $('#ms-uuid').val(invoice_no);
         $('#ms-key').val(key);
+    });
+    $('#finishModal').on('show.bs.modal',function(event){
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var invoice_no = button.data('invoice-no') // Extract info from data-* attributes
+        var key = button.data('key') // Extract info from data-* attributes
+        $('#mf-uuid').val(invoice_no);
+        $('#mf-key').val(key);
     });
 
 function numberWithCommas(x) {

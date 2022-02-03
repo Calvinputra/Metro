@@ -17,6 +17,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Voyager::addAction(\App\Actions\TransactionDetailAction::class);
         Voyager::addAction(\App\Actions\ShippingAction::class);
+        Voyager::addAction(\App\Actions\FinishAction::class);
     }
 
     /**

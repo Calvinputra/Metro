@@ -22,6 +22,7 @@ Route::group(['prefix' => ''], function () {
     Voyager::routes();
     Route::group(['prefix' => 'transactions'], function () {
         Route::post('shipping_no', [TransactionController::class, 'addShippingNo']);
+        Route::post('finish_transaction', [TransactionController::class, 'finishTransaction']);
     });
     Route::group(['prefix' => 'products'], function () {
         Route::post('import', [ProductController::class, 'import_data']);
