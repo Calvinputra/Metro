@@ -143,7 +143,7 @@ class PaymentController extends Controller
     {
 
         $transaction = Transaction::where('uuid', $uuid)->first();
-        if ($transaction) {
+        if ($transaction && $transaction->snap_token) {
 
             $status = \Midtrans\Transaction::status($uuid);;
             return response()->json([
