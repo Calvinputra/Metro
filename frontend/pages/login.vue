@@ -11,13 +11,13 @@
             </div>
             <div
               class="
-              col-sm-9
-              offset-md-1
-              align-self-start
-              mt-2
-              row
-              justify-content-between
-            "
+                col-sm-9
+                offset-md-1
+                align-self-start
+                mt-2
+                row
+                justify-content-between
+              "
             >
               <div class="col-sm-12">
                 <label class="mb-0"
@@ -96,23 +96,23 @@
                       @click.prevent="doLogin"
                       type="submit"
                       class="
-                      btn
-                      text-danger
-                      btn-light btn-sm
-                      rounded
-                      col-sm-2
-                      py-2
-                      px-2
-                      mb-4
-                    "
+                        btn
+                        text-danger
+                        btn-light btn-sm
+                        rounded
+                        col-sm-2
+                        py-2
+                        px-2
+                        mb-4
+                      "
                       style="
-                      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
-                    "
+                        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                      "
                     >
                       Masuk Akun
                     </button>
                   </div>
-                  <div class="ms-5" style="padding-left: 4rem!important;">
+                  <div class="ms-5" style="padding-left: 4rem !important">
                     Belum mempunyai akun?
                     <a href="/register" style="color: red">Buat Akun</a>
                   </div>
@@ -133,13 +133,13 @@
           <div class="row">
             <div
               class="
-              col-sm-9
-              offset-md-1
-              align-self-start
-              mt-2
-              row
-              justify-content-between
-            "
+                col-sm-9
+                offset-md-1
+                align-self-start
+                mt-2
+                row
+                justify-content-between
+              "
             >
               <div class="col-sm-12">
                 <label class="mb-0"
@@ -216,17 +216,10 @@
                     <button
                       @click.prevent="doLogin"
                       type="submit"
-                      class="
-                      btn
-                      text-danger
-                      btn-light btn-sm
-                      rounded
-                      mb-4
-                      p-2
-                    "
+                      class="btn text-danger btn-light btn-sm rounded mb-4 p-2"
                       style="
-                      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
-                    "
+                        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                      "
                     >
                       Masuk Akun
                     </button>
@@ -248,7 +241,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters,mapActions } from "vuex";
 export default {
   middleware: "auth",
   auth: "guest",
@@ -259,13 +252,13 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50"
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
         },
         {
           url: "/register",
           name: "Register",
-          class: "my-2 breadcrumb-item active opacity-50"
-        }
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
       ],
       //data
       email: "",
@@ -274,20 +267,20 @@ export default {
       errors: null,
       dismissSecs: 10,
       dismissCountDown: 0,
-      showDismissibleAlert: false
+      showDismissibleAlert: false,
     };
   },
   computed: {
     ...mapGetters({
-      tempCart: "getCheckout"
-    })
+      tempCart: "getCheckout",
+    }),
   },
   methods: {
     async doLogin() {
       try {
         let data = {
           email: this.email,
-          password: this.password
+          password: this.password,
         };
         let response = await this.$axios.$post(
           process.env.API_URL + "/api/login",
@@ -298,22 +291,31 @@ export default {
             .loginWith("laravelSanctum", {
               data: {
                 email: this.email,
-                password: this.password
-              }
+                password: this.password,
+              },
             })
             .then(async () => {
               this.showDismissibleAlert = false;
               let d = {
-                carts: this.tempCart
+                carts: this.tempCart,
               };
+              //update current cart database
               let r = await this.$axios.$post(
                 process.env.API_URL + "/api/carts/multiple",
                 d
               );
+              //deleteAllCart on state
+              this.$store.dispatch("deleteAllCart").then(() => {
+                //refetch data from database
+                r.data.map((product) => {
+                  this.addProductToCart(product);
+                });
+              });
+
               this.$toast.success("Successfully authenticated", {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000
+                duration: 5000,
               });
               // setTimeout(() => {
               //   window.location.reload(true);
@@ -328,7 +330,7 @@ export default {
               this.$toast.error(err[key][key2], {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000
+                duration: 5000,
               });
             });
           });
@@ -338,12 +340,13 @@ export default {
         this.$toasted.error(error, {
           theme: "bubble",
           position: "bottom-right",
-          duration: 5000
+          duration: 5000,
         });
         console.log(error);
       }
-    }
-  }
+    },
+    ...mapActions(["addProductToCart"]),
+  },
 };
 </script>
 

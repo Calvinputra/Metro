@@ -43,27 +43,14 @@
               </tr>
             </thead>
             <tbody></tbody>
-            <template v-if="!this.$auth.loggedIn">
-              <Cart
-                v-for="cart in tempCart"
-                :key="cart.id"
-                :product="cart.product"
-                :qty="cart.qty"
-                :id="cart.id"
-                :process="cart.process"
-              />
-            </template>
-
-            <template v-if="this.$auth.loggedIn">
-              <Cart
-                v-for="cart in carts"
-                :key="cart.id"
-                :product="cart.product"
-                :qty="cart.qty"
-                :id="cart.id"
-                :process="cart.process"
-              />
-            </template>
+            <Cart
+              v-for="cart in tempCart"
+              :key="cart.id"
+              :product="cart.product"
+              :qty="cart.qty"
+              :id="cart.id"
+              :process="cart.process"
+            />
           </table>
 
           <!-- Jika data kosong -->
@@ -98,9 +85,13 @@
               data-toast-message="is updated successfully!"
               >Lanjut Belanja</a
             >
-            <nuxt-link class="btn btn-danger btn-shadow" to="/checkout">
+            <button
+              @click="doCheckout"
+              class="btn btn-danger btn-shadow"
+              to="/checkout"
+            >
               Periksa
-            </nuxt-link>
+            </button>
           </div>
         </div>
       </div>
@@ -118,27 +109,14 @@
         <div class="table-responsive shopping-cart">
           <table class="table">
             <tbody></tbody>
-            <template v-if="!this.$auth.loggedIn">
-              <CartMobile
-                v-for="cart in tempCart"
-                :key="cart.id"
-                :product="cart.product"
-                :qty="cart.qty"
-                :id="cart.id"
-                :process="cart.process"
-              />
-            </template>
-
-            <template v-if="this.$auth.loggedIn">
-              <CartMobile
-                v-for="cart in carts"
-                :key="cart.id"
-                :product="cart.product"
-                :qty="cart.qty"
-                :id="cart.id"
-                :process="cart.process"
-              />
-            </template>
+            <CartMobile
+              v-for="cart in tempCart"
+              :key="cart.id"
+              :product="cart.product"
+              :qty="cart.qty"
+              :id="cart.id"
+              :process="cart.process"
+            />
           </table>
         </div>
         <div class="text-right text-right col-sm-11 mb-5">
@@ -161,12 +139,12 @@
               data-toast-message="is updated successfully!"
               >Lanjut Belanja</a
             >
-            <nuxt-link
+            <button
               class="btn btn-danger py-1 px-3 btn-shadow"
-              to="/checkout"
+              @click="doCheckout"
             >
               Periksa
-            </nuxt-link>
+            </button>
           </div>
         </div>
       </div>
@@ -187,21 +165,8 @@ export default {
       isLoaded: false,
     };
   },
-
-  async mounted() {
-    if (this.$auth.loggedIn) {
-      this.$store.dispatch("setCartChange", true);
-      try {
-        let carts = await this.$axios.$get(process.env.API_URL + "/api/carts");
-        console.log(carts);
-        this.carts = carts.data;
-        this.$store.dispatch("setCartChange", false);
-        this.isLoaded = true;
-      } catch (error) {
-        console.log(error);
-      }
-    } else {
-    }
+  mounted() {
+    this.isLoaded = true;
   },
   computed: {
     ...mapGetters({
@@ -211,33 +176,12 @@ export default {
   },
   watch: {
     cartChanged: {
-      handler: async function (changed) {
-        if (this.$auth.loggedIn && changed) {
-          this.grandTotal = 0;
-          try {
-            let carts = await this.$axios.$get(
-              process.env.API_URL + "/api/carts"
-            );
-            let data = carts.data;
-            data.forEach((cart) => {
-              if (cart.process == 1) {
-                this.grandTotal += cart.qty * cart.product.price;
-              }
-            });
-            //console.log(carts);
-            this.carts = carts.data;
-          } catch (error) {
-            console.log(error);
-          }
-
-          this.$store.dispatch("setCartChange", false);
-        }
-      },
+      handler: async function (changed) {},
       deep: true,
     },
     tempCart: {
       handler: function (carts) {
-        if (!this.$auth.loggedIn && carts) {
+        if (carts) {
           this.grandTotal = 0;
 
           carts.forEach((cart) => {
@@ -278,25 +222,13 @@ export default {
         });
     },
     destroyAll() {
-      if (this.$auth.loggedIn) {
-        this.carts.forEach(async (cart, index) => {
-          let response = await this.$axios
-            .$delete(process.env.API_URL + "/api/carts/" + cart.id)
-            .then(() => {
-              this.$toast.success("Successfully clear all cart", {
-                theme: "bubble",
-                position: "bottom-right",
-                duration: 5000,
-              });
-              this.$nuxt.refresh();
-            });
-        });
-      } else {
-        this.$store.dispatch("deleteAllCart");
-      }
+      this.$store.dispatch("deleteAllCart", true);
     },
     setIsLoaded(value) {
       this.isLoaded = value;
+    },
+    doCheckout() {
+      this.$router.push("/checkout");
     },
   },
 };

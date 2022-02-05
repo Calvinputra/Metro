@@ -30,23 +30,11 @@
 <script>
 export default {
   props: ["product", "qty", "id"],
-  middleware: "auth",
   data() {
     return {
       sub_total: 0,
       ASSET_URL: process.env.ASSET_URL
     };
-  },
-  async asyncData({ $axios }) {
-    try {
-      let carts = await $axios.$get(process.env.API_URL + "/api/carts");
-      console.log(carts);
-      return {
-        carts: carts.data
-      };
-    } catch (error) {
-      console.log(error);
-    }
   },
   created() {
     this.sub_total = this.qty * this.product.price;

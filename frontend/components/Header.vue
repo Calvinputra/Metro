@@ -217,6 +217,7 @@ export default {
   methods: {
     async logout() {
       await this.$auth.logout().then(() => {
+        this.$store.dispatch("deleteAllCart");
         this.$toast.success("Successfully logout", {
           theme: "bubble",
           position: "bottom-right",
@@ -237,8 +238,8 @@ export default {
 }
 /* 0 - 991 px */
 @media screen and (max-width: 500px) {
-  #header_logo{
-    width:15%;
+  #header_logo {
+    width: 15%;
     padding: 0;
     margin-right: auto;
   }

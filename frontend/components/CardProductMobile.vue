@@ -37,7 +37,7 @@
               <a
                 href=""
                 onclick="return false;"
-                @click="addToWishList(data.id)"
+                @click.stop="addToWishList(data.id)"
               >
                 <i
                   :class="(data.wishlist_exist ? 'fas' : 'far') + ' fa-heart'"
@@ -121,36 +121,13 @@ export default {
       ASSET_URL: process.env.ASSET_URL,
     };
   },
-  created() {
-    console.log(this.data);
-  },
+ 
   methods: {
     redirectTo(url) {
       this.$router.push(url);
     },
-    async addToCart(product) {
-      try {
-        if (this.$auth.loggedIn) {
-          let data = {
-            product_id: product.id,
-          };
-          let response = await this.$axios.$post(
-            process.env.API_URL + "/api/carts",
-            data
-          );
-          this.$toast.success("Successfully add a product to cart", {
-            theme: "bubble",
-            position: "bottom-right",
-            duration: 5000,
-          });
-          console.log(response);
-        } else {
-          //this.$router.push("/login");
-          this.addProductToCart(product);
-        }
-      } catch (error) {
-        console.log(error);
-      }
+    addToCart(product) {
+      this.addProductToCart({ product, notification: true });
     },
     async addToWishList(id) {
       try {

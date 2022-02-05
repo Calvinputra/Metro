@@ -7,7 +7,7 @@
 
       <template v-for="content in contents">
         <template v-if="content.title">
-          <div :key="content.id" class="d-flex container mb-3 mt-5">
+          <div :key="'webview'+content.id" class="d-flex container mb-3 mt-5">
             <h5 class="text-danger fw-bold">{{ content.title }}</h5>
             <button
               type="button"
@@ -32,7 +32,7 @@
 
       <template v-for="content in contents">
         <template v-if="content.title">
-          <div :key="content.id" class="d-flex container">
+          <div :key="'mobile'+content.id" class="d-flex container">
             <h5 class="text-danger fw-bold">{{ content.title }}</h5>
             <button
               type="submit"

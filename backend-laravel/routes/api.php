@@ -62,6 +62,7 @@ Route::apiResource('/sliders', SliderController::class);
 
 
 Route::post('/carts/multiple', [CartController::class, 'storeMultiple'])->middleware('auth:sanctum');
+Route::post('/carts/synchronize', [CartController::class, 'synchronizeCart'])->middleware('auth:sanctum');
 Route::post('/checkout/get_jne_cost', [ShippingController::class, 'getJneCost'])->middleware('auth:sanctum');
 Route::get('/settings/{key}', [SettingController::class, 'show']);
 

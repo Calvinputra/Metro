@@ -527,7 +527,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -594,11 +594,18 @@ export default {
               let d = {
                 carts: this.tempCart,
               };
+              //update current cart database
               let r = await this.$axios.$post(
                 process.env.API_URL + "/api/carts/multiple",
                 d
               );
-
+              //deleteAllCart on state
+              this.$store.dispatch("deleteAllCart").then(() => {
+                //refetch data from database
+                r.data.map((product) => {
+                  this.addProductToCart(product);
+                });
+              });
               this.$router.push("/checkout");
               // setTimeout(() => {
               //   window.location.reload(true);
@@ -625,6 +632,7 @@ export default {
         console.log(error);
       }
     },
+    ...mapActions(["addProductToCart"]),
     setCostJne(event, cost) {
       this.shippingCost = cost;
       this.shippingMethod = "jne";
@@ -708,7 +716,6 @@ export default {
         console.log(costs);
         this.costs = costs.data;
         this.isLoaded = true;
-
       } catch (error) {
         console.log(error);
       }
@@ -724,7 +731,7 @@ export default {
   watch: {
     tempCart: {
       handler: function (carts) {
-        if (!this.$auth.loggedIn && carts) {
+        if (carts) {
           this.grandTotal = 0 + this.shippingCost;
 
           carts.forEach((cart) => {

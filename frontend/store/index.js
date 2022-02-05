@@ -150,51 +150,65 @@ export const actions = {
     }
   },
 
-  addProductToCart({ state, commit }, product) {
+  addProductToCart({ state, commit }, { product, notification = false }) {
+    console.log(notification);
     const cartProduct = state.cart.find((prod) => prod.id === product.id);
     if (!cartProduct) {
-      commit("pushProductToCart", product);
+      commit("pushProductToCart", { product, notification });
     } else {
-      commit("incrementProductQty", cartProduct);
+      commit("incrementProductQty", { product: cartProduct, notification });
     }
 
     commit("incrementCartLength");
+    commit("synchronizeCart");
   },
 
-  updateCart({ state, commit }, { product, qty, process }) {
+  updateCart(
+    { state, commit },
+    { product, qty, process, notification = false }
+  ) {
     const cartProduct = state.cart.find((prod) => prod.id === product.id);
     if (cartProduct) {
-      commit("updateProductCart", { product, qty, process });
+      commit("updateProductCart", { product, qty, process, notification });
+      commit("synchronizeCart");
     } else {
-      this.$toast.error("Product not found", {
-        theme: "bubble",
-        position: "bottom-right",
-        duration: 5000,
-      });
+      if (notification) {
+        this.$toast.error("Product not found", {
+          theme: "bubble",
+          position: "bottom-right",
+          duration: 5000,
+        });
+      }
     }
   },
 
-  deleteCart({ state, commit }, product) {
+  deleteCart({ state, commit }, { product, notification = false }) {
     const cartProduct = state.cart.find((prod) => prod.id === product.id);
     if (cartProduct) {
-      commit("deleteProductCart", product);
+      commit("deleteProductCart", { product, notification });
+      commit("synchronizeCart");
     } else {
-      this.$toast.error("Product not found", {
-        theme: "bubble",
-        position: "bottom-right",
-        duration: 5000,
-      });
+      if (notification) {
+        this.$toast.error("Product not found", {
+          theme: "bubble",
+          position: "bottom-right",
+          duration: 5000,
+        });
+      }
     }
   },
-  deleteAllCart({ state, commit }) {
+  deleteAllCart({ state, commit }, notification = false) {
     if (state.cart.length == 0) {
-      this.$toast.error("Cart is empty", {
-        theme: "bubble",
-        position: "bottom-right",
-        duration: 5000,
-      });
+      if (notification) {
+        this.$toast.error("Cart is empty", {
+          theme: "bubble",
+          position: "bottom-right",
+          duration: 5000,
+        });
+      }
     } else {
-      commit("clearCart");
+      commit("clearCart", notification);
+      commit("synchronizeCart");
     }
   },
   setCartChange({ commit }, value) {
@@ -276,24 +290,40 @@ export const mutations = {
   FETCH_FOOTER_3(state, footer_3) {
     state.footer_3 = footer_3;
   },
+  async synchronizeCart(state) {
+    if (state.auth.loggedIn) {
+      let response = await this.$axios.$post(
+        process.env.API_URL + "/api/carts/synchronize",
+        {
+          carts: state.cart,
+        }
+      );
+    }
+  },
 
-  pushProductToCart(state, product) {
-    this.$toast.success("Successfully add a product to cart", {
-      theme: "bubble",
-      position: "bottom-right",
-      duration: 5000,
-    });
-    product.qty = 1;
-    product.process = 1;
+  pushProductToCart(state, { product, notification }) {
+    if (notification) {
+      this.$toast.success("Successfully add a product to cart", {
+        theme: "bubble",
+        position: "bottom-right",
+        duration: 5000,
+      });
+    }
+    product.qty = product.qty ? product.qty : 1;
+    product.process = product.process ? product.process : 0;
+
     state.cart.push(product);
   },
 
-  incrementProductQty(state, product) {
-    this.$toast.success("Successfully update product quantity", {
-      theme: "bubble",
-      position: "bottom-right",
-      duration: 5000,
-    });
+  incrementProductQty(state, { product, notification }) {
+    if (notification) {
+      this.$toast.success("Successfully update product quantity", {
+        theme: "bubble",
+        position: "bottom-right",
+        duration: 5000,
+      });
+    }
+    console.log(product);
     if (product.qty) {
       product.qty++;
     } else {
@@ -303,24 +333,30 @@ export const mutations = {
     state.cart.splice(indexOfProduct, 1, product);
   },
 
-  deleteProductCart(state, product) {
+  deleteProductCart(state, data) {
+    const product = data.product;
     let indexOfProduct = state.cart.indexOf(product);
     state.cart.splice(indexOfProduct, 1);
-    this.$toast.success("Successfully delete a product from cart", {
-      theme: "bubble",
-      position: "bottom-right",
-      duration: 5000,
-    });
+
+    if (data.notification) {
+      this.$toast.success("Successfully delete a product from cart", {
+        theme: "bubble",
+        position: "bottom-right",
+        duration: 5000,
+      });
+    }
   },
-  clearCart(state) {
+  clearCart(state, notification) {
     state.cart = [];
-    this.$toast.success("Successfully clear cart", {
-      theme: "bubble",
-      position: "bottom-right",
-      duration: 5000,
-    });
+    if (notification) {
+      this.$toast.success("Successfully clear cart", {
+        theme: "bubble",
+        position: "bottom-right",
+        duration: 5000,
+      });
+    }
   },
-  updateProductCart(state, { product, qty, process }) {
+  updateProductCart(state, { product, qty, process, notification }) {
     product.qty = qty;
     product.process = process;
     let indexOfProduct = state.cart.indexOf(product);
@@ -337,7 +373,6 @@ export const mutations = {
   },
 
   setCartChangeValue(state, value) {
-    console.log("set cart to " + value);
     state.cartChanged = value;
   },
   FETCH_SETTING(state, value) {

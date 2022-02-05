@@ -8,7 +8,10 @@
         >
           <div
             class="card mb-5 bg-white rounded"
-            style="width: 100%;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25) !important;border-radius: 10px;
+            style="
+              width: 100%;
+              box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25) !important;
+              border-radius: 10px;
             "
           >
             <img
@@ -27,7 +30,9 @@
                   @click="addToWishList(data.id)"
                   ><i
                     :class="(data.wishlist_exist ? 'fas' : 'far') + ' fa-heart'"
-                    style="font-size: 30px !important;color: #c63442 !important;
+                    style="
+                      font-size: 30px !important;
+                      color: #c63442 !important;
                     "
                   ></i>
                 </a>
@@ -38,7 +43,9 @@
               <div class="row" @click.stop>
                 <button
                   class="btn text-danger btn-sm rounded col-sm-5 ms-2 pt-2"
-                  style="background-color: #f3f3f3;box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                  style="
+                    background-color: #f3f3f3;
+                    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                   "
                   onclick="return false;"
                   @click="addToCart(data)"
@@ -58,7 +65,9 @@
                   target="_blank"
                   ><img
                     class="img-fluid max-width:100% height:auto rounded"
-                    style="background-color: #f3f3f3;box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                    style="
+                      background-color: #f3f3f3;
+                      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                     "
                     src="/img/Whatsapp_new.png"
                     alt=""
@@ -66,7 +75,10 @@
                 <a class="col-sm-3" :href="data.url_tokopedia" target="_blank"
                   ><img
                     class="img-fluid max-width:100% height:auto rounded"
-                    style="background-color: #f3f3f3;box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;"
+                    style="
+                      background-color: #f3f3f3;
+                      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                    "
                     src="/img/tokopedia.png"
                     alt=""
                 /></a>
@@ -87,7 +99,10 @@
         <div class="mt-5">
           <div
             class="card bg-white rounded"
-            style="width: 100%;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25) !important;border-radius: 10px;
+            style="
+              width: 100%;
+              box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25) !important;
+              border-radius: 10px;
             "
           >
             <img
@@ -108,7 +123,9 @@
                   @click="addToWishList(data.id)"
                   ><i
                     :class="(data.wishlist_exist ? 'fas' : 'far') + ' fa-heart'"
-                    style="font-size: 20px !important;color: #c63442 !important;
+                    style="
+                      font-size: 20px !important;
+                      color: #c63442 !important;
                     "
                   ></i
                 ></a>
@@ -119,7 +136,10 @@
               <div class="d-flex" @click.stop>
                 <a
                   class="btn text-danger btn-sm rounded p-1"
-                  style="background-color: #f3f3f3;width: 30%;box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                  style="
+                    background-color: #f3f3f3;
+                    width: 30%;
+                    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                   "
                   onclick="return false;"
                   @click="addToCart(data)"
@@ -138,7 +158,10 @@
                   "
                   ><img
                     class="img-fluid height:auto rounded"
-                    style="background-color: #f3f3f3;width: 30px;box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                    style="
+                      background-color: #f3f3f3;
+                      width: 30px;
+                      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                     "
                     src="/img/Whatsapp_new.png"
                     alt=""
@@ -146,7 +169,10 @@
                 <a class="ps-2" :href="data.url_tokopedia"
                   ><img
                     class="img-fluid height:auto rounded"
-                    style="background-color: #f3f3f3;width: 30px;box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                    style="
+                      background-color: #f3f3f3;
+                      width: 30px;
+                      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                     "
                     src="/img/tokopedia.png"
                     alt=""
@@ -176,29 +202,8 @@ export default {
   },
 
   methods: {
-    async addToCart(product) {
-      try {
-        if (this.$auth.loggedIn) {
-          let data = {
-            product_id: product.id,
-          };
-          let response = await this.$axios.$post(
-            process.env.API_URL + "/api/carts",
-            data
-          );
-          this.$toast.success("Successfully add a product to cart", {
-            theme: "bubble",
-            position: "bottom-right",
-            duration: 5000,
-          });
-          console.log(response);
-        } else {
-          //this.$router.push("/login");
-          this.addProductToCart(product);
-        }
-      } catch (error) {
-        console.log(error);
-      }
+    addToCart(product) {
+      this.addProductToCart({ product, notification: true });
     },
     async addToWishList(id) {
       try {
