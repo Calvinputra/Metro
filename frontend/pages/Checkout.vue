@@ -3,7 +3,6 @@
     <LoadingSpinner v-if="!isLoaded" />
 
     <section id="checkout-webview" v-if="isLoaded">
-      <Header />
       <Breadcrumb :links="breadcrumb" />
       <!-- belum log in -->
       <section class="container-md" style="min-width: 95%">
@@ -264,11 +263,9 @@
           </div>
         </div>
       </section>
-      <Footer />
     </section>
 
     <section id="checkout-mobileview" style="font-size: 75%" v-if="isLoaded">
-      <Header />
       <!-- belum log in -->
       <section class="container-md" style="min-width: 95%">
         <div class="pr-5 mb-0">
@@ -521,7 +518,6 @@
         </div>
       </section>
       <Footer2mobile />
-      <Footer />
     </section>
   </section>
 </template>

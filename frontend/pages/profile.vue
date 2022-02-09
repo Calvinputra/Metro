@@ -1,7 +1,6 @@
 <template>
   <section>
     <section id="profile-webview">
-      <Header />
       <Breadcrumb :links="breadcrumb" />
       <section>
         <div class="container">
@@ -116,7 +115,6 @@
         </div>
       </section>
 
-      <Footer />
       <client-only>
         <!-- include VueJS first -->
         <script src="https://unpkg.com/vue@latest"></script>
@@ -137,7 +135,6 @@
       </client-only>
     </section>
     <section id="profile-mobileview" style="font-size: 80%">
-      <Header />
       <Breadcrumb :links="breadcrumb" />
       <section class="container">
         <div class="container">
@@ -241,7 +238,6 @@
         </div>
       </section>
       <Footer2mobile />
-      <Footer />
       <client-only>
         <!-- include VueJS first -->
         <script src="https://unpkg.com/vue@latest"></script>

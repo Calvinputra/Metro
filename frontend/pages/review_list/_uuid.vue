@@ -1,6 +1,5 @@
 <template>
   <section>
-    <Header />
     <Breadcrumb :links="breadcrumb" />
     <section id="riwayat-webview">
       <div class="container">

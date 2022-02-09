@@ -1,7 +1,6 @@
 <template>
   <section>
     <section id="forgot-webview">
-      <Header />
       <Breadcrumb :links="breadcrumb" />
       <section>
         <div class="container">
@@ -92,11 +91,9 @@
         </div>
       </section>
 
-      <Footer />
     </section>
 
     <section id="forgot-mobileview">
-      <Header />
       <section>
         <div class="container">
           <div class="row">
@@ -181,7 +178,6 @@
         <Footer2mobile />
       </section>
 
-      <Footer />
     </section>
   </section>
 </template>

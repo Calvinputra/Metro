@@ -3,7 +3,6 @@
     <LoadingSpinner v-if="!isLoaded" />
 
     <div id="cart-webview" v-if="isLoaded">
-      <Header />
       <div class="container padding-bottom-3x mb-1">
         <!-- Alert-->
         <nav class="container my-4" aria-label="breadcrumb">
@@ -95,11 +94,9 @@
           </div>
         </div>
       </div>
-      <Footer />
     </div>
 
     <div id="cart-mobileview" v-if="isLoaded">
-      <Header />
       <div class="container mb-5 mt-4">
         <!-- Alert-->
 
@@ -149,7 +146,6 @@
         </div>
       </div>
       <Footer2mobile />
-      <Footer />
     </div>
   </section>
 </template>

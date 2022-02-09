@@ -1,6 +1,5 @@
 <template>
   <section class="mb-5">
-    <Header />
     <Breadcrumb :links="breadcrumb" />
     <section>
       <div class="container">
@@ -118,7 +117,6 @@
       <Footer2mobile />
     </section>
 
-    <Footer />
     <client-only>
       <!-- include VueJS first -->
       <script src="https://unpkg.com/vue@latest"></script>

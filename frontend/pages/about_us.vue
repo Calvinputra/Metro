@@ -1,6 +1,5 @@
 <template>
   <section>
-    <Header />
     <Breadcrumb :links="breadcrumb" />
     <section class="text-center">
       <div class="text-center">
@@ -52,7 +51,5 @@
         <img style="width: 300px" src="/img/metro.png" alt="" />
       </div>
     </section>
-
-    <Footer />
   </section>
 </template>

@@ -1,7 +1,6 @@
 <template>
   <section>
     <section id="contact-webview">
-      <Header />
       <Breadcrumb :links="breadcrumb" />
       <section>
         <div class="d-flex" style="justify-content: space-evenly">
@@ -108,11 +107,9 @@
             </form>
           </div>
         </div>
-        <Footer />
       </section>
     </section>
     <section id="contact-mobileview">
-      <Header />
       <Breadcrumb :links="breadcrumb" />
       <div class="col-sm-12">
         <label class="mb-0"
@@ -218,7 +215,6 @@
           </div>
         </div>
       </section>
-      <Footer />
     </section>
   </section>
 </template>

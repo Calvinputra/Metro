@@ -2,7 +2,6 @@
   <section style="margin-bottom: 100px">
     <!-- Website -->
     <section id="product-webview">
-      <Header />
       <Breadcrumb :links="breadcrumb" />
 
       <div class="container">
@@ -119,13 +118,11 @@
         </div>
       </div>
       <span style="position: absolute; width: 100%">
-        <Footer />
       </span>
     </section>
 
     <!-- Mobile -->
     <section id="product-mobileview">
-      <Header />
       <div class="container">
         <div class="row">
           <div
@@ -195,7 +192,6 @@
       </div>
 
       <Footer2mobile />
-      <Footer />
     </section>
   </section>
 </template>

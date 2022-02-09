@@ -1,7 +1,6 @@
 <template>
   <section>
     <section id="edit-webview">
-      <Header />
       <Breadcrumb :links="breadcrumb" />
       <section>
         <div class="container">
@@ -150,7 +149,6 @@
         </div>
       </section>
 
-      <Footer />
       <client-only>
         <!-- include VueJS first -->
         <script src="https://unpkg.com/vue@latest"></script>
@@ -171,7 +169,6 @@
       </client-only>
     </section>
     <section id="edit-mobileview" class="mb-3">
-      <Header />
       <Breadcrumb :links="breadcrumb" />
       <section>
         <div class="container">
@@ -316,7 +313,6 @@
         </div>
       </section>
 
-      <Footer />
       <client-only>
         <!-- include VueJS first -->
         <script src="https://unpkg.com/vue@latest"></script>

@@ -3,7 +3,6 @@
     <!-- Modal INIT -->
     <ModalDetailTransaksi :transaction="selectedTransaction" />
     <!-- END -->
-    <Header />
     <Breadcrumb :links="breadcrumb" />
     <section id="riwayat-webview">
       <div class="container">
@@ -438,7 +437,6 @@
       <Footer2mobile />
     </section>
 
-    <Footer />
     <client-only>
       <!-- include VueJS first -->
       <script src="https://unpkg.com/vue@latest"></script>

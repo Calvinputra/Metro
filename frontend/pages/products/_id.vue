@@ -1,7 +1,6 @@
 <template>
   <section>
     <section id="product-detail-web">
-      <Header />
       <section>
         <Breadcrumb :links="breadcrumb" />
         <div class="container">
@@ -294,12 +293,10 @@
           </template>
         </div>
       </section>
-      <Footer />
     </section>
 
     <!-- mobile -->
     <section id="product-detail-mobile">
-      <Header />
       <section class="mb-5">
         <Breadcrumb :links="breadcrumb" />
         <div class="container">
@@ -542,7 +539,6 @@
           </template>
         </div>
       </section>
-      <Footer />
     </section>
 
     <!-- JQuery -->

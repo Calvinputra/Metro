@@ -2,7 +2,6 @@
   <section>
     <ModalDetailTransaksi :transaction="data" />
     <section id="pembayaran-webview">
-      <Header />
       <Breadcrumb :links="breadcrumb" />
       <section>
         <div class="container"></div>
@@ -76,7 +75,6 @@
         </button>
       </div>
       <br />
-      <Footer />
       <client-only>
         <script type="text/javascript">
           var payButton = document.getElementById("pay-button");
@@ -92,7 +90,6 @@
     </section>
 
     <section id="pembayaran-mobileview">
-      <Header />
       <section class="mt-3">
         <div class="container"></div>
       </section>
@@ -166,7 +163,6 @@
       </div>
       <br />
 
-      <Footer />
       <client-only>
         <script type="text/javascript">
           var payButton = document.getElementById("pay-button");

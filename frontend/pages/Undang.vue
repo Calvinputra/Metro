@@ -1,7 +1,6 @@
 <template>
   <section>
     <section id="undang-webview">
-      <Header />
       <Breadcrumb :links="breadcrumb" />
       <section>
         <div class="container">
@@ -114,11 +113,9 @@
         </div>
       </section>
 
-      <Footer />
     </section>
 
     <section id="undang-mobileview">
-      <Header />
       <section>
         <div class="container">
           <div class="row">
@@ -224,7 +221,6 @@
         <Footer2mobile />
       </section>
 
-      <Footer />
     </section>
   </section>
 </template>

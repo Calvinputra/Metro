@@ -2,7 +2,6 @@
   <section>
     <LoadingSpinner v-if="!isLoaded" />
     <section id="home-webview" v-if="isLoaded">
-      <Header />
       <Carousel1 :data="sliderData" />
 
       <template v-for="content in contents">
@@ -23,11 +22,9 @@
         </section>
       </template>
 
-      <Footer />
     </section>
 
     <section id="home-mobileview" v-if="isLoaded">
-      <Header />
       <Carousel1 :data="sliderData" />
 
       <template v-for="content in contents">
@@ -50,7 +47,6 @@
 
       <Footer2mobile />
       <div style="position: inherit">
-        <Footer />
       </div>
     </section>
   </section>

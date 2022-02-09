@@ -1,6 +1,5 @@
 <template>
   <section>
-    <Header />
     <Breadcrumb :links="breadcrumb" />
     <section>
       <div class="container">
@@ -89,7 +88,6 @@
       </div>
     </section>
 
-    <Footer />
     <client-only>
       <!-- include VueJS first -->
       <script src="https://unpkg.com/vue@latest"></script>

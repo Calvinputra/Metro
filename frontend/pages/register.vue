@@ -1,7 +1,6 @@
 <template>
   <section>
     <section id="register-webview">
-      <Header />
       <Breadcrumb :links="breadcrumb" />
       <section>
         <div class="container">
@@ -257,7 +256,6 @@
         </div>
       </section>
 
-      <Footer />
       <client-only>
         <!-- include VueJS first -->
         <script src="https://unpkg.com/vue@latest"></script>
@@ -278,7 +276,6 @@
       </client-only>
     </section>
     <section id="register-mobileview">
-      <Header />
       <section>
         <div class="container">
           <div class="row">
@@ -525,7 +522,6 @@
         <br />
         <Footer2mobile />
       </section>
-      <Footer />
       <client-only>
         <!-- include VueJS first -->
         <script src="https://unpkg.com/vue@latest"></script>

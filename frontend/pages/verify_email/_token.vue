@@ -1,6 +1,5 @@
 <template>
   <section>
-    <Header />
     <div class="text-center container mt-5 mb-5">
       <div>
         <div class="col-sm-2"></div>
@@ -26,7 +25,6 @@
       </div>
     </div>
 
-    <Footer />
   </section>
 </template>
 

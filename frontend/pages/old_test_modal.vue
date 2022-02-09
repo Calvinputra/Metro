@@ -1,6 +1,5 @@
 <template>
   <section>
-    <Header />
     <ModalDetailTransaksi :transaction="selectedTransaction" />
     <ModalUlasan />
     <ModalKonfirmasiBelanja />
@@ -15,7 +14,6 @@
     <b-button v-b-modal.modal-konfirmasi>Konfirmasi Belanja Modal</b-button>
     <br />
 
-    <Footer />
   </section>
 </template>
 

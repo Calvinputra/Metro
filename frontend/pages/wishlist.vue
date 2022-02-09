@@ -2,7 +2,6 @@
   <section>
     <!-- web -->
     <section id="wishlist-webview">
-      <Header />
       <Breadcrumb :links="breadcrumb" />
       <div class="container">
         <section>
@@ -60,13 +59,11 @@
             untuk menambahkan produk pada halaman ini.
           </div> -->
         </section>
-        <Footer />
       </div>
     </section>
 
     <!-- mobile -->
     <section id="wishlist-mobileview">
-      <Header />
       <Breadcrumb :links="breadcrumb" />
       <div class="container pe-4 mb-5">
         <section>
@@ -108,7 +105,6 @@
         </section>
       </div>
       <Footer2mobile />
-      <Footer />
     </section>
   </section>
 </template>
@@ -124,27 +120,28 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50"
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
         },
 
         {
           url: "/wishlist",
           name: "Daftar Keinginan",
-          class: "my-2 breadcrumb-item active opacity-50"
-        }
-      ]
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
+      ],
     };
   },
   async asyncData({ $axios }) {
     try {
       let wishlists = await $axios.$get(process.env.API_URL + "/api/wishlists");
+
       return {
-        wishlists: wishlists.data
+        wishlists: wishlists.data,
       };
     } catch (error) {
       console.log(error);
     }
-  }
+  },
 };
 </script>
 

@@ -1,6 +1,5 @@
 <template>
   <section>
-    <Header />
     <Breadcrumb :links="breadcrumb" />
 
     <section id="pembayaran-webview">
@@ -119,7 +118,6 @@
       <Footer2mobile />
     </section>
 
-    <Footer />
   </section>
 </template>
 <style lang="css" scoped>
