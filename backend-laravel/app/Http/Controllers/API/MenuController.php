@@ -16,12 +16,8 @@ class MenuController extends Controller
      */
     public function index()
     {
-        return response()->json([
-            'success' => false,
-            'data'   => 'Unauthorized Action',
-            'status' => 503,
-        ]);
-        //return MenuResource::collection(Menu::with('items')->get());
+       
+        return MenuResource::collection(Menu::with('items')->where('id','<>',1)->get());
     }
 
     /**

@@ -205,10 +205,7 @@ import { mapGetters } from "vuex";
 import SearchMobile from "./SearchMobile.vue";
 export default {
   components: { SearchMobile },
-  created() {
-    this.$store.dispatch("fetchHeader");
-  },
-
+ 
   computed: {
     ...mapGetters({
       menu: "getHeader",

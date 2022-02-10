@@ -16,11 +16,13 @@ class SettingController extends Controller
      */
     public function index()
     {
-        return response()->json([
-            'data'   => 'Unauthorized Action',
-            'status' => 503,
-            'success' => false,
-        ]);
+
+        $data = Setting::where('group', 'Site')->get();
+        if ($data) {
+            return SettingResource::collection($data)->additional(["success" => true]);
+        } else {
+            return response()->json(['success' => false, 'msg' => 'Data not found']);
+        }
     }
 
     /**
