@@ -61,12 +61,12 @@ Route::apiResource('/feedbacks', WebsiteFeedbackController::class);
 Route::apiResource('/categories', CategoryController::class);
 Route::apiResource('/homepage_contents', HomepageContentController::class);
 Route::apiResource('/sliders', SliderController::class);
+Route::apiResource('/settings', SettingController::class);
 
 
 Route::post('/carts/multiple', [CartController::class, 'storeMultiple'])->middleware('auth:sanctum');
 Route::post('/carts/synchronize', [CartController::class, 'synchronizeCart'])->middleware('auth:sanctum');
 Route::post('/checkout/get_jne_cost', [ShippingController::class, 'getJneCost'])->middleware('auth:sanctum');
-Route::get('/settings/{key}', [SettingController::class, 'show']);
 
 Route::get('/select2/products', [ProductController::class, 'getSelect2Format']);
 Route::post('/select2/products/initial', [ProductController::class, 'getInitialData']);

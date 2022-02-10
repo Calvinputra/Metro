@@ -1,89 +1,6 @@
 export const state = () => ({
   //initialize data
-  header: {
-    id: 1,
-    title: "Header Menu",
-    createdAt: null,
-    updatedAt: null,
-    menu_items: [
-      {
-        id: 1,
-        title: "Default Menu",
-        url: "#",
-        target: "_self",
-        icon_class: null,
-        color: null,
-        order: 100,
-        parent_id: null,
-        menu_id: 1,
-        createdAt: null,
-        updatedAt: null,
-      },
-    ],
-  },
-  footer_1: {
-    id: 2,
-    title: "Footer Menu 1",
-    createdAt: null,
-    updatedAt: null,
-    menu_items: [
-      {
-        id: 1,
-        title: "Default Menu",
-        url: "#",
-        target: "_self",
-        icon_class: null,
-        color: null,
-        order: 100,
-        parent_id: null,
-        menu_id: 1,
-        createdAt: null,
-        updatedAt: null,
-      },
-    ],
-  },
-  footer_2: {
-    id: 3,
-    title: "Footer Menu 1",
-    createdAt: null,
-    updatedAt: null,
-    menu_items: [
-      {
-        id: 1,
-        title: "Default Menu",
-        url: "#",
-        target: "_self",
-        icon_class: null,
-        color: null,
-        order: 100,
-        parent_id: null,
-        menu_id: 1,
-        createdAt: null,
-        updatedAt: null,
-      },
-    ],
-  },
-  footer_3: {
-    id: 4,
-    title: "Footer Menu 1",
-    createdAt: null,
-    updatedAt: null,
-    menu_items: [
-      {
-        id: 1,
-        title: "Default Menu",
-        url: "#",
-        target: "_self",
-        icon_class: null,
-        color: null,
-        order: 100,
-        parent_id: null,
-        menu_id: 1,
-        createdAt: null,
-        updatedAt: null,
-      },
-    ],
-  },
+  menu: [],
 
   //cart
   cart: [],
@@ -92,59 +9,19 @@ export const state = () => ({
   cartTotal: 0,
   cartChanged: false,
 
-  //company profile footer
-  company_email: "",
-  company_phone: "",
-  company_fax: "",
-  company_address: "",
-  company_city: "",
-  company_wa_phone: "",
+  //company profile
+  setting: [],
 });
 
 export const actions = {
-  async fetchHeader({ commit }) {
+  async nuxtServerInit({ commit }) {
     try {
-      let response = await this.$axios.$get(
-        process.env.API_URL + "/api/menus/2"
+      let response = await this.$axios.$get(process.env.API_URL + "/api/menus");
+      commit("FETCH_MENU", response.data);
+       response = await this.$axios.$get(
+        process.env.API_URL + "/api/settings"
       );
-
-      commit("FETCH_HEADER", response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  },
-
-  async fetchFooter1({ commit }) {
-    try {
-      let response = await this.$axios.$get(
-        process.env.API_URL + "/api/menus/3"
-      );
-
-      commit("FETCH_FOOTER_1", response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  },
-
-  async fetchFooter2({ commit }) {
-    try {
-      let response = await this.$axios.$get(
-        process.env.API_URL + "/api/menus/4"
-      );
-
-      commit("FETCH_FOOTER_2", response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  },
-
-  async fetchFooter3({ commit }) {
-    try {
-      let response = await this.$axios.$get(
-        process.env.API_URL + "/api/menus/5"
-      );
-
-      commit("FETCH_FOOTER_3", response.data);
+      commit("FETCH_SETTING", response.data);
     } catch (error) {
       console.log(error);
     }
@@ -214,81 +91,14 @@ export const actions = {
   setCartChange({ commit }, value) {
     commit("setCartChangeValue", value);
   },
-  async fetchCompanyEmail({ commit }) {
-    try {
-      let response = await this.$axios.$get(
-        process.env.API_URL + "/api/settings/site.company_email"
-      );
-
-      commit("FETCH_SETTING", response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  },
-  async fetchCompanyPhone({ commit }) {
-    try {
-      let response = await this.$axios.$get(
-        process.env.API_URL + "/api/settings/site.company_phone"
-      );
-      commit("FETCH_SETTING", response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  },
-  async fetchCompanyFax({ commit }) {
-    try {
-      let response = await this.$axios.$get(
-        process.env.API_URL + "/api/settings/site.company_fax"
-      );
-      commit("FETCH_SETTING", response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  },
-  async fetchCompanyAddress({ commit }) {
-    try {
-      let response = await this.$axios.$get(
-        process.env.API_URL + "/api/settings/site.company_address"
-      );
-      commit("FETCH_SETTING", response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  },
-  async fetchCompanyCity({ commit }) {
-    try {
-      let response = await this.$axios.$get(
-        process.env.API_URL + "/api/settings/site.company_city"
-      );
-      commit("FETCH_SETTING", response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  },
-  async fetchCompanyWaPhone({ commit }) {
-    try {
-      let response = await this.$axios.$get(
-        process.env.API_URL + "/api/settings/site.company_wa_phone"
-      );
-      commit("FETCH_SETTING", response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  },
 };
 
 export const mutations = {
-  FETCH_HEADER(state, header) {
-    state.header = header;
+  FETCH_MENU(state, data) {
+    state.menu = data;
   },
-  FETCH_FOOTER_1(state, footer_1) {
-    state.footer_1 = footer_1;
-  },
-  FETCH_FOOTER_2(state, footer_2) {
-    state.footer_2 = footer_2;
-  },
-  FETCH_FOOTER_3(state, footer_3) {
-    state.footer_3 = footer_3;
+  FETCH_SETTING(state, data) {
+    state.setting = data;
   },
   async synchronizeCart(state) {
     if (state.auth.loggedIn) {
@@ -375,35 +185,20 @@ export const mutations = {
   setCartChangeValue(state, value) {
     state.cartChanged = value;
   },
-  FETCH_SETTING(state, value) {
-    if (value.key == "site.company_email") {
-      state.company_email = value.value;
-    } else if (value.key == "site.company_phone") {
-      state.company_phone = value.value;
-    } else if (value.key == "site.company_fax") {
-      state.company_fax = value.value;
-    } else if (value.key == "site.company_address") {
-      state.company_address = value.value;
-    } else if (value.key == "site.company_city") {
-      state.company_city = value.value;
-    } else if (value.key == "site.company_wa_phone") {
-      state.company_wa_phone = value.value;
-    }
-  },
 };
 
 export const getters = {
   getHeader(state) {
-    return state.header;
+    return state.menu.find(menu=>menu.name==="header");
   },
   getFooter1(state) {
-    return state.footer_1;
+    return state.menu.find(menu=>menu.name==="footer_1");
   },
   getFooter2(state) {
-    return state.footer_2;
+    return state.menu.find(menu=>menu.name==="footer_2");
   },
   getFooter3(state) {
-    return state.footer_3;
+    return state.menu.find(menu=>menu.name==="footer_3");
   },
   getCartLength(state) {
     return state.cartLength;
@@ -446,14 +241,14 @@ export const getters = {
   getCartChanged(state) {
     return state.cartChanged;
   },
-  getSetting(state, key) {
+  getSetting(state) {
     return {
-      company_email: state.company_email,
-      company_phone: state.company_phone,
-      company_fax: state.company_fax,
-      company_address: state.company_address,
-      company_city: state.company_city,
-      company_wa_phone: state.company_wa_phone,
+      company_email: state.setting.find(setting=>setting.key==='site.company_email').value,
+      company_phone: state.setting.find(setting=>setting.key==='site.company_phone').value,
+      company_fax: state.setting.find(setting=>setting.key==='site.company_fax').value,
+      company_address: state.setting.find(setting=>setting.key==='site.company_address').value,
+      company_city: state.setting.find(setting=>setting.key==='site.company_city').value,
+      company_wa_phone: state.setting.find(setting=>setting.key==='site.company_wa_phone').value,
     };
   },
 };

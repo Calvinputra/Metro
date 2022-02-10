@@ -168,18 +168,7 @@
 <script>
 import { mapGetters } from "vuex";
 export default {
-  created() {
-    this.$store.dispatch("fetchFooter1");
-    this.$store.dispatch("fetchFooter2");
-    this.$store.dispatch("fetchFooter3");
-    //get setting
-    this.$store.dispatch("fetchCompanyEmail");
-    this.$store.dispatch("fetchCompanyPhone");
-    this.$store.dispatch("fetchCompanyFax");
-    this.$store.dispatch("fetchCompanyAddress");
-    this.$store.dispatch("fetchCompanyCity");
-    this.$store.dispatch("fetchCompanyWaPhone");
-  },
+  
   computed: {
     ...mapGetters({
       footer_1: "getFooter1",
