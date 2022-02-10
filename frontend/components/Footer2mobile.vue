@@ -3,23 +3,22 @@
     <img style="width: 300px" src="/img/metro.png" alt="" />
     <div class="text-center ms-4 me-4" style="">
       <p style="" class="">
-       {{settings.company_address}}
+        {{ settings.company_address }}
       </p>
     </div>
     <div class="d-flex justify-content-center mt-3" style="flex-wrap: wrap">
-        <template v-for="(menu_item, index) in footer_1.items">
+      <template v-for="(menu_item, index) in footer_1.items">
         <nuxt-link
           :key="menu_item.id"
           :to="menu_item.url"
           class="text-danger p-2"
           href=""
-          >{{menu_item.title}}</nuxt-link
+          >{{ menu_item.title }}</nuxt-link
         >
         <template v-if="index != footer_1.items.length - 1">
           <p class="text-danger p-2" :key="'p2' + index">|</p>
         </template>
       </template>
-   
     </div>
     <div></div>
     <div class="d-flex p-2 justify-content-center">
@@ -85,13 +84,12 @@
           :to="menu_item.url"
           class="text-black p-2"
           href=""
-          >{{menu_item.title}}</nuxt-link
+          >{{ menu_item.title }}</nuxt-link
         >
         <template v-if="index != footer_3.items.length - 1">
           <p class="p-2" :key="'p2' + index">|</p>
         </template>
       </template>
-    
     </div>
   </section>
 </template>
@@ -103,8 +101,8 @@ export default {
       footer_1: "getFooter1",
       footer_2: "getFooter2",
       footer_3: "getFooter3",
-      settings: "getSetting",
-    }),
-  },
+      settings: "getSetting"
+    })
+  }
 };
 </script>

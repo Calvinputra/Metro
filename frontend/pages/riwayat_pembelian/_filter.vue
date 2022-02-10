@@ -40,7 +40,7 @@
               <template
                 v-if="
                   this.$route.params.filter == '' ||
-                  this.$route.params.filter == undefined
+                    this.$route.params.filter == undefined
                 "
               >
                 <nuxt-link
@@ -247,7 +247,7 @@
               <h6 class="mt-2">Lacak Pembelian Kamu di halaman ini.</h6>
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3 ms-3">
               <h6 class="text-center">Status:</h6>
               <div
                 class="col d-flex justify-content-center"
@@ -256,7 +256,7 @@
                 <template
                   v-if="
                     this.$route.params.filter == '' ||
-                    this.$route.params.filter == undefined
+                      this.$route.params.filter == undefined
                   "
                 >
                   <nuxt-link
@@ -468,30 +468,30 @@ export default {
         data = {
           page_filter: "menunggu_pembayaran",
           page: query.page,
-          paginate: query.paginate,
+          paginate: query.paginate
         };
       } else if (params.filter == "selesai") {
         data = {
           page_filter: "selesai",
           page: query.page,
-          paginate: query.paginate,
+          paginate: query.paginate
         };
       } else if (params.filter == "tidak_berhasil") {
         data = {
           page_filter: "tidak_berhasil",
           page: query.page,
-          paginate: query.paginate,
+          paginate: query.paginate
         };
       } else if (params.filter == "berlangsung") {
         data = {
           page_filter: "berlangsung",
           page: query.page,
-          paginate: query.paginate,
+          paginate: query.paginate
         };
       } else {
         data = {
           page: query.page,
-          paginate: query.paginate,
+          paginate: query.paginate
         };
       }
       let transactions = await $axios.$get(
@@ -506,7 +506,7 @@ export default {
       return {
         transactions: transactions.data,
         links: links,
-        totalPage: transactions.meta.last_page,
+        totalPage: transactions.meta.last_page
       };
     } catch (error) {
       console.log(error);
@@ -526,13 +526,13 @@ export default {
         path: "/" + url + "?",
         query: {
           page: pageNum,
-          paginate: this.$route.query.paginate,
-        },
+          paginate: this.$route.query.paginate
+        }
       };
     },
     pageGen(pageNum) {
       return this.links[pageNum - 1].slice(1);
-    },
+    }
   },
   data() {
     return {
@@ -541,22 +541,22 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50",
+          class: "my-2 ms-3 breadcrumb-item opacity-50"
         },
         {
           url: "/profile",
           name: "Akun Saya",
-          class: "my-2 ms-3 breadcrumb-item opacity-50",
+          class: "my-2 ms-3 breadcrumb-item opacity-50"
         },
         {
           url: "/riwayat_pembelian",
           name: "Riwayat Pembelian",
-          class: "my-2 breadcrumb-item active opacity-50",
-        },
-      ],
+          class: "my-2 breadcrumb-item active opacity-50"
+        }
+      ]
     };
   },
-  watchQuery: ["page", "paginate"],
+  watchQuery: ["page", "paginate"]
 };
 </script>
 

@@ -6,7 +6,7 @@
 
       <template v-for="content in contents">
         <template v-if="content.title">
-          <div :key="'webview'+content.id" class="d-flex container mb-3 mt-5">
+          <div :key="'webview' + content.id" class="d-flex container mb-3 mt-5">
             <h5 class="text-danger fw-bold">{{ content.title }}</h5>
             <button
               type="button"
@@ -21,7 +21,6 @@
           <SwiperCardProduct :products="content.products" />
         </section>
       </template>
-
     </section>
 
     <section id="home-mobileview" v-if="isLoaded">
@@ -29,7 +28,7 @@
 
       <template v-for="content in contents">
         <template v-if="content.title">
-          <div :key="'mobile'+content.id" class="d-flex container">
+          <div :key="'mobile' + content.id" class="d-flex container">
             <h5 class="text-danger fw-bold">{{ content.title }}</h5>
             <button
               type="submit"
@@ -46,12 +45,10 @@
       </template>
 
       <Footer2mobile />
-      <div style="position: inherit">
-      </div>
+      <div style="position: inherit"></div>
     </section>
   </section>
 </template>
-
 
 <style scoped></style>
 
@@ -82,8 +79,6 @@
 }
 </style>
 
-
-
 <script>
 export default {
   data() {
@@ -93,9 +88,9 @@ export default {
       sliderData: [
         { src: "https://picsum.photos/1024/480/?image=10", key: 1 },
         { src: "https://picsum.photos/1024/480/?image=12", key: 2 },
-        { src: "https://picsum.photos/1024/480/?image=22", key: 3 },
+        { src: "https://picsum.photos/1024/480/?image=22", key: 3 }
       ],
-      contents: [],
+      contents: []
     };
   },
   async asyncData({ $axios }) {
@@ -104,16 +99,16 @@ export default {
       let contents = await $axios.get(
         process.env.API_URL + "/api/homepage_contents?take=10:"
       );
-      let sliderData = sliders.data.map((slide) => {
+      let sliderData = sliders.data.map(slide => {
         return {
           src: process.env.ASSET_URL + "/" + slide.image,
-          key: slide.id,
+          key: slide.id
         };
       });
 
       return {
         sliderData: sliderData,
-        contents: contents.data.data,
+        contents: contents.data.data
       };
     } catch (error) {
       console.log(error);
@@ -121,6 +116,6 @@ export default {
   },
   mounted() {
     this.isLoaded = true;
-  },
+  }
 };
 </script>

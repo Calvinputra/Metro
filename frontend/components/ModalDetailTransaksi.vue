@@ -62,6 +62,9 @@
               <p>Subtotal</p>
             </span>
             <span>
+              <p>Jenis Pengiriman</p>
+            </span>
+            <span>
               <p>Biaya Pengiriman</p>
             </span>
             <p>Total</p>

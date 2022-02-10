@@ -85,7 +85,7 @@
             ></nuxt-link>
           </div>
           <div class="col-sm-4">
-            <nuxt-link to="/cart"><img src="/img/cart.png" alt="" /></nuxt-link>
+            <nuxt-link to="/cart"><img src="/img/cart.png" alt=""/></nuxt-link>
           </div>
           <!-- Kosong -->
         </div>
@@ -93,16 +93,12 @@
     </div>
 
     <!-- MOBILE -->
-    <div
-      id="header-mobileview"
-      class="container space-between"
-      style="height: auto"
-    >
+    <div id="header-mobileview" class="container" style="height: auto">
       <!-- Navbar brand -->
       <div>
         <b-nav-item-dropdown
           text="☰"
-          style="font-size: 15px; list-style-type: none"
+          style="font-size: 25px; list-style-type: none"
           right
           no-caret
         >
@@ -124,7 +120,7 @@
         </b-nav-item-dropdown>
       </div>
       <!-- Logo -->
-      <div id="header_logo" class="col-sm-2">
+      <div id="header_logo" class="">
         <nuxt-link to="/"
           ><img
             class="img-fluid rounded mx-auto d-block"
@@ -211,8 +207,8 @@ export default {
 
   computed: {
     ...mapGetters({
-      menu: "getHeader",
-    }),
+      menu: "getHeader"
+    })
   },
   methods: {
     async logout() {
@@ -221,14 +217,14 @@ export default {
         this.$toast.success("Successfully logout", {
           theme: "bubble",
           position: "bottom-right",
-          duration: 5000,
+          duration: 5000
         });
         // setTimeout(() => {
         //   window.location.reload(true);
         // }, 1000);
       });
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -239,7 +235,7 @@ export default {
 /* 0 - 991 px */
 @media screen and (max-width: 500px) {
   #header_logo {
-    width: 15%;
+    width: 30%;
     padding: 0;
     margin-right: auto;
   }

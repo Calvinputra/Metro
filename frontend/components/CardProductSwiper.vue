@@ -7,7 +7,7 @@
           style="text-decoration: none !important; color: black"
         >
           <div
-            class="card mb-5 bg-white rounded"
+            class="card  bg-white rounded"
             style="
               width: 100%;
               box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25) !important;
@@ -56,11 +56,11 @@
                   class="col-sm-3"
                   :href="
                     'https://wa.me/' +
-                    settings.company_wa_phone +
-                    '?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
-                    data.code +
-                    ' - ' +
-                    data.name
+                      settings.company_wa_phone +
+                      '?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
+                      data.code +
+                      ' - ' +
+                      data.name
                   "
                   target="_blank"
                   ><img
@@ -150,11 +150,11 @@
                   target="_blank"
                   :href="
                     'https://wa.me/' +
-                    settings.company_wa_phone +
-                    '?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
-                    data.code +
-                    ' - ' +
-                    data.name
+                      settings.company_wa_phone +
+                      '?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
+                      data.code +
+                      ' - ' +
+                      data.name
                   "
                   ><img
                     class="img-fluid height:auto rounded"
@@ -192,13 +192,13 @@ export default {
   props: ["data", "url"],
   data() {
     return {
-      ASSET_URL: process.env.ASSET_URL,
+      ASSET_URL: process.env.ASSET_URL
     };
   },
   computed: {
     ...mapGetters({
-      settings: "getSetting",
-    }),
+      settings: "getSetting"
+    })
   },
 
   methods: {
@@ -209,7 +209,7 @@ export default {
       try {
         if (this.$auth.loggedIn) {
           let data = {
-            product_id: id,
+            product_id: id
           };
           let response = await this.$axios.$post(
             process.env.API_URL + "/api/wishlists",
@@ -219,13 +219,13 @@ export default {
             this.$toast.success("Successfully delete a product from wishlist", {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000,
+              duration: 5000
             });
           } else {
             this.$toast.success("Successfully add a product to wishlist", {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000,
+              duration: 5000
             });
           }
 
@@ -241,8 +241,8 @@ export default {
     ...mapActions(["addProductToCart"]),
     redirectTo(url) {
       this.$router.push(url);
-    },
-  },
+    }
+  }
 };
 </script>
 

@@ -140,7 +140,7 @@
     <section class="mt-2" id="footer-mobile">
       <div class="d-flex justify-content-around" id="footer-mobileview">
         <i
-          @click="redirectTo('/home')"
+          @click="redirectTo('/index')"
           class="fas fa-home"
           style="font-size: 30px !important; color: #c63442 !important"
         ></i>
@@ -185,14 +185,14 @@ export default {
       footer_1: "getFooter1",
       footer_2: "getFooter2",
       footer_3: "getFooter3",
-      settings: "getSetting",
-    }),
+      settings: "getSetting"
+    })
   },
   methods: {
     redirectTo(url) {
       this.$router.push(url);
-    },
-  },
+    }
+  }
 };
 </script>
 
