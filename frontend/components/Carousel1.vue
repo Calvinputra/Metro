@@ -20,10 +20,11 @@
         </b-carousel>
       </div>
       <div
-        class="bg-image container"
-        style="background-color: #841c26; height: 50px"
+        class="bg-image container pt-4"
+        style=" background-image: url('/img/promo.png'); height: 100px"
       >
-        <h3 class="text-white text-center mt-5">Kejar DISKON!!!</h3>
+        <h3 class="text-white text-center">Kejar DISKON!!!</h3>
+        <p id="demo"></p>
       </div>
       <br />
     </section>
@@ -85,6 +86,6 @@
 
 <script>
 export default {
-  props: ["data"],
+  props: ["data"]
 };
 </script>

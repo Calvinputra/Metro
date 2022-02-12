@@ -9,7 +9,8 @@
           <div
             class="card  bg-white rounded"
             style="
-              width: 100%;
+              width: 250px;
+              height: auto;
               box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25) !important;
               border-radius: 10px;
             "
