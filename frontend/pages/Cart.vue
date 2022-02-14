@@ -42,14 +42,30 @@
               </tr>
             </thead>
             <tbody></tbody>
-            <Cart
-              v-for="cart in tempCart"
-              :key="cart.id"
-              :product="cart.product"
-              :qty="cart.qty"
-              :id="cart.id"
-              :process="cart.process"
-            />
+            <template v-if="!this.$auth.loggedIn">
+              <Cart
+                v-for="cart in tempCart"
+                :key="cart.id"
+                :product="cart.product"
+                :qty="cart.qty"
+                :id="cart.id"
+                :process="cart.process"
+              />
+            </template>
+
+            <template v-if="this.$auth.loggedIn">
+              <Cart
+                v-for="(cart, index) in carts"
+                @updateCart="updateCart"
+                @deleteCartHandler="deleteCart"
+                :index="index"
+                :key="cart.id"
+                :product="cart.product"
+                :qty="cart.qty"
+                :id="cart.id"
+                :process="cart.process"
+              />
+            </template>
           </table>
 
           <!-- Jika data kosong -->
@@ -106,14 +122,30 @@
         <div class="table-responsive shopping-cart">
           <table class="table">
             <tbody></tbody>
-            <CartMobile
-              v-for="cart in tempCart"
-              :key="cart.id"
-              :product="cart.product"
-              :qty="cart.qty"
-              :id="cart.id"
-              :process="cart.process"
-            />
+            <template v-if="!this.$auth.loggedIn">
+              <CartMobile
+                v-for="cart in tempCart"
+                :key="cart.id"
+                :product="cart.product"
+                :qty="cart.qty"
+                :id="cart.id"
+                :process="cart.process"
+              />
+            </template>
+
+            <template v-if="this.$auth.loggedIn">
+              <CartMobile
+                v-for="(cart, index) in carts"
+                @updateCart="updateCart"
+                @deleteCartHandler="deleteCart"
+                :index="index"
+                :key="cart.id"
+                :product="cart.product"
+                :qty="cart.qty"
+                :id="cart.id"
+                :process="cart.process"
+              />
+            </template>
           </table>
         </div>
         <div class="text-right text-right col-sm-11 mb-5">
@@ -161,8 +193,21 @@ export default {
       isLoaded: false,
     };
   },
-  mounted() {
-    this.isLoaded = true;
+  async mounted() {
+    if (this.$auth.loggedIn) {
+      this.$store.dispatch("setCartChange", true);
+      try {
+        let carts = await this.$axios.$get(process.env.API_URL + "/api/carts");
+        console.log(carts);
+        this.carts = carts.data;
+        this.$store.dispatch("setCartChange", false);
+        this.isLoaded = true;
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      this.isLoaded = true;
+    }
   },
   computed: {
     ...mapGetters({
@@ -171,13 +216,35 @@ export default {
     }),
   },
   watch: {
-    cartChanged: {
-      handler: async function (changed) {},
+    carts: {
+      handler: async function (changed) {
+        if (this.$auth.loggedIn && changed) {
+          this.grandTotal = 0;
+          try {
+            // let carts = await this.$axios.$get(
+            //   process.env.API_URL + "/api/carts"
+            // );
+            // let data = carts.data;
+            this.carts.forEach((cart) => {
+              if (cart.process == 1) {
+                this.grandTotal += cart.qty * cart.product.price;
+              }
+            });
+            //console.log(carts);
+            this.carts = carts.data;
+          } catch (error) {
+            console.log(error);
+          }
+
+          // this.$store.dispatch("setCartChange", false);
+        }
+      },
       deep: true,
+      immediate: true,
     },
     tempCart: {
       handler: function (carts) {
-        if (carts) {
+        if (!this.$auth.loggedIn && carts) {
           this.grandTotal = 0;
 
           carts.forEach((cart) => {
@@ -188,9 +255,20 @@ export default {
         }
       },
       deep: true,
+      immediate: true,
     },
   },
   methods: {
+    updateCart({ qty, index, process }) {
+      const cart = this.carts[index];
+      cart.qty = qty;
+      cart.process = process;
+      this.carts.splice(index, 1, cart);
+    },
+    deleteCart(index) {
+      this.carts.splice(index, 1);
+      this.$nuxt.refresh();
+    },
     confirmationDestroyAll() {
       this.boxTwo = "";
       this.$bvModal
@@ -218,7 +296,22 @@ export default {
         });
     },
     destroyAll() {
-      this.$store.dispatch("deleteAllCart", true);
+      if (this.$auth.loggedIn) {
+        this.carts.forEach(async (cart, index) => {
+          let response = await this.$axios
+            .$delete(process.env.API_URL + "/api/carts/" + cart.id)
+            .then(() => {
+              this.$toast.success("Successfully clear all cart", {
+                theme: "bubble",
+                position: "bottom-right",
+                duration: 5000,
+              });
+              this.$nuxt.refresh();
+            });
+        });
+      } else {
+        this.$store.dispatch("deleteAllCart");
+      }
     },
     setIsLoaded(value) {
       this.isLoaded = value;

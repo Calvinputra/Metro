@@ -18,9 +18,7 @@ export const actions = {
     try {
       let response = await this.$axios.$get(process.env.API_URL + "/api/menus");
       commit("FETCH_MENU", response.data);
-       response = await this.$axios.$get(
-        process.env.API_URL + "/api/settings"
-      );
+      response = await this.$axios.$get(process.env.API_URL + "/api/settings");
       commit("FETCH_SETTING", response.data);
     } catch (error) {
       console.log(error);
@@ -28,7 +26,6 @@ export const actions = {
   },
 
   addProductToCart({ state, commit }, { product, notification = false }) {
-    console.log(notification);
     const cartProduct = state.cart.find((prod) => prod.id === product.id);
     if (!cartProduct) {
       commit("pushProductToCart", { product, notification });
@@ -37,7 +34,6 @@ export const actions = {
     }
 
     commit("incrementCartLength");
-    commit("synchronizeCart");
   },
 
   updateCart(
@@ -47,7 +43,6 @@ export const actions = {
     const cartProduct = state.cart.find((prod) => prod.id === product.id);
     if (cartProduct) {
       commit("updateProductCart", { product, qty, process, notification });
-      commit("synchronizeCart");
     } else {
       if (notification) {
         this.$toast.error("Product not found", {
@@ -63,7 +58,6 @@ export const actions = {
     const cartProduct = state.cart.find((prod) => prod.id === product.id);
     if (cartProduct) {
       commit("deleteProductCart", { product, notification });
-      commit("synchronizeCart");
     } else {
       if (notification) {
         this.$toast.error("Product not found", {
@@ -85,7 +79,6 @@ export const actions = {
       }
     } else {
       commit("clearCart", notification);
-      commit("synchronizeCart");
     }
   },
   setCartChange({ commit }, value) {
@@ -100,16 +93,6 @@ export const mutations = {
   FETCH_SETTING(state, data) {
     state.setting = data;
   },
-  async synchronizeCart(state) {
-    if (state.auth.loggedIn) {
-      let response = await this.$axios.$post(
-        process.env.API_URL + "/api/carts/synchronize",
-        {
-          carts: state.cart,
-        }
-      );
-    }
-  },
 
   pushProductToCart(state, { product, notification }) {
     if (notification) {
@@ -120,7 +103,7 @@ export const mutations = {
       });
     }
     product.qty = product.qty ? product.qty : 1;
-    product.process = product.process ? product.process : 0;
+    product.process = 1;
 
     state.cart.push(product);
   },
@@ -189,16 +172,16 @@ export const mutations = {
 
 export const getters = {
   getHeader(state) {
-    return state.menu.find(menu=>menu.name==="header");
+    return state.menu.find((menu) => menu.name === "header");
   },
   getFooter1(state) {
-    return state.menu.find(menu=>menu.name==="footer_1");
+    return state.menu.find((menu) => menu.name === "footer_1");
   },
   getFooter2(state) {
-    return state.menu.find(menu=>menu.name==="footer_2");
+    return state.menu.find((menu) => menu.name === "footer_2");
   },
   getFooter3(state) {
-    return state.menu.find(menu=>menu.name==="footer_3");
+    return state.menu.find((menu) => menu.name === "footer_3");
   },
   getCartLength(state) {
     return state.cartLength;
@@ -243,12 +226,24 @@ export const getters = {
   },
   getSetting(state) {
     return {
-      company_email: state.setting.find(setting=>setting.key==='site.company_email').value,
-      company_phone: state.setting.find(setting=>setting.key==='site.company_phone').value,
-      company_fax: state.setting.find(setting=>setting.key==='site.company_fax').value,
-      company_address: state.setting.find(setting=>setting.key==='site.company_address').value,
-      company_city: state.setting.find(setting=>setting.key==='site.company_city').value,
-      company_wa_phone: state.setting.find(setting=>setting.key==='site.company_wa_phone').value,
+      company_email: state.setting.find(
+        (setting) => setting.key === "site.company_email"
+      ).value,
+      company_phone: state.setting.find(
+        (setting) => setting.key === "site.company_phone"
+      ).value,
+      company_fax: state.setting.find(
+        (setting) => setting.key === "site.company_fax"
+      ).value,
+      company_address: state.setting.find(
+        (setting) => setting.key === "site.company_address"
+      ).value,
+      company_city: state.setting.find(
+        (setting) => setting.key === "site.company_city"
+      ).value,
+      company_wa_phone: state.setting.find(
+        (setting) => setting.key === "site.company_wa_phone"
+      ).value,
     };
   },
 };

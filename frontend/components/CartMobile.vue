@@ -64,7 +64,7 @@
 
 <script>
 export default {
-  props: ["product", "qty", "id", "process"],
+  props: ["product", "qty", "id", "process", "index"],
   data() {
     return {
       sub_total: 0,
@@ -74,20 +74,63 @@ export default {
     };
   },
   methods: {
-    updateSubTotal() {
-      this.sub_total = this.qty_model * this.product.price;
-      this.$store.dispatch("updateCart", {
-        product: this.product,
-        qty: this.qty_model,
-        process: this.process_model,
-      });
+    async updateSubTotal() {
+      if (this.$auth.loggedIn) {
+        console.log("checked : " + this.process_model);
+        this.sub_total = this.qty_model * this.product.price;
+        //update database
+        try {
+          let data = {
+            qty: this.qty_model,
+            process: this.process_model,
+          };
+
+          let response = await this.$axios
+            .$put(process.env.API_URL + "/api/carts/" + this.id, data)
+            .then(() => {
+              //this.$nuxt.refresh();
+              this.$emit("updateCart", {
+                qty: this.qty_model,
+                index: this.index,
+                process: this.process_model,
+              });
+            });
+
+          console.log(response);
+        } catch (error) {
+          console.log(error);
+        }
+      } else {
+        this.sub_total = this.qty_model * this.product.price;
+        this.$store.dispatch("updateCart", {
+          product: this.product,
+          qty: this.qty_model,
+          process: this.process_model,
+        });
+      }
     },
 
     async deleteCart() {
-      this.$store.dispatch("deleteCart", {
-        product: this.product,
-        notification: true,
-      });
+      if (this.$auth.loggedIn) {
+        try {
+          let response = await this.$axios
+            .$delete(process.env.API_URL + "/api/carts/" + this.id)
+            .then(() => {
+              this.$toast.success("Successfully delete a product from cart", {
+                theme: "bubble",
+                position: "bottom-right",
+                duration: 5000,
+              });
+              this.$emit("deleteCartHandler", index);
+              this.$nuxt.refresh();
+            });
+          console.log(response);
+        } catch (error) {
+          console.log(error);
+        }
+      } else {
+        this.$store.dispatch("deleteCart", this.product);
+      }
     },
   },
 

@@ -210,7 +210,7 @@ export default {
   methods: {
     async logout() {
       await this.$auth.logout().then(() => {
-        this.$store.dispatch("deleteAllCart");
+       
         this.$toast.success("Successfully logout", {
           theme: "bubble",
           position: "bottom-right",

@@ -7,7 +7,7 @@
           style="text-decoration: none !important; color: black"
         >
           <div
-            class="card  bg-white rounded"
+            class="card bg-white rounded"
             style="
               width: 250px;
               height: auto;
@@ -57,11 +57,11 @@
                   class="col-sm-3"
                   :href="
                     'https://wa.me/' +
-                      settings.company_wa_phone +
-                      '?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
-                      data.code +
-                      ' - ' +
-                      data.name
+                    settings.company_wa_phone +
+                    '?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
+                    data.code +
+                    ' - ' +
+                    data.name
                   "
                   target="_blank"
                   ><img
@@ -151,11 +151,11 @@
                   target="_blank"
                   :href="
                     'https://wa.me/' +
-                      settings.company_wa_phone +
-                      '?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
-                      data.code +
-                      ' - ' +
-                      data.name
+                    settings.company_wa_phone +
+                    '?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
+                    data.code +
+                    ' - ' +
+                    data.name
                   "
                   ><img
                     class="img-fluid height:auto rounded"
@@ -193,24 +193,45 @@ export default {
   props: ["data", "url"],
   data() {
     return {
-      ASSET_URL: process.env.ASSET_URL
+      ASSET_URL: process.env.ASSET_URL,
     };
   },
   computed: {
     ...mapGetters({
-      settings: "getSetting"
-    })
+      settings: "getSetting",
+    }),
   },
 
   methods: {
-    addToCart(product) {
-      this.addProductToCart({ product, notification: true });
+    async addToCart(product) {
+      try {
+        if (this.$auth.loggedIn) {
+          let data = {
+            product_id: product.id,
+          };
+          let response = await this.$axios.$post(
+            process.env.API_URL + "/api/carts",
+            data
+          );
+          this.$toast.success("Successfully add a product to cart", {
+            theme: "bubble",
+            position: "bottom-right",
+            duration: 5000,
+          });
+          console.log(response);
+        } else {
+          //this.$router.push("/login");
+          this.addProductToCart({product:product,notification:true});
+        }
+      } catch (error) {
+        console.log(error);
+      }
     },
     async addToWishList(id) {
       try {
         if (this.$auth.loggedIn) {
           let data = {
-            product_id: id
+            product_id: id,
           };
           let response = await this.$axios.$post(
             process.env.API_URL + "/api/wishlists",
@@ -220,13 +241,13 @@ export default {
             this.$toast.success("Successfully delete a product from wishlist", {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000
+              duration: 5000,
             });
           } else {
             this.$toast.success("Successfully add a product to wishlist", {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000
+              duration: 5000,
             });
           }
 
@@ -242,8 +263,8 @@ export default {
     ...mapActions(["addProductToCart"]),
     redirectTo(url) {
       this.$router.push(url);
-    }
-  }
+    },
+  },
 };
 </script>
 

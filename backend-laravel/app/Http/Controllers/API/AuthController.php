@@ -194,6 +194,7 @@ class AuthController extends Controller
     private function generateToken($customer, $type)
     {
         $prev_data = null;
+        $token = null;
         do {
             $token = Str::random(40);
             $prev_data = CustomerToken::where('token', $token)->first(); //create unique token

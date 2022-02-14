@@ -21,7 +21,8 @@ class CartController extends Controller
             if ($request->checkout) {
                 $carts->where('process', 1);
             }
-            return CartResource::collection($carts->get())->additional(['success' => true]);
+            $grand_total = 0;
+            return CartResource::collection($carts->get())->additional(['success' => true,'grand_total'=>$grand_total]);
         } else {
             return response()->json([
                 'success' => false,
@@ -76,32 +77,7 @@ class CartController extends Controller
             ]);
         }
     }
-    public function synchronizeCart(Request $request)
-    {
-        $user = Customer::where('token', '=', request()->bearerToken())->first();
-        if ($user) {
-            //delete all
-            Cart::where('customer_id', $user->id)->delete();
-            foreach ($request->carts ?? [] as  $key => $c) {
-                $c = (object)$c;
-                $product = Product::find($c->id);
-                if ($product) {
-                    Cart::create([
-                        'qty' => $c->qty,
-                        'process' => $c->process,
-                        'customer_id' => $user->id,
-                        'product_id' => $c->id,
-                    ]);
-                }
-            }
-        } else {
-            return response()->json([
-                'data'   => 'Unauthorized Action',
-                'status' => 503,
-                'success' => false,
-            ]);
-        }
-    }
+  
     public function storeMultiple(Request $request)
     {
         //function when logged in push from vuex to database

@@ -523,7 +523,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters } from "vuex";
 export default {
   data() {
     return {
@@ -595,13 +595,7 @@ export default {
                 process.env.API_URL + "/api/carts/multiple",
                 d
               );
-              //deleteAllCart on state
-              this.$store.dispatch("deleteAllCart").then(() => {
-                //refetch data from database
-                r.data.map((product) => {
-                  this.addProductToCart(product);
-                });
-              });
+
               this.$router.push("/checkout");
               // setTimeout(() => {
               //   window.location.reload(true);
@@ -628,7 +622,6 @@ export default {
         console.log(error);
       }
     },
-    ...mapActions(["addProductToCart"]),
     setCostJne(event, cost) {
       this.shippingCost = cost;
       this.shippingMethod = "jne";
@@ -643,10 +636,17 @@ export default {
     },
     recalculateTotal() {
       this.grandTotal = 0 + this.shippingCost;
-      this.carts.forEach((cart) => {
-        this.grandTotal += cart.qty * cart.product.price;
-        this.weightTotal += cart.qty * cart.product.weight;
-      });
+      if (this.carts.length > 0) {
+        this.carts.forEach((cart) => {
+          this.grandTotal += cart.qty * cart.product.price;
+          this.weightTotal += cart.qty * cart.product.weight;
+        });
+      } else {
+        this.tempCart.forEach((cart) => {
+          this.grandTotal += cart.qty * cart.product.price;
+          this.weightTotal += cart.qty * cart.product.weight;
+        });
+      }
     },
     async doCreateTransaction() {
       try {
@@ -716,6 +716,8 @@ export default {
         console.log(error);
       }
     } else {
+      this.recalculateTotal();
+      this.isLoaded = true;
     }
   },
   computed: {
@@ -738,6 +740,7 @@ export default {
         }
       },
       deep: true,
+      immediate: true,
     },
   },
 };
