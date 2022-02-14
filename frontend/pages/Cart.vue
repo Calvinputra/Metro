@@ -220,21 +220,18 @@ export default {
       handler: async function (changed) {
         if (this.$auth.loggedIn && changed) {
           this.grandTotal = 0;
-          try {
-            // let carts = await this.$axios.$get(
-            //   process.env.API_URL + "/api/carts"
-            // );
-            // let data = carts.data;
+          // let carts = await this.$axios.$get(
+          //   process.env.API_URL + "/api/carts"
+          // );
+          // let data = carts.data;
+          if (this.carts.length > 0) {
             this.carts.forEach((cart) => {
               if (cart.process == 1) {
                 this.grandTotal += cart.qty * cart.product.price;
               }
             });
-            //console.log(carts);
-            this.carts = carts.data;
-          } catch (error) {
-            console.log(error);
           }
+          //console.log(carts);
 
           // this.$store.dispatch("setCartChange", false);
         }
@@ -247,7 +244,7 @@ export default {
         if (!this.$auth.loggedIn && carts) {
           this.grandTotal = 0;
 
-          carts.forEach((cart) => {
+          this.carts.forEach((cart) => {
             if (cart.product.process == 1) {
               this.grandTotal += cart.product.qty * cart.product.price;
             }
@@ -267,7 +264,6 @@ export default {
     },
     deleteCart(index) {
       this.carts.splice(index, 1);
-      this.$nuxt.refresh();
     },
     confirmationDestroyAll() {
       this.boxTwo = "";

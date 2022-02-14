@@ -121,7 +121,7 @@ export default {
                 position: "bottom-right",
                 duration: 5000,
               });
-              this.$emit("deleteCartHandler", index);
+              this.$emit("deleteCartHandler", this.index);
               this.$nuxt.refresh();
             });
           console.log(response);
