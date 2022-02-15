@@ -241,10 +241,10 @@ export default {
     },
     tempCart: {
       handler: function (carts) {
-        if (!this.$auth.loggedIn && carts) {
+        if (!this.$auth.loggedIn && this.tempCart) {
           this.grandTotal = 0;
 
-          this.carts.forEach((cart) => {
+          this.tempCart.forEach((cart) => {
             if (cart.product.process == 1) {
               this.grandTotal += cart.product.qty * cart.product.price;
             }

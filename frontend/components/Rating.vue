@@ -1,6 +1,6 @@
 <template>
   <section>
-    <section id="history-webview">
+    <section id="rating-webview">
       <div style="color: red" class="mt-3">
         <hr
           style="height: 3px; border-width: 0; color: red"
@@ -141,112 +141,26 @@
     </section>
 
     <!-- Mobile -->
-    <section id="history-mobileview" class="border-top">
-      <div class="my-3 mx-1 row">
-        <div class="row pe-0 ps-2">
-          <div class="d-flex col-2 align-self-center justify-content-center">
-            <img src="/img/audiblelogo.png" alt="" />
-          </div>
-
-          <div class="col pe-0">
-            <p class="mb-1">#{{ data.uuid }}</p>
-            <div
-              class="
-                border border-danger
-                col-sm-
-                text-danger
-                rounded-3
-                text-center
-                p-0
-              "
-            >
-              {{ data.status.name }}
-            </div>
-            <div
-              class="
-                border border-success
-                col-5
-                border-2
-                text-success
-                rounded-3
-                text-center
-                p-0
-              "
-              style=""
-            >
-              {{ data.status.name }}
-            </div>
-            <div
-              class="
-                border border-warning
-                col-11
-                border-2
-                text-warning
-                rounded-3
-                text-center
-                p-0
-              "
-            >
-              {{ data.status.name }}
-            </div>
-            <p class="my-1">{{ data.transaction_details[0].name }}</p>
-            <p class="font-weight-bold">
-              {{ data.transaction_details[0].qty }} x Rp
-              {{
-                Number(data.transaction_details[0].price).toLocaleString(
-                  "id-ID"
-                )
-              }}
-            </p>
-          </div>
-
-          <div class="col-3 p-0">
-            <p class="text-right">
-              Rp. {{ Number(data.grand_total).toLocaleString("id-ID") }}
-            </p>
-          </div>
-        </div>
-
-        <div class="row p-0">
-          <div class="col-2 p-0"></div>
-          <div class="col-2 p-0"></div>
-          <span class="d-flex mt-2 col p-0 justify-content-end">
-            <b-button
-              v-b-modal.modal-detailtransaksi
-              type="submit"
-              class="mr-3 btn text-danger btn-light btn-sm rounded col-8"
-              style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
-            >
-              <b> Lihat Detail Transaksi</b>
-            </b-button>
-            <nuxt-link
-              :to="'/pembayaran/' + data.uuid"
-              type="submit"
-              class="btn text-danger btn-light btn-sm rounded py-1 px-3"
-              style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
-            >
-              <b> Bayar</b>
-            </nuxt-link>
-            <button
-              type="submit"
-              class="btn text-danger btn-light btn-sm rounded py-1 px-3"
-              style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
-            >
-              <b> Beri Ulasan</b>
-            </button>
-            <button
-              type="submit"
-              class="btn text-danger btn-light btn-sm rounded py-1 px-3"
-              style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
-            >
-              <b> Lainnya</b>
-            </button>
-          </span>
-        </div>
-      </div>
-    </section>
+    <section id="rating-mobileview" class="border-top"></section>
   </section>
 </template>
+
+
+<style lang="css" scoped>
+#rating-mobileview {
+  display: none;
+}
+/* 0 - 991 px */
+@media screen and (max-width: 500px) {
+  #rating-webview {
+    display: none;
+  }
+  #rating-mobileview {
+    display: block;
+    font-size: 80%;
+  }
+}
+</style>
 
 <script>
 export default {
@@ -254,3 +168,5 @@ export default {
   methods: {},
 };
 </script>
+
+

@@ -32,7 +32,7 @@
               <p class="mb-">Beri Rating untuk transaksi ini.</p>
             </div>
             <section>
-              <Rating :data="transaction" />
+              <Rating :data="data" />
             </section>
           </div>
         </div>
@@ -49,10 +49,10 @@ export default {
   async asyncData({ $axios, params }) {
     try {
       let response = await $axios.$get(
-        process.env.API_URL + `/api/transactions/${params.uuid}`
+        process.env.API_URL + `/api/transactions/${params.uuid}?action=get`,
       );
       let response_data = response.data;
-      console.log(response);
+      //console.log(response_data);
       return {
         data: response_data,
       };

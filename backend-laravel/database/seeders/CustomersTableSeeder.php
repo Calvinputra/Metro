@@ -23,15 +23,15 @@ class CustomersTableSeeder extends Seeder
             array (
                 'id' => 1,
                 'email' => 'Jonathanchang96@gmail.com',
-                'password' => '$2y$10$bgNZlq.WHbsOBgUJJTcyqOWGhpUS1GNENSzMuVJJHc/WB9r5G0RuS',
-                'token' => '247|GdixgKxXSBOWUNc1tQCKdVL0ugIVPr8rFPRzXa96',
+                'password' => '$2y$10$.FtKF/9Jhs1CfR.tlASL2uU6OEYaKUaoQ.cBZPURaccnsxTYb088G',
+                'token' => '329|Av7qxJg8gifqErSDdu5g1oluNOpwrNWmuZ8mtsdC',
                 'first_name' => 'Jonathan',
                 'last_name' => 'Jonathan',
                 'phone' => '08988606067',
                 'email_verified_at' => '2022-01-29 16:25:46',
                 'phone_verified_at' => '2021-10-30 13:24:00',
                 'created_at' => '2021-10-30 06:24:26',
-                'updated_at' => '2022-01-31 15:52:28',
+                'updated_at' => '2022-02-15 18:15:32',
                 'deleted_at' => NULL,
             ),
             1 => 

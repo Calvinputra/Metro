@@ -699,19 +699,19 @@ export default {
             checkout: true,
           },
         });
-        this.carts = carts.data;
-        this.recalculateTotal();
-      } catch (error) {
-        console.log(error);
-      }
+        if (carts.success) {
+          this.carts = carts.data;
+          this.recalculateTotal();
+          let costs = await this.$axios.$post(
+            process.env.API_URL + "/api/checkout/get_jne_cost"
+          );
 
-      try {
-        let costs = await this.$axios.$post(
-          process.env.API_URL + "/api/checkout/get_jne_cost"
-        );
-        console.log(costs);
-        this.costs = costs.data;
-        this.isLoaded = true;
+          if (costs.status==200) {
+            this.costs = costs.data;
+            this.$nuxt.refresh();
+            this.isLoaded = true;
+          }
+        }
       } catch (error) {
         console.log(error);
       }
