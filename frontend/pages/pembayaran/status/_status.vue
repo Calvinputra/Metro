@@ -21,7 +21,7 @@
             <div class="col-sm-12">
               <label class="mb-0"
                 ><h2 class="font-weight-bold">
-                  Pembayaran <span style="color: red">*</span>
+                  Pembayaran
                 </h2></label
               >
             </div>
@@ -117,7 +117,6 @@
       </div>
       <Footer2mobile />
     </section>
-
   </section>
 </template>
 <style lang="css" scoped>
@@ -144,7 +143,7 @@ export default {
   data() {
     return {
       breadcrumb: [],
-      message: "",
+      message: ""
     };
   },
   mounted() {
@@ -152,23 +151,23 @@ export default {
       {
         url: "/",
         name: "Beranda",
-        class: "my-2 ms-3 breadcrumb-item opacity-50",
+        class: "my-2 ms-3 breadcrumb-item opacity-50"
       },
       {
         url: "/profile",
         name: "Akun Saya",
-        class: "my-2 ms-3 breadcrumb-item opacity-50",
+        class: "my-2 ms-3 breadcrumb-item opacity-50"
       },
-       {
+      {
         url: "/riwayat_pembelian",
         name: "Riwayat Pembelian",
-        class: "my-2 ms-3 breadcrumb-item opacity-50",
+        class: "my-2 ms-3 breadcrumb-item opacity-50"
       },
       {
         url: this.$route.path,
         name: this.$route.query.order_id,
-        class: "my-2 breadcrumb-item active opacity-50",
-      },
+        class: "my-2 breadcrumb-item active opacity-50"
+      }
     ];
   },
   created() {
@@ -185,8 +184,8 @@ export default {
   methods: {
     doRedirectTransaction() {
       this.$router.push("/riwayat_pembelian");
-    },
+    }
   },
-  watchQuery: ["order_id", "status_code", "transaction_status"],
+  watchQuery: ["order_id", "status_code", "transaction_status"]
 };
 </script>

@@ -62,12 +62,12 @@
               <p>Subtotal</p>
             </span>
             <span>
-              <p>Jenis Pengiriman</p>
-            </span>
-            <span>
               <p>Biaya Pengiriman</p>
             </span>
             <p>Total</p>
+            <span>
+              <p>Jenis Pengiriman</p>
+            </span>
           </div>
           <div class="text-right">
             <span>
