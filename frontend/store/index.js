@@ -225,25 +225,29 @@ export const getters = {
     return state.cartChanged;
   },
   getSetting(state) {
-    return {
-      company_email: state.setting.find(
-        (setting) => setting.key === "site.company_email"
-      ).value,
-      company_phone: state.setting.find(
-        (setting) => setting.key === "site.company_phone"
-      ).value,
-      company_fax: state.setting.find(
-        (setting) => setting.key === "site.company_fax"
-      ).value,
-      company_address: state.setting.find(
-        (setting) => setting.key === "site.company_address"
-      ).value,
-      company_city: state.setting.find(
-        (setting) => setting.key === "site.company_city"
-      ).value,
-      company_wa_phone: state.setting.find(
-        (setting) => setting.key === "site.company_wa_phone"
-      ).value,
-    };
+    if (state.setting.length>0) {
+      return {
+        company_email: state.setting.find(
+          (setting) => setting.key === "site.company_email"
+        ).value,
+        company_phone: state.setting.find(
+          (setting) => setting.key === "site.company_phone"
+        ).value,
+        company_fax: state.setting.find(
+          (setting) => setting.key === "site.company_fax"
+        ).value,
+        company_address: state.setting.find(
+          (setting) => setting.key === "site.company_address"
+        ).value,
+        company_city: state.setting.find(
+          (setting) => setting.key === "site.company_city"
+        ).value,
+        company_wa_phone: state.setting.find(
+          (setting) => setting.key === "site.company_wa_phone"
+        ).value,
+      };
+    } else {
+      return {};
+    }
   },
 };
