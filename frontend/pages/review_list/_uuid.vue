@@ -3,6 +3,7 @@
     <Breadcrumb :links="breadcrumb" />
     <section id="riwayat-webview">
       <div class="container">
+        <!-- row -->
         <div class="row">
           <div class="col-md-2">
             <AccountMenu :name="'register'" />
@@ -31,10 +32,38 @@
               />
               <p class="mb-">Beri Rating untuk transaksi ini.</p>
             </div>
-            <section>
-              <Rating :data="data" />
-            </section>
+            <div class="row">
+              <hr
+                style="height: 3px; width: 100%; border-width: 0; color: red"
+                class="col-sm-12 mb-2 mt-0"
+              />
+              <div class="col-sm-3">
+                <img
+                  style="width: 150px; height:100px; "
+                  src="/img/logo.png"
+                  alt=""
+                />
+              </div>
+              <div class="col-sm-8">
+                <h5>Nama Barang</h5>
+                <p style="margin-top: -5px;">Tanggal Pembelian: 20 feb 2022</p>
+                <div class="text-right">
+                  <button
+                    type="submit"
+                    class="btn text-danger btn-light btn-sm rounded col-sm-3 ms-5"
+                    style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+                  >
+                    Beri Ulasan
+                  </button>
+                </div>
+              </div>
+              <hr
+                style="height: 3px; width: 100%; border-width: 0; color: red"
+                class="col-sm-12 mb-0 mt-2"
+              />
+            </div>
           </div>
+          <!-- end row -->
         </div>
       </div>
     </section>
@@ -49,17 +78,17 @@ export default {
   async asyncData({ $axios, params }) {
     try {
       let response = await $axios.$get(
-        process.env.API_URL + `/api/transactions/${params.uuid}?action=get`,
+        process.env.API_URL + `/api/transactions/${params.uuid}?action=get`
       );
       let response_data = response.data;
       //console.log(response_data);
       return {
-        data: response_data,
+        data: response_data
       };
     } catch (error) {
       console.log(error);
     }
-  },
+  }
 };
 </script>
 

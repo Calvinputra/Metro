@@ -1,8 +1,8 @@
 <template>
-  <div style="background-color: white !important">
+  <div style="background-color: white !important;">
     <b-modal id="modal-detailtransaksi" title="Detail Transaksi" ok-only>
       <div class="border border-danger rounded row py-3">
-        <div class="col-8">
+        <div class="col-8" style="font-size: 12px">
           <table>
             <tbody>
               <tr>
@@ -17,7 +17,7 @@
           </table>
         </div>
 
-        <div class="col-4">
+        <div class="col-4" style="font-size: 12px">
           <span class="text-danger">
             <p class="mb-2">Tujuan Pengiriman</p>
           </span>
@@ -30,7 +30,7 @@
         </div>
       </div>
 
-      <div class="table-responsive">
+      <div class="table-responsive" style="font-size: 12px">
         <table class="table pt-2">
           <thead>
             <tr>
@@ -56,8 +56,9 @@
           </tbody>
         </table>
 
-        <div class="d-flex justify-content-around mt-3 mb-4">
-          <div class="text-right col-sm-9 fw-bold">
+        <div class="row justify-content-around mt-3 mb-4">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-5 text-right fw-bold">
             <span>
               <p>Subtotal</p>
             </span>
@@ -69,7 +70,7 @@
               <p>Jenis Pengiriman</p>
             </span>
           </div>
-          <div class="text-right">
+          <div class="col-sm-3">
             <span>
               <p>
                 Rp.
