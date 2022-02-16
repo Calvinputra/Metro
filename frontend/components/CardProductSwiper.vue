@@ -23,9 +23,14 @@
             />
             <div class="card-body">
               <div class="row">
-                <p class="card-title">{{ data.name }}</p>
+                <div class="col-sm-9">
+                  <p class="card-title">{{ data.name }}</p>
+                  <p class="card-text mb-4 font-weight-bold">
+                    Rp.{{ Number(data.display_price).toLocaleString("id-ID") }}
+                  </p>
+                </div>
                 <a
-                  class="col-sm-3"
+                  class="col-sm-3  text-left"
                   href=""
                   onclick="return false;"
                   @click="addToWishList(data.id)"
@@ -38,9 +43,6 @@
                   ></i>
                 </a>
               </div>
-              <p class="card-text mb-4 font-weight-bold">
-                Rp.{{ Number(data.display_price).toLocaleString("id-ID") }}
-              </p>
               <div class="row" @click.stop>
                 <button
                   class="btn text-danger btn-sm rounded col-sm-5 ms-2 pt-2"
@@ -57,11 +59,11 @@
                   class="col-sm-3"
                   :href="
                     'https://wa.me/' +
-                    settings.company_wa_phone +
-                    '?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
-                    data.code +
-                    ' - ' +
-                    data.name
+                      settings.company_wa_phone +
+                      '?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
+                      data.code +
+                      ' - ' +
+                      data.name
                   "
                   target="_blank"
                   ><img
@@ -151,11 +153,11 @@
                   target="_blank"
                   :href="
                     'https://wa.me/' +
-                    settings.company_wa_phone +
-                    '?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
-                    data.code +
-                    ' - ' +
-                    data.name
+                      settings.company_wa_phone +
+                      '?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
+                      data.code +
+                      ' - ' +
+                      data.name
                   "
                   ><img
                     class="img-fluid height:auto rounded"
@@ -193,13 +195,13 @@ export default {
   props: ["data", "url"],
   data() {
     return {
-      ASSET_URL: process.env.ASSET_URL,
+      ASSET_URL: process.env.ASSET_URL
     };
   },
   computed: {
     ...mapGetters({
-      settings: "getSetting",
-    }),
+      settings: "getSetting"
+    })
   },
 
   methods: {
@@ -207,7 +209,7 @@ export default {
       try {
         if (this.$auth.loggedIn) {
           let data = {
-            product_id: product.id,
+            product_id: product.id
           };
           let response = await this.$axios.$post(
             process.env.API_URL + "/api/carts",
@@ -216,12 +218,12 @@ export default {
           this.$toast.success("Successfully add a product to cart", {
             theme: "bubble",
             position: "bottom-right",
-            duration: 5000,
+            duration: 5000
           });
           console.log(response);
         } else {
           //this.$router.push("/login");
-          this.addProductToCart({product:product,notification:true});
+          this.addProductToCart({ product: product, notification: true });
         }
       } catch (error) {
         console.log(error);
@@ -231,7 +233,7 @@ export default {
       try {
         if (this.$auth.loggedIn) {
           let data = {
-            product_id: id,
+            product_id: id
           };
           let response = await this.$axios.$post(
             process.env.API_URL + "/api/wishlists",
@@ -241,13 +243,13 @@ export default {
             this.$toast.success("Successfully delete a product from wishlist", {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000,
+              duration: 5000
             });
           } else {
             this.$toast.success("Successfully add a product to wishlist", {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000,
+              duration: 5000
             });
           }
 
@@ -263,8 +265,8 @@ export default {
     ...mapActions(["addProductToCart"]),
     redirectTo(url) {
       this.$router.push(url);
-    },
-  },
+    }
+  }
 };
 </script>
 

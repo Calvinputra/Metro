@@ -21,7 +21,7 @@
       </div>
       <div
         class="bg-image container pt-4"
-        style=" background-image: url('/img/promo.png'); height: 100px"
+        style=" background-image: url('/img/promo.png'); height: 70px"
       >
         <h3 class="text-white text-center">Kejar DISKON!!!</h3>
         <p id="demo"></p>

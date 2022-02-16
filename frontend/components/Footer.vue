@@ -6,12 +6,12 @@
 
     <!-- Section: Links  -->
     <!-- Website -->
-    <section class="" id="footer-webview">
+    <section class="pb-5" id="footer-webview">
       <div class="container text-center text-md-start mt-5 pt-4">
         <!-- Grid row -->
         <div class="row mt-3">
           <!-- Grid column -->
-          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 text-black">
             <!-- Content -->
             <nuxt-link to="/"
               ><img style="width: 50%" src="img/logo.png" class="mb-3" alt=""
@@ -33,45 +33,23 @@
                 <i class="fab fa-instagram"></i>
               </a>
             </div>
-            <p class="mb-2" style="font-size: 90%">
-              Dapatkan diskon sebesar
-              <span style="color: red">10%</span> dengan mengirim email kalian
-              dibawah!
-            </p>
-            <div id="search" class="nav-item align-self-start mt-1">
-              <form class="d-flex">
-                <input
-                  class="form-control"
-                  type="search"
-                  placeholder="Email"
-                  aria-label="Search"
-                />
-                <button
-                  class="btn btn-outline-success mx-2"
-                  style="background-color: #e5e5e5"
-                  type="submit"
-                >
-                  <p style="color: red">Kirim</p>
-                </button>
-              </form>
-            </div>
           </div>
 
           <!-- Grid column -->
 
           <!-- Grid column -->
-          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 text-black">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">Menu</h6>
             <p
               v-for="menu_item in footer_1.items"
               :key="menu_item.id"
-              class="mb-0"
+              class="mb-1"
             >
               <a
                 :href="menu_item.url"
                 :target="menu_item.target"
-                class="text-reset my-0"
+                class="text-reset my-0  text-decoration-none"
                 >{{ menu_item.title }}</a
               >
             </p>
@@ -79,7 +57,7 @@
           <!-- Grid column -->
 
           <!-- Grid column -->
-          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 text-black">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">Metro Jaya</h6>
             <p
@@ -90,32 +68,34 @@
               <a
                 :href="menu_item.url"
                 :target="menu_item.target"
-                class="text-reset"
+                class="text-reset text-decoration-none"
                 >{{ menu_item.title }}</a
               >
             </p>
           </div>
           <!-- Grid column -->
           <!-- Grid column -->
-          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 text-black">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">Metro Jaya</h6>
             <p
-              class="mb-0"
+              class="mb-1"
               v-for="menu_item in footer_3.items"
               :key="menu_item.id"
             >
               <a
                 :href="menu_item.url"
                 :target="menu_item.target"
-                class="text-reset"
+                class="text-reset text-decoration-none"
                 >{{ menu_item.title }}</a
               >
             </p>
           </div>
           <!-- Grid column -->
           <!-- Grid column -->
-          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <div
+            class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 text-black"
+          >
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
             <p><i class="fas fa-home me-3"></i> {{ settings.company_city }}</p>
@@ -168,7 +148,6 @@
 <script>
 import { mapGetters } from "vuex";
 export default {
-  
   computed: {
     ...mapGetters({
       footer_1: "getFooter1",

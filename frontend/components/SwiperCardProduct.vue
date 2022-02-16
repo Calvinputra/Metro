@@ -2,7 +2,10 @@
   <section>
     <template v-if="products.length > 0">
       <section id="swipercard-webview">
-        <div class="swiper-container">
+        <div
+          class="swiper-container"
+          style="background-image: url('/img/bg-home.png'); padding-top:15px; "
+        >
           <!-- Additional required wrapper -->
           <div class="swiper-wrapper">
             <!-- Slides -->
@@ -20,10 +23,10 @@
           </div>
           <!-- If we need navigation buttons -->
           <div>
-            <div class="swiper-button-prev pr-5 me-5"></div>
+            <div class="swiper-button-prev" style="color:white"></div>
           </div>
           <div>
-            <div class="swiper-button-next ps-5 ml-5"></div>
+            <div class="swiper-button-next" style="color:white"></div>
           </div>
         </div>
       </section>
@@ -74,22 +77,22 @@ export default {
       spaceBetween: 20,
       breakpoints: {
         768: {
-          slidesPerView: 3,
+          slidesPerView: 3
         },
         250: {
-          slidesPerView: 2,
-        },
+          slidesPerView: 2
+        }
       },
       pagination: {
-        el: ".swiper-pagination",
+        el: ".swiper-pagination"
       },
       navigation: {
         nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
+        prevEl: ".swiper-button-prev"
+      }
     });
   },
-  props: ["products"],
+  props: ["products"]
 };
 </script>
 
