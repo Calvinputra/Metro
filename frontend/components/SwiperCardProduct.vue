@@ -3,8 +3,8 @@
     <template v-if="products.length > 0">
       <section id="swipercard-webview">
         <div
-          class="swiper-container"
-          style="background-image: url('/img/bg-home.png'); padding-top:15px; "
+          class="swiper-container  pt-3"
+          style="background-image: url('/img/bg-home.png'); background-repeat: no-repeat; background-size: 100% 250px; background-position: center; "
         >
           <!-- Additional required wrapper -->
           <div class="swiper-wrapper">

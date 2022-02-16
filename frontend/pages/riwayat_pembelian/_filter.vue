@@ -198,7 +198,11 @@
             </section>
             <!-- TODO tulisan belum ada transaksi -->
             <template v-if="Object.keys(transactions).length === 0">
-              Belum ada transaksi
+              <div class="text-center mb-5">
+                <h5 class="fw-bold mt-4">Tidak ada Produk yang masuk</h5>
+                <h6>Anda belum pernah melakukan transaksi disini sebelumnya</h6>
+                <i class="fas fa-exclamation-triangle text-black"></i>
+              </div>
             </template>
             <div class="overflow-auto" style="margin-top: 20px">
               <b-pagination-nav
