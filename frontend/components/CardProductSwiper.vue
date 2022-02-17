@@ -24,8 +24,13 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-9">
-                  <p class="card-title">{{ data.name }}</p>
-                  <p class="card-text mb-4 font-weight-bold">
+                  <p class="card-title" style="font-family: 'Nunito Sans'">
+                    {{ data.name }}
+                  </p>
+                  <p
+                    class="card-text mb-4 font-weight-bold"
+                    style="font-family: 'Nunito Sans'"
+                  >
                     Rp.{{ Number(data.display_price).toLocaleString("id-ID") }}
                   </p>
                 </div>
@@ -45,15 +50,18 @@
               </div>
               <div class="row" @click.stop>
                 <button
-                  class="btn text-danger btn-sm rounded col-sm-5 ms-2 pt-2"
+                  class="btn text-danger btn-sm rounded col-sm-5 ms-2 pt-2 "
                   style="
                     background-color: #f3f3f3;
                     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                   
                   "
                   onclick="return false;"
                   @click="addToCart(data)"
                 >
-                  + Keranjang
+                  <p style="font-family: 'Nunito Sans'">
+                    + Keranjang
+                  </p>
                 </button>
                 <a
                   class="col-sm-3"

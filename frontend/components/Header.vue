@@ -3,6 +3,7 @@
   <nav
     id="navbar"
     class="navbar sticky-top navbar-expand-lg navbar-light bg-light"
+    style="font-family: 'Nunito Sans'"
   >
     <!-- WEB -->
     <div
@@ -201,7 +202,7 @@ import { mapGetters } from "vuex";
 import SearchMobile from "./SearchMobile.vue";
 export default {
   components: { SearchMobile },
- 
+
   computed: {
     ...mapGetters({
       menu: "getHeader"
@@ -210,7 +211,6 @@ export default {
   methods: {
     async logout() {
       await this.$auth.logout().then(() => {
-       
         this.$toast.success("Successfully logout", {
           theme: "bubble",
           position: "bottom-right",

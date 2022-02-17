@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section style="font-family: 'Nunito Sans'">
     <section id="undang-webview">
       <Breadcrumb :links="breadcrumb" />
       <section>
@@ -81,7 +81,7 @@
                       py-2
                       px-2
                     "
-                    style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;"
+                      style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;"
                     >
                       Kirim
                     </button>
@@ -112,7 +112,6 @@
           </div>
         </div>
       </section>
-
     </section>
 
     <section id="undang-mobileview">
@@ -220,7 +219,6 @@
         </div>
         <Footer2mobile />
       </section>
-
     </section>
   </section>
 </template>

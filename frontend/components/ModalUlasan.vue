@@ -1,6 +1,5 @@
 <template>
-  <div style="background-color:white !important;">
-
+  <div style="background-color:white !important;font-family: 'Nunito Sans'">
     <b-modal id="modal-1" title="BootstrapVue">
       <h5 class="text-center fw-bold">
         Beri Ulasan

@@ -1,11 +1,13 @@
 <template>
-  <section>
+  <section style="font-family: 'Nunito Sans'">
     <!-- web -->
     <section id="wishlist-webview">
       <Breadcrumb :links="breadcrumb" />
       <div class="container">
         <section>
-          <h3 class="ml-5">Daftar Keinginan</h3>
+          <h3 style="font-family: 'Nunito Sans'" class="ml-5">
+            Daftar Keinginan
+          </h3>
 
           <hr
             style="height: 2px; border-width: 0; color: red"
@@ -120,15 +122,15 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50",
+          class: "my-2 ms-3 breadcrumb-item opacity-50"
         },
 
         {
           url: "/wishlist",
           name: "Daftar Keinginan",
-          class: "my-2 breadcrumb-item active opacity-50",
-        },
-      ],
+          class: "my-2 breadcrumb-item active opacity-50"
+        }
+      ]
     };
   },
   async asyncData({ $axios }) {
@@ -136,12 +138,12 @@ export default {
       let wishlists = await $axios.$get(process.env.API_URL + "/api/wishlists");
 
       return {
-        wishlists: wishlists.data,
+        wishlists: wishlists.data
       };
     } catch (error) {
       console.log(error);
     }
-  },
+  }
 };
 </script>
 

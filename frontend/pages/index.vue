@@ -6,12 +6,16 @@
 
       <template v-for="content in contents">
         <template v-if="content.title">
-          <div :key="'webview' + content.id" class="d-flex container mb-3 mt-5">
+          <div
+            :key="'webview' + content.id"
+            class="d-flex container mb-3 mt-5"
+            style="font-family: 'Nunito Sans';"
+          >
             <h5 class="text-danger fw-bold">{{ content.title }}</h5>
             <button
               type="button"
               class="btn text-danger btn-light btn-sm rounded p-2 ms-3"
-              style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+              style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;font-family: 'Nunito Sans';"
             >
               Lebih lanjut
             </button>

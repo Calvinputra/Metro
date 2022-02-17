@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section style="font-family: 'Nunito Sans'">
     <section id="rating-webview">
       <div style="color: red" class="mt-3">
         <hr
@@ -145,7 +145,6 @@
   </section>
 </template>
 
-
 <style lang="css" scoped>
 #rating-mobileview {
   display: none;
@@ -165,8 +164,6 @@
 <script>
 export default {
   props: ["data"],
-  methods: {},
+  methods: {}
 };
 </script>
-
-

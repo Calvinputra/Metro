@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section style="font-family: 'Nunito Sans'">
     <!-- Modal INIT -->
     <ModalDetailTransaksi :transaction="selectedTransaction" />
     <!-- END -->

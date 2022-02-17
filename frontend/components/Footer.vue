@@ -11,7 +11,10 @@
         <!-- Grid row -->
         <div class="row mt-3">
           <!-- Grid column -->
-          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 text-black">
+          <div
+            class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 text-black"
+            style="font-family: 'Nunito Sans'"
+          >
             <!-- Content -->
             <nuxt-link to="/"
               ><img style="width: 50%" src="img/logo.png" class="mb-3" alt=""
@@ -38,7 +41,10 @@
           <!-- Grid column -->
 
           <!-- Grid column -->
-          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 text-black">
+          <div
+            class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 text-black"
+            style="font-family: 'Nunito Sans'"
+          >
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">Menu</h6>
             <p
@@ -57,7 +63,10 @@
           <!-- Grid column -->
 
           <!-- Grid column -->
-          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 text-black">
+          <div
+            class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 text-black"
+            style="font-family: 'Nunito Sans'"
+          >
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">Metro Jaya</h6>
             <p
@@ -75,7 +84,10 @@
           </div>
           <!-- Grid column -->
           <!-- Grid column -->
-          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 text-black">
+          <div
+            class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 text-black"
+            style="font-family: 'Nunito Sans'"
+          >
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">Metro Jaya</h6>
             <p
@@ -95,6 +107,7 @@
           <!-- Grid column -->
           <div
             class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 text-black"
+            style="font-family: 'Nunito Sans';"
           >
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">Contact</h6>

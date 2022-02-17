@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section style="font-family: 'Nunito Sans'">
     <section id="login-webview">
       <Breadcrumb :links="breadcrumb" />
       <section>
@@ -54,7 +54,7 @@
                 <div class="row">
                   <form class="ps-5 ms-5">
                     <div class="form-group col-sm-10">
-                      <label for="email"
+                      <label for="email" style="font-family: 'Nunito Sans'"
                         >Email<span style="color: red">*</span>:</label
                       >
                       <input
@@ -67,7 +67,7 @@
                       />
                     </div>
                     <div class="form-group col-sm-10">
-                      <label for="password"
+                      <label for="password" style="font-family: 'Nunito Sans'"
                         >Kata Sandi<span style="color: red">*</span>:</label
                       >
                       <input
@@ -121,7 +121,6 @@
           </div>
         </div>
       </section>
-
     </section>
 
     <section id="login-mobileview">
@@ -237,7 +236,7 @@
 </template>
 
 <script>
-import { mapGetters,mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 export default {
   middleware: "auth",
   auth: "guest",
@@ -248,13 +247,13 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50",
+          class: "my-2 ms-3 breadcrumb-item opacity-50"
         },
         {
           url: "/register",
           name: "Register",
-          class: "my-2 breadcrumb-item active opacity-50",
-        },
+          class: "my-2 breadcrumb-item active opacity-50"
+        }
       ],
       //data
       email: "",
@@ -263,20 +262,20 @@ export default {
       errors: null,
       dismissSecs: 10,
       dismissCountDown: 0,
-      showDismissibleAlert: false,
+      showDismissibleAlert: false
     };
   },
   computed: {
     ...mapGetters({
-      tempCart: "getCheckout",
-    }),
+      tempCart: "getCheckout"
+    })
   },
   methods: {
     async doLogin() {
       try {
         let data = {
           email: this.email,
-          password: this.password,
+          password: this.password
         };
         let response = await this.$axios.$post(
           process.env.API_URL + "/api/login",
@@ -287,13 +286,13 @@ export default {
             .loginWith("laravelSanctum", {
               data: {
                 email: this.email,
-                password: this.password,
-              },
+                password: this.password
+              }
             })
             .then(async () => {
               this.showDismissibleAlert = false;
               let d = {
-                carts: this.tempCart,
+                carts: this.tempCart
               };
               //update current cart database
               let r = await this.$axios.$post(
@@ -303,7 +302,7 @@ export default {
               //deleteAllCart on state
               this.$store.dispatch("deleteAllCart").then(() => {
                 //refetch data from database
-                r.data.map((product) => {
+                r.data.map(product => {
                   this.addProductToCart(product);
                 });
               });
@@ -311,7 +310,7 @@ export default {
               this.$toast.success("Successfully authenticated", {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000,
+                duration: 5000
               });
               // setTimeout(() => {
               //   window.location.reload(true);
@@ -326,7 +325,7 @@ export default {
               this.$toast.error(err[key][key2], {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000,
+                duration: 5000
               });
             });
           });
@@ -336,13 +335,13 @@ export default {
         this.$toasted.error(error, {
           theme: "bubble",
           position: "bottom-right",
-          duration: 5000,
+          duration: 5000
         });
         console.log(error);
       }
     },
-    ...mapActions(["addProductToCart"]),
-  },
+    ...mapActions(["addProductToCart"])
+  }
 };
 </script>
 

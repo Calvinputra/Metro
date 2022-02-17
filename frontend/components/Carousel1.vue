@@ -1,5 +1,9 @@
 <template>
   <section>
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito Sans"
+      rel="stylesheet"
+    />
     <section id="carousel1-webview">
       <div>
         <b-carousel
@@ -21,9 +25,15 @@
       </div>
       <div
         class="bg-image container pt-4"
-        style=" background-image: url('/img/promo.png'); height: 70px"
+        style=" background-image: url('/img/promo.png'); height: 70px; "
       >
-        <h3 class="text-white text-center">Kejar DISKON!!!</h3>
+        <h3
+          class="fw-bold text-white text-center"
+          style="font-family: 'Nunito Sans'; font-size:24px;
+"
+        >
+          Kejar DISKON!!!
+        </h3>
         <p id="demo"></p>
       </div>
       <br />

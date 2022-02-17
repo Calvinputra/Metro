@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section style="font-family: 'Nunito Sans'">
     <LoadingSpinner v-if="!isLoaded" />
 
     <section id="checkout-webview" v-if="isLoaded">
@@ -531,18 +531,18 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50",
+          class: "my-2 ms-3 breadcrumb-item opacity-50"
         },
         {
           url: "/cart",
           name: "Keranjang Saya",
-          class: "my-2 breadcrumb-item opacity-50",
+          class: "my-2 breadcrumb-item opacity-50"
         },
         {
           url: "/checkout",
           name: "Check Out",
-          class: "my-2 breadcrumb-item active opacity-50",
-        },
+          class: "my-2 breadcrumb-item active opacity-50"
+        }
       ],
       carts: {},
       grandTotal: 0,
@@ -559,7 +559,7 @@ export default {
       //radio
       shippingRadio: "",
 
-      isLoaded: false,
+      isLoaded: false
     };
   },
   methods: {
@@ -567,7 +567,7 @@ export default {
       try {
         let data = {
           email: this.email,
-          password: this.password,
+          password: this.password
         };
         let response = await this.$axios.$post(
           process.env.API_URL + "/api/login",
@@ -578,17 +578,17 @@ export default {
             .loginWith("laravelSanctum", {
               data: {
                 email: this.email,
-                password: this.password,
-              },
+                password: this.password
+              }
             })
             .then(async () => {
               this.$toast.success("Successfully authenticated", {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000,
+                duration: 5000
               });
               let d = {
-                carts: this.tempCart,
+                carts: this.tempCart
               };
               //update current cart database
               let r = await this.$axios.$post(
@@ -608,7 +608,7 @@ export default {
               this.$toast.error(err[key][key2], {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000,
+                duration: 5000
               });
             });
           });
@@ -617,7 +617,7 @@ export default {
         this.$toasted.error(error, {
           theme: "bubble",
           position: "bottom-right",
-          duration: 5000,
+          duration: 5000
         });
         console.log(error);
       }
@@ -637,12 +637,12 @@ export default {
     recalculateTotal() {
       this.grandTotal = 0 + this.shippingCost;
       if (this.carts.length > 0) {
-        this.carts.forEach((cart) => {
+        this.carts.forEach(cart => {
           this.grandTotal += cart.qty * cart.product.price;
           this.weightTotal += cart.qty * cart.product.weight;
         });
       } else {
-        this.tempCart.forEach((cart) => {
+        this.tempCart.forEach(cart => {
           this.grandTotal += cart.qty * cart.product.price;
           this.weightTotal += cart.qty * cart.product.weight;
         });
@@ -653,7 +653,7 @@ export default {
         let data = {
           courier: this.shippingMethod,
           type: this.shippingRadio,
-          address_id: this.$auth.user.addresses[0].id, //nnti set selected
+          address_id: this.$auth.user.addresses[0].id //nnti set selected
         };
         let response = await this.$axios.$post(
           process.env.API_URL + "/api/transactions", //todo ganti link
@@ -670,7 +670,7 @@ export default {
             {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000,
+              duration: 5000
             }
           );
         } else {
@@ -680,7 +680,7 @@ export default {
               this.$toast.error(err[key][key2], {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000,
+                duration: 5000
               });
             });
           });
@@ -688,7 +688,7 @@ export default {
       } catch (err) {
         console.log(err);
       }
-    },
+    }
   },
 
   async mounted() {
@@ -696,8 +696,8 @@ export default {
       try {
         let carts = await this.$axios.$get(process.env.API_URL + "/api/carts", {
           params: {
-            checkout: true,
-          },
+            checkout: true
+          }
         });
         if (carts.success) {
           this.carts = carts.data;
@@ -706,7 +706,7 @@ export default {
             process.env.API_URL + "/api/checkout/get_jne_cost"
           );
 
-          if (costs.status==200) {
+          if (costs.status == 200) {
             this.costs = costs.data;
             this.$nuxt.refresh();
             this.isLoaded = true;
@@ -723,16 +723,16 @@ export default {
   computed: {
     ...mapGetters({
       tempCart: "getCheckout",
-      cartChanged: "getCartChanged",
-    }),
+      cartChanged: "getCartChanged"
+    })
   },
   watch: {
     tempCart: {
-      handler: function (carts) {
+      handler: function(carts) {
         if (carts) {
           this.grandTotal = 0 + this.shippingCost;
 
-          carts.forEach((cart) => {
+          carts.forEach(cart => {
             if (cart.product.process == 1) {
               this.grandTotal += cart.product.qty * cart.product.price;
             }
@@ -740,9 +740,9 @@ export default {
         }
       },
       deep: true,
-      immediate: true,
-    },
-  },
+      immediate: true
+    }
+  }
 };
 </script>
 <style lang="css" scoped>

@@ -1,6 +1,10 @@
 <template>
   <!-- search -->
-  <div id="search" class="nav-item col-sm-8 align-self-start mt-4">
+  <div
+    id="search"
+    class="nav-item col-sm-8 align-self-start mt-4"
+    style="font-family: 'Nunito Sans'"
+  >
     <div class="d-flex">
       <input
         class="form-control"

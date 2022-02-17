@@ -1,5 +1,9 @@
 <template>
   <section class="pb-5">
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito Sans"
+      rel="stylesheet"
+    />
     <div class="container">
       <div class="row">
         <div class="col-6"></div>

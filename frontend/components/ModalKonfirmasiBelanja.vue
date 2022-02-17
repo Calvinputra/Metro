@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="font-family: 'Nunito Sans'">
     <b-modal id="modal-konfirmasi" centered title="Konfirmasi">
       <p class="my-4">
         Terima kasih, barang yang anda pilih akan segera dikirim. Ingin lanjut

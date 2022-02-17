@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section style="font-family: 'Nunito Sans'">
     <section id="contact-webview">
       <Breadcrumb :links="breadcrumb" />
       <section>
@@ -11,7 +11,12 @@
             <form method="post" class="mr-5">
               <div class="col-sm-12">
                 <label class="mb-0 mt-5"
-                  ><h2 class="font-weight-bold">Formulir umpan balik</h2></label
+                  ><h2
+                    class="font-weight-bold "
+                    style="font-family: 'Nunito Sans'"
+                  >
+                    Formulir umpan balik
+                  </h2></label
                 >
                 <hr
                   style="height: 3px; border-width: 0; color: red"
@@ -260,26 +265,26 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50",
+          class: "my-2 ms-3 breadcrumb-item opacity-50"
         },
         {
           url: "/contact_us",
           name: "Contact Us",
-          class: "my-2 breadcrumb-item active opacity-50",
-        },
-      ],
+          class: "my-2 breadcrumb-item active opacity-50"
+        }
+      ]
     };
   },
   methods: {
-    delay(){
-      this.disabled = true
+    delay() {
+      this.disabled = true;
 
-        // Re-enable after 5 seconds
-        this.timeout = setTimeout(() => {
-          this.disabled = false
-        }, 5000)
+      // Re-enable after 5 seconds
+      this.timeout = setTimeout(() => {
+        this.disabled = false;
+      }, 5000);
 
-        this.doSendFeedback()
+      this.doSendFeedback();
     },
     async doSendFeedback() {
       let data = {
@@ -287,7 +292,7 @@ export default {
         last_name: this.last_name,
         email: this.email,
         phone: this.phone,
-        message: this.message,
+        message: this.message
       };
       let response = await this.$axios.$post(
         process.env.API_URL + "/api/feedbacks",
@@ -299,7 +304,7 @@ export default {
         this.$toast.success("Thank you for your feedback", {
           theme: "bubble",
           position: "bottom-right",
-          duration: 5000,
+          duration: 5000
         });
         this.$router.push("/");
       } else {
@@ -309,13 +314,13 @@ export default {
             this.$toast.error(err[key][key2], {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000,
+              duration: 5000
             });
           });
         });
-        this.disabled=false;
+        this.disabled = false;
       }
-    },
-  },
+    }
+  }
 };
 </script>

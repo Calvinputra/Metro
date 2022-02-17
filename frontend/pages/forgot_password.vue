@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section style="font-family: 'Nunito Sans'">
     <section id="forgot-webview">
       <Breadcrumb :links="breadcrumb" />
       <section>
@@ -90,7 +90,6 @@
           </div>
         </div>
       </section>
-
     </section>
 
     <section id="forgot-mobileview">
@@ -177,7 +176,6 @@
         </div>
         <Footer2mobile />
       </section>
-
     </section>
   </section>
 </template>
@@ -190,13 +188,13 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50",
+          class: "my-2 ms-3 breadcrumb-item opacity-50"
         },
         {
           url: "/forgot_password",
           name: "Lupa Password",
-          class: "my-2 breadcrumb-item active opacity-50",
-        },
+          class: "my-2 breadcrumb-item active opacity-50"
+        }
       ],
       email: "",
       disabled: false,
@@ -204,7 +202,7 @@ export default {
       message: null,
       dismissSecs: 10,
       dismissCountDown: 0,
-      showDismissibleAlert: false,
+      showDismissibleAlert: false
     };
   },
   methods: {
@@ -220,7 +218,7 @@ export default {
     },
     async doSendForgotPassword() {
       let data = {
-        email: this.email,
+        email: this.email
       };
       let response = await this.$axios.$post(
         process.env.API_URL + "/api/forgot_password",
@@ -230,11 +228,11 @@ export default {
         this.message =
           "Email request untuk reset password telah dikirim, silahkan cek email Anda untuk melanjutkan";
         this.showDismissibleAlert = true;
-          this.$toast.success(this.message, {
-            theme: "bubble",
-            position: "bottom-right",
-            duration: 5000
-          });
+        this.$toast.success(this.message, {
+          theme: "bubble",
+          position: "bottom-right",
+          duration: 5000
+        });
       } else {
         const err = response.message;
         Object.keys(err).forEach((key, error) => {
@@ -242,13 +240,13 @@ export default {
             this.$toast.error(err[key][key2], {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000,
+              duration: 5000
             });
           });
         });
       }
-    },
-  },
+    }
+  }
 };
 </script>
 

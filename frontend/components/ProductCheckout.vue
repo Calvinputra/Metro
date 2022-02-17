@@ -1,5 +1,5 @@
 <template>
-  <tr>
+  <tr style="font-family: 'Nunito Sans'">
     <td>
       <div class="product-item text-middle" style="display: flex">
         <a class="product-thumb" href="#"
