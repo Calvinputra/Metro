@@ -1,10 +1,7 @@
 <template>
-  <div style="background-color:white !important;">
-
-    <b-modal id="modal-1" title="BootstrapVue">
-      <h5 class="text-center fw-bold">
-        Beri Ulasan
-      </h5>
+  <div style="background-color: white !important">
+    <b-modal id="modal-ulasan" title="Beri Ulasan">
+      <h5 class="text-center fw-bold">Beri Ulasan</h5>
       <div class="col-sm-12 d-flex mb-3">
         <img
           class="img-fluid max-width:100% height:auto rounded"
@@ -13,8 +10,15 @@
         />
         <div>
           <div class="d-flex">
-            <p>Kode Produk-</p>
-            <p>Nama Produk</p>
+            <p>
+              <!-- {{
+                typeof detail.selectedDetail !== "undefined"
+                  ? detail.selectedDetail.product.code
+                  : ""
+              }} -->
+              -
+            </p>
+            <p>{{ detail.selectedDetail.name }}</p>
           </div>
           <div class="">
             <img
@@ -47,37 +51,36 @@
       </div>
       <div class="">
         <p>
-          Hai [Nama Customer], puas dengan barang yang kamu beli? Beri ulasan
-          dan rekomendasikan ke pembeli lain ya!
+          Hai {{ $auth.user.first_name }}, puas dengan barang yang kamu beli?
+          Beri ulasan dan rekomendasikan ke pembeli lain ya!
         </p>
       </div>
       <div>
-        <label for="address"
-          >Alamat Lengkap<span style="color: red">*</span>:</label
-        >
+        <label for="review">Review<span style="color: red">*</span>:</label>
         <textarea
           class="form-control col-sm-8"
-          id="address"
-          name="address"
+          id="review"
+          name="review"
           rows="3"
           placeholder="Tulis ulasan di sini..."
-          v-model="address"
         ></textarea>
       </div>
       <br />
 
       <div class="text-center">
         <button
+        @click="onSubmitHandler"
           type="submit"
-          class="  btn
-                  text-danger
-                  btn-light
-                  btn-sm
-                  shadow
-                  rounded
-                  col-sm-2
-                  py-2
-                  px-2"
+          class="
+            btn
+            text-danger
+            btn-light btn-sm
+            shadow
+            rounded
+            col-sm-2
+            py-2
+            px-2
+          "
         >
           Kirim
         </button>
@@ -87,5 +90,48 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["detail"],
+  data() {
+    return {
+      ASSET_URL: process.env.ASSET_URL,
+      review: "",
+      rating: 0,
+    };
+  },
+  methods: {
+    async onSubmitHandler() {
+      let data = {
+        rating:this.rating,
+        c_review: this.review,
+        transaction_id: this.detail.selectedDetail.transaction_id,
+        product_id: this.detail.selectedDetail.product_id,
+      };
+      console.log(data);
+      let response = await this.$axios.$post(
+        process.env.API_URL + "/api/reviews",
+        data
+      );
+      if (response.success) {
+        this.$toast.success("Successfully give a rating", {
+          theme: "bubble",
+          position: "bottom-right",
+          duration: 5000,
+        });
+        await this.$nuxt.refresh();
+      } else {
+        let err = response.message;
+        Object.keys(err).forEach((key, error) => {
+          Object.keys(err[key]).forEach((key2, e) => {
+            this.$toast.error(err[key][key2], {
+              theme: "bubble",
+              position: "bottom-right",
+              duration: 5000,
+            });
+          });
+        });
+      }
+    },
+  },
+};
 </script>

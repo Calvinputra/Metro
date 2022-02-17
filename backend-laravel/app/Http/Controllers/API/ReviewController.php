@@ -33,7 +33,7 @@ class ReviewController extends Controller
         if ($user) {
 
             $rules = [
-                'rating'    => 'required|numeric|between:0,5.0',
+                'rating'    => 'required|numeric|between:1.0,5.0',
                 'transaction_id' => 'required',
                 'product_id' => 'required',
             ];
@@ -122,7 +122,7 @@ class ReviewController extends Controller
         if ($user) {
 
             $rules = [
-                'rating'    => 'required|numeric|between:0,5.0',
+                'rating'    => 'required|numeric|between:1.0,5.0',
                 'transaction_id' => 'required',
                 'product_id' => 'required',
             ];

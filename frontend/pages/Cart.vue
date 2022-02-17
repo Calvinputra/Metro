@@ -190,7 +190,20 @@ export default {
       carts: {},
       grandTotal: 0,
       boxTwo: "",
-      isLoaded: false
+      isLoaded: false,
+      breadcrumb: [
+        {
+          url: "/",
+          name: "Beranda",
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
+        },
+
+        {
+          url: "/cart",
+          name: "Keranjang Saya",
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
+      ],
     };
   },
   async mounted() {
@@ -198,7 +211,6 @@ export default {
       this.$store.dispatch("setCartChange", true);
       try {
         let carts = await this.$axios.$get(process.env.API_URL + "/api/carts");
-        console.log(carts);
         this.carts = carts.data;
         this.$store.dispatch("setCartChange", false);
         this.isLoaded = true;
@@ -212,12 +224,12 @@ export default {
   computed: {
     ...mapGetters({
       tempCart: "getCart",
-      cartChanged: "getCartChanged"
-    })
+      cartChanged: "getCartChanged",
+    }),
   },
   watch: {
     carts: {
-      handler: async function(changed) {
+      handler: async function (changed) {
         if (this.$auth.loggedIn && changed) {
           this.grandTotal = 0;
           // let carts = await this.$axios.$get(
@@ -225,7 +237,7 @@ export default {
           // );
           // let data = carts.data;
           if (this.carts.length > 0) {
-            this.carts.forEach(cart => {
+            this.carts.forEach((cart) => {
               if (cart.process == 1) {
                 this.grandTotal += cart.qty * cart.product.price;
               }
@@ -237,14 +249,14 @@ export default {
         }
       },
       deep: true,
-      immediate: true
+      immediate: true,
     },
     tempCart: {
-      handler: function(carts) {
+      handler: function (carts) {
         if (!this.$auth.loggedIn && this.tempCart) {
           this.grandTotal = 0;
 
-          this.tempCart.forEach(cart => {
+          this.tempCart.forEach((cart) => {
             if (cart.product.process == 1) {
               this.grandTotal += cart.product.qty * cart.product.price;
             }
@@ -252,8 +264,8 @@ export default {
         }
       },
       deep: true,
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   methods: {
     updateCart({ qty, index, process }) {
@@ -277,9 +289,9 @@ export default {
           cancelTitle: "NO",
           footerClass: "p-2",
           hideHeaderClose: false,
-          centered: true
+          centered: true,
         })
-        .then(value => {
+        .then((value) => {
           this.boxTwo = value;
           if (value) {
             //console.log("Yes Clicked"+value);
@@ -287,7 +299,7 @@ export default {
             this.destroyAll();
           }
         })
-        .catch(err => {
+        .catch((err) => {
           // An error occurred
         });
     },
@@ -300,7 +312,7 @@ export default {
               this.$toast.success("Successfully clear all cart", {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000
+                duration: 5000,
               });
               this.$nuxt.refresh();
             });
@@ -314,8 +326,8 @@ export default {
     },
     doCheckout() {
       this.$router.push("/checkout");
-    }
-  }
+    },
+  },
 };
 function increment() {
   document.getElementById("demoInput").stepUp();

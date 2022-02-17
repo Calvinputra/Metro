@@ -10,36 +10,20 @@
             alt=""
           />
           <div>
-            <h5>Calvin</h5>
+            <h5>{{ review.transaction.customer_name }}</h5>
             <div>
               <img
-                class="img max-width:100% height:auto"
-                src="/img/emojione_star.png"
-                alt=""
-              />
-              <img
-                class="img max-width:100% height:auto"
-                src="/img/emojione_star.png"
-                alt=""
-              />
-              <img
-                class="img max-width:100% height:auto"
-                src="/img/emojione_star.png"
-                alt=""
-              />
-              <img
-                class="img max-width:100% height:auto"
-                src="/img/emojione_star.png"
-                alt=""
-              />
-              <img
+                v-for="index in review.rating"
+                :key="'rating' + review.transaction.id + index"
                 class="img max-width:100% height:auto"
                 src="/img/emojione_star.png"
                 alt=""
               />
             </div>
             <div>
-              <h4>kPskafkasfkaspfkaspfkasp</h4>
+              <h4>
+                {{ review.review ? review.review : "Review tidak diisi" }}
+              </h4>
             </div>
           </div>
         </div>
@@ -55,7 +39,7 @@
             alt=""
           />
           <div>
-            <h5 class="mb-0">Calvinnn</h5>
+            <h5 class="mb-0">{{ review.transaction.customer_name }}</h5>
             <div class="mb-1">
               <img
                 class="img max-width:100%"
@@ -77,7 +61,9 @@
               />
             </div>
             <div>
-              <h6>kPskafkasfkaspfkaspfkasp</h6>
+              <h6>
+                {{ review.review ? review.review : "Review tidak diisi" }}
+              </h6>
             </div>
           </div>
         </div>
@@ -103,3 +89,14 @@
   }
 }
 </style>
+
+<script>
+export default {
+  props: ["review"],
+  data() {
+    return {
+      ASSET_URL: process.env.ASSET_URL,
+    };
+  },
+};
+</script>
