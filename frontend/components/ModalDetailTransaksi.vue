@@ -1,5 +1,5 @@
 <template>
-  <div style="background-color: white !important;">
+  <div style="background-color: white !important; font-family: 'Nunito Sans'">
     <b-modal id="modal-detailtransaksi" title="Detail Transaksi" ok-only>
       <div class="border border-danger rounded row py-3">
         <div class="col-8" style="font-size: 12px">

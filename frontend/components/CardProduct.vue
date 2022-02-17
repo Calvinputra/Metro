@@ -11,6 +11,7 @@
           height: auto;
           box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25) !important;
           border-radius: 10px;
+          
         "
       >
         <img
@@ -21,7 +22,9 @@
         />
         <div class="card-body">
           <div class="row">
-            <h5 class="col-sm-9 card-title">{{ data.name }}</h5>
+            <h5 class="col-sm-9 card-title" style="font-family: 'Nunito Sans'">
+              {{ data.name }}
+            </h5>
             <a
               class="col-sm-3"
               href=""
@@ -33,7 +36,10 @@
               ></i
             ></a>
           </div>
-          <p class="card-text mb-4 font-weight-bold">
+          <p
+            class="card-text mb-4 font-weight-bold "
+            style="font-family: 'Nunito Sans'"
+          >
             Rp.{{ Number(data.display_price).toLocaleString("id-ID") }}
           </p>
           <div class="row" @click.stop>
@@ -52,11 +58,11 @@
               class="col-sm-3"
               :href="
                 'https://wa.me/' +
-                settings.company_wa_phone +
-                '?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
-                data.code +
-                ' - ' +
-                data.name
+                  settings.company_wa_phone +
+                  '?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
+                  data.code +
+                  ' - ' +
+                  data.name
               "
               target="_blank"
               ><img
@@ -95,7 +101,7 @@ export default {
   props: ["data", "url"],
   data() {
     return {
-      ASSET_URL: process.env.ASSET_URL,
+      ASSET_URL: process.env.ASSET_URL
     };
   },
 
@@ -107,7 +113,7 @@ export default {
       try {
         if (this.$auth.loggedIn) {
           let data = {
-            product_id: product.id,
+            product_id: product.id
           };
           let response = await this.$axios.$post(
             process.env.API_URL + "/api/carts",
@@ -116,12 +122,12 @@ export default {
           this.$toast.success("Successfully add a product to cart", {
             theme: "bubble",
             position: "bottom-right",
-            duration: 5000,
+            duration: 5000
           });
           console.log(response);
         } else {
           //this.$router.push("/login");
-          this.addProductToCart({product:product,notification:true});
+          this.addProductToCart({ product: product, notification: true });
         }
       } catch (error) {
         console.log(error);
@@ -131,7 +137,7 @@ export default {
       try {
         if (this.$auth.loggedIn) {
           let data = {
-            product_id: id,
+            product_id: id
           };
           let response = await this.$axios.$post(
             process.env.API_URL + "/api/wishlists",
@@ -141,13 +147,13 @@ export default {
             this.$toast.success("Successfully delete a product from wishlist", {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000,
+              duration: 5000
             });
           } else {
             this.$toast.success("Successfully add a product to wishlist", {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000,
+              duration: 5000
             });
           }
 
@@ -160,12 +166,12 @@ export default {
         console.log(error);
       }
     },
-    ...mapActions(["addProductToCart"]),
+    ...mapActions(["addProductToCart"])
   },
   computed: {
     ...mapGetters({
-      settings: "getSetting",
-    }),
-  },
+      settings: "getSetting"
+    })
+  }
 };
 </script>

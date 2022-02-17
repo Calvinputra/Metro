@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section style="font-family: 'Nunito Sans'">
     <Breadcrumb :links="breadcrumb" />
     <section>
       <div class="container">

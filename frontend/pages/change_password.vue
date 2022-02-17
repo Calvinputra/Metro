@@ -1,5 +1,5 @@
 <template>
-  <section class="mb-5">
+  <section class="mb-5" style="font-family: 'Nunito Sans'">
     <Breadcrumb :links="breadcrumb" />
     <section>
       <div class="container">
@@ -149,19 +149,19 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50",
+          class: "my-2 ms-3 breadcrumb-item opacity-50"
         },
         {
           url: "/profile",
           name: "Akun Saya",
-          class: "my-2 ms-3 breadcrumb-item opacity-50",
+          class: "my-2 ms-3 breadcrumb-item opacity-50"
         },
         {
           url: "/change_password",
           name: "Ubah Password",
-          class: "my-2 breadcrumb-item active opacity-50",
-        },
-      ],
+          class: "my-2 breadcrumb-item active opacity-50"
+        }
+      ]
     };
   },
   methods: {
@@ -170,7 +170,7 @@ export default {
         let data = {
           old_password: this.old_password,
           password: this.password,
-          password_confirmation: this.password_confirmation,
+          password_confirmation: this.password_confirmation
         };
         let response = await this.$axios.$post(
           process.env.API_URL + "/api/change_password",
@@ -180,7 +180,7 @@ export default {
           this.$toast.success("Successfully change password", {
             theme: "bubble",
             position: "bottom-right",
-            duration: 5000,
+            duration: 5000
           });
           this.$router.push("/profile");
         } else {
@@ -190,7 +190,7 @@ export default {
               this.$toast.error(err[key][key2], {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000,
+                duration: 5000
               });
             });
           });
@@ -198,7 +198,7 @@ export default {
       } catch (error) {
         console.log(error);
       }
-    },
-  },
+    }
+  }
 };
 </script>

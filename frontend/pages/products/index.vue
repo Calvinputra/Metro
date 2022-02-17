@@ -6,11 +6,11 @@
 
       <div class="container">
         <div class="row">
-          <div class="col-sm-2">
+          <div class="col-sm-2" style="font-family: 'Nunito Sans'">
             <section class="">
               <div class="row">
                 <div>
-                  <h1>Kategory</h1>
+                  <h1 style="font-family: 'Nunito Sans'">Kategory</h1>
                   <template v-if="!$route.query.category">
                     <div class="rounded" style="background-color: #841c26">
                       <nuxt-link
@@ -65,7 +65,7 @@
             class="col-sm-10 align-self-start mt-2 row justify-content-between"
           >
             <div class="col-sm-4">
-              <h2>{{ title }}</h2>
+              <h2 style="font-family: 'Nunito Sans'">{{ title }}</h2>
             </div>
             <div class="col-sm-8 mx-auto my-auto">
               <div class="row" style="float: right">

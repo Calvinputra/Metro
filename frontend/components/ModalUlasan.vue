@@ -1,7 +1,9 @@
 <template>
-  <div style="background-color: white !important">
+  <div style="background-color:white !important;font-family: 'Nunito Sans'">
     <b-modal id="modal-ulasan" title="Beri Ulasan">
-      <h5 class="text-center fw-bold">Beri Ulasan</h5>
+      <h5 class="text-center fw-bold">
+        Beri Ulasan
+      </h5>
       <div class="col-sm-12 d-flex mb-3">
         <img
           class="img-fluid max-width:100% height:auto rounded"

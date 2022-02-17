@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section style="font-family: 'Nunito Sans'">
     <section id="edit-webview">
       <Breadcrumb :links="breadcrumb" />
       <section>
@@ -106,7 +106,7 @@
                       <label for="exampleFormControlSelect1">Provinsi</label>
                       <v-select
                         v-model="province_id"
-                        :reduce="(provinces) => provinces.code"
+                        :reduce="provinces => provinces.code"
                         @input="getCity"
                         :options="provinces"
                       ></v-select>
@@ -115,7 +115,7 @@
                       <label for="exampleFormControlSelect1">Kota</label>
                       <v-select
                         v-model="city_id"
-                        :reduce="(cities) => cities.code"
+                        :reduce="cities => cities.code"
                         :options="cities"
                       ></v-select>
                     </div>
@@ -270,7 +270,7 @@
                       <label for="exampleFormControlSelect1">Provinsi</label>
                       <v-select
                         v-model="province_id"
-                        :reduce="(provinces) => provinces.code"
+                        :reduce="provinces => provinces.code"
                         @input="getCity"
                         :options="provinces"
                       ></v-select>
@@ -279,7 +279,7 @@
                       <label for="exampleFormControlSelect1">Kota</label>
                       <v-select
                         v-model="city_id"
-                        :reduce="(cities) => cities.code"
+                        :reduce="cities => cities.code"
                         :options="cities"
                       ></v-select>
                     </div>
@@ -363,19 +363,19 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50",
+          class: "my-2 ms-3 breadcrumb-item opacity-50"
         },
         {
           url: "/register",
           name: "Register",
-          class: "my-2 breadcrumb-item active opacity-50",
-        },
+          class: "my-2 breadcrumb-item active opacity-50"
+        }
       ],
       //alert
       errors: null,
       dismissSecs: 10,
       dismissCountDown: 0,
-      showDismissibleAlert: false,
+      showDismissibleAlert: false
     };
   },
   methods: {
@@ -387,7 +387,7 @@ export default {
         response.data.forEach((value, index) => {
           this.countries.push({
             label: value.name,
-            code: value.id,
+            code: value.id
           });
         });
         console.log(this.countries);
@@ -398,13 +398,13 @@ export default {
     async getProvince() {
       try {
         let response = await this.$axios.$get(
-          process.env.API_URL + "/api/provinces?country_id="+this.country_id
+          process.env.API_URL + "/api/provinces?country_id=" + this.country_id
         );
         console.log(response);
         response.data.forEach((value, index) => {
           this.provinces.push({
             label: value.name,
-            code: value.id,
+            code: value.id
           });
         });
         this.getCity();
@@ -422,7 +422,7 @@ export default {
         response.data.forEach((value, index) => {
           this.cities.push({
             label: value.name,
-            code: value.id,
+            code: value.id
           });
         });
       } catch (error) {
@@ -438,7 +438,7 @@ export default {
           address: this.address,
           //country: this.country_id,
           province: this.province_id,
-          city: this.city_id,
+          city: this.city_id
           //postal_code: this.postal_code,
         };
         let response = await this.$axios.$post(
@@ -452,7 +452,7 @@ export default {
           this.$toast.success("Successfully Edit profile", {
             theme: "bubble",
             position: "bottom-right",
-            duration: 5000,
+            duration: 5000
           });
           this.$router.push("/profile");
         } else {
@@ -464,7 +464,7 @@ export default {
               this.$toast.error(err[key][key2], {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000,
+                duration: 5000
               });
             });
           });
@@ -473,29 +473,32 @@ export default {
       } catch (error) {
         console.log(error);
       }
-    },
+    }
   },
   head() {
     return {
       script: [
         {
-          src: "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js",
+          src:
+            "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         },
         {
-          src: "https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js",
-        },
+          src:
+            "https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"
+        }
       ],
       link: [
         {
           rel: "stylesheet",
-          href: "https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css",
-        },
-      ],
+          href:
+            "https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+        }
+      ]
     };
   },
   created() {
     this.getProvince();
-  },
+  }
 };
 </script>
 
@@ -532,4 +535,3 @@ export default {
   box-shadow: 0;
 }
 </style>
-

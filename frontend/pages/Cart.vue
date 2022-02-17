@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section style="font-family: 'Nunito Sans'">
     <LoadingSpinner v-if="!isLoaded" />
 
     <div id="cart-webview" v-if="isLoaded">

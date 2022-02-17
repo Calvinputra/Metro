@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section style="font-family: 'Nunito Sans'">
     <section id="register-webview">
       <Breadcrumb :links="breadcrumb" />
       <section>
