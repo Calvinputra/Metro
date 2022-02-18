@@ -462,6 +462,28 @@
   </section>
 </template>
 
+
+
+<style lang="css" scoped>
+#riwayat-mobileview {
+  display: none;
+}
+/* 0 - 991 px */
+@media screen and (max-width: 500px) {
+  #riwayat_logo {
+    display: none !important;
+  }
+
+  #riwayat-webview {
+    display: none;
+  }
+  #riwayat-mobileview {
+    display: grid;
+    font-size: 80%;
+  }
+}
+</style>
+
 <script>
 export default {
   middleware: "auth",
@@ -563,23 +585,3 @@ export default {
   watchQuery: ["page", "paginate"]
 };
 </script>
-
-<style lang="css" scoped>
-#riwayat-mobileview {
-  display: none;
-}
-/* 0 - 991 px */
-@media screen and (max-width: 500px) {
-  #riwayat_logo {
-    display: none !important;
-  }
-
-  #riwayat-webview {
-    display: none;
-  }
-  #riwayat-mobileview {
-    display: grid;
-    font-size: 80%;
-  }
-}
-</style>

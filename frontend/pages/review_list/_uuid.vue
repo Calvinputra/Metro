@@ -41,6 +41,13 @@
                   :key="detail.id"
                   :detail="detail"
                   :date="data.date_view"
+                  :rating="
+                    data.rating
+                      ? data.rating.find(
+                          (r) => r.product_id === detail.product_id
+                        )
+                      : null
+                  "
                 />
               </div>
             </div>

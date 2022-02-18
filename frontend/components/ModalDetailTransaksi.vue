@@ -90,6 +90,7 @@
             <p class="fw-bold">
               Rp. {{ Number(transaction.grand_total).toLocaleString("id-ID") }}
             </p>
+            <p>{{transaction.shipping}}</p>
           </div>
         </div>
       </div>

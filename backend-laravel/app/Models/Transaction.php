@@ -33,6 +33,7 @@ class Transaction extends Model
         "shipping_city_id",
         "resi_no",
         "snap_token",
+        "shipping",
     ];
     public function transactionDetails()
     {
@@ -44,7 +45,7 @@ class Transaction extends Model
     }
     public function transactionReview()
     {
-        return $this->hasOne("App\Models\TransactionReview", "transaction_id");
+        return $this->hasMany("App\Models\TransactionReview", "transaction_id");
     }
     public function status()
     {

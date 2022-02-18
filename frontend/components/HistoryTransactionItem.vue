@@ -129,7 +129,17 @@
                 "
                 style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
               >
-                <b> Beri Ulasan</b>
+                <template
+                  v-if="
+                    data.rating &&
+                    data.rating.length === data.transaction_details.length
+                  "
+                >
+                  <b> Lihat Ulasan</b>
+                </template>
+                <template v-else>
+                  <b> Beri Ulasan</b>
+                </template>
               </nuxt-link>
             </template>
             <template v-else>
@@ -257,7 +267,17 @@
                 class="btn text-danger btn-light btn-sm rounded py-1 px-3"
                 style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
               >
-                <b> Beri Ulasan</b>
+                <template
+                  v-if="
+                    data.rating &&
+                    data.rating.length === data.transaction_details.length
+                  "
+                >
+                  <b> Lihat Ulasan</b>
+                </template>
+                <template v-else>
+                  <b> Beri Ulasan</b>
+                </template>
               </button>
             </template>
             <template v-else>

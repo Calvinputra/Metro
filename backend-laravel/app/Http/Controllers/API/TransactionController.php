@@ -154,7 +154,6 @@ class TransactionController extends Controller
         $shipping_cost = 0;
 
         //get shipping cost 
-
         if ($request->courier == 'jne') {
             $ship_cost_data = app('App\Http\Controllers\API\ShippingController')->getJneCost($request);
 
@@ -166,6 +165,17 @@ class TransactionController extends Controller
                 }
             }
         }
+
+        //shipping desc
+        $shipping = null;
+        if ($request->courier == 'jne') {
+            if ($request->type == "CTC") {
+                $shipping = "JNE (Reguler)";
+            } else if ($request->type == "CTCYES") {
+                $shipping = "JNE (YES)";
+            }
+        }
+
 
         //jika shipping cost 0 return error
         if ($shipping_cost == 0) {
@@ -207,6 +217,7 @@ class TransactionController extends Controller
             'shipping_country_id' => $address->country_id,
             'shipping_province_id' => $address->province_id,
             'shipping_city_id' => $address->city_id,
+            'shipping' => $shipping,
         ];
 
         $transaction = Transaction::create($data);
@@ -248,6 +259,4 @@ class TransactionController extends Controller
             'success' => false,
         ]);
     }
-
-    
 }

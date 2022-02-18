@@ -1,9 +1,7 @@
 <template>
-  <div style="background-color:white !important;font-family: 'Nunito Sans'">
-    <b-modal id="modal-ulasan" title="Beri Ulasan">
-      <h5 class="text-center fw-bold">
-        Beri Ulasan
-      </h5>
+  <div style="background-color: white !important; font-family: 'Nunito Sans'">
+    <b-modal ref="modal-ulasan" id="modal-ulasan" title="Beri Ulasan">
+      <h5 class="text-center fw-bold">Beri Ulasan</h5>
       <div class="col-sm-12 d-flex mb-3">
         <img
           class="img-fluid max-width:100% height:auto rounded"
@@ -23,31 +21,15 @@
             <p>{{ detail.selectedDetail.name }}</p>
           </div>
           <div class="">
-            <img
-              class="img height:auto w-10"
-              src="/img/emojione_star.png"
-              alt=""
-            />
-            <img
-              class="img max-width:100% height:auto"
-              src="/img/emojione_star.png"
-              alt=""
-            />
-            <img
-              class="img max-width:100% height:auto"
-              src="/img/emojione_star.png"
-              alt=""
-            />
-            <img
-              class="img max-width:100% height:auto"
-              src="/img/emojione_star.png"
-              alt=""
-            />
-            <img
-              class="img max-width:100% height:auto"
-              src="/img/emojione_star.png"
-              alt=""
-            />
+            <template v-for="index in 5">
+              <i
+                :key="`rating-icon-${index}`"
+                :class="`${rating >= index ? 'fas' : 'far'} fa-star`"
+                @click="changeRatingHandler(index)"
+                style="font-size: 30px !important"
+                aria-hidden="true"
+              ></i>
+            </template>
           </div>
         </div>
       </div>
@@ -71,7 +53,7 @@
 
       <div class="text-center">
         <button
-        @click="onSubmitHandler"
+          @click="onSubmitHandler"
           type="submit"
           class="
             btn
@@ -91,6 +73,8 @@
   </div>
 </template>
 
+
+
 <script>
 export default {
   props: ["detail"],
@@ -104,7 +88,7 @@ export default {
   methods: {
     async onSubmitHandler() {
       let data = {
-        rating:this.rating,
+        rating: this.rating,
         c_review: this.review,
         transaction_id: this.detail.selectedDetail.transaction_id,
         product_id: this.detail.selectedDetail.product_id,
@@ -121,6 +105,7 @@ export default {
           duration: 5000,
         });
         await this.$nuxt.refresh();
+        this.$refs["modal-ulasan"].hide();
       } else {
         let err = response.message;
         Object.keys(err).forEach((key, error) => {
@@ -133,6 +118,10 @@ export default {
           });
         });
       }
+    },
+    changeRatingHandler(value) {
+      this.rating = value;
+      console.log(this.rating);
     },
   },
 };

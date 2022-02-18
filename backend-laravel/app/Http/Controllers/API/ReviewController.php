@@ -41,7 +41,7 @@ class ReviewController extends Controller
                 'rating.required'        => 'Rating wajib diisi',
                 'rating.numeric'         => 'Rating wajib diisi dengan angka [ 0.0 - 5.0]',
                 'rating.between'         => 'Rating wajib diisi dengan angka [ 0.0 - 5.0]',
-                'transaction_id.reqired' => 'Transaction wajib diisi',
+                'transaction_id.required' => 'Transaction wajib diisi',
                 'product_id.required'    => 'Product wajib diisi',
             ];
             $validator = Validator::make($request->all(), $rules, $messages);
@@ -83,7 +83,16 @@ class ReviewController extends Controller
                 "customer_id" => $user->id,
                 "review" => $request->c_review ?? null,
             ];
-            $review = $transaction->transactionReview()->create($data);
+            $review = TransactionReview::where('customer_id', $user->id)
+                ->where('product_id', $request->product_id)
+                ->where('transaction_id', $request->transaction_id)->first();
+            if (!$review) {
+                //create new
+                $review = $transaction->transactionReview()->create($data);
+            } else {
+                $review = tap($review)->update($data);
+            }
+
             return response()->json([
                 "success" => true,
                 "data" => $review,

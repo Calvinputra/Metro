@@ -12,13 +12,13 @@
           <div>
             <h5>{{ review.transaction.customer_name }}</h5>
             <div>
-              <img
-                v-for="index in review.rating"
-                :key="'rating' + review.transaction.id + index"
-                class="img max-width:100% height:auto"
-                src="/img/emojione_star.png"
-                alt=""
-              />
+              <i
+                v-for="index in 5"
+                :key="`rating-icon-${index}`"
+                :class="`${index <= review.rating ? 'fas' : 'far'} fa-star`"
+                style="font-size: 30px !important"
+                aria-hidden="true"
+              ></i>
             </div>
             <div>
               <h4>
@@ -41,24 +41,13 @@
           <div>
             <h5 class="mb-0">{{ review.transaction.customer_name }}</h5>
             <div class="mb-1">
-              <img
-                class="img max-width:100%"
-                height="25px"
-                src="/img/emojione_star.png"
-                alt=""
-              />
-              <img
-                class="img max-width:100%"
-                height="25px"
-                src="/img/emojione_star.png"
-                alt=""
-              />
-              <img
-                class="img max-width:100%"
-                height="25px"
-                src="/img/emojione_star.png"
-                alt=""
-              />
+              <i
+                v-for="index in 5"
+                :key="`rating-icon-${index}`"
+                :class="`${index <= review.rating ? 'fas' : 'far'} fa-star`"
+                style="font-size: 30px !important"
+                aria-hidden="true"
+              ></i>
             </div>
             <div>
               <h6>

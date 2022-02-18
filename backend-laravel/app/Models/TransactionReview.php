@@ -15,7 +15,7 @@ class TransactionReview extends Model
         'product_id',
         'transaction_id',
     ];
-    protected $hidden = ['transaction_id', 'customer_id','product_id'];
+    protected $hidden = ['transaction_id', 'customer_id'];
     public function customer(){
         return $this->belongsTo('App\Models\Customer','customer_id');
     }
