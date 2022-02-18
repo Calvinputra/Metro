@@ -24,7 +24,7 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-9">
-                  <p class="card-title" style="font-family: 'Nunito Sans'">
+                  <p class="card-title" style="font-family: 'Nunito Sans';">
                     {{ data.name }}
                   </p>
                   <p
