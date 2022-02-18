@@ -71,7 +71,7 @@
 
       <div class="text-center">
         <button
-        @click="onSubmitHandler"
+          @click="onSubmitHandler"
           type="submit"
           class="
             btn
@@ -98,16 +98,16 @@ export default {
     return {
       ASSET_URL: process.env.ASSET_URL,
       review: "",
-      rating: 0,
+      rating: 0
     };
   },
   methods: {
     async onSubmitHandler() {
       let data = {
-        rating:this.rating,
+        rating: this.rating,
         c_review: this.review,
         transaction_id: this.detail.selectedDetail.transaction_id,
-        product_id: this.detail.selectedDetail.product_id,
+        product_id: this.detail.selectedDetail.product_id
       };
       console.log(data);
       let response = await this.$axios.$post(
@@ -118,7 +118,7 @@ export default {
         this.$toast.success("Successfully give a rating", {
           theme: "bubble",
           position: "bottom-right",
-          duration: 5000,
+          duration: 5000
         });
         await this.$nuxt.refresh();
       } else {
@@ -128,12 +128,12 @@ export default {
             this.$toast.error(err[key][key2], {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000,
+              duration: 5000
             });
           });
         });
       }
-    },
-  },
+    }
+  }
 };
 </script>

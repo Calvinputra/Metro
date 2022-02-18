@@ -33,23 +33,68 @@
               <p class="mb-"></p>
             </div>
 
-            <div class="text-center container mt-5 mb-5">
+            <div class="text-center container  mb-5">
               <div>
                 <div class="col-sm-2"></div>
-                <div class="container border border-2 mt-3 rounded col-sm-8">
-                  <h3 class="fw-bold mt-2 mb-3">{{ this.message }}</h3>
-                  <span>
-                    <p class="text-center"></p>
-                  </span>
-
-                  <p>Click this button to go back to transaction list</p>
-                  <button
-                    @click="doRedirectTransaction"
-                    class="btn text-white mb-3 p-2"
-                    style="background-color: #841c26"
+                <div class="container border border-2 mt-3 rounded col-sm-8 ">
+                  <!-- finish -->
+                  <div
+                    v-if="$route.params.status == 'finish'"
+                    class="text-center mt-4 mb-4"
                   >
-                    Back
-                  </button>
+                    <h4 class="fw-bold text-center">
+                      Pembayaran belum selesai
+                    </h4>
+                    <p>
+                      Pembayaran telah Berhasil Klik tombol ini untuk lanjut
+                      belanja. Terima kasih!!!
+                    </p>
+                    <button
+                      class="btn  btn-shadow text-white"
+                      style="background-color: #841C26"
+                    >
+                      Lanjut
+                    </button>
+                  </div>
+                  <!-- unfinish -->
+                  <div
+                    v-if="$route.params.status == 'unfinish'"
+                    class="text-center mt-4 mb-4"
+                  >
+                    <h4 class="fw-bold text-center">
+                      Pembayaran belum selesai
+                    </h4>
+                    <p>
+                      Klik tombol ini untuk kembali ke halaman sebelumnya dan
+                      selesaikan pembayaran terlebih dahulu
+                    </p>
+                    <button
+                      class="btn  btn-shadow text-white"
+                      style="background-color: #841C26"
+                    >
+                      Periksa
+                    </button>
+                  </div>
+                  <!-- tidak berhasi -->
+                  <div
+                    v-if="$route.params.status == 'error'"
+                    class="text-center mt-4 mb-4"
+                  >
+                    <h4 class="fw-bold text-center">
+                      Pembayaran Gagal
+                    </h4>
+                    <i class="fas fa-exclamation-triangle text-black"></i>
+                    <p>
+                      Pembayaran terhenti, silahkan refresh halaman ini atau
+                      kembali ke halaman sebelumnya
+                    </p>
+                    <button
+                      class="btn  btn-shadow text-white"
+                      style="background-color: #841C26"
+                    >
+                      kembali
+                    </button>
+                  </div>
                 </div>
                 <div class="col-sm-2"></div>
               </div>
