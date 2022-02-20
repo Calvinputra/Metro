@@ -24,11 +24,14 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-9">
-                  <p class="card-title" style="font-family: 'Nunito Sans';">
+                  <p
+                    class="card-title namabarang"
+                    style="font-family: 'Nunito Sans';"
+                  >
                     {{ data.name }}
                   </p>
                   <p
-                    class="card-text mb-4 font-weight-bold"
+                    class="card-text mb-4 font-weight-bold "
                     style="font-family: 'Nunito Sans'"
                   >
                     Rp.{{ Number(data.display_price).toLocaleString("id-ID") }}
@@ -281,6 +284,13 @@ export default {
 <style>
 .swiper-slide:hover {
   cursor: pointer;
+}
+.namabarang {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 </style>
 <style lang="css" scoped>

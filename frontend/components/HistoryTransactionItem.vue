@@ -7,76 +7,82 @@
           class="col-sm-12 mb-0 mt-0"
         />
       </div>
-      <div class="d-flex" style="justify-content: space-between">
-        <div class="d-flex ml-2 mt-4">
-          <div>
-            <img class="mr-2" src="/img/audiblelogo.png" alt="" />
-          </div>
-          <div>
-            <template v-if="data.status_id == 1">
-              <span
-                class="
+      <div class="row">
+        <div class="col-sm-9">
+          <div class="row mt-4">
+            <div class="col-sm-2 mr-3">
+              <img
+                style="width: 90px; height: 90px"
+                src="/img/audiblelogo.png"
+                alt=""
+              />
+            </div>
+            <div class="col-sm-9">
+              <template v-if="data.status_id == 1">
+                <span
+                  class="
                   border border-danger border-2
                   text-danger
                   rounded-3
                   px-2
                   py-1
                 "
-                style="font-size: 12px !important"
-              >
-                {{ data.status.name }}</span
-              >
-            </template>
-            <template v-else-if="data.status_id == 4">
-              <span
-                class="
+                  style="font-size: 12px !important"
+                >
+                  {{ data.status.name }}</span
+                >
+              </template>
+              <template v-else-if="data.status_id == 4">
+                <span
+                  class="
                   border border-success border-2
                   text-success
                   rounded-3
                   px-2
                   py-1
                 "
-                style="font-size: 12px !important"
-              >
-                {{ data.status.name }}</span
-              >
-            </template>
-            <template v-else>
-              <span
-                class="
+                  style="font-size: 12px !important"
+                >
+                  {{ data.status.name }}</span
+                >
+              </template>
+              <template v-else>
+                <span
+                  class="
                   border border-warning border-2
                   text-warning
                   rounded-3
                   px-2
                   py-1
                 "
-                style="font-size: 12px !important"
-              >
-                {{ data.status.name }}</span
-              >
-            </template>
+                  style="font-size: 12px !important"
+                >
+                  {{ data.status.name }}</span
+                >
+              </template>
 
-            #{{ data.uuid }}
-            <br />
-            <span class="mt-4">{{ data.transaction_details[0].name }}</span>
-            <p>
-              {{ data.transaction_details[0].qty }} x Rp
-              {{
-                Number(data.transaction_details[0].price).toLocaleString(
-                  "id-ID"
-                )
-              }}
-              <template v-if="data.transaction_details.length > 1"
-                ><span style="color: red">dan Lainnya</span></template
-              >
-            </p>
+              #{{ data.uuid }}
+              <div class="mt-1"></div>
+              <span>{{ data.transaction_details[0].name }}</span>
+              <p>
+                {{ data.transaction_details[0].qty }} x Rp
+                {{
+                  Number(data.transaction_details[0].price).toLocaleString(
+                    "id-ID"
+                  )
+                }}
+                <template v-if="data.transaction_details.length > 1"
+                  ><span style="color: red">dan Lainnya</span></template
+                >
+              </p>
+            </div>
           </div>
         </div>
-        <div>
-          <p class="text-right mt-3">
+        <div class="col-sm-3">
+          <p class="text-right mt-4">
             Rp. {{ Number(data.grand_total).toLocaleString("id-ID") }}
           </p>
-          <span class="d-flex justify-content-end">
+          <span class="d-flex justify-content-end mt-5">
             <b-button
               v-b-modal.modal-detailtransaksi
               @click="showDetailTransaction"
@@ -93,7 +99,23 @@
               "
               style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
             >
-              <b> Lihat Detail Transaksi</b>
+              <b> Lihat Detail</b>
+            </b-button>
+            <b-button
+              type="submit"
+              class="
+                mr-3
+                btn
+                text-danger
+                btn-light btn-sm
+                col-sm-6
+                ms-0
+                py-2
+                px-2
+              "
+              style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+            >
+              <b> Beli lagi</b>
             </b-button>
             <template v-if="data.status_id == 1">
               <nuxt-link
@@ -132,7 +154,7 @@
                 <template
                   v-if="
                     data.rating &&
-                    data.rating.length === data.transaction_details.length
+                      data.rating.length === data.transaction_details.length
                   "
                 >
                   <b> Lihat Ulasan</b>
@@ -270,7 +292,7 @@
                 <template
                   v-if="
                     data.rating &&
-                    data.rating.length === data.transaction_details.length
+                      data.rating.length === data.transaction_details.length
                   "
                 >
                   <b> Lihat Ulasan</b>
@@ -302,8 +324,8 @@ export default {
   methods: {
     showDetailTransaction() {
       this.$parent.showDetailTransaction(this.data);
-    },
-  },
+    }
+  }
 };
 </script>
 

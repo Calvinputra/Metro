@@ -69,12 +69,9 @@
                 >Register</b-dropdown-item
               >
 
-              <b-dropdown-divider></b-dropdown-divider>
-
               <b-dropdown-item v-if="this.$auth.loggedIn" @click="logout" active
                 >Logout</b-dropdown-item
               >
-              <b-dropdown-item disabled>Disabled action</b-dropdown-item>
             </b-dropdown>
           </div>
           <div class="col-sm-4">

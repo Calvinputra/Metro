@@ -3,11 +3,11 @@
     <template v-if="products.length > 0">
       <section id="swipercard-webview">
         <div
-          class="swiper-container  pt-3"
+          class="swiper-container pt-4"
           style="background-image: url('/img/bg-home.png'); background-repeat: no-repeat; background-size: 100% 250px; background-position: center; "
         >
           <!-- Additional required wrapper -->
-          <div class="swiper-wrapper">
+          <div class="swiper-wrapper mt-2">
             <!-- Slides -->
 
             <div
@@ -23,10 +23,10 @@
           </div>
           <!-- If we need navigation buttons -->
           <div>
-            <div class="swiper-button-prev" style="color:white"></div>
+            <div class="swiper-button-prev border" style="color:white"></div>
           </div>
           <div>
-            <div class="swiper-button-next" style="color:white"></div>
+            <div class="swiper-button-next border" style="color:white"></div>
           </div>
         </div>
       </section>

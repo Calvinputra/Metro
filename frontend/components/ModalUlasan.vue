@@ -1,15 +1,15 @@
 <template>
   <div style="background-color: white !important; font-family: 'Nunito Sans'">
     <b-modal ref="modal-ulasan" id="modal-ulasan" title="Beri Ulasan">
-      <h5 class="text-center fw-bold">Beri Ulasan</h5>
-      <div class="col-sm-12 d-flex mb-3">
+      <h5 class="text-center fw-bold">Beri Rating Ulasan</h5>
+      <div class="col-sm-12 mb-3 mt-3 text-center">
         <img
           class="img-fluid max-width:100% height:auto rounded"
           src="/img/spcBody.jpg"
           alt=""
         />
         <div>
-          <div class="d-flex">
+          <div class="mt-2 mb-2">
             <p>
               <!-- {{
                 typeof detail.selectedDetail !== "undefined"
@@ -18,15 +18,16 @@
               }} -->
               -
             </p>
-            <p>{{ detail.selectedDetail.name }}</p>
+            <!-- <p>{{ detail.selectedDetail.name }}</p> -->
           </div>
           <div class="">
             <template v-for="index in 5">
               <i
+                class="me-2"
                 :key="`rating-icon-${index}`"
                 :class="`${rating >= index ? 'fas' : 'far'} fa-star`"
                 @click="changeRatingHandler(index)"
-                style="font-size: 30px !important"
+                style="font-size: 40px !important"
                 aria-hidden="true"
               ></i>
             </template>
@@ -34,15 +35,17 @@
         </div>
       </div>
       <div class="">
-        <p>
+        <p class="text-center">
           Hai {{ $auth.user.first_name }}, puas dengan barang yang kamu beli?
           Beri ulasan dan rekomendasikan ke pembeli lain ya!
         </p>
       </div>
-      <div>
-        <label for="review">Review<span style="color: red">*</span>:</label>
+      <div class="mt-4">
+        <label for="review"
+          >Beri Komentar<span style="color: red">*</span>:</label
+        >
         <textarea
-          class="form-control col-sm-8"
+          class="form-control col-sm-12"
           id="review"
           name="review"
           rows="3"
@@ -61,7 +64,7 @@
             btn-light btn-sm
             shadow
             rounded
-            col-sm-2
+            col-sm-4
             py-2
             px-2
           "
@@ -72,8 +75,6 @@
     </b-modal>
   </div>
 </template>
-
-
 
 <script>
 export default {
@@ -122,7 +123,7 @@ export default {
     changeRatingHandler(value) {
       this.rating = value;
       console.log(this.rating);
-    },
-  },
+    }
+  }
 };
 </script>
