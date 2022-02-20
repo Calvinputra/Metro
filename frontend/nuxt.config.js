@@ -2,7 +2,7 @@ require("dotenv").config();
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "admin",
+    title: "Metro Jaya Indonesia",
     meta: [
       { charset: "utf-8" },
       {
