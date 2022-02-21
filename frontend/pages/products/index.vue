@@ -67,19 +67,19 @@
             <div class="col-sm-4">
               <h2 style="font-family: 'Nunito Sans'">{{ title }}</h2>
             </div>
-            <div class="col-sm-8 mx-auto my-auto">
+            <div class="col-sm-8 mx-auto my-auto mb-3">
               <div class="row" style="float: right">
                 <h5 class="col align-self-center">Urutkan:</h5>
-                <div class="col btn-group ms-0 ps-0">
-                  <button
-                    class="btn btn-light btn-sm dropdown-toggle text-danger"
-                    type="button"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
+                <div class="col btn-group">
+                  <b-dropdown
+                    id="dropdown-1"
+                    text="Produk Terbaru"
+                    class="m-md-2"
                   >
-                    Small button
-                  </button>
+                    <b-dropdown-item>Produk terbaru</b-dropdown-item>
+                    <b-dropdown-item>Harga Terbesar</b-dropdown-item>
+                    <b-dropdown-item>Harga Terkecil</b-dropdown-item>
+                  </b-dropdown>
                   <div class="dropdown-menu">...</div>
                 </div>
               </div>

@@ -462,8 +462,6 @@
   </section>
 </template>
 
-
-
 <style lang="css" scoped>
 #riwayat-mobileview {
   display: none;

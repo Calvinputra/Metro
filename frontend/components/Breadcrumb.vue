@@ -1,8 +1,10 @@
 <template>
-  <nav class="container my-4" aria-label="breadcrumb">
+  <nav class="container my-4" style="color: red" aria-label="breadcrumb">
     <ol class="py-1 breadcrumb">
       <li v-for="link in links" :key="link.name" :class="link.class">
-        <nuxt-link style="text-decoration: none; color: black" :to="link.url">{{link.name}}</nuxt-link>
+        <nuxt-link style="text-decoration: none; color: red" :to="link.url">{{
+          link.name
+        }}</nuxt-link>
       </li>
     </ol>
   </nav>
@@ -10,6 +12,6 @@
 
 <script>
 export default {
-  props: ["links"],
+  props: ["links"]
 };
 </script>

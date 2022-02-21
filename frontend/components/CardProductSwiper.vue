@@ -7,66 +7,59 @@
           style="text-decoration: none !important; color: black"
         >
           <div
-            class="card bg-white rounded"
+            class="card mb-5 bg-white rounded"
             style="
-              width: 250px;
-              height: auto;
-              box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25) !important;
-              border-radius: 10px;
-            "
+          width: 100%;
+          height: auto;
+          box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25) !important;
+          border-radius: 10px;
+          
+        "
           >
             <img
-              style="width: 100%; height: 183px"
+              style="width: 100%; height: 180px"
               :src="ASSET_URL + '/' + JSON.parse(data.images)[0]"
               class="card-img-top height:auto"
               alt="..."
             />
             <div class="card-body">
               <div class="row">
-                <div class="col-sm-9">
-                  <p
-                    class="card-title namabarang"
-                    style="font-family: 'Nunito Sans';"
-                  >
-                    {{ data.name }}
-                  </p>
-                  <p
-                    class="card-text mb-4 font-weight-bold "
-                    style="font-family: 'Nunito Sans'"
-                  >
-                    Rp.{{ Number(data.display_price).toLocaleString("id-ID") }}
-                  </p>
-                </div>
+                <h5
+                  class="col-sm-9 card-title"
+                  style="font-family: 'Nunito Sans'"
+                >
+                  {{ data.name }}
+                </h5>
                 <a
-                  class="col-sm-3  text-left"
+                  class="col-sm-3"
                   href=""
                   onclick="return false;"
-                  @click="addToWishList(data.id)"
+                  @click.stop="addToWishList(data.id)"
                   ><i
                     :class="(data.wishlist_exist ? 'fas' : 'far') + ' fa-heart'"
-                    style="
-                      font-size: 30px !important;
-                      color: #c63442 !important;
-                    "
-                  ></i>
-                </a>
+                    style="font-size: 30px !important; color: #c63442 !important"
+                  ></i
+                ></a>
               </div>
+              <p
+                class="card-text mb-4 font-weight-bold "
+                style="font-family: 'Nunito Sans'"
+              >
+                Rp.{{ Number(data.display_price).toLocaleString("id-ID") }}
+              </p>
               <div class="row" @click.stop>
-                <button
-                  class="btn text-danger btn-sm rounded col-sm-5 ms-2 pt-2 "
+                <a
+                  class="btn text-danger btn-sm rounded col-sm-5 ms-2 pt-2"
                   style="
-                    background-color: #f3f3f3;
-                    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
-                   
-                  "
+                background-color: #f3f3f3;
+                box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+              "
                   onclick="return false;"
                   @click="addToCart(data)"
+                  >+ Keranjang</a
                 >
-                  <p style="font-family: 'Nunito Sans'">
-                    + Keranjang
-                  </p>
-                </button>
                 <a
+                  @click.stop
                   class="col-sm-3"
                   :href="
                     'https://wa.me/' +
@@ -80,19 +73,23 @@
                   ><img
                     class="img-fluid max-width:100% height:auto rounded"
                     style="
-                      background-color: #f3f3f3;
-                      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
-                    "
+                  background-color: #f3f3f3;
+                  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                "
                     src="/img/Whatsapp_new.png"
                     alt=""
                 /></a>
-                <a class="col-sm-3" :href="data.url_tokopedia" target="_blank"
+                <a
+                  @click.stop
+                  class="col-sm-3"
+                  :href="data.url_tokopedia"
+                  target="_blank"
                   ><img
                     class="img-fluid max-width:100% height:auto rounded"
                     style="
-                      background-color: #f3f3f3;
-                      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
-                    "
+                  background-color: #f3f3f3;
+                  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                "
                     src="/img/tokopedia.png"
                     alt=""
                 /></a>
