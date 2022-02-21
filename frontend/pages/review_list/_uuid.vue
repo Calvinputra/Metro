@@ -44,12 +44,16 @@
                   :rating="
                     data.rating
                       ? data.rating.find(
-                          (r) => r.product_id === detail.product_id
+                          r => r.product_id === detail.product_id
                         )
                       : null
                   "
                 />
               </div>
+              <hr
+                style="height: 3px; width: 100%; border-width: 0; color: red"
+                class="col-sm-12 mb-2 mt-0"
+              />
             </div>
             <!-- end row -->
           </div>
@@ -67,7 +71,7 @@ export default {
     showModalUlasan(detail) {
       this.selectedDetail = detail;
       console.log(this.selectedDetail);
-    },
+    }
   },
   async asyncData({ $axios, params }) {
     try {
@@ -77,7 +81,7 @@ export default {
       let response_data = response.data;
       return {
         data: response_data,
-        success: response.success,
+        success: response.success
       };
     } catch (error) {
       console.log(error);
@@ -90,22 +94,22 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50",
+          class: "my-2 ms-3 breadcrumb-item opacity-50"
         },
         {
           url: "/riwayat_pembelian",
           name: "Riwayat Pembelian",
-          class: "my-2 ms-3 breadcrumb-item opacity-50",
+          class: "my-2 ms-3 breadcrumb-item opacity-50"
         },
 
         {
           url: "/review_list/" + this.$route.params.uuid,
           name: "Review Barang",
-          class: "my-2 breadcrumb-item active opacity-50",
-        },
-      ],
+          class: "my-2 breadcrumb-item active opacity-50"
+        }
+      ]
     };
-  },
+  }
 };
 </script>
 

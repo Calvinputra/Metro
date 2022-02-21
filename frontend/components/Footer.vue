@@ -23,17 +23,24 @@
               {{ settings.company_address }}
             </p>
             <div>
-              <a href="" class="me-4 text-reset">
-                <i class="fab fa-facebook-f"></i>
+              <a href="" class=" text-reset">
+                <img
+                  style="width: 40px; margin-top: -5px;"
+                  class=""
+                  src="/img/tokopedia.png"
+                  alt=""
+                />
               </a>
-              <a href="" class="me-4 text-reset">
-                <i class="fab fa-twitter"></i>
+              <a href="">
+                <img
+                  style="width: 40px; margin-top: -5px;"
+                  class="me-2"
+                  src="/img/whatsapp_new.png"
+                  alt=""
+                />
               </a>
               <a href="" class="me-4 text-reset">
                 <i class="fab fa-google"></i>
-              </a>
-              <a href="" class="me-4 text-reset">
-                <i class="fab fa-instagram"></i>
               </a>
             </div>
           </div>

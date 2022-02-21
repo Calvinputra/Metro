@@ -37,10 +37,6 @@
         </template>
       </div>
     </div>
-    <hr
-      style="height: 3px; width: 100%; border-width: 0; color: red"
-      class="col-sm-12 mb-0 mt-2"
-    />
   </div>
 </template>
 
@@ -50,15 +46,15 @@ export default {
   data() {
     return {
       ASSET_URL: process.env.ASSET_URL,
-      rating_exists: false,
+      rating_exists: false
     };
   },
   methods: {
     showModalUlasan() {
       this.$parent.showModalUlasan(this.detail);
-    },
+    }
   },
-  mounted(){
+  mounted() {
     console.log(this.rating);
   }
 };
