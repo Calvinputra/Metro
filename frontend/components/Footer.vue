@@ -39,7 +39,10 @@
                   alt=""
                 />
               </a>
-              <a href="" class="me-4 text-reset">
+              <a
+                href="mailto:metrojayaindonesia@gmail.com"
+                class="me-4 text-reset"
+              >
                 <i class="fab fa-google"></i>
               </a>
             </div>

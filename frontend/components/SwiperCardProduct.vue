@@ -23,10 +23,16 @@
           </div>
           <!-- If we need navigation buttons -->
           <div>
-            <div class="swiper-button-prev border" style="color:white"></div>
+            <div
+              class="swiper-button-prev border border-3 rounded-circle"
+              style="color:white; "
+            ></div>
           </div>
           <div>
-            <div class="swiper-button-next border" style="color:white"></div>
+            <div
+              class="swiper-button-next border border-3 rounded-circle"
+              style="color:white"
+            ></div>
           </div>
         </div>
       </section>
@@ -102,6 +108,12 @@ export default {
 }
 #swipercard-mobileview {
   display: none;
+}
+.swiper-button-prev:after {
+  font-size: 15px !important;
+}
+.swiper-button-next:after {
+  font-size: 15px !important;
 }
 /* 0 - 991 px */
 @media screen and (max-width: 500px) {
