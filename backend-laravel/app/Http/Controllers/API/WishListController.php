@@ -16,7 +16,14 @@ class WishListController extends Controller
     {
         $user = Customer::where('token', '=', request()->bearerToken())->first();
         if ($user) {
-            return WishListResource::collection(Wishlist::where('customer_id', $user->id)->with('product')->orderBy('created_at', 'DESC')->get());
+            $data = Wishlist::where('customer_id', $user->id)->with('product')->orderBy('created_at', 'DESC');
+            if ($request->s) {
+                $data->whereHas('product', function ($q) use ($request) {
+                    $q->where('name', "LIKE", "%" . $request->s . "%");
+                });
+            }
+
+            return WishListResource::collection($data->get())->additional(["success" => true]);
         } else {
             return response()->json([
                 'success' => false,

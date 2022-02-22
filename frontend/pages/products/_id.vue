@@ -606,7 +606,7 @@ export default {
         process.env.API_URL + `/api/products/${params.id}`
       );
       let response_data = response.data.data;
-      console.log(response_data);
+      console.log(response_data.review);
 
       return {
         data: response_data,

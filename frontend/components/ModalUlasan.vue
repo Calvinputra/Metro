@@ -48,6 +48,7 @@
           class="form-control col-sm-12"
           id="review"
           name="review"
+          v-model="review"
           rows="3"
           placeholder="Tulis ulasan di sini..."
         ></textarea>
@@ -94,7 +95,7 @@ export default {
         transaction_id: this.detail.selectedDetail.transaction_id,
         product_id: this.detail.selectedDetail.product_id
       };
-      console.log(data);
+      //console.log(data);
       let response = await this.$axios.$post(
         process.env.API_URL + "/api/reviews",
         data

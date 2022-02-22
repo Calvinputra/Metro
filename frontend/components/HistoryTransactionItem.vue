@@ -61,7 +61,7 @@
                 >
               </template>
 
-              #{{ data.uuid }}
+              #{{ data.transaction_id }}
               <div class="mt-1"></div>
               <span>{{ data.transaction_details[0].name }}</span>
               <p>
@@ -196,7 +196,7 @@
           </div>
 
           <div class="col pe-0">
-            <p class="mb-1">#{{ data.uuid }}</p>
+            <p class="mb-1">#{{ data.transaction_id }}</p>
             <template v-if="data.status_id == 1">
               <div
                 class="

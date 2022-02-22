@@ -17,6 +17,8 @@
           <div class="d-flex flex-row-reverse mr-5">
             <div class="input-group md-form form-sm form-2 pl-0 col-sm-3">
               <input
+                v-on:keyup.enter="onSearchHandler"
+                v-model="search"
                 class="form-control my-0 py-1 line-border pl-4"
                 style="border-radius: 10px 0px 0px 10px"
                 type="text"
@@ -25,6 +27,7 @@
               />
               <div class="input-group-append">
                 <button
+                  @click="onSearchHandler"
                   class="btn btn-outline-success mx-auto"
                   style="
                     background-color: #e5e5e5;
@@ -32,7 +35,6 @@
                     width: 40px;
                   "
                   type="submit"
-                  @click="onSearch"
                 >
                   <i
                     class="fas fa-search"
@@ -73,6 +75,8 @@
           <div class="d-flex flex-row-reverse col-sm-2 p-0 ms-1">
             <div class="input-group md-form form-sm form-2 p-0 col-sm-3">
               <input
+                v-on:keyup.enter="onSearchHandler"
+                v-model="search"
                 class="form-control my-0 py-1 line-border pl-4"
                 type="text"
                 style="border-radius: 10px 0px 0px 10px"
@@ -81,6 +85,7 @@
               />
               <div class="input-group-append">
                 <button
+                  @click="onSearchHandler"
                   class="btn btn-outline-success mx-auto search-button"
                   type="submit"
                 >
@@ -122,28 +127,51 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50"
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
         },
 
         {
           url: "/wishlist",
           name: "Daftar Keinginan",
-          class: "my-2 breadcrumb-item active opacity-50"
-        }
-      ]
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
+      ],
+      search: "",
     };
   },
-  async asyncData({ $axios }) {
+  async asyncData({ $axios, query }) {
     try {
-      let wishlists = await $axios.$get(process.env.API_URL + "/api/wishlists");
+      let data = {
+        s: query.s,
+      };
+      let wishlists = await $axios.$get(
+        process.env.API_URL + "/api/wishlists",
+        {
+          params: data,
+        }
+      );
 
       return {
-        wishlists: wishlists.data
+        wishlists: wishlists.data,
       };
     } catch (error) {
       console.log(error);
     }
-  }
+  },
+  mounted() {
+    this.search = this.$route.query.s;
+  },
+  methods: {
+    onSearchHandler() {
+      this.$router.push({
+        path: "/wishlist",
+        query: {
+          s: this.search,
+        },
+      });
+    },
+  },
+  watchQuery: ["s"],
 };
 </script>
 

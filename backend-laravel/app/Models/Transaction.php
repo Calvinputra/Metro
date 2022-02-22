@@ -34,6 +34,7 @@ class Transaction extends Model
         "resi_no",
         "snap_token",
         "shipping",
+        "transaction_id",
     ];
     public function transactionDetails()
     {

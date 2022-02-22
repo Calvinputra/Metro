@@ -227,6 +227,9 @@ class TransactionController extends Controller
             'status' => TransactionStatus::find(1)->name,
         ]);
         //hapus checkout cart
+
+        $user->checkoutCarts->delete();
+
         return (new TransactionResource($transaction))->additional(['success' => true]);
     }
     /**

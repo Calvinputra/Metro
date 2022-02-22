@@ -7,7 +7,7 @@
             <tbody>
               <tr>
                 <th scope="row">Nomor Invoice:</th>
-                <td>{{ transaction.uuid }}</td>
+                <td>{{ transaction.transaction_id }}</td>
               </tr>
               <tr>
                 <th scope="row" class="pt-2">Tanggal:</th>
