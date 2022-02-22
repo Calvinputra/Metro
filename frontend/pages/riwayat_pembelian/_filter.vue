@@ -71,7 +71,35 @@
                   Semua
                 </nuxt-link>
               </template>
-
+              <template v-if="this.$route.params.filter == 'berlangsung'">
+                <nuxt-link
+                  to="/riwayat_pembelian/berlangsung"
+                  type="submit"
+                  class="
+                    btn
+                    text-white
+                    btn-danger btn-sm
+                    rounded
+                    col-sm-2
+                    mx-1
+                    my-1
+                    py-1
+                    px-2
+                  "
+                  style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+                >
+                  Berlangsung
+                </nuxt-link>
+              </template>
+              <template v-else>
+                <nuxt-link
+                  to="/riwayat_pembelian/berlangsung"
+                  type="submit"
+                  class="btn text-black btn-sm col-sm-2 mx-1 my-1 py-1 px-2"
+                >
+                  Berlangsung
+                </nuxt-link>
+              </template>
               <template
                 v-if="this.$route.params.filter == 'menunggu_pembayaran'"
               >
@@ -160,36 +188,6 @@
                   class="btn text-black btn-sm col-sm-2 mx-1 my-1 py-1 px-2"
                 >
                   Tidak Berhasil
-                </nuxt-link>
-              </template>
-
-              <template v-if="this.$route.params.filter == 'berlangsung'">
-                <nuxt-link
-                  to="/riwayat_pembelian/berlangsung"
-                  type="submit"
-                  class="
-                    btn
-                    text-white
-                    btn-danger btn-sm
-                    rounded
-                    col-sm-2
-                    mx-1
-                    my-1
-                    py-1
-                    px-2
-                  "
-                  style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
-                >
-                  Berlangsung
-                </nuxt-link>
-              </template>
-              <template v-else>
-                <nuxt-link
-                  to="/riwayat_pembelian/berlangsung"
-                  type="submit"
-                  class="btn text-black btn-sm col-sm-2 mx-1 my-1 py-1 px-2"
-                >
-                  Berlangsung
                 </nuxt-link>
               </template>
             </div>

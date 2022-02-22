@@ -164,24 +164,7 @@
                 </template>
               </nuxt-link>
             </template>
-            <template v-else>
-              <button
-                type="submit"
-                class="
-                  btn
-                  text-danger
-                  btn-light btn-sm
-                  rounded
-                  col-sm-4
-                  ms-0
-                  py-2
-                  px-2
-                "
-                style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
-              >
-                <b> Lainnya</b>
-              </button>
-            </template>
+            <template v-else> </template>
           </span>
         </div>
       </div>
@@ -302,15 +285,7 @@
                 </template>
               </button>
             </template>
-            <template v-else>
-              <button
-                type="submit"
-                class="btn text-danger btn-light btn-sm rounded py-1 px-3"
-                style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
-              >
-                <b> Lainnya</b>
-              </button>
-            </template>
+            <template v-else> </template>
           </span>
         </div>
       </div>
