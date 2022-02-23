@@ -62,11 +62,16 @@
                 href="/riwayat_pembelian"
                 >Riwayat Pembelian</b-dropdown-item
               >
+              <b-dropdown-item
+                v-if="this.$auth.loggedIn"
+                href="/change_password"
+                >Ubah sandi</b-dropdown-item
+              >
               <b-dropdown-item v-if="!this.$auth.loggedIn" href="/login"
-                >Login</b-dropdown-item
+                >Masuk</b-dropdown-item
               >
               <b-dropdown-item v-if="!this.$auth.loggedIn" href="/register"
-                >Register</b-dropdown-item
+                >Daftar</b-dropdown-item
               >
 
               <b-dropdown-item v-if="this.$auth.loggedIn" @click="logout" active
@@ -160,8 +165,6 @@
               <b-dropdown-item v-if="!this.$auth.loggedIn" href="/register"
                 >Register</b-dropdown-item
               >
-
-              <b-dropdown-divider></b-dropdown-divider>
 
               <b-dropdown-item v-if="this.$auth.loggedIn" @click="logout" active
                 >Logout</b-dropdown-item

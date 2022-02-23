@@ -71,6 +71,7 @@
                   Semua
                 </nuxt-link>
               </template>
+              <!-- berlangsung -->
               <template v-if="this.$route.params.filter == 'berlangsung'">
                 <nuxt-link
                   to="/riwayat_pembelian/berlangsung"
@@ -100,6 +101,7 @@
                   Berlangsung
                 </nuxt-link>
               </template>
+              <!-- menunggu pembayaran -->
               <template
                 v-if="this.$route.params.filter == 'menunggu_pembayaran'"
               >
@@ -131,6 +133,7 @@
                   Menunggu Pembayaran
                 </nuxt-link>
               </template>
+              <!-- selesai -->
               <template v-if="this.$route.params.filter == 'selesai'">
                 <nuxt-link
                   to="/riwayat_pembelian/selesai"
@@ -160,7 +163,7 @@
                   Selesai
                 </nuxt-link>
               </template>
-
+              <!-- tidak Berhasil -->
               <template v-if="this.$route.params.filter == 'tidak_berhasil'">
                 <nuxt-link
                   to="/riwayat_pembelian/tidak_berhasil"

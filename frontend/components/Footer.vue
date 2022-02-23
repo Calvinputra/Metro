@@ -80,7 +80,7 @@
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">Metro Jaya</h6>
             <p
-              class="mb-0"
+              class="mb-1"
               v-for="menu_item in footer_2.items"
               :key="menu_item.id"
             >
@@ -91,15 +91,6 @@
                 >{{ menu_item.title }}</a
               >
             </p>
-          </div>
-          <!-- Grid column -->
-          <!-- Grid column -->
-          <div
-            class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 text-black"
-            style="font-family: 'Nunito Sans'"
-          >
-            <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">Metro Jaya</h6>
             <p
               class="mb-1"
               v-for="menu_item in footer_3.items"
@@ -113,6 +104,8 @@
               >
             </p>
           </div>
+          <!-- Grid column -->
+          <!-- Grid column -->
           <!-- Grid column -->
           <!-- Grid column -->
           <div

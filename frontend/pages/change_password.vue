@@ -114,7 +114,6 @@
           </div>
         </div>
       </div>
-      <Footer2mobile />
     </section>
 
     <client-only>
