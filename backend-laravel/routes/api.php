@@ -65,6 +65,7 @@ Route::apiResource('/settings', SettingController::class);
 
 
 Route::post('/carts/multiple', [CartController::class, 'storeMultiple'])->middleware('auth:sanctum');
+Route::post('/carts/buy_again', [CartController::class, 'buyAgain'])->middleware('auth:sanctum');
 Route::post('/checkout/get_jne_cost', [ShippingController::class, 'getJneCost'])->middleware('auth:sanctum');
 
 Route::get('/select2/products', [ProductController::class, 'getSelect2Format']);
@@ -72,5 +73,5 @@ Route::post('/select2/products/initial', [ProductController::class, 'getInitialD
 
 
 //payment, midtrans yg call link ini
-Route::post('/transactions/midtrans/notification/handler',[PaymentController::class,'midtransNotification']);
-Route::get('/transactions/check_status/{uuid}',[PaymentController::class,"checkTransactionStatus"])->middleware('auth:sanctum');
+Route::post('/transactions/midtrans/notification/handler', [PaymentController::class, 'midtransNotification']);
+Route::get('/transactions/check_status/{uuid}', [PaymentController::class, "checkTransactionStatus"])->middleware('auth:sanctum');

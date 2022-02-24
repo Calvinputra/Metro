@@ -13,21 +13,21 @@
                   <h1 style="font-family: 'Nunito Sans'">Kategory</h1>
                   <template v-if="!$route.query.category">
                     <div class="rounded" style="background-color: #841c26">
-                      <nuxt-link
-                        to="/products"
+                      <a
+                        @click="onCategoryClickHandler('')"
                         class="text-white"
                         style="text-decoration: none"
                         ><p class="py-2 ps-2 mb-2">Semua Kategori</p>
-                      </nuxt-link>
+                      </a>
                     </div>
                   </template>
                   <template v-else>
-                    <nuxt-link
-                      to="/products"
+                    <a
+                      @click="onCategoryClickHandler('')"
                       style="text-decoration: none"
                       class="text-black"
                       ><p class="ms-2 mb-3">Semua Kategori</p>
-                    </nuxt-link>
+                    </a>
                   </template>
 
                   <template v-for="category in categories">
@@ -37,24 +37,24 @@
                         class="rounded"
                         style="background-color: #841c26"
                       >
-                        <nuxt-link
-                          :to="'/products?category=' + category.id"
+                        <a
+                          @click="onCategoryClickHandler(category.id)"
                           class="text-white"
                           style="text-decoration: none"
                           ><p class="py-2 ps-2 mb-2">
                             {{ category.name }}
                           </p>
-                        </nuxt-link>
+                        </a>
                       </div>
                     </template>
                     <template v-else>
-                      <nuxt-link
+                      <a
                         :key="category.id"
-                        :to="'/products?category=' + category.id"
+                        @click="onCategoryClickHandler(category.id)"
                         style="text-decoration: none"
                         class="text-black"
                         ><p class="ms-2 mb-3">{{ category.name }}</p>
-                      </nuxt-link>
+                      </a>
                     </template>
                   </template>
                 </div>
@@ -76,9 +76,20 @@
                     text="Produk Terbaru"
                     class="m-md-2"
                   >
-                    <b-dropdown-item>Produk terbaru</b-dropdown-item>
-                    <b-dropdown-item>Harga Terbesar</b-dropdown-item>
-                    <b-dropdown-item>Harga Terkecil</b-dropdown-item>
+                    <b-dropdown-item
+                      @click="
+                        onDropDownSelectHandler('product_terbaru', 'desc')
+                      "
+                      >Produk terbaru</b-dropdown-item
+                    >
+                    <b-dropdown-item
+                      @click="onDropDownSelectHandler('harga_terbesar', 'desc')"
+                      >Harga Terbesar</b-dropdown-item
+                    >
+                    <b-dropdown-item
+                      @click="onDropDownSelectHandler('harga_terkecil', 'asc')"
+                      >Harga Terkecil</b-dropdown-item
+                    >
                   </b-dropdown>
                   <div class="dropdown-menu">...</div>
                 </div>
@@ -199,6 +210,9 @@
 #product-mobileview {
   display: none;
 }
+a {
+  cursor: pointer;
+}
 /* 0 - 991 px */
 @media screen and (max-width: 500px) {
   #product-webview {
@@ -219,15 +233,15 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50"
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
         },
         {
           url: "/",
           name: "Product",
-          class: "my-2 breadcrumb-item active opacity-50"
-        }
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
       ],
-      products: []
+      products: [],
     };
   },
   async asyncData({ $axios, query }) {
@@ -236,10 +250,12 @@ export default {
         s: query.s,
         page: query.page,
         paginate: query.paginate,
-        category: query.category
+        category: query.category,
+        order: query.order,
+        type: query.type,
       };
       let products = await $axios.$get(process.env.API_URL + "/api/products", {
-        params: data
+        params: data,
       });
       let links = [];
       for (let i = 1; i <= products.meta.last_page; i++) {
@@ -253,7 +269,7 @@ export default {
         links: links,
         totalPage: products.meta.last_page,
         title: products.title,
-        categories: categories.data
+        categories: categories.data,
       };
     } catch (error) {
       console.log(error);
@@ -267,14 +283,41 @@ export default {
           page: pageNum,
           s: this.$route.query.s,
           paginate: this.$route.query.paginate,
-          category: this.$route.query.category
-        }
+          category: this.$route.query.category,
+        },
       };
     },
     pageGen(pageNum) {
       return this.links[pageNum - 1].slice(1);
-    }
+    },
+    onCategoryClickHandler(id) {
+      this.$router.push({
+        path: "/products",
+        query: {
+          s: this.$route.query.s,
+          page: this.$route.query.page,
+          paginate: this.$route.query.paginate,
+          category: id,
+          order: this.$route.query.order,
+          type: this.$route.query.type,
+        },
+      });
+    },
+    onDropDownSelectHandler(order, type = "asc") {
+      this.$router.push({
+        path: "/products",
+        query: {
+          s: this.$route.query.s,
+          page: 1,
+          paginate: this.$route.query.paginate,
+          category: this.$route.query.category,
+          order: order,
+          type: type,
+        },
+      });
+    },
   },
-  watchQuery: ["s", "page", "paginate", "category"]
+
+  watchQuery: ["s", "page", "paginate", "category", "order", "type"],
 };
 </script>

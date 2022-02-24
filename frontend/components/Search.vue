@@ -66,8 +66,19 @@ export default {
   },
   methods: {
     onSearch() {
-      this.$router.push({ path: "/products", query: { s: this.query } });
+      this.$router.push({
+        path: "/products",
+        query: {
+          s: this.query,
+          page: this.$route.query.page,
+          paginate: this.$route.query.paginate,
+          category: this.$route.query.category,
+          order: this.$route.query.order,
+          type: this.$route.query.type,
+        },
+      });
     },
   },
+  watchQuery: ["s", "page", "paginate", "category", "order", "type"],
 };
 </script>

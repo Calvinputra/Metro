@@ -21,12 +21,12 @@
               <template v-if="data.status_id == 1">
                 <span
                   class="
-                  border border-danger border-2
-                  text-danger
-                  rounded-3
-                  px-2
-                  py-1
-                "
+                    border border-danger border-2
+                    text-danger
+                    rounded-3
+                    px-2
+                    py-1
+                  "
                   style="font-size: 12px !important"
                 >
                   {{ data.status.name }}</span
@@ -35,12 +35,12 @@
               <template v-else-if="data.status_id == 4">
                 <span
                   class="
-                  border border-success border-2
-                  text-success
-                  rounded-3
-                  px-2
-                  py-1
-                "
+                    border border-success border-2
+                    text-success
+                    rounded-3
+                    px-2
+                    py-1
+                  "
                   style="font-size: 12px !important"
                 >
                   {{ data.status.name }}</span
@@ -49,12 +49,12 @@
               <template v-else>
                 <span
                   class="
-                  border border-warning border-2
-                  text-warning
-                  rounded-3
-                  px-2
-                  py-1
-                "
+                    border border-warning border-2
+                    text-warning
+                    rounded-3
+                    px-2
+                    py-1
+                  "
                   style="font-size: 12px !important"
                 >
                   {{ data.status.name }}</span
@@ -101,7 +101,8 @@
             >
               <b> Lihat Detail</b>
             </b-button>
-            <b-button
+            <b-button v-if="data.status_id==4||data.status_id==5"
+              @click="buyAgainHandler"
               type="submit"
               class="
                 mr-3
@@ -154,7 +155,7 @@
                 <template
                   v-if="
                     data.rating &&
-                      data.rating.length === data.transaction_details.length
+                    data.rating.length === data.transaction_details.length
                   "
                 >
                   <b> Lihat Ulasan</b>
@@ -292,7 +293,7 @@
                 <template
                   v-if="
                     data.rating &&
-                      data.rating.length === data.transaction_details.length
+                    data.rating.length === data.transaction_details.length
                   "
                 >
                   <b> Lihat Ulasan</b>
@@ -324,8 +325,33 @@ export default {
   methods: {
     showDetailTransaction() {
       this.$parent.showDetailTransaction(this.data);
-    }
-  }
+    },
+    async buyAgainHandler() {
+      try {
+        const data = {
+          uuid: this.data.uuid,
+        };
+        const response = await this.$axios.$post(
+          process.env.API_URL + "/api/carts/buy_again",
+          data
+        );
+        if (response.success) {
+          this.$toast.success("Berhasil menambah barang ke cart", {
+            theme: "bubble",
+            position: "bottom-right",
+            duration: 5000,
+          });
+          this.$router.push("/cart");
+        } else {
+          this.$toast.error("Error!", {
+            theme: "bubble",
+            position: "bottom-right",
+            duration: 5000,
+          });
+        }
+      } catch (error) {}
+    },
+  },
 };
 </script>
 

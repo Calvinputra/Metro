@@ -7,6 +7,7 @@ use App\Http\Resources\CartResource;
 use App\Models\Cart;
 use App\Models\Customer;
 use App\Models\Product;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use PDO;
 use Validator;
@@ -22,7 +23,7 @@ class CartController extends Controller
                 $carts->where('process', 1);
             }
             $grand_total = 0;
-            return CartResource::collection($carts->get())->additional(['success' => true,'grand_total'=>$grand_total]);
+            return CartResource::collection($carts->get())->additional(['success' => true, 'grand_total' => $grand_total]);
         } else {
             return response()->json([
                 'success' => false,
@@ -77,7 +78,7 @@ class CartController extends Controller
             ]);
         }
     }
-  
+
     public function storeMultiple(Request $request)
     {
         //function when logged in push from vuex to database
@@ -194,6 +195,61 @@ class CartController extends Controller
                 'success' => false,
                 'data'   => 'Unauthorized Action',
                 'status' => 503,
+            ]);
+        }
+    }
+
+    public function buyAgain(Request $request)
+    {
+        $user = Customer::where('token', '=', request()->bearerToken())->first();
+        if ($user && $request->uuid) {
+            //uncheck all prev cart
+            if (count($request->carts ?? []) > 0) {
+                Cart::where('customer_id', $user->id)->update([
+                    'process' => 0,
+                ]);
+            }
+            $transaction = Transaction::whereIn('status_id', [4, 5])->where('uuid', $request->uuid)->where('customer_id', $user->id)->first();
+            if (!$transaction) {
+                return response()->json([
+                    'data'   => 'Unauthorized Action',
+                    'status' => 503,
+                    'success' => false,
+                ]);
+            }
+
+
+            //add to cart
+            foreach ($transaction->transactionDetails ?? [] as  $key => $td) {
+                $td = (object)$td;
+                $td->product = (object)$td->product;
+
+
+                //success
+                //check previous cart exist
+                $prev_cart = Cart::where('customer_id', $user->id)
+                    ->where('product_id', $td->product->id)->first();
+                if ($prev_cart) {
+                    $prev_cart = tap($prev_cart)->update([
+                        'qty' => $td->qty + $prev_cart->qty,
+                        'process' => 1,
+                    ]);
+                } else {
+                    Cart::create([
+                        'qty' => $td->qty,
+                        'process' => 1,
+                        'customer_id' => $user->id,
+                        'product_id' => $td->product->id,
+                    ]);
+                }
+            }
+
+            return CartResource::collection($user->carts)->additional(['success' => true]);
+        } else {
+            return response()->json([
+                'data'   => 'Unauthorized Action',
+                'status' => 503,
+                'success' => false,
             ]);
         }
     }

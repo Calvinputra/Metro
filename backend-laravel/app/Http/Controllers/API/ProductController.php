@@ -78,6 +78,25 @@ class ProductController extends Controller
         if (isset($request->category)) {
             $products->where('category_id', $request->category);
         }
+        if (isset($request->order)) {
+            $type = 'asc';
+            if (isset($request->type) && strcasecmp($request->type, 'desc') == 0) {
+                $type = 'desc';
+            }
+            //order
+            $order_field = null;
+            if ($request->order == 'product_terbaru') {
+                $order_field = 'created_at';
+            } else if ($request->order == 'harga_terbesar') {
+                $order_field = 'price';
+                $type = 'desc';
+            } else if ($request->order == 'harga_terkecil') {
+                $order_field = 'price';
+                $type = 'asc';
+            }
+
+            $products->orderBy($order_field, $type);
+        }
 
         //jika kosong
 
@@ -156,7 +175,5 @@ class ProductController extends Controller
         ]);
     }
 
-    public function addToCart($id)
-    {
-    }
+    
 }
