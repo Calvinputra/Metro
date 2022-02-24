@@ -101,7 +101,8 @@
             >
               <b> Lihat Detail</b>
             </b-button>
-            <b-button v-if="data.status_id==4||data.status_id==5"
+            <b-button
+              v-if="data.status_id == 4 || data.status_id == 5"
               @click="buyAgainHandler"
               type="submit"
               class="
@@ -155,7 +156,7 @@
                 <template
                   v-if="
                     data.rating &&
-                    data.rating.length === data.transaction_details.length
+                      data.rating.length === data.transaction_details.length
                   "
                 >
                   <b> Lihat Ulasan</b>
@@ -179,9 +180,7 @@
                   px-2
                 "
                 style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
-              >
-                <b> Lainnya</b>
-              </button>
+              ></button>
             </template>
           </span>
         </div>
@@ -293,7 +292,7 @@
                 <template
                   v-if="
                     data.rating &&
-                    data.rating.length === data.transaction_details.length
+                      data.rating.length === data.transaction_details.length
                   "
                 >
                   <b> Lihat Ulasan</b>
@@ -308,9 +307,7 @@
                 type="submit"
                 class="btn text-danger btn-light btn-sm rounded py-1 px-3"
                 style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
-              >
-                <b> Lainnya</b>
-              </button>
+              ></button>
             </template>
           </span>
         </div>
@@ -329,7 +326,7 @@ export default {
     async buyAgainHandler() {
       try {
         const data = {
-          uuid: this.data.uuid,
+          uuid: this.data.uuid
         };
         const response = await this.$axios.$post(
           process.env.API_URL + "/api/carts/buy_again",
@@ -339,19 +336,19 @@ export default {
           this.$toast.success("Berhasil menambah barang ke cart", {
             theme: "bubble",
             position: "bottom-right",
-            duration: 5000,
+            duration: 5000
           });
           this.$router.push("/cart");
         } else {
           this.$toast.error("Error!", {
             theme: "bubble",
             position: "bottom-right",
-            duration: 5000,
+            duration: 5000
           });
         }
       } catch (error) {}
-    },
-  },
+    }
+  }
 };
 </script>
 

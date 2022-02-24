@@ -1,5 +1,4 @@
-<template>
-  <section style="font-family: 'Nunito Sans'">
+<!-- <section style="font-family: 'Nunito Sans'">
     <section id="undang-webview">
       <Breadcrumb :links="breadcrumb" />
       <section>
@@ -220,17 +219,16 @@
         <Footer2mobile />
       </section>
     </section>
-  </section>
-</template>
+  </section> -->
 
 <style lang="css" scoped>
+/*
 #undang-mobile {
   display: none;
 }
 #undang-mobileview {
   display: none;
 }
-/* 0 - 991 px */
 @media screen and (max-width: 500px) {
   #undang_logo {
     display: none !important;
@@ -247,5 +245,5 @@
   #undang-mobileview {
     display: grid;
   }
-}
+}*/
 </style>

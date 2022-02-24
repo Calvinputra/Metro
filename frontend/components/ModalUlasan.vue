@@ -60,7 +60,7 @@
       </div>
       <br />
 
-      <div class="text-center mb-4">
+      <div class="text-center mb-3">
         <button
           @click="onSubmitHandler"
           type="submit"
@@ -70,12 +70,34 @@
             btn-light btn-sm
             shadow
             rounded
-            col-sm-4
+            col-sm-3
             py-2
             px-2
           "
         >
           Kirim
+        </button>
+      </div>
+      <hr
+        style="height:2px; width: auto; border-width: 0; color: black"
+        class=" mb-3"
+      />
+      <div class="text-right mb-3">
+        <button
+          @click="onSubmitHandler"
+          type="submit"
+          class="
+            btn
+            text-danger
+            btn-light btn-sm
+            shadow
+            rounded
+            col-sm-3
+            py-2
+            px-2
+          "
+        >
+          Batal
         </button>
       </div>
     </b-modal>
