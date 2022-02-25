@@ -20,9 +20,7 @@
           >
             <div class="col-sm-12">
               <label class="mb-0"
-                ><h2 class="font-weight-bold">
-                  Pembayaran
-                </h2></label
+                ><h2 class="font-weight-bold">Pembayaran</h2></label
               >
             </div>
             <div class="mb-4">
@@ -33,25 +31,38 @@
               <p class="mb-"></p>
             </div>
 
-            <div class="text-center container  mb-5">
+            <div class="text-center container mb-5">
               <div>
                 <div class="col-sm-2"></div>
-                <div class="container border border-2 mt-3 rounded col-sm-8 ">
+                <div class="container border border-2 mt-3 rounded col-sm-8">
                   <!-- finish -->
                   <div
                     v-if="$route.params.status == 'finish'"
                     class="text-center mt-4 mb-4"
                   >
-                    <h4 class="fw-bold text-center">
-                      Pembayaran belum selesai
-                    </h4>
-                    <p>
-                      Pembayaran telah Berhasil Klik tombol ini untuk lanjut
-                      belanja. Terima kasih!!!
-                    </p>
+                    <template
+                      v-if="$route.query.transaction_status == 'pending'"
+                    >
+                      <h4 class="fw-bold text-center">
+                        Pembayaran belum selesai
+                      </h4>
+
+                      <p>
+                        Klik tombol ini untuk kembali ke halaman sebelumnya dan
+                        selesaikan pembayaran terlebih dahulu
+                      </p>
+                    </template>
+                    <template v-else>
+                      <h4 class="fw-bold text-center">Pembayaran selesai</h4>
+
+                      <p>
+                        Pembayaran telah Berhasil Klik tombol ini untuk lanjut
+                        belanja. Terima kasih!!!
+                      </p>
+                    </template>
                     <button
-                      class="btn  btn-shadow text-white"
-                      style="background-color: #841C26"
+                      class="btn btn-shadow text-white"
+                      style="background-color: #841c26"
                     >
                       Lanjut
                     </button>
@@ -61,16 +72,29 @@
                     v-if="$route.params.status == 'unfinish'"
                     class="text-center mt-4 mb-4"
                   >
-                    <h4 class="fw-bold text-center">
-                      Pembayaran belum selesai
-                    </h4>
-                    <p>
-                      Klik tombol ini untuk kembali ke halaman sebelumnya dan
-                      selesaikan pembayaran terlebih dahulu
-                    </p>
+                    <template
+                      v-if="$route.query.transaction_status == 'pending'"
+                    >
+                      <h4 class="fw-bold text-center">
+                        Pembayaran belum selesai
+                      </h4>
+
+                      <p>
+                        Klik tombol ini untuk kembali ke halaman sebelumnya dan
+                        selesaikan pembayaran terlebih dahulu
+                      </p>
+                    </template>
+                    <template v-else>
+                      <h4 class="fw-bold text-center">Pembayaran selesai</h4>
+
+                      <p>
+                        Pembayaran telah Berhasil Klik tombol ini untuk lanjut
+                        belanja. Terima kasih!!!
+                      </p>
+                    </template>
                     <button
-                      class="btn  btn-shadow text-white"
-                      style="background-color: #841C26"
+                      class="btn btn-shadow text-white"
+                      style="background-color: #841c26"
                     >
                       Periksa
                     </button>
@@ -80,17 +104,15 @@
                     v-if="$route.params.status == 'error'"
                     class="text-center mt-4 mb-4"
                   >
-                    <h4 class="fw-bold text-center">
-                      Pembayaran Gagal
-                    </h4>
+                    <h4 class="fw-bold text-center">Pembayaran Gagal</h4>
                     <i class="fas fa-exclamation-triangle text-black"></i>
                     <p>
                       Pembayaran terhenti, silahkan refresh halaman ini atau
                       kembali ke halaman sebelumnya
                     </p>
                     <button
-                      class="btn  btn-shadow text-white"
-                      style="background-color: #841C26"
+                      class="btn btn-shadow text-white"
+                      style="background-color: #841c26"
                     >
                       kembali
                     </button>
@@ -188,7 +210,7 @@ export default {
   data() {
     return {
       breadcrumb: [],
-      message: ""
+      message: "",
     };
   },
   mounted() {
@@ -196,23 +218,23 @@ export default {
       {
         url: "/",
         name: "Beranda",
-        class: "my-2 ms-3 breadcrumb-item opacity-50"
+        class: "my-2 ms-3 breadcrumb-item opacity-50",
       },
       {
         url: "/profile",
         name: "Akun Saya",
-        class: "my-2 ms-3 breadcrumb-item opacity-50"
+        class: "my-2 ms-3 breadcrumb-item opacity-50",
       },
       {
         url: "/riwayat_pembelian",
         name: "Riwayat Pembelian",
-        class: "my-2 ms-3 breadcrumb-item opacity-50"
+        class: "my-2 ms-3 breadcrumb-item opacity-50",
       },
       {
         url: this.$route.path,
         name: this.$route.query.order_id,
-        class: "my-2 breadcrumb-item active opacity-50"
-      }
+        class: "my-2 breadcrumb-item active opacity-50",
+      },
     ];
   },
   created() {
@@ -229,8 +251,8 @@ export default {
   methods: {
     doRedirectTransaction() {
       this.$router.push("/riwayat_pembelian");
-    }
+    },
   },
-  watchQuery: ["order_id", "status_code", "transaction_status"]
+  watchQuery: ["order_id", "status_code", "transaction_status"],
 };
 </script>

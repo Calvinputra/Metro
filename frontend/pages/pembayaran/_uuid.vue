@@ -1,23 +1,36 @@
 <template>
   <section>
+    <LoadingSpinner v-if="!isLoaded" />
     <ModalDetailTransaksi :transaction="data" />
-    <section id="pembayaran-webview">
+    <section id="pembayaran-webview" v-if="isLoaded">
       <Breadcrumb :links="breadcrumb" />
       <section>
         <div class="container"></div>
       </section>
-      <div class="text-center">
-        <h5>Selesaikan Pembayaran dalam</h5>
-        <!-- bootstrap countdown nanti -->
-        <p>Batas Akhir Pembayaran</p>
-        <h5>Kamis, 18 November 2021 23:53</h5>
-      </div>
+      <template v-if="isPaymentCreated">
+        <div class="text-center">
+          <h5>Selesaikan Pembayaran dalam</h5>
+          <!-- bootstrap countdown nanti -->
+          <p>Batas Akhir Pembayaran</p>
+          <h5>{{data.transaction_expired_at}}</h5>
+        </div>
+      </template>
+      <template v-else>
+        <div class="text-center">
+          <h5>Pilih Metode Pembayaran yang diinginkan</h5>
+        </div>
+      </template>
 
       <div class="container col-sm-6 mt-5">
         <div class="card bg-light">
           <div class="card-header">
             <div class="d-flex justify-content-between">
-              <p class="mb-0">Alfamaret/Alfamidi/Lawson/Dan+dan</p>
+              <template v-if="isPaymentCreated">
+                <p class="mb-0">Virtual Account {{ va_numbers[0].bank }}</p>
+              </template>
+              <template v-else
+                ><p>Anda Belum memilih metode pembayaran</p></template
+              >
               <img src="/img/audiblelogo.png" alt="" />
             </div>
           </div>
@@ -28,16 +41,23 @@
                   <h7> Kode Pembayaran </h7>
                 </span>
                 <span>
-                  <h5>{{ data.uuid }}</h5>
+                  <template v-if="isPaymentCreated">
+                    <h5>
+                      {{ va_numbers[0].bank }} - {{ va_numbers[0].va_number }}
+                    </h5>
+                  </template>
+                  <template v-else><h5>-</h5></template>
                 </span>
               </div>
               <div class="mt-3">
-                <b
-                  class="text-success rounded bu"
-                  @click="copyText(app_url + $nuxt.$route.fullPath)"
-                >
-                  Salin
-                </b>
+                <template v-if="isPaymentCreated">
+                  <b
+                    class="text-success rounded bu"
+                    @click="copyText(va_numbers[0].va_number)"
+                  >
+                    Salin
+                  </b>
+                </template>
               </div>
             </div>
             <div class="d-flex justify-content-between">
@@ -89,7 +109,7 @@
       </client-only>
     </section>
 
-    <section id="pembayaran-mobileview">
+    <section id="pembayaran-mobileview" v-if="isLoaded">
       <section class="mt-3">
         <div class="container"></div>
       </section>
@@ -97,14 +117,19 @@
         <h5>Selesaikan Pembayaran dalam</h5>
         <!-- bootstrap countdown nanti -->
         <p>Batas Akhir Pembayaran</p>
-        <h5>Kamis, 18 November 2021 23:53</h5>
+        <h5>{{data.transaction_expired_at}}</h5>
       </div>
 
       <div class="container col-sm-6 mt-5">
         <div class="card bg-light">
           <div class="card-header">
             <div class="d-flex justify-content-between">
-              <p class="mb-0">Alfamaret/Alfamidi/Lawson/Dan+dan</p>
+              <template v-if="isPaymentCreated">
+                <p class="mb-0">Virtual Account {{ va_numbers[0].bank }}</p>
+              </template>
+              <template v-else
+                ><p>Anda Belum memilih metode pembayaran</p></template
+              >
               <img src="/img/audiblelogo.png" alt="" />
             </div>
           </div>
@@ -115,16 +140,23 @@
                   <h7> Kode Pembayaran </h7>
                 </span>
                 <span>
-                  <h5>{{ data.uuid }}</h5>
+                  <template v-if="isPaymentCreated">
+                    <h5>
+                      {{ va_numbers[0].bank }} - {{ va_numbers[0].va_number }}
+                    </h5>
+                  </template>
+                  <template v-else><h5>-</h5></template>
                 </span>
               </div>
               <div class="mt-3">
-                <b
-                  class="text-success rounded bu"
-                  @click="copyText(app_url + $nuxt.$route.fullPath)"
-                >
-                  Salin
-                </b>
+                <template v-if="isPaymentCreated">
+                  <b
+                    class="text-success rounded bu"
+                    @click="copyText(va_numbers[0].va_number)"
+                  >
+                    Salin
+                  </b>
+                </template>
               </div>
             </div>
             <div class="d-flex justify-content-between">
@@ -148,6 +180,7 @@
           </div>
         </div>
       </div>
+
       <br />
       <div class="text-center mt-3 mb-5">
         <nuxt-link
@@ -206,6 +239,8 @@ export default {
         },
       ],
       app_url: process.env.APP_URL + ":" + process.env.PORT,
+      isLoaded: false,
+      isPaymentCreated: false,
     };
   },
   async asyncData({ $axios, params, redirect }) {
@@ -214,23 +249,44 @@ export default {
         process.env.API_URL + `/api/transactions/${params.uuid}`
       );
       let response_data = response.data;
-
+      let isPaymentCreated = false;
+      let va_numbers = null;
+      if (response_data.midtrans_data) {
+        isPaymentCreated = true;
+        const temp_data = JSON.parse(response_data.midtrans_data);
+        va_numbers = temp_data.data.va_numbers;
+      }
       return {
         data: response_data,
         snapToken: response_data.snap_token,
+        isPaymentCreated: isPaymentCreated,
+        va_numbers: va_numbers,
       };
     } catch (error) {
       console.log(error);
     }
   },
   mounted() {
-    if (this.data.status.id != 1) {
+    this.isLoaded = false;
+    if (this.data.status.id == 2) {
       this.$toast.success("Terima kasih atas pembayaran Anda", {
         theme: "bubble",
         position: "bottom-right",
         duration: 5000,
       });
       this.$router.push("/riwayat_pembelian");
+    } else if (this.data.status.id == 5) {
+      this.$toast.error(
+        "Transaksi Anda telah expired silahkan ulangi transaksi Anda",
+        {
+          theme: "bubble",
+          position: "bottom-right",
+          duration: 5000,
+        }
+      );
+      this.$router.push("/riwayat_pembelian");
+    } else {
+      this.isLoaded = true;
     }
   },
   head() {
@@ -247,6 +303,11 @@ export default {
     async copyText(text) {
       try {
         await this.$copyText(text);
+        this.$toast.success("Berhasil menyalin kode pembayaran", {
+          theme: "bubble",
+          position: "bottom-right",
+          duration: 5000,
+        });
       } catch (e) {
         console.error(e);
       }

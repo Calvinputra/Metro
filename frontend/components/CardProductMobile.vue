@@ -177,6 +177,14 @@ export default {
           this.$nuxt.refresh();
           console.log(response);
         } else {
+           this.$toast.error(
+            "Anda perlu login terlebih dahulu untuk menambahkan item ke wishlist",
+            {
+              theme: "bubble",
+              position: "bottom-right",
+              duration: 5000,
+            }
+          );
           this.$router.push("/login");
         }
       } catch (error) {

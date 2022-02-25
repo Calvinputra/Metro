@@ -16,6 +16,8 @@ class TransactionResource extends JsonResource
 
     {
         $date_view = date('d F Y', strtotime($this->date));
+        $expired_date_view = date('l, d F Y H:i', strtotime($this->transaction_expired_at));
+
         return [
             'uuid'   => $this->uuid,
             'customer_name' => $this->customer_name,
@@ -47,6 +49,8 @@ class TransactionResource extends JsonResource
             'rating' => $this->transactionReview,
             'shipping' => $this->shipping,
             'transaction_id' => $this->transaction_id,
+            'transaction_expired_at' => $expired_date_view,
+            'midtrans_data' => $this->midtrans_data,
         ];
     }
 }

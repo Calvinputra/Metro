@@ -39,16 +39,19 @@ class TransactionController extends Controller
     {
         $status = app('App\Http\Controllers\API\PaymentController')->checkTransactionStatus($uuid);
         $status = $status->getData();
-        $data = [
-            'order_id' => $uuid,
-            'signature_key' => $status->data->signature_key,
-            'gross_amount' => $status->data->gross_amount,
-            'transaction_status' => $status->data->transaction_status,
-            'status_code' => $status->data->status_code,
-        ];
-        $request = new Request($data);
-        //call manually
-        app('App\Http\Controllers\API\PaymentController')->midtransNotification($request);
+        if ($status->success) {
+            $data = [
+                'order_id' => $uuid,
+                'signature_key' => $status->data->signature_key,
+                'gross_amount' => $status->data->gross_amount,
+                'transaction_status' => $status->data->transaction_status,
+                'status_code' => $status->data->status_code,
+            ];
+            $request = new Request($data);
+            //call manually
+            app('App\Http\Controllers\API\PaymentController')->midtransNotification($request);
+        }
+        return $status;
     }
     public function show($uuid, Request $request)
     {
@@ -57,8 +60,15 @@ class TransactionController extends Controller
         if ($data) {
             if ($data->status_id == 1 && $data->snap_token) {
                 //kalo masi menunggu pembayaran
-                $this->checkTransaction($data->uuid); //nnti kalo lama di dispatch ke job aja
-                $data = Transaction::where('customer_id', $user->id ?? '0')->where('uuid', $uuid)->first();
+                $response = $this->checkTransaction($data->uuid); //nnti kalo lama di dispatch ke job aja
+                    if ($response->success) {
+                    $data = Transaction::where('customer_id', $user->id ?? '0')->where('uuid', $uuid)->first();
+                    $expire = date('Y-m-d H:i:s', strtotime($response->data->transaction_time . " +1 days"));
+                    $data = tap($data)->update([
+                        'midtrans_data' => json_encode($response),
+                        'transaction_expired_at' => $expire,
+                    ])->fresh();
+                }
             }
             //refresh data
 
@@ -221,6 +231,7 @@ class TransactionController extends Controller
         ];
 
         $transaction = Transaction::create($data);
+        $transaction = tap($transaction)->update(['transaction_id' => "TR"  . str_pad($transaction->id, 7, "0", STR_PAD_LEFT)]);
         $transaction->transactionDetails()->createMany($details);
         $transaction->transactionLogs()->create([
             'status_id' => 1,
@@ -228,7 +239,7 @@ class TransactionController extends Controller
         ]);
         //hapus checkout cart
 
-        $user->checkoutCarts->delete();
+        $user->checkoutCarts()->delete();
 
         return (new TransactionResource($transaction))->additional(['success' => true]);
     }
@@ -262,6 +273,4 @@ class TransactionController extends Controller
             'success' => false,
         ]);
     }
-
-   
 }

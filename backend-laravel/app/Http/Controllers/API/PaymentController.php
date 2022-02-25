@@ -8,6 +8,7 @@ use App\Models\AccountLedger;
 use App\Models\TransactionStatus;
 use Illuminate\Http\Request;
 use App\Jobs\RecalculateAccountLedgerJob;
+use Exception;
 
 class PaymentController extends Controller
 {
@@ -144,8 +145,14 @@ class PaymentController extends Controller
 
         $transaction = Transaction::where('uuid', $uuid)->first();
         if ($transaction) {
-
-            $status = \Midtrans\Transaction::status($uuid);;
+            try {
+                $status = \Midtrans\Transaction::status($uuid);;
+            } catch (Exception $err) {
+                return response()->json([
+                    'success' => false,
+                    'data' => "Some Error Happen!" . $err->getMessage(), "\n",
+                ]);
+            }
             return response()->json([
                 'success' => true,
                 'data' => $status,

@@ -13,7 +13,11 @@
             <div class="col-sm-2 mr-3">
               <img
                 style="width: 90px; height: 90px"
-                src="/img/audiblelogo.png"
+                :src="
+                  ASSET_URL +
+                  '/' +
+                  JSON.parse(data.transaction_details[0].product.images)[0]
+                "
                 alt=""
               />
             </div>
@@ -156,7 +160,7 @@
                 <template
                   v-if="
                     data.rating &&
-                      data.rating.length === data.transaction_details.length
+                    data.rating.length === data.transaction_details.length
                   "
                 >
                   <b> Lihat Ulasan</b>
@@ -192,7 +196,15 @@
       <div class="my-3 mx-1 row">
         <div class="row pe-0 ps-2">
           <div class="d-flex col-2 align-self-center justify-content-center">
-            <img src="/img/audiblelogo.png" alt="" />
+            <img
+              :src="
+                ASSET_URL +
+                '/' +
+                JSON.parse(data.transaction_details[0].product.images)[0]
+              "
+              alt=""
+              width="50"
+            />
           </div>
 
           <div class="col pe-0">
@@ -292,7 +304,7 @@
                 <template
                   v-if="
                     data.rating &&
-                      data.rating.length === data.transaction_details.length
+                    data.rating.length === data.transaction_details.length
                   "
                 >
                   <b> Lihat Ulasan</b>
@@ -326,7 +338,7 @@ export default {
     async buyAgainHandler() {
       try {
         const data = {
-          uuid: this.data.uuid
+          uuid: this.data.uuid,
         };
         const response = await this.$axios.$post(
           process.env.API_URL + "/api/carts/buy_again",
@@ -336,19 +348,24 @@ export default {
           this.$toast.success("Berhasil menambah barang ke cart", {
             theme: "bubble",
             position: "bottom-right",
-            duration: 5000
+            duration: 5000,
           });
           this.$router.push("/cart");
         } else {
           this.$toast.error("Error!", {
             theme: "bubble",
             position: "bottom-right",
-            duration: 5000
+            duration: 5000,
           });
         }
       } catch (error) {}
-    }
-  }
+    },
+  },
+  data() {
+    return {
+      ASSET_URL: process.env.ASSET_URL,
+    };
+  },
 };
 </script>
 

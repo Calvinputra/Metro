@@ -9,12 +9,11 @@
           <div
             class="card mb-5 bg-white rounded"
             style="
-          width: 100%;
-          height: auto;
-          box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25) !important;
-          border-radius: 10px;
-          
-        "
+              width: 100%;
+              height: auto;
+              box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25) !important;
+              border-radius: 10px;
+            "
           >
             <img
               style="width: 100%; height: 180px"
@@ -37,12 +36,15 @@
                   @click.stop="addToWishList(data.id)"
                   ><i
                     :class="(data.wishlist_exist ? 'fas' : 'far') + ' fa-heart'"
-                    style="font-size: 30px !important; color: #c63442 !important"
+                    style="
+                      font-size: 30px !important;
+                      color: #c63442 !important;
+                    "
                   ></i
                 ></a>
               </div>
               <p
-                class="card-text mb-4 font-weight-bold "
+                class="card-text mb-4 font-weight-bold"
                 style="font-family: 'Nunito Sans'"
               >
                 Rp.{{ Number(data.display_price).toLocaleString("id-ID") }}
@@ -51,9 +53,9 @@
                 <a
                   class="btn text-danger btn-sm rounded col-sm-5 ms-2 pt-2"
                   style="
-                background-color: #f3f3f3;
-                box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
-              "
+                    background-color: #f3f3f3;
+                    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                  "
                   onclick="return false;"
                   @click="addToCart(data)"
                   >+ Keranjang</a
@@ -63,19 +65,19 @@
                   class="col-sm-3"
                   :href="
                     'https://wa.me/' +
-                      settings.company_wa_phone +
-                      '?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
-                      data.code +
-                      ' - ' +
-                      data.name
+                    settings.company_wa_phone +
+                    '?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
+                    data.code +
+                    ' - ' +
+                    data.name
                   "
                   target="_blank"
                   ><img
                     class="img-fluid max-width:100% height:auto rounded"
                     style="
-                  background-color: #f3f3f3;
-                  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
-                "
+                      background-color: #f3f3f3;
+                      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                    "
                     src="/img/Whatsapp_new.png"
                     alt=""
                 /></a>
@@ -87,9 +89,9 @@
                   ><img
                     class="img-fluid max-width:100% height:auto rounded"
                     style="
-                  background-color: #f3f3f3;
-                  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
-                "
+                      background-color: #f3f3f3;
+                      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                    "
                     src="/img/tokopedia.png"
                     alt=""
                 /></a>
@@ -161,11 +163,11 @@
                   target="_blank"
                   :href="
                     'https://wa.me/' +
-                      settings.company_wa_phone +
-                      '?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
-                      data.code +
-                      ' - ' +
-                      data.name
+                    settings.company_wa_phone +
+                    '?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
+                    data.code +
+                    ' - ' +
+                    data.name
                   "
                   ><img
                     class="img-fluid height:auto rounded"
@@ -203,13 +205,13 @@ export default {
   props: ["data", "url"],
   data() {
     return {
-      ASSET_URL: process.env.ASSET_URL
+      ASSET_URL: process.env.ASSET_URL,
     };
   },
   computed: {
     ...mapGetters({
-      settings: "getSetting"
-    })
+      settings: "getSetting",
+    }),
   },
 
   methods: {
@@ -217,7 +219,7 @@ export default {
       try {
         if (this.$auth.loggedIn) {
           let data = {
-            product_id: product.id
+            product_id: product.id,
           };
           let response = await this.$axios.$post(
             process.env.API_URL + "/api/carts",
@@ -226,7 +228,7 @@ export default {
           this.$toast.success("Successfully add a product to cart", {
             theme: "bubble",
             position: "bottom-right",
-            duration: 5000
+            duration: 5000,
           });
           console.log(response);
         } else {
@@ -241,7 +243,7 @@ export default {
       try {
         if (this.$auth.loggedIn) {
           let data = {
-            product_id: id
+            product_id: id,
           };
           let response = await this.$axios.$post(
             process.env.API_URL + "/api/wishlists",
@@ -251,19 +253,27 @@ export default {
             this.$toast.success("Successfully delete a product from wishlist", {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000
+              duration: 5000,
             });
           } else {
             this.$toast.success("Successfully add a product to wishlist", {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000
+              duration: 5000,
             });
           }
 
           this.$nuxt.refresh();
           console.log(response);
         } else {
+          this.$toast.error(
+            "Anda perlu login terlebih dahulu untuk menambahkan item ke wishlist",
+            {
+              theme: "bubble",
+              position: "bottom-right",
+              duration: 5000,
+            }
+          );
           this.$router.push("/login");
         }
       } catch (error) {
@@ -273,8 +283,8 @@ export default {
     ...mapActions(["addProductToCart"]),
     redirectTo(url) {
       this.$router.push(url);
-    }
-  }
+    },
+  },
 };
 </script>
 

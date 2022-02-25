@@ -35,6 +35,8 @@ class Transaction extends Model
         "snap_token",
         "shipping",
         "transaction_id",
+        "transaction_expired_at",
+        "midtrans_data"
     ];
     public function transactionDetails()
     {

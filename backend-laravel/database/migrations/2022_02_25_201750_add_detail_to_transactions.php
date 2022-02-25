@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddTransactionIdToTransactions extends Migration
+class AddDetailToTransactions extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +14,9 @@ class AddTransactionIdToTransactions extends Migration
     public function up()
     {
         Schema::table('transactions', function (Blueprint $table) {
-            $table->string('transaction_id')->after('uuid')->nullable();
+            $table->timestamp('transaction_expired_at')->nullable();
+            $table->json('midtrans_data')->nullable();
         });
-        \DB::statement("UPDATE transactions SET transaction_id = CONCAT('TR',LPAD(id,7,'0'))");
-       
     }
 
     /**
@@ -28,7 +27,8 @@ class AddTransactionIdToTransactions extends Migration
     public function down()
     {
         Schema::table('transactions', function (Blueprint $table) {
-            $table->dropColumn(('transaction_id'));
+            $table->dropColumn('transaction_expired_at');
+            $table->dropColumn('midtrans_data');
         });
     }
 }
