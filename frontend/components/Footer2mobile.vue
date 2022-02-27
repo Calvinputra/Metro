@@ -21,7 +21,7 @@
       </template>
     </div>
     <div></div>
-    <div class="d-flex p-2 justify-content-center">
+    <div class="d-flex p-2 justify-content-center mb-3 mt-3">
       <div class="pe-3 ps-3">
         <img
           style="width: 40px;background-color: #f3f3f3;box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
@@ -55,28 +55,7 @@
         />
       </div>
     </div>
-    <p class="text-center pe-3 ps-3">
-      Dapatkan diskon <span class="text-danger">10%</span> dengan mengirim email
-      kalian dibawah!
-    </p>
-    <div id="search" class="nav-item col-sm-8 align-self-start mt-4">
-      <div class="d-flex">
-        <input
-          class="form-control pe-2 me-1"
-          style="border-radius: 10px 10px 10px 10px"
-          type="search"
-          placeholder="Email"
-          aria-label="Search"
-          name="s"
-        />
-        <button
-          class="rounded"
-          style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
-        >
-          <p class="text-danger">Kirim</p>
-        </button>
-      </div>
-    </div>
+
     <div class="d-flex justify-content-center mb-5" style="flex-wrap: wrap">
       <template v-for="(menu_item, index) in footer_3.items">
         <nuxt-link

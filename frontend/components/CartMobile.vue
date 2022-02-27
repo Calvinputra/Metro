@@ -13,17 +13,20 @@
         </div>
         <a class="product-thumb" href="#"
           ><img
-            style="border-radius: 5%; width: 80px; height: 80px"
+            style="border-radius: 5%; width: 60px; height: 60px"
             :src="ASSET_URL + '/' + JSON.parse(product.images)[0]"
             alt="Product"
         /></a>
       </div>
-      <span class="pr-5">
-        <p class="mb-0">{{ product.code }}</p>
-        <p class="mb-0">
+      <span class="">
+        <p class="mb-0" style="font-size: 10px;">{{ product.code }}</p>
+        <p class="mb-0" style="font-size: 10px;">
           <b>{{ product.name }}</b>
         </p>
-        <p class="text-center text-lg text-medium align-middle">
+        <p
+          class="text-center text-lg text-medium align-middle"
+          style="font-size: 10px;"
+        >
           Rp.{{ Number(sub_total).toLocaleString("id-ID") }}
         </p>
       </span>
@@ -33,7 +36,8 @@
         <div class="count-input">
           <input
             @change="updateSubTotal()"
-            class="col-sm-4"
+            class="col-sm-12"
+            style="font-size: 12px;"
             id="demoInput"
             type="number"
             min="0"
@@ -70,7 +74,7 @@ export default {
       sub_total: 0,
       ASSET_URL: process.env.ASSET_URL,
       qty_model: 0,
-      process_model: false,
+      process_model: false
     };
   },
   methods: {
@@ -82,7 +86,7 @@ export default {
         try {
           let data = {
             qty: this.qty_model,
-            process: this.process_model,
+            process: this.process_model
           };
 
           let response = await this.$axios
@@ -92,7 +96,7 @@ export default {
               this.$emit("updateCart", {
                 qty: this.qty_model,
                 index: this.index,
-                process: this.process_model,
+                process: this.process_model
               });
             });
 
@@ -105,7 +109,7 @@ export default {
         this.$store.dispatch("updateCart", {
           product: this.product,
           qty: this.qty_model,
-          process: this.process_model,
+          process: this.process_model
         });
       }
     },
@@ -119,7 +123,7 @@ export default {
               this.$toast.success("Successfully delete a product from cart", {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000,
+                duration: 5000
               });
               this.$emit("deleteCartHandler", this.index);
               this.$nuxt.refresh();
@@ -131,13 +135,13 @@ export default {
       } else {
         this.$store.dispatch("deleteCart", this.product);
       }
-    },
+    }
   },
 
   created() {
     this.sub_total = this.qty * this.product.price;
     this.qty_model = this.qty;
     this.process_model = this.process;
-  },
+  }
 };
 </script>

@@ -2,17 +2,16 @@
   <div class="text-center spinner">
     <b-button variant="primary" disabled>
       <b-spinner small></b-spinner>
-      Loading... Please wait a minutes
+      Sedang memuat....Silakan tunggu sebentar
     </b-button>
     <div style="color: red; margin-top: 10px">
-      if nothing happens please refresh the page
+      Jika tidak terjadi apa apa, tolong muat ulang halaman
     </div>
   </div>
 </template>
 
 <style scoped>
 .spinner {
-  margin-top:20px;
-  
+  margin-top: 20px;
 }
 </style>

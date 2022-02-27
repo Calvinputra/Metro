@@ -126,13 +126,13 @@ export default {
     },
     async confirmationDeleteCart() {
       this.$bvModal
-        .msgBoxConfirm("Please confirm that you want to delete this product.", {
-          title: "Please Confirm",
+        .msgBoxConfirm("Konfirmasi untuk membatalkan pembelian produk ini", {
+          title: "Konfirmasi Pembatalan",
           size: "sm",
           buttonSize: "sm",
           okVariant: "danger",
-          okTitle: "YES",
-          cancelTitle: "NO",
+          okTitle: "Ya",
+          cancelTitle: "Tidak",
           footerClass: "p-2",
           hideHeaderClose: false,
           centered: true

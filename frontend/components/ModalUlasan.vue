@@ -32,7 +32,7 @@
                 :key="`rating-icon-${index}`"
                 :class="`${rating >= index ? 'fas' : 'far'} fa-star`"
                 @click="changeRatingHandler(index)"
-                style="font-size: 40px !important"
+                style="font-size: 30px !important"
                 aria-hidden="true"
               ></i>
             </template>
@@ -59,46 +59,43 @@
         ></textarea>
       </div>
       <br />
-
-      <div class="text-center mb-3">
-        <button
-          @click="onSubmitHandler"
-          type="submit"
-          class="
+      <div class="d-flex justify-content-center mb-3">
+        <div class="text-center mb-3">
+          <button
+            @click="onSubmitHandler"
+            type="submit"
+            class="
             btn
             text-danger
             btn-light btn-sm
+            fw-bold
             shadow
             rounded
-            col-sm-3
             py-2
-            px-2
+            pe-3 ps-3
           "
-        >
-          Kirim
-        </button>
-      </div>
-      <hr
-        style="height:2px; width: auto; border-width: 0; color: black"
-        class=" mb-3"
-      />
-      <div class="text-right mb-3">
-        <button
-          @click="onSubmitHandler"
-          type="submit"
-          class="
+          >
+            Kirim
+          </button>
+        </div>
+        <div class="text-right mb-3">
+          <button
+            @click="onSubmitHandler"
+            type="submit"
+            class="
             btn
             text-danger
             btn-light btn-sm
+            fw-bold
             shadow
             rounded
-            col-sm-3
             py-2
-            px-2
+            pe-3 ps-3 ms-5
           "
-        >
-          Batal
-        </button>
+          >
+            Batal
+          </button>
+        </div>
       </div>
     </b-modal>
   </div>

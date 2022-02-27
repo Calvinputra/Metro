@@ -1,15 +1,8 @@
 <template>
   <section>
-    <ModalDetailTransaksi :transaction="selectedTransaction" />
     <ModalUlasan />
-    <ModalKonfirmasiBelanja />
-    <b-button v-b-modal.modal-1>Launch demo modal</b-button>
-    <br />
-    <b-button @click="onShowModal(transactions[0])">Detail Transaksi</b-button>
-    <br />
+
     <b-button v-b-modal.modal-ulasan>Detail Modal</b-button>
-    <br />
-    <b-button v-b-modal.modal-konfirmasi>Konfirmasi Belanja Modal</b-button>
     <br />
   </section>
 </template>
