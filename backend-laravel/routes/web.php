@@ -49,7 +49,7 @@ Route::get('send_mail_register', function () {
     ], function ($message) {
         $message
             ->from('bar@example.com')
-            ->to(env('TESTING_EMAIL'), 'John Smith')
+            ->to('jonathanchang96@gmail.com')
             ->subject('Welcome!');
     });
 });
@@ -65,7 +65,7 @@ Route::get('send_mail_reset_password', function () {
     ], function ($message) {
         $message
             ->from('bar@example.com')
-            ->to(env('TESTING_EMAIL'), 'John Smith')
+            ->to('jonathanchang96@gmail.com')
             ->subject('Welcome!');
     });
 });
