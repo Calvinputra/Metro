@@ -39,8 +39,8 @@ class SendEmailRegistrationJob implements ShouldQueue
             'url' => env('SANCTUM_STATEFUL_DOMAINS') . '/verify_email/' . $this->token,
         ], function ($message) use ($name) {
             $message
-                ->from('admin@gmail.com')
-                ->to(env('TESTING_EMAIL'), $name)
+                ->from(env('MAIL_FROM_ADDRESS', 'no-reply@metrojayaindonesia.com'))
+                ->to($this->customer->email)
                 ->subject('Welcome!');
         });
     }
