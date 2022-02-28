@@ -1,5 +1,7 @@
 <template>
-  <section>
+  <section
+    style="background-color: white !important; font-family: 'Nunito Sans'"
+  >
     <section id="product-detail-web">
       <section>
         <Breadcrumb :links="breadcrumb" />
@@ -35,8 +37,6 @@
                     </div>
                   </template>
                 </template>
-
-              
               </div>
               <ul class="preview-thumbnail nav nav-tabs">
                 <template v-for="(img, itemObjKey) in JSON.parse(data.images)">
@@ -46,7 +46,6 @@
                     /></a>
                   </li>
                 </template>
-             
               </ul>
             </div>
             <div class="col-sm-6 mt-5 container">
@@ -62,9 +61,9 @@
                   target="_blank"
                   :href="
                     'https://wa.me/628988606069?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
-                    data.code +
-                    ' - ' +
-                    data.name
+                      data.code +
+                      ' - ' +
+                      data.name
                   "
                   ><img
                     class="img-fluid max-width:100% height:auto rounded"
@@ -201,7 +200,7 @@
         <div class="container mt-5">
           <div class="row">
             <div class="col-sm-1"></div>
-            <div class="pt-2 col-sm 3 d-flex align-items-center">
+            <div class="pt-2 col-sm 3 d-flex align-items-center p-1">
               <h1>Ulasan</h1>
               <h5 class="pt-1">({{ data.reviews.length }})</h5>
               <div class="col-sm-8"></div>
@@ -404,9 +403,9 @@
                     target="_blank"
                     :href="
                       'https://wa.me/628988606069?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
-                      data.code +
-                      ' - ' +
-                      data.name
+                        data.code +
+                        ' - ' +
+                        data.name
                     "
                     ><img
                       id="logo"
@@ -597,7 +596,7 @@ export default {
     return {
       ASSET_URL: process.env.ASSET_URL,
       slide: 0,
-      sliding: null,
+      sliding: null
     };
   },
   async asyncData({ $axios, params }) {
@@ -614,19 +613,19 @@ export default {
           {
             url: "/",
             name: "Beranda",
-            class: "my-2 ms-3 breadcrumb-item opacity-50",
+            class: "my-2 ms-3 breadcrumb-item opacity-50"
           },
           {
             url: "/",
             name: "Product",
-            class: "my-2 breadcrumb-item active opacity-50",
+            class: "my-2 breadcrumb-item active opacity-50"
           },
           {
             url: "/",
             name: response_data.name,
-            class: "my-2 breadcrumb-item active opacity-50",
-          },
-        ],
+            class: "my-2 breadcrumb-item active opacity-50"
+          }
+        ]
       };
     } catch (error) {
       console.log(error);
@@ -643,7 +642,7 @@ export default {
       try {
         if (this.$auth.loggedIn) {
           let data = {
-            product_id: id,
+            product_id: id
           };
           let response = await this.$axios.$post(
             process.env.API_URL + "/api/wishlists",
@@ -653,13 +652,13 @@ export default {
             this.$toast.success("Successfully delete a product from wishlist", {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000,
+              duration: 5000
             });
           } else {
             this.$toast.success("Successfully add a product to wishlist", {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000,
+              duration: 5000
             });
           }
 
@@ -676,7 +675,7 @@ export default {
       try {
         if (this.$auth.loggedIn) {
           let data = {
-            product_id: product.id,
+            product_id: product.id
           };
           let response = await this.$axios.$post(
             process.env.API_URL + "/api/carts",
@@ -685,7 +684,7 @@ export default {
           this.$toast.success("Successfully add a product to cart", {
             theme: "bubble",
             position: "bottom-right",
-            duration: 5000,
+            duration: 5000
           });
           console.log(response);
         } else {
@@ -696,8 +695,8 @@ export default {
         console.log(error);
       }
     },
-    ...mapActions(["addProductToCart"]),
-  },
+    ...mapActions(["addProductToCart"])
+  }
 };
 </script>
 

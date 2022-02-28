@@ -5,11 +5,13 @@
       class="col-sm-12 mb-2 mt-0"
     />
     <div class="col-sm-3">
-      <img
-        style="width: 150px; height: 100px"
-        :src="ASSET_URL + '/' + JSON.parse(detail.product.images)[0]"
-        alt=""
-      />
+      <nuxt-link :to="`/products/${detail.product.id}`">
+        <img
+          style="width: 150px; height: 100px"
+          :src="ASSET_URL + '/' + JSON.parse(detail.product.images)[0]"
+          alt=""
+        />
+      </nuxt-link>
     </div>
     <div class="col-sm-8">
       <h5>{{ detail.name }}</h5>

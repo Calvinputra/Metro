@@ -23,16 +23,10 @@
           </div>
           <!-- If we need navigation buttons -->
           <div>
-            <div
-              class="swiper-button-prev border border-3 rounded-circle"
-              style="color:white; "
-            ></div>
+            <div class="swiper-button-prev" style="color:white; "></div>
           </div>
           <div>
-            <div
-              class="swiper-button-next border border-3 rounded-circle"
-              style="color:white"
-            ></div>
+            <div class="swiper-button-next" style="color:white"></div>
           </div>
         </div>
       </section>
