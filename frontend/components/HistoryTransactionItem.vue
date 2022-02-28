@@ -11,15 +11,19 @@
         <div class="col-sm-9">
           <div class="row mt-4">
             <div class="col-sm-2 mr-3">
-              <img
-                style="width: 90px; height: 90px"
-                :src="
-                  ASSET_URL +
-                  '/' +
-                  JSON.parse(data.transaction_details[0].product.images)[0]
-                "
-                alt=""
-              />
+              <nuxt-link
+                :to="`/products/${data.transaction_details[0].product.id}`"
+              >
+                <img
+                  style="width: 90px; height: 90px"
+                  :src="
+                    ASSET_URL +
+                      '/' +
+                      JSON.parse(data.transaction_details[0].product.images)[0]
+                  "
+                  alt=""
+                />
+              </nuxt-link>
             </div>
             <div class="col-sm-9">
               <template v-if="data.status_id == 1">
@@ -150,7 +154,7 @@
                   text-danger
                   btn-light btn-sm
                   rounded
-                  col-sm-5
+                  col-sm-7
                   ms-0
                   py-2
                   px-2
@@ -160,7 +164,7 @@
                 <template
                   v-if="
                     data.rating &&
-                    data.rating.length === data.transaction_details.length
+                      data.rating.length === data.transaction_details.length
                   "
                 >
                   <b> Lihat Ulasan</b>
@@ -199,8 +203,8 @@
             <img
               :src="
                 ASSET_URL +
-                '/' +
-                JSON.parse(data.transaction_details[0].product.images)[0]
+                  '/' +
+                  JSON.parse(data.transaction_details[0].product.images)[0]
               "
               alt=""
               width="50"
@@ -304,7 +308,7 @@
                 <template
                   v-if="
                     data.rating &&
-                    data.rating.length === data.transaction_details.length
+                      data.rating.length === data.transaction_details.length
                   "
                 >
                   <b> Lihat Ulasan</b>
@@ -338,7 +342,7 @@ export default {
     async buyAgainHandler() {
       try {
         const data = {
-          uuid: this.data.uuid,
+          uuid: this.data.uuid
         };
         const response = await this.$axios.$post(
           process.env.API_URL + "/api/carts/buy_again",
@@ -348,24 +352,24 @@ export default {
           this.$toast.success("Berhasil menambah barang ke cart", {
             theme: "bubble",
             position: "bottom-right",
-            duration: 5000,
+            duration: 5000
           });
           this.$router.push("/cart");
         } else {
           this.$toast.error("Error!", {
             theme: "bubble",
             position: "bottom-right",
-            duration: 5000,
+            duration: 5000
           });
         }
       } catch (error) {}
-    },
+    }
   },
   data() {
     return {
-      ASSET_URL: process.env.ASSET_URL,
+      ASSET_URL: process.env.ASSET_URL
     };
-  },
+  }
 };
 </script>
 
