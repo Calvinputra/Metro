@@ -71,7 +71,14 @@
 
               #{{ data.transaction_id }}
               <div class="mt-1"></div>
-              <span>{{ data.transaction_details[0].name }}</span>
+              <nuxt-link
+                class="text-decoration-none "
+                :to="`/products/${data.transaction_details[0].product.id}`"
+              >
+                <span class="text-black">{{
+                  data.transaction_details[0].name
+                }}</span>
+              </nuxt-link>
               <p>
                 {{ data.transaction_details[0].qty }} x Rp
                 {{
@@ -173,22 +180,6 @@
                   <b> Beri Ulasan</b>
                 </template>
               </nuxt-link>
-            </template>
-            <template v-else>
-              <button
-                type="submit"
-                class="
-                  btn
-                  text-danger
-                  btn-light btn-sm
-                  rounded
-                  col-sm-4
-                  ms-0
-                  py-2
-                  px-2
-                "
-                style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
-              ></button>
             </template>
           </span>
         </div>
@@ -317,13 +308,6 @@
                   <b> Beri Ulasan</b>
                 </template>
               </button>
-            </template>
-            <template v-else>
-              <button
-                type="submit"
-                class="btn text-danger btn-light btn-sm rounded py-1 px-3"
-                style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
-              ></button>
             </template>
           </span>
         </div>

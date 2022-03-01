@@ -109,7 +109,7 @@ export default {
           let response = await this.$axios
             .$delete(process.env.API_URL + "/api/carts/" + this.id)
             .then(() => {
-              this.$toast.success("Successfully delete a product from cart", {
+              this.$toast.success("Berhasil menghapus produk ini", {
                 theme: "bubble",
                 position: "bottom-right",
                 duration: 5000

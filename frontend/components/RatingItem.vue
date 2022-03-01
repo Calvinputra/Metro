@@ -14,7 +14,12 @@
       </nuxt-link>
     </div>
     <div class="col-sm-8">
-      <h5>{{ detail.name }}</h5>
+      <nuxt-link
+        :to="`/products/${detail.product.id}`"
+        class="text-decoration-none text-black"
+      >
+        <h5>{{ detail.name }}</h5>
+      </nuxt-link>
       <p style="margin-top: -5px">Tanggal Pembelian: {{ date }}</p>
       <div class="text-right">
         <template v-if="!rating">
@@ -29,13 +34,20 @@
           </b-button>
         </template>
         <template v-else>
-          <i
-            v-for="index in 5"
-            :key="`${detail.product.id}-rating-icon-${index}`"
-            :class="`${index <= rating.rating ? 'fas' : 'far'} fa-star`"
-            style="font-size: 30px !important"
-            aria-hidden="true"
-          ></i>
+          <div class="row">
+            <div class="col-sm-4">
+              <h6 class="text-left">{{ rating.review }}</h6>
+            </div>
+            <div class="col-sm-8">
+              <i
+                v-for="index in 5"
+                :key="`${detail.product.id}-rating-icon-${index}`"
+                :class="`${index <= rating.rating ? 'fas' : 'far'} fa-star`"
+                style="font-size: 30px !important"
+                aria-hidden="true"
+              ></i>
+            </div>
+          </div>
         </template>
       </div>
     </div>

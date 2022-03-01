@@ -280,17 +280,20 @@ export default {
     confirmationDestroyAll() {
       this.boxTwo = "";
       this.$bvModal
-        .msgBoxConfirm("Please confirm that you want to delete everything.", {
-          title: "Please Confirm",
-          size: "sm",
-          buttonSize: "sm",
-          okVariant: "danger",
-          okTitle: "YES",
-          cancelTitle: "NO",
-          footerClass: "p-2",
-          hideHeaderClose: false,
-          centered: true
-        })
+        .msgBoxConfirm(
+          "Konfirmasi untuk membatalkan semua pembelian produk ini ",
+          {
+            title: "Konfirmasi Pembatalan",
+            size: "sm",
+            buttonSize: "sm",
+            okVariant: "danger",
+            okTitle: "Ya",
+            cancelTitle: "Tidak",
+            footerClass: "p-2",
+            hideHeaderClose: false,
+            centered: true
+          }
+        )
         .then(value => {
           this.boxTwo = value;
           if (value) {
@@ -309,11 +312,14 @@ export default {
           let response = await this.$axios
             .$delete(process.env.API_URL + "/api/carts/" + cart.id)
             .then(() => {
-              this.$toast.success("Successfully clear all cart", {
-                theme: "bubble",
-                position: "bottom-right",
-                duration: 5000
-              });
+              this.$toast.success(
+                "Berhasil membatalkan semua pembelian produk",
+                {
+                  theme: "bubble",
+                  position: "bottom-right",
+                  duration: 5000
+                }
+              );
               this.$nuxt.refresh();
             });
         });
