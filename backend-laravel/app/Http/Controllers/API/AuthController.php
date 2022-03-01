@@ -468,7 +468,7 @@ class AuthController extends Controller
 
                 $rules = [
                     'old_password' => 'required',
-                    'password' => ['required', 'confirmed', Password::min(8)->mixedCase()->numbers()->uncompromised()]
+                    'password' => ['required', 'confirmed', Password::min(8)->mixedCase()->numbers()]
                 ];
                 $messages = [
                     'old_password.required' => 'password lama wajib diisi',
