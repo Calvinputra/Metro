@@ -80,8 +80,8 @@
         </div>
         <div class="text-right mb-3">
           <button
-            @click="onSubmitHandler"
-            type="submit"
+            @click="onCancelHandler"
+            type="button"
             class="
             btn
             text-danger
@@ -144,6 +144,9 @@ export default {
           });
         });
       }
+    },
+    onCancelHandler(){
+      this.$bvModal.hide('modal-ulasan');
     },
     changeRatingHandler(value) {
       this.rating = value;
