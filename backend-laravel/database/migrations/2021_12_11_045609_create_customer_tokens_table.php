@@ -21,7 +21,6 @@ class CreateCustomerTokensTable extends Migration
             $table->boolean('used')->default(0);
             $table->timestamp('expired_at')->nullable();
             $table->timestamps();
-            $table->foreign('customer_id')->references('id')->on('customers');
         });
     }
 

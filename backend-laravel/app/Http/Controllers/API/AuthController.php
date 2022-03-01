@@ -424,7 +424,7 @@ class AuthController extends Controller
 
             $rules = [
                 'token' => 'required|min:40|exists:customer_tokens,token',
-                'password' => ['required', 'confirmed', Password::min(8)->mixedCase()->numbers()->uncompromised()]
+                'password' => ['required', 'confirmed', Password::min(8)->mixedCase()->numbers()]
             ];
             $messages = ['token.required' => 'token wajib diisi', 'token.min' => 'token invalid'];
             $validator = Validator::make($request->all(), $rules, $messages);
