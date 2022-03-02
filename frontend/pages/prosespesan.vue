@@ -47,33 +47,33 @@
                   px-2
                 "
               >
-                <a href="riwayat_pembelian">
+                <nuxt-link to="riwayat_pembelian">
                   Semua
-                </a>
+                </nuxt-link>
               </button>
               <button
                 type="submit"
                 class="btn text-black btn-sm col-sm-3 ms-0 ps-0 py-2 px-2"
               >
-                <a href="/menungguPembayaran">
+                <nuxt-link to="/menungguPembayaran">
                   Menunggu Pembayaran
-                </a>
+                </nuxt-link>
               </button>
               <button
                 type="submit"
                 class="btn text-black btn-sm col-sm-1 ms-0 ps-0 py-2 px-2"
               >
-                <a href="/selesai">
+                <nuxt-link to="/selesai">
                   Selesai
-                </a>
+                </nuxt-link>
               </button>
               <button
                 type="submit"
                 class="btn text-black btn-sm col-sm-2 ms-0 ps-0 py-2 px-2"
               >
-                <a href="/tidakberhasil">
+                <nuxt-link to="/tidakberhasil">
                   Tidak Berhasil
-                </a>
+                </nuxt-link>
               </button>
               <button
                 type="submit"
@@ -100,9 +100,9 @@
                   px-2
                 "
               >
-                <a href="/berlangsung">
+                <nuxt-link to="/berlangsung">
                   Menunggu Konfirmasi
-                </a>
+                </nuxt-link>
               </button>
               <button
                 type="submit"
@@ -114,9 +114,9 @@
                 type="submit"
                 class="btn text-black btn-sm col-sm-2 ms-0 ps-0 py-2 px-2"
               >
-                <a href="/sedangkirim">
+                <nuxt-link to="/sedangkirim">
                   Sedang Dikirim
-                </a>
+                </nuxt-link>
               </button>
               <button
                 type="submit"
@@ -124,9 +124,9 @@
                   
                   rounded col-sm-2 ms-0 ps-0 py-2 px-2"
               >
-                <a href="/sampaitujuan">
+                <nuxt-link to="/sampaitujuan">
                   Sampai Tujuan
-                </a>
+                </nuxt-link>
               </button>
             </div>
             <historyprosespesan />

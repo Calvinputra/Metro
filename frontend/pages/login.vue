@@ -86,8 +86,8 @@
                     <br />
                     <p class="ms-3">
                       Lupa kata sandi?
-                      <a href="/forgot_password" style="color: red"
-                        >Klik disini</a
+                      <nuxt-link to="/forgot_password" style="color: red"
+                        >Klik disini</nuxt-link
                       >
                     </p>
                     <br />
@@ -115,7 +115,9 @@
                   </div>
                   <div class="ms-5" style="padding-left: 4rem !important">
                     Belum mempunyai akun?
-                    <a href="/register" style="color: red">Buat Akun</a>
+                    <nuxt-link to="/register" style="color: red"
+                      >Buat Akun</nuxt-link
+                    >
                   </div>
                 </div>
               </div>
@@ -206,8 +208,8 @@
                     <p style="color: red" class="ms-3">*Wajib diisi</p>
                     <p class="ms-3">
                       Lupa kata sandi?
-                      <a href="/forgot_password" style="color: red"
-                        >Klik disini</a
+                      <nuxt-link to="/forgot_password" style="color: red"
+                        >Klik disini</nuxt-link
                       >
                     </p>
                     <br />
@@ -226,7 +228,9 @@
                   </div>
                   <div class="ms-5">
                     Belum mempunyai akun?
-                    <a href="/register" style="color: red">Buat Akun</a>
+                    <nuxt-link to="/register" style="color: red"
+                      >Buat Akun</nuxt-link
+                    >
                   </div>
                 </div>
               </div>
@@ -251,13 +255,13 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50",
+          class: "my-2 ms-3 breadcrumb-item opacity-50"
         },
         {
           url: "/register",
           name: "Register",
-          class: "my-2 breadcrumb-item active opacity-50",
-        },
+          class: "my-2 breadcrumb-item active opacity-50"
+        }
       ],
       //data
       email: "",
@@ -266,20 +270,20 @@ export default {
       errors: null,
       dismissSecs: 10,
       dismissCountDown: 0,
-      showDismissibleAlert: false,
+      showDismissibleAlert: false
     };
   },
   computed: {
     ...mapGetters({
-      tempCart: "getCheckout",
-    }),
+      tempCart: "getCheckout"
+    })
   },
   methods: {
     async doLogin() {
       try {
         let data = {
           email: this.email,
-          password: this.password,
+          password: this.password
         };
         let response = await this.$axios.$post(
           process.env.API_URL + "/api/login",
@@ -290,13 +294,13 @@ export default {
             .loginWith("laravelSanctum", {
               data: {
                 email: this.email,
-                password: this.password,
-              },
+                password: this.password
+              }
             })
             .then(async () => {
               this.showDismissibleAlert = false;
               let d = {
-                carts: this.tempCart,
+                carts: this.tempCart
               };
               //update current cart database
               let r = await this.$axios.$post(
@@ -306,7 +310,7 @@ export default {
               //deleteAllCart on state
               this.$store.dispatch("deleteAllCart").then(() => {
                 //refetch data from database
-                r.data.map((product) => {
+                r.data.map(product => {
                   this.addProductToCart(product);
                 });
               });
@@ -314,7 +318,7 @@ export default {
               this.$toast.success("Successfully authenticated", {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000,
+                duration: 5000
               });
               // setTimeout(() => {
               //   window.location.reload(true);
@@ -329,7 +333,7 @@ export default {
               this.$toast.error(err[key][key2], {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000,
+                duration: 5000
               });
             });
           });
@@ -339,13 +343,13 @@ export default {
         this.$toasted.error(error, {
           theme: "bubble",
           position: "bottom-right",
-          duration: 5000,
+          duration: 5000
         });
         console.log(error);
       }
     },
-    ...mapActions(["addProductToCart"]),
-  },
+    ...mapActions(["addProductToCart"])
+  }
 };
 </script>
 

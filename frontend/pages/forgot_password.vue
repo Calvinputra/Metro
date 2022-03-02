@@ -83,7 +83,9 @@
                 </div>
                 <div class="mt-5 ms-5 ps-5">
                   Belum mempunyai akun?
-                  <a href="/register" style="color: red">Buat Akun</a>
+                  <nuxt-link style="color:red" to="/register">
+                    Buat Akun
+                  </nuxt-link>
                 </div>
               </div>
             </div>
@@ -168,7 +170,9 @@
                 </div>
                 <div class="mt-5 ms-5">
                   Belum mempunyai akun?
-                  <a href="/register" style="color: red">Buat Akun</a>
+                  <nuxt-link style="color:red" to="/register">
+                    Buat Akun
+                  </nuxt-link>
                 </div>
               </div>
             </div>
