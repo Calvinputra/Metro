@@ -61,7 +61,7 @@ class TransactionController extends Controller
             if ($data->status_id == 1 && $data->snap_token) {
                 //kalo masi menunggu pembayaran
                 $response = $this->checkTransaction($data->uuid); //nnti kalo lama di dispatch ke job aja
-                    if ($response->success) {
+                if ($response->success) {
                     $data = Transaction::where('customer_id', $user->id ?? '0')->where('uuid', $uuid)->first();
                     $expire = date('Y-m-d H:i:s', strtotime($response->data->transaction_time . " +1 days"));
                     $data = tap($data)->update([
@@ -183,6 +183,12 @@ class TransactionController extends Controller
                 $shipping = "JNE (Reguler)";
             } else if ($request->type == "CTCYES") {
                 $shipping = "JNE (YES)";
+            } else if ($request->type == 'OKE') {
+                $shipping = "JNE (OKE)";
+            } else if ($request->type == 'REG') {
+                $shipping = "JNE (Reguler)";
+            } else {
+                $shipping = "JNE (Reguler)";
             }
         }
 

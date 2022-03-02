@@ -54,7 +54,7 @@ class AuthController extends Controller
             'success' => true,
             'user'    => $user,
             'token'   => $token,
-            'message' => ['msg' => ['successfully logged in']],
+            'message' => ['msg' => ['Berhasil Melakukan Login']],
         ];
 
         return response($response, 201);
@@ -89,10 +89,24 @@ class AuthController extends Controller
             'city'        => 'required',
             'postal_code' => 'required',
             'agreement_1' => 'accepted',
-            'agreement_2' => 'accepted',
         ];
         $messages = [
-            'first_name.required' => 'Nama depan wajib diisi'
+            'first_name.required' => 'Nama depan wajib diisi',
+            'last_name.required' => 'Nama belakang wajib diisi',
+            'phone.required' => 'Nomor Telp wajib diisi',
+            'phone.unique' => 'Nomor Telp sudah terpakai',
+            'phone.starts_with' => 'Nomor Telp wajib diisi dengan format 08xxxxxxxxx',
+            'email.required' => 'Email wajib diisi',
+            'email.email' => 'Format Email tidak valid',
+            'email.unique' => 'Email sudah terpakai',
+            'password.required' => 'Password wajib diisi',
+            'password.confirmed' => 'Konfirmasi Password tidak sama dengan password',
+            'address.required' => 'Alamat wajib diisi',
+            'country.required' => 'Negara wajib dipilih',
+            'province.required' => 'Provinsi wajib dipilih',
+            'city.required' => 'Kota wajib dipilih',
+            'postal_code.required' => 'Kode Pos wajib diisi',
+            'agreement_1.required' => 'Anda Harus setuju dengan Kebijakan Privasi',
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
@@ -259,7 +273,7 @@ class AuthController extends Controller
                 ]);
                 $response = [
                     'success' => true,
-                    'message' => ['msg' => ['Succesfully Verify your email']],
+                    'message' => ['msg' => ['Berhasil melakukan verifikasi email']],
                     'data' => $token->customer,
                 ];
             } else {
@@ -394,7 +408,7 @@ class AuthController extends Controller
                 ]);
                 $response = [
                     'success' => true,
-                    'message' => ['msg' => ['Succesfully Reset your password']],
+                    'message' => ['msg' => ['Berhasil melakukan reset password!']],
                     'data' => $token->customer,
                 ];
             } else {
@@ -442,7 +456,7 @@ class AuthController extends Controller
             //return success
             return response()->json([
                 'success' => true,
-                'message' => ['msg' => ['Succesfully Reset your password']],
+                'message' => ['msg' => ['Berhasil melakukan reset password!']],
                 'data' => $user,
             ]);
         } else {

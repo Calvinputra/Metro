@@ -158,7 +158,7 @@
                       >
                       <v-select
                         v-model="country_id"
-                        :reduce="countries => countries.code"
+                        :reduce="(countries) => countries.code"
                         @input="getProvince"
                         :options="countries"
                       ></v-select>
@@ -169,7 +169,7 @@
                       >
                       <v-select
                         v-model="province_id"
-                        :reduce="provinces => provinces.code"
+                        :reduce="(provinces) => provinces.code"
                         @input="getCity"
                         :options="provinces"
                       ></v-select>
@@ -180,7 +180,7 @@
                       >
                       <v-select
                         v-model="city_id"
-                        :reduce="cities => cities.code"
+                        :reduce="(cities) => cities.code"
                         :options="cities"
                       ></v-select>
                     </div>
@@ -230,6 +230,7 @@
                     <div class="text-center">
                       <button
                         @click.prevent="doRegister"
+                        :disabled="button_register_disabled"
                         type="submit"
                         class="
                           btn
@@ -425,7 +426,7 @@
                       >
                       <v-select
                         v-model="country_id"
-                        :reduce="countries => countries.code"
+                        :reduce="(countries) => countries.code"
                         @input="getProvince"
                         :options="countries"
                       ></v-select>
@@ -436,7 +437,7 @@
                       >
                       <v-select
                         v-model="province_id"
-                        :reduce="provinces => provinces.code"
+                        :reduce="(provinces) => provinces.code"
                         @input="getCity"
                         :options="provinces"
                       ></v-select>
@@ -447,7 +448,7 @@
                       >
                       <v-select
                         v-model="city_id"
-                        :reduce="cities => cities.code"
+                        :reduce="(cities) => cities.code"
                         :options="cities"
                       ></v-select>
                     </div>
@@ -497,6 +498,7 @@
                     <div class="text-center p-2">
                       <button
                         @click.prevent="doRegister"
+                        :disabled="button_register_disabled"
                         type="submit"
                         class="
                           btn
@@ -555,6 +557,7 @@ export default {
   // auth: "guest",
   data() {
     return {
+      button_register_disabled: false,
       first_name: null,
       last_name: null,
       phone: null,
@@ -577,19 +580,19 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50"
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
         },
         {
           url: "/register",
           name: "Register",
-          class: "my-2 breadcrumb-item active opacity-50"
-        }
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
       ],
       //alert
       errors: null,
       dismissSecs: 10,
       dismissCountDown: 0,
-      showDismissibleAlert: false
+      showDismissibleAlert: false,
     };
   },
   methods: {
@@ -601,7 +604,7 @@ export default {
         response.data.forEach((value, index) => {
           this.countries.push({
             label: value.name,
-            code: value.id
+            code: value.id,
           });
         });
         console.log(this.countries);
@@ -618,7 +621,7 @@ export default {
         response.data.forEach((value, index) => {
           this.provinces.push({
             label: value.name,
-            code: value.id
+            code: value.id,
           });
         });
       } catch (error) {
@@ -636,7 +639,7 @@ export default {
         response.data.forEach((value, index) => {
           this.cities.push({
             label: value.name,
-            code: value.id
+            code: value.id,
           });
         });
       } catch (error) {
@@ -644,6 +647,7 @@ export default {
       }
     },
     async doRegister() {
+      this.button_register_disabled = true;
       try {
         let data = {
           first_name: this.first_name,
@@ -658,7 +662,7 @@ export default {
           city: this.city_id,
           postal_code: this.postal_code,
           agreement_1: this.agreement_1,
-          agreement_2: this.agreement_2
+          agreement_2: this.agreement_2,
         };
         console.log(data);
         let response = await this.$axios.$post(
@@ -671,13 +675,13 @@ export default {
           this.$toast.success("Successfully register", {
             theme: "bubble",
             position: "bottom-right",
-            duration: 5000
+            duration: 5000,
           });
           await this.$auth.loginWith("laravelSanctum", {
             data: {
               email: this.email,
-              password: this.password
-            }
+              password: this.password,
+            },
           });
           // setTimeout(() => {
           //   window.location.reload(true);
@@ -692,7 +696,7 @@ export default {
               this.$toast.error(err[key][key2], {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000
+                duration: 5000,
               });
             });
           });
@@ -701,32 +705,30 @@ export default {
       } catch (error) {
         console.log(error);
       }
-    }
+      this.button_register_disabled = false;
+    },
   },
   head() {
     return {
       script: [
         {
-          src:
-            "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+          src: "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js",
         },
         {
-          src:
-            "https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"
-        }
+          src: "https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js",
+        },
       ],
       link: [
         {
           rel: "stylesheet",
-          href:
-            "https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
-        }
-      ]
+          href: "https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css",
+        },
+      ],
     };
   },
   created() {
     this.getCountry();
-  }
+  },
 };
 </script>
 

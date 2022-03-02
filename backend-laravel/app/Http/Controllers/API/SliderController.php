@@ -17,7 +17,7 @@ class SliderController extends Controller
     public function index(Request $request)
     {
         $take = $request->take ?? 10;
-        $sliders = Slider::orderBy('order', 'DESC')->get()->take($take);
+        $sliders = Slider::orderBy('order', 'ASC')->get()->take($take);
         return SliderResource::collection($sliders)->additional(['success'=>true]);
     }
 
