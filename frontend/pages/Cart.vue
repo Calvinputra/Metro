@@ -8,8 +8,8 @@
         <nav class="container my-4" aria-label="breadcrumb">
           <ol class="py-1 breadcrumb">
             <li class="my-2 ms-3 breadcrumb-item opacity-50">
-              <a style="text-decoration: none; color: black" href="/"
-                >Beranda</a
+              <nuxt-link style="text-decoration: none; color: black" to="/"
+                >Beranda</nuxt-link
               >
             </li>
             <li
@@ -32,11 +32,11 @@
                 <th class="text-center py-2 align-middle">Harga</th>
                 <th class="text-center py-2 align-middle">Sub total</th>
                 <th class="text-center py-2 align-middle">
-                  <a
+                  <nuxt-link
                     @click="confirmationDestroyAll"
                     class="btn btn-sm btn-outline-danger"
-                    href="#"
-                    >Clear Cart</a
+                    to="#"
+                    >Clear Cart</nuxt-link
                   >
                 </th>
               </tr>
@@ -88,17 +88,17 @@
         </div>
         <div class="shopping-cart-footer">
           <div class="column text-center">
-            <a
+            <nuxt-link
               class="btn btn-light mx-2 btn-shadow"
               style="color: red"
-              href="#"
+              to="#"
               data-toast=""
               data-toast-type="success"
               data-toast-position="topRight"
               data-toast-icon="icon-circle-check"
               data-toast-title="Your cart"
               data-toast-message="is updated successfully!"
-              >Lanjut Belanja</a
+              >Lanjut Belanja</nuxt-link
             >
             <button
               @click="doCheckout"
@@ -156,17 +156,17 @@
         </div>
         <div class="shopping-cart-footer mb-5">
           <div class="column text-center">
-            <a
+            <nuxt-link
               style="color: red"
               class="btn btn-light mx-2 py-1 px-3 btn-shadow"
-              href="#"
+              to="#"
               data-toast=""
               data-toast-type="success"
               data-toast-position="topRight"
               data-toast-icon="icon-circle-check"
               data-toast-title="Your cart"
               data-toast-message="is updated successfully!"
-              >Lanjut Belanja</a
+              >Lanjut Belanja</nuxt-link
             >
             <button
               class="btn btn-danger py-1 px-3 btn-shadow"
@@ -178,6 +178,116 @@
         </div>
       </div>
       <Footer2mobile />
+    </div>
+
+    <div id="cart-tabview" v-if="isLoaded">
+      <div class="container padding-bottom-3x mb-1">
+        <!-- Alert-->
+        <nav class="container my-4" aria-label="breadcrumb">
+          <ol class="py-1 breadcrumb">
+            <li class="my-2 ms-3 breadcrumb-item opacity-50">
+              <nuxt-link style="text-decoration: none; color: black" to="/"
+                >Beranda</nuxt-link
+              >
+            </li>
+            <li
+              class="my-2 breadcrumb-item active opacity-50"
+              style="color: black"
+              aria-current="page"
+            >
+              Keranjang Saya
+            </li>
+          </ol>
+        </nav>
+        <h2 class="ml-2">Keranjang Belanja</h2>
+        <!-- Shopping Cart-->
+        <div class="table-responsive shopping-cart">
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="py-2 align-middle">Produk</th>
+                <th class="text-center py-2 align-middle">Jumlah</th>
+                <th class="text-center py-2 align-middle">Harga</th>
+                <th class="text-center py-2 align-middle">Sub total</th>
+                <th class="text-center py-2 align-middle">
+                  <nuxt-link
+                    @click="confirmationDestroyAll"
+                    class="btn btn-sm btn-outline-danger"
+                    to="#"
+                    >Clear Cart</nuxt-link
+                  >
+                </th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+            <template v-if="!this.$auth.loggedIn">
+              <Carttab
+                v-for="cart in tempCart"
+                :key="cart.id"
+                :product="cart.product"
+                :qty="cart.qty"
+                :id="cart.id"
+                :process="cart.process"
+              />
+            </template>
+
+            <template v-if="this.$auth.loggedIn">
+              <Carttab
+                v-for="(cart, index) in carts"
+                @updateCart="updateCart"
+                @deleteCartHandler="deleteCart"
+                :index="index"
+                :key="cart.id"
+                :product="cart.product"
+                :qty="cart.qty"
+                :id="cart.id"
+                :process="cart.process"
+              />
+            </template>
+          </table>
+
+          <!-- Jika data kosong -->
+          <!-- <div class="text-center mt-5">
+            <i class="fas fa-exclamation-triangle"></i>
+            Tidak ada produk yang anda tambah, Silahkan tambah ke eranjang
+            terlebih dahulu.
+          </div> -->
+        </div>
+        <div class="text-right text-right col-11">
+          <span class="text-center mr-5 pl-5">Total Harga</span>
+          <span class="pl-5"
+            >Rp. {{ Number(grandTotal).toLocaleString("id-ID") }}</span
+          >
+        </div>
+        <br />
+        <br />
+        <div class="shopping-cart-footer">
+          <div class="column"></div>
+        </div>
+        <div class="shopping-cart-footer">
+          <div class="column text-center">
+            <nuxt-link
+              class="btn btn-light mx-2 btn-shadow p-2"
+              style="color: red"
+              to="#"
+              data-toast=""
+              data-toast-type="success"
+              data-toast-position="topRight"
+              data-toast-icon="icon-circle-check"
+              data-toast-title="Your cart"
+              data-toast-message="is updated successfully!"
+              >Lanjut Belanja</nuxt-link
+            >
+            <button
+              @click="doCheckout"
+              class="btn btn-danger btn-shadow p-2"
+              to="/checkout"
+            >
+              Periksa
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -195,15 +305,15 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50",
+          class: "my-2 ms-3 breadcrumb-item opacity-50"
         },
 
         {
           url: "/cart",
           name: "Keranjang Saya",
-          class: "my-2 breadcrumb-item active opacity-50",
-        },
-      ],
+          class: "my-2 breadcrumb-item active opacity-50"
+        }
+      ]
     };
   },
   async mounted() {
@@ -224,12 +334,12 @@ export default {
   computed: {
     ...mapGetters({
       tempCart: "getCart",
-      cartChanged: "getCartChanged",
-    }),
+      cartChanged: "getCartChanged"
+    })
   },
   watch: {
     carts: {
-      handler: async function (changed) {
+      handler: async function(changed) {
         if (this.$auth.loggedIn && changed) {
           this.grandTotal = 0;
           // let carts = await this.$axios.$get(
@@ -237,7 +347,7 @@ export default {
           // );
           // let data = carts.data;
           if (this.carts.length > 0) {
-            this.carts.forEach((cart) => {
+            this.carts.forEach(cart => {
               if (cart.process == 1) {
                 this.grandTotal += cart.qty * cart.product.price;
               }
@@ -249,14 +359,14 @@ export default {
         }
       },
       deep: true,
-      immediate: true,
+      immediate: true
     },
     tempCart: {
-      handler: function (carts) {
+      handler: function(carts) {
         if (!this.$auth.loggedIn && this.tempCart) {
           this.grandTotal = 0;
 
-          this.tempCart.forEach((cart) => {
+          this.tempCart.forEach(cart => {
             if (cart.product.process == 1) {
               this.grandTotal += cart.product.qty * cart.product.price;
             }
@@ -264,8 +374,8 @@ export default {
         }
       },
       deep: true,
-      immediate: true,
-    },
+      immediate: true
+    }
   },
   methods: {
     updateCart({ qty, index, process }) {
@@ -291,10 +401,10 @@ export default {
             cancelTitle: "Tidak",
             footerClass: "p-2",
             hideHeaderClose: false,
-            centered: true,
+            centered: true
           }
         )
-        .then((value) => {
+        .then(value => {
           this.boxTwo = value;
           if (value) {
             //console.log("Yes Clicked"+value);
@@ -303,11 +413,11 @@ export default {
             this.$toast.success("Berhasil membatalkan semua pembelian produk", {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000,
+              duration: 5000
             });
           }
         })
-        .catch((err) => {
+        .catch(err => {
           // An error occurred
         });
     },
@@ -335,11 +445,11 @@ export default {
         this.$toast.error("Silahkan memilih product untuk checkout", {
           theme: "bubble",
           position: "bottom-right",
-          duration: 5000,
+          duration: 5000
         });
       }
-    },
-  },
+    }
+  }
 };
 function increment() {
   document.getElementById("demoInput").stepUp();
@@ -356,8 +466,11 @@ function decrement() {
 #cart-mobileview {
   display: none;
 }
+#cart-tabview {
+  display: none;
+}
 /* 0 - 991 px */
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 499px) {
   #cart_logo {
     display: none !important;
   }
@@ -366,6 +479,25 @@ function decrement() {
     display: none;
   }
   #cart-mobileview {
+    display: grid;
+  }
+  #cart-tabview {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 1024px) {
+  #cart_logo {
+    display: none !important;
+  }
+
+  #cart-webview {
+    display: none;
+  }
+  #cart-mobileview {
+    display: none;
+  }
+  #cart-tabview {
     display: grid;
   }
 }

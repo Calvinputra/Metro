@@ -1,6 +1,6 @@
 <template>
   <!-- search -->
-  <div id="search" class="nav-item align-self-start mt-2">
+  <div id="search" class="nav-item align-self-start text-fluid">
     <div class="d-flex">
       <input
         class="form-control-sm"
@@ -38,13 +38,13 @@ export default {
   props: ["data"],
   data() {
     return {
-      query: "",
+      query: ""
     };
   },
   methods: {
     onSearch() {
       this.$router.push({ path: "/products", query: { s: this.query } });
-    },
-  },
+    }
+  }
 };
 </script>

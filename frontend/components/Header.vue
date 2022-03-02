@@ -193,6 +193,117 @@
         </div>
       </div>
     </div>
+
+    <!-- TAB -->
+    <div id="header-tabview" class="" style="height: auto">
+      <!-- Logo -->
+      <div class="row">
+        <div id="header_logo" class="col-sm-2 ms-3">
+          <nuxt-link to="/"
+            ><img
+              style="width: 80%"
+              class="img-fluid rounded d-block"
+              src="/img/logo.png"
+              alt=""
+          /></nuxt-link>
+        </div>
+        <div class="col-sm-4">
+          <Searchtab :data="menu" />
+        </div>
+
+        <!-- hamburger button -->
+        <div class="col-sm-4 text-right">
+          <div>
+            <b-nav-item-dropdown
+              text="☰"
+              style="font-size: 40px; list-style-type: none"
+              right
+              no-caret
+            >
+              <b-dropdown-item v-if="!this.$auth.loggedIn" href="/login"
+                >Login</b-dropdown-item
+              >
+              <b-dropdown-item v-if="!this.$auth.loggedIn" href="/register"
+                >Register</b-dropdown-item
+              >
+              <b-dropdown-item
+                v-if="this.$auth.loggedIn"
+                href="/riwayat_pembelian"
+                >Riwayat Pembelian</b-dropdown-item
+              >
+              <b-dropdown-item v-if="this.$auth.loggedIn"
+                >Akun Saya</b-dropdown-item
+              >
+              <b-dropdown-item v-if="this.$auth.loggedIn" @click="logout" active
+                >Logout</b-dropdown-item
+              >
+            </b-nav-item-dropdown>
+          </div>
+        </div>
+        <!-- icon -->
+        <div class="collapse navbar-collapse center" id="navbarScroll">
+          <div id="icon navbar" class="container-fluid ms-4">
+            <div class="col-sm-4" style="padding: 0">
+              <b-dropdown
+                id="dropdown-1"
+                variant="transparent"
+                text=""
+                no-caret
+                class="ms-12"
+              >
+                <template slot="button-content">
+                  <i
+                    class="py-0 fa fa-user"
+                    style="font-size: 30px !important"
+                  ></i>
+                  <em></em>
+                </template>
+                <b-dropdown-item v-if="this.$auth.loggedIn" href="/profile"
+                  >Akun Saya</b-dropdown-item
+                >
+                <b-dropdown-item
+                  v-if="this.$auth.loggedIn"
+                  href="/riwayat_pembelian"
+                  >Riwayat Pembelian</b-dropdown-item
+                >
+                <b-dropdown-item
+                  v-if="this.$auth.loggedIn"
+                  href="/change_password"
+                  >Ubah sandi</b-dropdown-item
+                >
+                <b-dropdown-item v-if="!this.$auth.loggedIn" href="/login"
+                  >Masuk</b-dropdown-item
+                >
+                <b-dropdown-item v-if="!this.$auth.loggedIn" href="/register"
+                  >Daftar</b-dropdown-item
+                >
+
+                <b-dropdown-item
+                  v-if="this.$auth.loggedIn"
+                  @click="logout"
+                  active
+                  >Logout</b-dropdown-item
+                >
+              </b-dropdown>
+            </div>
+            <div class="col-sm-4">
+              <nuxt-link to="/wishlist"
+                ><i
+                  class="fas fa-heart"
+                  style="font-size: 30px !important; color: #c63442 !important"
+                ></i
+              ></nuxt-link>
+            </div>
+            <div class="col-sm-4">
+              <nuxt-link to="/cart"
+                ><img src="/img/cart.png" alt=""
+              /></nuxt-link>
+            </div>
+            <!-- Kosong -->
+          </div>
+        </div>
+      </div>
+    </div>
   </nav>
   <!-- Akhir Navbar -->
 </template>
@@ -229,8 +340,11 @@ export default {
 #header-mobileview {
   display: none;
 }
+#header-tabview {
+  display: none;
+}
 /* 0 - 991 px */
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 579px) {
   #header_logo {
     width: 30%;
     padding: 0;
@@ -241,6 +355,26 @@ export default {
     display: none;
   }
   #header-mobileview {
+    display: flex;
+  }
+  #header-tabview {
+    display: none;
+  }
+}
+@media screen and (min-width: 580px) and (max-width: 1024px) {
+  #header_logo {
+    width: 30%;
+    padding: 0;
+    margin-right: auto;
+  }
+
+  #header-webview {
+    display: none;
+  }
+  #header-mobileview {
+    display: none;
+  }
+  #header-tabview {
     display: flex;
   }
 }
