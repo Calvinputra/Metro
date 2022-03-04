@@ -237,7 +237,7 @@ export default {
         },
         {
           url: "/",
-          name: "Product",
+          name: "Produk",
           class: "my-2 breadcrumb-item active opacity-50",
         },
       ],

@@ -5,16 +5,16 @@
     <div id="cart-webview" v-if="isLoaded">
       <div class="container padding-bottom-3x mb-1">
         <!-- Alert-->
-        <nav class="container my-4" aria-label="breadcrumb">
+        <nav class="container my-4" aria-label="breadcrumb " >
           <ol class="py-1 breadcrumb">
             <li class="my-2 ms-3 breadcrumb-item opacity-50">
-              <nuxt-link style="text-decoration: none; color: black" to="/"
+              <nuxt-link style="text-decoration: none; color: red" to="/"
                 >Beranda</nuxt-link
               >
             </li>
             <li
               class="my-2 breadcrumb-item active opacity-50"
-              style="color: black"
+              style="color: red"
               aria-current="page"
             >
               Keranjang Saya
@@ -34,9 +34,9 @@
                 <th class="text-center py-2 align-middle">
                   <nuxt-link
                     @click="confirmationDestroyAll"
-                    class="btn btn-sm btn-outline-danger"
+                    class="btn btn-danger"
                     to="#"
-                    >Clear Cart</nuxt-link
+                    >Hapus Keranjang</nuxt-link
                   >
                 </th>
               </tr>
@@ -91,7 +91,7 @@
             <nuxt-link
               class="btn btn-light mx-2 btn-shadow"
               style="color: red"
-              to="#"
+              to="/"
               data-toast=""
               data-toast-type="success"
               data-toast-position="topRight"
@@ -212,9 +212,9 @@
                 <th class="text-center py-2 align-middle">
                   <nuxt-link
                     @click="confirmationDestroyAll"
-                    class="btn btn-sm btn-outline-danger"
+                    class="btn  btn-danger"
                     to="#"
-                    >Clear Cart</nuxt-link
+                    >Hapus Keranjang</nuxt-link
                   >
                 </th>
               </tr>

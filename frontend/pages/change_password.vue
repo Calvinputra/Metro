@@ -157,7 +157,7 @@ export default {
         },
         {
           url: "/change_password",
-          name: "Ubah Password",
+          name: "Ubah Sandi",
           class: "my-2 breadcrumb-item active opacity-50"
         }
       ]

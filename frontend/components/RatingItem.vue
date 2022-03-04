@@ -1,9 +1,6 @@
 <template>
   <div class="row">
-    <hr
-      style="height: 3px; width: 100%; border-width: 0; color: red"
-      class="col-sm-12 mb-2 mt-0"
-    />
+    
     <div class="col-sm-3">
       <nuxt-link :to="`/products/${detail.product.id}`">
         <img
@@ -50,8 +47,14 @@
           </div>
         </template>
       </div>
+      
     </div>
+    <hr
+      style="height: 3px; width: 100%; border-width: 0; color: red"
+      class="col-sm-12 mt-3 mt-0"
+    />
   </div>
+  
 </template>
 
 <script>

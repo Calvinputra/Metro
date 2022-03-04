@@ -80,7 +80,7 @@ export default {
   methods: {
     async logout() {
       await this.$auth.logout();
-      this.$toast.success("Successfully logout", {
+      this.$toast.success("Berhasil Keluar", {
         theme: "bubble",
         position: "bottom-right",
         duration: 5000,

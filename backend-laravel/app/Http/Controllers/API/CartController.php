@@ -50,7 +50,7 @@ class CartController extends Controller
             } else if (!$product) {
                 return response([
                     'success' => false,
-                    'message' => ['msg' => ['Product not Found!.']],
+                    'message' => ['msg' => ['Produk tidak ditemukan!.']],
                 ], 200);
             }
 
@@ -151,7 +151,7 @@ class CartController extends Controller
             } else if (!$cart && $cart->customer_id == $user->id) {
                 return response([
                     'success' => false,
-                    'message' => ['msg' => ['Cart not Found!.']],
+                    'message' => ['msg' => ['Keranjang tidak ditemukan!.']],
                 ], 200);
             }
 
@@ -181,7 +181,7 @@ class CartController extends Controller
             if (!$cart && $cart->customer_id == $user->id) {
                 return response([
                     'success' => false,
-                    'message' => ['msg' => ['Cart not Found!.']],
+                    'message' => ['msg' => ['Keranjang tidak ditemukan!.']],
                 ], 200);
             } else {
                 $cart->delete();

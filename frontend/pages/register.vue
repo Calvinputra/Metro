@@ -38,11 +38,15 @@
               </div>
 
               <div>
+                
                 <div class="row justify-content-start">
                   <form>
                     <div class="register-form-title mr-5 pr-5">
                       Pengisian Data Diri
                     </div>
+                    <label style="color: red" class="mb-4 ms-2"
+                      ><span style="color: red">*</span>Wajib diisi</label
+                    >
                     <b-alert
                       v-model="showDismissibleAlert"
                       variant="danger"
@@ -58,7 +62,7 @@
                     </b-alert>
                     <div class="form-group col-sm-10 center">
                       <label for="first_name"
-                        >Nama Depan<span style="color: red">*</span>:</label
+                        >Nama Depan<span style="color: red">*</span></label
                       >
                       <input
                         type="text"
@@ -71,11 +75,12 @@
                     </div>
                     <div class="form-group form-group col-sm-10">
                       <label for="last_name"
-                        >Nama Belakang<span style="color: red">*</span>:</label
+                        >Nama Belakang<span style="color: red">*</span></label
                       >
                       <input
                         type="text"
                         class="form-control"
+                        style=""
                         id="last_name"
                         name="last_name"
                         placeholder="Nama Belakang"
@@ -84,8 +89,8 @@
                     </div>
 
                     <div class="form-group form-group col-sm-10">
-                      <label for="phone]"
-                        >Nomor Telepon<span style="color: red">*</span>:</label
+                      <label for="phone"
+                        >Nomor Telepon<span style="color: red">*</span></label
                       >
                       <input
                         type="text"
@@ -96,26 +101,27 @@
                         v-model="phone"
                       />
                     </div>
-                    <div class="form-group col-sm-10">
-                      <label for="email"
-                        >Email<span style="color: red">*</span>:</label
+                    <div class="form-group form-group col-sm-10">
+                      <label for="Email"
+                        >Email<span style="color: red">*</span></label
                       >
                       <input
-                        type="email"
+                        type="Email"
                         class="form-control"
-                        id="email"
-                        name="email"
+                        id="Email"
+                        name="Email"
                         placeholder="Email"
-                        v-model="email"
+                        v-model="Email"
                       />
                     </div>
+                    
                     <div class="form-group col-sm-10">
                       <label for="password"
-                        >Kata Sandi<span style="color: red">*</span>:</label
+                        >Kata Sandi<span style="color: red">*</span></label
                       >
                       <input
                         type="password"
-                        class="form-control"
+                        class="form-control bo"
                         id="password"
                         name="password"
                         placeholder="Password"
@@ -125,7 +131,7 @@
                     <div class="form-group col-sm-10">
                       <label for="password_confirmation"
                         >Konfirmasi Kata Sandi<span style="color: red">*</span
-                        >:</label
+                        ></label
                       >
                       <input
                         type="password"
@@ -142,7 +148,7 @@
                     </div>
                     <div class="form-group col-sm-10">
                       <label for="address"
-                        >Alamat Lengkap<span style="color: red">*</span>:</label
+                        >Alamat Lengkap<span style="color: red">*</span></label
                       >
                       <textarea
                         class="form-control"
@@ -154,7 +160,7 @@
                     </div>
                     <div class="form-group col-sm-10">
                       <label for="country"
-                        >Negara<span style="color: red">*</span>:</label
+                        >Negara<span style="color: red">*</span></label
                       >
                       <v-select
                         v-model="country_id"
@@ -165,7 +171,7 @@
                     </div>
                     <div class="form-group col-sm-10 text">
                       <label for="province"
-                        >Provinsi<span style="color: red">*</span>:</label
+                        >Provinsi<span style="color: red">*</span></label
                       >
                       <v-select
                         v-model="province_id"
@@ -176,7 +182,7 @@
                     </div>
                     <div class="form-group col-sm-10">
                       <label for="city"
-                        >Kota<span style="color: red">*</span>:</label
+                        >Kota<span style="color: red">*</span></label
                       >
                       <v-select
                         v-model="city_id"
@@ -186,7 +192,7 @@
                     </div>
                     <div class="form-group col-sm-10">
                       <label for="postal_code"
-                        >Kode Pos<span style="color: red">*</span>:</label
+                        >Kode Pos<span style="color: red">*</span></label
                       >
                       <input
                         type="text"
@@ -199,10 +205,8 @@
                     </div>
 
                     <br />
-                    <label style="color: red"
-                      ><span style="color: red">*</span>Wajib diisi</label
-                    >
-                    <div class="form-check">
+                    
+                    <div class="form-check ms-3">
                       <input
                         type="checkbox"
                         class="form-check-input"
@@ -214,7 +218,7 @@
                         Privasi</label
                       >
                     </div>
-                    <div class="form-check">
+                    <div class="form-check ms-3">
                       <input
                         type="checkbox"
                         class="form-check-input"
@@ -328,7 +332,7 @@
                     </b-alert>
                     <div class="form-group col-sm-10 center">
                       <label for="first_name"
-                        >Nama Depan<span style="color: red">*</span>:</label
+                        >Nama Depan<span style="color: red">*</span></label
                       >
                       <input
                         type="text"
@@ -341,7 +345,7 @@
                     </div>
                     <div class="form-group form-group col-sm-10">
                       <label for="last_name"
-                        >Nama Belakang<span style="color: red">*</span>:</label
+                        >Nama Belakang<span style="color: red">*</span></label
                       >
                       <input
                         type="text"
@@ -355,7 +359,7 @@
 
                     <div class="form-group form-group col-sm-10">
                       <label for="phone"
-                        >Nomor Telepon<span style="color: red">*</span>:</label
+                        >Nomor Telepon<span style="color: red">*</span></label
                       >
                       <input
                         type="text"
@@ -368,7 +372,7 @@
                     </div>
                     <div class="form-group col-sm-10">
                       <label for="email"
-                        >Email<span style="color: red">*</span>:</label
+                        >Email<span style="color: red">*</span></label
                       >
                       <input
                         type="email"
@@ -381,7 +385,7 @@
                     </div>
                     <div class="form-group col-sm-10">
                       <label for="password"
-                        >Kata Sandi<span style="color: red">*</span>:</label
+                        >Kata Sandi<span style="color: red">*</span></label
                       >
                       <input
                         type="password"
@@ -395,7 +399,7 @@
                     <div class="form-group col-sm-10">
                       <label for="password_confirmation"
                         >Konfirmasi Kata Sandi<span style="color: red">*</span
-                        >:</label
+                        ></label
                       >
                       <input
                         type="password"
@@ -410,7 +414,7 @@
                     <div class="register-form-title">Alamat Pengiriman</div>
                     <div class="form-group col-sm-10">
                       <label for="address"
-                        >Alamat Lengkap<span style="color: red">*</span>:</label
+                        >Alamat Lengkap<span style="color: red">*</span></label
                       >
                       <textarea
                         class="form-control"
@@ -422,7 +426,7 @@
                     </div>
                     <div class="form-group col-sm-10">
                       <label for="country"
-                        >Negara<span style="color: red">*</span>:</label
+                        >Negara<span style="color: red">*</span></label
                       >
                       <v-select
                         v-model="country_id"
@@ -433,7 +437,7 @@
                     </div>
                     <div class="form-group col-sm-10 text">
                       <label for="province"
-                        >Provinsi<span style="color: red">*</span>:</label
+                        >Provinsi<span style="color: red">*</span></label
                       >
                       <v-select
                         v-model="province_id"
@@ -444,7 +448,7 @@
                     </div>
                     <div class="form-group col-sm-10">
                       <label for="city"
-                        >Kota<span style="color: red">*</span>:</label
+                        >Kota<span style="color: red">*</span></label
                       >
                       <v-select
                         v-model="city_id"
@@ -454,7 +458,7 @@
                     </div>
                     <div class="form-group col-sm-10">
                       <label for="postal_code"
-                        >Kode Pos<span style="color: red">*</span>:</label
+                        >Kode Pos<span style="color: red">*</span></label
                       >
                       <input
                         type="text"
@@ -584,7 +588,7 @@ export default {
         },
         {
           url: "/register",
-          name: "Register",
+          name: "Daftar",
           class: "my-2 breadcrumb-item active opacity-50",
         },
       ],
@@ -672,7 +676,7 @@ export default {
         if (response.success) {
           //success registration
           this.showDismissibleAlert = false;
-          this.$toast.success("Successfully register", {
+          this.$toast.success("Berhasil Daftar", {
             theme: "bubble",
             position: "bottom-right",
             duration: 5000,

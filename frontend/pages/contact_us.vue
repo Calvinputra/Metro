@@ -269,7 +269,7 @@ export default {
         },
         {
           url: "/contact_us",
-          name: "Contact Us",
+          name: "Hubungi Kami",
           class: "my-2 breadcrumb-item active opacity-50"
         }
       ]

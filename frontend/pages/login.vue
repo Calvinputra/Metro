@@ -259,7 +259,7 @@ export default {
         },
         {
           url: "/register",
-          name: "Register",
+          name: "Daftar",
           class: "my-2 breadcrumb-item active opacity-50"
         }
       ],

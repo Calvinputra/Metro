@@ -42,7 +42,7 @@ class AuthController extends Controller
         if (!$user || !password_verify($request->password, $user->password)) {
             return response([
                 'success' => false,
-                'message' => ['msg' => ['These credentials do not match our records.']],
+                'message' => ['msg' => ['Email atau kata sandi salah']],
             ], 201);
         }
 
@@ -193,7 +193,7 @@ class AuthController extends Controller
             //return success
             return response()->json([
                 'success' => true,
-                'message' => ['msg' => ['Succesfully Edit Profile ']],
+                'message' => ['msg' => ['edit profil berhasil ']],
                 'data' => $user,
             ]);
         } else {
@@ -504,7 +504,7 @@ class AuthController extends Controller
                 //return success
                 return response()->json([
                     'success' => true,
-                    'message' => ['msg' => ['Succesfully Reset your password']],
+                    'message' => ['msg' => ['berhasil memperbaharui kata sandi']],
                     'data' => $user,
                 ]);
             } else {

@@ -285,20 +285,18 @@
                   </nuxt-link>
                 </template>
                 <template v-else>
-                  <a
-                    href="/riwayat_pembelian"
+                  <nuxt-link to="/riwayat_pembelian"
                     type="submit"
                     class="btn text-black btn-sm mx-1 my-1 py-1 px-2"
                   >
                     Semua
-                  </a>
+                  </nuxt-link>
                 </template>
 
                 <template
                   v-if="this.$route.params.filter == 'menunggu_pembayaran'"
                 >
-                  <a
-                    href="/riwayat_pembelian/menunggu_pembayaran"
+                  <nuxt-link to="/riwayat_pembelian/menunggu_pembayaran"
                     type="submit"
                     class="
                       btn
@@ -315,20 +313,18 @@
                     "
                   >
                     Menunggu Pembayaran
-                  </a>
+                  </nuxt-link>
                 </template>
                 <template v-else>
-                  <a
-                    href="/riwayat_pembelian/menunggu_pembayaran"
+                  <nuxt-link to="/riwayat_pembelian/menunggu_pembayaran"
                     type="submit"
                     class="btn text-black btn-sm mx-1 my-1 py-1 px-2"
                   >
                     Menunggu Pembayaran
-                  </a>
+                  </nuxt-link>
                 </template>
                 <template v-if="this.$route.params.filter == 'selesai'">
-                  <a
-                    href="/riwayat_pembelian/selesai"
+                  <nuxt-link to="/riwayat_pembelian/selesai"
                     type="submit"
                     class="
                       btn
@@ -345,21 +341,19 @@
                     "
                   >
                     Selesai
-                  </a>
+                  </nuxt-link>
                 </template>
                 <template v-else>
-                  <a
-                    href="/riwayat_pembelian/selesai"
+                  <nuxt-link to="/riwayat_pembelian/selesai"
                     type="submit"
                     class="btn text-black btn-sm mx-1 my-1 py-1 px-2"
                   >
                     Selesai
-                  </a>
+                  </nuxt-link>
                 </template>
 
                 <template v-if="this.$route.params.filter == 'tidak_berhasil'">
-                  <a
-                    href="/riwayat_pembelian/tidak_berhasil"
+                  <nuxt-link to="/riwayat_pembelian/tidak_berhasil"
                     type="submit"
                     class="
                       btn
@@ -376,21 +370,19 @@
                     "
                   >
                     Tidak Berhasil
-                  </a>
+                  </nuxt-link>
                 </template>
                 <template v-else>
-                  <a
-                    href="/riwayat_pembelian/tidak_berhasil"
+                  <nuxt-link to="/riwayat_pembelian/tidak_berhasil"
                     type="submit"
                     class="btn text-black btn-sm mx-1 my-1 py-1 px-2"
                   >
                     Tidak Berhasil
-                  </a>
+                  </nuxt-link>
                 </template>
 
                 <template v-if="this.$route.params.filter == 'berlangsung'">
-                  <a
-                    href="/riwayat_pembelian/berlangsung"
+                  <nuxt-link to="/riwayat_pembelian/berlangsung"
                     type="submit"
                     class="
                       btn
@@ -407,16 +399,15 @@
                     "
                   >
                     Berlangsung
-                  </a>
+                  </nuxt-link>
                 </template>
                 <template v-else>
-                  <a
-                    href="/riwayat_pembelian/berlangsung"
+                  <nuxt-link to="/riwayat_pembelian/berlangsung"
                     type="submit"
                     class="btn text-black btn-sm mx-1 my-1 py-1 px-2"
                   >
                     Berlangsung
-                  </a>
+                  </nuxt-link>
                 </template>
               </div>
             </div>

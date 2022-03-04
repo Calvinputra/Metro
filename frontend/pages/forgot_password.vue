@@ -196,7 +196,7 @@ export default {
         },
         {
           url: "/forgot_password",
-          name: "Lupa Password",
+          name: "Lupa Katasandi",
           class: "my-2 breadcrumb-item active opacity-50"
         }
       ],

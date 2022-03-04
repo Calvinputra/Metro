@@ -30,8 +30,8 @@
               </div>
               <div class="mb-4">
                 <hr
-                  style="height: 3px; width: 100%; border-width: 0; color: red"
-                  class="col-sm-12 mb-0 mt-0"
+                  style="height: 3px; width: 100%; border-width: 0; color: red;"
+                  class="col-sm-12 mb-0 mt-0 "
                 />
                 <p class="mb-">Beri Rating untuk transaksi ini.</p>
               </div>
@@ -50,10 +50,7 @@
                   "
                 />
               </div>
-              <hr
-                style="height: 3px; width: 100%; border-width: 0; color: red"
-                class="col-sm-12 mb-2 mt-2"
-              />
+             
             </div>
             <!-- end row -->
           </div>

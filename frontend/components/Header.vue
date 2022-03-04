@@ -73,7 +73,7 @@
               >
 
               <b-dropdown-item v-if="this.$auth.loggedIn" @click="logout" active
-                >Logout</b-dropdown-item
+                >Keluar</b-dropdown-item
               >
             </b-dropdown>
           </div>
@@ -116,7 +116,7 @@
             >Akun Saya</b-dropdown-item
           >
           <b-dropdown-item v-if="this.$auth.loggedIn" @click="logout" active
-            >Logout</b-dropdown-item
+            >Keluar</b-dropdown-item
           >
         </b-nav-item-dropdown>
       </div>
