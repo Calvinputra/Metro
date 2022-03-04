@@ -245,6 +245,9 @@ export const getters = {
         company_wa_phone: state.setting.find(
           (setting) => setting.key === "site.company_wa_phone"
         ).value,
+        company_tokopedia_link: state.setting.find(
+          (setting) => setting.key === "site.company_tokopedia_link"
+        ).value,
       };
     } else {
       return {};

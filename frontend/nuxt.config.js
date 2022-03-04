@@ -71,6 +71,11 @@ export default {
         },
       },
     },
+    redirect: {
+      logout: '/login',
+      callback: '/login',
+      home: '/'
+    },
     localStorage: false,
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

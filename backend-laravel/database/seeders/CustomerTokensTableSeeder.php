@@ -228,6 +228,50 @@ class CustomerTokensTableSeeder extends Seeder
                 'created_at' => '2022-01-29 17:16:27',
                 'updated_at' => '2022-01-29 17:16:47',
             ),
+            19 => 
+            array (
+                'id' => 20,
+                'customer_id' => 11,
+                'token' => 'wdLp51VVAnU5Tbb70brsy5Vrx4hbGNtMTEfFIDay',
+                'type' => 'REGISTER CONFIRMATION TOKEN',
+                'used' => 0,
+                'expired_at' => '2022-03-04 11:38:06',
+                'created_at' => '2022-03-01 11:38:06',
+                'updated_at' => '2022-03-01 11:38:06',
+            ),
+            20 => 
+            array (
+                'id' => 21,
+                'customer_id' => 12,
+                'token' => '0aKRuaV1QhBeKEwgqRCH3a8AmtmSaLKsgNQn9Iyj',
+                'type' => 'REGISTER CONFIRMATION TOKEN',
+                'used' => 0,
+                'expired_at' => '2022-03-04 11:49:27',
+                'created_at' => '2022-03-01 11:49:27',
+                'updated_at' => '2022-03-01 11:49:27',
+            ),
+            21 => 
+            array (
+                'id' => 22,
+                'customer_id' => 13,
+                'token' => 'FTTk5idGsKEdAWI3r7RtmPOrTrNWDzmI2nlDkM6J',
+                'type' => 'REGISTER CONFIRMATION TOKEN',
+                'used' => 1,
+                'expired_at' => '2022-03-04 11:53:28',
+                'created_at' => '2022-03-01 11:53:28',
+                'updated_at' => '2022-03-01 11:57:52',
+            ),
+            22 => 
+            array (
+                'id' => 23,
+                'customer_id' => 1,
+                'token' => 'VBg5s2GuYWRDnOVKSbqw1tMqVYhdlQJcXqSdGtiQ',
+                'type' => 'RESET PASSWORD TOKEN',
+                'used' => 1,
+                'expired_at' => '2022-03-04 12:01:37',
+                'created_at' => '2022-03-01 12:01:37',
+                'updated_at' => '2022-03-01 12:44:34',
+            ),
         ));
         
         

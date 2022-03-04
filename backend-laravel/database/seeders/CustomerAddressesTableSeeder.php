@@ -77,20 +77,6 @@ class CustomerAddressesTableSeeder extends Seeder
             ),
             4 => 
             array (
-                'id' => 5,
-                'name' => 'Home',
-                'address' => 'jalan griya dadap statate block b2 no 15',
-                'postal_code' => '15211',
-                'customer_id' => 9,
-                'country_id' => 1,
-                'province_id' => 2,
-                'city_id' => 28,
-                'created_at' => '2022-01-25 23:11:50',
-                'updated_at' => '2022-01-25 23:11:50',
-                'deleted_at' => NULL,
-            ),
-            5 => 
-            array (
                 'id' => 6,
                 'name' => 'Home',
                 'address' => 'jalan griya dadap statate block b2 no 15',
@@ -101,6 +87,51 @@ class CustomerAddressesTableSeeder extends Seeder
                 'city_id' => 114,
                 'created_at' => '2022-01-28 13:57:21',
                 'updated_at' => '2022-01-28 13:57:21',
+                'deleted_at' => NULL,
+            ),
+            5 => 
+            array (
+                'id' => 7,
+                'name' => 'Home',
+                'address' => 'Perumahan Daan Mogot Baru Jalan Bedugul
+Blok NI No 8',
+                'postal_code' => '11840',
+                'customer_id' => 11,
+                'country_id' => 1,
+                'province_id' => 6,
+                'city_id' => 151,
+                'created_at' => '2022-03-01 11:38:06',
+                'updated_at' => '2022-03-01 11:38:06',
+                'deleted_at' => NULL,
+            ),
+            6 => 
+            array (
+                'id' => 8,
+                'name' => 'Home',
+                'address' => 'Perumahan Daan Mogot Baru Jalan Bedugul
+Blok NI No 8',
+                'postal_code' => '11840',
+                'customer_id' => 12,
+                'country_id' => 1,
+                'province_id' => 6,
+                'city_id' => 151,
+                'created_at' => '2022-03-01 11:49:27',
+                'updated_at' => '2022-03-01 11:49:27',
+                'deleted_at' => NULL,
+            ),
+            7 => 
+            array (
+                'id' => 9,
+                'name' => 'Home',
+                'address' => 'Perumahan Daan Mogot Baru Jalan Bedugul
+Blok NI No 8',
+                'postal_code' => '11840',
+                'customer_id' => 13,
+                'country_id' => 1,
+                'province_id' => 6,
+                'city_id' => 151,
+                'created_at' => '2022-03-01 11:53:28',
+                'updated_at' => '2022-03-01 11:53:28',
                 'deleted_at' => NULL,
             ),
         ));

@@ -5,13 +5,13 @@
         <h1>Akun</h1>
       </div>
       <div class="col">
-        <a
+        <nuxt-link
           v-if="this.$auth.loggedIn == false"
-          href="/register"
+          to="/register"
           style="text-decoration: none"
           :class="
             'text-black nav-custom ' +
-              (name == 'register' ? 'nav-custom-active' : '')
+            (name == 'register' ? 'nav-custom-active' : '')
           "
         >
           <p
@@ -20,14 +20,14 @@
           >
             Buat Akun
           </p>
-        </a>
-        <a
+        </nuxt-link>
+        <nuxt-link
           v-if="this.$auth.loggedIn == false"
-          href="/login"
+          to="/login"
           style="text-decoration: none"
           :class="
             'text-black nav-custom ' +
-              (name == 'login' ? 'nav-custom-active' : '')
+            (name == 'login' ? 'nav-custom-active' : '')
           "
         >
           <p
@@ -36,14 +36,14 @@
           >
             Masuk Akun
           </p>
-        </a>
-        <a
+        </nuxt-link>
+        <nuxt-link
           v-if="this.$auth.loggedIn == false"
-          href="/forgot_password"
+          to="/forgot_password"
           style="text-decoration: none"
           :class="
             'text-black nav-custom ' +
-              (name == 'forgot' ? 'nav-custom-active' : '')
+            (name == 'forgot' ? 'nav-custom-active' : '')
           "
         >
           <p
@@ -52,8 +52,8 @@
           >
             Lupa Password
           </p>
-        </a>
-        <a href="" style="text-decoration: none" class="text-black bg-danger">
+        </nuxt-link>
+        <a style="text-decoration: none" class="text-black bg-danger">
           <div>
             <b-dropdown
               id="dropdown-1"
@@ -61,14 +61,13 @@
               text="Akun Saya "
               variant="danger"
             >
-              <b-dropdown-item href="/change_password"
+              <b-dropdown-item to="/change_password"
                 >Ubah Kata Sandi</b-dropdown-item
               >
-              <b-dropdown-item href="/riwayat_pembelian"
+              <b-dropdown-item to="/riwayat_pembelian"
                 >Riwayat Pembelian</b-dropdown-item
               >
-              <b-dropdown-item href="/undang">Undang Teman</b-dropdown-item>
-              <b-dropdown-item>Keluar</b-dropdown-item>
+              <b-dropdown-item @click="logout">Keluar</b-dropdown-item>
             </b-dropdown>
           </div>
         </a>
@@ -79,6 +78,19 @@
 
 <script>
 export default {
-  props: ["name"]
+  props: ["name"],
+  methods: {
+    async logout() {
+      await this.$auth.logout();
+      this.$toast.success("Successfully logout", {
+        theme: "bubble",
+        position: "bottom-right",
+        duration: 5000,
+        // setTimeout(() => {
+        //   window.location.reload(true);
+        // }, 1000);
+      });
+    },
+  },
 };
 </script>

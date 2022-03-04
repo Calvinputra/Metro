@@ -96,6 +96,17 @@ class WebsiteFeedbackTableSeeder extends Seeder
                 'created_at' => '2022-01-25 23:03:41',
                 'updated_at' => '2022-01-25 23:03:41',
             ),
+            7 => 
+            array (
+                'id' => 8,
+                'email' => 'Jonathanchang96@gmail.com',
+                'first_name' => 'Jonathan',
+                'last_name' => 'Jonathan',
+                'phone' => '08988606069',
+                'message' => 'testing feedback , website harus lebih di kembangkan lagi',
+                'created_at' => '2022-03-01 13:18:44',
+                'updated_at' => '2022-03-01 13:18:44',
+            ),
         ));
         
         

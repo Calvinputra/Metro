@@ -89,6 +89,36 @@ class AccountLedgersTableSeeder extends Seeder
                 'created_at' => '2022-02-15 17:53:41',
                 'updated_at' => '2022-02-15 17:53:41',
             ),
+            7 => 
+            array (
+                'id' => 11,
+                'account_id' => 2,
+                'transaction_id' => 8,
+                'description' => 'Transfer dari Jonathan Jonathan invoice cb055030-4f0e-4062-aace-8f1c37739fb8',
+                'value' => 26940000.0,
+                'created_at' => '2022-03-01 13:12:37',
+                'updated_at' => '2022-03-01 13:12:37',
+            ),
+            8 => 
+            array (
+                'id' => 12,
+                'account_id' => 2,
+                'transaction_id' => 8,
+                'description' => 'Transaksi selesai atas nama Jonathan Jonathan invoice cb055030-4f0e-4062-aace-8f1c37739fb8',
+                'value' => -26940000.0,
+                'created_at' => '2022-03-01 13:31:05',
+                'updated_at' => '2022-03-01 13:31:05',
+            ),
+            9 => 
+            array (
+                'id' => 13,
+                'account_id' => 1,
+                'transaction_id' => 8,
+                'description' => 'Transaksi selesai atas nama Jonathan Jonathan invoice cb055030-4f0e-4062-aace-8f1c37739fb8',
+                'value' => 26940000.0,
+                'created_at' => '2022-03-01 13:31:05',
+                'updated_at' => '2022-03-01 13:31:05',
+            ),
         ));
         
         

@@ -1039,6 +1039,36 @@ class ProductAttributesTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
+            102 => 
+            array (
+                'id' => 103,
+                'attribute_id' => 1,
+                'product_id' => 99,
+                'value' => 'Besi',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            103 => 
+            array (
+                'id' => 104,
+                'attribute_id' => 2,
+                'product_id' => 99,
+                'value' => 'Putih',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            104 => 
+            array (
+                'id' => 105,
+                'attribute_id' => 3,
+                'product_id' => 99,
+                'value' => 'https://www.tokopedia.com/',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
         ));
         
         

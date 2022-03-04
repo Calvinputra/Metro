@@ -54,23 +54,21 @@
                 ></i>
                 <em></em>
               </template>
-              <b-dropdown-item v-if="this.$auth.loggedIn" href="/profile"
+              <b-dropdown-item v-if="this.$auth.loggedIn" to="/profile"
                 >Akun Saya</b-dropdown-item
               >
               <b-dropdown-item
                 v-if="this.$auth.loggedIn"
-                href="/riwayat_pembelian"
+                to="/riwayat_pembelian"
                 >Riwayat Pembelian</b-dropdown-item
               >
-              <b-dropdown-item
-                v-if="this.$auth.loggedIn"
-                href="/change_password"
+              <b-dropdown-item v-if="this.$auth.loggedIn" to="/change_password"
                 >Ubah sandi</b-dropdown-item
               >
-              <b-dropdown-item v-if="!this.$auth.loggedIn" href="/login"
+              <b-dropdown-item v-if="!this.$auth.loggedIn" to="/login"
                 >Masuk</b-dropdown-item
               >
-              <b-dropdown-item v-if="!this.$auth.loggedIn" href="/register"
+              <b-dropdown-item v-if="!this.$auth.loggedIn" to="/register"
                 >Daftar</b-dropdown-item
               >
 
@@ -88,7 +86,7 @@
             ></nuxt-link>
           </div>
           <div class="col-sm-4">
-            <nuxt-link to="/cart"><img src="/img/cart.png" alt=""/></nuxt-link>
+            <nuxt-link to="/cart"><img src="/img/cart.png" alt="" /></nuxt-link>
           </div>
           <!-- Kosong -->
         </div>
@@ -105,13 +103,13 @@
           right
           no-caret
         >
-          <b-dropdown-item v-if="!this.$auth.loggedIn" href="/login"
+          <b-dropdown-item v-if="!this.$auth.loggedIn" to="/login"
             >Login</b-dropdown-item
           >
-          <b-dropdown-item v-if="!this.$auth.loggedIn" href="/register"
+          <b-dropdown-item v-if="!this.$auth.loggedIn" to="/register"
             >Register</b-dropdown-item
           >
-          <b-dropdown-item v-if="this.$auth.loggedIn" href="/riwayat_pembelian"
+          <b-dropdown-item v-if="this.$auth.loggedIn" to="/riwayat_pembelian"
             >Riwayat Pembelian</b-dropdown-item
           >
           <b-dropdown-item v-if="this.$auth.loggedIn"
@@ -156,13 +154,13 @@
               >
               <b-dropdown-item
                 v-if="this.$auth.loggedIn"
-                href="/riwayat_pembelian"
+                to="/riwayat_pembelian"
                 >Riwayat Pembelian</b-dropdown-item
               >
-              <b-dropdown-item v-if="!this.$auth.loggedIn" href="/login"
+              <b-dropdown-item v-if="!this.$auth.loggedIn" to="/login"
                 >Login</b-dropdown-item
               >
-              <b-dropdown-item v-if="!this.$auth.loggedIn" href="/register"
+              <b-dropdown-item v-if="!this.$auth.loggedIn" to="/register"
                 >Register</b-dropdown-item
               >
 
@@ -172,13 +170,13 @@
             </b-dropdown>
           </div>
           <div class="col-sm-4 mb-2 mt-2">
-            <a
-              href="/wishlist"
+            <nuxt-link
+              to="/wishlist"
               class="text-black"
               style="text-decoration: none"
             >
               Wishlist
-            </a>
+            </nuxt-link>
           </div>
           <div class="col-sm-4">
             <nuxt-link
@@ -220,15 +218,15 @@
               right
               no-caret
             >
-              <b-dropdown-item v-if="!this.$auth.loggedIn" href="/login"
+              <b-dropdown-item v-if="!this.$auth.loggedIn" to="/login"
                 >Login</b-dropdown-item
               >
-              <b-dropdown-item v-if="!this.$auth.loggedIn" href="/register"
+              <b-dropdown-item v-if="!this.$auth.loggedIn" to="/register"
                 >Register</b-dropdown-item
               >
               <b-dropdown-item
                 v-if="this.$auth.loggedIn"
-                href="/riwayat_pembelian"
+                to="/riwayat_pembelian"
                 >Riwayat Pembelian</b-dropdown-item
               >
               <b-dropdown-item v-if="this.$auth.loggedIn"
@@ -258,23 +256,23 @@
                   ></i>
                   <em></em>
                 </template>
-                <b-dropdown-item v-if="this.$auth.loggedIn" href="/profile"
+                <b-dropdown-item v-if="this.$auth.loggedIn" to="/profile"
                   >Akun Saya</b-dropdown-item
                 >
                 <b-dropdown-item
                   v-if="this.$auth.loggedIn"
-                  href="/riwayat_pembelian"
+                  to="/riwayat_pembelian"
                   >Riwayat Pembelian</b-dropdown-item
                 >
                 <b-dropdown-item
                   v-if="this.$auth.loggedIn"
-                  href="/change_password"
+                  to="/change_password"
                   >Ubah sandi</b-dropdown-item
                 >
-                <b-dropdown-item v-if="!this.$auth.loggedIn" href="/login"
+                <b-dropdown-item v-if="!this.$auth.loggedIn" to="/login"
                   >Masuk</b-dropdown-item
                 >
-                <b-dropdown-item v-if="!this.$auth.loggedIn" href="/register"
+                <b-dropdown-item v-if="!this.$auth.loggedIn" to="/register"
                   >Daftar</b-dropdown-item
                 >
 
@@ -316,23 +314,22 @@ export default {
 
   computed: {
     ...mapGetters({
-      menu: "getHeader"
-    })
+      menu: "getHeader",
+    }),
   },
   methods: {
     async logout() {
-      await this.$auth.logout().then(() => {
-        this.$toast.success("Successfully logout", {
-          theme: "bubble",
-          position: "bottom-right",
-          duration: 5000
-        });
+      await this.$auth.logout();
+      this.$toast.success("Successfully logout", {
+        theme: "bubble",
+        position: "bottom-right",
+        duration: 5000,
         // setTimeout(() => {
         //   window.location.reload(true);
         // }, 1000);
       });
-    }
-  }
+    },
+  },
 };
 </script>
 

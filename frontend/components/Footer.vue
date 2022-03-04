@@ -23,24 +23,28 @@
               {{ settings.company_address }}
             </p>
             <div>
-              <a href="" class=" text-reset">
+              <a
+                :href="settings.company_tokopedia_link"
+                target="_blank"
+                class="text-reset"
+              >
                 <img
-                  style="width: 40px; margin-top: -5px;"
+                  style="width: 40px; margin-top: -5px"
                   class=""
                   src="/img/tokopedia.png"
                   alt=""
                 />
               </a>
-              <a href="">
+              <a :href="'https://wa.me/' + settings.company_wa_phone" target="_blank">
                 <img
-                  style="width: 40px; margin-top: -5px;"
+                  style="width: 40px; margin-top: -5px"
                   class="me-2"
                   src="/img/whatsapp_new.png"
                   alt=""
                 />
               </a>
               <a
-                href="mailto:metrojayaindonesia@gmail.com"
+                :href="'mailto:' + settings.company_email"
                 class="me-4 text-reset"
               >
                 <i class="fab fa-google"></i>
@@ -62,12 +66,12 @@
               :key="menu_item.id"
               class="mb-1"
             >
-              <a
-                :href="menu_item.url"
+              <nuxt-link
+                :to="menu_item.url"
                 :target="menu_item.target"
-                class="text-reset my-0  text-decoration-none"
-                >{{ menu_item.title }}</a
-              >
+                class="text-reset my-0 text-decoration-none"
+                >{{ menu_item.title }}
+              </nuxt-link>
             </p>
           </div>
           <!-- Grid column -->
@@ -84,24 +88,24 @@
               v-for="menu_item in footer_2.items"
               :key="menu_item.id"
             >
-              <a
-                :href="menu_item.url"
+              <nuxt-link
+                :to="menu_item.url"
                 :target="menu_item.target"
                 class="text-reset text-decoration-none"
-                >{{ menu_item.title }}</a
-              >
+                >{{ menu_item.title }}
+              </nuxt-link>
             </p>
             <p
               class="mb-1"
               v-for="menu_item in footer_3.items"
               :key="menu_item.id"
             >
-              <a
-                :href="menu_item.url"
+              <nuxt-link
+                :to="menu_item.url"
                 :target="menu_item.target"
                 class="text-reset text-decoration-none"
-                >{{ menu_item.title }}</a
-              >
+                >{{ menu_item.title }}
+              </nuxt-link>
             </p>
           </div>
           <!-- Grid column -->
@@ -110,7 +114,7 @@
           <!-- Grid column -->
           <div
             class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 text-black"
-            style="font-family: 'Nunito Sans';"
+            style="font-family: 'Nunito Sans'"
           >
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
@@ -169,14 +173,14 @@ export default {
       footer_1: "getFooter1",
       footer_2: "getFooter2",
       footer_3: "getFooter3",
-      settings: "getSetting"
-    })
+      settings: "getSetting",
+    }),
   },
   methods: {
     redirectTo(url) {
       this.$router.push(url);
-    }
-  }
+    },
+  },
 };
 </script>
 

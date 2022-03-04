@@ -24,18 +24,18 @@ class AccountsTableSeeder extends Seeder
                 'id' => 1,
                 'code' => '1000',
                 'name' => 'Saldo',
-                'balance' => 0.0,
+                'balance' => 41796000.0,
                 'created_at' => NULL,
-                'updated_at' => NULL,
+                'updated_at' => '2022-03-01 13:31:07',
             ),
             1 => 
             array (
                 'id' => 2,
                 'code' => '2000',
                 'name' => 'Saldo ditahan',
-                'balance' => 0.0,
+                'balance' => -11748000.0,
                 'created_at' => NULL,
-                'updated_at' => NULL,
+                'updated_at' => '2022-03-01 13:31:07',
             ),
         ));
         

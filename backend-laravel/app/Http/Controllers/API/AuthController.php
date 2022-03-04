@@ -64,10 +64,11 @@ class AuthController extends Controller
     {
         $user = Customer::where('token', '=', request()->bearerToken())->first();
         if ($user) {
+            $user->tokens()->delete();
+
             $user->update([
                 'token' => null,
             ]);
-            $user->currentAccessToken()->delete();
         }
 
         return response()->json([

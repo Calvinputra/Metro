@@ -748,10 +748,10 @@ class DataRowsTableSeeder extends Seeder
                 'display_name' => 'Display Price',
                 'required' => 1,
                 'browse' => 0,
-                'read' => 1,
-                'edit' => 1,
-                'add' => 1,
-                'delete' => 1,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
                 'details' => '{}',
                 'order' => 7,
             ),
@@ -897,7 +897,7 @@ class DataRowsTableSeeder extends Seeder
                 'add' => 0,
                 'delete' => 0,
                 'details' => '{}',
-                'order' => 16,
+                'order' => 18,
             ),
             55 => 
             array (
@@ -913,7 +913,7 @@ class DataRowsTableSeeder extends Seeder
                 'add' => 0,
                 'delete' => 0,
                 'details' => '{}',
-                'order' => 17,
+                'order' => 19,
             ),
             56 => 
             array (
@@ -929,7 +929,7 @@ class DataRowsTableSeeder extends Seeder
                 'add' => 1,
                 'delete' => 1,
                 'details' => '{"max":10,"min":0}',
-                'order' => 15,
+                'order' => 17,
             ),
             57 => 
             array (
@@ -2193,7 +2193,7 @@ class DataRowsTableSeeder extends Seeder
                 'add' => 1,
                 'delete' => 1,
                 'details' => '{}',
-                'order' => 14,
+                'order' => 16,
             ),
             136 => 
             array (
@@ -2546,6 +2546,22 @@ class DataRowsTableSeeder extends Seeder
                 'delete' => 1,
                 'details' => '{}',
                 'order' => 5,
+            ),
+            158 => 
+            array (
+                'id' => 160,
+                'data_type_id' => 7,
+                'field' => 'product_belongsto_brand_relationship',
+                'type' => 'relationship',
+                'display_name' => 'brands',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"model":"App\\\\Models\\\\Brand","table":"brands","type":"belongsTo","column":"brand_id","key":"id","label":"name","pivot_table":"account_ledgers","pivot":"0","taggable":"0"}',
+                'order' => 15,
             ),
         ));
         

@@ -195,6 +195,17 @@ class SettingsTableSeeder extends Seeder
                 'order' => 11,
                 'group' => 'Site',
             ),
+            16 => 
+            array (
+                'id' => 17,
+                'key' => 'site.company_tokopedia_link',
+                'display_name' => 'Link Tokopedia',
+                'value' => 'https://www.tokopedia.com/metro-jaya',
+                'details' => NULL,
+                'type' => 'text',
+                'order' => 12,
+                'group' => 'Site',
+            ),
         ));
         
         

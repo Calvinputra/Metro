@@ -2044,6 +2044,26 @@ Batas Operasi Temperatur: 5 ~ 60 Celcius',
                 'updated_at' => '2022-01-21 13:31:31',
                 'deleted_at' => NULL,
             ),
+            98 => 
+            array (
+                'id' => 99,
+                'code' => 'TEST123',
+                'name' => 'TESTING JAKARTA 2',
+                'description' => 'Saldo Awal Nov 2019',
+                'display_price' => 200000.0,
+                'price' => 200000.0,
+                'weight' => 500.0,
+                'dimension_width' => 500.0,
+                'dimension_height' => 21.0,
+                'dimension_depth' => 1.0,
+                'stock' => 0.0,
+                'images' => '["products/150D.jpg","products/2960D.jpg","products/afur_stainless_bcp.jpg","products/afur_stainless_bcp2.jpg"]',
+                'category_id' => 3,
+                'brand_id' => 1,
+                'created_at' => '2022-03-01 13:27:51',
+                'updated_at' => '2022-03-01 13:27:51',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

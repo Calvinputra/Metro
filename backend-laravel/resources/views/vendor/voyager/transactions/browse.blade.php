@@ -498,6 +498,9 @@
                                 <p>Biaya Pengiriman</p>
                             </span>
                             <p>Total</p>
+                            <span>
+                                <p>Jenis Pengiriman</p>
+                            </span>
                         </div>
                         <div class="text-right">
                             <span>
@@ -516,6 +519,7 @@
                                 Rp.
                                 <span style="margin-right: 8px;" id="dt-grandtotal"></span>
                             </p>
+                            <p><span id="dt-shipping"></span></p>
                         </div>
                     </div>
                 </div>
@@ -914,6 +918,7 @@
         var shipping_cost = button.data('shipping-cost')
         var grand_total = button.data('grand-total')
         var details = button.data('details');
+        var shipping = button.data('shipping');
         details = details.replaceAll("'",'"');
         var json_details = JSON.parse(details);
         var table_detail = "";
@@ -961,6 +966,7 @@
         $('#dt-shippingcost').html(shipping_cost);
         $('#dt-grandtotal').html(grand_total);
         $('#dt-transaction-detail').html(table_detail);
+        $('#dt-shipping').html(shipping);
     });
     $('#shippingModal').on('show.bs.modal',function(event){
         var button = $(event.relatedTarget) // Button that triggered the modal

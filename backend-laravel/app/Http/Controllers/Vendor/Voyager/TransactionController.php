@@ -28,7 +28,7 @@ class TransactionController extends \TCG\Voyager\Http\Controllers\VoyagerBaseCon
         $transaction = Transaction::where('uuid', $request->uuid)->first();
         $token = '9636421f4dc2c0d40762a2d92b67391c' . $transaction->id . $transaction->created_at . $transaction->updated_at;
         if (!password_verify($token, $request->_key)) {
-            return redirect()->back()->with(['error' => 'Injected Key, Please try again!']);
+            return redirect()->back()->with(['error' => 'Please try again!']);
         }
 
         if ($transaction) {

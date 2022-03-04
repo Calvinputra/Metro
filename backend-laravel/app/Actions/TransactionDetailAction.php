@@ -34,6 +34,7 @@ class TransactionDetailAction extends AbstractAction
             'data-subtotal' => number_format($this->data->total_price, '0', ',', '.'),
             'data-shipping-cost' => number_format($this->data->shipping_cost, '0', ',', '.'),
             'data-grand-total' => number_format($this->data->grand_total, '0', ',', '.'),
+            'data-shipping' =>$this->data->shipping,
             'data-details' => str_replace('"', "'", json_encode($this->data->transactionDetails)),
             'data-toggle' => 'modal',
             'data-target' => '#detailTransaksiModal'

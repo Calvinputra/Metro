@@ -39,6 +39,16 @@ class SlidersTableSeeder extends Seeder
                 'created_at' => '2022-02-02 11:05:16',
                 'updated_at' => '2022-02-02 11:05:16',
             ),
+            2 => 
+            array (
+                'id' => 3,
+                'title' => NULL,
+                'description' => NULL,
+                'image' => 'sliders\\March2022\\WuI1xqAzTQ22iHzqgYLi.png',
+                'order' => 3,
+                'created_at' => '2022-03-01 13:29:05',
+                'updated_at' => '2022-03-01 13:29:05',
+            ),
         ));
         
         
