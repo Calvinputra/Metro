@@ -9,18 +9,14 @@
               <AccountMenu :name="'register'" />
             </div>
             <div
-              class="
-                col-sm-9
-                offset-md-1
-                align-self-start
-                mt-2
-                row
-                justify-content-between
-              "
+              class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
             >
               <div class="col-sm-12">
                 <label class="mb-0"
-                  ><h2 class="font-weight-bold">
+                  ><h2
+                    class="font-weight-bold"
+                    style="font-family: 'Nunito Sans'"
+                  >
                     Registrasi Akun di Metro Jaya<span style="color: red"
                       >*</span
                     >
@@ -38,15 +34,12 @@
               </div>
 
               <div>
-                
                 <div class="row justify-content-start">
                   <form>
                     <div class="register-form-title mr-5 pr-5">
                       Pengisian Data Diri
                     </div>
-                    <label style="color: red" class="mb-4 ms-2"
-                      ><span style="color: red">*</span>Wajib diisi</label
-                    >
+
                     <b-alert
                       v-model="showDismissibleAlert"
                       variant="danger"
@@ -114,7 +107,7 @@
                         v-model="Email"
                       />
                     </div>
-                    
+
                     <div class="form-group col-sm-10">
                       <label for="password"
                         >Kata Sandi<span style="color: red">*</span></label
@@ -130,7 +123,8 @@
                     </div>
                     <div class="form-group col-sm-10">
                       <label for="password_confirmation"
-                        >Konfirmasi Kata Sandi<span style="color: red">*</span
+                        >Konfirmasi Kata Sandi<span style="color: red"
+                          >*</span
                         ></label
                       >
                       <input
@@ -205,7 +199,9 @@
                     </div>
 
                     <br />
-                    
+                    <label style="color: red" class="mb-4 ms-2"
+                      ><span style="color: red">*</span>Wajib diisi</label
+                    >
                     <div class="form-check ms-3">
                       <input
                         type="checkbox"
@@ -236,16 +232,7 @@
                         @click.prevent="doRegister"
                         :disabled="button_register_disabled"
                         type="submit"
-                        class="
-                          btn
-                          text-danger
-                          btn-light btn-sm
-                          rounded
-                          col-sm-2
-                          ms-0
-                          py-2
-                          px-2
-                        "
+                        class="btn text-danger btn-light btn-sm rounded col-sm-2 ms-0 py-2 px-2"
                         style="
                           box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                         "
@@ -285,14 +272,7 @@
         <div class="container">
           <div class="row">
             <div
-              class="
-                col-sm-9
-                offset-md-1
-                align-self-start
-                mt-2
-                row
-                justify-content-between
-              "
+              class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
             >
               <div class="col-sm-12">
                 <label class="mb-0"
@@ -398,7 +378,8 @@
                     </div>
                     <div class="form-group col-sm-10">
                       <label for="password_confirmation"
-                        >Konfirmasi Kata Sandi<span style="color: red">*</span
+                        >Konfirmasi Kata Sandi<span style="color: red"
+                          >*</span
                         ></label
                       >
                       <input
@@ -504,14 +485,7 @@
                         @click.prevent="doRegister"
                         :disabled="button_register_disabled"
                         type="submit"
-                        class="
-                          btn
-                          text-danger
-                          btn-light btn-sm
-                          rounded
-                          p-2
-                          mb-5
-                        "
+                        class="btn text-danger btn-light btn-sm rounded p-2 mb-5"
                         style="
                           box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                         "

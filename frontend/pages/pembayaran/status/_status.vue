@@ -9,14 +9,7 @@
             <AccountMenu :name="'register'" />
           </div>
           <div
-            class="
-              col-sm-9
-              offset-md-1
-              align-self-start
-              mt-2
-              row
-              justify-content-between
-            "
+            class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
           >
             <div class="col-sm-12">
               <label class="mb-0"
@@ -133,15 +126,7 @@
             <AccountMenuMobile :name="'register'" />
           </div>
           <div
-            class="
-              col-sm-9
-              offset-md-1
-              align-self-start
-              mt-2
-              mb-5
-              row
-              justify-content-between
-            "
+            class="col-sm-9 offset-md-1 align-self-start mt-2 mb-5 row justify-content-between"
           >
             <div class="col-sm-12">
               <label class="mb-0"
@@ -167,13 +152,13 @@
                     <p class="text-center"></p>
                   </span>
 
-                  <p>Click this button to go back to transaction list</p>
+                  <p>Klik tombol ini untuk balik ke list</p>
                   <button
                     @click="doRedirectTransaction"
                     class="btn text-white mb-3 p-2"
                     style="background-color: #841c26"
                   >
-                    Back
+                    Kembali
                   </button>
                 </div>
                 <div class="col-sm-2"></div>

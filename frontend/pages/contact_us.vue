@@ -12,7 +12,7 @@
               <div class="col-sm-12">
                 <label class="mb-0 mt-5"
                   ><h2
-                    class="font-weight-bold "
+                    class="font-weight-bold"
                     style="font-family: 'Nunito Sans'"
                   >
                     Formulir umpan balik
@@ -94,16 +94,7 @@
                     type="submit"
                     :disabled="disabled"
                     @click.prevent="delay"
-                    class="
-                      btn
-                      text-danger text-center
-                      btn-light btn-sm
-                      shadow
-                      rounded
-                      col-sm-2
-                      ms-5
-                      mr-5
-                    "
+                    class="btn text-danger text-center btn-light btn-sm shadow rounded col-sm-2 ms-5 mr-5"
                   >
                     Kirim
                   </button>
@@ -201,14 +192,7 @@
                 <div class="text-center ms-2">
                   <button
                     type="submit"
-                    class="
-                      btn
-                      text-danger text-center
-                      btn-light btn-sm
-                      shadow
-                      rounded
-                      p-2
-                    "
+                    class="btn text-danger text-center btn-light btn-sm shadow rounded p-2"
                     :disabled="disabled"
                     @click.prevent="delay"
                   >
@@ -265,14 +249,14 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50"
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
         },
         {
           url: "/contact_us",
           name: "Hubungi Kami",
-          class: "my-2 breadcrumb-item active opacity-50"
-        }
-      ]
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
+      ],
     };
   },
   methods: {
@@ -292,7 +276,7 @@ export default {
         last_name: this.last_name,
         email: this.email,
         phone: this.phone,
-        message: this.message
+        message: this.message,
       };
       let response = await this.$axios.$post(
         process.env.API_URL + "/api/feedbacks",
@@ -301,10 +285,10 @@ export default {
       if (response.success) {
         //success registration
         this.showDismissibleAlert = false;
-        this.$toast.success("Thank you for your feedback", {
+        this.$toast.success("Terima kasih telah mengisi form ini.", {
           theme: "bubble",
           position: "bottom-right",
-          duration: 5000
+          duration: 5000,
         });
         this.$router.push("/");
       } else {
@@ -314,13 +298,13 @@ export default {
             this.$toast.error(err[key][key2], {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000
+              duration: 5000,
             });
           });
         });
         this.disabled = false;
       }
-    }
-  }
+    },
+  },
 };
 </script>

@@ -9,16 +9,9 @@
           <div
             :key="'webview' + content.id"
             class="d-flex container mb-3 mt-5"
-            style="font-family: 'Nunito Sans';"
+            style="font-family: 'Nunito Sans'"
           >
             <h5 class="text-danger fw-bold">{{ content.title }}</h5>
-            <button
-              type="button"
-              class="btn text-danger btn-light btn-sm rounded p-2 ms-3"
-              style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;font-family: 'Nunito Sans';"
-            >
-              Lebih lanjut
-            </button>
           </div>
         </template>
         <section :key="content.id">
@@ -34,13 +27,6 @@
         <template v-if="content.title">
           <div :key="'mobile' + content.id" class="d-flex container">
             <h5 class="text-danger fw-bold">{{ content.title }}</h5>
-            <button
-              type="submit"
-              class="btn text-danger btn-light btn-sm rounded p-2 ms-3"
-              style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
-            >
-              Lebih lanjut
-            </button>
           </div>
         </template>
         <section :key="content.id">
@@ -92,9 +78,9 @@ export default {
       sliderData: [
         { src: "https://picsum.photos/1024/480/?image=10", key: 1 },
         { src: "https://picsum.photos/1024/480/?image=12", key: 2 },
-        { src: "https://picsum.photos/1024/480/?image=22", key: 3 }
+        { src: "https://picsum.photos/1024/480/?image=22", key: 3 },
       ],
-      contents: []
+      contents: [],
     };
   },
   async asyncData({ $axios }) {
@@ -103,16 +89,16 @@ export default {
       let contents = await $axios.get(
         process.env.API_URL + "/api/homepage_contents?take=10:"
       );
-      let sliderData = sliders.data.map(slide => {
+      let sliderData = sliders.data.map((slide) => {
         return {
           src: process.env.ASSET_URL + "/" + slide.image,
-          key: slide.id
+          key: slide.id,
         };
       });
 
       return {
         sliderData: sliderData,
-        contents: contents.data.data
+        contents: contents.data.data,
       };
     } catch (error) {
       console.log(error);
@@ -120,6 +106,6 @@ export default {
   },
   mounted() {
     this.isLoaded = true;
-  }
+  },
 };
 </script>

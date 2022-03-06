@@ -2,22 +2,22 @@
   <div style="background-color: white !important; font-family: 'Nunito Sans'">
     <b-modal id="modal-detailtransaksi" title="Detail Transaksi" ok-only>
       <div class="border border-danger rounded row py-3">
-        <div class="col-8" style="font-size: 12px">
+        <div class="col-sm-6" style="font-size: 12px">
           <table>
             <tbody>
               <tr>
-                <th scope="row">Nomor Invoice:</th>
-                <td>{{ transaction.transaction_id }}</td>
+                <th scope="row">Nomor Invoice</th>
+                <td>:{{ transaction.transaction_id }}</td>
               </tr>
               <tr>
-                <th scope="row" class="pt-2">Tanggal:</th>
-                <td class="pt-2">{{ transaction.date_view }}</td>
+                <th scope="row" class="pt-2">Tanggal</th>
+                <td class="pt-2">:{{ transaction.date_view }}</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <div class="col-4" style="font-size: 12px">
+        <div class="col-sm-6" style="font-size: 12px">
           <span class="text-danger">
             <p class="mb-2">Tujuan Pengiriman</p>
           </span>
@@ -100,6 +100,6 @@
 
 <script>
 export default {
-  props: ["transaction"]
+  props: ["transaction"],
 };
 </script>

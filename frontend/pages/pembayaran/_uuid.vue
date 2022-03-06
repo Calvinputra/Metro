@@ -17,7 +17,7 @@
       </template>
       <template v-else>
         <div class="text-center">
-          <h5>Pilih Metode Pembayaran yang diinginkan</h5>
+          <h5 class="pb-2">Pilih Metode Pembayaran yang diinginkan</h5>
         </div>
       </template>
 
@@ -31,7 +31,7 @@
               <template v-else
                 ><p>Anda Belum memilih metode pembayaran</p></template
               >
-              <img src="/img/audiblelogo.png" alt="" />
+              <img style="width: 200px" src="/img/midtrans.png" alt="" />
             </div>
           </div>
           <div class="card-body">
@@ -239,7 +239,7 @@ export default {
         },
         {
           url: "/checkout",
-          name: "Check Out",
+          name: "Checkout",
           class: "my-2 breadcrumb-item opacity-50",
         },
         {

@@ -62,7 +62,7 @@ export default {
       sub_total: 0,
       ASSET_URL: process.env.ASSET_URL,
       qty_model: 0,
-      process_model: false
+      process_model: false,
     };
   },
   methods: {
@@ -74,7 +74,7 @@ export default {
         try {
           let data = {
             qty: this.qty_model,
-            process: this.process_model
+            process: this.process_model,
           };
 
           let response = await this.$axios
@@ -85,7 +85,7 @@ export default {
               this.$emit("updateCart", {
                 qty: this.qty_model,
                 index: this.index,
-                process: this.process_model
+                process: this.process_model,
               });
             });
 
@@ -98,7 +98,7 @@ export default {
         this.$store.dispatch("updateCart", {
           product: this.product,
           qty: this.qty_model,
-          process: this.process_model
+          process: this.process_model,
         });
       }
     },
@@ -112,7 +112,7 @@ export default {
               this.$toast.success("Berhasil menghapus produk ini", {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000
+                duration: 5000,
               });
               this.$emit("deleteCartHandler", this.index);
             });
@@ -135,9 +135,9 @@ export default {
           cancelTitle: "Tidak",
           footerClass: "p-2",
           hideHeaderClose: false,
-          centered: true
+          centered: true,
         })
-        .then(value => {
+        .then((value) => {
           this.boxTwo = value;
           if (value) {
             //console.log("Yes Clicked"+value);
@@ -145,16 +145,16 @@ export default {
             this.deleteCart();
           }
         })
-        .catch(err => {
+        .catch((err) => {
           // An error occurred
         });
-    }
+    },
   },
 
   created() {
     this.sub_total = this.qty * this.product.price;
     this.qty_model = this.qty;
     this.process_model = this.process;
-  }
+  },
 };
 </script>

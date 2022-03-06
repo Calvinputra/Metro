@@ -111,26 +111,29 @@
             </label>
           </div>
         </div>
-        <div
-          class="d-flex justify-content-around mt-3"
-          style=""
-          v-if="$auth.loggedIn"
-        >
-          <div>
+        <div class="row mt-3" style="" v-if="$auth.loggedIn">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-3">
             <p>
               Nama : {{ $auth.user.first_name + " " + $auth.user.last_name }}
             </p>
             <p>Nomor Telepon : {{ $auth.user.phone }}</p>
             <p>Email : {{ $auth.user.email }}</p>
           </div>
-          <div class="d-flex justify-content-around">
-            <div>
+          <div class="col-sm-2"></div>
+          <div class="col-sm-6">
+            <div class="col-sm-3">
               <p>Alamat:</p>
             </div>
-            <div>
-              <p class="ml-5" style="max-width: 30%">
+            <div class="col-sm-8 ms-3">
+              <p class="">
                 {{ $auth.user.addresses[0].address }}
+                <br />
+
                 {{ $auth.user.addresses[0].city.name }}
+                <br />
+                {{ $auth.user.addresses[0].province.name }}
+                <br />
                 {{ $auth.user.addresses[0].country.name }}
               </p>
             </div>
@@ -386,6 +389,7 @@
               <p class="ml-2" style="max-width: 80%">
                 {{ $auth.user.addresses[0].address }}
                 {{ $auth.user.addresses[0].city.name }}
+                {{ $auth.user.addresses[0].province.name }}
                 {{ $auth.user.addresses[0].country.name }}
               </p>
             </div>
@@ -542,7 +546,7 @@ export default {
         },
         {
           url: "/checkout",
-          name: "Check Out",
+          name: "Checkout",
           class: "my-2 breadcrumb-item active opacity-50",
         },
       ],

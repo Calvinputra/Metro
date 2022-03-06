@@ -9,14 +9,7 @@
               <AccountMenu :name="'register'" />
             </div>
             <div
-              class="
-                col-sm-9
-                offset-md-1
-                align-self-start
-                mt-2
-                row
-                justify-content-between
-              "
+              class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
             >
               <div class="col-sm-12">
                 <label class="mb-0"
@@ -52,47 +45,128 @@
                         <li v-for="(e, key) in error" :key="key">{{ e }}</li>
                       </ul>
                     </b-alert>
-                    <div class="d-flex justify-content-around">
-                      <div>
-                        <p>Nama Depan </p>
-                        <p>Nama Belakang</p>
-                        <p>Nomor Telepon</p>
-                        <p>Alamat</p>
-                        <p>Kode Pos</p>
-                        <p>Negara</p>
-                        <p>Provinsi</p>
-                        <p>Kota</p>
-                        <p>Email</p>
-                      </div>
-                      <div class="">
-                        <p>: {{ this.$auth.user.first_name }}</p>
-                        <p>: {{ this.$auth.user.last_name }}</p>
-                        <p>: {{ this.$auth.user.phone }}</p>
-                        <p>: {{ this.$auth.user.addresses[0].address }}</p>
-                        <p>: {{ this.$auth.user.addresses[0].postal_code }}</p>
-                        <p>: {{ this.$auth.user.addresses[0].country.name }}</p>
-                        <p>
-                          : {{ this.$auth.user.addresses[0].province.name }}
-                        </p>
-                        <p>
-                          :
-                          {{ this.$auth.user.addresses[0].city.name }}
-                        </p>
-                        <p>
-                          : {{ this.$auth.user.email }}
-                          <template
-                            v-if="this.$auth.user.email_verified_at === null"
-                            >-
-                            <button
-                              @click.prevent="doEmailVerification"
-                              class="btn"
-                              style="color: red; weight: 700"
-                            >
-                              Verifikasi sekarang
-                            </button>
-                          </template>
-                        </p>
-                      </div>
+                    <div class="">
+                      <table>
+                        <tbody>
+                          <tr>
+                            <th scope="row" class="pe-3">
+                              <p>Nama Depan</p>
+                            </th>
+                            <td>
+                              <p><b class="ps-3">:</b></p>
+                            </td>
+                            <td>
+                              <p class="ps-2">
+                                {{ this.$auth.user.first_name }}
+                              </p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="">
+                              <p>Nama Belakang</p>
+                            </th>
+                            <td>
+                              <p><b class="ps-3">:</b></p>
+                            </td>
+                            <td>
+                              <p class="ps-2">
+                                {{ this.$auth.user.last_name }}
+                              </p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="pe-3">
+                              <p>Nomor Telepon</p>
+                            </th>
+                            <td>
+                              <p><b class="ps-3">:</b></p>
+                            </td>
+                            <td>
+                              <p class="ps-2">{{ this.$auth.user.phone }}</p>
+                            </td>
+                          </tr>
+                          <br />
+                          <tr>
+                            <th scope="row" class="pe-3"><p>Alamat</p></th>
+                            <td>
+                              <p><b class="ps-3">:</b></p>
+                            </td>
+                            <td>
+                              <p class="ps-2">
+                                {{ this.$auth.user.addresses[0].address }}
+                              </p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="pe-3"><p>Kode Pos</p></th>
+                            <td>
+                              <p><b class="ps-3">:</b></p>
+                            </td>
+                            <td>
+                              <p class="ps-2">
+                                {{ this.$auth.user.addresses[0].postal_code }}
+                              </p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="pe-3"><p>Negara</p></th>
+                            <td>
+                              <p><b class="ps-3">:</b></p>
+                            </td>
+                            <td>
+                              <p class="ps-2">
+                                {{ this.$auth.user.addresses[0].country.name }}
+                              </p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="pe-3"><p>Provinsi</p></th>
+                            <td>
+                              <p><b class="ps-3">:</b></p>
+                            </td>
+                            <td>
+                              <p class="ps-2">
+                                {{ this.$auth.user.addresses[0].province.name }}
+                              </p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="pe-3"><p>Kota</p></th>
+                            <td>
+                              <p><b class="ps-3">:</b></p>
+                            </td>
+                            <td>
+                              <p class="ps-2">
+                                {{ this.$auth.user.addresses[0].city.name }}
+                              </p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="pe-3"><p>Email</p></th>
+                            <td>
+                              <p><b class="ps-3">:</b></p>
+                            </td>
+                            <td>
+                              <p class="ps-2">
+                                {{ this.$auth.user.email }}
+                                <template
+                                  v-if="
+                                    this.$auth.user.email_verified_at === null
+                                  "
+                                  >-
+                                  <button
+                                    @click.prevent="doEmailVerification"
+                                    class="btn"
+                                    style="color: red; weight: 700"
+                                  >
+                                    Verifikasi sekarang
+                                  </button>
+                                </template>
+                              </p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                   </form>
                   <div class="text-center">
@@ -143,14 +217,7 @@
               <AccountMenu :name="'register'" />
             </div>
             <div
-              class="
-                col-sm-9
-                offset-md-1
-                align-self-start
-                mt-2
-                row
-                justify-content-between
-              "
+              class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
             >
               <div class="col-sm-12">
                 <label class="mt-3"
@@ -288,14 +355,14 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50"
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
         },
         {
           url: "/profile",
           name: "Akun Saya",
-          class: "my-2 breadcrumb-item active opacity-50"
-        }
-      ]
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
+      ],
     };
   },
   methods: {
@@ -309,19 +376,19 @@ export default {
           this.$toast.success(response.data, {
             theme: "bubble",
             position: "bottom-right",
-            duration: 5000
+            duration: 5000,
           });
         } else {
           this.$toast.error(response.data, {
             theme: "bubble",
             position: "bottom-right",
-            duration: 5000
+            duration: 5000,
           });
         }
       } catch (error) {
         console.log(error);
       }
-    }
-  }
+    },
+  },
 };
 </script>

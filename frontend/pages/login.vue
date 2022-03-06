@@ -9,18 +9,16 @@
               <AccountMenu :name="'login'" />
             </div>
             <div
-              class="
-                col-sm-9
-                offset-md-1
-                align-self-start
-                mt-2
-                row
-                justify-content-between
-              "
+              class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
             >
               <div class="col-sm-12">
                 <label class="mb-0"
-                  ><h2 class="font-weight-bold">Masuk ke Akun Saya</h2></label
+                  ><h2
+                    class="font-weight-bold"
+                    style="font-family: 'Nunito Sans'"
+                  >
+                    Masuk ke Akun Saya
+                  </h2></label
                 >
               </div>
               <div class="mb-4">
@@ -35,10 +33,12 @@
               </div>
 
               <div>
-                <h2 class="text-center">Masuk Ke Akun</h2>
+                <h2 class="text-center" style="font-family: 'Nunito Sans'">
+                  Masuk Ke Akun
+                </h2>
               </div>
               <p style="color: red" class="ms-5">*Wajib diisi</p>
-                    <br />
+              <br />
               <div>
                 <b-alert
                   v-model="showDismissibleAlert"
@@ -83,39 +83,26 @@
                         placeholder="Password"
                       />
                     </div>
-
-                    
-                    
                   </form>
                   <div class="text-center">
                     <button
                       @click.prevent="doLogin"
                       type="submit"
-                      class="
-                        btn
-                        text-danger
-                        btn-light btn-sm
-                        rounded
-                        col-sm-2
-                        py-2
-                        px-2
-                        mb-4
-                      "
+                      class="btn text-danger btn-light btn-sm rounded col-sm-2 py-2 px-2 mb-4"
                       style="
                         box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                       "
                     >
                       Masuk Akun
                     </button>
-                    
                   </div>
                   <p class="ms-5" style="padding-left: 4rem !important">
-                      Lupa kata sandi?
-                      <nuxt-link to="/forgot_password" style="color: red"
-                        >Klik disini</nuxt-link
-                      >
-                    </p>
-                    <br />
+                    Lupa kata sandi?
+                    <nuxt-link to="/forgot_password" style="color: red"
+                      >Klik disini</nuxt-link
+                    >
+                  </p>
+                  <br />
                   <div class="ms-5" style="padding-left: 4rem !important">
                     Belum mempunyai akun?
                     <nuxt-link to="/register" style="color: red"
@@ -135,14 +122,7 @@
         <div class="container">
           <div class="row">
             <div
-              class="
-                col-sm-9
-                offset-md-1
-                align-self-start
-                mt-2
-                row
-                justify-content-between
-              "
+              class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
             >
               <div class="col-sm-12">
                 <label class="mb-0"
@@ -161,9 +141,11 @@
               </div>
 
               <div>
-                <h2 class="text-center">Masuk Ke Akun</h2>
+                <h2 class="text-center" style="font-family: 'Nunito Sans'">
+                  Masuk Ke Akun
+                </h2>
               </div>
-                    <p style="color: red" class="ms-3">*Wajib diisi</p>
+              <p style="color: red" class="ms-3">*Wajib diisi</p>
 
               <div>
                 <b-alert
@@ -209,8 +191,6 @@
                         placeholder="Password"
                       />
                     </div>
-
-                   
                   </form>
                   <div class="text-center">
                     <button
@@ -224,13 +204,13 @@
                       Masuk Akun
                     </button>
                   </div>
-                   <p class="ms-2">
-                      Lupa kata sandi?
-                      <nuxt-link to="/forgot_password" style="color: red"
-                        >Klik disini</nuxt-link
-                      >
-                    </p>
-                    <br />
+                  <p class="ms-2">
+                    Lupa kata sandi?
+                    <nuxt-link to="/forgot_password" style="color: red"
+                      >Klik disini</nuxt-link
+                    >
+                  </p>
+                  <br />
                   <div class="ms-2">
                     Belum mempunyai akun?
                     <nuxt-link to="/register" style="color: red"
@@ -260,13 +240,13 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50"
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
         },
         {
           url: "/Login",
           name: "Masuk Akun",
-          class: "my-2 breadcrumb-item active opacity-50"
-        }
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
       ],
       //data
       email: "",
@@ -275,20 +255,20 @@ export default {
       errors: null,
       dismissSecs: 10,
       dismissCountDown: 0,
-      showDismissibleAlert: false
+      showDismissibleAlert: false,
     };
   },
   computed: {
     ...mapGetters({
-      tempCart: "getCheckout"
-    })
+      tempCart: "getCheckout",
+    }),
   },
   methods: {
     async doLogin() {
       try {
         let data = {
           email: this.email,
-          password: this.password
+          password: this.password,
         };
         let response = await this.$axios.$post(
           process.env.API_URL + "/api/login",
@@ -299,13 +279,13 @@ export default {
             .loginWith("laravelSanctum", {
               data: {
                 email: this.email,
-                password: this.password
-              }
+                password: this.password,
+              },
             })
             .then(async () => {
               this.showDismissibleAlert = false;
               let d = {
-                carts: this.tempCart
+                carts: this.tempCart,
               };
               //update current cart database
               let r = await this.$axios.$post(
@@ -315,7 +295,7 @@ export default {
               //deleteAllCart on state
               this.$store.dispatch("deleteAllCart").then(() => {
                 //refetch data from database
-                r.data.map(product => {
+                r.data.map((product) => {
                   this.addProductToCart(product);
                 });
               });
@@ -323,7 +303,7 @@ export default {
               this.$toast.success("Berhasil masuk", {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000
+                duration: 5000,
               });
               // setTimeout(() => {
               //   window.location.reload(true);
@@ -338,7 +318,7 @@ export default {
               this.$toast.error(err[key][key2], {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000
+                duration: 5000,
               });
             });
           });
@@ -348,13 +328,13 @@ export default {
         this.$toasted.error(error, {
           theme: "bubble",
           position: "bottom-right",
-          duration: 5000
+          duration: 5000,
         });
         console.log(error);
       }
     },
-    ...mapActions(["addProductToCart"])
-  }
+    ...mapActions(["addProductToCart"]),
+  },
 };
 </script>
 

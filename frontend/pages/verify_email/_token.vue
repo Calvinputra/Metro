@@ -11,20 +11,21 @@
             </p>
           </span>
           <template v-if="success">
-            <p>Click this button to continue your activity on Metro Jaya</p>
+            <p>
+              Klik tombol ini untuk melanjutkan aktivitas anda di Metro Jaya
+            </p>
             <button
               @click="doRedirectLogin"
               class="btn text-white mb-3 p-2"
               style="background-color: #841c26"
             >
-              Continue
+              Lanjut
             </button>
           </template>
         </div>
         <div class="col-sm-2"></div>
       </div>
     </div>
-
   </section>
 </template>
 
