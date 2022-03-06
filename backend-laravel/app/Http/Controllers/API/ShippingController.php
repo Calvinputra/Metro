@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Http;
 use App\Models\Customer;
+use Illuminate\Support\Facades\Log;
 
 class ShippingController extends Controller
 {
@@ -25,6 +26,7 @@ class ShippingController extends Controller
                 'courier' => 'jne',
                 'weight' => $weight_total,
             ]);
+            Log::error($response);
             $data = json_decode($response->body(), false);
             return response()->json([
                 'data'   => $data->rajaongkir->results[0]->costs,
