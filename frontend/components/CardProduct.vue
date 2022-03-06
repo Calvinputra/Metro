@@ -1,8 +1,8 @@
 <template>
-  <section class="col-4 pe-1 ps-3">
+  <section class="col-4 pe-1 ps-3" style="font-size:14px;">
     <section
       @click="redirectTo('/products/' + data.id)"
-      style="text-decoration: none !important; color: black"
+      style="text-decoration: none !important; color: black font-size:14px;"
     >
       <div
         class="card mb-5 bg-white rounded"
@@ -118,7 +118,7 @@ export default {
             process.env.API_URL + "/api/carts",
             data
           );
-          this.$toast.success("Successfully add a product to cart", {
+          this.$toast.success("Berhasil menambah produk ke keranjang", {
             theme: "bubble",
             position: "bottom-right",
             duration: 5000,
@@ -143,13 +143,13 @@ export default {
             data
           );
           if (this.data.wishlist_exist) {
-            this.$toast.success("Successfully delete a product from wishlist", {
+            this.$toast.success("Berhasil menghapus produk dari wishlist", {
               theme: "bubble",
               position: "bottom-right",
               duration: 5000,
             });
           } else {
-            this.$toast.success("Successfully add a product to wishlist", {
+            this.$toast.success("Berhasil menambah produk ke wishlist", {
               theme: "bubble",
               position: "bottom-right",
               duration: 5000,

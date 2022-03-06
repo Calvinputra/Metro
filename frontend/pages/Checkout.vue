@@ -584,7 +584,7 @@ export default {
               },
             })
             .then(async () => {
-              this.$toast.success("Successfully authenticated", {
+              this.$toast.success("Berhasil masuk", {
                 theme: "bubble",
                 position: "bottom-right",
                 duration: 5000,

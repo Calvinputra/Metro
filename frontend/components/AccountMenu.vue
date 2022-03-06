@@ -59,6 +59,9 @@
               variant="danger"
               class="m-md-2"
             >
+              <b-dropdown-item to="/profile"
+                >Akun Saya</b-dropdown-item
+              >
               <b-dropdown-item to="/change_password"
                 >Ubah Kata Sandi</b-dropdown-item
               >

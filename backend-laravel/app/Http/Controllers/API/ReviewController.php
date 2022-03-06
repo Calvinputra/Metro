@@ -57,7 +57,7 @@ class ReviewController extends Controller
             if (!$transaction) {
                 return response([
                     'success' => false,
-                    'message' => ['msg' => ['Transaction not Found!.']],
+                    'message' => ['msg' => ['Tidak ada transaksi!.']],
                 ], 200);
             }
 
@@ -71,7 +71,7 @@ class ReviewController extends Controller
             if (!$flag) {
                 return response([
                     'success' => false,
-                    'message' => ['msg' => ['Product not found in the transaction!.']],
+                    'message' => ['msg' => ['Produk tidak ditemukan di transaksi ini!.']],
                 ], 200);
             }
 
@@ -155,7 +155,7 @@ class ReviewController extends Controller
             if (!$transaction) {
                 return response([
                     'success' => false,
-                    'message' => ['msg' => ['Transaction not Found!.']],
+                    'message' => ['msg' => ['Tidak ada Transaksi!.']],
                 ], 200);
             }
 
@@ -169,7 +169,7 @@ class ReviewController extends Controller
             if (!$flag) {
                 return response([
                     'success' => false,
-                    'message' => ['msg' => ['Product not found in the transaction!s']],
+                    'message' => ['msg' => ['Produk tidak ditemukan di transaksi ini!']],
                 ], 200);
             }
 

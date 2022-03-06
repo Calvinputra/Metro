@@ -138,7 +138,7 @@ class ProductController extends Controller
             return new ProductResource($data);
         } else {
             return response()->json([
-                'data'   => 'Product not Found',
+                'data'   => 'Produk tidak ditemukan',
                 'status' => 404,
             ]);
         }

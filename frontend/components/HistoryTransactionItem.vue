@@ -333,7 +333,7 @@ export default {
           data
         );
         if (response.success) {
-          this.$toast.success("Berhasil menambah barang ke cart", {
+          this.$toast.success("Berhasil menambah produk ke cart", {
             theme: "bubble",
             position: "bottom-right",
             duration: 5000

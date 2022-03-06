@@ -37,6 +37,8 @@
               <div>
                 <h2 class="text-center">Masuk Ke Akun</h2>
               </div>
+              <p style="color: red" class="ms-5">*Wajib diisi</p>
+                    <br />
               <div>
                 <b-alert
                   v-model="showDismissibleAlert"
@@ -55,7 +57,7 @@
                   <form class="ps-5 ms-5">
                     <div class="form-group col-sm-10">
                       <label for="email" style="font-family: 'Nunito Sans'"
-                        >Email<span style="color: red">*</span>:</label
+                        >Email<span style="color: red">*</span></label
                       >
                       <input
                         v-on:keyup.enter="doLogin"
@@ -69,7 +71,7 @@
                     </div>
                     <div class="form-group col-sm-10">
                       <label for="password" style="font-family: 'Nunito Sans'"
-                        >Kata Sandi<span style="color: red">*</span>:</label
+                        >Kata Sandi<span style="color: red">*</span></label
                       >
                       <input
                         v-on:keyup.enter="doLogin"
@@ -82,15 +84,8 @@
                       />
                     </div>
 
-                    <p style="color: red" class="ms-3">*Wajib diisi</p>
-                    <br />
-                    <p class="ms-3">
-                      Lupa kata sandi?
-                      <nuxt-link to="/forgot_password" style="color: red"
-                        >Klik disini</nuxt-link
-                      >
-                    </p>
-                    <br />
+                    
+                    
                   </form>
                   <div class="text-center">
                     <button
@@ -112,7 +107,15 @@
                     >
                       Masuk Akun
                     </button>
+                    
                   </div>
+                  <p class="ms-5" style="padding-left: 4rem !important">
+                      Lupa kata sandi?
+                      <nuxt-link to="/forgot_password" style="color: red"
+                        >Klik disini</nuxt-link
+                      >
+                    </p>
+                    <br />
                   <div class="ms-5" style="padding-left: 4rem !important">
                     Belum mempunyai akun?
                     <nuxt-link to="/register" style="color: red"
@@ -148,7 +151,7 @@
               </div>
               <div class="mb-4">
                 <hr
-                  style="height: 10%; width: 100%; border-width: 0; color: red"
+                  style="height: 3px; width: 100%; border-width: 0; color: red"
                   class="col-sm-12 mb-0 mt-0"
                 />
                 <p class="mb-">
@@ -160,6 +163,8 @@
               <div>
                 <h2 class="text-center">Masuk Ke Akun</h2>
               </div>
+                    <p style="color: red" class="ms-3">*Wajib diisi</p>
+
               <div>
                 <b-alert
                   v-model="showDismissibleAlert"
@@ -178,7 +183,7 @@
                   <form>
                     <div class="form-group col-sm-10">
                       <label for="email"
-                        >Email<span style="color: red">*</span>:</label
+                        >Email<span style="color: red">*</span></label
                       >
                       <input
                         v-on:keyup.enter="doLogin"
@@ -192,7 +197,7 @@
                     </div>
                     <div class="form-group col-sm-10">
                       <label for="password"
-                        >Kata Sandi<span style="color: red">*</span>:</label
+                        >Kata Sandi<span style="color: red">*</span></label
                       >
                       <input
                         v-on:keyup.enter="doLogin"
@@ -205,14 +210,7 @@
                       />
                     </div>
 
-                    <p style="color: red" class="ms-3">*Wajib diisi</p>
-                    <p class="ms-3">
-                      Lupa kata sandi?
-                      <nuxt-link to="/forgot_password" style="color: red"
-                        >Klik disini</nuxt-link
-                      >
-                    </p>
-                    <br />
+                   
                   </form>
                   <div class="text-center">
                     <button
@@ -226,7 +224,14 @@
                       Masuk Akun
                     </button>
                   </div>
-                  <div class="ms-5">
+                   <p class="ms-2">
+                      Lupa kata sandi?
+                      <nuxt-link to="/forgot_password" style="color: red"
+                        >Klik disini</nuxt-link
+                      >
+                    </p>
+                    <br />
+                  <div class="ms-2">
                     Belum mempunyai akun?
                     <nuxt-link to="/register" style="color: red"
                       >Buat Akun</nuxt-link
@@ -258,8 +263,8 @@ export default {
           class: "my-2 ms-3 breadcrumb-item opacity-50"
         },
         {
-          url: "/register",
-          name: "Daftar",
+          url: "/Login",
+          name: "Masuk Akun",
           class: "my-2 breadcrumb-item active opacity-50"
         }
       ],
@@ -315,7 +320,7 @@ export default {
                 });
               });
 
-              this.$toast.success("Successfully authenticated", {
+              this.$toast.success("Berhasil masuk", {
                 theme: "bubble",
                 position: "bottom-right",
                 duration: 5000

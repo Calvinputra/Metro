@@ -45,7 +45,7 @@ export const actions = {
       commit("updateProductCart", { product, qty, process, notification });
     } else {
       if (notification) {
-        this.$toast.error("Product not found", {
+        this.$toast.error("Product tidak ditemukan", {
           theme: "bubble",
           position: "bottom-right",
           duration: 5000,
@@ -60,7 +60,7 @@ export const actions = {
       commit("deleteProductCart", { product, notification });
     } else {
       if (notification) {
-        this.$toast.error("Product not found", {
+        this.$toast.error("Produk tidak ditemukan", {
           theme: "bubble",
           position: "bottom-right",
           duration: 5000,
@@ -71,7 +71,7 @@ export const actions = {
   deleteAllCart({ state, commit }, notification = false) {
     if (state.cart.length == 0) {
       if (notification) {
-        this.$toast.error("Cart is empty", {
+        this.$toast.error("Keranjang masih kosong", {
           theme: "bubble",
           position: "bottom-right",
           duration: 5000,
@@ -96,7 +96,7 @@ export const mutations = {
 
   pushProductToCart(state, { product, notification }) {
     if (notification) {
-      this.$toast.success("Successfully add a product to cart", {
+      this.$toast.success("Berhasil menambah produk ke keranjang", {
         theme: "bubble",
         position: "bottom-right",
         duration: 5000,
@@ -110,7 +110,7 @@ export const mutations = {
 
   incrementProductQty(state, { product, notification }) {
     if (notification) {
-      this.$toast.success("Successfully update product quantity", {
+      this.$toast.success("Berhasl menambah jumlah produk", {
         theme: "bubble",
         position: "bottom-right",
         duration: 5000,
@@ -132,7 +132,7 @@ export const mutations = {
     state.cart.splice(indexOfProduct, 1);
 
     if (data.notification) {
-      this.$toast.success("Successfully delete a product from cart", {
+      this.$toast.success("Berhasil menghapus produk dari keranjang", {
         theme: "bubble",
         position: "bottom-right",
         duration: 5000,
@@ -142,7 +142,7 @@ export const mutations = {
   clearCart(state, notification) {
     state.cart = [];
     if (notification) {
-      this.$toast.success("Successfully clear cart", {
+      this.$toast.success("Berhasil menghapus keranjang", {
         theme: "bubble",
         position: "bottom-right",
         duration: 5000,

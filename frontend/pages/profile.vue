@@ -54,7 +54,7 @@
                     </b-alert>
                     <div class="d-flex justify-content-around">
                       <div>
-                        <p>Nama Depan</p>
+                        <p>Nama Depan </p>
                         <p>Nama Belakang</p>
                         <p>Nomor Telepon</p>
                         <p>Alamat</p>

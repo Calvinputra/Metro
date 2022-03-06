@@ -50,7 +50,7 @@ class WishListController extends Controller
             } else if (!$product) {
                 return response([
                     'success' => false,
-                    'message' => ['msg' => ['Product not Found!.']],
+                    'message' => ['msg' => ['Produk tidak ditemukan!.']],
                 ], 200);
             }
 

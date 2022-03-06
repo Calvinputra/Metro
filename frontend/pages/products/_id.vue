@@ -474,53 +474,7 @@
                   >
                   <div class="container">
                     <div class="d-flex">
-                      <b-modal id="modal-sm" size="sm" title="Rating">
-                        <div class="d-flex my-2">
-                          <img
-                            class="img-thumbnail max-width:100% height:auto"
-                            src="/img/emojione_star.png"
-                            style="border: 0"
-                            alt=""
-                          />
-                          <h3 class="my-auto mx-2">5</h3>
-                        </div>
-                        <div class="d-flex my-2">
-                          <img
-                            class="img-thumbnail max-width:100% height:auto"
-                            src="/img/emojione_star.png"
-                            style="border: 0"
-                            alt=""
-                          />
-                          <h3 class="my-auto mx-2">4</h3>
-                        </div>
-                        <div class="d-flex my-2">
-                          <img
-                            class="img-thumbnail max-width:100% height:auto"
-                            src="/img/emojione_star.png"
-                            style="border: 0"
-                            alt=""
-                          />
-                          <h3 class="my-auto mx-2">3</h3>
-                        </div>
-                        <div class="d-flex my-2">
-                          <img
-                            class="img-thumbnail max-width:100% height:auto"
-                            src="/img/emojione_star.png"
-                            style="border: 0"
-                            alt=""
-                          />
-                          <h3 class="my-auto mx-2">2</h3>
-                        </div>
-                        <div class="d-flex my-2">
-                          <img
-                            class="img-thumbnail max-width:100% height:auto"
-                            src="/img/emojione_star.png"
-                            style="border: 0"
-                            alt=""
-                          />
-                          <h3 class="my-auto mx-2">1</h3>
-                        </div>
-                      </b-modal>
+                      
                     </div>
                   </div>
                 </div>
@@ -616,7 +570,7 @@ export default {
             class: "my-2 ms-3 breadcrumb-item opacity-50"
           },
           {
-            url: "/",
+            url: "/products",
             name: "Produk",
             class: "my-2 breadcrumb-item active opacity-50"
           },
@@ -649,13 +603,13 @@ export default {
             data
           );
           if (this.data.wishlist_exist) {
-            this.$toast.success("Successfully delete a product from wishlist", {
+            this.$toast.success("Berhasil menghapus produk dari wishlist", {
               theme: "bubble",
               position: "bottom-right",
               duration: 5000
             });
           } else {
-            this.$toast.success("Successfully add a product to wishlist", {
+            this.$toast.success("Berhasil menambah produk ke wishlist", {
               theme: "bubble",
               position: "bottom-right",
               duration: 5000
@@ -681,7 +635,7 @@ export default {
             process.env.API_URL + "/api/carts",
             data
           );
-          this.$toast.success("Successfully add a product to cart", {
+          this.$toast.success("Berhaasil menambah produk ke keranjang", {
             theme: "bubble",
             position: "bottom-right",
             duration: 5000

@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section style="font-size: 14px;">
     <section id="cardswipe-webview">
       <section class="ps-5 pe-5" id="cardswipe-webview">
         <section
@@ -58,11 +58,14 @@
                   "
                   onclick="return false;"
                   @click="addToCart(data)"
-                  >+ Keranjang</a
+                  ><p style="font-size:12px;">
+                    + Keranjang
+                    </p>
+                    </a
                 >
                 <a
                   @click.stop
-                  class="col-sm-3"
+                  class="col-sm-3 ms-2"
                   :href="
                     'https://wa.me/' +
                     settings.company_wa_phone +
@@ -225,7 +228,7 @@ export default {
             process.env.API_URL + "/api/carts",
             data
           );
-          this.$toast.success("Successfully add a product to cart", {
+          this.$toast.success("Berhasil menambah produk ke keranjang", {
             theme: "bubble",
             position: "bottom-right",
             duration: 5000,
@@ -250,13 +253,13 @@ export default {
             data
           );
           if (this.data.wishlist_exist) {
-            this.$toast.success("Successfully delete a product from wishlist", {
+            this.$toast.success("Berhasil menghapus produk dari wishlist", {
               theme: "bubble",
               position: "bottom-right",
               duration: 5000,
             });
           } else {
-            this.$toast.success("Successfully add a product to wishlist", {
+            this.$toast.success("Berhasil menambah produk ke wishlist", {
               theme: "bubble",
               position: "bottom-right",
               duration: 5000,

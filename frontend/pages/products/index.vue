@@ -70,7 +70,7 @@
             <div class="col-sm-8 mx-auto my-auto mb-3">
               <div class="row" style="float: right">
                 <h5 class="col align-self-center">Urutkan:</h5>
-                <div class="col btn-group">
+                <div class="col btn">
                   <b-dropdown
                     id="dropdown-1"
                     text="Produk Terbaru"
@@ -236,7 +236,7 @@ export default {
           class: "my-2 ms-3 breadcrumb-item opacity-50",
         },
         {
-          url: "/",
+          url: "/products",
           name: "Produk",
           class: "my-2 breadcrumb-item active opacity-50",
         },

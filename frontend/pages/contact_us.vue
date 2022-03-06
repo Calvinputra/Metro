@@ -25,7 +25,7 @@
               </div>
               <div class="form-group mt-2">
                 <label for="first_name"
-                  >Nama Depan<span style="color: red">*</span>:</label
+                  >Nama Depan<span style="color: red">*</span></label
                 >
                 <input
                   type="text"
@@ -38,7 +38,7 @@
               </div>
               <div class="form-group">
                 <label for="last_name"
-                  >Nama Belakang<span style="color: red">*</span>:</label
+                  >Nama Belakang<span style="color: red">*</span></label
                 >
                 <input
                   type="text"
@@ -51,7 +51,7 @@
               </div>
               <div class="form-group">
                 <label for="email"
-                  >Email<span style="color: red">*</span>:</label
+                  >Email<span style="color: red">*</span></label
                 >
                 <input
                   type="email"
@@ -64,7 +64,7 @@
               </div>
               <div class="form-group">
                 <label for="last_name"
-                  >Nomor Telepon<span style="color: red">*</span>:</label
+                  >Nomor Telepon<span style="color: red">*</span></label
                 >
                 <input
                   type="text"
@@ -77,7 +77,7 @@
               </div>
               <div class="form-group">
                 <label for="address"
-                  >Tuliskan Pesan<span style="color: red">*</span>:</label
+                  >Tuliskan Pesan<span style="color: red">*</span></label
                 >
                 <textarea
                   class="form-control"
@@ -134,7 +134,7 @@
             <form method="post" class="mr-5">
               <div class="form-group mt-2">
                 <label for="first_name"
-                  >Nama Depan<span style="color: red">*</span>:</label
+                  >Nama Depan<span style="color: red">*</span></label
                 >
                 <input
                   type="text"
@@ -147,7 +147,7 @@
               </div>
               <div class="form-group">
                 <label for="last_name"
-                  >Nama Belakang<span style="color: red">*</span>:</label
+                  >Nama Belakang<span style="color: red">*</span></label
                 >
                 <input
                   type="text"
@@ -160,7 +160,7 @@
               </div>
               <div class="form-group">
                 <label for="email"
-                  >Email<span style="color: red">*</span>:</label
+                  >Email<span style="color: red">*</span></label
                 >
                 <input
                   type="email"
@@ -173,7 +173,7 @@
               </div>
               <div class="form-group">
                 <label for="last_name"
-                  >Nomor Telepon<span style="color: red">*</span>:</label
+                  >Nomor Telepon<span style="color: red">*</span></label
                 >
                 <input
                   type="text"
@@ -186,7 +186,7 @@
               </div>
               <div class="form-group">
                 <label for="address"
-                  >Tuliskan Pesan<span style="color: red">*</span>:</label
+                  >Tuliskan Pesan<span style="color: red">*</span></label
                 >
                 <textarea
                   class="form-control"
