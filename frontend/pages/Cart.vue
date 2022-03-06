@@ -32,11 +32,12 @@
                 <th class="text-center py-2 align-middle">Harga</th>
                 <th class="text-center py-2 align-middle">Sub total</th>
                 <th class="text-center py-2 align-middle">
-                  <nuxt-link
+                  <a
                     @click="confirmationDestroyAll"
                     class="btn btn-danger"
                     to="#"
-                    >Hapus Keranjang</nuxt-link
+                    >Hapus Keranjang
+                    </a
                   >
                 </th>
               </tr>
@@ -210,11 +211,12 @@
                 <th class="text-center py-2 align-middle">Harga</th>
                 <th class="text-center py-2 align-middle">Sub total</th>
                 <th class="text-center py-2 align-middle">
-                  <nuxt-link
+                  <a
                     @click="confirmationDestroyAll"
                     class="btn  btn-danger"
                     to="#"
-                    >Hapus Keranjang</nuxt-link
+                    >Hapus Keranjang
+                    </a
                   >
                 </th>
               </tr>

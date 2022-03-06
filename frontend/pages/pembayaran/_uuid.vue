@@ -12,7 +12,7 @@
           <h5>Selesaikan Pembayaran dalam</h5>
           <!-- bootstrap countdown nanti -->
           <p>Batas Akhir Pembayaran</p>
-          <h5>{{data.transaction_expired_at}}</h5>
+          <h5>{{ data.transaction_expired_at }}</h5>
         </div>
       </template>
       <template v-else>
@@ -117,7 +117,7 @@
         <h5>Selesaikan Pembayaran dalam</h5>
         <!-- bootstrap countdown nanti -->
         <p>Batas Akhir Pembayaran</p>
-        <h5>{{data.transaction_expired_at}}</h5>
+        <h5>{{ data.transaction_expired_at }}</h5>
       </div>
 
       <div class="container col-sm-6 mt-5">
@@ -190,7 +190,11 @@
         >
           Belanja Lagi
         </nuxt-link>
-        <button type="button" class="btn btn-success p-2" id="pay-button">
+        <button
+          type="button"
+          class="btn btn-success p-2"
+          id="pay-button-mobile"
+        >
           Lanjutkan Pembayaran
         </button>
       </div>
@@ -199,9 +203,15 @@
       <client-only>
         <script type="text/javascript">
           var payButton = document.getElementById("pay-button");
+          var payButtonMobile = document.getElementById("pay-button-mobile");
 
           /* For example trigger on button clicked, or any time you need */
           payButton.addEventListener("click", function () {
+            /* in this case, the snap token is retrieved from the Input Field */
+            var snapToken = "{{snapToken}}";
+            snap.pay(snapToken);
+          });
+          payButtonMobile.addEventListener("click", function () {
             /* in this case, the snap token is retrieved from the Input Field */
             var snapToken = "{{snapToken}}";
             snap.pay(snapToken);
