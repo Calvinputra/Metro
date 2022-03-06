@@ -26,7 +26,7 @@ class ShippingController extends Controller
                 'courier' => 'jne',
                 'weight' => $weight_total,
             ]);
-            Log::error($response);
+            //Log::error($response);
             $data = json_decode($response->body(), false);
 
             return response()->json([
