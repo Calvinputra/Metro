@@ -10,7 +10,6 @@
       <div class="col-sm-12 mb-3 mt-3 text-center">
         <img
           class="img-fluid max-width:100% height:auto rounded"
-          src="/img/spcBody.jpg"
           alt=""
         />
         <div>
@@ -156,5 +155,7 @@ export default {
       console.log(this.rating);
     },
   },
+  mounted(){
+  }
 };
 </script>

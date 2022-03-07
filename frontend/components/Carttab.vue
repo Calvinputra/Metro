@@ -1,7 +1,7 @@
 <template>
-  <tr style="font-size:14px;">
+  <tr style="font-size: 14px">
     <td>
-      <div class="product-item text-middle" style="display: flex;">
+      <div class="product-item text-middle" style="display: flex">
         <div class="form-check mt-auto mb-auto">
           <input
             class="form-check-input p-2 me-3"
@@ -11,15 +11,19 @@
             @change="updateSubTotal"
           />
         </div>
-        <a class="product-thumb" href="#"
+        <nuxt-link class="product-thumb" :to="'/products/'+product.id"
           ><img
             class="mt-4"
             style="border-radius: 5%; width: 150px; height: 120px"
             :src="ASSET_URL + '/' + JSON.parse(product.images)[0]"
             alt="Product"
-        /></a>
+        />
+        </nuxt-link>
+
         <p class="row gx-0 align-items-center ml-5 pt-3">
+        <nuxt-link class="product-thumb" :to="'/products/'+product.id">
           {{ product.code }} - {{ product.name }}
+        </nuxt-link>
         </p>
       </div>
       <pre></pre>
@@ -54,6 +58,11 @@
     </td>
   </tr>
 </template>
+<style scoped>
+.product-thumb{
+  color:black;
+}
+</style>
 <script>
 export default {
   props: ["product", "qty", "id", "process", "index"],
@@ -62,7 +71,7 @@ export default {
       sub_total: 0,
       ASSET_URL: process.env.ASSET_URL,
       qty_model: 0,
-      process_model: false
+      process_model: false,
     };
   },
   methods: {
@@ -74,7 +83,7 @@ export default {
         try {
           let data = {
             qty: this.qty_model,
-            process: this.process_model
+            process: this.process_model,
           };
 
           let response = await this.$axios
@@ -85,7 +94,7 @@ export default {
               this.$emit("updateCart", {
                 qty: this.qty_model,
                 index: this.index,
-                process: this.process_model
+                process: this.process_model,
               });
             });
 
@@ -98,7 +107,7 @@ export default {
         this.$store.dispatch("updateCart", {
           product: this.product,
           qty: this.qty_model,
-          process: this.process_model
+          process: this.process_model,
         });
       }
     },
@@ -112,7 +121,7 @@ export default {
               this.$toast.success("Berhasil menghapus produk ini", {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000
+                duration: 5000,
               });
               this.$emit("deleteCartHandler", this.index);
             });
@@ -121,7 +130,10 @@ export default {
           console.log(error);
         }
       } else {
-        this.$store.dispatch("deleteCart", this.product);
+        this.$store.dispatch("deleteCart", {
+          product: this.product,
+          notification: true,
+        });
       }
     },
     async confirmationDeleteCart() {
@@ -135,9 +147,9 @@ export default {
           cancelTitle: "Tidak",
           footerClass: "p-2",
           hideHeaderClose: false,
-          centered: true
+          centered: true,
         })
-        .then(value => {
+        .then((value) => {
           this.boxTwo = value;
           if (value) {
             //console.log("Yes Clicked"+value);
@@ -145,16 +157,20 @@ export default {
             this.deleteCart();
           }
         })
-        .catch(err => {
+        .catch((err) => {
           // An error occurred
         });
-    }
+    },
+    async setChecked(value) {
+      this.process_model = value;
+      this.updateSubTotal();
+    },
   },
 
   created() {
     this.sub_total = this.qty * this.product.price;
     this.qty_model = this.qty;
     this.process_model = this.process;
-  }
+  },
 };
 </script>

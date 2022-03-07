@@ -11,21 +11,28 @@
             @change="updateSubTotal"
           />
         </div>
-        <a class="product-thumb" href="#"
+        <nuxt-link class="product-thumb" :to="'/products/' + product.id"
           ><img
             style="border-radius: 5%; width: 60px; height: 60px"
             :src="ASSET_URL + '/' + JSON.parse(product.images)[0]"
             alt="Product"
-        /></a>
+          />
+        </nuxt-link>
       </div>
       <span class="">
-        <p class="mb-0" style="font-size: 10px;">{{ product.code }}</p>
-        <p class="mb-0" style="font-size: 10px;">
-          <b>{{ product.name }}</b>
+        <p class="mb-0" style="font-size: 10px">
+          <nuxt-link class="product-thumb" :to="'/products/' + product.id">
+            {{ product.code }}
+          </nuxt-link>
+        </p>
+        <p class="mb-0" style="font-size: 10px">
+          <nuxt-link class="product-thumb" :to="'/products/' + product.id">
+            <b>{{ product.name }}</b>
+          </nuxt-link>
         </p>
         <p
           class="text-center text-lg text-medium align-middle"
-          style="font-size: 10px;"
+          style="font-size: 10px"
         >
           Rp.{{ Number(sub_total).toLocaleString("id-ID") }}
         </p>
@@ -37,7 +44,7 @@
           <input
             @change="updateSubTotal()"
             class="col-sm-12"
-            style="font-size: 12px;"
+            style="font-size: 12px"
             id="demoInput"
             type="number"
             min="0"
@@ -64,7 +71,11 @@
   border-bottom: 1px solid #c63442 !important;
   border-top: 1px solid #c63442 !important;
 }
+.product-thumb {
+  color: black;
+}
 </style>
+
 
 <script>
 export default {
@@ -74,7 +85,7 @@ export default {
       sub_total: 0,
       ASSET_URL: process.env.ASSET_URL,
       qty_model: 0,
-      process_model: false
+      process_model: false,
     };
   },
   methods: {
@@ -86,7 +97,7 @@ export default {
         try {
           let data = {
             qty: this.qty_model,
-            process: this.process_model
+            process: this.process_model,
           };
 
           let response = await this.$axios
@@ -96,7 +107,7 @@ export default {
               this.$emit("updateCart", {
                 qty: this.qty_model,
                 index: this.index,
-                process: this.process_model
+                process: this.process_model,
               });
             });
 
@@ -109,7 +120,7 @@ export default {
         this.$store.dispatch("updateCart", {
           product: this.product,
           qty: this.qty_model,
-          process: this.process_model
+          process: this.process_model,
         });
       }
     },
@@ -123,7 +134,7 @@ export default {
               this.$toast.success("Successfully delete a product from cart", {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000
+                duration: 5000,
               });
               this.$emit("deleteCartHandler", this.index);
               this.$nuxt.refresh();
@@ -133,15 +144,22 @@ export default {
           console.log(error);
         }
       } else {
-        this.$store.dispatch("deleteCart", this.product);
+        this.$store.dispatch("deleteCart", {
+          product: this.product,
+          notification: true,
+        });
       }
-    }
+    },
+    async setChecked(value) {
+      this.process_model = value;
+      this.updateSubTotal();
+    },
   },
 
   created() {
     this.sub_total = this.qty * this.product.price;
     this.qty_model = this.qty;
     this.process_model = this.process;
-  }
+  },
 };
 </script>

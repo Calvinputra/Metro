@@ -3,7 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-
+use Carbon\Carbon;
 class TransactionResource extends JsonResource
 {
     /**
@@ -15,8 +15,9 @@ class TransactionResource extends JsonResource
     public function toArray($request)
 
     {
-        $date_view = date('d F Y', strtotime($this->date));
-        $expired_date_view = date('l, d F Y H:i', strtotime($this->transaction_expired_at));
+        $date_view = Carbon::parse($this->date)->isoFormat('DD MMMM Y');
+        $expired_date_view = Carbon::parse($this->transaction_expired_at)->isoFormat('dddd, DD MMMM Y H:s');
+    
 
         return [
             'uuid'   => $this->uuid,

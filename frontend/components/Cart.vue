@@ -11,15 +11,19 @@
             @change="updateSubTotal"
           />
         </div>
-        <a class="product-thumb" href="#"
+        <nuxt-link class="product-thumb" :to="'/products/' + product.id"
           ><img
             class="mt-4"
             style="border-radius: 5%; width: 280px; height: 180px"
             :src="ASSET_URL + '/' + JSON.parse(product.images)[0]"
             alt="Product"
-        /></a>
+          />
+        </nuxt-link>
+
         <p class="row gx-0 align-items-center ml-5 pt-3">
-          {{ product.code }} - {{ product.name }}
+          <nuxt-link class="product-thumb" :to="'/products/' + product.id">
+            {{ product.code }} - {{ product.name }}
+          </nuxt-link>
         </p>
       </div>
       <pre></pre>
@@ -54,9 +58,14 @@
     </td>
   </tr>
 </template>
+<style scoped>
+.product-thumb {
+  color: black;
+}
+</style>
 <script>
 export default {
-  props: ["product", "qty", "id", "process", "index"],
+  props: ["product", "qty", "id", "process", "index", "checkAllProp"],
   data() {
     return {
       sub_total: 0,
@@ -68,7 +77,7 @@ export default {
   methods: {
     async updateSubTotal() {
       if (this.$auth.loggedIn) {
-        console.log("checked : " + this.process_model);
+        //console.log("checked : " + this.process_model);
         this.sub_total = this.qty_model * this.product.price;
         //update database
         try {
@@ -121,7 +130,10 @@ export default {
           console.log(error);
         }
       } else {
-        this.$store.dispatch("deleteCart", this.product);
+        this.$store.dispatch("deleteCart", {
+          product: this.product,
+          notification: true,
+        });
       }
     },
     async confirmationDeleteCart() {
@@ -155,6 +167,12 @@ export default {
     this.sub_total = this.qty * this.product.price;
     this.qty_model = this.qty;
     this.process_model = this.process;
+  },
+  watch: {
+    checkAllProp: function (newVal, oldVal) {
+      this.process_model = this.checkAllProp;
+      this.updateSubTotal();
+    },
   },
 };
 </script>

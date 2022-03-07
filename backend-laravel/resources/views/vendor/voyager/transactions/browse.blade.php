@@ -564,7 +564,7 @@
 
 <div class="modal fade" id="finishModal" tabindex="-1" role="dialog" aria-labelledby="finishModalLabel"
     aria-hidden="true">
-    <form method="post" action="{{url('/transactions')}}/finish_transaction">
+    <form id="formFinishTransaction" method="post" action="{{url('/transactions')}}/finish_transaction">
         {{ csrf_field() }}
         <div class="modal-dialog">
             <div class="modal-content">
@@ -578,7 +578,7 @@
                     <input type="hidden" id="mf-key" name="_key">
                     <input type="hidden" id="mf-uuid" name="uuid">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-success btn-ok">Ya</button>
+                    <button type="submit" id="btnFinishDisabled" class="btn btn-success btn-ok">Ya</button>
                 </div>
             </div>
         </div>
@@ -594,6 +594,18 @@
 @stop
 
 @section('javascript')
+<script>
+    $("#formFinishTransaction").submit(function(e){
+        $(this).find("#btnFinishDisabled").prop('disabled', true);
+    })
+    var btnFinishDisabled = false;
+    function setBtnFinishDisabled(value){
+        btnFinishDisabled = value;
+        $("#btnFinishDisabled").prop("disabled",btnFinishDisabled)
+    }
+</script>
+
+
 <!-- DataTables -->
 @if(!$dataType->server_side && config('dashboard.data_tables.responsive'))
 <script src="{{ voyager_asset('lib/js/dataTables.responsive.min.js') }}"></script>
@@ -976,6 +988,7 @@
         $('#ms-key').val(key);
     });
     $('#finishModal').on('show.bs.modal',function(event){
+        setBtnFinishDisabled(false);
         var button = $(event.relatedTarget) // Button that triggered the modal
         var invoice_no = button.data('invoice-no') // Extract info from data-* attributes
         var key = button.data('key') // Extract info from data-* attributes

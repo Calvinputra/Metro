@@ -22,6 +22,9 @@
               Lanjut
             </button>
           </template>
+          <template v-else>
+            <p style="color: red">Verifikasi Gagal</p>
+          </template>
         </div>
         <div class="col-sm-2"></div>
       </div>

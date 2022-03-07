@@ -116,7 +116,7 @@ export const mutations = {
         duration: 5000,
       });
     }
-    console.log(product);
+    //console.log(product);
     if (product.qty) {
       product.qty++;
     } else {
@@ -127,6 +127,7 @@ export const mutations = {
   },
 
   deleteProductCart(state, data) {
+    console.log(data);
     const product = data.product;
     let indexOfProduct = state.cart.indexOf(product);
     state.cart.splice(indexOfProduct, 1);

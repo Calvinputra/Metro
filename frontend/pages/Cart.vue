@@ -33,6 +33,7 @@
                       class="form-check-input p-2 me-3"
                       type="checkbox"
                       id="flexCheckChecked"
+                      v-model="checkAll"
                     />
                     Produk
                   </div>
@@ -59,6 +60,7 @@
                 :qty="cart.qty"
                 :id="cart.id"
                 :process="cart.process"
+                :checkAllProp="checkAll"
               />
             </template>
 
@@ -73,6 +75,7 @@
                 :qty="cart.qty"
                 :id="cart.id"
                 :process="cart.process"
+                :checkAllProp="checkAll"
               />
             </template>
           </table>
@@ -139,6 +142,7 @@
                 :qty="cart.qty"
                 :id="cart.id"
                 :process="cart.process"
+                :checkAllProp="checkAll"
               />
             </template>
 
@@ -153,6 +157,7 @@
                 :qty="cart.qty"
                 :id="cart.id"
                 :process="cart.process"
+                :checkAllProp="checkAll"
               />
             </template>
           </table>
@@ -237,6 +242,7 @@
                 :qty="cart.qty"
                 :id="cart.id"
                 :process="cart.process"
+                :checkAllProp="checkAll"
               />
             </template>
 
@@ -251,6 +257,7 @@
                 :qty="cart.qty"
                 :id="cart.id"
                 :process="cart.process"
+                :checkAllProp="checkAll"
               />
             </template>
           </table>
@@ -310,6 +317,7 @@ export default {
       grandTotal: 0,
       boxTwo: "",
       isLoaded: false,
+      checkAll: false,
       breadcrumb: [
         {
           url: "/",
@@ -387,6 +395,7 @@ export default {
     },
   },
   methods: {
+    checkAllHandler() {},
     updateCart({ qty, index, process }) {
       const cart = this.carts[index];
       cart.qty = qty;
