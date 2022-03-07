@@ -118,7 +118,7 @@
     </section>
 
     <section id="login-mobileview">
-      <section>
+      <section style="font-size: 12px">
         <div class="container">
           <div class="row">
             <div

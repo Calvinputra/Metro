@@ -3,8 +3,8 @@
     <!-- Modal INIT -->
     <ModalDetailTransaksi :transaction="selectedTransaction" />
     <!-- END -->
-    <Breadcrumb :links="breadcrumb" />
     <section id="riwayat-webview">
+      <Breadcrumb :links="breadcrumb" />
       <div class="container">
         <div class="row">
           <div class="col-md-2">
@@ -22,7 +22,7 @@
             </div>
             <div class="mb-4">
               <hr
-                style="height: 10%; width: 100%; border-width: 0; color: red"
+                style="height: 3px; width: 100%; border-width: 0; color: red"
                 class="col-sm-12 mb-0 mt-0"
               />
               <p class="mb-">Lacak Pembelian Kamu di halaman ini.</p>
@@ -164,13 +164,12 @@
     </section>
 
     <section id="riwayat-mobileview">
-      <div class="container">
+      <div class="container" style="font-size: 80%">
+        <Breadcrumb :links="breadcrumb" />
+
         <div class="row">
-          <div class="col-md-2">
-            <AccountMenuMobile :name="'register'" />
-          </div>
           <div
-            class="col-sm-9 offset-md-1 align-self-start mt-2 mb-5 row justify-content-between"
+            class="col-sm-9 offset-md-1 align-self-start mb-5 row justify-content-between"
           >
             <div class="col-sm-12">
               <label class="mb-0"

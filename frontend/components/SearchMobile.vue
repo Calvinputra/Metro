@@ -4,7 +4,7 @@
     <div class="d-flex">
       <input
         class="form-control-sm"
-        style="border-radius: 10px 0px 0px 10px"
+        style="border-radius: 10px 0px 0px 10px; width: 100%"
         type="search"
         placeholder="Cari Barang Di sini"
         aria-label="Search"
@@ -16,7 +16,7 @@
         class="btn btn-outline-success mx-auto"
         style="
           background-color: #e5e5e5;
-          width: 40px;
+          width: 50px;
           border-radius: 0px 10px 10px 0px;
         "
         type="submit"
@@ -38,13 +38,13 @@ export default {
   props: ["data"],
   data() {
     return {
-      query: ""
+      query: "",
     };
   },
   methods: {
     onSearch() {
       this.$router.push({ path: "/products", query: { s: this.query } });
-    }
-  }
+    },
+  },
 };
 </script>

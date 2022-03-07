@@ -18,8 +18,8 @@
                   style="width: 90px; height: 90px"
                   :src="
                     ASSET_URL +
-                      '/' +
-                      JSON.parse(data.transaction_details[0].product.images)[0]
+                    '/' +
+                    JSON.parse(data.transaction_details[0].product.images)[0]
                   "
                   alt=""
                 />
@@ -28,13 +28,7 @@
             <div class="col-sm-9">
               <template v-if="data.status_id == 1">
                 <span
-                  class="
-                    border border-danger border-2
-                    text-danger
-                    rounded-3
-                    px-2
-                    py-1
-                  "
+                  class="border border-danger border-2 text-danger rounded-3 px-2 py-1"
                   style="font-size: 12px !important"
                 >
                   {{ data.status.name }}</span
@@ -42,13 +36,7 @@
               </template>
               <template v-else-if="data.status_id == 4">
                 <span
-                  class="
-                    border border-success border-2
-                    text-success
-                    rounded-3
-                    px-2
-                    py-1
-                  "
+                  class="border border-success border-2 text-success rounded-3 px-2 py-1"
                   style="font-size: 12px !important"
                 >
                   {{ data.status.name }}</span
@@ -56,13 +44,7 @@
               </template>
               <template v-else>
                 <span
-                  class="
-                    border border-warning border-2
-                    text-warning
-                    rounded-3
-                    px-2
-                    py-1
-                  "
+                  class="border border-warning border-2 text-warning rounded-3 px-2 py-1"
                   style="font-size: 12px !important"
                 >
                   {{ data.status.name }}</span
@@ -72,7 +54,7 @@
               #{{ data.transaction_id }}
               <div class="mt-1"></div>
               <nuxt-link
-                class="text-decoration-none "
+                class="text-decoration-none"
                 :to="`/products/${data.transaction_details[0].product.id}`"
               >
                 <span class="text-black">{{
@@ -102,16 +84,7 @@
               v-b-modal.modal-detailtransaksi
               @click="showDetailTransaction"
               type="submit"
-              class="
-                mr-3
-                btn
-                text-danger
-                btn-light btn-sm
-                col-sm-9
-                ms-0
-                py-2
-                px-2
-              "
+              class="mr-3 btn text-danger btn-light btn-sm col-sm-9 ms-0 py-2 px-2"
               style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
             >
               <b> Lihat Detail</b>
@@ -120,16 +93,7 @@
               v-if="data.status_id == 4 || data.status_id == 5"
               @click="buyAgainHandler"
               type="submit"
-              class="
-                mr-3
-                btn
-                text-danger
-                btn-light btn-sm
-                col-sm-6
-                ms-0
-                py-2
-                px-2
-              "
+              class="mr-3 btn text-danger btn-light btn-sm col-sm-6 ms-0 py-2 px-2"
               style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
             >
               <b> Beli lagi</b>
@@ -138,16 +102,7 @@
               <nuxt-link
                 :to="'/pembayaran/' + data.uuid"
                 type="submit"
-                class="
-                  btn
-                  text-danger
-                  btn-light btn-sm
-                  rounded
-                  col-sm-4
-                  ms-0
-                  py-2
-                  px-2
-                "
+                class="btn text-danger btn-light btn-sm rounded col-sm-4 ms-0 py-2 px-2"
                 style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
               >
                 <b> Bayar</b>
@@ -156,22 +111,13 @@
             <template v-else-if="data.status_id == 4">
               <nuxt-link
                 :to="'/review_list/' + data.uuid"
-                class="
-                  btn
-                  text-danger
-                  btn-light btn-sm
-                  rounded
-                  col-sm-7
-                  ms-0
-                  py-2
-                  px-2
-                "
+                class="btn text-danger btn-light btn-sm rounded col-sm-7 ms-0 py-2 px-2"
                 style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
               >
                 <template
                   v-if="
                     data.rating &&
-                      data.rating.length === data.transaction_details.length
+                    data.rating.length === data.transaction_details.length
                   "
                 >
                   <b> Lihat Ulasan</b>
@@ -191,44 +137,33 @@
       <div class="my-3 mx-1 row">
         <div class="row pe-0 ps-2">
           <div class="d-flex col-2 align-self-center justify-content-center">
-            <img
-              :src="
-                ASSET_URL +
+            <nuxt-link
+              :to="`/products/${data.transaction_details[0].product.id}`"
+            >
+              <img
+                style="width: 60px; height: 60px"
+                :src="
+                  ASSET_URL +
                   '/' +
                   JSON.parse(data.transaction_details[0].product.images)[0]
-              "
-              alt=""
-              width="50"
-            />
+                "
+                alt=""
+              />
+            </nuxt-link>
           </div>
 
           <div class="col pe-0">
             <p class="mb-1">#{{ data.transaction_id }}</p>
             <template v-if="data.status_id == 1">
               <div
-                class="
-                  border border-danger
-                  col-sm-
-                  text-danger
-                  rounded-3
-                  text-center
-                  p-0
-                "
+                class="border border-danger col-sm- text-danger rounded-3 text-center p-0"
               >
                 {{ data.status.name }}
               </div>
             </template>
             <template v-else-if="data.status_id == 4">
               <div
-                class="
-                  border border-success
-                  col-5
-                  border-2
-                  text-success
-                  rounded-3
-                  text-center
-                  p-0
-                "
+                class="border border-success col-5 border-2 text-success rounded-3 text-center p-0"
                 style=""
               >
                 {{ data.status.name }}
@@ -236,15 +171,7 @@
             </template>
             <template v-else>
               <div
-                class="
-                  border border-warning
-                  col-11
-                  border-2
-                  text-warning
-                  rounded-3
-                  text-center
-                  p-0
-                "
+                class="border border-warning col-11 border-2 text-warning rounded-3 text-center p-0"
               >
                 {{ data.status.name }}
               </div>
@@ -275,8 +202,11 @@
               v-b-modal.modal-detailtransaksi
               @click="showDetailTransaction"
               type="submit"
-              class="mr-3 btn text-danger btn-light btn-sm rounded col-8"
-              style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+              class="mr-3 btn text-danger btn-light btn-sm rounded col-7 p-2"
+              style="
+                box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                font-size: 10px;
+              "
             >
               <b> Lihat Detail Transaksi</b>
             </b-button>
@@ -285,21 +215,27 @@
                 :to="'/pembayaran/' + data.uuid"
                 type="submit"
                 class="btn text-danger btn-light btn-sm rounded py-1 px-3"
-                style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+                style="
+                  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                  font-size: 10px;
+                "
               >
                 <b> Bayar</b>
               </nuxt-link>
             </template>
             <template v-else-if="data.status_id == 4">
-              <button
-                type="submit"
-                class="btn text-danger btn-light btn-sm rounded py-1 px-3"
-                style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+              <nuxt-link
+                :to="'/review_list/' + data.uuid"
+                class="btn text-danger btn-light btn-sm rounded col-sm-7 ms-0 p-2"
+                style="
+                  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                  font-size: 10px;
+                "
               >
                 <template
                   v-if="
                     data.rating &&
-                      data.rating.length === data.transaction_details.length
+                    data.rating.length === data.transaction_details.length
                   "
                 >
                   <b> Lihat Ulasan</b>
@@ -307,7 +243,7 @@
                 <template v-else>
                   <b> Beri Ulasan</b>
                 </template>
-              </button>
+              </nuxt-link>
             </template>
           </span>
         </div>
@@ -326,7 +262,7 @@ export default {
     async buyAgainHandler() {
       try {
         const data = {
-          uuid: this.data.uuid
+          uuid: this.data.uuid,
         };
         const response = await this.$axios.$post(
           process.env.API_URL + "/api/carts/buy_again",
@@ -336,24 +272,24 @@ export default {
           this.$toast.success("Berhasil menambah produk ke cart", {
             theme: "bubble",
             position: "bottom-right",
-            duration: 5000
+            duration: 5000,
           });
           this.$router.push("/cart");
         } else {
           this.$toast.error("Error!", {
             theme: "bubble",
             position: "bottom-right",
-            duration: 5000
+            duration: 5000,
           });
         }
       } catch (error) {}
-    }
+    },
   },
   data() {
     return {
-      ASSET_URL: process.env.ASSET_URL
+      ASSET_URL: process.env.ASSET_URL,
     };
-  }
+  },
 };
 </script>
 

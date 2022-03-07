@@ -1,139 +1,271 @@
 <template>
-  <section class="mb-5" style="font-family: 'Nunito Sans'">
-    <Breadcrumb :links="breadcrumb" />
-    <section>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-2">
-            <AccountMenu :name="'register'" />
-          </div>
-          <div
-            class="
-              col-sm-9
-              offset-md-1
-              align-self-start
-              mt-2
-              row
-              justify-content-between
-            "
-          >
-            <div class="col-sm-12">
-              <label class="mb-0"
-                ><h2 class="font-weight-bold">
-                  Ingin mengubah kata sandi?<span style="color: red">*</span>
-                </h2></label
-              >
+  <section>
+    <section
+      id="change-webview"
+      class="mb-5"
+      style="font-family: 'Nunito Sans'"
+    >
+      <Breadcrumb :links="breadcrumb" />
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-2">
+              <AccountMenu :name="'register'" />
             </div>
-            <div class="mb-4">
-              <hr
-                style="height: 10%; width: 100%; border-width: 0; color: red"
-                class="col-sm-12 mb-0 mt-0"
-              />
-              <p class="mb-">
-                Pastikan Kata Sandi Lama dan Kata Sandi Baru berbeda.
-              </p>
-            </div>
+            <div
+              class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
+            >
+              <div class="col-sm-12">
+                <label class="mb-0"
+                  ><h2 class="font-weight-bold">
+                    Ingin mengubah kata sandi?<span style="color: red">*</span>
+                  </h2></label
+                >
+              </div>
+              <div class="mb-4">
+                <hr
+                  style="height: 10%; width: 100%; border-width: 0; color: red"
+                  class="col-sm-12 mb-0 mt-0"
+                />
+                <p class="mb-">
+                  Pastikan Kata Sandi Lama dan Kata Sandi Baru berbeda.
+                </p>
+              </div>
 
-            <div>
-              <div class="row justify-content-start">
-                <form>
-                  <div class="register-form-title">Masukan Kata Sandi</div>
-                  <b-alert
-                    v-model="showDismissibleAlert"
-                    variant="danger"
-                    dismissible
-                  >
-                    <ul
-                      style="color: black; padding: 0"
-                      v-for="(error, key) in errors"
-                      :key="key"
+              <div>
+                <div class="row justify-content-start">
+                  <form>
+                    <div class="register-form-title">Masukan Kata Sandi</div>
+                    <b-alert
+                      v-model="showDismissibleAlert"
+                      variant="danger"
+                      dismissible
                     >
-                      <li v-for="(e, key) in error" :key="key">{{ e }}</li>
-                    </ul>
-                  </b-alert>
-                  <div class="form-group col-sm-11">
-                    <label for="Password"
-                      >Kata Sandi Lama<span style="color: red">*</span>:</label
-                    >
-                    <input
-                      type="password"
-                      class="form-control"
-                      id="password"
-                      name="password"
-                      placeholder="Password"
-                      v-model="old_password"
-                    />
-                  </div>
-                  <div class="form-group col-sm-11">
-                    <label for="password"
-                      >Kata Sandi Baru<span style="color: red">*</span>:</label
-                    >
-                    <input
-                      type="password"
-                      class="form-control"
-                      id="password"
-                      name="password"
-                      placeholder="New Password"
-                      v-model="password"
-                    />
-                  </div>
+                      <ul
+                        style="color: black; padding: 0"
+                        v-for="(error, key) in errors"
+                        :key="key"
+                      >
+                        <li v-for="(e, key) in error" :key="key">{{ e }}</li>
+                      </ul>
+                    </b-alert>
+                    <div class="form-group col-sm-11">
+                      <label for="Password"
+                        >Kata Sandi Lama<span style="color: red">*</span
+                        >:</label
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="password"
+                        name="password"
+                        placeholder="Password"
+                        v-model="old_password"
+                      />
+                    </div>
+                    <div class="form-group col-sm-11">
+                      <label for="password"
+                        >Kata Sandi Baru<span style="color: red">*</span
+                        >:</label
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="password"
+                        name="password"
+                        placeholder="New Password"
+                        v-model="password"
+                      />
+                    </div>
 
-                  <div class="form-group col-sm-11">
-                    <label for="password_confirmation"
-                      >Konfirmasi Kata Sandi Baru<span style="color: red"
-                        >*</span
-                      >:</label
-                    >
-                    <input
-                      type="password"
-                      class="form-control"
-                      id="password_confirmation"
-                      name="password_confirmation"
-                      placeholder="Password"
-                      v-model="password_confirmation"
-                    />
-                  </div>
+                    <div class="form-group col-sm-11">
+                      <label for="password_confirmation"
+                        >Konfirmasi Kata Sandi Baru<span style="color: red"
+                          >*</span
+                        >:</label
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="password_confirmation"
+                        name="password_confirmation"
+                        placeholder="Password"
+                        v-model="password_confirmation"
+                      />
+                    </div>
 
-                  <p style="color: red">Wajib diisi*</p>
-                  <br />
-                  <div class="text-center">
-                    <button
-                      @click.prevent="doChangePassword"
-                      type="submit"
-                      class="btn text-danger btn-light btn-sm rounded p-2"
-                      style="
-                        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
-                      "
-                    >
-                      Perbarui Kata Sandi
-                    </button>
-                  </div>
-                </form>
+                    <p style="color: red">Wajib diisi*</p>
+                    <br />
+                    <div class="text-center">
+                      <button
+                        @click.prevent="doChangePassword"
+                        type="submit"
+                        class="btn text-danger btn-light btn-sm rounded p-2"
+                        style="
+                          box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                        "
+                      >
+                        Perbarui Kata Sandi
+                      </button>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      <client-only>
+        <!-- include VueJS first -->
+        <script src="https://unpkg.com/vue@latest"></script>
+
+        <!-- use the latest vue-select release -->
+        <script src="https://unpkg.com/vue-select@latest"></script>
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/vue-select@latest/dist/vue-select.css"
+        />
+
+        <!-- or point to a specific vue-select release -->
+        <script src="https://unpkg.com/vue-select@3.0.0"></script>
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/vue-select@3.0.0/dist/vue-select.css"
+        />
+      </client-only>
     </section>
+    <section
+      id="change-mobileview"
+      class="mb-5"
+      style="font-family: 'Nunito Sans'; font-size: 80%"
+    >
+      <Breadcrumb :links="breadcrumb" />
+      <section>
+        <div class="container">
+          <div class="row">
+            <div
+              class="col-sm-9 offset-md-1 align-self-start row justify-content-between"
+            >
+              <div class="col-sm-12">
+                <label class="mb-0"
+                  ><h2 class="font-weight-bold">
+                    Ingin mengubah kata sandi?<span style="color: red">*</span>
+                  </h2></label
+                >
+              </div>
+              <div class="mb-4">
+                <hr
+                  style="height: 3px; width: 100%; border-width: 0; color: red"
+                  class="col-sm-12 mb-0 mt-0"
+                />
+                <p class="mb-">
+                  Pastikan Kata Sandi Lama dan Kata Sandi Baru berbeda.
+                </p>
+              </div>
 
-    <client-only>
-      <!-- include VueJS first -->
-      <script src="https://unpkg.com/vue@latest"></script>
+              <div>
+                <div class="row justify-content-start">
+                  <form>
+                    <div class="register-form-title">Masukan Kata Sandi</div>
+                    <b-alert
+                      v-model="showDismissibleAlert"
+                      variant="danger"
+                      dismissible
+                    >
+                      <ul
+                        style="color: black; padding: 0"
+                        v-for="(error, key) in errors"
+                        :key="key"
+                      >
+                        <li v-for="(e, key) in error" :key="key">{{ e }}</li>
+                      </ul>
+                    </b-alert>
+                    <div class="form-group col-sm-11">
+                      <label for="Password"
+                        >Kata Sandi Lama<span style="color: red">*</span></label
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="password"
+                        name="password"
+                        placeholder="Password"
+                        v-model="old_password"
+                      />
+                    </div>
+                    <div class="form-group col-sm-11">
+                      <label for="password"
+                        >Kata Sandi Baru<span style="color: red">*</span></label
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="password"
+                        name="password"
+                        placeholder="New Password"
+                        v-model="password"
+                      />
+                    </div>
 
-      <!-- use the latest vue-select release -->
-      <script src="https://unpkg.com/vue-select@latest"></script>
-      <link
-        rel="stylesheet"
-        href="https://unpkg.com/vue-select@latest/dist/vue-select.css"
-      />
+                    <div class="form-group col-sm-11">
+                      <label for="password_confirmation"
+                        >Konfirmasi Kata Sandi Baru<span style="color: red"
+                          >*</span
+                        ></label
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="password_confirmation"
+                        name="password_confirmation"
+                        placeholder="Password"
+                        v-model="password_confirmation"
+                      />
+                    </div>
 
-      <!-- or point to a specific vue-select release -->
-      <script src="https://unpkg.com/vue-select@3.0.0"></script>
-      <link
-        rel="stylesheet"
-        href="https://unpkg.com/vue-select@3.0.0/dist/vue-select.css"
-      />
-    </client-only>
+                    <p class="ms-3" style="color: red">Wajib diisi*</p>
+                    <br />
+                    <div class="text-center">
+                      <button
+                        @click.prevent="doChangePassword"
+                        type="submit"
+                        class="btn text-danger btn-light btn-sm rounded p-2"
+                        style="
+                          box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                        "
+                      >
+                        Perbarui Kata Sandi
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <Footer2mobile />
+      </section>
+
+      <client-only>
+        <!-- include VueJS first -->
+        <script src="https://unpkg.com/vue@latest"></script>
+
+        <!-- use the latest vue-select release -->
+        <script src="https://unpkg.com/vue-select@latest"></script>
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/vue-select@latest/dist/vue-select.css"
+        />
+
+        <!-- or point to a specific vue-select release -->
+        <script src="https://unpkg.com/vue-select@3.0.0"></script>
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/vue-select@3.0.0/dist/vue-select.css"
+        />
+      </client-only>
+    </section>
   </section>
 </template>
 <script>
@@ -148,19 +280,19 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50"
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
         },
         {
           url: "/profile",
           name: "Akun Saya",
-          class: "my-2 ms-3 breadcrumb-item opacity-50"
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
         },
         {
           url: "/change_password",
           name: "Ubah Sandi",
-          class: "my-2 breadcrumb-item active opacity-50"
-        }
-      ]
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
+      ],
     };
   },
   methods: {
@@ -169,7 +301,7 @@ export default {
         let data = {
           old_password: this.old_password,
           password: this.password,
-          password_confirmation: this.password_confirmation
+          password_confirmation: this.password_confirmation,
         };
         let response = await this.$axios.$post(
           process.env.API_URL + "/api/change_password",
@@ -179,7 +311,7 @@ export default {
           this.$toast.success("Successfully change password", {
             theme: "bubble",
             position: "bottom-right",
-            duration: 5000
+            duration: 5000,
           });
           this.$router.push("/profile");
         } else {
@@ -189,7 +321,7 @@ export default {
               this.$toast.error(err[key][key2], {
                 theme: "bubble",
                 position: "bottom-right",
-                duration: 5000
+                duration: 5000,
               });
             });
           });
@@ -197,7 +329,34 @@ export default {
       } catch (error) {
         console.log(error);
       }
-    }
-  }
+    },
+  },
 };
 </script>
+
+<style lang="css" scoped>
+#change-mobile {
+  display: none;
+}
+#change-mobileview {
+  display: none;
+}
+/* 0 - 991 px */
+@media screen and (max-width: 500px) {
+  #change_logo {
+    display: none !important;
+  }
+
+  #change-webview {
+    display: none;
+  }
+
+  #change-mobile {
+    display: contents;
+  }
+
+  #change-mobileview {
+    display: grid;
+  }
+}
+</style>
