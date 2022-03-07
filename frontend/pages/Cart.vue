@@ -173,7 +173,7 @@
             <nuxt-link
               style="color: red"
               class="btn btn-light mx-2 py-1 px-3 btn-shadow"
-              to="#"
+              to="/"
               data-toast=""
               data-toast-type="success"
               data-toast-position="topRight"

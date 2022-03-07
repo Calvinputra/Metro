@@ -84,7 +84,7 @@
               v-b-modal.modal-detailtransaksi
               @click="showDetailTransaction"
               type="submit"
-              class="mr-3 btn text-danger btn-light btn-sm col-sm-9 ms-0 py-2 px-2"
+              class="ms-3 btn text-danger btn-light btn-sm col-sm-9 ms-0 py-2 px-2"
               style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
             >
               <b> Lihat Detail</b>
@@ -93,7 +93,7 @@
               v-if="data.status_id == 4 || data.status_id == 5"
               @click="buyAgainHandler"
               type="submit"
-              class="mr-3 btn text-danger btn-light btn-sm col-sm-6 ms-0 py-2 px-2"
+              class="ms-3 btn text-danger btn-light btn-sm col-sm-6 ms-0 py-2 px-2"
               style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
             >
               <b> Beli lagi</b>
@@ -102,7 +102,7 @@
               <nuxt-link
                 :to="'/pembayaran/' + data.uuid"
                 type="submit"
-                class="btn text-danger btn-light btn-sm rounded col-sm-4 ms-0 py-2 px-2"
+                class="btn text-danger btn-light btn-sm rounded col-sm-4 ms-0 py-2 px-2 ms-3"
                 style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
               >
                 <b> Bayar</b>
@@ -111,7 +111,7 @@
             <template v-else-if="data.status_id == 4">
               <nuxt-link
                 :to="'/review_list/' + data.uuid"
-                class="btn text-danger btn-light btn-sm rounded col-sm-7 ms-0 py-2 px-2"
+                class="btn text-danger btn-light btn-sm rounded col-sm-7 ms-3 py-2 px-2"
                 style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
               >
                 <template
@@ -214,7 +214,7 @@
               <nuxt-link
                 :to="'/pembayaran/' + data.uuid"
                 type="submit"
-                class="btn text-danger btn-light btn-sm rounded py-1 px-3"
+                class="btn text-danger btn-light btn-sm rounded py-1 px-3 d-flex align-items-center"
                 style="
                   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                   font-size: 10px;

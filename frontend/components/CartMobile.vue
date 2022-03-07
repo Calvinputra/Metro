@@ -30,10 +30,7 @@
             <b>{{ product.name }}</b>
           </nuxt-link>
         </p>
-        <p
-          class="text-center text-lg text-medium align-middle"
-          style="font-size: 10px"
-        >
+        <p class="text-lg text-medium align-middle" style="font-size: 10px">
           Rp.{{ Number(sub_total).toLocaleString("id-ID") }}
         </p>
       </span>
@@ -43,7 +40,7 @@
         <div class="count-input">
           <input
             @change="updateSubTotal()"
-            class="col-sm-12"
+            class="col-9"
             style="font-size: 12px"
             id="demoInput"
             type="number"
@@ -75,7 +72,6 @@
   color: black;
 }
 </style>
-
 
 <script>
 export default {

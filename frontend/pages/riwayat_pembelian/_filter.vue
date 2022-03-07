@@ -185,7 +185,6 @@
               />
               <h6 class="mt-2">Lacak Pembelian Kamu di halaman ini.</h6>
             </div>
-
             <div class="mb-3 ms-3">
               <h6 class="text-center">Status:</h6>
               <div

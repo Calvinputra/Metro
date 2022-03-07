@@ -1,6 +1,11 @@
 <template>
   <section class="bg-light mt-4 text-center">
-    <img style="width: 300px" src="/img/metro.png" alt="" />
+    <img
+      style="width: 300px"
+      src="/img/logo.png"
+      alt=""
+      class="m-5 px-3 py-2"
+    />
     <div class="text-center ms-4 me-4" style="">
       <p style="" class="">
         {{ settings.company_address }}

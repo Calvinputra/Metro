@@ -269,8 +269,9 @@
       </section>
     </section>
 
-    <section id="checkout-mobileview" style="font-size: 75%" v-if="isLoaded">
+    <section id="checkout-mobileview" style="font-size: 80%" v-if="isLoaded">
       <!-- belum log in -->
+      <Breadcrumb :links="breadcrumb" />
       <section class="container-md" style="min-width: 95%">
         <div class="pr-5 mb-0">
           <h1>Periksa</h1>
@@ -374,7 +375,7 @@
           style=""
           v-if="$auth.loggedIn"
         >
-          <div>
+          <div class="ms-3">
             <p>
               Nama : {{ $auth.user.first_name + " " + $auth.user.last_name }}
             </p>
@@ -512,7 +513,7 @@
             <a
               v-if="$auth.loggedIn"
               @click="doCreateTransaction"
-              class="btn btn-danger p-1"
+              class="btn btn-danger px-3 py-1"
               style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
               >Bayar</a
             >

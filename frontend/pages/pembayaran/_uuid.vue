@@ -109,7 +109,7 @@
       </client-only>
     </section>
 
-    <section id="pembayaran-mobileview" v-if="isLoaded">
+    <section id="pembayaran-mobileview" style="font-size: 80%" v-if="isLoaded">
       <section class="mt-3">
         <div class="container"></div>
       </section>
@@ -127,10 +127,14 @@
               <template v-if="isPaymentCreated">
                 <p class="mb-0">Virtual Account {{ va_numbers[0].bank }}</p>
               </template>
-              <template v-else
-                ><p>Anda Belum memilih metode pembayaran</p></template
-              >
-              <img src="/img/audiblelogo.png" alt="" />
+              <template v-else>
+                <div class="align-items-center d-flex">
+                  <p>Anda Belum memilih metode pembayaran</p>
+                </div>
+              </template>
+              <div class="align-items-center d-flex">
+                <img style="height: 20px" src="/img/midtrans.png" alt="" />
+              </div>
             </div>
           </div>
           <div class="card-body">
@@ -186,6 +190,7 @@
         <nuxt-link
           to="/products"
           type="button"
+          style="font-size: 12px"
           class="border border-success p-2 btn text-success"
         >
           Belanja Lagi
@@ -193,6 +198,7 @@
         <button
           type="button"
           class="btn btn-success p-2"
+          style="font-size: 12px"
           id="pay-button-mobile"
         >
           Lanjutkan Pembayaran

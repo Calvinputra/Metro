@@ -203,6 +203,7 @@
             </form>
           </div>
         </div>
+        <Footer2mobile />
       </section>
     </section>
   </section>

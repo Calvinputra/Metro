@@ -98,6 +98,7 @@
   </div>
 </template>
 
+<style lang="css" scoped></style>
 <script>
 export default {
   props: ["transaction"],
