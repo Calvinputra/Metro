@@ -17,7 +17,6 @@
           <div class="d-flex flex-row-reverse mr-5">
             <div class="input-group md-form form-sm form-2 pl-0 col-sm-3">
               <input
-                v-on:keyup.enter="onSearchHandler"
                 v-model="search"
                 class="form-control my-0 py-1 line-border pl-4"
                 style="border-radius: 10px 0px 0px 10px"
@@ -27,7 +26,6 @@
               />
               <div class="input-group-append">
                 <button
-                  @click="onSearchHandler"
                   class="btn btn-outline-success mx-auto"
                   style="
                     background-color: #e5e5e5;
@@ -75,7 +73,6 @@
           <div class="d-flex flex-row-reverse col-sm-2 p-0 ms-1">
             <div class="input-group md-form form-sm form-2 p-0 col-sm-3">
               <input
-                v-on:keyup.enter="onSearchHandler"
                 v-model="search"
                 class="form-control my-0 py-1 line-border pl-4"
                 type="text"
@@ -85,7 +82,6 @@
               />
               <div class="input-group-append">
                 <button
-                  @click="onSearchHandler"
                   class="btn btn-outline-success mx-auto search-button"
                   type="submit"
                 >
@@ -137,30 +133,13 @@ export default {
         },
       ],
       search: "",
+      wishlists: [],
     };
   },
-  async asyncData({ $axios, query }) {
-    try {
-      let data = {
-        s: query.s,
-      };
-      let wishlists = await $axios.$get(
-        process.env.API_URL + "/api/wishlists",
-        {
-          params: data,
-        }
-      );
-
-      return {
-        wishlists: wishlists.data,
-      };
-    } catch (error) {
-      console.log(error);
-    }
-  },
   mounted() {
-    this.search = this.$route.query.s;
+    this.getWishlist();
   },
+
   methods: {
     onSearchHandler() {
       this.$router.push({
@@ -170,8 +149,31 @@ export default {
         },
       });
     },
+    async getWishlist() {
+      try {
+        let data = {
+          s: this.search,
+        };
+        let wishlists = await this.$axios.$get(
+          process.env.API_URL + "/api/wishlists",
+          {
+            params: data,
+          }
+        );
+
+        this.wishlists = wishlists.data;
+      } catch (error) {
+        console.log(error);
+      }
+
+    },
   },
-  watchQuery: ["s"],
+  watch: {
+    search: async function (newVal, oldVal) {
+      await this.getWishlist();
+      //await this.$nuxt.refresh();
+    },
+  },
 };
 </script>
 
