@@ -51,7 +51,7 @@ class TransactionsTableSeeder extends Seeder
                 'updated_at' => '2022-02-03 20:28:40',
                 'deleted_at' => NULL,
             'shipping' => 'JNE (Regular)',
-                'va_account_no' => NULL,
+                
                 'transaction_expired_at' => NULL,
                 'midtrans_data' => NULL,
             ),
@@ -87,7 +87,7 @@ class TransactionsTableSeeder extends Seeder
                 'updated_at' => '2022-03-01 13:12:59',
                 'deleted_at' => NULL,
                 'shipping' => NULL,
-                'va_account_no' => NULL,
+                
                 'transaction_expired_at' => '2022-02-06 17:43:02',
                 'midtrans_data' => '{"success":true,"data":{"va_numbers":[{"bank":"bca","va_number":"47463026984"}],"payment_amounts":[],"transaction_time":"2022-02-05 17:43:02","gross_amount":"26188000.00","currency":"IDR","order_id":"46f0be97-5033-4cd4-9362-94d20e2f0f86","payment_type":"bank_transfer","signature_key":"c7e555c59ddcd6112be446d8a46ff982b4a21d41bc03f9c45cf19346bb7302e369faa1eeb56673736c78d5dcab951321f575286365c0334204b9bf7913d66430","status_code":"407","transaction_id":"3c28a103-1fc1-41ff-963d-38cbd6de8797","transaction_status":"expire","fraud_status":"accept","status_message":"Success, transaction is found","merchant_id":"G297347463"}}',
             ),
@@ -123,7 +123,7 @@ class TransactionsTableSeeder extends Seeder
                 'updated_at' => '2022-02-15 17:53:41',
                 'deleted_at' => NULL,
                 'shipping' => NULL,
-                'va_account_no' => NULL,
+                
                 'transaction_expired_at' => NULL,
                 'midtrans_data' => NULL,
             ),
@@ -159,7 +159,7 @@ class TransactionsTableSeeder extends Seeder
                 'updated_at' => '2022-02-18 19:35:48',
                 'deleted_at' => NULL,
                 'shipping' => NULL,
-                'va_account_no' => NULL,
+                
                 'transaction_expired_at' => NULL,
                 'midtrans_data' => NULL,
             ),
@@ -195,7 +195,7 @@ class TransactionsTableSeeder extends Seeder
                 'updated_at' => '2022-02-25 21:31:56',
                 'deleted_at' => NULL,
                 'shipping' => NULL,
-                'va_account_no' => NULL,
+                
                 'transaction_expired_at' => '2022-02-25 15:23:42',
                 'midtrans_data' => '{"success":true,"data":{"va_numbers":[{"bank":"bca","va_number":"47463801596"}],"payment_amounts":[],"transaction_time":"2022-02-24 15:23:42","gross_amount":"16317000.00","currency":"IDR","order_id":"fae557d9-66b6-4357-9d32-3d6d22f0e32a","payment_type":"bank_transfer","signature_key":"52371898d515571f25b59b29d3dfd898970bfc67c3a754f74649491b4e4e487eea2be36d5ef118bfde0f8051a6bd0c84c4a2efe6691c8dedb60f1b3bfa7fe437","status_code":"407","transaction_id":"b0483feb-499e-403a-bd29-92b4efba51a7","transaction_status":"expire","fraud_status":"accept","status_message":"Success, transaction is found","merchant_id":"G297347463"}}',
             ),
@@ -231,7 +231,7 @@ class TransactionsTableSeeder extends Seeder
                 'updated_at' => '2022-03-01 13:12:30',
                 'deleted_at' => NULL,
                 'shipping' => NULL,
-                'va_account_no' => NULL,
+                
                 'transaction_expired_at' => '2022-02-26 21:38:16',
                 'midtrans_data' => '{"success":true,"data":{"va_numbers":[{"bank":"bca","va_number":"47463857128"}],"payment_amounts":[],"transaction_time":"2022-02-25 21:38:16","gross_amount":"16317000.00","currency":"IDR","order_id":"f9f2047f-e06e-480d-980e-1831b9010d20","payment_type":"bank_transfer","signature_key":"729d3559607bea05be30c651cede101569f3296e82cd046b47d1866dc1accdc8130150c12f2b00a0de50353ca86440b690b79abab05ddae16885b3755bbf0012","status_code":"407","transaction_id":"624702af-3827-4aed-b146-e93e3c4da9df","transaction_status":"expire","fraud_status":"accept","status_message":"Success, transaction is found","merchant_id":"G297347463"}}',
             ),
@@ -267,7 +267,7 @@ class TransactionsTableSeeder extends Seeder
                 'updated_at' => '2022-02-24 14:40:16',
                 'deleted_at' => NULL,
                 'shipping' => NULL,
-                'va_account_no' => NULL,
+                
                 'transaction_expired_at' => NULL,
                 'midtrans_data' => NULL,
             ),
@@ -303,7 +303,7 @@ class TransactionsTableSeeder extends Seeder
                 'updated_at' => '2022-03-01 13:31:05',
                 'deleted_at' => NULL,
                 'shipping' => NULL,
-                'va_account_no' => NULL,
+                
                 'transaction_expired_at' => '2022-03-02 12:51:13',
                 'midtrans_data' => '{"success":true,"data":{"masked_card":"481111-1114","approval_code":"1646113879259","bank":"bni","eci":"05","channel_response_code":"00","channel_response_message":"Approved","three_ds_version":"1","transaction_time":"2022-03-01 12:51:13","gross_amount":"26940000.00","currency":"IDR","order_id":"cb055030-4f0e-4062-aace-8f1c37739fb8","payment_type":"credit_card","signature_key":"d752f0350a6483d4b2e37d8bd470238f8a843a626c862f3b01aea66bf6c0ea323cde15478a3695cae1776384464af4d7519ee54dcd69b23e8f504ac209ed1dae","status_code":"200","transaction_id":"acb0a525-91bc-42fb-89e3-6acb01d6a359","transaction_status":"capture","fraud_status":"accept","status_message":"Success, transaction is found","merchant_id":"G297347463","card_type":"credit"}}',
             ),
@@ -339,7 +339,7 @@ class TransactionsTableSeeder extends Seeder
                 'updated_at' => '2022-03-02 10:02:33',
                 'deleted_at' => NULL,
             'shipping' => 'JNE (Reguler)',
-                'va_account_no' => NULL,
+                
                 'transaction_expired_at' => NULL,
                 'midtrans_data' => NULL,
             ),
@@ -375,7 +375,7 @@ class TransactionsTableSeeder extends Seeder
                 'updated_at' => '2022-03-02 10:11:14',
                 'deleted_at' => NULL,
             'shipping' => 'JNE (OKE)',
-                'va_account_no' => NULL,
+                
                 'transaction_expired_at' => NULL,
                 'midtrans_data' => NULL,
             ),
@@ -411,7 +411,7 @@ class TransactionsTableSeeder extends Seeder
                 'updated_at' => '2022-03-02 22:37:23',
                 'deleted_at' => NULL,
             'shipping' => 'JNE (Reguler)',
-                'va_account_no' => NULL,
+                
                 'transaction_expired_at' => NULL,
                 'midtrans_data' => NULL,
             ),

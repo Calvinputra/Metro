@@ -71,11 +71,7 @@
               <div class="row" style="float: right">
                 <h5 class="col align-self-center">Urutkan:</h5>
                 <div class="col btn">
-                  <b-dropdown
-                    id="dropdown-1"
-                    text="Produk Terbaru"
-                    class="m-md-2"
-                  >
+                  <b-dropdown id="dropdown-1" :text="sort" class="m-md-2">
                     <b-dropdown-item
                       @click="
                         onDropDownSelectHandler('product_terbaru', 'desc')
@@ -136,14 +132,7 @@
       <div class="container">
         <div class="row">
           <div
-            class="
-              col-sm-10
-              align-self-start
-              mt-2
-              row
-              justify-content-between
-              pr-0
-            "
+            class="col-sm-10 align-self-start mt-2 row justify-content-between pr-0"
           >
             <div class="col-sm-4 mb-2">
               <h2>Kategory 1</h2>
@@ -242,6 +231,7 @@ export default {
         },
       ],
       products: [],
+      sort: "Produk Terbaru",
     };
   },
   async asyncData({ $axios, query }) {
@@ -287,9 +277,21 @@ export default {
         },
       };
     },
+    getSortItem() {
+      if (this.$route.query.order == "harga_terbesar") {
+        this.sort = "Harga Terbesar";
+      }
+      if (this.$route.query.order == "product_terbaru") {
+        this.sort = "Produk Terbaru";
+      }
+      if (this.$route.query.order == "harga_terkeci") {
+        this.sort = "Harga Terkecil";
+      }
+    },
     pageGen(pageNum) {
       return this.links[pageNum - 1].slice(1);
     },
+
     onCategoryClickHandler(id) {
       this.$router.push({
         path: "/products",
@@ -302,7 +304,9 @@ export default {
           type: this.$route.query.type,
         },
       });
+      this.getSortItem();
     },
+
     onDropDownSelectHandler(order, type = "asc") {
       this.$router.push({
         path: "/products",
@@ -317,7 +321,10 @@ export default {
       });
     },
   },
-
+  mounted() {
+    // this.sort = this.$route.query.order;
+    this.getSortItem();
+  },
   watchQuery: ["s", "page", "paginate", "category", "order", "type"],
 };
 </script>

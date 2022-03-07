@@ -100,7 +100,6 @@
         <b-nav-item-dropdown
           text="☰"
           style="font-size: 25px; list-style-type: none; color: red"
-          right
           no-caret
         >
           <b-dropdown-item v-if="!this.$auth.loggedIn" to="/login"
@@ -277,13 +276,14 @@ export default {
 };
 </script>
 
-<style lang="css" scoped>
+<style lang="css">
 #header-mobileview {
   display: none;
 }
 #header-tabview {
   display: none;
 }
+
 /* 0 - 991 px */
 @media screen and (max-width: 579px) {
   .nav-link {
@@ -307,7 +307,7 @@ export default {
   }
   .nav-link:focus,
   .nav-link:hover {
-    color: red !important;
+    color: red;
   }
 }
 

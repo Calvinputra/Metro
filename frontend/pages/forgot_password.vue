@@ -9,14 +9,7 @@
               <AccountMenu :name="'forgot'" />
             </div>
             <div
-              class="
-                col-sm-9
-                offset-md-1
-                align-self-start
-                mt-2
-                row
-                justify-content-between
-              "
+              class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
             >
               <div class="col-sm-12">
                 <label class="mb-0"
@@ -65,25 +58,17 @@
                   <button
                     type="submit"
                     @click.prevent="delay"
-                    class="
-                      btn
-                      text-danger
-                      btn-light btn-sm
-                      rounded
-                      col-sm-3
-                      py-2
-                      px-2
-                    "
+                    class="btn text-danger btn-light btn-sm rounded p-2"
                     style="
                       box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                     "
                   >
-                    Perbarui kata sandi
+                    Kirim
                   </button>
                 </div>
                 <div class="mt-5 ms-5 ps-5">
                   Belum mempunyai akun?
-                  <nuxt-link style="color:red" to="/register">
+                  <nuxt-link style="color: red" to="/register">
                     Buat Akun
                   </nuxt-link>
                 </div>
@@ -99,14 +84,7 @@
         <div class="container">
           <div class="row">
             <div
-              class="
-                col-sm-9
-                offset-md-1
-                align-self-start
-                mt-2
-                row
-                justify-content-between
-              "
+              class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
             >
               <div class="col-sm-12">
                 <label class="mb-0"
@@ -165,12 +143,12 @@
                       box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                     "
                   >
-                    Perbarui kata sandi
+                    Kirim
                   </button>
                 </div>
                 <div class="mt-5 ms-5">
                   Belum mempunyai akun?
-                  <nuxt-link style="color:red" to="/register">
+                  <nuxt-link style="color: red" to="/register">
                     Buat Akun
                   </nuxt-link>
                 </div>
@@ -192,13 +170,13 @@ export default {
         {
           url: "/",
           name: "Beranda",
-          class: "my-2 ms-3 breadcrumb-item opacity-50"
+          class: "my-2 ms-3 breadcrumb-item opacity-50",
         },
         {
           url: "/forgot_password",
           name: "Lupa Katasandi",
-          class: "my-2 breadcrumb-item active opacity-50"
-        }
+          class: "my-2 breadcrumb-item active opacity-50",
+        },
       ],
       email: "",
       disabled: false,
@@ -206,7 +184,7 @@ export default {
       message: null,
       dismissSecs: 10,
       dismissCountDown: 0,
-      showDismissibleAlert: false
+      showDismissibleAlert: false,
     };
   },
   methods: {
@@ -222,7 +200,7 @@ export default {
     },
     async doSendForgotPassword() {
       let data = {
-        email: this.email
+        email: this.email,
       };
       let response = await this.$axios.$post(
         process.env.API_URL + "/api/forgot_password",
@@ -235,7 +213,7 @@ export default {
         this.$toast.success(this.message, {
           theme: "bubble",
           position: "bottom-right",
-          duration: 5000
+          duration: 5000,
         });
       } else {
         const err = response.message;
@@ -244,13 +222,13 @@ export default {
             this.$toast.error(err[key][key2], {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000
+              duration: 5000,
             });
           });
         });
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

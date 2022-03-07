@@ -21,8 +21,8 @@
       </template>
     </div>
     <div></div>
-    <div class="d-flex p-2 justify-content-center mb-3 mt-3">
-      <div class="pe-3 ps-3">
+    <div class="row py-2 justify-content-center mb-3 mt-3">
+      <div class="col-3">
         <img
           style="
             width: 40px;
@@ -33,38 +33,29 @@
           alt=""
         />
       </div>
-      <div class="pe-3">
+      <div class="col-3">
         <img
           style="
             width: 40px;
             background-color: #f3f3f3;
             box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
           "
-          src="/img/tokopedia.png"
+          src="/img/whatsapp_new.png"
           alt=""
         />
       </div>
-      <div class="pe-3">
-        <img
+      <div class="col-3 d-flex justify-content-center">
+        <div
+          class="d-flex align-items-center justify-content-center"
           style="
             width: 40px;
+            height: 42px;
             background-color: #f3f3f3;
             box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
           "
-          src="/img/tokopedia.png"
-          alt=""
-        />
-      </div>
-      <div class="pe-3">
-        <img
-          style="
-            width: 40px;
-            background-color: #f3f3f3;
-            box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
-          "
-          src="/img/tokopedia.png"
-          alt=""
-        />
+        >
+          <i class="fab fa-google" style="font-size: 18px"></i>
+        </div>
       </div>
     </div>
 
