@@ -132,9 +132,6 @@
     <section id="pembayaran-mobileview">
       <div class="container">
         <div class="row">
-          <div class="col-md-2">
-            <AccountMenuMobile :name="'register'" />
-          </div>
           <div
             class="
               col-sm-9

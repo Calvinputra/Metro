@@ -35,7 +35,10 @@
                   alt=""
                 />
               </a>
-              <a :href="'https://wa.me/' + settings.company_wa_phone" target="_blank">
+              <a
+                :href="'https://wa.me/' + settings.company_wa_phone"
+                target="_blank"
+              >
                 <img
                   style="width: 40px; margin-top: -5px"
                   class="me-2"
@@ -138,9 +141,13 @@
     <!-- Copyright -->
     <!-- mobile -->
     <section class="mt-2" id="footer-mobile">
-      <div class="d-flex justify-content-around" id="footer-mobileview">
+      <div
+        class="d-flex justify-content-around"
+        id="footer-mobileview"
+        style="z-index: 1"
+      >
         <i
-          @click="redirectTo('/index')"
+          @click="redirectTo('/')"
           class="fas fa-home"
           style="font-size: 30px !important; color: #c63442 !important"
         ></i>
@@ -155,6 +162,7 @@
           style="font-size: 30px !important; color: #c63442 !important"
         ></i>
         <i
+          @click="redirectTo('/profile')"
           class="fas fa-user"
           style="font-size: 30px !important; color: #c63442 !important"
         ></i>

@@ -2,7 +2,7 @@
   <!-- Awal Navbar -->
   <nav
     id="navbar"
-    class="navbar sticky-top navbar-expand-lg navbar-light bg-light"
+    class="navbar sticky-top navbar-expand-lg navbar-light bg-light justify-content-center"
     style="font-family: 'Nunito Sans'"
   >
     <!-- WEB -->
@@ -72,7 +72,7 @@
                 >Daftar</b-dropdown-item
               >
 
-              <b-dropdown-item v-if="this.$auth.loggedIn" @click="logout" active
+              <b-dropdown-item v-if="this.$auth.loggedIn" @click="logout"
                 >Keluar</b-dropdown-item
               >
             </b-dropdown>
@@ -94,101 +94,48 @@
     </div>
 
     <!-- MOBILE -->
-    <div id="header-mobileview" class="container" style="height: auto">
+    <div id="header-mobileview" class="container row" style="height: auto">
       <!-- Navbar brand -->
-      <div>
+      <div class="col-1 p-0">
         <b-nav-item-dropdown
           text="☰"
-          style="font-size: 25px; list-style-type: none"
+          style="font-size: 25px; list-style-type: none; color: red"
           right
           no-caret
         >
           <b-dropdown-item v-if="!this.$auth.loggedIn" to="/login"
-            >Login</b-dropdown-item
+            >Masuk</b-dropdown-item
           >
           <b-dropdown-item v-if="!this.$auth.loggedIn" to="/register"
-            >Register</b-dropdown-item
+            >Daftar</b-dropdown-item
           >
           <b-dropdown-item v-if="this.$auth.loggedIn" to="/riwayat_pembelian"
             >Riwayat Pembelian</b-dropdown-item
           >
-          <b-dropdown-item v-if="this.$auth.loggedIn"
+          <b-dropdown-item v-if="this.$auth.loggedIn" to="/change_password"
+            >Ubah sandi</b-dropdown-item
+          >
+          <b-dropdown-item v-if="this.$auth.loggedIn" to="/profile"
             >Akun Saya</b-dropdown-item
           >
-          <b-dropdown-item v-if="this.$auth.loggedIn" @click="logout" active
+          <b-dropdown-item v-if="this.$auth.loggedIn" @click="logout"
             >Keluar</b-dropdown-item
           >
         </b-nav-item-dropdown>
       </div>
+      <!-- Search -->
+      <div class="col-8">
+        <search-mobile />
+      </div>
       <!-- Logo -->
-      <div id="header_logo" class="">
+      <div id="header_logo" class="text-right col-3 m-0">
         <nuxt-link to="/"
           ><img
-            class="img-fluid rounded mx-auto d-block"
+            class="img-fluid rounded mx-auto"
             src="/img/metro.png"
             alt=""
+            width="100%"
         /></nuxt-link>
-      </div>
-
-      <search-mobile />
-
-      <!-- icon -->
-      <div class="collapse navbar-collapse center" id="navbarScroll">
-        <div id="icon navbar" class="container-fluid ms-4">
-          <div class="col-sm-4" style="padding: 0">
-            <b-dropdown
-              id="dropdown-1"
-              variant="transparent"
-              text=""
-              class="ms-12"
-            >
-              <template slot="button-content">
-                <i
-                  class="py-0 fa fa-user"
-                  style="font-size: 30px !important"
-                ></i>
-                <em></em>
-              </template>
-              <b-dropdown-item v-if="this.$auth.loggedIn"
-                >Akun Saya</b-dropdown-item
-              >
-              <b-dropdown-item
-                v-if="this.$auth.loggedIn"
-                to="/riwayat_pembelian"
-                >Riwayat Pembelian</b-dropdown-item
-              >
-              <b-dropdown-item v-if="!this.$auth.loggedIn" to="/login"
-                >Login</b-dropdown-item
-              >
-              <b-dropdown-item v-if="!this.$auth.loggedIn" to="/register"
-                >Register</b-dropdown-item
-              >
-
-              <b-dropdown-item v-if="this.$auth.loggedIn" @click="logout" active
-                >Logout</b-dropdown-item
-              >
-            </b-dropdown>
-          </div>
-          <div class="col-sm-4 mb-2 mt-2">
-            <nuxt-link
-              to="/wishlist"
-              class="text-black"
-              style="text-decoration: none"
-            >
-              Wishlist
-            </nuxt-link>
-          </div>
-          <div class="col-sm-4">
-            <nuxt-link
-              to="/cart"
-              class="text-black"
-              style="text-decoration: none"
-            >
-              Cart</nuxt-link
-            >
-          </div>
-          <!-- Kosong -->
-        </div>
       </div>
     </div>
 
@@ -219,10 +166,10 @@
               no-caret
             >
               <b-dropdown-item v-if="!this.$auth.loggedIn" to="/login"
-                >Login</b-dropdown-item
+                >Masuk</b-dropdown-item
               >
               <b-dropdown-item v-if="!this.$auth.loggedIn" to="/register"
-                >Register</b-dropdown-item
+                >Daftar</b-dropdown-item
               >
               <b-dropdown-item
                 v-if="this.$auth.loggedIn"
@@ -232,8 +179,8 @@
               <b-dropdown-item v-if="this.$auth.loggedIn"
                 >Akun Saya</b-dropdown-item
               >
-              <b-dropdown-item v-if="this.$auth.loggedIn" @click="logout" active
-                >Logout</b-dropdown-item
+              <b-dropdown-item v-if="this.$auth.loggedIn" @click="logout"
+                >Keluar</b-dropdown-item
               >
             </b-nav-item-dropdown>
           </div>
@@ -276,11 +223,8 @@
                   >Daftar</b-dropdown-item
                 >
 
-                <b-dropdown-item
-                  v-if="this.$auth.loggedIn"
-                  @click="logout"
-                  active
-                  >Logout</b-dropdown-item
+                <b-dropdown-item v-if="this.$auth.loggedIn" @click="logout"
+                  >Keluar</b-dropdown-item
                 >
               </b-dropdown>
             </div>
@@ -342,8 +286,12 @@ export default {
 }
 /* 0 - 991 px */
 @media screen and (max-width: 579px) {
+  .nav-link {
+    padding: 0;
+    color: red !important;
+  }
   #header_logo {
-    width: 30%;
+    /* width: 30%; */
     padding: 0;
     margin-right: auto;
   }
@@ -357,7 +305,12 @@ export default {
   #header-tabview {
     display: none;
   }
+  .nav-link:focus,
+  .nav-link:hover {
+    color: red !important;
+  }
 }
+
 @media screen and (min-width: 580px) and (max-width: 1024px) {
   #header_logo {
     width: 30%;

@@ -210,18 +210,17 @@
     </section>
     <section id="profile-mobileview" style="font-size: 80%">
       <Breadcrumb :links="breadcrumb" />
-      <section class="container">
+      <section>
         <div class="container">
           <div class="row">
-            <div class="col-md-2">
-              <AccountMenu :name="'register'" />
-            </div>
             <div
               class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
             >
               <div class="col-sm-12">
-                <label class="mt-3"
-                  ><h2 class="font-weight-bold">Akun Saya</h2></label
+                <label class="mb-0"
+                  ><h2 class="font-weight-bold">
+                    Akun Saya<span style="color: red">*</span>
+                  </h2></label
                 >
               </div>
               <div class="mb-4">
@@ -233,8 +232,9 @@
               </div>
 
               <div>
-                <div class="row justify-content-start">
+                <div class="row">
                   <form>
+                    <div class="register-form-title">Informasi Akun</div>
                     <b-alert
                       v-model="showDismissibleAlert"
                       variant="danger"
@@ -248,47 +248,138 @@
                         <li v-for="(e, key) in error" :key="key">{{ e }}</li>
                       </ul>
                     </b-alert>
-                    <div class="d-flex justify-content-around">
-                      <div class="me-4">
-                        <span class="me-5 pe-5">
-                          <p>Nama Depan</p>
-                          <p class="mt-4">Nama Belakang</p>
-                          <p class="mt-4">Nomor Telepon</p>
-                          <p class="mt-4">Alamat</p>
-                          <p class="mt-4">Kode Pos</p>
-                          <p class="mt-4">Negara</p>
-                          <p class="mt-4">Provinsi</p>
-                          <p class="mt-4">Kota</p>
-                          <p class="mt-4">Email</p>
-                        </span>
-                      </div>
-                      <div class="">
-                        <p>: {{ this.$auth.user.first_name }}</p>
-                        <p class="mt-4">: {{ this.$auth.user.last_name }}</p>
-                        <p class="mt-4">: {{ this.$auth.user.phone }}</p>
-                        <p class="mt-4">
-                          : {{ this.$auth.user.addresses[0].address }}
-                        </p>
-                        <p class="mt-4">
-                          : {{ this.$auth.user.addresses[0].postal_code }}
-                        </p>
-                        <p class="mt-4">
-                          : {{ this.$auth.user.addresses[0].country.name }}
-                        </p>
-                        <p class="mt-4">
-                          : {{ this.$auth.user.addresses[0].province.name }}
-                        </p>
-                        <p class="mt-4">
-                          :
-                          {{ this.$auth.user.addresses[0].city.name }}
-                        </p>
-                        <p class="mt-4">: {{ this.$auth.user.email }}</p>
+                    <div class="">
+                      <table>
+                        <tbody>
+                          <tr>
+                            <th scope="row" class="pe-3">
+                              <p>Nama Depan</p>
+                            </th>
+                            <td>
+                              <p><b class="ps-3">:</b></p>
+                            </td>
+                            <td>
+                              <p class="ps-2">
+                                {{ this.$auth.user.first_name }}
+                              </p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="">
+                              <p>Nama Belakang</p>
+                            </th>
+                            <td>
+                              <p><b class="ps-3">:</b></p>
+                            </td>
+                            <td>
+                              <p class="ps-2">
+                                {{ this.$auth.user.last_name }}
+                              </p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="pe-3">
+                              <p>Nomor Telepon</p>
+                            </th>
+                            <td>
+                              <p><b class="ps-3">:</b></p>
+                            </td>
+                            <td>
+                              <p class="ps-2">{{ this.$auth.user.phone }}</p>
+                            </td>
+                          </tr>
+                          <br />
+                          <tr>
+                            <th scope="row" class="pe-3"><p>Alamat</p></th>
+                            <td>
+                              <p><b class="ps-3">:</b></p>
+                            </td>
+                            <td>
+                              <div style="max-width: 80%">
+                                <p class="ps-2">
+                                  {{ this.$auth.user.addresses[0].address }}
+                                </p>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="pe-3"><p>Kode Pos</p></th>
+                            <td>
+                              <p><b class="ps-3">:</b></p>
+                            </td>
+                            <td>
+                              <p class="ps-2">
+                                {{ this.$auth.user.addresses[0].postal_code }}
+                              </p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="pe-3"><p>Negara</p></th>
+                            <td>
+                              <p><b class="ps-3">:</b></p>
+                            </td>
+                            <td>
+                              <p class="ps-2">
+                                {{ this.$auth.user.addresses[0].country.name }}
+                              </p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="pe-3"><p>Provinsi</p></th>
+                            <td>
+                              <p><b class="ps-3">:</b></p>
+                            </td>
+                            <td>
+                              <p class="ps-2">
+                                {{ this.$auth.user.addresses[0].province.name }}
+                              </p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="pe-3"><p>Kota</p></th>
+                            <td>
+                              <p><b class="ps-3">:</b></p>
+                            </td>
+                            <td>
+                              <p class="ps-2">
+                                {{ this.$auth.user.addresses[0].city.name }}
+                              </p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="pe-3"><p>Email</p></th>
+                            <td>
+                              <p><b class="ps-3">:</b></p>
+                            </td>
+                            <td>
+                              <p class="ps-2">
+                                {{ this.$auth.user.email }}
+                                <template
+                                  v-if="
+                                    this.$auth.user.email_verified_at === null
+                                  "
+                                  >-
+                                </template>
+                              </p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div class="mt-2 text-center">
+                        <button
+                          @click.prevent="doEmailVerification"
+                          class="btn"
+                          style="color: red; weight: 600; font-size: 14px"
+                        >
+                          Verifikasi sekarang
+                        </button>
                       </div>
                     </div>
                   </form>
-                  <div class="text-center">
+                  <div class="text-center mb-5">
                     <br />
-                    <button
+                    <Nuxt-link
+                      to="/editprofile"
                       type="button"
                       class="btn btn-light text-danger p-2"
                       style="
@@ -296,7 +387,7 @@
                       "
                     >
                       Ubah Informasi Akun
-                    </button>
+                    </Nuxt-link>
                   </div>
                 </div>
               </div>
@@ -304,7 +395,7 @@
           </div>
         </div>
       </section>
-      <Footer2mobile />
+
       <client-only>
         <!-- include VueJS first -->
         <script src="https://unpkg.com/vue@latest"></script>

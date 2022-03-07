@@ -14,37 +14,19 @@
           </div>
           <div>
             <span
-              class="
-                border border-danger border-2
-                text-danger
-                rounded-3
-                px-2
-                py-1
-              "
+              class="border border-danger border-2 text-danger rounded-3 px-2 py-1"
               style="font-size: 12px !important"
             >
               {{ data.status.name }}</span
             >
             <span
-              class="
-                border border-success border-2
-                text-success
-                rounded-3
-                px-2
-                py-1
-              "
+              class="border border-success border-2 text-success rounded-3 px-2 py-1"
               style="font-size: 12px !important"
             >
               {{ data.status.name }}</span
             >
             <span
-              class="
-                border border-warning border-2
-                text-warning
-                rounded-3
-                px-2
-                py-1
-              "
+              class="border border-warning border-2 text-warning rounded-3 px-2 py-1"
               style="font-size: 12px !important"
             >
               {{ data.status.name }}</span
@@ -72,16 +54,7 @@
             <b-button
               v-b-modal.modal-detailtransaksi
               type="submit"
-              class="
-                mr-3
-                btn
-                text-danger
-                btn-light btn-sm
-                col-sm-9
-                ms-0
-                py-2
-                px-2
-              "
+              class="mr-3 btn text-danger btn-light btn-sm col-sm-9 ms-0 p-2"
               style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
             >
               <b> Lihat Detail Transaksi</b>
@@ -89,48 +62,21 @@
             <nuxt-link
               :to="'/pembayaran/' + data.uuid"
               type="submit"
-              class="
-                btn
-                text-danger
-                btn-light btn-sm
-                rounded
-                col-sm-4
-                ms-0
-                py-2
-                px-2
-              "
+              class="btn text-danger btn-light btn-sm rounded col-sm-4 ms-0 py-2 px-2"
               style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
             >
               <b> Bayar</b>
             </nuxt-link>
             <nuxt-link
               :to="'/review_list/' + data.uuid"
-              class="
-                btn
-                text-danger
-                btn-light btn-sm
-                rounded
-                col-sm-5
-                ms-0
-                py-2
-                px-2
-              "
+              class="btn text-danger btn-light btn-sm rounded col-sm-5 ms-0 py-2 px-2"
               style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
             >
               <b> Beri Ulasan</b>
             </nuxt-link>
             <button
               type="submit"
-              class="
-                btn
-                text-danger
-                btn-light btn-sm
-                rounded
-                col-sm-4
-                ms-0
-                py-2
-                px-2
-              "
+              class="btn text-danger btn-light btn-sm rounded col-sm-4 ms-0 py-2 px-2"
               style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
             >
               <b> Lainnya</b>
@@ -164,6 +110,6 @@
 <script>
 export default {
   props: ["data"],
-  methods: {}
+  methods: {},
 };
 </script>
