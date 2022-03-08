@@ -294,7 +294,7 @@ export default {
       if (this.$route.query.order == "harga_terkecil") {
         this.sort = "Harga Terkecil";
       }
-      console.log(this.sort);
+      //console.log(this.sort);
       this.$nuxt.refresh()
 
     },
