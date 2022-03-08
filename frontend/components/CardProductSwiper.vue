@@ -81,7 +81,7 @@
                       background-color: #f3f3f3;
                       box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                     "
-                    src="/img/Whatsapp_new.png"
+                    src="/img/whatsapp_new.png"
                     alt=""
                 /></a>
                 <a
@@ -179,7 +179,7 @@
                       width: 30px;
                       box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                     "
-                    src="/img/Whatsapp_new.png"
+                    src="/img/whatsapp_new.png"
                     alt=""
                 /></a>
                 <a class="ps-2" :href="data.url_tokopedia"
