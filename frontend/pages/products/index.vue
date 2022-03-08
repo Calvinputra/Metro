@@ -294,7 +294,7 @@ export default {
       if (this.$route.query.order == "harga_terkecil") {
         this.sort = "Harga Terkecil";
       }
-      //console.log(this.sort);
+      console.log(this.sort);
       this.$nuxt.refresh()
 
     },
@@ -314,6 +314,8 @@ export default {
           type: this.$route.query.type,
         },
       });
+      this.$nuxt.refresh()
+
     },
 
     onDropDownSelectHandler(order, type = "asc") {
@@ -328,6 +330,8 @@ export default {
           type: type,
         },
       });
+      this.$nuxt.refresh()
+
     },
   },
   mounted() {
