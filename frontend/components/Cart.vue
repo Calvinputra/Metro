@@ -32,7 +32,7 @@
       <div class="count-input">
         <input
           @change="updateSubTotal()"
-          class="col-sm-7"
+          class="col-sm-10"
           id="demoInput"
           type="number"
           min="0"
@@ -41,8 +41,12 @@
       </div>
     </td>
     <td class="text-center text-lg text-medium align-middle pt-0">
+      {{ product.weight }}gr
+    </td>
+    <td class="text-center text-lg text-medium align-middle pt-0">
       Rp.{{ Number(product.price).toLocaleString("id-ID") }}
     </td>
+
     <td class="text-center text-lg text-medium align-middle pt-0">
       Rp.{{ Number(sub_total).toLocaleString("id-ID") }}
     </td>

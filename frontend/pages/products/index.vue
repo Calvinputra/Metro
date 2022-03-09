@@ -132,32 +132,38 @@
       <div class="container">
         <div class="row">
           <div
-            class="
-              col-sm-10
-              align-self-start
-              mt-2
-              row
-              justify-content-between
-              pr-0
-            "
+            class="col-sm-10 align-self-start mt-2 row justify-content-between pr-0"
           >
             <div class="col-sm-4 mb-2">
               <h2>Kategory 1</h2>
             </div>
             <div class="col-sm-8 mx-auto my-auto">
               <div class="row">
-                <h5 class="col-3 align-self-center">Urutkan:</h5>
+                <h4 class="col-3 align-self-center">Urutkan:</h4>
                 <div class="col-2 btn-group ms-0 ps-2 me-5">
-                  <button
-                    class="btn btn-light btn-sm dropdown-toggle text-danger"
-                    type="button"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    Small button
-                  </button>
-                  <div class="dropdown-menu">...</div>
+                  <div class="col btn ml-3">
+                    <b-dropdown id="dropdown-1" :text="sort" class="m-md-2">
+                      <b-dropdown-item
+                        @click="
+                          onDropDownSelectHandler('product_terbaru', 'desc')
+                        "
+                        >Produk terbaru</b-dropdown-item
+                      >
+                      <b-dropdown-item
+                        @click="
+                          onDropDownSelectHandler('harga_terbesar', 'desc')
+                        "
+                        >Harga Terbesar</b-dropdown-item
+                      >
+                      <b-dropdown-item
+                        @click="
+                          onDropDownSelectHandler('harga_terkecil', 'asc')
+                        "
+                        >Harga Terkecil</b-dropdown-item
+                      >
+                    </b-dropdown>
+                    <div class="dropdown-menu">...</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -295,8 +301,7 @@ export default {
         this.sort = "Harga Terkecil";
       }
       console.log(this.sort);
-      this.$nuxt.refresh()
-
+      this.$nuxt.refresh();
     },
     pageGen(pageNum) {
       return this.links[pageNum - 1].slice(1);
@@ -314,8 +319,7 @@ export default {
           type: this.$route.query.type,
         },
       });
-      this.$nuxt.refresh()
-
+      this.$nuxt.refresh();
     },
 
     onDropDownSelectHandler(order, type = "asc") {
@@ -330,8 +334,7 @@ export default {
           type: type,
         },
       });
-      this.$nuxt.refresh()
-
+      this.$nuxt.refresh();
     },
   },
   mounted() {

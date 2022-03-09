@@ -16,6 +16,9 @@
       <pre></pre>
     </td>
     <td class="text-center text-lg text-medium align-middle">
+      {{ product.weight }}
+    </td>
+    <td class="text-center text-lg text-medium align-middle">
       {{ Number(qty).toLocaleString("id-ID") }}
     </td>
 
@@ -33,11 +36,11 @@ export default {
   data() {
     return {
       sub_total: 0,
-      ASSET_URL: process.env.ASSET_URL
+      ASSET_URL: process.env.ASSET_URL,
     };
   },
   created() {
     this.sub_total = this.qty * this.product.price;
-  }
+  },
 };
 </script>

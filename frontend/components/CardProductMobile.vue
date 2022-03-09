@@ -29,7 +29,7 @@
         <div class="card-body">
           <div class="row justify-content-between">
             <div class="col">
-              <h5 class="card-title mb-0" style="font-size: 100%">
+              <h5 class="card-title mb-0" style="font-size: 14px">
                 {{ data.name }}
               </h5>
             </div>
@@ -46,7 +46,7 @@
               </a>
             </div>
 
-            <p class="card-text mb-2 font-weight-bold">
+            <p class="card-text mb-2 font-weight-bold" style="font-size: 14px">
               Rp.{{ Number(data.display_price).toLocaleString("id-ID") }}
             </p>
           </div>
@@ -121,12 +121,12 @@ export default {
       ASSET_URL: process.env.ASSET_URL,
     };
   },
- 
+
   methods: {
     redirectTo(url) {
       this.$router.push(url);
     },
-   async addToCart(product) {
+    async addToCart(product) {
       try {
         if (this.$auth.loggedIn) {
           let data = {
@@ -144,7 +144,7 @@ export default {
           console.log(response);
         } else {
           //this.$router.push("/login");
-          this.addProductToCart({product:product,notification:true});
+          this.addProductToCart({ product: product, notification: true });
         }
       } catch (error) {
         console.log(error);
@@ -177,7 +177,7 @@ export default {
           this.$nuxt.refresh();
           console.log(response);
         } else {
-           this.$toast.error(
+          this.$toast.error(
             "Anda perlu login terlebih dahulu untuk menambahkan item ke wishlist",
             {
               theme: "bubble",
@@ -210,5 +210,12 @@ export default {
   #logo {
     width: 40px;
   }
+}
+h5 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 </style>

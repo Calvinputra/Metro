@@ -211,6 +211,7 @@
               <thead>
                 <tr>
                   <th class="py-2">Produk</th>
+                  <th class="text-center py-2">Berat</th>
                   <th class="text-center py-2">Jumlah</th>
                   <th class="text-center py-2">Harga</th>
                   <th class="text-center py-2">Sub total</th>
@@ -242,6 +243,12 @@
           </div>
         </div>
         <div class="text-right text-right col-sm-11">
+          <div>
+            <span class="text-center mr-5 pl-5">Total Berat</span>
+            <span class="pl-5"
+              >Rp. {{ Number(grandTotal).toLocaleString("id-ID") }}</span
+            >
+          </div>
           <span class="text-center mr-5 pl-5">Total Harga</span>
           <span class="pl-5"
             >Rp. {{ Number(grandTotal).toLocaleString("id-ID") }}</span
