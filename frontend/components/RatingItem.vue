@@ -1,6 +1,5 @@
 <template>
   <div class="row">
-    
     <div class="col-sm-3">
       <nuxt-link :to="`/products/${detail.product.id}`">
         <img
@@ -24,7 +23,7 @@
             v-b-modal.modal-ulasan
             @click="showModalUlasan"
             type="submit"
-            class="btn text-danger btn-light btn-sm rounded col-sm-3 ms-5"
+            class="btn text-danger btn-light btn-sm rounded col-sm-3 col-5 ms-5 p-2"
             style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
           >
             Beri Ulasan
@@ -47,14 +46,12 @@
           </div>
         </template>
       </div>
-      
     </div>
     <hr
       style="height: 3px; width: 100%; border-width: 0; color: red"
       class="col-sm-12 mt-3 mt-0"
     />
   </div>
-  
 </template>
 
 <script>
@@ -63,16 +60,16 @@ export default {
   data() {
     return {
       ASSET_URL: process.env.ASSET_URL,
-      rating_exists: false
+      rating_exists: false,
     };
   },
   methods: {
     showModalUlasan() {
       this.$parent.showModalUlasan(this.detail);
-    }
+    },
   },
   mounted() {
     console.log(this.rating);
-  }
+  },
 };
 </script>

@@ -16,7 +16,7 @@
       <pre></pre>
     </td>
     <td class="text-center text-lg text-medium align-middle">
-      {{ product.weight }}
+      {{ product.weight }}gr
     </td>
     <td class="text-center text-lg text-medium align-middle">
       {{ Number(qty).toLocaleString("id-ID") }}

@@ -1,5 +1,5 @@
 <template>
-  <section style="font-size: 14px;">
+  <section style="font-size: 14px">
     <section id="cardswipe-webview">
       <section class="ps-5 pe-5" id="cardswipe-webview">
         <section
@@ -58,11 +58,8 @@
                   "
                   onclick="return false;"
                   @click="addToCart(data)"
-                  ><p style="font-size:12px;">
-                    + Keranjang
-                    </p>
-                    </a
-                >
+                  ><p style="font-size: 12px">+ Keranjang</p>
+                </a>
                 <a
                   @click.stop
                   class="col-sm-3 ms-2"
@@ -104,7 +101,7 @@
         </section>
       </section>
     </section>
-    <section class="" id="cardswipe-mobileview" style="font-size: 60%">
+    <section class="" id="cardswipe-mobileview" style="font-size: 80%">
       <!-- TODO harus pake div / section karena nested a href -->
       <!-- NOTE : Kalo a dibawah ini di ganti icon toped di mobilenya berantakan -->
       <section
@@ -128,27 +125,40 @@
               alt="..."
             />
             <div class="card-body">
-              <div class="row" style="font-size: 60%">
+              <div class="row" style="font-size: 80%">
                 <h5 style="font-size: 200%" class="card-title">
                   {{ data.name }}
                 </h5>
-                <a
-                  href=""
-                  class="me-5 pe-3"
-                  onclick="return false;"
-                  @click="addToWishList(data.id)"
-                  ><i
-                    :class="(data.wishlist_exist ? 'fas' : 'far') + ' fa-heart'"
-                    style="
-                      font-size: 20px !important;
-                      color: #c63442 !important;
-                    "
-                  ></i
-                ></a>
+                <div class="row mb-2">
+                  <div class="col-10">
+                    <p
+                      class="card-text font-weight-bold"
+                      style="font-size: 14px"
+                    >
+                      Rp.{{
+                        Number(data.display_price).toLocaleString("id-ID")
+                      }}
+                    </p>
+                  </div>
+                  <div class="col-2">
+                    <a
+                      href=""
+                      class="me-5 pe-3"
+                      onclick="return false;"
+                      @click="addToWishList(data.id)"
+                      ><i
+                        :class="
+                          (data.wishlist_exist ? 'fas' : 'far') + ' fa-heart'
+                        "
+                        style="
+                          font-size: 20px !important;
+                          color: #c63442 !important;
+                        "
+                      ></i
+                    ></a>
+                  </div>
+                </div>
               </div>
-              <p class="card-text font-weight-bold">
-                Rp.{{ Number(data.display_price).toLocaleString("id-ID") }}
-              </p>
               <div class="d-flex" @click.stop>
                 <a
                   class="btn text-danger btn-sm rounded p-1"

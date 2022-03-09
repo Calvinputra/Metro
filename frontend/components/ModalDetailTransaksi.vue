@@ -1,5 +1,8 @@
 <template>
-  <div style="background-color: white !important; font-family: 'Nunito Sans'">
+  <div
+    id="modaldetail-webview"
+    style="background-color: white !important; font-family: 'Nunito Sans'"
+  >
     <b-modal id="modal-detailtransaksi" title="Detail Transaksi" ok-only>
       <div class="border border-danger rounded row py-3">
         <div class="col-sm-6" style="font-size: 12px">
@@ -58,7 +61,7 @@
 
         <div class="row justify-content-around mt-3 mb-4">
           <div class="col-sm-4"></div>
-          <div class="col-sm-5 text-right fw-bold">
+          <div class="col-sm-5 col-7 text-right fw-bold">
             <span>
               <p>Subtotal</p>
             </span>
@@ -70,7 +73,7 @@
               <p>Jenis Pengiriman</p>
             </span>
           </div>
-          <div class="col-sm-3">
+          <div class="col-sm-3 col-5">
             <span>
               <p>
                 Rp.
@@ -88,7 +91,8 @@
               </p>
             </span>
             <p class="fw-bold">
-              Rp. {{ Number(transaction.grand_total).toLocaleString("id-ID") }}
+              Rp.
+              {{ Number(transaction.grand_total).toLocaleString("id-ID") }}
             </p>
             <p>{{ transaction.shipping }}</p>
           </div>
@@ -104,3 +108,30 @@ export default {
   props: ["transaction"],
 };
 </script>
+
+<style lang="css" scoped>
+#modaldetail-mobile {
+  display: none;
+}
+#modaldetail-mobileview {
+  display: none;
+}
+/* 0 - 991 px */
+@media screen and (max-width: 500px) {
+  #modaldetail_logo {
+    display: none !important;
+  }
+
+  #modaldetail-webview {
+    display: none;
+  }
+
+  #modaldetail-mobile {
+    display: contents;
+  }
+
+  #modaldetail-mobileview {
+    display: flex;
+  }
+}
+</style>

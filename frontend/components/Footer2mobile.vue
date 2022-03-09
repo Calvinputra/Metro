@@ -1,7 +1,7 @@
 <template>
   <section class="bg-light mt-4 text-center">
     <img
-      style="width: 300px"
+      style="width: 200px"
       src="/img/logo.png"
       alt=""
       class="m-5 px-3 py-2"

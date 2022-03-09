@@ -504,7 +504,7 @@
             </table>
           </div>
         </div>
-        <div class="text-right text-right col-sm-11">
+        <div class="text-right text-right col-11">
           <span class="text-center mr-5 pl-5">Total Harga</span>
           <span class="pl-5"
             >Rp. {{ Number(grandTotal).toLocaleString("id-ID") }}</span

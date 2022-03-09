@@ -112,9 +112,10 @@
                       <label for="password"
                         >Kata Sandi<span style="color: red">*</span></label
                       >
+
                       <input
                         type="password"
-                        class="form-control bo"
+                        class="form-control"
                         id="password"
                         name="password"
                         placeholder="Password"
