@@ -246,7 +246,7 @@
           <div>
             <span class="text-center mr-5 pl-5">Total Berat</span>
             <span class="pl-5"
-              >Rp. {{ Number(grandTotal).toLocaleString("id-ID") }}</span
+              >{{(weightTotal/1000).toFixed(2)}} Kg</span
             >
           </div>
           <span class="text-center mr-5 pl-5">Total Harga</span>
@@ -650,6 +650,7 @@ export default {
     },
     recalculateTotal() {
       this.grandTotal = 0 + this.shippingCost;
+      this.weightTotal = 0;
       if (this.carts.length > 0) {
         this.carts.forEach((cart) => {
           this.grandTotal += cart.qty * cart.product.price;
@@ -752,10 +753,12 @@ export default {
       handler: function (carts) {
         if (carts) {
           this.grandTotal = 0 + this.shippingCost;
+          this.weightTotal = 0;
 
           carts.forEach((cart) => {
             if (cart.product.process == 1) {
               this.grandTotal += cart.product.qty * cart.product.price;
+              this.weightTotal += cart.product.qty * cart.product.weight;
             }
           });
         }

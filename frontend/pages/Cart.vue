@@ -92,7 +92,7 @@
           <div>
             <span class="text-center mr-5 pl-5">Total Berat</span>
             <span class="pl-5"
-              >Rp. {{ Number(grandTotal).toLocaleString("id-ID") }}</span
+              >{{(weightTotal/1000).toFixed(2)}} Kg</span
             >
           </div>
           <span class="text-center mr-5 pl-5">Total Harga</span>
@@ -322,6 +322,7 @@ export default {
     return {
       carts: {},
       grandTotal: 0,
+      weightTotal:0,
       boxTwo: "",
       isLoaded: false,
       checkAll: false,
@@ -366,6 +367,7 @@ export default {
       handler: async function (changed) {
         if (this.$auth.loggedIn && changed) {
           this.grandTotal = 0;
+          this.weightTotal = 0;
           // let carts = await this.$axios.$get(
           //   process.env.API_URL + "/api/carts"
           // );
@@ -374,6 +376,7 @@ export default {
             this.carts.forEach((cart) => {
               if (cart.process == 1) {
                 this.grandTotal += cart.qty * cart.product.price;
+                this.weightTotal += cart.qty * cart.product.weight;
               }
             });
           }
@@ -389,10 +392,12 @@ export default {
       handler: function (carts) {
         if (!this.$auth.loggedIn && this.tempCart) {
           this.grandTotal = 0;
+          this.weightTotal = 0;
 
           this.tempCart.forEach((cart) => {
             if (cart.product.process == 1) {
               this.grandTotal += cart.product.qty * cart.product.price;
+              this.weightTotal += cart.product.qty * cart.product.weight;
             }
           });
         }
