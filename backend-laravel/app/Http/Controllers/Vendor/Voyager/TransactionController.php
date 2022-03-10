@@ -17,7 +17,41 @@ use App\Jobs\RecalculateAccountLedgerJob;
 
 class TransactionController extends \TCG\Voyager\Http\Controllers\VoyagerBaseController
 {
+    public function doFinishTransaction($transaction)
+    {
+        //update transaction to selesai
+        $transaction = tap($transaction)->update([
+            'status_id' => 4
+        ]);
 
+        //update log
+        $transaction->transactionLogs()->create([
+            'status_id' => 4,
+            'status' => TransactionStatus::find(4)->name,
+        ]);
+
+        //create ledger
+        $account_ledger = AccountLedger::create([
+            'value' => $transaction->grand_total * -1,
+            'transaction_id' => $transaction->id,
+            'account_id' => 2, //saldo di tahan
+            'description' => 'Transaksi selesai atas nama ' . $transaction->customer_name . ' invoice ' . $transaction->uuid,
+        ]);
+        //recalculate account ledger
+        dispatch(new RecalculateAccountLedgerJob($account_ledger));
+
+
+        //create ledger
+        $account_ledger = AccountLedger::create([
+            'value' => $transaction->grand_total,
+            'transaction_id' => $transaction->id,
+            'account_id' => 1, //saldo
+            'description' => 'Transaksi selesai atas nama ' . $transaction->customer_name . ' invoice ' . $transaction->uuid,
+        ]);
+        //recalculate account ledger
+        dispatch(new RecalculateAccountLedgerJob($account_ledger));
+        //return message
+    }
     public function finishTransaction(Request $request)
     {
         $this->validate($request, [
@@ -32,38 +66,7 @@ class TransactionController extends \TCG\Voyager\Http\Controllers\VoyagerBaseCon
         }
 
         if ($transaction) {
-            //update transaction to selesai
-            $transaction = tap($transaction)->update([
-                'status_id' => 4
-            ]);
-
-            //update log
-            $transaction->transactionLogs()->create([
-                'status_id' => 4,
-                'status' => TransactionStatus::find(4)->name,
-            ]);
-
-            //create ledger
-            $account_ledger = AccountLedger::create([
-                'value' => $transaction->grand_total * -1,
-                'transaction_id' => $transaction->id,
-                'account_id' => 2, //saldo di tahan
-                'description' => 'Transaksi selesai atas nama ' . $transaction->customer_name . ' invoice ' . $transaction->uuid,
-            ]);
-            //recalculate account ledger
-            dispatch(new RecalculateAccountLedgerJob($account_ledger));
-
-
-            //create ledger
-            $account_ledger = AccountLedger::create([
-                'value' => $transaction->grand_total,
-                'transaction_id' => $transaction->id,
-                'account_id' => 1, //saldo
-                'description' => 'Transaksi selesai atas nama ' . $transaction->customer_name . ' invoice ' . $transaction->uuid,
-            ]);
-            //recalculate account ledger
-            dispatch(new RecalculateAccountLedgerJob($account_ledger));
-            //return message
+            $this->doFinishTransaction($transaction);
             return redirect()->back()->with(['success' => 'Successfully Finish a Transaction!']);
         } else {
             return redirect()->back()->with(['error' => 'Transaction not found!']);

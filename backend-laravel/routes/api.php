@@ -75,3 +75,4 @@ Route::post('/select2/products/initial', [ProductController::class, 'getInitialD
 //payment, midtrans yg call link ini
 Route::post('/transactions/midtrans/notification/handler', [PaymentController::class, 'midtransNotification']);
 Route::get('/transactions/check_status/{uuid}', [PaymentController::class, "checkTransactionStatus"])->middleware('auth:sanctum');
+Route::post('/transactions/get_jne_way_bill', [ShippingController::class, 'getJneWayBill'])->middleware('auth:sanctum');
