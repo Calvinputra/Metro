@@ -32,6 +32,7 @@
         </p>
         <p class="text-lg text-medium align-middle" style="font-size: 10px">
           Rp.{{ Number(sub_total).toLocaleString("id-ID") }}
+          {{ product.weight }}gr
         </p>
       </span>
     </td>

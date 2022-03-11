@@ -88,13 +88,15 @@
             terlebih dahulu.
           </div> -->
         </div>
-        <div class="text-right text-right col-11">
+        <div class="text-right col-11">
           <div>
-            <span class="text-center mr-5 pl-5">Total Berat</span>
-            <span class="pl-5">{{ (weightTotal / 1000).toFixed(2) }} Kg</span>
+            <span class="text-left mr-5 pr-5">Total Berat</span>
+            <span class="">{{ (weightTotal / 1000).toFixed(2) }} Kg</span>
           </div>
-          <span class="text-center mr-5 pl-5">Total Harga</span>
-          <span class="pl-5"
+        </div>
+        <div class="text-right col-11">
+          <span class="text-left mr-5">Total Harga</span>
+          <span class=""
             >Rp. {{ Number(grandTotal).toLocaleString("id-ID") }}</span
           >
         </div>
@@ -192,10 +194,17 @@
             </template>
           </table>
         </div>
-        <div class="text-right text-right col-sm-11 mb-5">
+
+        <div class="text-right col-11">
+          <span class="text-center" style="font-size: 12px">Total Berat</span>
+          <span class="pl-5" style="font-size: 12px; margin-left: 12px">
+            {{ (weightTotal / 1000).toFixed(2) }} Kg</span
+          >
+        </div>
+        <div class="text-right col-11 mb-4">
           <span class="text-center" style="font-size: 12px">Total Harga</span>
-          <span class="pl-5" style="font-size: 12px"
-            ><b>Rp. {{ Number(grandTotal).toLocaleString("id-ID") }}</b></span
+          <span class="ml-4" style="font-size: 12px"
+            >Rp. {{ Number(grandTotal).toLocaleString("id-ID") }}</span
           >
         </div>
         <div class="shopping-cart-footer mb-5">
