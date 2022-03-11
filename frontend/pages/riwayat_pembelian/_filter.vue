@@ -191,7 +191,7 @@
               </div>
 
               <div
-                class="ms-3 d-flex col-6 align-items-center"
+                class="ms-3 d-flex col align-items-center"
                 style="overflow-x: scroll"
               >
                 <template

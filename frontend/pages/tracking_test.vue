@@ -1,7 +1,7 @@
 <template>
   <div class="">
-    <b-modal id="modal-1" title="BootstrapVue">
-      <div class="row">
+    <b-modal id="modal-1" title="Lacak" ok-only>
+      <div class="row" style="font-size: 14px">
         <div class="col-md-12">
           <div id="content">
             <ul class="timeline-1 text-black">
@@ -13,21 +13,21 @@
                 </p>
               </li>
               <li class="event" data-date="2:30 - 4:00pm">
-                <h4 class="mb-3 pt-3">Opening Ceremony</h4>
+                <h4 class="mb-3">Opening Ceremony</h4>
                 <p>
                   Get ready for an exciting event, this will kick off in amazing
                   fashion with MOP &amp; Busta Rhymes as an opening show.
                 </p>
               </li>
               <li class="event" data-date="5:00 - 8:00pm">
-                <h4 class="mb-3 pt-3">Main Event</h4>
+                <h4 class="mb-3">Main Event</h4>
                 <p>
                   This is where it all goes down. You will compete head to head
                   with your friends and rivals. Get ready!
                 </p>
               </li>
               <li class="event" data-date="8:30 - 9:30pm">
-                <h4 class="mb-3 pt-3">Closing Ceremony</h4>
+                <h4 class="mb-3">Closing Ceremony</h4>
                 <p class="mb-0">
                   See how is the victor and who are the losers. The big stage is
                   where the winners bask in their own glory.
@@ -46,18 +46,21 @@
 
 <style>
 .timeline-1 {
-  border-left: 3px solid #b565a7;
+  border-left: 3px solid #c63442;
   border-bottom-right-radius: 4px;
   border-top-right-radius: 4px;
-  background: rgba(177, 99, 163, 0.09);
+  background: rgba(255, 0, 0, 0.06);
   margin: 0 auto;
+  padding: 20px 60px 60px 60px !important;
   list-style: none;
-  max-width: 40%;
+  max-width: 70%;
+  margin-left: 25%;
 }
 
 @media (max-width: 767px) {
   .timeline-1 {
     max-width: 98%;
+    margin: 0 auto;
     padding: 25px;
   }
 }
@@ -105,9 +108,9 @@
 }
 
 .timeline-1 .event:after {
-  -webkit-box-shadow: 0 0 0 3px #b565a7;
-  box-shadow: 0 0 0 3px #b565a7;
-  left: -55.8px;
+  -webkit-box-shadow: 0 0 0 3px #c63442;
+  box-shadow: 0 0 0 3px #c63442;
+  left: -66px;
   background: #fff;
   border-radius: 50%;
   height: 9px;
@@ -118,7 +121,7 @@
 
 @media (max-width: 767px) {
   .timeline-1 .event:after {
-    left: -31.8px;
+    left: -66px;
   }
 }
 </style>
