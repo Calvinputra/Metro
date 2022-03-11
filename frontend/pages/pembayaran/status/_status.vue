@@ -2,14 +2,21 @@
   <section>
     <Breadcrumb :links="breadcrumb" />
 
-    <section id="pembayaran-webview">
+    <section id="pembayaran-webview" v-if="false">
       <div class="container">
         <div class="row">
           <div class="col-md-2">
             <AccountMenu :name="'register'" />
           </div>
           <div
-            class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
+            class="
+              col-sm-9
+              offset-md-1
+              align-self-start
+              mt-2
+              row
+              justify-content-between
+            "
           >
             <div class="col-sm-12">
               <label class="mb-0"
@@ -122,11 +129,19 @@
       </div>
     </section>
 
-    <section id="pembayaran-mobileview">
+    <section id="pembayaran-mobileview" v-if="false">
       <div class="container">
         <div class="row">
           <div
-            class="col-sm-9 offset-md-1 align-self-start mt-2 mb-5 row justify-content-between"
+            class="
+              col-sm-9
+              offset-md-1
+              align-self-start
+              mt-2
+              mb-5
+              row
+              justify-content-between
+            "
           >
             <div class="col-sm-12">
               <label class="mb-0"
@@ -168,6 +183,9 @@
         </div>
       </div>
       <Footer2mobile />
+    </section>
+    <section>
+      <LoadingSpinner />
     </section>
   </section>
 </template>
@@ -225,13 +243,34 @@ export default {
   created() {
     if (this.$route.params.status == "unfinish") {
       this.message = "Pembayaran Gagal";
+      this.$toast.error(this.message, {
+        theme: "bubble",
+        position: "bottom-right",
+        duration: 5000,
+      });
     } else if (this.$route.params.status == "finish") {
       this.message = "Pembayaran Berhasil";
+      this.$toast.success(this.message, {
+        theme: "bubble",
+        position: "bottom-right",
+        duration: 5000,
+      });
     } else if (this.$route.params.status == "pending") {
       this.message = "Silahkan Melakukan Pembayaran";
+      this.$toast.error(this.message, {
+        theme: "bubble",
+        position: "bottom-right",
+        duration: 5000,
+      });
     } else {
       this.message = "Terjadi Error, Silahkan Coba lagi";
+      this.$toast.error(this.message, {
+        theme: "bubble",
+        position: "bottom-right",
+        duration: 5000,
+      });
     }
+    this.$router.push("/riwayat_pembelian");
   },
   methods: {
     doRedirectTransaction() {
