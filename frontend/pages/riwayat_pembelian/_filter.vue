@@ -2,6 +2,7 @@
   <section style="font-family: 'Nunito Sans'">
     <!-- Modal INIT -->
     <ModalDetailTransaksi :transaction="selectedTransaction" />
+    <ModalTracking />
     <!-- END -->
     <section id="riwayat-webview">
       <Breadcrumb :links="breadcrumb" />
@@ -11,7 +12,14 @@
             <AccountMenu :name="'register'" />
           </div>
           <div
-            class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
+            class="
+              col-sm-9
+              offset-md-1
+              align-self-start
+              mt-2
+              row
+              justify-content-between
+            "
           >
             <div class="col-sm-12">
               <label class="mb-0"
@@ -39,7 +47,17 @@
                 <nuxt-link
                   to="/riwayat_pembelian"
                   type="submit"
-                  class="btn text-white btn-danger btn-sm rounded col-sm-1 mx-1 my-1 py-1 px-2"
+                  class="
+                    btn
+                    text-white
+                    btn-danger btn-sm
+                    rounded
+                    col-sm-1
+                    mx-1
+                    my-1
+                    py-1
+                    px-2
+                  "
                   style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
                 >
                   Semua
@@ -61,7 +79,17 @@
                 <nuxt-link
                   to="/riwayat_pembelian/menunggu_pembayaran"
                   type="submit"
-                  class="btn text-white btn-danger btn-sm rounded col-sm-3 mx-1 my-1 py-1 px-2"
+                  class="
+                    btn
+                    text-white
+                    btn-danger btn-sm
+                    rounded
+                    col-sm-3
+                    mx-1
+                    my-1
+                    py-1
+                    px-2
+                  "
                   style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
                 >
                   Menunggu Pembayaran
@@ -81,7 +109,17 @@
                 <nuxt-link
                   to="/riwayat_pembelian/berlangsung"
                   type="submit"
-                  class="btn text-white btn-danger btn-sm rounded col-sm-2 mx-1 my-1 py-1 px-2"
+                  class="
+                    btn
+                    text-white
+                    btn-danger btn-sm
+                    rounded
+                    col-sm-2
+                    mx-1
+                    my-1
+                    py-1
+                    px-2
+                  "
                   style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
                 >
                   Berlangsung
@@ -101,7 +139,17 @@
                 <nuxt-link
                   to="/riwayat_pembelian/selesai"
                   type="submit"
-                  class="btn text-white btn-danger btn-sm rounded col-sm-1 mx-1 my-1 py-1 px-2"
+                  class="
+                    btn
+                    text-white
+                    btn-danger btn-sm
+                    rounded
+                    col-sm-1
+                    mx-1
+                    my-1
+                    py-1
+                    px-2
+                  "
                   style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
                 >
                   Selesai
@@ -121,7 +169,17 @@
                 <nuxt-link
                   to="/riwayat_pembelian/tidak_berhasil"
                   type="submit"
-                  class="btn text-white btn-danger btn-sm rounded col-sm-2 mx-1 my-1 py-1 px-2"
+                  class="
+                    btn
+                    text-white
+                    btn-danger btn-sm
+                    rounded
+                    col-sm-2
+                    mx-1
+                    my-1
+                    py-1
+                    px-2
+                  "
                   style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
                 >
                   Tidak Berhasil
@@ -169,7 +227,14 @@
 
         <div class="row">
           <div
-            class="col-sm-9 offset-md-1 align-self-start mb-5 row justify-content-between"
+            class="
+              col-sm-9
+              offset-md-1
+              align-self-start
+              mb-5
+              row
+              justify-content-between
+            "
           >
             <div class="col-sm-12">
               <label class="mb-0"
@@ -203,7 +268,16 @@
                   <nuxt-link
                     to="/riwayat_pembelian"
                     type="submit"
-                    class="btn text-white btn-danger btn-sm rounded mx-1 my-1 py-1 px-2"
+                    class="
+                      btn
+                      text-white
+                      btn-danger btn-sm
+                      rounded
+                      mx-1
+                      my-1
+                      py-1
+                      px-2
+                    "
                     style="
                       box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                     "
@@ -227,7 +301,16 @@
                   <nuxt-link
                     to="/riwayat_pembelian/menunggu_pembayaran"
                     type="submit"
-                    class="btn text-white btn-danger btn-sm rounded mx-1 my-1 py-1 px-2"
+                    class="
+                      btn
+                      text-white
+                      btn-danger btn-sm
+                      rounded
+                      mx-1
+                      my-1
+                      py-1
+                      px-2
+                    "
                     style="
                       box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                     "
@@ -248,7 +331,16 @@
                   <nuxt-link
                     to="/riwayat_pembelian/berlangsung"
                     type="submit"
-                    class="btn text-white btn-danger btn-sm rounded mx-1 my-1 py-1 px-2"
+                    class="
+                      btn
+                      text-white
+                      btn-danger btn-sm
+                      rounded
+                      mx-1
+                      my-1
+                      py-1
+                      px-2
+                    "
                     style="
                       box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                     "
@@ -269,7 +361,16 @@
                   <nuxt-link
                     to="/riwayat_pembelian/selesai"
                     type="submit"
-                    class="btn text-white btn-danger btn-sm rounded mx-1 my-1 py-1 px-2"
+                    class="
+                      btn
+                      text-white
+                      btn-danger btn-sm
+                      rounded
+                      mx-1
+                      my-1
+                      py-1
+                      px-2
+                    "
                     style="
                       box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                     "
@@ -291,7 +392,16 @@
                   <nuxt-link
                     to="/riwayat_pembelian/tidak_berhasil"
                     type="submit"
-                    class="btn text-white btn-danger btn-sm rounded mx-1 my-1 py-1 px-2"
+                    class="
+                      btn
+                      text-white
+                      btn-danger btn-sm
+                      rounded
+                      mx-1
+                      my-1
+                      py-1
+                      px-2
+                    "
                     style="
                       box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                     "
@@ -430,6 +540,9 @@ export default {
   methods: {
     showDetailTransaction(transaction) {
       this.selectedTransaction = transaction;
+    },
+    showModalTracking(transaction){
+
     },
     linkGen(pageNum) {
       //console.log("PARAMS:"+this.$route.params.filter);
