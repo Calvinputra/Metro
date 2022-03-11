@@ -132,14 +132,7 @@
       <div class="container">
         <div class="row">
           <div
-            class="
-              col-sm-10
-              align-self-start
-              mt-2
-              row
-              justify-content-between
-              pr-0
-            "
+            class="col-sm-10 align-self-start mt-2 row justify-content-between pr-0"
           >
             <div class="col-sm-4 mb-2">
               <h2>Kategory 1</h2>

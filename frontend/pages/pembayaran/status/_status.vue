@@ -53,13 +53,15 @@
                         belanja. Terima kasih!!!
                       </p>
                     </template>
-                    <button
-                      class="btn btn-shadow text-white"
-                      style="background-color: #841c26"
-                      @click="doRedirectTransaction"
-                    >
-                      Lanjut
-                    </button>
+                    <a href="/riwayat_pembelian">
+                      <button
+                        class="btn btn-shadow text-white"
+                        style="background-color: #841c26"
+                        @click="doRedirectTransaction"
+                      >
+                        Lanjut
+                      </button>
+                    </a>
                   </div>
                   <!-- unfinish -->
                   <div
@@ -85,6 +87,15 @@
                         Pembayaran telah Berhasil Klik tombol ini untuk lanjut
                         belanja. Terima kasih!!!
                       </p>
+                      <a href="/riwayat_pembelian">
+                        <button
+                          class="btn btn-shadow text-white"
+                          style="background-color: #841c26"
+                          @click="doRedirectTransaction"
+                        >
+                          Lanjut
+                        </button>
+                      </a>
                     </template>
                     <button
                       class="btn btn-shadow text-white"
@@ -123,7 +134,7 @@
     </section>
 
     <section id="pembayaran-mobileview">
-      <div class="container">
+      <div class="container" style="font-size: 80%">
         <div class="row">
           <div
             class="col-sm-9 offset-md-1 align-self-start mt-2 mb-5 row justify-content-between"

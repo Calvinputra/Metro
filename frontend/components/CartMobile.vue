@@ -40,7 +40,7 @@
         <div class="count-input">
           <input
             @change="updateSubTotal()"
-            class="col-12"
+            class="col-9 p-1"
             style="font-size: 12px; margin"
             id="demoInput"
             type="number"

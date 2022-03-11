@@ -91,9 +91,7 @@
         <div class="text-right text-right col-11">
           <div>
             <span class="text-center mr-5 pl-5">Total Berat</span>
-            <span class="pl-5"
-              >{{(weightTotal/1000).toFixed(2)}} Kg</span
-            >
+            <span class="pl-5">{{ (weightTotal / 1000).toFixed(2) }} Kg</span>
           </div>
           <span class="text-center mr-5 pl-5">Total Harga</span>
           <span class="pl-5"
@@ -132,11 +130,36 @@
     </div>
 
     <div id="cart-mobileview" v-if="isLoaded">
-      <div class="container mb-5 mt-4">
+      <div class="container mb-5 mt-4" style="font-size: 80%">
         <!-- Alert-->
 
         <h2>Keranjang Belanja</h2>
         <pre></pre>
+        <div class="row">
+          <div class="col-1">
+            <div class="form-check mt-auto mb-auto">
+              <input
+                class="form-check-input p-1"
+                type="checkbox"
+                id="flexCheckChecked"
+                v-model="checkAll"
+              />
+            </div>
+          </div>
+          <div class="col-4">
+            <p class="mt-1">Pilih Semua</p>
+          </div>
+          <div class="col-2"></div>
+          <div class="col-5 text-right">
+            <a
+              @click="confirmationDestroyAll"
+              class="btn btn-danger p-1 mb-2"
+              to="#"
+              style="font-size: 80%"
+              >Hapus Semua
+            </a>
+          </div>
+        </div>
         <!-- Shopping Cart-->
         <div class="table-responsive shopping-cart">
           <table class="table">
@@ -322,7 +345,7 @@ export default {
     return {
       carts: {},
       grandTotal: 0,
-      weightTotal:0,
+      weightTotal: 0,
       boxTwo: "",
       isLoaded: false,
       checkAll: false,

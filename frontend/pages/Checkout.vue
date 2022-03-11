@@ -245,9 +245,7 @@
         <div class="text-right text-right col-sm-11">
           <div>
             <span class="text-center mr-5 pl-5">Total Berat</span>
-            <span class="pl-5"
-              >{{(weightTotal/1000).toFixed(2)}} Kg</span
-            >
+            <span class="pl-5">{{ (weightTotal / 1000).toFixed(2) }} Kg</span>
           </div>
           <span class="text-center mr-5 pl-5">Total Harga</span>
           <span class="pl-5"
@@ -377,31 +375,31 @@
             </label>
           </div>
         </div>
-        <div
-          class="d-flex justify-content-around mt-3 mb-3"
-          style=""
-          v-if="$auth.loggedIn"
-        >
-          <div class="ms-3">
-            <p>
-              Nama : {{ $auth.user.first_name + " " + $auth.user.last_name }}
-            </p>
-            <p>Nomor Telepon : {{ $auth.user.phone }}</p>
-            <p>Email : {{ $auth.user.email }}</p>
-          </div>
-          <div class="d-flex justify-content-around">
-            <div class="ps-5">
-              <p>Alamat:</p>
+        <div class="" style="" v-if="$auth.loggedIn">
+          <div class="row">
+            <div class="col-5 pt-3">
+              <p>Nama</p>
+              <p>Nomor Telepon</p>
+              <p>Email</p>
+              <p>Alamat</p>
             </div>
-            <div>
-              <p class="ml-2" style="max-width: 80%">
-                {{ $auth.user.addresses[0].address }}
-                {{ $auth.user.addresses[0].city.name }}
-                {{ $auth.user.addresses[0].province.name }}
-                {{ $auth.user.addresses[0].country.name }}
-              </p>
+            <div class="col-7">
+              <div>
+                <p style="max-width: 80%"></p>
+                <p>:{{ $auth.user.first_name + " " + $auth.user.last_name }}</p>
+                <p>:{{ $auth.user.phone }}</p>
+                <p>:{{ $auth.user.email }}</p>
+                <p>
+                  :{{ $auth.user.addresses[0].address }}
+
+                  {{ $auth.user.addresses[0].city.name }}
+                  {{ $auth.user.addresses[0].province.name }}
+                  {{ $auth.user.addresses[0].country.name }}
+                </p>
+              </div>
             </div>
           </div>
+          <div class=""></div>
         </div>
         <!-- <div class="ml-5 mt-5" v-if="$auth.loggedIn"> -->
         <div class="mt-2 mb-3">
@@ -504,9 +502,9 @@
             </table>
           </div>
         </div>
-        <div class="text-right text-right col-11">
-          <span class="text-center mr-5 pl-5">Total Harga</span>
-          <span class="pl-5"
+        <div class="text-right text-right col-12">
+          <span class="">Total Harga</span>
+          <span class="pl-2"
             >Rp. {{ Number(grandTotal).toLocaleString("id-ID") }}</span
           >
         </div>

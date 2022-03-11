@@ -1,5 +1,5 @@
 <template>
-  <section class="col-6 pe-1 ps-3">
+  <section class="col-6">
     <section
       @click="redirectTo('/products/' + data.id)"
       style="text-decoration: none !important; color: black"
@@ -19,7 +19,8 @@
           }"
           style="
             background-size: cover;
-            height: 150px;
+            background-repeat: no-repeat;
+            height: 130px;
             border-radius: 10px 10px 0px 0px;
           "
           class="card-img-top d-flex align-items-end"
@@ -27,13 +28,16 @@
           id="product-image-mobile"
         ></div>
         <div class="card-body">
-          <div class="row justify-content-between">
-            <div class="col">
-              <h5 class="card-title mb-0" style="font-size: 14px">
-                {{ data.name }}
-              </h5>
+          <h5 class="card-title" style="font-size: 13px; padding-bottom: 3px">
+            {{ data.name }}
+          </h5>
+          <div class="row">
+            <div class="col-9 mt-1">
+              <p class="card-text font-weight-bold" style="font-size: 11px">
+                Rp.{{ Number(data.display_price).toLocaleString("id-ID") }}
+              </p>
             </div>
-            <div class="col-4 justify-content-end d-flex pe-2">
+            <div class="col-2">
               <a
                 href=""
                 onclick="return false;"
@@ -41,14 +45,10 @@
               >
                 <i
                   :class="(data.wishlist_exist ? 'fas' : 'far') + ' fa-heart'"
-                  style="font-size: 25px !important; color: #c63442 !important"
+                  style="font-size: 15px !important; color: #c63442 !important"
                 ></i>
               </a>
             </div>
-
-            <p class="card-text mb-2 font-weight-bold" style="font-size: 14px">
-              Rp.{{ Number(data.display_price).toLocaleString("id-ID") }}
-            </p>
           </div>
 
           <div class="d-flex mt-3">
@@ -68,6 +68,7 @@
                   id="logo"
                   class="img-fluid rounded"
                   style="
+                    width: 30px;
                     background-color: #f3f3f3;
                     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                   "
@@ -84,6 +85,7 @@
                   id="logo"
                   class="img-fluid rounded"
                   style="
+                    width: 30px;
                     background-color: #f3f3f3;
                     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                   "
@@ -95,8 +97,9 @@
 
           <div class="d-flex mt-3">
             <a
-              class="btn text-danger btn-sm py-1"
+              class="btn text-danger btn-sm p-1"
               style="
+                font-size: 12px;
                 background-color: #f3f3f3;
                 width: 100%;
                 box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
@@ -215,7 +218,7 @@ h5 {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
 </style>

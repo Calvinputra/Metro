@@ -126,14 +126,14 @@
             />
             <div class="card-body">
               <div class="row" style="font-size: 80%">
-                <h5 style="font-size: 200%" class="card-title">
+                <h5 style="font-size: 12px" class="card-title">
                   {{ data.name }}
                 </h5>
                 <div class="row mb-2">
                   <div class="col-10">
                     <p
                       class="card-text font-weight-bold"
-                      style="font-size: 14px"
+                      style="font-size: 12px"
                     >
                       Rp.{{
                         Number(data.display_price).toLocaleString("id-ID")

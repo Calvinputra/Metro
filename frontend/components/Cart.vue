@@ -32,7 +32,7 @@
       <div class="count-input">
         <input
           @change="updateSubTotal()"
-          class="col-sm-12"
+          class="col-sm-8 p-1"
           id="demoInput"
           type="number"
           min="0"

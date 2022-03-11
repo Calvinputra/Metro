@@ -185,11 +185,14 @@
               />
               <h6 class="mt-2">Lacak Pembelian Kamu di halaman ini.</h6>
             </div>
-            <div class="mb-3 ms-3">
-              <h6 class="text-center">Status:</h6>
+            <div class="d-flex" style="width: 100%">
+              <div class="col-1 d-flex align-items-center p-0">
+                <h6 class="m-0">Status:</h6>
+              </div>
+
               <div
-                class="col d-flex justify-content-center"
-                style="flex-wrap: wrap"
+                class="ms-3 d-flex col-6 align-items-center"
+                style="overflow-x: scroll"
               >
                 <template
                   v-if="
