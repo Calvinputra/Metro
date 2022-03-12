@@ -121,8 +121,8 @@ export default {
       let data = {
         rating: this.rating,
         c_review: this.review,
-        transaction_id: this.detail.transaction_id,
-        product_id: this.detail.product_id,
+        transaction_id: this.detail.selectedDetail.transaction_id,
+        product_id: this.detail.selectedDetail.product_id,
       };
       //console.log(data);
       let response = await this.$axios.$post(
