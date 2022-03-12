@@ -1,32 +1,24 @@
 <template>
   <b-modal id="modal-tracking" title="Lacak" ok-only>
-    <div class="row" style="font-size: 14px">
+    <div class="row" style="font-size: 14px" v-if="data.length > 0">
       <div class="col-md-12">
         <div id="content">
           <ul class="timeline-1 text-black">
             <ModalTrackingItem
-              :description="'Get here on time, it\'s first come first serve. Be late, get turned away.'"
-              :title="'Registration'"
-              :date="'12:30 - 1:00pm'"
-            />
-             <ModalTrackingItem
-              :description="'Get here on time, it\'s first come first serve. Be late, get turned away.'"
-              :title="'Registration'"
-              :date="'12:30 - 1:00pm'"
-            />
-             <ModalTrackingItem
-              :description="'Get here on time, it\'s first come first serve. Be late, get turned away.'"
-              :title="'Registration'"
-              :date="'12:30 - 1:00pm'"
-            />
-             <ModalTrackingItem
-              :description="'Get here on time, it\'s first come first serve. Be late, get turned away.'"
-              :title="'Registration'"
-              :date="'12:30 - 1:00pm'"
+              v-for="manifest in data"
+              :key="manifest.manifest_code"
+              :time="manifest.manifest_time"
+              :title="manifest.manifest_description"
+              :description="
+                manifest.manifest_date_view + ' - ' + manifest.city_name
+              "
             />
           </ul>
         </div>
       </div>
+    </div>
+    <div v-else>
+      <LoadingSpinner />
     </div>
   </b-modal>
 </template>
@@ -112,3 +104,11 @@
   }
 }
 </style>
+<script>
+export default {
+  props: ["data"],
+  data() {
+    return {};
+  },
+};
+</script>

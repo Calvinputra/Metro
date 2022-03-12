@@ -334,7 +334,6 @@
 
             <template v-else-if="data.status_id == 3">
               <b-button
-                v-b-modal.modal-tracking
                 @click="showModalTracking"
                 type="submit"
                 class="
@@ -395,8 +394,25 @@ export default {
     showDetailTransaction() {
       this.$parent.showDetailTransaction(this.data);
     },
-    showModalTracking() {
-      this.$parent.showModalTracking(this.data);
+    async showModalTracking() {
+      const params = {
+        uuid: this.data.uuid,
+      };
+      try {
+        const response = await this.$axios.$post(
+          process.env.API_URL + "/api/transactions/get_jne_way_bill",
+          params
+        );
+        if (response.success) {
+          this.$parent.showModalTracking(response.data);
+        } else {
+          this.$toast.error(response.data, {
+            theme: "bubble",
+            position: "bottom-right",
+            duration: 5000,
+          });
+        }
+      } catch (error) {}
     },
     async buyAgainHandler() {
       try {

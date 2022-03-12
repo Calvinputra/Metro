@@ -8,6 +8,7 @@ use Http;
 use App\Models\Customer;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\Log;
+use Carbon\Carbon;
 
 class ShippingController extends Controller
 {
@@ -62,8 +63,17 @@ class ShippingController extends Controller
                         'status'   => $data->rajaongkir->status->code,
                     ]);
                 } else {
+
+                    //modified date
+                    $manifest_data = array();
+                    foreach ($data->rajaongkir->result->manifest as $key => $manifest) {
+                        $date_view = Carbon::parse($manifest->manifest_date)->isoFormat('DD MMMM Y');
+                        $manifest->manifest_date_view = $date_view;
+                        array_push($manifest_data, $manifest);
+                    }
+                    $data->rajaongkir->result->manifest = $manifest_data;
                     return response()->json([
-                        'success' => false,
+                        'success' => true,
                         'data'   => $data->rajaongkir->result,
                         'status'   => $data->rajaongkir->status->code,
                     ]);

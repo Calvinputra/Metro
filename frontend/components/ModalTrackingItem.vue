@@ -1,5 +1,5 @@
 <template>
-  <li class="event" :data-date="date">
+  <li class="event" :data-date="time">
     <h4 class="mb-3">{{title}}</h4>
     <p>
       {{description}}
@@ -9,6 +9,6 @@
 
 <script>
 export default {
-    props:["date","title","description"]
+    props:["time","title","description"]
 }
 </script>

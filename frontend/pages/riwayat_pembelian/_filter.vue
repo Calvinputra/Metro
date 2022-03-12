@@ -2,7 +2,7 @@
   <section style="font-family: 'Nunito Sans'">
     <!-- Modal INIT -->
     <ModalDetailTransaksi :transaction="selectedTransaction" />
-    <ModalTracking />
+    <ModalTracking :data="selectedManifest" />
     <!-- END -->
     <section id="riwayat-webview">
       <Breadcrumb :links="breadcrumb" />
@@ -541,8 +541,9 @@ export default {
     showDetailTransaction(transaction) {
       this.selectedTransaction = transaction;
     },
-    showModalTracking(transaction){
-
+    showModalTracking(data) {
+      this.selectedManifest = data.manifest;
+      this.$refs["tracking"].show();
     },
     linkGen(pageNum) {
       //console.log("PARAMS:"+this.$route.params.filter);
@@ -564,6 +565,7 @@ export default {
   },
   data() {
     return {
+      selectedManifest: [],
       selectedTransaction: {},
       breadcrumb: [
         {
