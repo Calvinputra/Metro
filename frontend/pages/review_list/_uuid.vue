@@ -1,7 +1,10 @@
 <template>
   <section>
     <!-- Modal INIT -->
-    <ModalUlasan :detail="{ selectedDetail }" />
+    <ModalUlasan
+      :detail="{ selectedDetail }"
+      v-if="Object.keys(selectedDetail).length > 0"
+    />
     <template v-if="success">
       <section id="riwayat-webview">
         <div class="container">
@@ -12,7 +15,14 @@
               <AccountMenu :name="'register'" />
             </div>
             <div
-              class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
+              class="
+                col-sm-9
+                offset-md-1
+                align-self-start
+                mt-2
+                row
+                justify-content-between
+              "
             >
               <div class="col-sm-12">
                 <label class="mb-0"
@@ -54,7 +64,15 @@
           <!-- row -->
           <div class="row">
             <div
-              class="col-11 ms-1 offset-md-1 align-self-start mt-2 row justify-content-between"
+              class="
+                col-11
+                ms-1
+                offset-md-1
+                align-self-start
+                mt-2
+                row
+                justify-content-between
+              "
             >
               <div class="col-12">
                 <label class="mb-0"
@@ -101,7 +119,6 @@ export default {
   methods: {
     showModalUlasan(detail) {
       this.selectedDetail = detail;
-      console.log(this.selectedDetail);
     },
   },
   async asyncData({ $axios, params }) {
