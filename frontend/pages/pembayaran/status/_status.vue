@@ -259,6 +259,14 @@ export default {
         duration: 5000,
       });
     } else if (this.$route.params.status == "finish") {
+      if (this.$route.params.transaction_status == "pending") {
+        this.message = "Silahkan Melakukan Pembayaran";
+        this.$toast.error(this.message, {
+          theme: "bubble",
+          position: "bottom-right",
+          duration: 5000,
+        });
+      }
       this.message = "Pembayaran Berhasil";
       this.$toast.success(this.message, {
         theme: "bubble",
