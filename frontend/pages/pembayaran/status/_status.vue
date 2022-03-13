@@ -250,8 +250,7 @@ export default {
         class: "my-2 breadcrumb-item active opacity-50",
       },
     ];
-  },
-  created() {
+
     if (this.$route.params.status == "unfinish") {
       this.message = "Pembayaran Gagal";
       this.$toast.error(this.message, {
@@ -283,6 +282,7 @@ export default {
     }
     this.$router.push("/riwayat_pembelian");
   },
+
   methods: {
     doRedirectTransaction() {
       this.$router.push("/riwayat_pembelian");

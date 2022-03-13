@@ -9,7 +9,14 @@
               <AccountMenu :name="'login'" />
             </div>
             <div
-              class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
+              class="
+                col-sm-9
+                offset-md-1
+                align-self-start
+                mt-2
+                row
+                justify-content-between
+              "
             >
               <div class="col-sm-12">
                 <label class="mb-0"
@@ -88,7 +95,16 @@
                     <button
                       @click.prevent="doLogin"
                       type="submit"
-                      class="btn text-danger btn-light btn-sm rounded col-sm-2 py-2 px-2 mb-4"
+                      class="
+                        btn
+                        text-danger
+                        btn-light btn-sm
+                        rounded
+                        col-sm-2
+                        py-2
+                        px-2
+                        mb-4
+                      "
                       style="
                         box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                       "
@@ -122,7 +138,14 @@
         <div class="container">
           <div class="row">
             <div
-              class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
+              class="
+                col-sm-9
+                offset-md-1
+                align-self-start
+                mt-2
+                row
+                justify-content-between
+              "
             >
               <div class="col-sm-12">
                 <label class="mb-0"
@@ -325,7 +348,7 @@ export default {
         }
         console.log(response);
       } catch (error) {
-        this.$toasted.error(error, {
+        this.$toast.error(error, {
           theme: "bubble",
           position: "bottom-right",
           duration: 5000,
