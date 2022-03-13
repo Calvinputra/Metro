@@ -110,7 +110,7 @@ class TransactionController extends Controller
         if (!$address) {
             return response([
                 'success' => false,
-                'message' => ['msg' => ['Address not found']],
+                'message' => ['msg' => ['Alamat tidak ditemukan']],
             ], 200);
         }
 

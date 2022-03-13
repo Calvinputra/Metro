@@ -7,19 +7,6 @@
       <section>
         <div class="container"></div>
       </section>
-      <template v-if="isPaymentCreated">
-        <div class="text-center">
-          <h5>Selesaikan Pembayaran dalam</h5>
-          <!-- bootstrap countdown nanti -->
-          <p>Batas Akhir Pembayaran</p>
-          <h5>{{ data.transaction_expired_at }}</h5>
-        </div>
-      </template>
-      <template v-else>
-        <div class="text-center">
-          <h5 class="pb-2">Pilih Metode Pembayaran yang diinginkan</h5>
-        </div>
-      </template>
 
       <div class="container col-sm-6 mt-5">
         <div class="card bg-light">
@@ -113,12 +100,6 @@
       <section class="mt-3">
         <div class="container"></div>
       </section>
-      <div class="text-center">
-        <h5>Selesaikan Pembayaran dalam</h5>
-        <!-- bootstrap countdown nanti -->
-        <p>Batas Akhir Pembayaran</p>
-        <h5>{{ data.transaction_expired_at }}</h5>
-      </div>
 
       <div class="container col-sm-6 mt-5">
         <div class="card bg-light">

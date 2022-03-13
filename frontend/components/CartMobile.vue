@@ -41,7 +41,7 @@
         <div class="count-input">
           <input
             @change="updateSubTotal()"
-            class="col-9 p-1"
+            class="col-12 p-1"
             style="font-size: 12px; margin"
             id="demoInput"
             type="number"
@@ -76,7 +76,7 @@
 
 <script>
 export default {
-  props: ["product", "qty", "id", "process", "index"],
+  props: ["product", "qty", "id", "process", "index", "checkAllProp"],
   data() {
     return {
       sub_total: 0,
@@ -157,6 +157,12 @@ export default {
     this.sub_total = this.qty * this.product.price;
     this.qty_model = this.qty;
     this.process_model = this.process;
+  },
+  watch: {
+    checkAllProp: function (newVal, oldVal) {
+      this.process_model = this.checkAllProp;
+      this.updateSubTotal();
+    },
   },
 };
 </script>

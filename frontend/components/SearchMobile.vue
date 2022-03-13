@@ -3,7 +3,7 @@
   <div id="search" class="nav-item align-self-start text-fluid">
     <div class="d-flex">
       <input
-        class="form-control-sm"
+        class="form-control"
         style="border-radius: 10px 0px 0px 10px; width: 100%"
         type="search"
         placeholder="Cari Barang Di sini"

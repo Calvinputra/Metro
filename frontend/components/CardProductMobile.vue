@@ -32,7 +32,7 @@
             {{ data.name }}
           </h5>
           <div class="row">
-            <div class="col-9 mt-1">
+            <div class="col-9 mt-1 pe-1">
               <p class="card-text font-weight-bold" style="font-size: 11px">
                 Rp.{{ Number(data.display_price).toLocaleString("id-ID") }}
               </p>

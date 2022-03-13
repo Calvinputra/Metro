@@ -21,8 +21,12 @@
         </nuxt-link>
 
         <p class="row gx-0 align-items-center ml-5 pt-3">
-          <nuxt-link class="product-thumb" :to="'/products/' + product.id">
-            {{ product.code }} - {{ product.name }}
+          <nuxt-link
+            class="product-thumb"
+            style="text-decoration: none"
+            :to="'/products/' + product.id"
+          >
+            <p>{{ product.code }} - {{ product.name }}</p>
           </nuxt-link>
         </p>
       </div>

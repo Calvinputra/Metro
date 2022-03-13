@@ -24,13 +24,16 @@
         </b-carousel>
       </div>
       <div
-        class="bg-image container pt-4"
-        style=" background-image: url('/img/promo.png'); height: 70px; "
+        class="bg-image container d-flex align-items-center justify-content-center pt-3"
+        style="
+          background-image: url('/img/promo.png');
+          height: 70px;
+          background-size: cover;
+        "
       >
         <h3
-          class="fw-bold text-white text-center"
-          style="font-family: 'Nunito Sans'; font-size:24px;
-"
+          class="fw-bold text-white text-center m-0"
+          style="font-family: 'Nunito Sans'; font-size: 24px"
         >
           Kejar DISKON!!!
         </h3>
@@ -57,10 +60,20 @@
         </b-carousel>
       </div>
       <div
-        class="bg-image container"
-        style="background-color: #841c26; height: 30px"
+        class="bg-image container justify-content-center d-flex align-items-center"
+        style="
+          background-image: url('/img/promo.png');
+          height: 50px;
+          background-size: cover;
+        "
       >
-        <h3 class="text-white text-center">Kejar DISKON!!!</h3>
+        <h3
+          class="fw-bold text-white m-0"
+          style="font-family: 'Nunito Sans'; font-size: 14px"
+        >
+          Kejar DISKON!!!
+        </h3>
+        <p id="demo"></p>
       </div>
       <br />
     </section>
@@ -96,6 +109,6 @@
 
 <script>
 export default {
-  props: ["data"]
+  props: ["data"],
 };
 </script>

@@ -113,7 +113,7 @@
           <div
             class="card bg-white rounded"
             style="
-              width: 100%;
+              width: 150px;
               box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25) !important;
               border-radius: 10px;
             "
@@ -125,15 +125,15 @@
               alt="..."
             />
             <div class="card-body">
-              <div class="row" style="font-size: 80%">
+              <div class="row">
                 <h5 style="font-size: 12px" class="card-title">
                   {{ data.name }}
                 </h5>
                 <div class="row mb-2">
-                  <div class="col-10">
+                  <div class="col-9 pe-1">
                     <p
                       class="card-text font-weight-bold"
-                      style="font-size: 12px"
+                      style="font-size: 11px"
                     >
                       Rp.{{
                         Number(data.display_price).toLocaleString("id-ID")
@@ -143,7 +143,7 @@
                   <div class="col-2">
                     <a
                       href=""
-                      class="me-5 pe-3"
+                      class=""
                       onclick="return false;"
                       @click="addToWishList(data.id)"
                       ><i
