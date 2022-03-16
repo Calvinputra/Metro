@@ -28,13 +28,7 @@
             <div class="col-sm-9">
               <template v-if="data.status_id == 1">
                 <span
-                  class="
-                    border border-danger border-2
-                    text-danger
-                    rounded-3
-                    px-2
-                    py-1
-                  "
+                  class="border border-danger border-2 text-danger rounded-3 px-2 py-1"
                   style="font-size: 12px !important"
                 >
                   {{ data.status.name }}</span
@@ -43,13 +37,7 @@
 
               <template v-else-if="data.status_id == 4">
                 <span
-                  class="
-                    border border-success border-2
-                    text-success
-                    rounded-3
-                    px-2
-                    py-1
-                  "
+                  class="border border-success border-2 text-success rounded-3 px-2 py-1"
                   style="font-size: 12px !important"
                 >
                   {{ data.status.name }}</span
@@ -57,13 +45,7 @@
               </template>
               <template v-else>
                 <span
-                  class="
-                    border border-warning border-2
-                    text-warning
-                    rounded-3
-                    px-2
-                    py-1
-                  "
+                  class="border border-warning border-2 text-warning rounded-3 px-2 py-1"
                   style="font-size: 12px !important"
                 >
                   {{ data.status.name }}</span
@@ -103,16 +85,7 @@
               v-b-modal.modal-detailtransaksi
               @click="showDetailTransaction"
               type="submit"
-              class="
-                ms-3
-                btn
-                text-danger
-                btn-light btn-sm
-                col-sm-9
-                ms-0
-                py-2
-                px-2
-              "
+              class="ms-3 btn text-danger btn-light btn-sm col-sm-9 ms-0 py-2 px-2"
               style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
             >
               <b> Lihat Detail</b>
@@ -121,16 +94,7 @@
               v-if="data.status_id == 4 || data.status_id == 5"
               @click="buyAgainHandler"
               type="submit"
-              class="
-                ms-3
-                btn
-                text-danger
-                btn-light btn-sm
-                col-sm-6
-                ms-0
-                py-2
-                px-2
-              "
+              class="ms-3 btn text-danger btn-light btn-sm col-sm-6 ms-0 py-2 px-2"
               style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
             >
               <b> Beli lagi</b>
@@ -139,17 +103,7 @@
               <nuxt-link
                 :to="'/pembayaran/' + data.uuid"
                 type="submit"
-                class="
-                  btn
-                  text-danger
-                  btn-light btn-sm
-                  rounded
-                  col-sm-4
-                  ms-0
-                  py-2
-                  px-2
-                  ms-3
-                "
+                class="btn text-danger btn-light btn-sm rounded col-sm-4 ms-0 py-2 px-2 ms-3"
                 style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
               >
                 <b> Bayar</b>
@@ -160,16 +114,7 @@
                 v-b-modal.modal-tracking
                 @click="showModalTracking"
                 type="submit"
-                class="
-                  ms-3
-                  btn
-                  text-danger
-                  btn-light btn-sm
-                  col-sm-9
-                  ms-0
-                  py-2
-                  px-2
-                "
+                class="ms-3 btn text-danger btn-light btn-sm col-sm-9 ms-0 py-2 px-2"
                 style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
               >
                 <b> Lacak</b>
@@ -178,16 +123,7 @@
             <template v-else-if="data.status_id == 4">
               <nuxt-link
                 :to="'/review_list/' + data.uuid"
-                class="
-                  btn
-                  text-danger
-                  btn-light btn-sm
-                  rounded
-                  col-sm-7
-                  ms-3
-                  py-2
-                  px-2
-                "
+                class="btn text-danger btn-light btn-sm rounded col-sm-7 ms-3 py-2 px-2"
                 style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
               >
                 <template
@@ -210,87 +146,71 @@
 
     <!-- Mobile -->
     <section id="history-mobileview" class="border-top">
-      <div class="my-3 mx-1 row">
-        <div class="row pe-0 ps-2">
-          <div class="d-flex col-2 align-self-center justify-content-center">
-            <nuxt-link
-              :to="`/products/${data.transaction_details[0].product.id}`"
-            >
-              <img
-                style="width: 60px; height: 60px"
-                :src="
-                  ASSET_URL +
-                  '/' +
-                  JSON.parse(data.transaction_details[0].product.images)[0]
-                "
-                alt=""
-              />
-            </nuxt-link>
-          </div>
+      <div class="my-3 row">
+        <div class="col-3 pe-0">
+          <nuxt-link
+            :to="`/products/${data.transaction_details[0].product.id}`"
+          >
+            <img
+              style="width: 60px; height: 60px"
+              :src="
+                ASSET_URL +
+                '/' +
+                JSON.parse(data.transaction_details[0].product.images)[0]
+              "
+              alt=""
+            />
+          </nuxt-link>
+        </div>
 
-          <div class="col pe-0">
-            <p class="mb-1">#{{ data.transaction_id }}</p>
-            <template v-if="data.status_id == 1">
-              <div
-                class="
-                  border border-danger
-                  col-sm-
-                  text-danger
-                  rounded-3
-                  text-center
-                  p-0
-                "
-              >
-                {{ data.status.name }}
-              </div>
-            </template>
-            <template v-else-if="data.status_id == 4">
-              <div
-                class="
-                  border border-success
-                  col-5
-                  border-2
-                  text-success
-                  rounded-3
-                  text-center
-                  p-0
-                "
-                style=""
-              >
-                {{ data.status.name }}
-              </div>
-            </template>
-            <template v-else>
-              <div
-                class="
-                  border border-warning
-                  col-11
-                  border-2
-                  text-warning
-                  rounded-3
-                  text-center
-                  p-0
-                "
-              >
-                {{ data.status.name }}
-              </div>
-            </template>
-            <p class="my-1">{{ data.transaction_details[0].name }}</p>
-            <p class="font-weight-bold">
-              {{ data.transaction_details[0].qty }} x Rp
-              {{
-                Number(data.transaction_details[0].price).toLocaleString(
-                  "id-ID"
-                )
-              }}
-            </p>
+        <div class="col-8 pe-0">
+          <div class="row">
+            <div class="col-4">
+              <p class="mb-1">#{{ data.transaction_id }}</p>
+            </div>
+            <div class="col-8">
+              <p class="text-right">
+                Rp. {{ Number(data.grand_total).toLocaleString("id-ID") }}
+              </p>
+            </div>
           </div>
-
-          <div class="col-3 p-0">
-            <p class="text-right">
-              Rp. {{ Number(data.grand_total).toLocaleString("id-ID") }}
-            </p>
-          </div>
+          <template v-if="data.status_id == 1">
+            <div class="row">
+              <div
+                class="border border-danger col-8 ms-3 text-danger rounded-3 text-center p-0"
+              >
+                {{ data.status.name }}
+              </div>
+              <div class="col-1"></div>
+            </div>
+          </template>
+          <template v-else-if="data.status_id == 4">
+            <div class="row">
+              <div
+                class="border border-success ms-3 col-6 text-success rounded-3 text-center p-0"
+              >
+                {{ data.status.name }}
+              </div>
+              <div class="col-1"></div>
+            </div>
+          </template>
+          <template v-else>
+            <div class="row">
+              <div
+                class="border border-warning col-6 ms-3 text-warning rounded-3 text-center p-0"
+              >
+                {{ data.status.name }}
+              </div>
+              <div class="col-1"></div>
+            </div>
+          </template>
+          <p class="my-1">{{ data.transaction_details[0].name }}</p>
+          <p class="font-weight-bold">
+            {{ data.transaction_details[0].qty }} x Rp
+            {{
+              Number(data.transaction_details[0].price).toLocaleString("id-ID")
+            }}
+          </p>
         </div>
 
         <div class="row p-0">
@@ -313,16 +233,7 @@
               <nuxt-link
                 :to="'/pembayaran/' + data.uuid"
                 type="submit"
-                class="
-                  btn
-                  text-danger
-                  btn-light btn-sm
-                  rounded
-                  py-1
-                  px-3
-                  d-flex
-                  align-items-center
-                "
+                class="btn text-danger btn-light btn-sm rounded py-1 px-3 d-flex align-items-center"
                 style="
                   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                   font-size: 10px;
@@ -336,15 +247,7 @@
               <b-button
                 @click="showModalTracking"
                 type="submit"
-                class="
-                  btn
-                  text-danger
-                  btn-light btn-sm
-                  rounded
-                  col-sm-7
-                  ms-0
-                  p-2
-                "
+                class="btn text-danger btn-light btn-sm rounded col-sm-7 ms-0 p-2"
                 style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
               >
                 <b> Lacak</b>
@@ -353,15 +256,7 @@
             <template v-else-if="data.status_id == 4">
               <nuxt-link
                 :to="'/review_list/' + data.uuid"
-                class="
-                  btn
-                  text-danger
-                  btn-light btn-sm
-                  rounded
-                  col-sm-7
-                  ms-0
-                  p-2
-                "
+                class="btn text-danger btn-light btn-sm rounded col-sm-7 ms-0 p-2"
                 style="
                   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                   font-size: 10px;
