@@ -106,7 +106,7 @@ class ShippingController extends Controller
             ]);
             $data = json_decode($response->body(), false);
             if ($data->rajaongkir->status->code != 200) {
-                Log::error("Error Cron!");
+                Log::error("Error Cron! : " . $data);
                 //do nothing
             } else {
                 if ($data->rajaongkir->result->delivered) {

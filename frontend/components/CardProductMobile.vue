@@ -95,7 +95,7 @@
             </div>
           </div>
 
-          <div class="d-flex mt-3">
+          <div class="d-flex mt-3" @click.stop>
             <a
               class="btn text-danger btn-sm p-1"
               style="
