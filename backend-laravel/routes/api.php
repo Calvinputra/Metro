@@ -10,6 +10,7 @@ use App\Http\Controllers\API\CountryController;
 use App\Http\Controllers\API\CityController;
 use App\Http\Controllers\API\ProvinceController;
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\AuthSocialLoginController;
 use App\Http\Controllers\API\CartController;
 use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\WishListController;
@@ -76,3 +77,8 @@ Route::post('/select2/products/initial', [ProductController::class, 'getInitialD
 Route::post('/transactions/midtrans/notification/handler', [PaymentController::class, 'midtransNotification']);
 Route::get('/transactions/check_status/{uuid}', [PaymentController::class, "checkTransactionStatus"])->middleware('auth:sanctum');
 Route::post('/transactions/get_jne_way_bill', [ShippingController::class, 'getJneWayBill'])->middleware('auth:sanctum');
+
+
+//login social
+Route::get('/auth/{service}', [AuthSocialLoginController::class, 'redirect']);
+Route::get('/auth/{service}/callback', [AuthSocialLoginController::class, 'callback']);

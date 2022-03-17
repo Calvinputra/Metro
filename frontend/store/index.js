@@ -124,7 +124,7 @@ export const mutations = {
     },
 
     deleteProductCart(state, data) {
-        console.log(data);
+        //console.log(data);
         const product = data.product;
         let indexOfProduct = state.cart.indexOf(product);
         state.cart.splice(indexOfProduct, 1);
@@ -224,7 +224,7 @@ export const getters = {
     },
     getSetting(state) {
         if (state.setting.length > 0) {
-            console.log(state.setting)
+            //console.log(state.setting)
             return {
                 company_email: state.setting.find(
                     (setting) => setting.key === "site.company_email"

@@ -16,48 +16,67 @@ use Illuminate\Validation\Rule;
 
 class AuthController extends Controller
 {
-
     public function login(Request $request)
     {
+        if (!$request->token) {
+            $rules = [
+                'email'    => 'required',
+                'password' => 'required',
+            ];
+            $messages = [
+                'email.required'    => 'Email wajib diisi',
+                'password.required' => 'Password wajib diisi',
+            ];
 
-        $rules = [
-            'email'    => 'required',
-            'password' => 'required',
-        ];
-        $messages = [
-            'email.required'    => 'Email wajib diisi',
-            'password.required' => 'Password wajib diisi',
-        ];
+            $validator = Validator::make($request->all(), $rules, $messages);
+            if ($validator->fails()) {
+                return response([
+                    'success' => false,
+                    'message' => $validator->errors(),
+                ], 201);
+            }
 
-        $validator = Validator::make($request->all(), $rules, $messages);
-        if ($validator->fails()) {
-            return response([
-                'success' => false,
-                'message' => $validator->errors(),
-            ], 201);
+            $user = Customer::where('email', $request->email)->with("addresses")->first();
+
+            if (!$user || !password_verify($request->password, $user->password)) {
+                return response([
+                    'success' => false,
+                    'message' => ['msg' => ['Email atau kata sandi salah']],
+                ], 201);
+            }
+
+            $token = $user->createToken('ApiToken')->plainTextToken;
+            $user->update([
+                'token' => $token,
+            ]);
+            $response = [
+                'success' => true,
+                'user'    => $user,
+                'token'   => $token,
+                'message' => ['msg' => ['Berhasil Melakukan Login']],
+            ];
+
+            return response($response, 201);
+        } else {
+            //login with token
+            $user = Customer::where('token', $request->token)->with("addresses")->first();
+            if($user){
+                $response = [
+                    'success' => true,
+                    'user'    => $user,
+                    'token'   => $request->token,
+                    'message' => ['msg' => ['Berhasil Melakukan Login']],
+                ];
+            return response($response, 201);
+
+            }else{
+                return response([
+                    'success' => false,
+                    'message' => ['msg' => ['Token salah']],
+                ], 201);
+            }
+           
         }
-
-        $user = Customer::where('email', $request->email)->with("addresses")->first();
-
-        if (!$user || !password_verify($request->password, $user->password)) {
-            return response([
-                'success' => false,
-                'message' => ['msg' => ['Email atau kata sandi salah']],
-            ], 201);
-        }
-
-        $token = $user->createToken('ApiToken')->plainTextToken;
-        $user->update([
-            'token' => $token,
-        ]);
-        $response = [
-            'success' => true,
-            'user'    => $user,
-            'token'   => $token,
-            'message' => ['msg' => ['Berhasil Melakukan Login']],
-        ];
-
-        return response($response, 201);
     }
 
     public function logout()

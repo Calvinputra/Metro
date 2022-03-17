@@ -39,5 +39,14 @@ class Customer extends Authenticatable
     {
         return $this->hasMany('App\Models\CustomerToken', 'customer_id');
     }
+    public function social()
+    {
+        return $this->hasMany('App\Models\CustomerSocial', 'customer_id');
+    }
+
+    public function hasSocialLinked($service)
+    {
+        return (bool) $this->social->where('service', $service)->count();
+    }
   
 }

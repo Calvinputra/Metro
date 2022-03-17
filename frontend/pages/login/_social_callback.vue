@@ -358,6 +358,60 @@ export default {
     },
     ...mapActions(["addProductToCart"]),
   },
+  mounted() {
+    if (this.$route.params.social_callback == "social-callback") {
+      if (this.$route.query.error) {
+        this.$toast.error(this.$route.query.error, {
+          theme: "bubble",
+          position: "bottom-right",
+          duration: 5000,
+        });
+      } else if (this.$route.query.token) {
+        this.$auth
+          .loginWith("laravelSanctum", {
+            data: {
+              token: this.$route.query.token,
+            },
+          })
+          .then(async () => {
+            this.showDismissibleAlert = false;
+            let d = {
+              carts: this.tempCart,
+            };
+            //update current cart database
+            let r = await this.$axios.$post(
+              process.env.API_URL + "/api/carts/multiple",
+              d
+            );
+            //deleteAllCart on state
+            this.$store.dispatch("deleteAllCart").then(() => {
+              //refetch data from database
+              r.data.map((product) => {
+                this.addProductToCart(product);
+              });
+            });
+            this.$router.replace({ query: null });
+            this.$nuxt.refresh();
+
+            this.$toast.success("Berhasil masuk", {
+              theme: "bubble",
+              position: "bottom-right",
+              duration: 5000,
+            });
+            // setTimeout(() => {
+            //   window.location.reload(true);
+            // }, 1000);
+          });
+      }
+    } else if (this.$route.params.social_callback) {
+      this.$toast.error("URL Error, Silahkan Coba Lagi", {
+        theme: "bubble",
+        position: "bottom-right",
+        duration: 5000,
+      });
+    }
+  },
+  watchQuery: ["error", "token"],
 };
 </script>
 
