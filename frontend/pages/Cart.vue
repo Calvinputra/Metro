@@ -108,7 +108,7 @@
         <div class="shopping-cart-footer">
           <div class="column text-center">
             <nuxt-link
-              class="btn btn-light mx-2 btn-shadow"
+              class="btn btn-light p-2 mx-2 btn-shadow"
               style="color: red"
               to="/"
               data-toast=""
@@ -121,7 +121,7 @@
             >
             <button
               @click="doCheckout"
-              class="btn btn-danger btn-shadow"
+              class="btn p-2 ps-4 pe-4 btn-danger btn-shadow"
               to="/checkout"
             >
               Periksa
@@ -211,7 +211,7 @@
           <div class="column text-center">
             <nuxt-link
               style="color: red"
-              class="btn btn-light mx-2 py-1 px-3 btn-shadow"
+              class="btn btn-light mx-2 p-2 btn-shadow"
               to="/"
               data-toast=""
               data-toast-type="success"
@@ -221,10 +221,7 @@
               data-toast-message="is updated successfully!"
               >Lanjut Belanja</nuxt-link
             >
-            <button
-              class="btn btn-danger py-1 px-3 btn-shadow"
-              @click="doCheckout"
-            >
+            <button class="btn btn-danger p-2 btn-shadow" @click="doCheckout">
               Periksa
             </button>
           </div>

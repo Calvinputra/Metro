@@ -9,14 +9,7 @@
               <AccountMenu :name="'login'" />
             </div>
             <div
-              class="
-                col-sm-9
-                offset-md-1
-                align-self-start
-                mt-2
-                row
-                justify-content-between
-              "
+              class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
             >
               <div class="col-sm-12">
                 <label class="mb-0"
@@ -44,7 +37,7 @@
                   Masuk Ke Akun
                 </h2>
               </div>
-              <p style="color: red" class="ms-5">*Wajib diisi</p>
+
               <br />
               <div>
                 <b-alert
@@ -89,22 +82,14 @@
                         name="password"
                         placeholder="Password"
                       />
+                      <p style="color: red" class="mt-2">*Wajib diisi</p>
                     </div>
                   </form>
                   <div class="text-center">
                     <button
                       @click.prevent="doLogin"
                       type="submit"
-                      class="
-                        btn
-                        text-danger
-                        btn-light btn-sm
-                        rounded
-                        col-sm-2
-                        py-2
-                        px-2
-                        mb-4
-                      "
+                      class="btn text-white btn-danger btn-sm rounded col-sm-3 py-2"
                       style="
                         box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                       "
@@ -112,6 +97,12 @@
                       Masuk Akun
                     </button>
                   </div>
+                  <center class="mt-3 mb-3">
+                    <p>Atau</p>
+                  </center>
+                  <center class="mb-3">
+                    <Googlebutton />
+                  </center>
                   <p class="ms-5" style="padding-left: 4rem !important">
                     Lupa kata sandi?
                     <nuxt-link to="/forgot_password" style="color: red"
@@ -138,14 +129,7 @@
         <div class="container">
           <div class="row">
             <div
-              class="
-                col-sm-9
-                offset-md-1
-                align-self-start
-                mt-2
-                row
-                justify-content-between
-              "
+              class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
             >
               <div class="col-sm-12">
                 <label class="mb-0"

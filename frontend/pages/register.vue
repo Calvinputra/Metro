@@ -23,12 +23,12 @@
                   </h2></label
                 >
               </div>
-              <div class="mb-4">
+              <div class="mb-2">
                 <hr
                   style="height: 10%; width: 100%; border-width: 0; color: red"
                   class="col-sm-12 mb-0 mt-0"
                 />
-                <p class="mb-">
+                <p class="">
                   Jika sudah memiliki akun, dapat pergi ke halaman Masuk Akun.
                 </p>
               </div>
@@ -39,7 +39,6 @@
                     <div class="register-form-title mr-5 pr-5">
                       Pengisian Data Diri
                     </div>
-
                     <b-alert
                       v-model="showDismissibleAlert"
                       variant="danger"
@@ -53,7 +52,7 @@
                         <li v-for="(e, key) in error" :key="key">{{ e }}</li>
                       </ul>
                     </b-alert>
-                    <div class="form-group col-sm-10 center">
+                    <!-- <div class="form-group col-sm-10 center">
                       <label for="first_name"
                         >Nama Depan<span style="color: red">*</span></label
                       >
@@ -93,7 +92,7 @@
                         placeholder="Nomor Telepon"
                         v-model="phone"
                       />
-                    </div>
+                    </div> -->
                     <div class="form-group form-group col-sm-10">
                       <label for="Email"
                         >Email<span style="color: red">*</span></label
@@ -122,7 +121,7 @@
                         v-model="password"
                       />
                     </div>
-                    <div class="form-group col-sm-10">
+                    <div class="form-group col-sm-10 m-0">
                       <label for="password_confirmation"
                         >Konfirmasi Kata Sandi<span style="color: red"
                           >*</span
@@ -138,7 +137,7 @@
                       />
                     </div>
 
-                    <div class="register-form-title pe-5 me-5">
+                    <!-- <div class="register-form-title pe-5 me-5">
                       Alamat Pengiriman
                     </div>
                     <div class="form-group col-sm-10">
@@ -197,10 +196,10 @@
                         placeholder="Kode Pos"
                         v-model="postal_code"
                       />
-                    </div>
+                    </div> -->
 
                     <br />
-                    <label style="color: red" class="mb-4 ms-2"
+                    <label style="color: red" class="mb-2 ms-2"
                       ><span style="color: red">*</span>Wajib diisi</label
                     >
                     <div class="form-check ms-3">
@@ -233,7 +232,7 @@
                         @click.prevent="doRegister"
                         :disabled="button_register_disabled"
                         type="submit"
-                        class="btn text-danger btn-light btn-sm rounded col-sm-2 ms-0 py-2 px-2"
+                        class="btn text-white btn-danger btn-sm rounded col-sm-3 ms-0 p-2"
                         style="
                           box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                         "
@@ -242,6 +241,12 @@
                       </button>
                     </div>
                   </form>
+                  <div>
+                    <center class="mt-3 mb-3">Atau</center>
+                  </div>
+                  <center>
+                    <Googlebutton />
+                  </center>
                 </div>
               </div>
             </div>

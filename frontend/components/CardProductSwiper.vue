@@ -53,6 +53,7 @@
                 <a
                   class="btn text-danger btn-sm rounded col-sm-5 ms-2 pt-2"
                   style="
+                    height: 38px;
                     background-color: #f3f3f3;
                     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                   "
@@ -63,6 +64,7 @@
                 <a
                   @click.stop
                   class="col-sm-3 ms-2"
+                  style="height: 38px !important"
                   :href="
                     'https://wa.me/' +
                     settings.company_wa_phone +
@@ -73,7 +75,7 @@
                   "
                   target="_blank"
                   ><img
-                    class="img-fluid max-width:100% height:auto rounded"
+                    class="img-fluid rounded"
                     style="
                       background-color: #f3f3f3;
                       box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
