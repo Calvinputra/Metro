@@ -96,11 +96,27 @@
     <!-- MOBILE -->
     <div id="header-mobileview" class="container row" style="height: auto">
       <!-- Navbar brand -->
-      <div class="col-1 p-0">
+      <div id="header_logo" class="col-3 m-0">
+        <nuxt-link to="/"
+          ><img
+            class="img-fluid rounded mx-auto"
+            src="/img/metro.png"
+            alt=""
+            width="100%"
+        /></nuxt-link>
+      </div>
+      <!-- Search -->
+      <div class="col-8">
+        <search-mobile />
+      </div>
+      <!-- Logo -->
+
+      <div class="col-1 p-0 dropdown-toggle-split">
         <b-nav-item-dropdown
           text="☰"
           style="font-size: 25px; list-style-type: none; color: red"
           no-caret
+          class="dropdown-toggle-split"
         >
           <b-dropdown-item v-if="!this.$auth.loggedIn" to="/login"
             >Masuk</b-dropdown-item
@@ -121,20 +137,6 @@
             >Keluar</b-dropdown-item
           >
         </b-nav-item-dropdown>
-      </div>
-      <!-- Search -->
-      <div class="col-8">
-        <search-mobile />
-      </div>
-      <!-- Logo -->
-      <div id="header_logo" class="text-right col-3 m-0">
-        <nuxt-link to="/"
-          ><img
-            class="img-fluid rounded mx-auto"
-            src="/img/metro.png"
-            alt=""
-            width="100%"
-        /></nuxt-link>
       </div>
     </div>
 
@@ -311,6 +313,9 @@ export default {
   }
 }
 
+.dropdown-menu {
+  transform: translate3d(-140px, 40px, 0px);
+}
 @media screen and (min-width: 580px) and (max-width: 1024px) {
   #header_logo {
     width: 30%;

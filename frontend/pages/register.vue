@@ -316,7 +316,7 @@
                         <li v-for="(e, key) in error" :key="key">{{ e }}</li>
                       </ul>
                     </b-alert>
-                    <div class="form-group col-sm-10 center">
+                    <!-- <div class="form-group col-sm-10 center">
                       <label for="first_name"
                         >Nama Depan<span style="color: red">*</span></label
                       >
@@ -355,7 +355,7 @@
                         placeholder="Nomor Telepon"
                         v-model="phone"
                       />
-                    </div>
+                    </div> -->
                     <div class="form-group col-sm-10">
                       <label for="email"
                         >Email<span style="color: red">*</span></label
@@ -398,7 +398,7 @@
                       />
                     </div>
 
-                    <div class="register-form-title">Alamat Pengiriman</div>
+                    <!-- <div class="register-form-title">Alamat Pengiriman</div>
                     <div class="form-group col-sm-10">
                       <label for="address"
                         >Alamat Lengkap<span style="color: red">*</span></label
@@ -455,10 +455,9 @@
                         placeholder="Kode Pos"
                         v-model="postal_code"
                       />
-                    </div>
+                    </div> -->
 
-                    <br />
-                    <label style="color: red"
+                    <label class="ms-3" style="color: red"
                       ><span style="color: red">*</span>Wajib diisi</label
                     >
                     <div class="form-check">
@@ -468,7 +467,10 @@
                         id="exampleCheck1"
                         v-model="agreement_1"
                       />
-                      <label class="form-check-label" for="exampleCheck1"
+                      <label
+                        style="font-size: 12px"
+                        class="form-check-label"
+                        for="exampleCheck1"
                         >Saya telah membaca dan menyetujui Kebijakan
                         Privasi</label
                       >
@@ -481,7 +483,10 @@
                         v-model="agreement_2"
                       />
 
-                      <label class="form-check-label" for="exampleCheck2"
+                      <label
+                        style="font-size: 12px"
+                        class="form-check-label"
+                        for="exampleCheck2"
                         >Perbarui Saya dengan berita dan promo terbaru</label
                       >
                     </div>
@@ -491,13 +496,15 @@
                         @click.prevent="doRegister"
                         :disabled="button_register_disabled"
                         type="submit"
-                        class="btn text-danger btn-light btn-sm rounded p-2 mb-5"
+                        class="btn col-8 text-white btn-danger btn-sm rounded p-2 mb-2"
                         style="
                           box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                         "
                       >
                         Buat Akun
                       </button>
+                      <p>atau</p>
+                      <Googlebutton />
                     </div>
                   </form>
                 </div>

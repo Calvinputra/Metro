@@ -1,7 +1,7 @@
 <template>
   <section style="font-size: 14px">
     <section id="cardswipe-webview">
-      <section class="ps-5 pe-5" id="cardswipe-webview">
+      <section class="ps-5 pe-3" id="cardswipe-webview">
         <section
           @click="redirectTo('/products/' + data.id)"
           style="text-decoration: none !important; color: black"
@@ -9,7 +9,7 @@
           <div
             class="card mb-5 bg-white rounded"
             style="
-              width: 100%;
+              width: 240px
               height: auto;
               box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25) !important;
               border-radius: 10px;
@@ -64,7 +64,6 @@
                 <a
                   @click.stop
                   class="col-sm-3 ms-2"
-                  style="height: 38px !important"
                   :href="
                     'https://wa.me/' +
                     settings.company_wa_phone +
@@ -76,7 +75,7 @@
                   target="_blank"
                   ><img
                     class="img-fluid rounded"
-                    style="
+                    style="height: 38px
                       background-color: #f3f3f3;
                       box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                     "
@@ -89,8 +88,8 @@
                   :href="data.url_tokopedia"
                   target="_blank"
                   ><img
-                    class="img-fluid max-width:100% height:auto rounded"
-                    style="
+                    class="img-fluid"
+                    style="height: 38px
                       background-color: #f3f3f3;
                       box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                     "
@@ -161,50 +160,59 @@
                   </div>
                 </div>
               </div>
-              <div class="d-flex" @click.stop>
-                <a
-                  class="btn text-danger btn-sm rounded p-1"
-                  style="
-                    background-color: #f3f3f3;
-                    width: 30%;
-                    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
-                  "
-                  onclick="return false;"
-                  @click="addToCart(data)"
-                  >+</a
-                >
-                <a
-                  class="ps-2"
-                  target="_blank"
-                  :href="
-                    'https://wa.me/' +
-                    settings.company_wa_phone +
-                    '?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
-                    data.code +
-                    ' - ' +
-                    data.name
-                  "
-                  ><img
-                    class="img-fluid height:auto rounded"
+              <div class="row mt-3">
+                <div class="col-1"></div>
+                <div class="col-3 ps-0 pe-0" @click.stop>
+                  <a
+                    class=""
+                    target="_blank"
+                    :href="
+                      'https://wa.me/' +
+                      settings.company_wa_phone +
+                      '?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
+                      data.code +
+                      ' - ' +
+                      data.name
+                    "
+                    ><img
+                      class="img-fluid rounded"
+                      style="
+                        background-color: #f3f3f3;
+                        width: 30px;
+                        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                      "
+                      src="/img/whatsapp_new.png"
+                      alt=""
+                  /></a>
+                </div>
+                <div class="col-2"></div>
+                <div class="col-3 ps-0 pe-0" @click.stop>
+                  <a :href="data.url_tokopedia"
+                    ><img
+                      class="img-fluid rounded"
+                      style="
+                        background-color: #f3f3f3;
+                        width: 30px;
+                        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                      "
+                      src="/img/tokopedia.png"
+                      alt=""
+                  /></a>
+                </div>
+                <div class="d-flex mt-3" @click.stop>
+                  <a
+                    class="btn text-danger btn-sm p-1"
                     style="
+                      font-size: 12px;
                       background-color: #f3f3f3;
-                      width: 30px;
+                      width: 100%;
                       box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                     "
-                    src="/img/whatsapp_new.png"
-                    alt=""
-                /></a>
-                <a class="ps-2" :href="data.url_tokopedia"
-                  ><img
-                    class="img-fluid height:auto rounded"
-                    style="
-                      background-color: #f3f3f3;
-                      width: 30px;
-                      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
-                    "
-                    src="/img/tokopedia.png"
-                    alt=""
-                /></a>
+                    onclick="return false;"
+                    @click="addToCart(data)"
+                    >+ Keranjang</a
+                  >
+                </div>
               </div>
             </div>
           </div>

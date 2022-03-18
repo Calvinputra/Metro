@@ -1,5 +1,5 @@
 <template>
-  <section class="col-4 pe-1 ps-3" style="font-size:14px;">
+  <section class="col-4 pe-1 ps-3" style="font-size: 14px">
     <section
       @click="redirectTo('/products/' + data.id)"
       style="text-decoration: none !important; color: black font-size:14px;"
@@ -43,8 +43,9 @@
           </p>
           <div class="row" @click.stop>
             <a
-              class="btn text-danger btn-sm rounded col-sm-5 ms-2 pt-2"
+              class="btn text-danger btn-sm rounded col-sm-5 ms-2 p-2"
               style="
+                height: 38px;
                 background-color: #f3f3f3;
                 box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
               "
@@ -65,8 +66,9 @@
               "
               target="_blank"
               ><img
-                class="img-fluid max-width:100% height:auto rounded"
+                class="img-fluid"
                 style="
+                  height: 38px;
                   background-color: #f3f3f3;
                   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                 "
@@ -79,8 +81,9 @@
               :href="data.url_tokopedia"
               target="_blank"
               ><img
-                class="img-fluid max-width:100% height:auto rounded"
+                class="img-fluid"
                 style="
+                  height: 38px;
                   background-color: #f3f3f3;
                   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                 "
