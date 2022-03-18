@@ -9,7 +9,14 @@
               <AccountMenu :name="'register'" />
             </div>
             <div
-              class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
+              class="
+                col-sm-9
+                offset-md-1
+                align-self-start
+                mt-2
+                row
+                justify-content-between
+              "
             >
               <div class="col-sm-12">
                 <label class="mb-0"
@@ -93,7 +100,14 @@
                             </td>
                             <td>
                               <p class="ps-2">
-                                {{ this.$auth.user.addresses[0].address }}
+                                <template
+                                  v-if="this.$auth.user.addresses.length > 0"
+                                >
+                                  {{ this.$auth.user.addresses[0].address }}
+                                </template>
+                                <template v-else>
+                                  Alamat belum di isi
+                                </template>
                               </p>
                             </td>
                           </tr>
@@ -104,7 +118,14 @@
                             </td>
                             <td>
                               <p class="ps-2">
-                                {{ this.$auth.user.addresses[0].postal_code }}
+                                <template
+                                  v-if="this.$auth.user.addresses.length > 0"
+                                >
+                                  {{ this.$auth.user.addresses[0].postal_code }}
+                                </template>
+                                <template v-else>
+                                  Kode Pos belum di isi
+                                </template>
                               </p>
                             </td>
                           </tr>
@@ -115,7 +136,16 @@
                             </td>
                             <td>
                               <p class="ps-2">
-                                {{ this.$auth.user.addresses[0].country.name }}
+                                <template
+                                  v-if="this.$auth.user.addresses.length > 0"
+                                >
+                                  {{
+                                    this.$auth.user.addresses[0].country.name
+                                  }}
+                                </template>
+                                <template v-else>
+                                  Negara belum di isi
+                                </template>
                               </p>
                             </td>
                           </tr>
@@ -126,7 +156,16 @@
                             </td>
                             <td>
                               <p class="ps-2">
-                                {{ this.$auth.user.addresses[0].province.name }}
+                                <template
+                                  v-if="this.$auth.user.addresses.length > 0"
+                                >
+                                  {{
+                                    this.$auth.user.addresses[0].province.name
+                                  }}
+                                </template>
+                                <template v-else>
+                                  Provinsi belum di isi
+                                </template>
                               </p>
                             </td>
                           </tr>
@@ -137,7 +176,12 @@
                             </td>
                             <td>
                               <p class="ps-2">
-                                {{ this.$auth.user.addresses[0].city.name }}
+                                <template
+                                  v-if="this.$auth.user.addresses.length > 0"
+                                >
+                                  {{ this.$auth.user.addresses[0].city.name }}
+                                </template>
+                                <template v-else> Kota belum di isi </template>
                               </p>
                             </td>
                           </tr>
@@ -214,7 +258,14 @@
         <div class="container">
           <div class="row">
             <div
-              class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
+              class="
+                col-sm-9
+                offset-md-1
+                align-self-start
+                mt-2
+                row
+                justify-content-between
+              "
             >
               <div class="col-sm-12">
                 <label class="mb-0"
@@ -297,7 +348,14 @@
                             <td>
                               <div style="max-width: 80%">
                                 <p class="ps-2">
-                                  {{ this.$auth.user.addresses[0].address }}
+                                  <template
+                                    v-if="this.$auth.user.addresses.length > 0"
+                                  >
+                                    {{ this.$auth.user.addresses[0].address }}
+                                  </template>
+                                  <template v-else>
+                                    Alamat belum di isi
+                                  </template>
                                 </p>
                               </div>
                             </td>
@@ -309,7 +367,14 @@
                             </td>
                             <td>
                               <p class="ps-2">
-                                {{ this.$auth.user.addresses[0].postal_code }}
+                                <template
+                                  v-if="this.$auth.user.addresses.length > 0"
+                                >
+                                  {{ this.$auth.user.addresses[0].postal_code }}
+                                </template>
+                                <template v-else>
+                                  Kode Pos belum di isi
+                                </template>
                               </p>
                             </td>
                           </tr>
@@ -320,7 +385,16 @@
                             </td>
                             <td>
                               <p class="ps-2">
-                                {{ this.$auth.user.addresses[0].country.name }}
+                                <template
+                                  v-if="this.$auth.user.addresses.length > 0"
+                                >
+                                  {{
+                                    this.$auth.user.addresses[0].country.name
+                                  }}
+                                </template>
+                                <template v-else>
+                                  Negara belum di isi
+                                </template>
                               </p>
                             </td>
                           </tr>
@@ -331,7 +405,16 @@
                             </td>
                             <td>
                               <p class="ps-2">
-                                {{ this.$auth.user.addresses[0].province.name }}
+                                <template
+                                  v-if="this.$auth.user.addresses.length > 0"
+                                >
+                                  {{
+                                    this.$auth.user.addresses[0].province.name
+                                  }}
+                                </template>
+                                <template v-else>
+                                  Provinsi belum di isi
+                                </template>
                               </p>
                             </td>
                           </tr>
@@ -342,7 +425,12 @@
                             </td>
                             <td>
                               <p class="ps-2">
-                                {{ this.$auth.user.addresses[0].city.name }}
+                                <template
+                                  v-if="this.$auth.user.addresses.length > 0"
+                                >
+                                  {{ this.$auth.user.addresses[0].city.name }}
+                                </template>
+                                <template v-else> Kota belum di isi </template>
                               </p>
                             </td>
                           </tr>

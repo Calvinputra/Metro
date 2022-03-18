@@ -9,7 +9,14 @@
               <AccountMenu :name="'register'" />
             </div>
             <div
-              class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
+              class="
+                col-sm-9
+                offset-md-1
+                align-self-start
+                mt-2
+                row
+                justify-content-between
+              "
             >
               <div class="col-sm-12">
                 <label class="mb-0"
@@ -112,13 +119,34 @@
                         :options="cities"
                       ></v-select>
                     </div>
+                    <div class="form-group ms-3 pe-3">
+                      <label for="postal_code"
+                        >Kode Pos<span style="color: red">*</span></label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="postal_code"
+                        name="postal_code"
+                        placeholder="Kode Pos"
+                        v-model="postal_code"
+                      />
+                    </div>
                     <br />
 
                     <div class="text-center me-5 pe-5">
                       <button
                         @click.prevent="doEditProfile"
                         type="submit"
-                        class="btn text-danger btn-light btn-sm rounded col-sm-2 ms-0 p-2"
+                        class="
+                          btn
+                          text-danger
+                          btn-light btn-sm
+                          rounded
+                          col-sm-2
+                          ms-0
+                          p-2
+                        "
                         style="
                           box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                         "
@@ -159,7 +187,14 @@
         <div class="container">
           <div class="row">
             <div
-              class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
+              class="
+                col-sm-9
+                offset-md-1
+                align-self-start
+                mt-2
+                row
+                justify-content-between
+              "
             >
               <div class="col-sm-12">
                 <label class="mb-0"
@@ -259,12 +294,33 @@
                       ></v-select>
                     </div>
                     <br />
+                    <div class="form-group ms-3 pe-3">
+                      <label for="postal_code"
+                        >Kode Pos<span style="color: red">*</span></label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="postal_code"
+                        name="postal_code"
+                        placeholder="Kode Pos"
+                        v-model="postal_code"
+                      />
+                    </div>
 
                     <div class="text-center">
                       <button
                         @click.prevent="doEditProfile"
                         type="submit"
-                        class="btn text-danger btn-light btn-sm rounded ms-0 mb-3 p-2"
+                        class="
+                          btn
+                          text-danger
+                          btn-light btn-sm
+                          rounded
+                          ms-0
+                          mb-3
+                          p-2
+                        "
                         style="
                           box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                         "
@@ -316,10 +372,22 @@ export default {
       first_name: this.$auth.user.first_name,
       last_name: this.$auth.user.last_name,
       phone: this.$auth.user.phone,
-      address: this.$auth.user.addresses[0].address,
-      province_id: this.$auth.user.addresses[0].province_id,
-      city_id: this.$auth.user.addresses[0].city_id,
-      country_id: this.$auth.user.addresses[0].country_id,
+      address:
+        this.$auth.user.addresses.count > 0
+          ? this.$auth.user.addresses[0].address
+          : "",
+      province_id:
+        this.$auth.user.addresses.count > 0
+          ? this.$auth.user.addresses[0].province_id
+          : "",
+      city_id:
+        this.$auth.user.addresses.count > 0
+          ? this.$auth.user.addresses[0].city_id
+          : "",
+      country_id:
+        this.$auth.user.addresses.count > 0
+          ? this.$auth.user.addresses[0].country_id
+          : 1,
       postal_code: null,
       //data v select
       cities: [],
@@ -403,10 +471,10 @@ export default {
           last_name: this.last_name,
           phone: this.phone,
           address: this.address,
-          //country: this.country_id,
+          country: this.country_id,
           province: this.province_id,
           city: this.city_id,
-          //postal_code: this.postal_code,
+          postal_code: this.postal_code,
         };
         let response = await this.$axios.$post(
           process.env.API_URL + "/api/edit_profile",

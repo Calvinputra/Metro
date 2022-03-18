@@ -60,22 +60,20 @@ class AuthController extends Controller
         } else {
             //login with token
             $user = Customer::where('token', $request->token)->with("addresses")->first();
-            if($user){
+            if ($user) {
                 $response = [
                     'success' => true,
                     'user'    => $user,
                     'token'   => $request->token,
                     'message' => ['msg' => ['Berhasil Melakukan Login']],
                 ];
-            return response($response, 201);
-
-            }else{
+                return response($response, 201);
+            } else {
                 return response([
                     'success' => false,
                     'message' => ['msg' => ['Token salah']],
                 ], 201);
             }
-           
         }
     }
 
@@ -185,9 +183,19 @@ class AuthController extends Controller
                 // 'country'     => 'required',
                 'province'    => 'required',
                 'city'        => 'required',
+                'postal_code' => 'required',
             ];
             $messages = [
-                'first_name.required' => 'Nama depan wajib diisi'
+                'first_name.required' => 'Nama depan wajib diisi',
+                'last_name.required' => 'Nama belakang wajib diisi',
+                'phone.required' => 'Nomor Handphone wajib diisi',
+                'phone.unique' => 'Nomor Handphone sudah terpakai',
+                'phone.starts_with' => 'Nomor Handphone harus diawali dengan 08',
+                'address.required' => 'Alamat wajib diisi',
+                'country.required' => 'Negara wajib dipilih',
+                'province.required' => 'Provinsi wajib dipilih',
+                'city.required' => 'Kota wajib dipilih',
+                'postal_code.required' => 'Kode Pos wajib diisi',
             ];
             $validator = Validator::make($request->all(), $rules, $messages);
 
@@ -203,11 +211,24 @@ class AuthController extends Controller
                 'last_name' => $request->last_name,
                 'phone' => $request->phone,
             ]);
-            $user->addresses()->first()->update([
-                'address' => $request->address,
-                'city_id' => $request->city,
-                'province_id' => $request->province,
-            ]);
+            if ($user->addresses()->count() > 0) {
+                $user->addresses()->first()->update([
+                    'address' => $request->address,
+                    'city_id' => $request->city,
+                    'province_id' => $request->province,
+                    'postal_code' => $request->postal_code,
+                ]);
+            } else {
+                $user->addresses()->create([
+                    'name' => 'Home',
+                    'address' => $request->address,
+                    'postal_code' => $request->postal_code,
+                    'country_id' => $request->country,
+                    'province_id' => $request->province,
+                    'city_id' => $request->city,
+                ]);
+            }
+
 
             //return success
             return response()->json([

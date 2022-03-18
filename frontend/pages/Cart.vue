@@ -499,7 +499,16 @@ export default {
     },
     doCheckout() {
       if (this.grandTotal > 0) {
-        this.$router.push("/checkout");
+        if (this.$auth.user.addresses.length > 0) {
+          this.$router.push("/checkout");
+        } else {
+          this.$toast.error("Silahkan melengkapi alamat Anda terlebih dahulu", {
+            theme: "bubble",
+            position: "bottom-right",
+            duration: 5000,
+          });
+          this.$router.push("/profile");
+        }
       } else {
         this.$toast.error("Silahkan memilih product untuk checkout", {
           theme: "bubble",

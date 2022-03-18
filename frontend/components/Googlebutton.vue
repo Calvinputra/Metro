@@ -1,6 +1,7 @@
 <template>
   <section>
     <button
+      @click="googleLoginHandler"
       class="btn btn-shadow p-2"
       style="
         background-color: white;
@@ -18,3 +19,13 @@
     </button>
   </section>
 </template>
+
+<script>
+export default {
+  methods: {
+    googleLoginHandler() {
+      window.location = process.env.API_URL + "/api/auth/google";
+    },
+  },
+};
+</script>
