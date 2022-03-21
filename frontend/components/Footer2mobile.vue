@@ -61,14 +61,17 @@
         <div
           class="d-flex align-items-center justify-content-center"
           style="
-            width: 40px;
+            width: 42px;
             height: 42px;
             background-color: #f3f3f3;
             box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
           "
         >
-          <a :href="'mailto:' + settings.company_email" class="me-4 text-reset">
-            <i class="fab fa-google" style="font-size: 18px"></i>
+          <a :href="'mailto:' + settings.company_email" class="text-reset">
+            <i
+              class="fab fa-google"
+              style="font-size: 18px; margin-left: 0px"
+            ></i>
           </a>
         </div>
       </div>

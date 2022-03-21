@@ -203,7 +203,7 @@
                     <button
                       @click.prevent="doLogin"
                       type="submit"
-                      class="btn text-danger btn-light btn-sm rounded mb-4 p-2"
+                      class="btn col-9 text-white btn-danger btn-sm rounded p-2"
                       style="
                         box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                       "
@@ -211,6 +211,12 @@
                       Masuk Akun
                     </button>
                   </div>
+                  <center class="mt-3 mb-3">
+                    <p>Atau</p>
+                  </center>
+                  <center class="mb-3">
+                    <Googlebutton />
+                  </center>
                   <p class="ms-2">
                     Lupa kata sandi?
                     <nuxt-link to="/forgot_password" style="color: red"

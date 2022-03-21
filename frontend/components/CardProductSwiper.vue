@@ -9,7 +9,7 @@
           <div
             class="card mb-5 bg-white rounded"
             style="
-              width: 240px
+              width: 225px
               height: auto;
               box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25) !important;
               border-radius: 10px;
@@ -51,7 +51,7 @@
               </p>
               <div class="row" @click.stop>
                 <a
-                  class="btn text-danger btn-sm rounded col-sm-5 ms-2 pt-2"
+                  class="btn text-danger btn-sm rounded col-sm-5 pt-2"
                   style="
                     height: 38px;
                     background-color: #f3f3f3;
@@ -63,7 +63,7 @@
                 </a>
                 <a
                   @click.stop
-                  class="col-sm-3 ms-2"
+                  class="col-sm-3 p-0"
                   :href="
                     'https://wa.me/' +
                     settings.company_wa_phone +
@@ -76,6 +76,7 @@
                   ><img
                     class="img-fluid rounded"
                     style="height: 38px
+                    width: 38px;
                       background-color: #f3f3f3;
                       box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                     "
@@ -84,7 +85,7 @@
                 /></a>
                 <a
                   @click.stop
-                  class="col-sm-3"
+                  class="col-sm-3 p-0"
                   :href="data.url_tokopedia"
                   target="_blank"
                   ><img

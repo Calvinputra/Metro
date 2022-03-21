@@ -41,7 +41,7 @@
               >
                 <img
                   style="width: 40px; margin-top: -5px"
-                  class="me-2"
+                  class="ms-2"
                   src="/img/whatsapp_new.png"
                   alt=""
                 />
@@ -49,8 +49,9 @@
               <a
                 :href="'mailto:' + settings.company_email"
                 class="me-4 text-reset"
+                style="font-size: 18px"
               >
-                <i class="fab fa-google"></i>
+                <i class="fab fa-google mt-1"></i>
               </a>
             </div>
           </div>
