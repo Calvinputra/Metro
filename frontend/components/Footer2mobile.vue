@@ -28,26 +28,34 @@
     <div></div>
     <div class="row py-2 justify-content-center mb-3 mt-3">
       <div class="col-3">
-        <img
-          style="
-            width: 40px;
-            background-color: #f3f3f3;
-            box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
-          "
-          src="/img/tokopedia.png"
-          alt=""
-        />
+        <a
+          :href="settings.company_tokopedia_link"
+          target="_blank"
+          class="text-reset"
+        >
+          <img
+            style="
+              width: 40px;
+              background-color: #f3f3f3;
+              box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+            "
+            src="/img/tokopedia.png"
+            alt=""
+          />
+        </a>
       </div>
       <div class="col-3">
-        <img
-          style="
-            width: 40px;
-            background-color: #f3f3f3;
-            box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
-          "
-          src="/img/whatsapp_new.png"
-          alt=""
-        />
+        <a :href="'https://wa.me/' + settings.company_wa_phone" target="_blank">
+          <img
+            style="
+              width: 40px;
+              background-color: #f3f3f3;
+              box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+            "
+            src="/img/whatsapp_new.png"
+            alt=""
+          />
+        </a>
       </div>
       <div class="col-3 d-flex justify-content-center">
         <div
@@ -59,7 +67,9 @@
             box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
           "
         >
-          <i class="fab fa-google" style="font-size: 18px"></i>
+          <a :href="'mailto:' + settings.company_email" class="me-4 text-reset">
+            <i class="fab fa-google" style="font-size: 18px"></i>
+          </a>
         </div>
       </div>
     </div>

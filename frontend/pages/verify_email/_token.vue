@@ -51,7 +51,7 @@ export default {
 
       if (response.success) {
         message =
-          " Your email has been verified! Thank you for your register on Metro Jaya.";
+          " Email Anda telah diverifikasi, Terima kasih telah mendaftar di Metro Jaya Indonesia.";
         this.$auth.fetchUser(); //refresh user data
       } else if (message == "token expired") {
         message = "Token verifikasi sudah terpakai!";
