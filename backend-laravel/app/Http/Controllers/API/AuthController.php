@@ -98,14 +98,14 @@ class AuthController extends Controller
         $rules = [
             'first_name'  => 'required|min:3',
             'last_name'   => 'required|min:3',
-            'phone'       => 'required|min:8|unique:customers,phone|starts_with:08',
+            //'phone'       => 'required|min:8|unique:customers,phone|starts_with:08',
             'email'       => 'required|email|unique:customers,email',
             'password'    => ['required', 'confirmed', Password::min(8)->mixedCase()->numbers()],
-            'address'     => 'required|min:10',
-            'country'     => 'required',
-            'province'    => 'required',
-            'city'        => 'required',
-            'postal_code' => 'required',
+            //'address'     => 'required|min:10',
+            //'country'     => 'required',
+            // 'province'    => 'required',
+            //'city'        => 'required',
+            //'postal_code' => 'required',
             'agreement_1' => 'accepted',
         ];
         $messages = [
@@ -138,22 +138,22 @@ class AuthController extends Controller
         $data = [
             'first_name' => $request->first_name,
             'last_name'  => $request->last_name,
-            'phone'      => $request->phone,
+            //'phone'      => $request->phone,
             'email'      => strtolower($request->email),
             'password'   => password_hash($request->password, PASSWORD_DEFAULT),
         ];
 
         $customer = Customer::create($data);
 
-        $customer->addresses()->create([
-            'name' => 'Home',
-            'address' => $request->address,
-            'postal_code' => $request->postal_code,
-            'country_id' => $request->country,
-            'province_id' => $request->province,
-            'city_id' => $request->city,
+        // $customer->addresses()->create([
+        //     'name' => 'Home',
+        //     'address' => $request->address,
+        //     'postal_code' => $request->postal_code,
+        //     'country_id' => $request->country,
+        //     'province_id' => $request->province,
+        //     'city_id' => $request->city,
 
-        ]);
+        // ]);
 
         $token = $this->generateToken($customer, 'REGISTER CONFIRMATION TOKEN');
 
