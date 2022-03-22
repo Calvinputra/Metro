@@ -132,7 +132,14 @@
       <div class="container">
         <div class="row">
           <div
-            class="col-sm-10 align-self-start mt-2 row justify-content-between pr-0"
+            class="
+              col-sm-10
+              align-self-start
+              mt-2
+              row
+              justify-content-between
+              pr-0
+            "
           >
             <div class="col-sm-4 mb-2">
               <h2>Kategory 1</h2>
@@ -244,7 +251,7 @@ export default {
         },
       ],
       products: [],
-      sort: "Produk Terbaru",
+      sort: "",
     };
   },
   async asyncData({ $axios, query }) {
@@ -287,6 +294,8 @@ export default {
           s: this.$route.query.s,
           paginate: this.$route.query.paginate,
           category: this.$route.query.category,
+          order: this.$route.query.order,
+          type: this.$route.query.type,
         },
       };
     },
@@ -300,7 +309,7 @@ export default {
       if (this.$route.query.order == "harga_terkecil") {
         this.sort = "Harga Terkecil";
       }
-      console.log(this.sort);
+      //console.log(this.sort);
       this.$nuxt.refresh();
     },
     pageGen(pageNum) {
@@ -312,7 +321,7 @@ export default {
         path: "/products",
         query: {
           s: this.$route.query.s,
-          page: this.$route.query.page,
+          page: 1,
           paginate: this.$route.query.paginate,
           category: id,
           order: this.$route.query.order,
@@ -337,14 +346,20 @@ export default {
     },
   },
   mounted() {
+    if (this.sort == "" || !this.$route.query.order) {
+      this.sort = "Product Terbaru";
+    }
     this.getSortItem();
   },
   watch: {
     "$route.query.order"() {
       this.getSortItem();
     },
-    sort() {
-      this.$nuxt.refresh();
+    "$route.query.category"() {
+      this.getSortItem();
+    },
+    "$route.query.page"() {
+      this.getSortItem();
     },
   },
   watchQuery: ["s", "page", "paginate", "category", "order", "type"],

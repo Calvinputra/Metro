@@ -70,7 +70,7 @@ export default {
         path: "/products",
         query: {
           s: this.query,
-          page: this.$route.query.page,
+          page: 1,
           paginate: this.$route.query.paginate,
           category: this.$route.query.category,
           order: this.$route.query.order,
@@ -78,6 +78,12 @@ export default {
         },
       });
     },
+  },
+  mounted() {
+    console.log(this.$route.query.s);
+    if (this.$route.query.s) {
+      this.query = this.$route.query.s;
+    }
   },
   watchQuery: ["s", "page", "paginate", "category", "order", "type"],
 };
