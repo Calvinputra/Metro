@@ -87,7 +87,7 @@ export default {
     try {
       let sliders = await $axios.$get(process.env.API_URL + "/api/sliders");
       let contents = await $axios.get(
-        process.env.API_URL + "/api/homepage_contents?take=10:"
+        process.env.API_URL + "/api/homepage_contents?take=10"
       );
       let sliderData = sliders.data.map((slide) => {
         return {
