@@ -361,6 +361,12 @@ export default {
     "$route.query.page"() {
       this.getSortItem();
     },
+    sort() {
+      if (this.sort == "" || !this.$route.query.order) {
+        this.sort = "Product Terbaru";
+      }
+      this.getSortItem();
+    },
   },
   watchQuery: ["s", "page", "paginate", "category", "order", "type"],
 };
