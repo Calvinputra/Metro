@@ -41,15 +41,15 @@
               >
                 <img
                   style="width: 40px; margin-top: -5px"
-                  class="ms-2"
+                  class="me-2"
                   src="/img/whatsapp_new.png"
                   alt=""
                 />
               </a>
               <a
                 :href="'mailto:' + settings.company_email"
-                class="me-4 text-reset"
-                style="font-size: 18px"
+                class="text-reset"
+                style="font-size: 20px"
               >
                 <i class="fab fa-google mt-1"></i>
               </a>
