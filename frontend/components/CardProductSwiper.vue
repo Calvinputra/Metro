@@ -54,6 +54,8 @@
                   class="btn text-danger btn-sm rounded col-sm-5 pt-2"
                   style="
                     height: 38px;
+                    margin-left: 5px;
+                    margin-right: 12px;
                     background-color: #f3f3f3;
                     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                   "

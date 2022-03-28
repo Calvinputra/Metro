@@ -223,10 +223,9 @@
                           @click.prevent="doRegister"
                           :disabled="button_register_disabled"
                           type="submit"
-                          class="btn text-white btn-danger btn-sm rounded col-sm-3 ms-0"
+                          class="btn text-white btn-danger btn-sm rounded col-sm-3 py-2"
                           style="
                             box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
-                            padding: 5px 30px;
                           "
                         >
                           Buat Akun
