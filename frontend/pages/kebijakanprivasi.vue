@@ -43,10 +43,11 @@
                   berbeda di situs web kami: Informasi Otomatis dan Informasi
                   yang Anda Berikan. Apa itu Informasi Otomatis? Saat Anda
                   berinteraksi dengan situs web, ia menerima jenis informasi
-                  anonim tertentu. Kami menggunakan "cookie" untuk mengumpulkan
-                  data ini, yang kemudian kami simpan dan gunakan untuk
-                  melakukan perbaikan pada situs kami dan menciptakan pengalaman
-                  pengguna yang lebih relevan. <br />
+                  anonim tertentu. Kami menggunakan "
+                  <span style="font-style: italic"> cookie </span>
+                  " untuk mengumpulkan data ini, yang kemudian kami simpan dan
+                  gunakan untuk melakukan perbaikan pada situs kami dan
+                  menciptakan pengalaman pengguna yang lebih relevan. <br />
                   <br />
                   Kami juga menggunakan informasi otomatis yang dikumpulkan
                   untuk analisis, pengoptimalan situs, dan untuk menyesuaikan
@@ -64,15 +65,18 @@
                   Bagaimana informasi saya dapat digunakan oleh METRO JAYA
                   Indonesia?
                 </p>
-                <p class="mt-3">
-                  1.Informasi Otomatis
-                  <br />
+                <h3 class="fw-bold pt-4 m-0" style="color: black">
+                  1. Informasi Otomatis
+                </h3>
+                <p class="mt-2 ms-4 m-0">
                   Kami akan menggunakan informasi ini untuk mengelola situs dan
                   operasi internal Kami, termasuk pencarian sumber masalah
-                  (troubleshooting), analisis data, pengujian, penelitian, serta
-                  tujuan-tujuan statistik dan survei lainnya untuk memperbaiki
-                  situs Kami sehingga konten dipastikan dapat disajikan dengan
-                  cara yang paling efektif untuk Andauntuk memungkinkan Anda
+                  (<span style="font-style: italic !important"
+                    >troubleshooting</span
+                  >), analisis data, pengujian, penelitian, serta tujuan-tujuan
+                  statistik dan survei lainnya untuk memperbaiki situs Kami
+                  sehingga konten dipastikan dapat disajikan dengan cara yang
+                  paling efektif untuk Anda untuk memungkinkan Anda
                   berpartisipasi dalam fitur interaktif layanan Kami; sebagai
                   bagian dari usaha dalam memastikan keselamatan dan keamanan
                   situs Kami untuk mengukur dan memahami efektivitas periklanan
@@ -81,10 +85,14 @@
                   masukan dan rekomendasi kepada Anda dan pengguna lain dalam
                   situs Kami mengenai produk dan jasa yang dapat menarik minat
                   Anda dan mereka.
-                  <br />
-                  <br />
-                  2.Informasi yang Anda berikan.
-                  <br />
+                </p>
+                <br />
+
+                <h3 class="fw-bold" style="color: black">
+                  2. Informasi yang Anda berikan
+                </h3>
+                <br />
+                <p class="ms-4">
                   Kami akan menggunakan informasi ini untuk menjalankan
                   kewajiban Kami dalam menyediakan informasi, produk, dan jasa
                   kepada Anda untuk menyediakan informasi terkait produk dan
@@ -104,8 +112,9 @@
               </div>
               <div class="mt-3" style="text-align: justify">
                 <p>
-                  Apa yang harus saya ketahui tentang cookie? Dengan menggunakan
-                  situs
+                  Apa yang harus saya ketahui tentang
+                  <span style="font-style: italic"> cookie </span>
+                  ? Dengan menggunakan situs
                   <a
                     class="text-decoration-none"
                     style="color: red"
@@ -113,21 +122,26 @@
                   >
                     https://metrojayaindonesia.com/
                   </a>
-                  , Anda mengakui dan menyetujui penggunaan cookie kami. Cookies
-                  adalah istilah yang menjelaskan potongan kecil data yang
-                  dikirim dari situs web ke browser Anda. Mereka biasanya
-                  digunakan untuk alasan teknis seperti analisis web. Kami
-                  menggunakan (cookies) untuk membedakan Anda dari pengguna lain
-                  pada situs Kami. Ini membantu Kami untuk menyediakan
-                  pengalaman yang baik ketika Anda merambah situs Kami, serta
-                  membantu Kami memperbaiki Platform Kami. Anda dapat menghapus
-                  cookie melalui browser Anda kapan saja. Anda bisa menghapusnya
-                  secara berkala. Bisakah syarat dan kebijakan ini berubah? Ya,
-                  kami berhak atas kebijakan kami sendiri untuk mengubah atau
-                  memodifikasi bagian dari Ketentuan Penggunaan dan Kebijakan
-                  Privasi kami setiap saat. Kami menyarankan Anda membaca
-                  kembali halaman ini secara berkala untuk mendapatkan informasi
-                  terbaru. Terakhir diubah: 6 Maret 2022
+                  , Anda mengakui dan menyetujui penggunaan
+                  <span style="font-style: italic">cookie</span> kami.
+                  <span style="font-style: italic">cookie </span> adalah istilah
+                  yang menjelaskan potongan kecil data yang dikirim dari situs
+                  web ke browser Anda. Mereka biasanya digunakan untuk alasan
+                  teknis seperti analisis web. Kami menggunakan (<span
+                    style="font-style: italic"
+                    >cookie</span
+                  >) untuk membedakan Anda dari pengguna lain pada situs Kami.
+                  Ini membantu Kami untuk menyediakan pengalaman yang baik
+                  ketika Anda merambah situs Kami, serta membantu Kami
+                  memperbaiki Platform Kami. Anda dapat menghapus
+                  <span style="font-style: italic">cookie</span> melalui browser
+                  Anda kapan saja. Anda bisa menghapusnya secara berkala.
+                  Bisakah syarat dan kebijakan ini berubah? Ya, kami berhak atas
+                  kebijakan kami sendiri untuk mengubah atau memodifikasi bagian
+                  dari Ketentuan Penggunaan dan Kebijakan Privasi kami setiap
+                  saat. Kami menyarankan Anda membaca kembali halaman ini secara
+                  berkala untuk mendapatkan informasi terbaru. Terakhir diubah:
+                  6 Maret 2022
                 </p>
               </div>
             </div>
@@ -218,10 +232,13 @@
                   <br />
                   Kami akan menggunakan informasi ini untuk mengelola situs dan
                   operasi internal Kami, termasuk pencarian sumber masalah
-                  (troubleshooting), analisis data, pengujian, penelitian, serta
-                  tujuan-tujuan statistik dan survei lainnya untuk memperbaiki
-                  situs Kami sehingga konten dipastikan dapat disajikan dengan
-                  cara yang paling efektif untuk Andauntuk memungkinkan Anda
+                  <span style="font-style: italic !important">
+                    (troubleshooting),
+                  </span>
+                  analisis data, pengujian, penelitian, serta tujuan-tujuan
+                  statistik dan survei lainnya untuk memperbaiki situs Kami
+                  sehingga konten dipastikan dapat disajikan dengan cara yang
+                  paling efektif untuk Andauntuk memungkinkan Anda
                   berpartisipasi dalam fitur interaktif layanan Kami; sebagai
                   bagian dari usaha dalam memastikan keselamatan dan keamanan
                   situs Kami untuk mengukur dan memahami efektivitas periklanan

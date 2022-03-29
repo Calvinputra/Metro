@@ -88,14 +88,14 @@
             terlebih dahulu.
           </div> -->
         </div>
-        <div class="text-right col-11">
+        <div class="text-right col-sm-11">
           <div>
-            <span class="text-left mr-5 pr-5">Total Berat</span>
+            <span style="margin-right: 100px">Total Berat</span>
             <span class="">{{ (weightTotal / 1000).toFixed(2) }} Kg</span>
           </div>
         </div>
         <div class="text-right col-11">
-          <span class="text-left mr-5">Total Harga</span>
+          <span style="margin-right: 50px">Total Harga</span>
           <span class=""
             >Rp. {{ Number(grandTotal).toLocaleString("id-ID") }}</span
           >

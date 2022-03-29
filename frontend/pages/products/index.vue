@@ -80,11 +80,11 @@
                     >
                     <b-dropdown-item
                       @click="onDropDownSelectHandler('harga_terbesar', 'desc')"
-                      >Harga Terbesar</b-dropdown-item
+                      >Harga Tertinggi</b-dropdown-item
                     >
                     <b-dropdown-item
                       @click="onDropDownSelectHandler('harga_terkecil', 'asc')"
-                      >Harga Terkecil</b-dropdown-item
+                      >Harga Terendah</b-dropdown-item
                     >
                   </b-dropdown>
                   <div class="dropdown-menu">...</div>
@@ -132,14 +132,7 @@
       <div class="container">
         <div class="row">
           <div
-            class="
-              col-sm-10
-              align-self-start
-              mt-2
-              row
-              justify-content-between
-              pr-0
-            "
+            class="col-sm-10 align-self-start mt-2 row justify-content-between pr-0"
           >
             <div class="col-sm-4 mb-2">
               <h2>Kategory 1</h2>
@@ -160,13 +153,13 @@
                         @click="
                           onDropDownSelectHandler('harga_terbesar', 'desc')
                         "
-                        >Harga Terbesar</b-dropdown-item
+                        >Harga Tertinggi</b-dropdown-item
                       >
                       <b-dropdown-item
                         @click="
                           onDropDownSelectHandler('harga_terkecil', 'asc')
                         "
-                        >Harga Terkecil</b-dropdown-item
+                        >Harga Terendah</b-dropdown-item
                       >
                     </b-dropdown>
                     <div class="dropdown-menu">...</div>
@@ -301,13 +294,13 @@ export default {
     },
     getSortItem() {
       if (this.$route.query.order == "harga_terbesar") {
-        this.sort = "Harga Terbesar";
+        this.sort = "Harga Tertinggi";
       }
       if (this.$route.query.order == "product_terbaru") {
         this.sort = "Produk Terbaru";
       }
       if (this.$route.query.order == "harga_terkecil") {
-        this.sort = "Harga Terkecil";
+        this.sort = "Harga Terendah";
       }
       //console.log(this.sort);
       this.$nuxt.refresh();

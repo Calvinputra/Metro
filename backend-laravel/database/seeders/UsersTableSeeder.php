@@ -24,7 +24,7 @@ class UsersTableSeeder extends Seeder
                 'id' => 1,
                 'role_id' => 1,
                 'name' => 'Admin',
-                'email' => 'sycar.id@gmail.com',
+                'email' => 'metrojayaindonesia@gmail.com',
                 'avatar' => 'users/default.png',
                 'email_verified_at' => NULL,
                 'password' => '$2y$10$6qTN5MnXqQCidcAk9nn4qOIkM/mCE5nP0OOn2ZspNq/wzPhMHn6BC',

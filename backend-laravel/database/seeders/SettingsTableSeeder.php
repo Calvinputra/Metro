@@ -156,7 +156,7 @@ class SettingsTableSeeder extends Seeder
                 'id' => 13,
                 'key' => 'site.company_email',
                 'display_name' => 'Email Perusahaan',
-                'value' => 'sycar.id@gmail.com',
+                'value' => 'metrojayaindonesia@gmail.com',
                 'details' => NULL,
                 'type' => 'text',
                 'order' => 8,
