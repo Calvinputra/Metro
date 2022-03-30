@@ -21,18 +21,18 @@ class UsersTableSeeder extends Seeder
         \DB::table('users')->insert(array (
             0 => 
             array (
-                'id' => 1,
-                'role_id' => 1,
-                'name' => 'Admin',
-                'email' => 'metrojayaindonesia@gmail.com',
                 'avatar' => 'users/default.png',
-                'email_verified_at' => NULL,
-                'password' => '$2y$10$6qTN5MnXqQCidcAk9nn4qOIkM/mCE5nP0OOn2ZspNq/wzPhMHn6BC',
-                'remember_token' => NULL,
-                'settings' => NULL,
                 'created_at' => NULL,
-                'updated_at' => NULL,
                 'deleted_at' => NULL,
+                'email' => 'sycar.id@gmail.com',
+                'email_verified_at' => NULL,
+                'id' => '1',
+                'name' => 'Admin',
+                'password' => '$2y$10$6qTN5MnXqQCidcAk9nn4qOIkM/mCE5nP0OOn2ZspNq/wzPhMHn6BC',
+                'remember_token' => 'GqXcNxWzc5bUEI5msVkpV1xIm8SjeaFMIlZYPeNBEQupjlkvuoOlOb60fSzw',
+                'role_id' => '1',
+                'settings' => NULL,
+                'updated_at' => NULL,
             ),
         ));
         

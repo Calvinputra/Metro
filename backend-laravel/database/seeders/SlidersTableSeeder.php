@@ -21,33 +21,23 @@ class SlidersTableSeeder extends Seeder
         \DB::table('sliders')->insert(array (
             0 => 
             array (
-                'id' => 1,
-                'title' => NULL,
-                'description' => NULL,
-                'image' => 'sliders\\February2022\\oIMMznHKvRUYiIFwS4QQ.jpg',
-                'order' => 1,
                 'created_at' => '2022-02-02 11:05:07',
+                'description' => NULL,
+                'id' => '1',
+                'image' => 'sliders\\February2022\\oIMMznHKvRUYiIFwS4QQ.jpg',
+                'order' => '1',
+                'title' => NULL,
                 'updated_at' => '2022-02-02 11:05:07',
             ),
             1 => 
             array (
-                'id' => 2,
-                'title' => NULL,
-                'description' => NULL,
-                'image' => 'sliders\\February2022\\BQahJia8a49Uf1CjreQf.jpg',
-                'order' => 2,
                 'created_at' => '2022-02-02 11:05:16',
-                'updated_at' => '2022-02-02 11:05:16',
-            ),
-            2 => 
-            array (
-                'id' => 3,
-                'title' => NULL,
                 'description' => NULL,
-                'image' => 'sliders\\March2022\\WuI1xqAzTQ22iHzqgYLi.png',
-                'order' => 3,
-                'created_at' => '2022-03-01 13:29:05',
-                'updated_at' => '2022-03-01 13:29:05',
+                'id' => '2',
+                'image' => 'sliders\\February2022\\BQahJia8a49Uf1CjreQf.jpg',
+                'order' => '2',
+                'title' => NULL,
+                'updated_at' => '2022-02-02 11:05:16',
             ),
         ));
         
