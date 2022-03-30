@@ -1,108 +1,121 @@
 <template>
   <section style="font-size: 14px">
     <section id="cardswipe-webview">
-      <section class="ps-5 pe-3" id="cardswipe-webview">
-        <section
-          @click="redirectTo('/products/' + data.id)"
-          style="text-decoration: none !important; color: black"
-        >
+      <section class="">
+        <div class="row">
+          <div class="col-sm-1"></div>
           <div
-            class="card mb-5 bg-white rounded"
+            class="col-sm-6"
+            @click="redirectTo('/products/' + data.id)"
             style="
-              width: 225px
+              text-decoration: none !important;
+              color: black;
+              margin: 0px 10px;
+            "
+          >
+            <div
+              class="card mb-5 bg-white rounded"
+              style="
+              width: 280px
               height: auto;
               box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25) !important;
               border-radius: 10px;
             "
-          >
-            <img
-              style="width: 100%; height: 180px"
-              :src="ASSET_URL + '/' + JSON.parse(data.images)[0]"
-              class="card-img-top height:auto"
-              alt="..."
-            />
-            <div class="card-body">
-              <div class="row">
-                <h5
-                  class="col-sm-9 card-title"
+            >
+              <img
+                style="width: 100%; height: 180px"
+                :src="ASSET_URL + '/' + JSON.parse(data.images)[0]"
+                class="card-img-top height:auto"
+                alt="..."
+              />
+              <div class="card-body">
+                <div class="row">
+                  <h5
+                    class="col-sm-9 card-title namabarang"
+                    style="font-family: 'Nunito Sans'"
+                  >
+                    {{ data.name }}
+                  </h5>
+                  <a
+                    class="col-sm-3"
+                    href=""
+                    onclick="return false;"
+                    @click.stop="addToWishList(data.id)"
+                    ><i
+                      :class="
+                        (data.wishlist_exist ? 'fas' : 'far') + ' fa-heart'
+                      "
+                      style="
+                        font-size: 30px !important;
+                        color: #c63442 !important;
+                      "
+                    ></i
+                  ></a>
+                </div>
+                <p
+                  class="card-text mb-4 font-weight-bold"
                   style="font-family: 'Nunito Sans'"
                 >
-                  {{ data.name }}
-                </h5>
-                <a
-                  class="col-sm-3"
-                  href=""
-                  onclick="return false;"
-                  @click.stop="addToWishList(data.id)"
-                  ><i
-                    :class="(data.wishlist_exist ? 'fas' : 'far') + ' fa-heart'"
+                  Rp.{{ Number(data.display_price).toLocaleString("id-ID") }}
+                </p>
+                <div class="row" @click.stop>
+                  <a
+                    class="btn text-danger btn-sm rounded col-sm-5 pt-2"
                     style="
-                      font-size: 30px !important;
-                      color: #c63442 !important;
+                      height: 38px;
+                      margin-left: 10px;
+                      margin-right: 12px;
+                      background-color: #f3f3f3;
+                      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                     "
-                  ></i
-                ></a>
-              </div>
-              <p
-                class="card-text mb-4 font-weight-bold"
-                style="font-family: 'Nunito Sans'"
-              >
-                Rp.{{ Number(data.display_price).toLocaleString("id-ID") }}
-              </p>
-              <div class="row" @click.stop>
-                <a
-                  class="btn text-danger btn-sm rounded col-sm-5 pt-2"
-                  style="
-                    height: 38px;
-                    margin-left: 5px;
-                    margin-right: 12px;
-                    background-color: #f3f3f3;
-                    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
-                  "
-                  onclick="return false;"
-                  @click="addToCart(data)"
-                  ><p style="font-size: 12px">+ Keranjang</p>
-                </a>
-                <a
-                  @click.stop
-                  class="col-sm-3 p-0"
-                  :href="
-                    'https://wa.me/' +
-                    settings.company_wa_phone +
-                    '?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
-                    data.code +
-                    ' - ' +
-                    data.name
-                  "
-                  target="_blank"
-                  ><img
-                    class="img-fluid rounded"
-                    style="height: 38px
+                    onclick="return false;"
+                    @click="addToCart(data)"
+                    ><p style="font-size: 12px">+ Keranjang</p>
+                  </a>
+                  <div class="col-sm-1 p-0"></div>
+                  <a
+                    @click.stop
+                    class="col-sm-2 p-0"
+                    :href="
+                      'https://wa.me/' +
+                      settings.company_wa_phone +
+                      '?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
+                      data.code +
+                      ' - ' +
+                      data.name
+                    "
+                    target="_blank"
+                    ><img
+                      class="img-fluid rounded"
+                      style="height: 38px
                     width: 38px;
                       background-color: #f3f3f3;
                       box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                     "
-                    src="/img/whatsapp_new.png"
-                    alt=""
-                /></a>
-                <a
-                  @click.stop
-                  class="col-sm-3 p-0"
-                  :href="data.url_tokopedia"
-                  target="_blank"
-                  ><img
-                    class="img-fluid"
-                    style="height: 38px
+                      src="/img/whatsapp_new.png"
+                      alt=""
+                  /></a>
+                  <div class="col-sm-1 p-0"></div>
+                  <a
+                    @click.stop
+                    class="col-sm-2 p-0"
+                    :href="data.url_tokopedia"
+                    target="_blank"
+                    ><img
+                      class="img-fluid"
+                      style="height: 38px
                       background-color: #f3f3f3;
                       box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                     "
-                    src="/img/tokopedia.png"
-                    alt=""
-                /></a>
+                      src="/img/tokopedia.png"
+                      alt=""
+                  /></a>
+                </div>
               </div>
             </div>
+            <div class="col-sm-3"></div>
           </div>
-        </section>
+        </div>
       </section>
     </section>
     <section class="" id="cardswipe-mobileview" style="font-size: 80%">
@@ -322,7 +335,7 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
 </style>

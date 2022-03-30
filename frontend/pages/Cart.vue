@@ -95,7 +95,7 @@
           </div>
         </div>
         <div class="text-right col-11">
-          <span style="margin-right: 50px">Total Harga</span>
+          <span style="margin-right: 75px">Total Harga</span>
           <span class=""
             >Rp. {{ Number(grandTotal).toLocaleString("id-ID") }}</span
           >
@@ -197,13 +197,14 @@
 
         <div class="text-right col-11">
           <span class="text-center" style="font-size: 12px">Total Berat</span>
-          <span class="pl-5" style="font-size: 12px; margin-left: 12px">
+          <span class="" style="font-size: 12px; margin-left: 40px">
             {{ (weightTotal / 1000).toFixed(2) }} Kg</span
           >
         </div>
         <div class="text-right col-11 mb-4">
           <span class="text-center" style="font-size: 12px">Total Harga</span>
-          <span class="ml-4" style="font-size: 12px"
+
+          <span class="" style="font-size: 12px; margin-left: 23px"
             >Rp. {{ Number(grandTotal).toLocaleString("id-ID") }}</span
           >
         </div>
@@ -499,7 +500,7 @@ export default {
     },
     doCheckout() {
       if (this.grandTotal > 0) {
-        if (!this.$auth.loggedIn||this.$auth.user.addresses.length > 0) {
+        if (!this.$auth.loggedIn || this.$auth.user.addresses.length > 0) {
           this.$router.push("/checkout");
         } else {
           this.$toast.error("Silahkan melengkapi alamat Anda terlebih dahulu", {

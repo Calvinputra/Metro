@@ -20,18 +20,15 @@
             </label>
           </div>
         </div>
-        <div
-          class="d-flex"
-          style="justify-content: space-evenly"
-          v-if="!$auth.loggedIn"
-        >
-          <div style="col-sm">
-            <img src="/img/metro.png" alt="" />
+        <div class="row" v-if="!$auth.loggedIn">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-5">
+            <img src="/img/checkout_login.png" alt="" />
           </div>
-          <div class="mr-5 col-sm-5 mb-0">
-            <form class="mr-5">
+          <div class="col-sm-5 mb-0">
+            <form class="">
               <div class="col-sm-12">
-                <label class="mb-0 mt-5"
+                <label class="mb-0"
                   ><h2 class="font-weight-bold">
                     Masuk ke Akun
                     <hr
@@ -76,24 +73,29 @@
             <p style="color: red">
               <span style="color: red">*</span>Wajib diisi
             </p>
-            <br />
-            <P
-              >Lupa kata sandi?
-              <nuxt-link :to="{ path: '/forgot_password' }" class="text-danger">
-                klik disini.</nuxt-link
-              ></P
-            >
+
             <div class="text-center">
               <button
                 @click="doLogin"
                 type="submit"
-                class="btn text-danger btn-light btn-sm rounded col-sm-3 ms-5"
+                class="btn text-danger btn-light btn-sm rounded col-sm-5 ms-2 mb-3"
                 style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
               >
                 Masuk Akun
               </button>
+              <p class="mb-3">Atau</p>
+              <Googlebutton />
             </div>
-            <p class="mt-5">
+            <p class="mt-3">
+              Lupa kata sandi?
+              <nuxt-link
+                :to="{ path: '/forgot_passw`ord' }"
+                class="text-danger"
+              >
+                klik disini.</nuxt-link
+              >
+            </p>
+            <p class="mt-2">
               Belum mempunyai akun?<nuxt-link
                 :to="{ path: '/register' }"
                 class="text-danger"
@@ -204,8 +206,12 @@
         </div>
         <div class="bg-light text-black col-sm-11 ml-5 mt-5">
           <label for="step1" class="mt-2">
-            <h5 class="mt-2" v-if="!$auth.loggedIn">Step 2: Konfirmasi Pembelian</h5>
-            <h5 class="mt-2" v-if="$auth.loggedIn">Step 3: Konfirmasi Pembelian</h5>
+            <h5 class="mt-2" v-if="!$auth.loggedIn">
+              Step 2: Konfirmasi Pembelian
+            </h5>
+            <h5 class="mt-2" v-if="$auth.loggedIn">
+              Step 3: Konfirmasi Pembelian
+            </h5>
           </label>
           <div class="table-responsive shopping-cart">
             <table class="table">
@@ -250,7 +256,7 @@
           </div>
         </div>
         <div class="text-right col-11">
-          <span style="margin-right: 50px">Total Harga</span>
+          <span style="margin-right: 75px">Total Harga</span>
           <span class=""
             >Rp. {{ Number(grandTotal).toLocaleString("id-ID") }}</span
           >
@@ -468,8 +474,12 @@
         </div>
         <div class="bg-light text-black col-sm-11">
           <label for="step1" class="mt-2">
-            <h5 class="mt-2" v-if="!$auth.loggedIn">Step 2: Konfirmasi Pembelian</h5>
-            <h5 class="mt-2" v-if="$auth.loggedIn">Step 3: Konfirmasi Pembelian</h5>
+            <h5 class="mt-2" v-if="!$auth.loggedIn">
+              Step 2: Konfirmasi Pembelian
+            </h5>
+            <h5 class="mt-2" v-if="$auth.loggedIn">
+              Step 3: Konfirmasi Pembelian
+            </h5>
           </label>
           <div class="table-responsive shopping-cart">
             <table class="table">
@@ -508,13 +518,13 @@
         </div>
         <div class="text-right col-11">
           <span class="text-center" style="font-size: 12px">Total Berat</span>
-          <span class="pl-5" style="font-size: 12px; margin-left: 12px">
+          <span class="" style="font-size: 12px; margin-left: 40px">
             {{ (weightTotal / 1000).toFixed(2) }} Kg</span
           >
         </div>
         <div class="text-right col-11 mb-4">
           <span class="text-center" style="font-size: 12px">Total Harga</span>
-          <span class="ml-4" style="font-size: 12px"
+          <span class="" style="font-size: 12px; margin-left: 23px"
             >Rp. {{ Number(grandTotal).toLocaleString("id-ID") }}</span
           >
         </div>

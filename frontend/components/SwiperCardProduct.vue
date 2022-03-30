@@ -4,7 +4,14 @@
       <section id="swipercard-webview">
         <div
           class="swiper-container pt-4"
-          style="background-image: url('/img/bg-home.png'); background-repeat: no-repeat; background-size: 100% 250px; background-position: center; "
+          style="
+            padding-left: 40px !important;
+            padding-right: 40px !important;
+            background-image: url('/img/bg-home.png');
+            background-repeat: no-repeat;
+            background-size: 100% 250px;
+            background-position: center;
+          "
         >
           <!-- Additional required wrapper -->
           <div class="swiper-wrapper mt-2">
@@ -23,10 +30,10 @@
           </div>
           <!-- If we need navigation buttons -->
           <div>
-            <div class="swiper-button-prev" style="color:white; "></div>
+            <div class="swiper-button-prev ms-2" style="color: white"></div>
           </div>
           <div>
-            <div class="swiper-button-next" style="color:white"></div>
+            <div class="swiper-button-next me-3" style="color: white"></div>
           </div>
         </div>
       </section>
@@ -74,28 +81,28 @@ export default {
     new Swiper(".swiper-container", {
       loop: false,
       slidesPerView: 3,
-      spaceBetween: 20,
+      spaceBetween: 1,
       breakpoints: {
         1200: {
-          slidesPerView: 3
+          slidesPerView: 3,
         },
         768: {
-          slidesPerView: 2
+          slidesPerView: 2,
         },
         250: {
-          slidesPerView: 2
-        }
+          slidesPerView: 2,
+        },
       },
       pagination: {
-        el: ".swiper-pagination"
+        el: ".swiper-pagination",
       },
       navigation: {
         nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev"
-      }
+        prevEl: ".swiper-button-prev",
+      },
     });
   },
-  props: ["products"]
+  props: ["products"],
 };
 </script>
 
@@ -131,7 +138,7 @@ export default {
   }
 }
 .swiper-container {
-  width: 80%;
+  width: 90%;
   height: 400px;
 }
 </style>
