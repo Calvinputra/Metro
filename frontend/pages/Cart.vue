@@ -499,7 +499,7 @@ export default {
     },
     doCheckout() {
       if (this.grandTotal > 0) {
-        if (this.$auth.user.addresses.length > 0) {
+        if (!this.$auth.loggedIn||this.$auth.user.addresses.length > 0) {
           this.$router.push("/checkout");
         } else {
           this.$toast.error("Silahkan melengkapi alamat Anda terlebih dahulu", {

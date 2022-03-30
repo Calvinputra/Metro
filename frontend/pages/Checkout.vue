@@ -140,7 +140,7 @@
           </div>
         </div>
         <!-- <div class="ml-5 mt-5" v-if="$auth.loggedIn"> -->
-        <div class="ml-5 mt-5">
+        <div class="ml-5 mt-5" v-if="$auth.loggedIn">
           <div class="bg-light text-black col-sm-11 mb-5">
             <label for="step1" class="mt-2">
               <h5 class="mt-2">Step 2: Pilih Metode Pengiriman</h5>
@@ -204,7 +204,8 @@
         </div>
         <div class="bg-light text-black col-sm-11 ml-5 mt-5">
           <label for="step1" class="mt-2">
-            <h5 class="mt-2">Step 3: Konfirmasi Pembelian</h5>
+            <h5 class="mt-2" v-if="$auth.loggedIn">Step 2: Konfirmasi Pembelian</h5>
+            <h5 class="mt-2" v-if="!$auth.loggedIn">Step 3: Konfirmasi Pembelian</h5>
           </label>
           <div class="table-responsive shopping-cart">
             <table class="table">
