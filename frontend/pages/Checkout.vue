@@ -204,8 +204,8 @@
         </div>
         <div class="bg-light text-black col-sm-11 ml-5 mt-5">
           <label for="step1" class="mt-2">
-            <h5 class="mt-2" v-if="$auth.loggedIn">Step 2: Konfirmasi Pembelian</h5>
-            <h5 class="mt-2" v-if="!$auth.loggedIn">Step 3: Konfirmasi Pembelian</h5>
+            <h5 class="mt-2" v-if="!$auth.loggedIn">Step 2: Konfirmasi Pembelian</h5>
+            <h5 class="mt-2" v-if="$auth.loggedIn">Step 3: Konfirmasi Pembelian</h5>
           </label>
           <div class="table-responsive shopping-cart">
             <table class="table">
@@ -468,7 +468,8 @@
         </div>
         <div class="bg-light text-black col-sm-11">
           <label for="step1" class="mt-2">
-            <h5 class="mt-2">Step 3: Konfirmasi Pembelian</h5>
+            <h5 class="mt-2" v-if="!$auth.loggedIn">Step 2: Konfirmasi Pembelian</h5>
+            <h5 class="mt-2" v-if="$auth.loggedIn">Step 3: Konfirmasi Pembelian</h5>
           </label>
           <div class="table-responsive shopping-cart">
             <table class="table">
