@@ -7,7 +7,7 @@
       <div
         class="card mb-5 bg-white rounded"
         style="
-          width: 100%;
+          width: 280px;
           height: auto;
           box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25) !important;
           border-radius: 10px;
@@ -21,11 +21,12 @@
         />
         <div class="card-body">
           <div class="row">
-            <h5 class="col-sm-9 card-title" style="font-family: 'Nunito Sans'">
+            <h6 class="col-sm-9 card-title" style="font-family: 'Nunito Sans'">
               {{ data.name }}
-            </h5>
+            </h6>
+            <div class="col-sm-1 p-0 m-0"></div>
             <a
-              class="col-sm-3"
+              class="col-sm-2 p-0 m-0"
               href=""
               onclick="return false;"
               @click.stop="addToWishList(data.id)"
@@ -37,15 +38,17 @@
           </div>
           <p
             class="card-text mb-4 font-weight-bold"
-            style="font-family: 'Nunito Sans'"
+            style="font-family: 'Nunito Sans'; font-size: 18px"
           >
             Rp.{{ Number(data.display_price).toLocaleString("id-ID") }}
           </p>
           <div class="row" @click.stop>
             <a
-              class="btn text-danger btn-sm rounded col-sm-5 ms-2 p-2"
+              class="btn text-danger fw-bold btn-sm rounded col-sm-7 pt-2"
               style="
                 height: 38px;
+                margin-left: 10px;
+                margin-right: 12px;
                 background-color: #f3f3f3;
                 box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
               "
@@ -55,7 +58,7 @@
             >
             <a
               @click.stop
-              class="col-sm-3"
+              class="col-sm-2 p-0 m-0"
               :href="
                 'https://wa.me/' +
                 settings.company_wa_phone +
@@ -69,6 +72,7 @@
                 class="img-fluid"
                 style="
                   height: 38px;
+                  width: 38px;
                   background-color: #f3f3f3;
                   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                 "
@@ -77,7 +81,7 @@
             /></a>
             <a
               @click.stop
-              class="col-sm-3"
+              class="col-sm-2 p-0 m-0"
               :href="data.url_tokopedia"
               target="_blank"
               ><img
@@ -187,7 +191,7 @@ export default {
 </script>
 
 <style>
-h5 {
+h6 {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

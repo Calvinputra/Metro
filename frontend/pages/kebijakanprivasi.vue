@@ -91,7 +91,6 @@
                 <h3 class="fw-bold" style="color: black">
                   2. Informasi yang Anda berikan
                 </h3>
-                <br />
                 <p class="ms-4">
                   Kami akan menggunakan informasi ini untuk menjalankan
                   kewajiban Kami dalam menyediakan informasi, produk, dan jasa
@@ -110,7 +109,7 @@
                   cara yang paling efektif bagi Anda.
                 </p>
               </div>
-              <div class="mt-3" style="text-align: justify">
+              <div class="mt-4" style="text-align: justify">
                 <p>
                   Apa yang harus saya ketahui tentang
                   <span style="font-style: italic"> cookie </span>

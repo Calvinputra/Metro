@@ -23,7 +23,7 @@ class HomepageContentsTableSeeder extends Seeder
             array (
                 'id' => 2,
                 'products' => '["5", "6", "7"]',
-                'title' => 'Product Unggulan',
+                'title' => 'Produk Unggulan',
                 'code' => 'product_unggulan',
                 'order' => 2,
                 'created_at' => '2022-02-02 11:06:07',
@@ -43,7 +43,7 @@ class HomepageContentsTableSeeder extends Seeder
             array (
                 'id' => 5,
                 'products' => '["25","3","2","4"]',
-                'title' => 'Product Terbaru',
+                'title' => 'Produk Terbaru',
                 'code' => 'product_terbaru',
                 'order' => 1,
                 'created_at' => '2022-03-30 15:26:46',

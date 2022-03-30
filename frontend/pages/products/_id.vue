@@ -7,19 +7,23 @@
         <Breadcrumb :links="breadcrumb" />
         <div class="container">
           <div class="row">
-            <div class="preview col-md-6">
-              <div class="preview-pic tab-content">
+            <div class="preview col-md-6 mt-5">
+              <div
+                class="preview-pic tab-content d-flex"
+                style="justify-content: center"
+              >
                 <template v-for="(img, itemObjKey) in JSON.parse(data.images)">
                   <template v-if="itemObjKey == 0">
                     <div
                       class="tab-pane active"
                       :id="'pic-' + itemObjKey"
                       :key="'pic-' + itemObjKey"
+                      style="max-width: 50%"
                     >
                       <img
                         :src="ASSET_URL + '/' + img"
                         alt="Gallery image 1"
-                        class="ecommerce-gallery-main-img active w-100"
+                        class="ecommerce-gallery-main-img active"
                       />
                     </div>
                   </template>
@@ -28,11 +32,12 @@
                       class="tab-pane"
                       :id="'pic-' + itemObjKey"
                       :key="'pic-' + itemObjKey"
+                      style="max-width: 50%"
                     >
                       <img
                         :src="ASSET_URL + '/' + img"
                         alt="Gallery image 1"
-                        class="ecommerce-gallery-main-img active w-100"
+                        class="ecommerce-gallery-main-img active"
                       />
                     </div>
                   </template>
@@ -61,9 +66,9 @@
                   target="_blank"
                   :href="
                     'https://wa.me/628988606069?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
-                      data.code +
-                      ' - ' +
-                      data.name
+                    data.code +
+                    ' - ' +
+                    data.name
                   "
                   ><img
                     class="img-fluid max-width:100% height:auto rounded"
@@ -162,17 +167,7 @@
                 <br />
                 <a
                   href="#"
-                  class="
-                    btn
-                    text-danger
-                    btn-sm
-                    rounded
-                    col-sm-3
-                    ms-0
-                    mb-3
-                    py-2
-                    px-2
-                  "
+                  class="btn text-danger btn-sm rounded col-sm-3 ms-0 mb-3 py-2 px-2"
                   @click="addToCart(data)"
                   style="
                     background-color: #f3f3f3;
@@ -403,9 +398,9 @@
                     target="_blank"
                     :href="
                       'https://wa.me/628988606069?text=Halo Metro Jaya, Saya ingin bertanya tentang product ' +
-                        data.code +
-                        ' - ' +
-                        data.name
+                      data.code +
+                      ' - ' +
+                      data.name
                     "
                     ><img
                       id="logo"
@@ -473,9 +468,7 @@
                     >Lihat Detail</b-button
                   >
                   <div class="container">
-                    <div class="d-flex">
-                      
-                    </div>
+                    <div class="d-flex"></div>
                   </div>
                 </div>
                 <!-- test -->
@@ -550,7 +543,7 @@ export default {
     return {
       ASSET_URL: process.env.ASSET_URL,
       slide: 0,
-      sliding: null
+      sliding: null,
     };
   },
   async asyncData({ $axios, params }) {
@@ -567,19 +560,19 @@ export default {
           {
             url: "/",
             name: "Beranda",
-            class: "my-2 ms-3 breadcrumb-item opacity-50"
+            class: "my-2 ms-3 breadcrumb-item opacity-50",
           },
           {
             url: "/products",
             name: "Produk",
-            class: "my-2 breadcrumb-item active opacity-50"
+            class: "my-2 breadcrumb-item active opacity-50",
           },
           {
             url: "/",
             name: response_data.name,
-            class: "my-2 breadcrumb-item active opacity-50"
-          }
-        ]
+            class: "my-2 breadcrumb-item active opacity-50",
+          },
+        ],
       };
     } catch (error) {
       console.log(error);
@@ -596,7 +589,7 @@ export default {
       try {
         if (this.$auth.loggedIn) {
           let data = {
-            product_id: id
+            product_id: id,
           };
           let response = await this.$axios.$post(
             process.env.API_URL + "/api/wishlists",
@@ -606,13 +599,13 @@ export default {
             this.$toast.success("Berhasil menghapus produk dari wishlist", {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000
+              duration: 5000,
             });
           } else {
             this.$toast.success("Berhasil menambah produk ke wishlist", {
               theme: "bubble",
               position: "bottom-right",
-              duration: 5000
+              duration: 5000,
             });
           }
 
@@ -629,7 +622,7 @@ export default {
       try {
         if (this.$auth.loggedIn) {
           let data = {
-            product_id: product.id
+            product_id: product.id,
           };
           let response = await this.$axios.$post(
             process.env.API_URL + "/api/carts",
@@ -638,7 +631,7 @@ export default {
           this.$toast.success("Berhaasil menambah produk ke keranjang", {
             theme: "bubble",
             position: "bottom-right",
-            duration: 5000
+            duration: 5000,
           });
           console.log(response);
         } else {
@@ -649,8 +642,8 @@ export default {
         console.log(error);
       }
     },
-    ...mapActions(["addProductToCart"])
-  }
+    ...mapActions(["addProductToCart"]),
+  },
 };
 </script>
 

@@ -30,14 +30,15 @@
               />
               <div class="card-body">
                 <div class="row">
-                  <h5
+                  <h6
                     class="col-sm-9 card-title namabarang"
                     style="font-family: 'Nunito Sans'"
                   >
                     {{ data.name }}
-                  </h5>
+                  </h6>
+                  <div class="col-sm-1 p-0 m-0"></div>
                   <a
-                    class="col-sm-3"
+                    class="col-sm-2 p-0 m-0"
                     href=""
                     onclick="return false;"
                     @click.stop="addToWishList(data.id)"
@@ -54,13 +55,13 @@
                 </div>
                 <p
                   class="card-text mb-4 font-weight-bold"
-                  style="font-family: 'Nunito Sans'"
+                  style="font-family: 'Nunito Sans'; font-size: 18px"
                 >
                   Rp.{{ Number(data.display_price).toLocaleString("id-ID") }}
                 </p>
                 <div class="row" @click.stop>
                   <a
-                    class="btn text-danger btn-sm rounded col-sm-5 pt-2"
+                    class="btn text-danger fw-bold btn-sm rounded col-sm-7 pt-2"
                     style="
                       height: 38px;
                       margin-left: 10px;
@@ -70,9 +71,8 @@
                     "
                     onclick="return false;"
                     @click="addToCart(data)"
-                    ><p style="font-size: 12px">+ Keranjang</p>
+                    ><p style="font-size: 14px">+ Keranjang</p>
                   </a>
-                  <div class="col-sm-1 p-0"></div>
                   <a
                     @click.stop
                     class="col-sm-2 p-0"
@@ -95,7 +95,6 @@
                       src="/img/whatsapp_new.png"
                       alt=""
                   /></a>
-                  <div class="col-sm-1 p-0"></div>
                   <a
                     @click.stop
                     class="col-sm-2 p-0"
@@ -143,9 +142,9 @@
             />
             <div class="card-body">
               <div class="row">
-                <h5 style="font-size: 12px" class="card-title">
+                <h6 style="font-size: 12px" class="card-title namabarang">
                   {{ data.name }}
-                </h5>
+                </h6>
                 <div class="row mb-2">
                   <div class="col-9 pe-1">
                     <p

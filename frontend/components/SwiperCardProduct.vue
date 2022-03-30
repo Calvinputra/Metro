@@ -55,10 +55,10 @@
           </div>
           <!-- If we need navigation buttons -->
           <div>
-            <div class="swiper-button-prev pe-5"></div>
+            <div style="color: red" class="swiper-button-prev pe-5"></div>
           </div>
           <div>
-            <div class="swiper-button-next ps-5"></div>
+            <div style="color: red" class="swiper-button-next ps-5"></div>
           </div>
         </div>
       </section>
