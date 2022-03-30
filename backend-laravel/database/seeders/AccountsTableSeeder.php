@@ -21,20 +21,20 @@ class AccountsTableSeeder extends Seeder
         \DB::table('accounts')->insert(array (
             0 => 
             array (
-                'balance' => '36547000',
+                'id' => 1,
                 'code' => '1000',
-                'created_at' => NULL,
-                'id' => '1',
                 'name' => 'Saldo',
+                'balance' => 0.0,
+                'created_at' => NULL,
                 'updated_at' => '2022-03-13 20:30:13',
             ),
             1 => 
             array (
-                'balance' => '30383500',
+                'id' => 2,
                 'code' => '2000',
-                'created_at' => NULL,
-                'id' => '2',
                 'name' => 'Saldo ditahan',
+                'balance' => 0.0,
+                'created_at' => NULL,
                 'updated_at' => '2022-03-16 13:45:55',
             ),
         ));

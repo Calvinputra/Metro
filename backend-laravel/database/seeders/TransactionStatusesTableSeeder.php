@@ -21,37 +21,37 @@ class TransactionStatusesTableSeeder extends Seeder
         \DB::table('transaction_statuses')->insert(array (
             0 => 
             array (
-                'created_at' => NULL,
-                'id' => '1',
+                'id' => 1,
                 'name' => 'MENUNGGU PEMBAYARAN',
+                'created_at' => NULL,
                 'updated_at' => NULL,
             ),
             1 => 
             array (
-                'created_at' => NULL,
-                'id' => '2',
+                'id' => 2,
                 'name' => 'SEDANG DI PROSES',
+                'created_at' => NULL,
                 'updated_at' => NULL,
             ),
             2 => 
             array (
-                'created_at' => NULL,
-                'id' => '3',
+                'id' => 3,
                 'name' => 'SEDANG DI KIRIM',
+                'created_at' => NULL,
                 'updated_at' => NULL,
             ),
             3 => 
             array (
-                'created_at' => NULL,
-                'id' => '4',
+                'id' => 4,
                 'name' => 'SELESAI',
+                'created_at' => NULL,
                 'updated_at' => NULL,
             ),
             4 => 
             array (
-                'created_at' => NULL,
-                'id' => '5',
+                'id' => 5,
                 'name' => 'GAGAL',
+                'created_at' => NULL,
                 'updated_at' => NULL,
             ),
         ));

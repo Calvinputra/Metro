@@ -21,9 +21,9 @@ class CountriesTableSeeder extends Seeder
         \DB::table('countries')->insert(array (
             0 => 
             array (
-                'created_at' => '2021-11-06 13:26:54',
-                'id' => '1',
+                'id' => 1,
                 'name' => 'Indonesia',
+                'created_at' => '2021-11-06 13:26:54',
                 'updated_at' => '2021-11-06 13:26:54',
             ),
         ));

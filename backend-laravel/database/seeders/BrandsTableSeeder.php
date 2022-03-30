@@ -21,147 +21,91 @@ class BrandsTableSeeder extends Seeder
         \DB::table('brands')->insert(array (
             0 => 
             array (
-                'created_at' => '2022-01-21 13:31:30',
-                'id' => '1',
+                'id' => 1,
+                'name' => 'Antasan',
                 'logo' => NULL,
-                'name' => 'Toto',
-                'updated_at' => '2022-01-21 13:31:30',
+                'created_at' => '2022-03-30 15:09:16',
+                'updated_at' => '2022-03-30 15:09:16',
             ),
             1 => 
             array (
-                'created_at' => '2022-01-21 13:31:30',
-                'id' => '2',
+                'id' => 2,
+                'name' => 'Solid',
                 'logo' => NULL,
-                'name' => 'Dorma',
-                'updated_at' => '2022-01-21 13:31:30',
+                'created_at' => '2022-03-30 15:09:55',
+                'updated_at' => '2022-03-30 15:09:55',
             ),
             2 => 
             array (
-                'created_at' => '2022-01-21 13:31:30',
-                'id' => '3',
+                'id' => 3,
+                'name' => 'San-ei',
                 'logo' => NULL,
-                'name' => 'Elite',
-                'updated_at' => '2022-01-21 13:31:30',
+                'created_at' => '2022-03-30 15:09:55',
+                'updated_at' => '2022-03-30 15:09:55',
             ),
             3 => 
             array (
-                'created_at' => '2022-01-21 13:31:30',
-                'id' => '4',
+                'id' => 4,
+                'name' => 'Master Lock',
                 'logo' => NULL,
-                'name' => 'Wasser',
-                'updated_at' => '2022-01-21 13:31:30',
+                'created_at' => '2022-03-30 15:09:55',
+                'updated_at' => '2022-03-30 15:09:55',
             ),
             4 => 
             array (
-                'created_at' => '2022-01-21 13:31:30',
-                'id' => '5',
+                'id' => 5,
+                'name' => 'Grease Trap',
                 'logo' => NULL,
-                'name' => 'Executive',
-                'updated_at' => '2022-01-21 13:31:30',
+                'created_at' => '2022-03-30 15:09:55',
+                'updated_at' => '2022-03-30 15:09:55',
             ),
             5 => 
             array (
-                'created_at' => '2022-01-21 13:31:30',
-                'id' => '6',
+                'id' => 6,
+                'name' => 'Onda',
                 'logo' => NULL,
-                'name' => 'Kedeng',
-                'updated_at' => '2022-01-21 13:31:30',
+                'created_at' => '2022-03-30 15:09:55',
+                'updated_at' => '2022-03-30 15:09:55',
             ),
             6 => 
             array (
-                'created_at' => '2022-01-21 13:31:30',
-                'id' => '7',
+                'id' => 7,
+                'name' => 'Vitara',
                 'logo' => NULL,
-                'name' => 'Kenmaster',
-                'updated_at' => '2022-01-21 13:31:30',
+                'created_at' => '2022-03-30 15:09:55',
+                'updated_at' => '2022-03-30 15:09:55',
             ),
             7 => 
             array (
-                'created_at' => '2022-01-21 13:31:30',
-                'id' => '8',
+                'id' => 8,
+                'name' => 'TOTO',
                 'logo' => NULL,
-                'name' => 'Cisa',
-                'updated_at' => '2022-01-21 13:31:30',
+                'created_at' => '2022-03-30 15:09:55',
+                'updated_at' => '2022-03-30 15:09:55',
             ),
             8 => 
             array (
-                'created_at' => '2022-01-21 13:31:30',
-                'id' => '9',
+                'id' => 9,
+                'name' => 'Binoche',
                 'logo' => NULL,
-                'name' => 'Kend',
-                'updated_at' => '2022-01-21 13:31:30',
+                'created_at' => '2022-03-30 15:09:56',
+                'updated_at' => '2022-03-30 15:09:56',
             ),
             9 => 
             array (
-                'created_at' => '2022-01-21 13:31:30',
-                'id' => '10',
+                'id' => 10,
+                'name' => 'Dorma',
                 'logo' => NULL,
-                'name' => 'MasterLock',
-                'updated_at' => '2022-01-21 13:31:30',
+                'created_at' => '2022-03-30 15:09:56',
+                'updated_at' => '2022-03-30 15:09:56',
             ),
             10 => 
             array (
-                'created_at' => '2022-01-21 13:31:30',
-                'id' => '11',
+                'id' => 11,
+                'name' => 'Belocca',
                 'logo' => NULL,
-                'name' => 'Ariston',
-                'updated_at' => '2022-01-21 13:31:30',
-            ),
-            11 => 
-            array (
-                'created_at' => '2022-01-21 13:31:30',
-                'id' => '12',
-                'logo' => NULL,
-                'name' => 'Solid',
-                'updated_at' => '2022-01-21 13:31:30',
-            ),
-            12 => 
-            array (
-                'created_at' => '2022-01-21 13:31:30',
-                'id' => '13',
-                'logo' => NULL,
-                'name' => 'ina',
-                'updated_at' => '2022-01-21 13:31:30',
-            ),
-            13 => 
-            array (
-                'created_at' => '2022-01-21 13:31:30',
-                'id' => '14',
-                'logo' => NULL,
-                'name' => 'cello',
-                'updated_at' => '2022-01-21 13:31:30',
-            ),
-            14 => 
-            array (
-                'created_at' => '2022-01-21 13:31:30',
-                'id' => '15',
-                'logo' => NULL,
-                'name' => 'fio',
-                'updated_at' => '2022-01-21 13:31:30',
-            ),
-            15 => 
-            array (
-                'created_at' => '2022-01-21 13:31:30',
-                'id' => '16',
-                'logo' => NULL,
-                'name' => 'dekson',
-                'updated_at' => '2022-01-21 13:31:30',
-            ),
-            16 => 
-            array (
-                'created_at' => '2022-01-21 13:31:30',
-                'id' => '17',
-                'logo' => NULL,
-                'name' => 'Radar',
-                'updated_at' => '2022-01-21 13:31:30',
-            ),
-            17 => 
-            array (
-                'created_at' => '2022-01-21 13:31:30',
-                'id' => '18',
-                'logo' => NULL,
-                'name' => 'VNR',
-                'updated_at' => '2022-01-21 13:31:30',
+                'created_at' => '2022-03-30 15:09:56',
+                'updated_at' => '2022-03-30 15:09:56',
             ),
         ));
         
