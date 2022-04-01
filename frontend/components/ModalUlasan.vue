@@ -130,7 +130,7 @@ export default {
         data
       );
       if (response.success) {
-        this.$toast.success("Successfully give a rating", {
+        this.$toast.success("Berhasil memberikan ulasan", {
           theme: "bubble",
           position: "bottom-right",
           duration: 5000,
