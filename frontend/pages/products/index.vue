@@ -340,7 +340,7 @@ export default {
   },
   mounted() {
     if (this.sort == "" || !this.$route.query.order) {
-      this.sort = "Product Terbaru";
+      this.sort = "Produk Terbaru";
     }
     this.getSortItem();
   },
@@ -356,7 +356,7 @@ export default {
     },
     sort() {
       if (this.sort == "" || !this.$route.query.order) {
-        this.sort = "Product Terbaru";
+        this.sort = "Produk Terbaru";
       }
       this.getSortItem();
     },

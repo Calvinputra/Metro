@@ -129,7 +129,7 @@
           <div
             class="card bg-white rounded"
             style="
-              width: 150px;
+              width: 185px;
               box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25) !important;
               border-radius: 10px;
             "
@@ -140,23 +140,25 @@
               class="card-img-top height:auto"
               alt="..."
             />
-            <div class="card-body">
+            <div class="card-body m-0 pb-2">
               <div class="row">
-                <h6 style="font-size: 12px" class="card-title namabarang">
-                  {{ data.name }}
-                </h6>
-                <div class="row mb-2">
-                  <div class="col-9 pe-1">
+                <div class="col-11">
+                  <h6 style="font-size: 12px" class="card-title namabarang">
+                    {{ data.name }}
+                  </h6>
+                </div>
+                <div class="row mb-2 p-0 m-0">
+                  <div class="col-9">
                     <p
                       class="card-text font-weight-bold"
-                      style="font-size: 11px"
+                      style="font-size: 14px"
                     >
                       Rp.{{
                         Number(data.display_price).toLocaleString("id-ID")
                       }}
                     </p>
                   </div>
-                  <div class="col-2">
+                  <div class="col-3">
                     <a
                       href=""
                       class=""
@@ -175,9 +177,23 @@
                   </div>
                 </div>
               </div>
-              <div class="row mt-3">
-                <div class="col-1"></div>
-                <div class="col-3 ps-0 pe-0" @click.stop>
+              <div class="row">
+                <div class="col-6 p-0 m-0 pt-1 pb-1" @click.stop>
+                  <a
+                    class="btn fw-bold text-danger btn-sm"
+                    style="
+                      font-size: 10 px;
+                      background-color: #f3f3f3;
+                      width: 100%;
+                      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                    "
+                    onclick="return false;"
+                    @click="addToCart(data)"
+                    >+ Keranjang</a
+                  >
+                </div>
+                <div class="col p-0 m-0"></div>
+                <div class="col-2 p-0 m-0" @click.stop>
                   <a
                     class=""
                     target="_blank"
@@ -200,8 +216,8 @@
                       alt=""
                   /></a>
                 </div>
-                <div class="col-2"></div>
-                <div class="col-3 ps-0 pe-0" @click.stop>
+                <div class="col-1 p-0 m-0"></div>
+                <div class="col-2 p-0 m-0 me-1" @click.stop>
                   <a :href="data.url_tokopedia"
                     ><img
                       class="img-fluid rounded"
@@ -213,20 +229,6 @@
                       src="/img/tokopedia.png"
                       alt=""
                   /></a>
-                </div>
-                <div class="d-flex mt-3" @click.stop>
-                  <a
-                    class="btn text-danger btn-sm p-1"
-                    style="
-                      font-size: 12px;
-                      background-color: #f3f3f3;
-                      width: 100%;
-                      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
-                    "
-                    onclick="return false;"
-                    @click="addToCart(data)"
-                    >+ Keranjang</a
-                  >
                 </div>
               </div>
             </div>
