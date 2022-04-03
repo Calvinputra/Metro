@@ -68,7 +68,7 @@ class ProductController extends Controller
 
     public function index(Request $request)
     {
-        $paginate_item = $request->paginate ?? 15;
+        $paginate_item = $request->paginate ?? 12;
         $products = Product::with('category')->orderBy('created_at', 'DESC');
         $category = Category::find($request->category ?? 0);
         if (isset($request->s)) {
@@ -85,12 +85,12 @@ class ProductController extends Controller
             }
             //order
             $order_field = null;
-            if ($request->order == 'product_terbaru') {
+            if ($request->order == 'produk_terbaru') {
                 $order_field = 'created_at';
-            } else if ($request->order == 'harga_terbesar') {
+            } else if ($request->order == 'harga_tertinggi') {
                 $order_field = 'price';
                 $type = 'desc';
-            } else if ($request->order == 'harga_terkecil') {
+            } else if ($request->order == 'harga_terendah') {
                 $order_field = 'price';
                 $type = 'asc';
             }

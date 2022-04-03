@@ -167,7 +167,17 @@
                 <br />
                 <a
                   href="#"
-                  class="btn text-danger btn-sm rounded col-sm-3 ms-0 mb-3 py-2 px-2"
+                  class="
+                    btn
+                    text-danger
+                    btn-sm
+                    rounded
+                    col-sm-3
+                    ms-0
+                    mb-3
+                    py-2
+                    px-2
+                  "
                   @click="addToCart(data)"
                   style="
                     background-color: #f3f3f3;
@@ -213,60 +223,12 @@
                 <div>
                   <b-button
                     class="text-danger bg-white btn-outline-light"
-                    v-b-modal.modal-sm
+                    v-b-modal.lihat-detail-modal
                     variant=""
                     >Lihat Detail</b-button
                   >
                   <div class="container">
-                    <div class="d-flex">
-                      <b-modal id="modal-sm" size="sm" title="Rating">
-                        <div class="d-flex my-2">
-                          <img
-                            class="img-thumbnail max-width:100% height:auto"
-                            src="/img/emojione_star.png"
-                            style="border: 0"
-                            alt=""
-                          />
-                          <h3 class="my-auto mx-2">5</h3>
-                        </div>
-                        <div class="d-flex my-2">
-                          <img
-                            class="img-thumbnail max-width:100% height:auto"
-                            src="/img/emojione_star.png"
-                            style="border: 0"
-                            alt=""
-                          />
-                          <h3 class="my-auto mx-2">4</h3>
-                        </div>
-                        <div class="d-flex my-2">
-                          <img
-                            class="img-thumbnail max-width:100% height:auto"
-                            src="/img/emojione_star.png"
-                            style="border: 0"
-                            alt=""
-                          />
-                          <h3 class="my-auto mx-2">3</h3>
-                        </div>
-                        <div class="d-flex my-2">
-                          <img
-                            class="img-thumbnail max-width:100% height:auto"
-                            src="/img/emojione_star.png"
-                            style="border: 0"
-                            alt=""
-                          />
-                          <h3 class="my-auto mx-2">2</h3>
-                        </div>
-                        <div class="d-flex my-2">
-                          <img
-                            class="img-thumbnail max-width:100% height:auto"
-                            src="/img/emojione_star.png"
-                            style="border: 0"
-                            alt=""
-                          />
-                          <h3 class="my-auto mx-2">1</h3>
-                        </div>
-                      </b-modal>
-                    </div>
+                    <ModalLihatDetail :reviews="data.reviews" />
                   </div>
                 </div>
                 <!-- test -->
@@ -463,7 +425,7 @@
                 <div>
                   <b-button
                     class="text-danger bg-white btn-outline-light"
-                    v-b-modal.modal-sm
+                    v-b-modal.lihat-detail-modal
                     variant=""
                     >Lihat Detail</b-button
                   >
@@ -552,8 +514,8 @@ export default {
         process.env.API_URL + `/api/products/${params.id}`
       );
       let response_data = response.data.data;
-      console.log(response_data.review);
-
+      console.log("ASD");
+    console.log(response_data);
       return {
         data: response_data,
         breadcrumb: [
@@ -610,7 +572,6 @@ export default {
           }
 
           this.$nuxt.refresh();
-          console.log(response);
         } else {
           this.$router.push("/login");
         }
@@ -633,7 +594,6 @@ export default {
             position: "bottom-right",
             duration: 5000,
           });
-          console.log(response);
         } else {
           //this.$router.push("/login");
           this.addProductToCart(product);

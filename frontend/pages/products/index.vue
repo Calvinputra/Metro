@@ -74,16 +74,16 @@
                   <b-dropdown id="dropdown-1" :text="sort" class="m-md-2">
                     <b-dropdown-item
                       @click="
-                        onDropDownSelectHandler('product_terbaru', 'desc')
+                        onDropDownSelectHandler('produk_terbaru', 'desc')
                       "
                       >Produk terbaru</b-dropdown-item
                     >
                     <b-dropdown-item
-                      @click="onDropDownSelectHandler('harga_terbesar', 'desc')"
+                      @click="onDropDownSelectHandler('harga_tertinggi', 'desc')"
                       >Harga Tertinggi</b-dropdown-item
                     >
                     <b-dropdown-item
-                      @click="onDropDownSelectHandler('harga_terkecil', 'asc')"
+                      @click="onDropDownSelectHandler('harga_terendah', 'asc')"
                       >Harga Terendah</b-dropdown-item
                     >
                   </b-dropdown>
@@ -145,19 +145,19 @@
                     <b-dropdown id="dropdown-1" :text="sort" class="m-md-2">
                       <b-dropdown-item
                         @click="
-                          onDropDownSelectHandler('product_terbaru', 'desc')
+                          onDropDownSelectHandler('produk_terbaru', 'desc')
                         "
                         >Produk terbaru</b-dropdown-item
                       >
                       <b-dropdown-item
                         @click="
-                          onDropDownSelectHandler('harga_terbesar', 'desc')
+                          onDropDownSelectHandler('harga_tertinggi', 'desc')
                         "
                         >Harga Tertinggi</b-dropdown-item
                       >
                       <b-dropdown-item
                         @click="
-                          onDropDownSelectHandler('harga_terkecil', 'asc')
+                          onDropDownSelectHandler('harga_terendah', 'asc')
                         "
                         >Harga Terendah</b-dropdown-item
                       >
@@ -293,13 +293,13 @@ export default {
       };
     },
     getSortItem() {
-      if (this.$route.query.order == "harga_terbesar") {
+      if (this.$route.query.order == "harga_tertinggi") {
         this.sort = "Harga Tertinggi";
       }
-      if (this.$route.query.order == "product_terbaru") {
+      if (this.$route.query.order == "produk_terbaru") {
         this.sort = "Produk Terbaru";
       }
-      if (this.$route.query.order == "harga_terkecil") {
+      if (this.$route.query.order == "harga_terendah") {
         this.sort = "Harga Terendah";
       }
       //console.log(this.sort);
