@@ -37,5 +37,9 @@ class Product extends Model implements Auditable
     {
         return $this->hasMany('App\Models\TransactionReview', 'product_id')->with('transaction');
     }
+    public function brand()
+    {
+        return $this->belongsTo('App\Models\Brand', 'brand_id');
+    }
    
 }

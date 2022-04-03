@@ -203,9 +203,10 @@
                     <button
                       @click.prevent="doLogin"
                       type="submit"
-                      class="btn col-9 text-white btn-danger btn-sm rounded p-2"
+                      class="btn text-white btn-danger btn-sm rounded"
                       style="
                         box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                        padding: 7px 60px;
                       "
                     >
                       Masuk Akun

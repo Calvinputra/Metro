@@ -182,15 +182,14 @@
                   <a
                     class="btn fw-bold text-danger btn-sm"
                     style="
-                      font-size: 10 px;
                       background-color: #f3f3f3;
                       width: 100%;
                       box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                     "
                     onclick="return false;"
                     @click="addToCart(data)"
-                    >+ Keranjang</a
-                  >
+                    ><p style="font-size: 10px">+ Keranjang</p>
+                  </a>
                 </div>
                 <div class="col p-0 m-0"></div>
                 <div class="col-2 p-0 m-0" @click.stop>

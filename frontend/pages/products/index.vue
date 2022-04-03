@@ -73,13 +73,13 @@
                 <div class="col btn">
                   <b-dropdown id="dropdown-1" :text="sort" class="m-md-2">
                     <b-dropdown-item
-                      @click="
-                        onDropDownSelectHandler('produk_terbaru', 'desc')
-                      "
+                      @click="onDropDownSelectHandler('produk_terbaru', 'desc')"
                       >Produk terbaru</b-dropdown-item
                     >
                     <b-dropdown-item
-                      @click="onDropDownSelectHandler('harga_tertinggi', 'desc')"
+                      @click="
+                        onDropDownSelectHandler('harga_tertinggi', 'desc')
+                      "
                       >Harga Tertinggi</b-dropdown-item
                     >
                     <b-dropdown-item
@@ -134,9 +134,6 @@
           <div
             class="col-sm-10 align-self-start mt-2 row justify-content-between pr-0"
           >
-            <div class="col-sm-4 mb-2">
-              <h2>Kategory 1</h2>
-            </div>
             <div class="col-sm-8 mx-auto my-auto">
               <div class="row">
                 <h4 class="col-3 align-self-center">Urutkan:</h4>

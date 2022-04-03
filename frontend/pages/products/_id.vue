@@ -54,7 +54,8 @@
               </ul>
             </div>
             <div class="col-sm-6 mt-5 container">
-              <h5>Nama Merek</h5>
+              <h5 v-if="data.brand">{{ data.brand.name }}</h5>
+              <h5 v-else>Lainnya</h5>
               <div class="row">
                 <div class="col-sm-8">
                   <h3>
@@ -167,17 +168,7 @@
                 <br />
                 <a
                   href="#"
-                  class="
-                    btn
-                    text-danger
-                    btn-sm
-                    rounded
-                    col-sm-3
-                    ms-0
-                    mb-3
-                    py-2
-                    px-2
-                  "
+                  class="btn text-danger btn-sm rounded col-sm-3 ms-0 mb-3 py-2 px-2"
                   @click="addToCart(data)"
                   style="
                     background-color: #f3f3f3;
@@ -227,9 +218,6 @@
                     variant=""
                     >Lihat Detail</b-button
                   >
-                  <div class="container">
-                    <ModalLihatDetail :reviews="data.reviews" />
-                  </div>
                 </div>
                 <!-- test -->
               </div>
@@ -279,7 +267,8 @@
               </b-carousel>
             </div>
             <div class="col-sm-6 mt-5 container">
-              <h5>Nama Merek</h5>
+              <h5 v-if="data.brand">{{ data.brand.name }}</h5>
+              <h5 v-else>Lainnya</h5>
               <div class="row">
                 <div class="col-10">
                   <h3>{{ data.code }} - {{ data.name }}</h3>
@@ -447,6 +436,9 @@
           </template>
         </div>
       </section>
+      <div class="container">
+        <ModalLihatDetail :reviews="data.reviews" />
+      </div>
     </section>
 
     <!-- JQuery -->
@@ -515,7 +507,7 @@ export default {
       );
       let response_data = response.data.data;
       console.log("ASD");
-    console.log(response_data);
+      console.log(response_data);
       return {
         data: response_data,
         breadcrumb: [

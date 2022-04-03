@@ -2,12 +2,12 @@
   <!-- search -->
   <div
     id="search"
-    class="nav-item col-sm-8 align-self-start mt-4"
+    class="nav-item col-sm-12 align-self-start mt-4 me-3 pe-5"
     style="font-family: 'Nunito Sans'"
   >
     <div class="d-flex">
       <input
-        class="form-control"
+        class="form-control col-sm-12"
         style="border-radius: 10px 0px 0px 10px"
         type="search"
         placeholder="Cari Barang Di sini"
@@ -17,7 +17,7 @@
         v-on:keyup.enter="onSearch"
       />
       <button
-        class="btn btn-outline-success mx-auto"
+        class="btn btn-outline-success m-0"
         style="
           background-color: #e5e5e5;
           border-radius: 0px 10px 10px 0px;
@@ -35,16 +35,16 @@
     <!-- kategory -->
     <div id="kategory" class="nav-item col-sm-12 align-self-end">
       <ul
-        class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+        class="navbar-nav me-auto my-2 m-0 p-0 my-lg-0 navbar-nav-scroll"
         style="--bs-scroll-height: 100px"
       >
         <li
-          class="nav-item col justify-content-center d-flex"
+          class="nav-item col justify-content-center d-flex m-0 p-0"
           v-for="menu_item in data.items"
           :key="menu_item.id"
         >
           <nuxt-link
-            class="nav-link active text-danger"
+            class="nav-link active text-danger m-0"
             aria-current="page"
             :target="menu_item.target"
             :to="menu_item.url"

@@ -249,17 +249,48 @@
             </table>
           </div>
         </div>
-        <div class="text-right col-sm-11">
-          <div>
-            <span style="margin-right: 100px">Total Berat</span>
-            <span class="">{{ (weightTotal / 1000).toFixed(2) }} Kg</span>
-          </div>
-        </div>
         <div class="text-right col-11">
-          <span style="margin-right: 75px">Total Harga</span>
-          <span class=""
-            >Rp. {{ Number(grandTotal).toLocaleString("id-ID") }}</span
-          >
+          <table class="table" style="border-bottom-width: 0px !important">
+            <tbody>
+              <tr>
+                <td
+                  style="
+                    border-bottom-width: 0px !important;
+                    border-top: 0px !important;
+                  "
+                >
+                  Total Berat
+                </td>
+                <td
+                  style="
+                    border-bottom-width: 0px !important;
+                    border-top: 0px !important;
+                  "
+                  class="col-sm-2"
+                >
+                  {{ (weightTotal / 1000).toFixed(2) }} Kg
+                </td>
+              </tr>
+              <tr>
+                <td
+                  style="
+                    border-bottom-width: 0px !important;
+                    border-top: 0px !important;
+                  "
+                >
+                  Total Harga
+                </td>
+                <td
+                  style="
+                    border-bottom-width: 0px !important;
+                    border-top: 0px !important;
+                  "
+                >
+                  Rp. {{ Number(grandTotal).toLocaleString("id-ID") }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <br />
         <br />
@@ -516,17 +547,48 @@
             </table>
           </div>
         </div>
-        <div class="text-right col-11">
-          <span class="text-center" style="font-size: 12px">Total Berat</span>
-          <span class="" style="font-size: 12px; margin-left: 40px">
-            {{ (weightTotal / 1000).toFixed(2) }} Kg</span
-          >
-        </div>
         <div class="text-right col-11 mb-4">
-          <span class="text-center" style="font-size: 12px">Total Harga</span>
-          <span class="" style="font-size: 12px; margin-left: 23px"
-            >Rp. {{ Number(grandTotal).toLocaleString("id-ID") }}</span
-          >
+          <table class="table" style="border-bottom-width: 0px !important">
+            <tbody>
+              <tr>
+                <td
+                  style="
+                    border-bottom-width: 0px !important;
+                    border-top: 0px !important;
+                  "
+                >
+                  Total Berat
+                </td>
+                <td
+                  style="
+                    border-bottom-width: 0px !important;
+                    border-top: 0px !important;
+                  "
+                  class="col-5"
+                >
+                  {{ (weightTotal / 1000).toFixed(2) }} Kg
+                </td>
+              </tr>
+              <tr>
+                <td
+                  style="
+                    border-bottom-width: 0px !important;
+                    border-top: 0px !important;
+                  "
+                >
+                  Total Harga
+                </td>
+                <td
+                  style="
+                    border-bottom-width: 0px !important;
+                    border-top: 0px !important;
+                  "
+                >
+                  Rp. {{ Number(grandTotal).toLocaleString("id-ID") }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <br />
         <br />

@@ -8,7 +8,7 @@
     <!-- WEB -->
     <div
       id="header-webview"
-      class="container space-between"
+      class="container ms-1 me-2 p-0 row"
       style="height: auto"
     >
       <!-- Logo -->
@@ -21,40 +21,77 @@
             alt=""
         /></nuxt-link>
       </div>
-
-      <Search :data="menu" />
+      <div class="col-sm-7">
+        <Search :data="menu" />
+      </div>
 
       <!-- hamburger button -->
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarScroll"
-        aria-controls="navbarScroll"
-        aria-expanded="true"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
       <!-- icon -->
-      <div class="collapse navbar-collapse center" id="navbarScroll">
-        <div id="icon navbar" class="container-fluid ms-4">
-          <div class="col-sm-4" style="padding: 0">
+      <div class="collapse navbar-collapse col-sm-4 p-0" id="navbarScroll">
+        <div id="icon navbar" class="container-fluid p-0 row">
+          <div v-if="!this.$auth.loggedIn" class="col-sm-2"></div>
+
+          <div v-if="this.$auth.loggedIn" class="col-sm-1 m-0 p-0"></div>
+          <div class="col-sm-1 text-center p-0 m-0">
+            <nuxt-link to="/wishlist"
+              ><i
+                class="fas fa-heart p-0 m-0"
+                style="font-size: 30px !important; color: #c63442 !important"
+              ></i
+            ></nuxt-link>
+          </div>
+          <div class="col-sm-1 p-0 m-0">
+            <nuxt-link to="/cart"
+              ><img style="padding-left: 25px" src="/img/cart.png" alt=""
+            /></nuxt-link>
+          </div>
+          <div class="col-sm-1"></div>
+          <div v-if="!this.$auth.loggedIn" class="col-sm-3 m-0 p-0">
+            <div class="text-center">
+              <nuxt-link to="/register">
+                <button
+                  type="submit"
+                  class="btn text-danger btn-light btn-sm rounded col-sm-12 me-2"
+                  style=""
+                >
+                  Daftar
+                </button>
+              </nuxt-link>
+            </div>
+          </div>
+          <div v-if="!this.$auth.loggedIn" class="col-sm-3 m-0 p-0">
+            <div class="text-center">
+              <nuxt-link to="/login">
+                <button
+                  type="submit"
+                  class="btn text-white btn-danger btn-sm rounded col-sm-12"
+                  style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+                >
+                  Masuk
+                </button>
+              </nuxt-link>
+            </div>
+          </div>
+          <div v-if="!this.$auth.loggedIn" class="col-sm-1"></div>
+          <div v-if="this.$auth.loggedIn" class="col-sm-3 m-0 p-0">
             <b-dropdown
               id="dropdown-1"
               variant="transparent"
               text=""
-              no-caret
-              class="ms-12"
+              class="ms-12 p-0 m-0"
             >
-              <template slot="button-content">
+              <template class="" slot="button-content">
                 <i
-                  class="py-0 fa fa-user"
-                  style="font-size: 30px !important"
+                  class="py-0 fa fa-user me-2"
+                  style="font-size: 25px !important"
                 ></i>
+                {{ this.$auth.user.first_name }}
                 <em></em>
               </template>
-              <b-dropdown-item v-if="this.$auth.loggedIn" to="/profile"
+              <b-dropdown-item
+                class="p-0 m-0"
+                v-if="this.$auth.loggedIn"
+                to="/profile"
                 >Akun Saya</b-dropdown-item
               >
               <b-dropdown-item
@@ -65,31 +102,15 @@
               <b-dropdown-item v-if="this.$auth.loggedIn" to="/change_password"
                 >Ubah sandi</b-dropdown-item
               >
-              <b-dropdown-item v-if="!this.$auth.loggedIn" to="/login"
-                >Masuk</b-dropdown-item
-              >
-              <b-dropdown-item v-if="!this.$auth.loggedIn" to="/register"
-                >Daftar</b-dropdown-item
-              >
-
               <b-dropdown-item v-if="this.$auth.loggedIn" @click="logout"
                 >Keluar</b-dropdown-item
               >
             </b-dropdown>
           </div>
-          <div class="col-sm-4">
-            <nuxt-link to="/wishlist"
-              ><i
-                class="fas fa-heart"
-                style="font-size: 30px !important; color: #c63442 !important"
-              ></i
-            ></nuxt-link>
-          </div>
-          <div class="col-sm-4">
-            <nuxt-link to="/cart"><img src="/img/cart.png" alt="" /></nuxt-link>
-          </div>
+          <div v-if="this.$auth.loggedIn" class="col-sm-3 m-0 p-0"></div>
           <!-- Kosong -->
         </div>
+        <div class="col-sm-2"></div>
       </div>
     </div>
 
@@ -124,6 +145,7 @@
           <b-dropdown-item v-if="!this.$auth.loggedIn" to="/register"
             >Daftar</b-dropdown-item
           >
+          <b-dropdown-item to="/products">Produk</b-dropdown-item>
           <b-dropdown-item v-if="this.$auth.loggedIn" to="/riwayat_pembelian"
             >Riwayat Pembelian</b-dropdown-item
           >

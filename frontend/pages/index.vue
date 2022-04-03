@@ -3,7 +3,29 @@
     <LoadingSpinner v-if="!isLoaded" />
     <section id="home-webview" v-if="isLoaded">
       <Carousel1 :data="sliderData" />
+      <h3 class="text-center m-0">Brand yang Kami Sediakan</h3>
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-2 col-6 d-flex align-items-center">
+          <img
+            class="d-flex align-items-center"
+            style="width: 200px"
+            src="/img/onda.jpg"
+            alt=""
+          />
+        </div>
+        <div class="col-sm-2 col-6 d-flex align-items-center">
+          <img style="width: 200px" src="/img/master-lock.png" alt="" />
+        </div>
+        <div class="col-sm-2 col-6 d-flex align-items-center">
+          <img style="width: 200px" src="/img/TOTO.png" alt="" />
+        </div>
+        <div class="col-sm-2 col-6 d-flex align-items-center">
+          <img style="width: 200px" src="/img/san-ei.jpg" alt="" />
+        </div>
 
+        <div class="col-sm-2"></div>
+      </div>
       <template v-for="content in contents">
         <template v-if="content.title">
           <div

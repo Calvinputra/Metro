@@ -51,8 +51,25 @@
             </div>
           </div>
 
-          <div class="d-flex mt-3">
-            <div class="col ps-0 pe-0" @click.stop>
+          <div class="row mt-2">
+            <div class="col-7 p-0 m-0">
+              <a
+                class="btn text-danger btn-sm p-1 fw-bold"
+                style="
+                  font-size: 10px;
+                  background-color: #f3f3f3;
+                  width: 100%;
+                  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                "
+                onclick="return false;"
+                @click="addToCart(data)"
+                >+keranjang</a
+              >
+            </div>
+            <div
+              class="me-1 ms-1 col-2 ps-0 pe-0 d-flex align-items-center"
+              @click.stop
+            >
               <a
                 class="d-flex justify-content-center"
                 target="_blank"
@@ -76,11 +93,8 @@
                   alt=""
               /></a>
             </div>
-            <div class="col ps-0 pe-0" @click.stop>
-              <a
-                class="d-flex justify-content-center"
-                target="_blank"
-                :href="data.url_tokopedia"
+            <div class="col-2 ps-0 pe-0" @click.stop>
+              <a target="_blank" :href="data.url_tokopedia"
                 ><img
                   id="logo"
                   class="img-fluid rounded"
@@ -93,21 +107,6 @@
                   alt=""
               /></a>
             </div>
-          </div>
-
-          <div class="d-flex mt-3" @click.stop>
-            <a
-              class="btn text-danger btn-sm p-1"
-              style="
-                font-size: 12px;
-                background-color: #f3f3f3;
-                width: 100%;
-                box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
-              "
-              onclick="return false;"
-              @click="addToCart(data)"
-              >+ Keranjang</a
-            >
           </div>
         </div>
       </div>

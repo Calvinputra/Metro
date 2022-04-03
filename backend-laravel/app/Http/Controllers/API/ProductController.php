@@ -103,7 +103,7 @@ class ProductController extends Controller
         $products = $products->paginate($paginate_item);
 
         //category data title
-        $header_title = "All Product";
+        $header_title = "Semua Kategori";
         if ($category) {
             $header_title = $category->name;
         }
