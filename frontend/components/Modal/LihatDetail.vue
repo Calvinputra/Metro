@@ -1,65 +1,110 @@
 <template>
   <div class="d-flex">
     <b-modal id="lihat-detail-modal" size="sm" title="Rating">
-      <div class="d-flex my-2">
-        <img
-          class="img-thumbnail max-width:100% height:auto"
-          src="/img/emojione_star.png"
-          style="border: 0"
-          alt=""
-        />
-        <h3 class="my-auto mx-2">
-          5
-          <span class="ulasan">{{ review_5 }} Ulasan</span>
-        </h3>
+      <div class="row my-2">
+        <div class="col-sm-2 p-0 ms-3">
+          <div class="d-flex">
+            <img
+              class="img-thumbnail"
+              src="/img/emojione_star.png"
+              style="border: 0; width: 25px; height: 25px"
+              alt=""
+            />
+            <h6 class="pt-1">5</h6>
+          </div>
+        </div>
+        <div class="col-sm-5 p-0 m-0">
+          <ProgressBar progress="100" />
+        </div>
+        <div class="col-sm-3 p-0 text-end">
+          <span style="font-size: 14px" class="ulasan"
+            >{{ review_5 }} Ulasan</span
+          >
+        </div>
       </div>
-      <div class="d-flex my-2">
-        <img
-          class="img-thumbnail max-width:100% height:auto"
-          src="/img/emojione_star.png"
-          style="border: 0"
-          alt=""
-        />
-        <h3 class="my-auto mx-2">
-          4
-          <span class="ulasan">{{ review_4 }} Ulasan</span>
-        </h3>
+      <div class="row my-2">
+        <div class="col-sm-2 p-0 ms-3">
+          <div class="d-flex">
+            <img
+              class="img-thumbnail"
+              src="/img/emojione_star.png"
+              style="border: 0; width: 25px; height: 25px"
+              alt=""
+            />
+            <h6 class="pt-1">4</h6>
+          </div>
+        </div>
+        <div class="col-sm-5 p-0 m-0">
+          <ProgressBar progress="100" />
+        </div>
+        <div class="col-sm-3 p-0 text-end">
+          <span style="font-size: 14px" class="ulasan"
+            >{{ review_4 }} Ulasan</span
+          >
+        </div>
       </div>
-      <div class="d-flex my-2">
-        <img
-          class="img-thumbnail max-width:100% height:auto"
-          src="/img/emojione_star.png"
-          style="border: 0"
-          alt=""
-        />
-        <h3 class="my-auto mx-2">
-          3
-          <span class="ulasan">{{ review_3 }} Ulasan</span>
-        </h3>
+      <div class="row my-2">
+        <div class="col-sm-2 p-0 ms-3">
+          <div class="d-flex">
+            <img
+              class="img-thumbnail"
+              src="/img/emojione_star.png"
+              style="border: 0; width: 25px; height: 25px"
+              alt=""
+            />
+            <h6 class="pt-1">3</h6>
+          </div>
+        </div>
+        <div class="col-sm-5 p-0 m-0">
+          <ProgressBar progress="100" />
+        </div>
+        <div class="col-sm-3 p-0 text-end">
+          <span style="font-size: 14px" class="ulasan"
+            >{{ review_3 }} Ulasan</span
+          >
+        </div>
       </div>
-      <div class="d-flex my-2">
-        <img
-          class="img-thumbnail max-width:100% height:auto"
-          src="/img/emojione_star.png"
-          style="border: 0"
-          alt=""
-        />
-        <h3 class="my-auto mx-2">
-          2
-          <span class="ulasan">{{ review_2 }} Ulasan</span>
-        </h3>
+      <div class="row my-2">
+        <div class="col-sm-2 p-0 ms-3">
+          <div class="d-flex">
+            <img
+              class="img-thumbnail"
+              src="/img/emojione_star.png"
+              style="border: 0; width: 25px; height: 25px"
+              alt=""
+            />
+            <h6 class="pt-1">2</h6>
+          </div>
+        </div>
+        <div class="col-sm-5 p-0 m-0">
+          <ProgressBar progress="100" />
+        </div>
+        <div class="col-sm-3 p-0 text-end">
+          <span style="font-size: 14px" class="ulasan"
+            >{{ review_2 }} Ulasan</span
+          >
+        </div>
       </div>
-      <div class="d-flex my-2">
-        <img
-          class="img-thumbnail max-width:100% height:auto"
-          src="/img/emojione_star.png"
-          style="border: 0"
-          alt=""
-        />
-        <h3 class="my-auto mx-2">
-          1
-          <span class="ulasan">{{ review_1 }} Ulasan</span>
-        </h3>
+      <div class="row my-2">
+        <div class="col-sm-2 p-0 ms-3">
+          <div class="d-flex">
+            <img
+              class="img-thumbnail"
+              src="/img/emojione_star.png"
+              style="border: 0; width: 25px; height: 25px"
+              alt=""
+            />
+            <h6 class="pt-1">1</h6>
+          </div>
+        </div>
+        <div class="col-sm-5 p-0 m-0">
+          <ProgressBar progress="100" />
+        </div>
+        <div class="col-sm-3 p-0 text-end">
+          <span style="font-size: 14px" class="ulasan"
+            >{{ review_1 }} Ulasan</span
+          >
+        </div>
       </div>
     </b-modal>
   </div>

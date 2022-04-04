@@ -21,9 +21,10 @@
         />
         <div class="card-body">
           <div class="row">
-            <h6 class="col-sm-9 card-title" style="font-family: 'Nunito Sans'">
+            <h6 class="col-sm-8 card-title" style="font-family: 'Nunito Sans'">
               {{ data.name }}
             </h6>
+            <div class="col-sm-1 p-0 m-0"></div>
             <div class="col-sm-1 p-0 m-0"></div>
             <a
               class="col-sm-2 p-0 m-0"

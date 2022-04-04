@@ -3,28 +3,25 @@
     <LoadingSpinner v-if="!isLoaded" />
     <section id="home-webview" v-if="isLoaded">
       <Carousel1 :data="sliderData" />
-      <h3 class="text-center m-0">Brand yang Kami Sediakan</h3>
       <div class="row">
-        <div class="col-sm-2"></div>
-        <div class="col-sm-2 col-6 d-flex align-items-center">
-          <img
-            class="d-flex align-items-center"
-            style="width: 200px"
-            src="/img/onda.jpg"
-            alt=""
-          />
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2 d-flex align-items-center justify-content-center">
+          <img style="width: 130px" src="/img/toto1.png" alt="" />
         </div>
-        <div class="col-sm-2 col-6 d-flex align-items-center">
-          <img style="width: 200px" src="/img/master-lock.png" alt="" />
+        <div class="col-sm-2 d-flex align-items-center justify-content-center">
+          <img style="width: 150px" class="mt-3" src="/img/onda.jpg" alt="" />
         </div>
-        <div class="col-sm-2 col-6 d-flex align-items-center">
-          <img style="width: 200px" src="/img/TOTO.png" alt="" />
+        <div class="col-sm-2 d-flex align-items-center justify-content-center">
+          <img style="width: 170px" src="/img/san-ei.jpg" alt="" />
         </div>
-        <div class="col-sm-2 col-6 d-flex align-items-center">
-          <img style="width: 200px" src="/img/san-ei.jpg" alt="" />
+        <div class="col-sm-2 d-flex align-items-center justify-content-center">
+          <img style="width: 150px" src="/img/master_lock.png" alt="" />
+        </div>
+        <div class="col-sm-2 d-flex align-items-center justify-content-center">
+          <img style="width: 130px" src="/img/dorma.png" alt="" />
         </div>
 
-        <div class="col-sm-2"></div>
+        <div class="col-sm-1"></div>
       </div>
       <template v-for="content in contents">
         <template v-if="content.title">
@@ -55,6 +52,9 @@
           <SwiperCardProduct :products="content.products" />
         </section>
       </template>
+      <div class="row">
+        <div class="col-sm-1"></div>
+      </div>
 
       <Footer2mobile />
       <div style="position: inherit"></div>
