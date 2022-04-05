@@ -588,7 +588,7 @@ export default {
           });
         } else {
           //this.$router.push("/login");
-          this.addProductToCart(product);
+             this.addProductToCart({ product: product, notification: true });
         }
       } catch (error) {
         console.log(error);
