@@ -14,7 +14,7 @@
           </div>
         </div>
         <div class="col-sm-5 p-0 m-0">
-          <ProgressBar progress="100" />
+          <ProgressBar :progress="this.review_5*100/this.total" />
         </div>
         <div class="col-sm-3 p-0 text-end">
           <span style="font-size: 14px" class="ulasan"
@@ -35,7 +35,7 @@
           </div>
         </div>
         <div class="col-sm-5 p-0 m-0">
-          <ProgressBar progress="100" />
+          <ProgressBar  :progress="this.review_4*100/this.total" />
         </div>
         <div class="col-sm-3 p-0 text-end">
           <span style="font-size: 14px" class="ulasan"
@@ -56,7 +56,7 @@
           </div>
         </div>
         <div class="col-sm-5 p-0 m-0">
-          <ProgressBar progress="100" />
+          <ProgressBar  :progress="this.review_3*100/this.total" />
         </div>
         <div class="col-sm-3 p-0 text-end">
           <span style="font-size: 14px" class="ulasan"
@@ -77,7 +77,7 @@
           </div>
         </div>
         <div class="col-sm-5 p-0 m-0">
-          <ProgressBar progress="100" />
+          <ProgressBar  :progress="this.review_2*100/this.total" />
         </div>
         <div class="col-sm-3 p-0 text-end">
           <span style="font-size: 14px" class="ulasan"
@@ -98,7 +98,7 @@
           </div>
         </div>
         <div class="col-sm-5 p-0 m-0">
-          <ProgressBar progress="100" />
+          <ProgressBar :progress="this.review_1*100/this.total" />
         </div>
         <div class="col-sm-3 p-0 text-end">
           <span style="font-size: 14px" class="ulasan"
@@ -126,6 +126,7 @@ export default {
       review_3: 0,
       review_4: 0,
       review_5: 0,
+      total:0,
     };
   },
   mounted() {
@@ -145,6 +146,11 @@ export default {
       this.review_5 = this.reviews.filter((review) => {
         return review.rating == 5;
       }).length;
+
+      this.total = this.review_1+this.review_2+this.review_3+this.review_4+this.review_5;
+      if(this.total==0){
+        this.total=1;
+      }
     }
   },
 };
