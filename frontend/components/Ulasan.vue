@@ -12,9 +12,9 @@
               <i
                 v-for="index in 5"
                 :key="`rating-icon-${index}`"
-                :class="
-                  `${index <= review.rating ? 'fas' : 'far'} fa-star me-1`
-                "
+                :class="`${
+                  index <= review.rating ? 'fas' : 'far'
+                } fa-star me-1`"
                 style="font-size: 25px !important"
                 aria-hidden="true"
               ></i>
@@ -32,11 +32,11 @@
     <div class="container" id="ulasan-mobileview">
       <div class="row">
         <div class="col-sm-5 d-flex mb-3">
-          <img
-            class="img-fluid max-width:100% height:auto rounded"
-            src="/img/spcBody.jpg"
-            alt=""
-          />
+          <i
+            class="fa me-3 fa-user-circle"
+            style="font-size: 40px !important"
+          ></i>
+
           <div>
             <h5 class="mb-0">{{ review.transaction.customer_name }}</h5>
             <div class="mb-1">
@@ -82,8 +82,8 @@ export default {
   props: ["review"],
   data() {
     return {
-      ASSET_URL: process.env.ASSET_URL
+      ASSET_URL: process.env.ASSET_URL,
     };
-  }
+  },
 };
 </script>

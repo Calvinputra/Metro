@@ -59,7 +59,7 @@ class ProductResource extends JsonResource
             'attributes'       => $attributes,
             'wishlist_exist'   => $wishlist_exist,
             'reviews'          => $this->reviews,
-            'rating'           => $this->reviews->avg('rating') ?? 0,
+            'rating'           => number_format($this->reviews->avg('rating') ?? 0, '2','.',','),
             'url_tokopedia'    => $url_tokopedia,
             'url_shopee'       => $url_shopee,
 

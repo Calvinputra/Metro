@@ -41,9 +41,23 @@
             ></nuxt-link>
           </div>
           <div class="col-sm-1 p-0 m-0">
-            <nuxt-link to="/cart"
-              ><img style="padding-left: 25px" src="/img/cart.png" alt=""
-            /></nuxt-link>
+            <nuxt-link style="text-decoration: none" to="/cart">
+              <div
+                class="ms-4 d-flex justify-content-end"
+                style="
+                  width: 30px;
+                  height: 30px;
+                  background-size: cover;
+                  background-repeat: no-repeat;
+                  background-image: url('/img/cart.png');
+                "
+              >
+                <i
+                  style="font-size: 12px !important; color: red !important"
+                  class="fa fa-solid fa-circle"
+                ></i>
+              </div>
+            </nuxt-link>
           </div>
           <div class="col-sm-1"></div>
           <div v-if="!this.$auth.loggedIn" class="col-sm-3 m-0 p-0">

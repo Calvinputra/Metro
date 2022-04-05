@@ -10,7 +10,7 @@
             <section class="">
               <div class="row">
                 <div>
-                  <h1 style="font-family: 'Nunito Sans'">Kategory</h1>
+                  <h1 style="font-family: 'Nunito Sans'">Kategori</h1>
                   <template v-if="!$route.query.category">
                     <div class="rounded" style="background-color: #841c26">
                       <a
@@ -64,14 +64,51 @@
           <div
             class="col-sm-10 align-self-start mt-2 row justify-content-between"
           >
-            <div class="col-sm-4">
-              <h2 style="font-family: 'Nunito Sans'">{{ title }}</h2>
+            <div class="col-sm-3">
+              <h4 class="mt-3" style="font-family: 'Nunito Sans'">
+                {{ title }}
+              </h4>
             </div>
-            <div class="col-sm-8 mx-auto my-auto mb-3">
+            <div class="col-sm-4">
+              <center>
+                <div class="row" style="float: right">
+                  <h5 class="col align-self-center">Merek:</h5>
+                  <div class="col btn">
+                    <b-dropdown
+                      id="dropdown-dropright"
+                      dropright
+                      text="Antasan"
+                      variant="danger"
+                      class="m-2"
+                    >
+                      <b-dropdown-item>Antasan</b-dropdown-item>
+                      <b-dropdown-item>Belocca</b-dropdown-item>
+                      <b-dropdown-item>Binoche</b-dropdown-item>
+                      <b-dropdown-item>Dorma</b-dropdown-item>
+                      <b-dropdown-item>Grease Trap</b-dropdown-item>
+                      <b-dropdown-item>Master Lock</b-dropdown-item>
+                      <b-dropdown-item>Onda</b-dropdown-item>
+                      <b-dropdown-item>San-ei</b-dropdown-item>
+                      <b-dropdown-item>Solid</b-dropdown-item>
+                      <b-dropdown-item>Toto</b-dropdown-item>
+                      <b-dropdown-item>Vitara</b-dropdown-item>
+                    </b-dropdown>
+                    <div class="dropdown-menu">...</div>
+                  </div>
+                </div>
+              </center>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4 mx-auto my-auto mb-3">
               <div class="row" style="float: right">
                 <h5 class="col align-self-center">Urutkan:</h5>
                 <div class="col btn">
-                  <b-dropdown id="dropdown-1" :text="sort" class="m-md-2">
+                  <b-dropdown
+                    id="dropdown-1"
+                    variant="danger"
+                    :text="sort"
+                    class="m-md-2"
+                  >
                     <b-dropdown-item
                       @click="onDropDownSelectHandler('produk_terbaru', 'desc')"
                       >Produk terbaru</b-dropdown-item
@@ -136,31 +173,30 @@
           >
             <div class="col-sm-8 mx-auto my-auto">
               <div class="row">
-                <h4 class="col-3 align-self-center">Urutkan:</h4>
-                <div class="col-2 btn-group ms-0 ps-2 me-5">
-                  <div class="col btn ml-3">
-                    <b-dropdown id="dropdown-1" :text="sort" class="m-md-2">
-                      <b-dropdown-item
-                        @click="
-                          onDropDownSelectHandler('produk_terbaru', 'desc')
-                        "
-                        >Produk terbaru</b-dropdown-item
-                      >
-                      <b-dropdown-item
-                        @click="
-                          onDropDownSelectHandler('harga_tertinggi', 'desc')
-                        "
-                        >Harga Tertinggi</b-dropdown-item
-                      >
-                      <b-dropdown-item
-                        @click="
-                          onDropDownSelectHandler('harga_terendah', 'asc')
-                        "
-                        >Harga Terendah</b-dropdown-item
-                      >
-                    </b-dropdown>
-                    <div class="dropdown-menu">...</div>
-                  </div>
+                <div class="col-3 pe-0">
+                  <h6 class="align-self-center m-0">Urutkan:</h6>
+                </div>
+                <div class="col-2 btn-group p-0">
+                  <b-dropdown id="dropdown-1" :text="sort">
+                    <b-dropdown-item
+                      @click="onDropDownSelectHandler('produk_terbaru', 'desc')"
+                    >
+                      <p style="font-size: 12px">Produk terbaru</p>
+                    </b-dropdown-item>
+                    <b-dropdown-item
+                      @click="
+                        onDropDownSelectHandler('harga_tertinggi', 'desc')
+                      "
+                    >
+                      <p style="font-size: 12px">Harga Tertinggi</p>
+                    </b-dropdown-item>
+                    <b-dropdown-item
+                      @click="onDropDownSelectHandler('harga_terendah', 'asc')"
+                    >
+                      <p style="font-size: 12px">Harga Terendah</p>
+                    </b-dropdown-item>
+                  </b-dropdown>
+                  <div class="dropdown-menu">...</div>
                 </div>
               </div>
             </div>
@@ -221,6 +257,9 @@ a {
   #product-mobileview {
     display: contents;
   }
+}
+.dropdown-toggle {
+  font-size: 12px;
 }
 </style>
 
