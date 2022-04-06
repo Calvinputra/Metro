@@ -75,9 +75,8 @@
                   <h5 class="col align-self-center">Merek:</h5>
                   <div class="col btn">
                     <b-dropdown
-                      id="dropdown-dropright"
-                      dropright
-                      text="Antasan"
+                      id="dropdown-2"
+                      text="antasan"
                       variant="danger"
                       class="m-2"
                     >

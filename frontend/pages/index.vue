@@ -38,66 +38,12 @@
         </section>
       </template>
       <div class="row mt-5">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-3">
+        <div class="col-sm-12">
           <center>
             <h5 class="fw-bold">Metode Pembayaran</h5>
             <hr style="opacity: 1; color: black; height: 2px" />
           </center>
-          <div class="row">
-            <div class="col-sm-4">
-              <img style="width: 80px" src="/img/mastercard.png" alt="" />
-              <img style="width: 80px" src="/img/amex.png" alt="" />
-              <img style="width: 80px" src="/img/jcb.png" alt="" />
-              <img style="width: 80px" src="/img/visa.png" alt="" />
-            </div>
-            <div class="col-sm-4">
-              <img class="mt-3" style="width: 80px" src="/img/bca.png" alt="" />
-              <img
-                style="margin-top: 35px; width: 80px"
-                src="/img/bri.png"
-                alt=""
-              />
-              <img
-                class="mt-4 pt-2"
-                style="width: 80px"
-                src="/img/bni.png"
-                alt=""
-              />
-              <img
-                class="mt-2"
-                style="width: 90px"
-                src="/img/mandiri.png"
-                alt=""
-              />
-            </div>
-            <div class="col-sm-4">
-              <img
-                class="mt-4"
-                style="margin-left: 10px; width: 100px"
-                src="/img/cimb.png"
-                alt=""
-              />
-              <img
-                style="margin-top: 30px; margin-left: 30px; width: 60px"
-                src="/img/mega.png"
-                alt=""
-              />
-              <img
-                style="width: 100px; margin-top: -10px; margin-left: 10px"
-                src="/img/ocbc.png"
-                alt=""
-              />
-              <img
-                style="width: 100px; margin-top: -25px; margin-left: 10px"
-                src="/img/permata.png"
-                alt=""
-              />
-            </div>
-          </div>
         </div>
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4"></div>
       </div>
     </section>
 
