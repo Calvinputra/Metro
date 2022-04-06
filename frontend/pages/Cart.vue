@@ -551,6 +551,8 @@ export default {
               this.$nuxt.refresh();
             });
           this.carts = [];
+          this.$nuxt.refresh();
+           this.$store.dispatch("setCartChange", true);
         });
       } else {
         this.$store.dispatch("deleteAllCart");

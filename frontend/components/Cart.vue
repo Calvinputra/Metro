@@ -132,6 +132,8 @@ export default {
                 duration: 5000,
               });
               this.$emit("deleteCartHandler", this.index);
+              this.$nuxt.refresh();
+               this.$store.dispatch("setCartChange", true);
             });
           console.log(response);
         } catch (error) {

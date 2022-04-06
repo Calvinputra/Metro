@@ -168,7 +168,17 @@
                 <br />
                 <a
                   href="#"
-                  class="btn text-danger btn-sm rounded col-sm-3 ms-0 mb-3 py-2 px-2"
+                  class="
+                    btn
+                    text-danger
+                    btn-sm
+                    rounded
+                    col-sm-3
+                    ms-0
+                    mb-3
+                    py-2
+                    px-2
+                  "
                   @click="addToCart(data)"
                   style="
                     background-color: #f3f3f3;
@@ -586,9 +596,10 @@ export default {
             position: "bottom-right",
             duration: 5000,
           });
+          this.$store.dispatch("setCartChange", true);
         } else {
           //this.$router.push("/login");
-             this.addProductToCart({ product: product, notification: true });
+          this.addProductToCart({ product: product, notification: true });
         }
       } catch (error) {
         console.log(error);

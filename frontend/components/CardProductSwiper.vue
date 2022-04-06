@@ -269,7 +269,7 @@ export default {
             position: "bottom-right",
             duration: 5000,
           });
-          console.log(response);
+           this.$store.dispatch("setCartChange", true);
         } else {
           //this.$router.push("/login");
           this.addProductToCart({ product: product, notification: true });

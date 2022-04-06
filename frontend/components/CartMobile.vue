@@ -135,6 +135,7 @@ export default {
               });
               this.$emit("deleteCartHandler", this.index);
               this.$nuxt.refresh();
+              this.$store.dispatch("setCartChange", true);
             });
           console.log(response);
         } catch (error) {

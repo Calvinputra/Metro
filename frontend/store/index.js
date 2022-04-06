@@ -164,7 +164,7 @@ export const mutations = {
     },
 
     setCartChangeValue(state, value) {
-        state.cartChanged = value;
+        state.cartChanged = !state.cartChanged;
     },
 };
 
@@ -247,7 +247,7 @@ export const getters = {
                 company_tokopedia_link: state.setting.find(
                     (setting) => setting.key === "site.company_tokopedia_link"
                   ).value,
-               
+
 
             };
         } else {

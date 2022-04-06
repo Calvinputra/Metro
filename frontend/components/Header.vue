@@ -2,7 +2,13 @@
   <!-- Awal Navbar -->
   <nav
     id="navbar"
-    class="navbar sticky-top navbar-expand-lg navbar-light bg-light justify-content-center"
+    class="
+      navbar
+      sticky-top
+      navbar-expand-lg navbar-light
+      bg-light
+      justify-content-center
+    "
     style="font-family: 'Nunito Sans'"
   >
     <!-- WEB -->
@@ -52,10 +58,16 @@
                   background-image: url('/img/cart.png');
                 "
               >
-                <i
-                  style="font-size: 12px !important; color: red !important"
-                  class="fa fa-solid fa-circle"
-                ></i>
+                <template v-if="this.isLoaded">
+                  <i
+                    v-if="
+                      (!this.$auth.loggedIn && tempCart.length > 0) ||
+                      (this.$auth.loggedIn && this.carts.length > 0)
+                    "
+                    style="font-size: 12px !important; color: red !important"
+                    class="fa fa-solid fa-circle"
+                  ></i>
+                </template>
               </div>
             </nuxt-link>
           </div>
@@ -65,7 +77,14 @@
               <nuxt-link to="/register">
                 <button
                   type="submit"
-                  class="btn text-danger btn-light btn-sm rounded col-sm-12 me-2"
+                  class="
+                    btn
+                    text-danger
+                    btn-light btn-sm
+                    rounded
+                    col-sm-12
+                    me-2
+                  "
                   style=""
                 >
                   Daftar
@@ -296,6 +315,7 @@ export default {
   computed: {
     ...mapGetters({
       menu: "getHeader",
+      tempCart: "getCart",
     }),
   },
   methods: {
@@ -309,6 +329,46 @@ export default {
         //   window.location.reload(true);
         // }, 1000);
       });
+    },
+    async refetch() {
+      if (this.$auth.loggedIn) {
+        try {
+          let carts = await this.$axios.$get(
+            process.env.API_URL + "/api/carts"
+          );
+          this.carts = carts.data;
+          this.isLoaded = true;
+        } catch (error) {
+          console.log(error);
+        }
+      } else {
+        this.isLoaded = true;
+      }
+    },
+  },
+  data() {
+    return {
+      carts: {},
+      isLoaded: false,
+    };
+  },
+
+  async mounted() {
+    if (this.$auth.loggedIn) {
+      try {
+        let carts = await this.$axios.$get(process.env.API_URL + "/api/carts");
+        this.carts = carts.data;
+        this.isLoaded = true;
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      this.isLoaded = true;
+    }
+  },
+  watch: {
+    "$store.state.cartChanged": function () {
+      this.refetch();
     },
   },
 };
