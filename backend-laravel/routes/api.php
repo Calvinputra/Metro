@@ -11,6 +11,7 @@ use App\Http\Controllers\API\CityController;
 use App\Http\Controllers\API\ProvinceController;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\AuthSocialLoginController;
+use App\Http\Controllers\API\BrandController;
 use App\Http\Controllers\API\CartController;
 use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\WishListController;
@@ -49,11 +50,11 @@ Route::post('/email_verification_request', [AuthController::class, 'emailVerific
 Route::post('/edit_profile', [AuthController::class, 'editProfile']);
 Route::post('/check_forget_password_token', [AuthController::class, 'checkForgetPasswordToken']);
 
-Route::apiResource('/menus', MenuController::class);
-Route::apiResource('/products', ProductController::class);
-Route::apiResource('/cities', CityController::class);
-Route::apiResource('/provinces', ProvinceController::class);
-Route::apiResource('/countries', CountryController::class);
+Route::apiResource('/menus', MenuController::class)->only(["index", "show"]);
+Route::apiResource('/products', ProductController::class)->only(["index", "show"]);
+Route::apiResource('/cities', CityController::class)->only(["index"]);
+Route::apiResource('/provinces', ProvinceController::class)->only(["index"]);
+Route::apiResource('/countries', CountryController::class)->only(["index"]);
 Route::apiResource('/carts', CartController::class)->middleware('auth:sanctum');
 Route::apiResource('/wishlists', WishListController::class)->middleware('auth:sanctum');
 Route::apiResource('/transactions', TransactionController::class)->middleware('auth:sanctum');
@@ -63,6 +64,7 @@ Route::apiResource('/categories', CategoryController::class);
 Route::apiResource('/homepage_contents', HomepageContentController::class);
 Route::apiResource('/sliders', SliderController::class);
 Route::apiResource('/settings', SettingController::class);
+Route::apiResource('/brands', BrandController::class)->only(["index"]);
 
 
 Route::post('/carts/multiple', [CartController::class, 'storeMultiple'])->middleware('auth:sanctum');
@@ -82,3 +84,13 @@ Route::post('/transactions/get_jne_way_bill', [ShippingController::class, 'getJn
 //login social
 Route::get('/auth/{service}', [AuthSocialLoginController::class, 'redirect']);
 Route::get('/auth/{service}/callback', [AuthSocialLoginController::class, 'callback']);
+
+
+//fallback if 404
+Route::fallback(function () {
+    return response()->json([
+        'success' => false,
+        'data'   => 'Unauthorized Action',
+        'status' => 503,
+    ]);
+});
