@@ -3,13 +3,13 @@
     <LoadingSpinner v-if="!isLoaded" />
     <section id="home-webview" v-if="isLoaded">
       <Carousel1 :data="sliderData" />
-      <div class="row">
+      <div class="row p-0 m-0">
         <div class="col-sm-1"></div>
         <div class="col-sm-2 d-flex align-items-center justify-content-center">
           <img style="width: 130px" src="/img/toto1.png" alt="" />
         </div>
         <div class="col-sm-2 d-flex align-items-center justify-content-center">
-          <img style="width: 150px" class="mt-3" src="/img/onda.jpg" alt="" />
+          <img style="width: 150px" src="/img/onda.png" alt="" />
         </div>
         <div class="col-sm-2 d-flex align-items-center justify-content-center">
           <img style="width: 170px" src="/img/san-ei.jpg" alt="" />
@@ -20,8 +20,6 @@
         <div class="col-sm-2 d-flex align-items-center justify-content-center">
           <img style="width: 130px" src="/img/dorma.png" alt="" />
         </div>
-
-        <div class="col-sm-1"></div>
       </div>
       <template v-for="content in contents">
         <template v-if="content.title">
@@ -37,14 +35,16 @@
           <SwiperCardProduct :products="content.products" />
         </section>
       </template>
-      <div class="row mt-5">
-        <div class="col-sm-12">
-          <center>
+      <div class="row mt-5 p-0 m-0">
+        <center>
+          <div class="col-sm-12 p-0">
             <h5 class="fw-bold">Metode Pembayaran</h5>
             <hr style="opacity: 1; color: black; height: 2px" />
-          </center>
-        </div>
+            <img style="width: 80%" src="/img/brand.png" alt="" />
+          </div>
+        </center>
       </div>
+      -->
     </section>
 
     <section id="home-mobileview" v-if="isLoaded" style="font-size: 80%">
@@ -63,6 +63,13 @@
       <div class="row">
         <div class="col-sm-1"></div>
       </div>
+      <center>
+        <div class="col-sm-12 p-0">
+          <h5 class="fw-bold">Metode Pembayaran</h5>
+          <hr style="opacity: 1; color: black; height: 2px" />
+          <img style="width: 90%" src="/img/brand_mobile.png" alt="" />
+        </div>
+      </center>
       <Footer2mobile />
       <div style="position: inherit"></div>
     </section>

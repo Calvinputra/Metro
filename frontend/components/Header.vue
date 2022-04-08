@@ -2,13 +2,7 @@
   <!-- Awal Navbar -->
   <nav
     id="navbar"
-    class="
-      navbar
-      sticky-top
-      navbar-expand-lg navbar-light
-      bg-light
-      justify-content-center
-    "
+    class="navbar sticky-top navbar-expand-lg navbar-light bg-light justify-content-center"
     style="font-family: 'Nunito Sans'"
   >
     <!-- WEB -->
@@ -33,7 +27,7 @@
 
       <!-- hamburger button -->
       <!-- icon -->
-      <div class="collapse navbar-collapse col-sm-4 p-0" id="navbarScroll">
+      <div class="collapse navbar-collapse col-sm-3 p-0" id="navbarScroll">
         <div id="icon navbar" class="container-fluid p-0 row">
           <div v-if="!this.$auth.loggedIn" class="col-sm-2"></div>
 
@@ -77,14 +71,7 @@
               <nuxt-link to="/register">
                 <button
                   type="submit"
-                  class="
-                    btn
-                    text-danger
-                    btn-light btn-sm
-                    rounded
-                    col-sm-12
-                    me-2
-                  "
+                  class="btn text-danger btn-light btn-sm rounded col-sm-12 me-2"
                   style=""
                 >
                   Daftar

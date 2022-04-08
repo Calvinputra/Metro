@@ -72,26 +72,25 @@
             <div class="col-sm-4">
               <center>
                 <div class="row" style="float: right">
-                  <h5 class="col align-self-center">Merek:</h5>
+                  <h5 class="col-4 mt-2 align-self-center">Merek:</h5>
                   <div class="col btn">
-                    <b-dropdown
-                      id="dropdown-2"
-                      text="antasan"
-                      variant="danger"
-                      class="m-2"
+                    <select
+                      class="form-select mt-2"
+                      aria-label="Default select example"
                     >
-                      <b-dropdown-item>Antasan</b-dropdown-item>
-                      <b-dropdown-item>Belocca</b-dropdown-item>
-                      <b-dropdown-item>Binoche</b-dropdown-item>
-                      <b-dropdown-item>Dorma</b-dropdown-item>
-                      <b-dropdown-item>Grease Trap</b-dropdown-item>
-                      <b-dropdown-item>Master Lock</b-dropdown-item>
-                      <b-dropdown-item>Onda</b-dropdown-item>
-                      <b-dropdown-item>San-ei</b-dropdown-item>
-                      <b-dropdown-item>Solid</b-dropdown-item>
-                      <b-dropdown-item>Toto</b-dropdown-item>
-                      <b-dropdown-item>Vitara</b-dropdown-item>
-                    </b-dropdown>
+                      <option selected>Antasan</option>
+                      <option value="2">Belocca</option>
+                      <option value="3">Binoche</option>
+                      <option value="4">Dorma</option>
+                      <option value="5">Grease Trap</option>
+                      <option value="6">Master Lock</option>
+                      <option value="7">Onda</option>
+                      <option value="8">San-ei</option>
+                      <option value="9">Solid</option>
+                      <option value="10">Toto</option>
+                      <option value="11">Vitara</option>
+                    </select>
+
                     <div class="dropdown-menu">...</div>
                   </div>
                 </div>
@@ -100,29 +99,35 @@
             <div class="col-sm-1"></div>
             <div class="col-sm-4 mx-auto my-auto mb-3">
               <div class="row" style="float: right">
-                <h5 class="col align-self-center">Urutkan:</h5>
+                <h5 class="col-4 mt-2 align-self-center">Urutkan:</h5>
                 <div class="col btn">
-                  <b-dropdown
-                    id="dropdown-1"
-                    variant="danger"
+                  <select
+                    class="form-select mt-2"
+                    aria-label="Default select example"
                     :text="sort"
-                    class="m-md-2"
                   >
-                    <b-dropdown-item
+                    <option
                       @click="onDropDownSelectHandler('produk_terbaru', 'desc')"
-                      >Produk terbaru</b-dropdown-item
+                      selected
                     >
-                    <b-dropdown-item
+                      Produk Terbaru
+                    </option>
+                    <option
                       @click="
                         onDropDownSelectHandler('harga_tertinggi', 'desc')
                       "
-                      >Harga Tertinggi</b-dropdown-item
+                      value="2"
                     >
-                    <b-dropdown-item
+                      Harga Tertinggi
+                    </option>
+                    <option
                       @click="onDropDownSelectHandler('harga_terendah', 'asc')"
-                      >Harga Terendah</b-dropdown-item
+                      value="3"
                     >
-                  </b-dropdown>
+                      Harga Terendah
+                    </option>
+                  </select>
+
                   <div class="dropdown-menu">...</div>
                 </div>
               </div>
@@ -172,30 +177,84 @@
           >
             <div class="col-sm-8 mx-auto my-auto">
               <div class="row">
-                <div class="col-3 pe-0">
-                  <h6 class="align-self-center m-0">Urutkan:</h6>
+                <div class="row pe-0" style="float: right">
+                  <div class="col-12">
+                    <div>
+                      <h5
+                        class="mt-3 ms-3 align-self-center"
+                        style="font-size: 14px; margin: 1%"
+                      >
+                        Product
+                      </h5>
+                      <div class="col-12 btn">
+                        <select
+                          class="form-select"
+                          style="font-size: 12px"
+                          aria-label="Default select example"
+                        >
+                          <option selected>Pembersih Saluran Air</option>
+                          <option value="2">Grandel</option>
+                          <option value="3">Saringan Got</option>
+                          <option value="4">Gembok</option>
+                          <option value="5">Saringan Back Cuci Piring</option>
+                          <option value="6">Gagang Pintu</option>
+                          <option value="7">Engsel</option>
+                          <option value="8">Kloset</option>
+                          <option value="9">Washtafel</option>
+                          <option value="10">Keran Air</option>
+                          <option value="11">Fitting Pipa</option>
+                        </select>
+
+                        <div class="dropdown-menu">...</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-2 btn-group p-0">
-                  <b-dropdown id="dropdown-1" :text="sort">
-                    <b-dropdown-item
-                      @click="onDropDownSelectHandler('produk_terbaru', 'desc')"
-                    >
-                      <p style="font-size: 12px">Produk terbaru</p>
-                    </b-dropdown-item>
-                    <b-dropdown-item
-                      @click="
-                        onDropDownSelectHandler('harga_tertinggi', 'desc')
-                      "
-                    >
-                      <p style="font-size: 12px">Harga Tertinggi</p>
-                    </b-dropdown-item>
-                    <b-dropdown-item
-                      @click="onDropDownSelectHandler('harga_terendah', 'asc')"
-                    >
-                      <p style="font-size: 12px">Harga Terendah</p>
-                    </b-dropdown-item>
-                  </b-dropdown>
-                  <div class="dropdown-menu">...</div>
+                <div class="row" style="float: right">
+                  <div class="col-12 pe-0">
+                    <div>
+                      <h5
+                        class="mt-3 ms-3 align-self-center"
+                        style="font-size: 14px; margin: 1%"
+                      >
+                        Urutkan
+                      </h5>
+                      <div class="col-12 btn">
+                        <select
+                          class="form-select"
+                          style="font-size: 12px"
+                          aria-label="Default select example"
+                        >
+                          <option
+                            @click="
+                              onDropDownSelectHandler('produk_terbaru', 'desc')
+                            "
+                            selected
+                          >
+                            Terbaru
+                          </option>
+                          <option
+                            @click="
+                              onDropDownSelectHandler('harga_tertinggi', 'desc')
+                            "
+                            value="2"
+                          >
+                            Tertinggi
+                          </option>
+                          <option
+                            @click="
+                              onDropDownSelectHandler('harga_terendah', 'asc')
+                            "
+                            value="3"
+                          >
+                            Terendah
+                          </option>
+                        </select>
+
+                        <div class="dropdown-menu">...</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
