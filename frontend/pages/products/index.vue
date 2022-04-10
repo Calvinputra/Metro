@@ -75,20 +75,19 @@
                   <h5 class="col-4 mt-2 align-self-center">Merek:</h5>
                   <div class="col btn">
                     <select
+                      @change="onBrandDropDownSelectHandler()"
+                      v-model="selectedBrand"
                       class="form-select mt-2"
                       aria-label="Default select example"
                     >
-                      <option selected>Antasan</option>
-                      <option value="2">Belocca</option>
-                      <option value="3">Binoche</option>
-                      <option value="4">Dorma</option>
-                      <option value="5">Grease Trap</option>
-                      <option value="6">Master Lock</option>
-                      <option value="7">Onda</option>
-                      <option value="8">San-ei</option>
-                      <option value="9">Solid</option>
-                      <option value="10">Toto</option>
-                      <option value="11">Vitara</option>
+                      <option value="all">Semua Brand</option>
+                      <option
+                        v-for="brand in this.brands"
+                        :key="'brand' + brand.id"
+                        :value="brand.id"
+                      >
+                        {{ brand.name }}
+                      </option>
                     </select>
 
                     <div class="dropdown-menu">...</div>
@@ -104,28 +103,15 @@
                   <select
                     class="form-select mt-2"
                     aria-label="Default select example"
+                    @change="onDropDownSelectHandler()"
+                    v-model="selectedOrder"
                     :text="sort"
                   >
-                    <option
-                      @click="onDropDownSelectHandler('produk_terbaru', 'desc')"
-                      selected
-                    >
+                    <option selected value="produk_terbaru">
                       Produk Terbaru
                     </option>
-                    <option
-                      @click="
-                        onDropDownSelectHandler('harga_tertinggi', 'desc')
-                      "
-                      value="2"
-                    >
-                      Harga Tertinggi
-                    </option>
-                    <option
-                      @click="onDropDownSelectHandler('harga_terendah', 'asc')"
-                      value="3"
-                    >
-                      Harga Terendah
-                    </option>
+                    <option value="harga_tertinggi">Harga Tertinggi</option>
+                    <option value="harga_terendah">Harga Terendah</option>
                   </select>
 
                   <div class="dropdown-menu">...</div>
@@ -173,7 +159,14 @@
       <div class="container">
         <div class="row">
           <div
-            class="col-sm-10 align-self-start mt-2 row justify-content-between pr-0"
+            class="
+              col-sm-10
+              align-self-start
+              mt-2
+              row
+              justify-content-between
+              pr-0
+            "
           >
             <div class="col-sm-8 mx-auto my-auto">
               <div class="row">
@@ -339,6 +332,8 @@ export default {
       ],
       products: [],
       sort: "",
+      selectedOrder: "",
+      selectedBrand: "",
     };
   },
   async asyncData({ $axios, query }) {
@@ -350,6 +345,7 @@ export default {
         category: query.category,
         order: query.order,
         type: query.type,
+        brand:query.brand
       };
       let products = await $axios.$get(process.env.API_URL + "/api/products", {
         params: data,
@@ -361,12 +357,15 @@ export default {
       let categories = await $axios.$get(
         process.env.API_URL + "/api/categories"
       );
+
+      let brands = await $axios.$get(process.env.API_URL + "/api/brands");
       return {
         products: products.data,
         links: links,
         totalPage: products.meta.last_page,
         title: products.title,
         categories: categories.data,
+        brands: brands.data,
       };
     } catch (error) {
       console.log(error);
@@ -383,18 +382,27 @@ export default {
           category: this.$route.query.category,
           order: this.$route.query.order,
           type: this.$route.query.type,
+          brand: this.selectedBrand,
         },
       };
     },
     getSortItem() {
       if (this.$route.query.order == "harga_tertinggi") {
         this.sort = "Harga Tertinggi";
+        this.selectedOrder = "harga_tertinggi";
       }
       if (this.$route.query.order == "produk_terbaru") {
         this.sort = "Produk Terbaru";
+        this.selectedOrder = "produk_terbaru";
       }
       if (this.$route.query.order == "harga_terendah") {
         this.sort = "Harga Terendah";
+        this.selectedOrder = "harga_terendah";
+      }
+      if( this.$route.query.brand){
+        this.selectedBrand = this.$route.query.brand;
+      }else{
+        this.selectedBrand = 'all';
       }
       //console.log(this.sort);
       this.$nuxt.refresh();
@@ -404,6 +412,7 @@ export default {
     },
 
     onCategoryClickHandler(id) {
+      console.log(this.selectedBrand);
       this.$router.push({
         path: "/products",
         query: {
@@ -413,12 +422,13 @@ export default {
           category: id,
           order: this.$route.query.order,
           type: this.$route.query.type,
+          brand: "",
         },
       });
       this.$nuxt.refresh();
     },
 
-    onDropDownSelectHandler(order, type = "asc") {
+    onDropDownSelectHandler() {
       this.$router.push({
         path: "/products",
         query: {
@@ -426,8 +436,23 @@ export default {
           page: 1,
           paginate: this.$route.query.paginate,
           category: this.$route.query.category,
-          order: order,
-          type: type,
+          order: this.selectedOrder,
+          type: this.selectedOrder == "harga_terendah" ? "desc" : "asc",
+          brand: this.selectedBrand,
+        },
+      });
+    },
+    onBrandDropDownSelectHandler() {
+      this.$router.push({
+        path: "/products",
+        query: {
+          s: "",
+          page: 1,
+          paginate: this.$route.query.paginate,
+          category: "",
+          order: this.selectedOrder,
+          type: this.selectedOrder == "harga_terendah" ? "desc" : "asc",
+          brand: this.selectedBrand,
         },
       });
     },
@@ -435,11 +460,18 @@ export default {
   mounted() {
     if (this.sort == "" || !this.$route.query.order) {
       this.sort = "Produk Terbaru";
+      this.selectedOrder = "produk_terbaru";
+    }
+    if(this.selectedBrand==""){
+      this.selectedBrand = "all";
     }
     this.getSortItem();
   },
   watch: {
     "$route.query.order"() {
+      this.getSortItem();
+    },
+    "$route.query.brand"() {
       this.getSortItem();
     },
     "$route.query.category"() {
@@ -448,6 +480,7 @@ export default {
     "$route.query.page"() {
       this.getSortItem();
     },
+
     sort() {
       if (this.sort == "" || !this.$route.query.order) {
         this.sort = "Produk Terbaru";
@@ -455,6 +488,6 @@ export default {
       this.getSortItem();
     },
   },
-  watchQuery: ["s", "page", "paginate", "category", "order", "type"],
+  watchQuery: ["s", "page", "paginate", "category", "order", "type","brand"],
 };
 </script>

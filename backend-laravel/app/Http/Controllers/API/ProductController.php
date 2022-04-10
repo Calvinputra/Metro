@@ -98,7 +98,7 @@ class ProductController extends Controller
             $products->orderBy($order_field, $type);
         }
 
-        if (isset($request->brand)) {
+        if (isset($request->brand) && $request->brand != 'all') {
             if ($request->brand == 0) {
                 $products->whereNull('brand_id');
             } else {
