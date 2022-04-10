@@ -44,7 +44,6 @@
           </div>
         </center>
       </div>
-      -->
     </section>
 
     <section id="home-mobileview" v-if="isLoaded" style="font-size: 80%">

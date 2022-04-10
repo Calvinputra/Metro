@@ -18,7 +18,7 @@
             :key="slide.id"
             :caption="slide.id"
             :img-src="slide.src"
-            style="width: 100%; height: 300px"
+            style="width: 100%"
           >
           </b-carousel-slide>
         </b-carousel>
@@ -38,7 +38,7 @@
             :key="slide.id"
             :caption="slide.id"
             :img-src="slide.src"
-            style="width: 100%; height: 230px"
+            style="width: 100%; height: 100px"
           >
           </b-carousel-slide>
         </b-carousel>

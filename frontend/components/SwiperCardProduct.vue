@@ -38,7 +38,10 @@
         </div>
       </section>
       <section id="swipercard-mobileview" style="">
-        <div class="swiper-container" style="width: 100%">
+        <div
+          class="swiper-container"
+          style="width: 100%; height: 330px !important"
+        >
           <!-- Additional required wrapper -->
           <div class="swiper-wrapper">
             <!-- Slides -->

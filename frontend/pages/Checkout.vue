@@ -378,6 +378,7 @@
                 />
               </div>
             </form>
+
             <p style="color: red">
               <span style="color: red">*</span>Wajib diisi
             </p>
@@ -391,11 +392,16 @@
               <button
                 @click="doLogin"
                 type="submit"
-                class="btn text-danger btn-light btn-sm rounded p-2"
-                style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+                class="btn text-danger btn-light rounded"
+                style="
+                  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                  padding: 5px 60px !important;
+                "
               >
                 Masuk Akun
               </button>
+              <p class="mt-3 mb-3">Atau</p>
+              <Googlebutton />
             </div>
             <p class="mt-3">
               Belum mempunyai akun?<nuxt-link
