@@ -66,7 +66,7 @@
                       height: 38px;
                       margin-left: 10px;
                       margin-right: 12px;
-                      background-color: #f3f3f3;
+                      background-color: white;
                       box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                     "
                     onclick="return false;"
@@ -89,7 +89,7 @@
                       class="img-fluid rounded"
                       style="height: 38px
                     width: 38px;
-                      background-color: #f3f3f3;
+                      background-color:white;
                       box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                     "
                       src="/img/whatsapp_new.png"
@@ -103,7 +103,7 @@
                     ><img
                       class="img-fluid"
                       style="height: 38px
-                      background-color: #f3f3f3;
+                      background-color: white;
                       box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                     "
                       src="/img/tokopedia.png"
@@ -163,7 +163,7 @@
                       href=""
                       class=""
                       onclick="return false;"
-                      @click="addToWishList(data.id)"
+                      @click.stop="addToWishList(data.id)"
                       ><i
                         :class="
                           (data.wishlist_exist ? 'fas' : 'far') + ' fa-heart'
@@ -182,7 +182,7 @@
                   <a
                     class="btn fw-bold text-danger btn-sm"
                     style="
-                      background-color: #f3f3f3;
+                      background-color: white;
                       width: 100%;
                       box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                     "
@@ -207,7 +207,7 @@
                     ><img
                       class="img-fluid rounded"
                       style="
-                        background-color: #f3f3f3;
+                        background-color: white;
                         width: 30px;
                         box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                       "
@@ -221,7 +221,7 @@
                     ><img
                       class="img-fluid rounded"
                       style="
-                        background-color: #f3f3f3;
+                        background-color: white;
                         width: 30px;
                         box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                       "
@@ -269,7 +269,7 @@ export default {
             position: "bottom-right",
             duration: 5000,
           });
-           this.$store.dispatch("setCartChange", true);
+          this.$store.dispatch("setCartChange", true);
         } else {
           //this.$router.push("/login");
           this.addProductToCart({ product: product, notification: true });

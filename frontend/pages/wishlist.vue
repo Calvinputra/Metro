@@ -165,13 +165,12 @@ export default {
       } catch (error) {
         console.log(error);
       }
-
     },
   },
   watch: {
     search: async function (newVal, oldVal) {
       await this.getWishlist();
-      //await this.$nuxt.refresh();
+      // await this.$nuxt.refresh();
     },
   },
 };

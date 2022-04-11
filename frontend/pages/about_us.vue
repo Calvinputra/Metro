@@ -66,7 +66,11 @@
         <div class="text-center">
           <h4>Lokasi Kami</h4>
           <br />
-          <img style="width: 500px" src="/img/image_metro.png" alt="" />
+          <a
+            href="'https://www.google.co.id/maps/search/kenari+lama+blok+ak5+no+13/@-6.1924579,106.8475557,17.5z?hl=id&authuser=0'"
+          >
+            <img style="width: 500px" src="/img/image_metro.png" alt="" />
+          </a>
 
           <h6 class="mt-4">Jalan Kenari Lama Blok AK5 No. 13 Salemba Raya</h6>
         </div>
@@ -119,7 +123,11 @@
         <div class="text-center">
           <h4>Lokasi Kami</h4>
           <br />
-          <img style="width: 300px" src="/img/image_metro.png" alt="" />
+          <a
+            href="https://www.google.co.id/maps/search/kenari+lama+blok+ak5+no+13/@-6.1924579,106.8475557,17.5z?hl=id&authuser=0"
+          >
+            <img style="width: 300px" src="/img/image_metro.png" alt="" />
+          </a>
           <br />
           <h6 class="mt-4">Jalan Kenari Lama Blok AK5 No. 13 Salemba Raya</h6>
         </div>

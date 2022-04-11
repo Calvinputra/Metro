@@ -24,7 +24,7 @@
           <span class="text-danger">
             <p class="mb-2">Tujuan Pengiriman</p>
           </span>
-          <h6 class="text-black mb-0">{{ transaction.customer_name }}</h6>
+          <h6 class="text-black mb-0 pb-2">{{ transaction.customer_name }}</h6>
           <p class="mb-0">{{ transaction.customer_phone }}</p>
           <p class="mb-0">
             {{ transaction.shipping_address }}

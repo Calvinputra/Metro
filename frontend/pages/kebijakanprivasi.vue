@@ -226,9 +226,8 @@
                   Bagaimana informasi saya dapat digunakan oleh METRO JAYA
                   Indonesia?
                 </p>
-                <p class="mt-3">
-                  1.Informasi Otomatis
-                  <br />
+                <h3 class="fw-bold mt-4">1. Informasi Otomatis</h3>
+                <p>
                   Kami akan menggunakan informasi ini untuk mengelola situs dan
                   operasi internal Kami, termasuk pencarian sumber masalah
                   <span style="font-style: italic !important">
@@ -247,9 +246,9 @@
                   situs Kami mengenai produk dan jasa yang dapat menarik minat
                   Anda dan mereka.
                   <br />
-                  <br />
-                  2.Informasi yang Anda berikan.
-                  <br />
+                </p>
+                <h3 class="mt-3 fw-bold">2. Informasi yang Anda berikan.</h3>
+                <p>
                   Kami akan menggunakan informasi ini untuk menjalankan
                   kewajiban Kami dalam menyediakan informasi, produk, dan jasa
                   kepada Anda untuk menyediakan informasi terkait produk dan

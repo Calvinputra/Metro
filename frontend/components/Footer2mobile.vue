@@ -26,7 +26,7 @@
       </template>
     </div>
     <div></div>
-    <div class="row py-2 justify-content-center mb-3 mt-3">
+    <div class="row py-2 justify-content-center mb-3 mt-3 m-0">
       <div class="col-3">
         <a
           :href="settings.company_tokopedia_link"
@@ -36,7 +36,7 @@
           <img
             style="
               width: 40px;
-              background-color: #f3f3f3;
+              background-color: white;
               box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
             "
             src="/img/tokopedia.png"
@@ -49,7 +49,7 @@
           <img
             style="
               width: 40px;
-              background-color: #f3f3f3;
+              background-color: white;
               box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
             "
             src="/img/whatsapp_new.png"
@@ -63,7 +63,7 @@
           style="
             width: 42px;
             height: 42px;
-            background-color: #f3f3f3;
+            background-color: white;
             box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
           "
         >
@@ -77,7 +77,7 @@
       </div>
     </div>
 
-    <div class="d-flex justify-content-center mb-5" style="flex-wrap: wrap">
+    <div class="d-flex justify-content-center" style="flex-wrap: wrap">
       <template v-for="(menu_item, index) in footer_3.items">
         <nuxt-link
           :key="menu_item.id"

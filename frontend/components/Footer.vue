@@ -6,7 +6,7 @@
 
     <!-- Section: Links  -->
     <!-- Website -->
-    <section class="pb-5" id="footer-webview">
+    <section class="" id="footer-webview">
       <div class="container text-center text-md-start mt-5 pt-4">
         <!-- Grid row -->
         <div class="row mt-3">

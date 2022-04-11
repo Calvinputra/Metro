@@ -50,7 +50,7 @@
                 height: 38px;
                 margin-left: 10px;
                 margin-right: 12px;
-                background-color: #f3f3f3;
+                background-color: white;
                 box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
               "
               onclick="return false;"
@@ -74,7 +74,7 @@
                 style="
                   height: 38px;
                   width: 38px;
-                  background-color: #f3f3f3;
+                  background-color: white;
                   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                 "
                 src="/img/whatsapp_new.png"
@@ -89,7 +89,7 @@
                 class="img-fluid"
                 style="
                   height: 38px;
-                  background-color: #f3f3f3;
+                  background-color: white;
                   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                 "
                 src="/img/tokopedia.png"

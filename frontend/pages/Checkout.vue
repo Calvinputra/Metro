@@ -127,7 +127,7 @@
             <div class="col-sm-3">
               <p>Alamat:</p>
             </div>
-            <div class="col-sm-8 ms-3">
+            <div class="col-sm-8">
               <p class="">
                 {{ $auth.user.addresses[0].address }}
                 <br />
@@ -447,62 +447,65 @@
           </div>
           <div class=""></div>
         </div>
-        <!-- <div class="ml-5 mt-5" v-if="$auth.loggedIn"> -->
-        <div class="mt-2 mb-3">
-          <div class="bg-light text-black col-sm-11 mb-2">
-            <label for="step1" class="mt-2">
-              <h5 class="mt-2">Step 2: Pilih Metode Pengiriman</h5>
-            </label>
-          </div>
-          <div class="ms-3">
-            <p class="fw-bold mt-3">Pilih Metode Lain:</p>
-          </div>
-          <div class="d-flex ms-3 pt-2">
-            <div class="form-check" v-if="!hideDakota">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="radioShippingDakota_mv"
-                id="radioShippingDakota_mv"
-                value="dakota"
-                @change="setCostDakota($event)"
-                v-model="shippingRadio"
-              />
-              <label class="form-check-label" for="radioShippingDakota_mv">
-                <p>
-                  Dakota - Rp.
-                  {{ Number(0).toLocaleString("id-ID") }}
-                </p>
+        <div class="mt-5" v-if="$auth.loggedIn">
+          <div class="mt-2 mb-3">
+            <div class="bg-light text-black col-sm-11 mb-2">
+              <label for="step1" class="mt-2">
+                <h5 class="mt-2">Step 2: Pilih Metode Pengiriman</h5>
               </label>
             </div>
-            <div>
-              <div class="d-flex ml-5">
-                <p class="fw-bold mr-3">JNE</p>
-                <div>
-                  <div
-                    class="form-check"
-                    v-for="(cost, index) in this.costs"
-                    :key="index"
-                  >
-                    <input
-                      class="form-check-input"
-                      type="radio"
-                      name="radioShippingJne_mv"
-                      :id="'radioShippingJne_mv' + index"
-                      :value="cost.service"
-                      @change="setCostJne($event, cost.cost[0].value)"
-                      v-model="shippingRadio"
-                    />
-
-                    <label
-                      class="form-check-label"
-                      :for="'radioShippingJne_mv' + index"
+            <div class="ms-3">
+              <p class="fw-bold mt-3">Pilih Metode Lain:</p>
+            </div>
+            <div class="d-flex ms-3 pt-2">
+              <div class="form-check" v-if="!hideDakota">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="radioShippingDakota_mv"
+                  id="radioShippingDakota_mv"
+                  value="dakota"
+                  @change="setCostDakota($event)"
+                  v-model="shippingRadio"
+                />
+                <label class="form-check-label" for="radioShippingDakota_mv">
+                  <p>
+                    Dakota - Rp.
+                    {{ Number(0).toLocaleString("id-ID") }}
+                  </p>
+                </label>
+              </div>
+              <div>
+                <div class="d-flex ml-5">
+                  <p class="fw-bold mr-3">JNE</p>
+                  <div>
+                    <div
+                      class="form-check"
+                      v-for="(cost, index) in this.costs"
+                      :key="index"
                     >
-                      <p>
-                        {{ cost.service }} ({{ cost.cost[0].etd }} hari) - Rp.
-                        {{ Number(cost.cost[0].value).toLocaleString("id-ID") }}
-                      </p>
-                    </label>
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="radioShippingJne_mv"
+                        :id="'radioShippingJne_mv' + index"
+                        :value="cost.service"
+                        @change="setCostJne($event, cost.cost[0].value)"
+                        v-model="shippingRadio"
+                      />
+
+                      <label
+                        class="form-check-label"
+                        :for="'radioShippingJne_mv' + index"
+                      >
+                        <p>
+                          {{ cost.service }} ({{ cost.cost[0].etd }} hari) - Rp.
+                          {{
+                            Number(cost.cost[0].value).toLocaleString("id-ID")
+                          }}
+                        </p>
+                      </label>
+                    </div>
                   </div>
                 </div>
               </div>

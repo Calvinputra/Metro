@@ -57,7 +57,7 @@
                 class="btn text-danger btn-sm p-1 fw-bold"
                 style="
                   font-size: 10px;
-                  background-color: #f3f3f3;
+                  background-color: white;
                   width: 100%;
                   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                 "
@@ -86,7 +86,7 @@
                   class="img-fluid rounded"
                   style="
                     width: 30px;
-                    background-color: #f3f3f3;
+                    background-color: white;
                     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                   "
                   src="/img/whatsapp_new.png"
@@ -100,7 +100,7 @@
                   class="img-fluid rounded"
                   style="
                     width: 30px;
-                    background-color: #f3f3f3;
+                    background-color: white;
                     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                   "
                   src="/img/tokopedia.png"
@@ -143,7 +143,7 @@ export default {
             position: "bottom-right",
             duration: 5000,
           });
-           this.$store.dispatch("setCartChange", true);
+          this.$store.dispatch("setCartChange", true);
         } else {
           //this.$router.push("/login");
           this.addProductToCart({ product: product, notification: true });

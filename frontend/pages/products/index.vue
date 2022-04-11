@@ -159,14 +159,7 @@
       <div class="container">
         <div class="row">
           <div
-            class="
-              col-sm-10
-              align-self-start
-              mt-2
-              row
-              justify-content-between
-              pr-0
-            "
+            class="col-sm-10 align-self-start mt-2 row justify-content-between pr-0"
           >
             <div class="col-sm-8 mx-auto my-auto">
               <div class="row">
@@ -181,6 +174,8 @@
                       </h5>
                       <div class="col-12 btn">
                         <select
+                          @change="onBrandDropDownSelectHandler()"
+                          v-model="selectedBrand"
                           class="form-select"
                           style="font-size: 12px"
                           aria-label="Default select example"
@@ -214,6 +209,8 @@
                       </h5>
                       <div class="col-12 btn">
                         <select
+                          @change="onDropDownSelectHandler()"
+                          v-model="selectedOrder"
                           class="form-select"
                           style="font-size: 12px"
                           aria-label="Default select example"
@@ -286,7 +283,6 @@
           </div>
         </div>
       </div>
-
       <Footer2mobile />
     </section>
   </section>
@@ -345,7 +341,7 @@ export default {
         category: query.category,
         order: query.order,
         type: query.type,
-        brand:query.brand
+        brand: query.brand,
       };
       let products = await $axios.$get(process.env.API_URL + "/api/products", {
         params: data,
@@ -399,10 +395,10 @@ export default {
         this.sort = "Harga Terendah";
         this.selectedOrder = "harga_terendah";
       }
-      if( this.$route.query.brand){
+      if (this.$route.query.brand) {
         this.selectedBrand = this.$route.query.brand;
-      }else{
-        this.selectedBrand = 'all';
+      } else {
+        this.selectedBrand = "all";
       }
       //console.log(this.sort);
       this.$nuxt.refresh();
@@ -462,7 +458,7 @@ export default {
       this.sort = "Produk Terbaru";
       this.selectedOrder = "produk_terbaru";
     }
-    if(this.selectedBrand==""){
+    if (this.selectedBrand == "") {
       this.selectedBrand = "all";
     }
     this.getSortItem();
@@ -488,6 +484,6 @@ export default {
       this.getSortItem();
     },
   },
-  watchQuery: ["s", "page", "paginate", "category", "order", "type","brand"],
+  watchQuery: ["s", "page", "paginate", "category", "order", "type", "brand"],
 };
 </script>

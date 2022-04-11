@@ -39,7 +39,13 @@ class WebsiteFeedbackController extends Controller
             'phone' => 'required|starts_with:08',
             'message' => 'required',
         ];
-        $messages = [];
+        $messages = [
+            "first_name.required" => "Nama depan wajib diisi" ,
+            "last_name.required" => "Nama belakang wajib diisi" ,
+            "email.required" => "Email wajib diisi" ,
+            "phone.required" => "Nomor telepon wajib diisi" ,
+            "message.required" => "Pesan wajib diisi" 
+        ];
         $validator = Validator::make($request->all(), $rules, $messages);
         if ($validator->fails()) {
             return response([
