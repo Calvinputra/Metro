@@ -29,8 +29,7 @@
       <!-- icon -->
       <div class="collapse navbar-collapse col-sm-3 p-0" id="navbarScroll">
         <div id="icon navbar" class="container-fluid p-0 row">
-          <div v-if="!this.$auth.loggedIn" class="col-sm-2"></div>
-
+          <div v-if="!this.$auth.loggedIn" class="col-sm-1"></div>
           <div v-if="this.$auth.loggedIn" class="col-sm-1 m-0 p-0"></div>
           <div class="col-sm-1 text-center p-0 m-0">
             <nuxt-link to="/wishlist"
@@ -65,7 +64,7 @@
               </div>
             </nuxt-link>
           </div>
-          <div class="col-sm-1"></div>
+          <div class="col-sm-2"></div>
           <div v-if="!this.$auth.loggedIn" class="col-sm-3 m-0 p-0">
             <div class="text-center">
               <nuxt-link to="/register">

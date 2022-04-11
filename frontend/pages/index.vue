@@ -3,7 +3,7 @@
     <LoadingSpinner v-if="!isLoaded" />
     <section id="home-webview" v-if="isLoaded">
       <Carousel1 :data="sliderData" />
-      <div class="row p-0 m-0">
+      <!-- <div class="row p-0 m-0">
         <div class="col-sm-1"></div>
         <div class="col-sm-2 d-flex align-items-center justify-content-center">
           <img style="width: 130px" src="/img/toto1.png" alt="" />
@@ -20,7 +20,7 @@
         <div class="col-sm-2 d-flex align-items-center justify-content-center">
           <img style="width: 130px" src="/img/dorma.png" alt="" />
         </div>
-      </div>
+      </div> -->
       <template v-for="content in contents">
         <template v-if="content.title">
           <div
@@ -38,7 +38,7 @@
       <div class="row mt-5 p-0 m-0">
         <center>
           <div class="col-sm-12 p-0">
-            <h5 class="fw-bold">Metode Pembayaran</h5>
+            <h2 class="fw-bold">Metode Pembayaran</h2>
             <hr style="opacity: 1; color: black; height: 2px" />
             <img style="width: 80%" src="/img/brand.png" alt="" />
           </div>
