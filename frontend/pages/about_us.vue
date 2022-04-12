@@ -67,7 +67,8 @@
           <h4>Lokasi Kami</h4>
           <br />
           <a
-            href="'https://www.google.co.id/maps/search/kenari+lama+blok+ak5+no+13/@-6.1924579,106.8475557,17.5z?hl=id&authuser=0'"
+            target="_blank"
+            href="https://www.google.co.id/maps/search/kenari+lama+blok+ak5+no+13/@-6.1924579,106.8475557,17.5z?hl=id&authuser=0'"
           >
             <img style="width: 500px" src="/img/image_metro.png" alt="" />
           </a>
@@ -124,6 +125,7 @@
           <h4>Lokasi Kami</h4>
           <br />
           <a
+            target="_blank"
             href="https://www.google.co.id/maps/search/kenari+lama+blok+ak5+no+13/@-6.1924579,106.8475557,17.5z?hl=id&authuser=0"
           >
             <img style="width: 300px" src="/img/image_metro.png" alt="" />

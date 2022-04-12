@@ -33,40 +33,16 @@
           target="_blank"
           class="text-reset"
         >
-          <img
-            style="
-              width: 40px;
-              background-color: white;
-              box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
-            "
-            src="/img/tokopedia.png"
-            alt=""
-          />
+          <img class="images" src="/img/tokopedia.png" alt="" />
         </a>
       </div>
       <div class="col-3">
         <a :href="'https://wa.me/' + settings.company_wa_phone" target="_blank">
-          <img
-            style="
-              width: 40px;
-              background-color: white;
-              box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
-            "
-            src="/img/whatsapp_new.png"
-            alt=""
-          />
+          <img class="images" src="/img/whatsapp_new.png" alt="" />
         </a>
       </div>
       <div class="col-3 d-flex justify-content-center">
-        <div
-          class="d-flex align-items-center justify-content-center"
-          style="
-            width: 42px;
-            height: 42px;
-            background-color: white;
-            box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
-          "
-        >
+        <div class="d-flex align-items-center justify-content-center images">
           <a :href="'mailto:' + settings.company_email" class="text-reset">
             <i
               class="fab fa-google"
@@ -106,3 +82,10 @@ export default {
   },
 };
 </script>
+<style scoped>
+.images {
+  width: 40px;
+  background-color: white;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+}
+</style>

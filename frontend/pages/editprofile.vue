@@ -425,7 +425,7 @@ export default {
             code: value.id,
           });
         });
-        console.log(this.countries);
+        //console.log(this.countries);
       } catch (error) {
         console.log(error);
       }
@@ -435,13 +435,14 @@ export default {
         let response = await this.$axios.$get(
           process.env.API_URL + "/api/provinces?country_id=" + this.country_id
         );
-        console.log(response);
+        //console.log(response);
         response.data.forEach((value, index) => {
           this.provinces.push({
             label: value.name,
             code: value.id,
           });
         });
+        this.city_id = "";
         this.getCity();
       } catch (error) {
         console.log(error);
