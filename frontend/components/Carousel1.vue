@@ -10,7 +10,6 @@
           id="carousel-1"
           style="text-shadow: 0px 0px 2px #000"
           fade
-          controls
           indicators
         >
           <b-carousel-slide
@@ -31,7 +30,7 @@
           id="carousel-1"
           style="text-shadow: 0px 0px 0px #000"
           fade
-          controls
+          indicators
         >
           <b-carousel-slide
             v-for="slide in data"
@@ -48,6 +47,15 @@
     </section>
   </section>
 </template>
+
+<style>
+.carousel-indicators li {
+  background-color: red !important;
+}
+.carousel-indicators {
+  margin-bottom: 0px;
+}
+</style>
 
 <style lang="css" scoped>
 #carousel1-mobile {

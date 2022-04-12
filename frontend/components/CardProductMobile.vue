@@ -1,5 +1,5 @@
 <template>
-  <section class="col-6">
+  <section class="col-6 pe-1">
     <section
       @click="redirectTo('/products/' + data.id)"
       style="text-decoration: none !important; color: black"

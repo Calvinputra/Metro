@@ -1,5 +1,5 @@
 <template>
-  <section style="margin-bottom: 100px">
+  <section style="margin-bottom: 45px">
     <!-- Website -->
     <section id="product-webview">
       <Breadcrumb :links="breadcrumb" />

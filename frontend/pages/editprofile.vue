@@ -9,14 +9,7 @@
               <AccountMenu :name="'register'" />
             </div>
             <div
-              class="
-                col-sm-9
-                offset-md-1
-                align-self-start
-                mt-2
-                row
-                justify-content-between
-              "
+              class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
             >
               <div class="col-sm-12">
                 <label class="mb-0"
@@ -138,15 +131,7 @@
                       <button
                         @click.prevent="doEditProfile"
                         type="submit"
-                        class="
-                          btn
-                          text-danger
-                          btn-light btn-sm
-                          rounded
-                          col-sm-2
-                          ms-0
-                          p-2
-                        "
+                        class="btn text-danger btn-light btn-sm rounded col-sm-2 ms-0 p-2"
                         style="
                           box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                         "
@@ -181,20 +166,13 @@
         />
       </client-only>
     </section>
-    <section id="edit-mobileview" class="mb-3">
+    <section id="edit-mobileview" class="mb-5">
       <Breadcrumb :links="breadcrumb" />
       <section>
         <div class="container">
           <div class="row">
             <div
-              class="
-                col-sm-9
-                offset-md-1
-                align-self-start
-                mt-2
-                row
-                justify-content-between
-              "
+              class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
             >
               <div class="col-sm-12">
                 <label class="mb-0"
@@ -254,7 +232,7 @@
                     </div>
 
                     <div class="form-group form-group col-sm-10">
-                      <label for="phone]">Nomor Telepon:</label>
+                      <label for="phone">Nomor Telepon:</label>
                       <input
                         type="text"
                         class="form-control"
@@ -274,7 +252,8 @@
                         name="address"
                         rows="3"
                         v-model="address"
-                      ></textarea>
+                      >
+                      </textarea>
                     </div>
                     <div class="form-group ms-3 pe-3">
                       <label for="exampleFormControlSelect1">Provinsi</label>
@@ -312,15 +291,7 @@
                       <button
                         @click.prevent="doEditProfile"
                         type="submit"
-                        class="
-                          btn
-                          text-danger
-                          btn-light btn-sm
-                          rounded
-                          ms-0
-                          mb-3
-                          p-2
-                        "
+                        class="btn text-danger btn-light btn-sm rounded ms-0 mb-3 p-2"
                         style="
                           box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                         "
@@ -334,6 +305,7 @@
             </div>
           </div>
         </div>
+        <Footer2mobile />
       </section>
 
       <client-only>
@@ -363,6 +335,7 @@ import Vue from "vue";
 import vSelect from "vue-select";
 import "vue-select/dist/vue-select.css";
 Vue.component("v-select", vSelect);
+console.log(process.env.API_URL);
 
 export default {
   // middleware: "auth",
@@ -375,7 +348,7 @@ export default {
       address:
         this.$auth.user.addresses.count > 0
           ? this.$auth.user.addresses[0].address
-          : "",
+          : this.$auth.user.addresses[0].address,
       province_id:
         this.$auth.user.addresses.count > 0
           ? this.$auth.user.addresses[0].province_id
