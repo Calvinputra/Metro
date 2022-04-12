@@ -223,8 +223,10 @@
                           @click.prevent="doRegister"
                           :disabled="button_register_disabled"
                           type="submit"
-                          class="btn text-white btn-danger btn-sm rounded col-sm-3 py-2"
+                          class="btn text-white btn-danger btn-sm rounded py-2"
                           style="
+                            font-size: 16px;
+                            padding: 10px 65px;
                             box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                           "
                         >

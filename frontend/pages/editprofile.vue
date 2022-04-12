@@ -335,7 +335,6 @@ import Vue from "vue";
 import vSelect from "vue-select";
 import "vue-select/dist/vue-select.css";
 Vue.component("v-select", vSelect);
-console.log(process.env.API_URL);
 
 export default {
   // middleware: "auth",
@@ -345,23 +344,11 @@ export default {
       first_name: this.$auth.user.first_name,
       last_name: this.$auth.user.last_name,
       phone: this.$auth.user.phone,
-      address:
-        this.$auth.user.addresses.count > 0
-          ? this.$auth.user.addresses[0].address
-          : this.$auth.user.addresses[0].address,
-      province_id:
-        this.$auth.user.addresses.count > 0
-          ? this.$auth.user.addresses[0].province_id
-          : "",
-      city_id:
-        this.$auth.user.addresses.count > 0
-          ? this.$auth.user.addresses[0].city_id
-          : "",
-      country_id:
-        this.$auth.user.addresses.count > 0
-          ? this.$auth.user.addresses[0].country_id
-          : 1,
-      postal_code: null,
+      address: this.$auth.user.addresses[0].address,
+      province_id: this.$auth.user.addresses[0].province_id,
+      city_id: this.$auth.user.addresses[0].city_id,
+      country_id: this.$auth.user.addresses[0].country_id,
+      postal_code: this.$auth.user.addresses[0].postal_code,
       //data v select
       cities: [],
       countries: [],

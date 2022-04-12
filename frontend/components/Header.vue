@@ -28,7 +28,11 @@
       <!-- hamburger button -->
       <!-- icon -->
       <div class="collapse navbar-collapse col-sm-3 p-0" id="navbarScroll">
-        <div id="icon navbar" class="container-fluid p-0 row">
+        <div
+          id="icon navbar"
+          class="container-fluid p-0 row"
+          style="--bs-gutter-y: 7px !important"
+        >
           <div v-if="!this.$auth.loggedIn" class="col-sm-1"></div>
           <div v-if="this.$auth.loggedIn" class="col-sm-1 m-0 p-0"></div>
           <div class="col-sm-1 text-center p-0 m-0">
