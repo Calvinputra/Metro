@@ -45,6 +45,7 @@
           <div class="container my-4" style="width: 80%">
             <div class="row">
               <Card-Product
+                @update-wishlist="updateWishList"
                 v-for="wishlist in wishlists"
                 :key="wishlist.id"
                 :data="wishlist.product"
@@ -97,6 +98,7 @@
             <div class="row justify-content-start">
               <div class="row pe-0 ps-3">
                 <Card-Product-Mobile
+                  @update-wishlist="updateWishList"
                   v-for="wishlist in wishlists"
                   :key="wishlist.id"
                   :data="wishlist.product"
@@ -166,6 +168,9 @@ export default {
         console.log(error);
       }
     },
+    async updateWishList(){
+        await this.getWishlist();
+    }
   },
   watch: {
     search: async function (newVal, oldVal) {

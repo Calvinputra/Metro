@@ -52,9 +52,17 @@ export default {
           category: this.$route.query.category,
           order: this.$route.query.order,
           type: this.$route.query.type,
+          brand: this.$route.query.brand,
         },
       });
     },
   },
+  mounted() {
+    console.log(this.$route.query.s);
+    if (this.$route.query.s) {
+      this.query = this.$route.query.s;
+    }
+  },
+  watchQuery: ["s", "page", "paginate", "category", "order", "type", "brand"],
 };
 </script>

@@ -256,8 +256,9 @@
                       </textarea>
                     </div>
                     <div class="form-group ms-3 pe-3">
-                      <label for="exampleFormControlSelect1">Provinsi</label>
+                      <label for="provinces">Provinsi</label>
                       <v-select
+                        id="provinces"
                         v-model="province_id"
                         :reduce="(provinces) => provinces.code"
                         @input="getCity"
@@ -265,8 +266,9 @@
                       ></v-select>
                     </div>
                     <div class="form-group ms-3 pe-3">
-                      <label for="exampleFormControlSelect1">Kota</label>
+                      <label for="cities">Kota</label>
                       <v-select
+                        id="cities"
                         v-model="city_id"
                         :reduce="(cities) => cities.code"
                         :options="cities"
@@ -390,8 +392,9 @@ export default {
         console.log(error);
       }
     },
-    async getProvince() {
+    async getProvince(reset=true) {
       try {
+
         let response = await this.$axios.$get(
           process.env.API_URL + "/api/provinces?country_id=" + this.country_id
         );
@@ -402,14 +405,18 @@ export default {
             code: value.id,
           });
         });
-        this.city_id = "";
-        this.getCity();
+        if(response){
+          this.getCity(reset);
+        }
       } catch (error) {
         console.log(error);
       }
     },
-    async getCity() {
+    async getCity(reset) {
       try {
+        if(reset||!this.province_id){
+          this.city_id=""
+        }
         this.cities = [];
         let response = await this.$axios.$get(
           process.env.API_URL + "/api/cities?province_id=" + this.province_id
@@ -490,7 +497,7 @@ export default {
     };
   },
   created() {
-    this.getProvince();
+    this.getProvince(false);
   },
 };
 </script>

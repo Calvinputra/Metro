@@ -159,7 +159,14 @@
       <div class="container">
         <div class="row">
           <div
-            class="col-sm-10 align-self-start mt-2 row justify-content-between pr-0"
+            class="
+              col-sm-10
+              align-self-start
+              mt-2
+              row
+              justify-content-between
+              pr-0
+            "
           >
             <div class="col-sm-8 mx-auto my-auto">
               <div class="row">
@@ -170,7 +177,39 @@
                         class="mt-3 ms-3 align-self-center"
                         style="font-size: 14px; margin: 1%"
                       >
-                        Product
+                        Kategori
+                      </h5>
+                      <div class="col-12 btn">
+                        <select
+                          @change="onCategoryDropDownSelectHandler()"
+                          v-model="selectedCategoryForMobile"
+                          class="form-select"
+                          style="font-size: 12px"
+                          aria-label="Default select example"
+                        >
+                          <option value="">Semua Kategori</option>
+                          <option
+                            v-for="category in this.categories"
+                            :key="'category' + category.id"
+                            :value="category.id"
+                          >
+                            {{ category.name }}
+                          </option>
+                        </select>
+
+                        <div class="dropdown-menu">...</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row pe-0" style="float: right">
+                  <div class="col-12">
+                    <div>
+                      <h5
+                        class="mt-3 ms-3 align-self-center"
+                        style="font-size: 14px; margin: 1%"
+                      >
+                        Brand
                       </h5>
                       <div class="col-12 btn">
                         <select
@@ -180,17 +219,14 @@
                           style="font-size: 12px"
                           aria-label="Default select example"
                         >
-                          <option selected>Pembersih Saluran Air</option>
-                          <option value="2">Grandel</option>
-                          <option value="3">Saringan Got</option>
-                          <option value="4">Gembok</option>
-                          <option value="5">Saringan Back Cuci Piring</option>
-                          <option value="6">Gagang Pintu</option>
-                          <option value="7">Engsel</option>
-                          <option value="8">Kloset</option>
-                          <option value="9">Washtafel</option>
-                          <option value="10">Keran Air</option>
-                          <option value="11">Fitting Pipa</option>
+                          <option value="all">Semua Brand</option>
+                          <option
+                            v-for="brand in this.brands"
+                            :key="'brand' + brand.id"
+                            :value="brand.id"
+                          >
+                            {{ brand.name }}
+                          </option>
                         </select>
 
                         <div class="dropdown-menu">...</div>
@@ -215,30 +251,13 @@
                           style="font-size: 12px"
                           aria-label="Default select example"
                         >
-                          <option
-                            @click="
-                              onDropDownSelectHandler('produk_terbaru', 'desc')
-                            "
-                            selected
-                          >
-                            Terbaru
+                          <option selected value="produk_terbaru">
+                            Produk Terbaru
                           </option>
-                          <option
-                            @click="
-                              onDropDownSelectHandler('harga_tertinggi', 'desc')
-                            "
-                            value="2"
-                          >
-                            Tertinggi
+                          <option value="harga_tertinggi">
+                            Harga Tertinggi
                           </option>
-                          <option
-                            @click="
-                              onDropDownSelectHandler('harga_terendah', 'asc')
-                            "
-                            value="3"
-                          >
-                            Terendah
-                          </option>
+                          <option value="harga_terendah">Harga Terendah</option>
                         </select>
 
                         <div class="dropdown-menu">...</div>
@@ -330,6 +349,7 @@ export default {
       sort: "",
       selectedOrder: "",
       selectedBrand: "",
+      selectedCategoryForMobile: "",
     };
   },
   async asyncData({ $axios, query }) {
@@ -400,6 +420,12 @@ export default {
       } else {
         this.selectedBrand = "all";
       }
+
+      if (this.$route.query.category) {
+        this.selectedCategoryForMobile = this.$route.query.category;
+      } else {
+        this.selectedCategoryForMobile = "";
+      }
       //console.log(this.sort);
       this.$nuxt.refresh();
     },
@@ -416,7 +442,7 @@ export default {
           page: 1,
           paginate: this.$route.query.paginate,
           category: id,
-          order: this.$route.query.order,
+          order: this.selectedOrder,
           type: this.$route.query.type,
           brand: "",
         },
@@ -432,6 +458,20 @@ export default {
           page: 1,
           paginate: this.$route.query.paginate,
           category: this.$route.query.category,
+          order: this.selectedOrder,
+          type: this.selectedOrder == "harga_terendah" ? "desc" : "asc",
+          brand: this.selectedBrand,
+        },
+      });
+    },
+    onCategoryDropDownSelectHandler() {
+      this.$router.push({
+        path: "/products",
+        query: {
+          s: "",
+          page: 1,
+          paginate: this.$route.query.paginate,
+          category: this.selectedCategoryForMobile,
           order: this.selectedOrder,
           type: this.selectedOrder == "harga_terendah" ? "desc" : "asc",
           brand: this.selectedBrand,

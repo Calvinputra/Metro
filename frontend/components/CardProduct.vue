@@ -155,17 +155,23 @@ export default {
               theme: "bubble",
               position: "bottom-right",
               duration: 5000,
+
             });
+            this.data.wishlist_exist=false;
+
           } else {
             this.$toast.success("Berhasil menambah produk ke wishlist", {
               theme: "bubble",
               position: "bottom-right",
               duration: 5000,
             });
+            this.data.wishlist_exist=true;
           }
 
           this.$nuxt.refresh();
-          console.log(response);
+          if(response.success){
+            await this.$emit('update-wishlist', id)
+          }
         } else {
           this.$toast.error(
             "Anda perlu login terlebih dahulu untuk menambahkan item ke wishlist",

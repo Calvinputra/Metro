@@ -75,6 +75,7 @@ export default {
           category: this.$route.query.category,
           order: this.$route.query.order,
           type: this.$route.query.type,
+          brand: this.$route.query.brand,
         },
       });
     },
@@ -85,6 +86,6 @@ export default {
       this.query = this.$route.query.s;
     }
   },
-  watchQuery: ["s", "page", "paginate", "category", "order", "type"],
+  watchQuery: ["s", "page", "paginate", "category","order", "type", "brand"],
 };
 </script>
