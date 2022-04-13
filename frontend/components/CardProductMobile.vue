@@ -177,6 +177,9 @@ export default {
           }
 
           this.$nuxt.refresh();
+          if (response.success) {
+            await this.$emit("update-wishlist", id);
+          }
           console.log(response);
         } else {
           this.$toast.error(

@@ -618,6 +618,7 @@ export default {
       }
     },
     async doRegister() {
+      console.log(this.email);
       this.button_register_disabled = true;
       try {
         let data = {
