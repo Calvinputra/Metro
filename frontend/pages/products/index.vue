@@ -159,14 +159,7 @@
       <div class="container">
         <div class="row">
           <div
-            class="
-              col-sm-10
-              align-self-start
-              mt-2
-              row
-              justify-content-between
-              pr-0
-            "
+            class="col-sm-10 align-self-start mt-2 row justify-content-between pr-0"
           >
             <div class="col-sm-8 mx-auto my-auto">
               <div class="row">
@@ -268,7 +261,7 @@
               </div>
             </div>
             <div class="mt-4">
-              <div class="row justify-content-start">
+              <div class="row justify-content-start" style="margin-left: 0px">
                 <div class="row pe-0 ps-3">
                   <Card-Product-Mobile
                     v-for="product in products"

@@ -131,6 +131,7 @@
         <div class="container">
           <div class="row">
             <div
+              style="margin-left: 0px"
               class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
             >
               <div class="col-sm-12">

@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-light mt-4 text-center">
+  <section class="bg-light mt-4 text-center pb-5">
     <img
       style="width: 200px"
       src="/img/logo.png"

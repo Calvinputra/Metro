@@ -95,16 +95,16 @@
                       />
                     </div> -->
                       <div class="form-group form-group col-sm-10">
-                        <label for="Email"
+                        <label for="email"
                           >Email<span style="color: red">*</span></label
                         >
                         <input
-                          type="Email"
+                          type="email"
                           class="form-control"
-                          id="Email"
-                          name="Email"
+                          id="email"
+                          name="email"
                           placeholder="Email"
-                          v-model="Email"
+                          v-model="email"
                         />
                       </div>
 
@@ -272,6 +272,7 @@
         <div class="container">
           <div class="row">
             <div
+              style="margin-left: 0px"
               class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
             >
               <div class="col-sm-12">

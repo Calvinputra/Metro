@@ -172,6 +172,7 @@
         <div class="container">
           <div class="row">
             <div
+              style="margin-left: 0px"
               class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
             >
               <div class="col-sm-12">
@@ -392,9 +393,8 @@ export default {
         console.log(error);
       }
     },
-    async getProvince(reset=true) {
+    async getProvince(reset = true) {
       try {
-
         let response = await this.$axios.$get(
           process.env.API_URL + "/api/provinces?country_id=" + this.country_id
         );
@@ -405,7 +405,7 @@ export default {
             code: value.id,
           });
         });
-        if(response){
+        if (response) {
           this.getCity(reset);
         }
       } catch (error) {
@@ -414,8 +414,8 @@ export default {
     },
     async getCity(reset) {
       try {
-        if(reset||!this.province_id){
-          this.city_id=""
+        if (reset || !this.province_id) {
+          this.city_id = "";
         }
         this.cities = [];
         let response = await this.$axios.$get(
