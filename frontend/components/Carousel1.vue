@@ -55,6 +55,19 @@
 .carousel-indicators {
   margin-bottom: 0px;
 }
+
+@media screen and (max-width: 380px) {
+  .carousel-indicators {
+    margin-bottom: 0px;
+    padding: 25px !important;
+  }
+}
+@media screen and (min-width: 380px) and (max-width: 500px) {
+  .carousel-indicators {
+    margin-bottom: 0px;
+    padding: 15px !important;
+  }
+}
 </style>
 
 <style lang="css" scoped>
