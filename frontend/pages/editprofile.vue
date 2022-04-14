@@ -9,14 +9,7 @@
               <AccountMenu :name="'register'" />
             </div>
             <div
-              class="
-                col-sm-9
-                offset-md-1
-                align-self-start
-                mt-2
-                row
-                justify-content-between
-              "
+              class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
             >
               <div class="col-sm-12">
                 <label class="mb-0"
@@ -102,7 +95,7 @@
                         v-model="address"
                       ></textarea>
                     </div>
-                    <div class="form-group ms-3 pe-3">
+                    <div class="form-group col-sm-10">
                       <label for="exampleFormControlSelect1">Provinsi</label>
                       <v-select
                         v-model="province_id"
@@ -111,7 +104,7 @@
                         :options="provinces"
                       ></v-select>
                     </div>
-                    <div class="form-group ms-3 pe-3">
+                    <div class="form-group col-sm-10">
                       <label for="exampleFormControlSelect1">Kota</label>
                       <v-select
                         v-model="city_id"
@@ -119,7 +112,7 @@
                         :options="cities"
                       ></v-select>
                     </div>
-                    <div class="form-group ms-3 pe-3">
+                    <div class="form-group col-sm-10">
                       <label for="postal_code"
                         >Kode Pos<span style="color: red">*</span></label
                       >
@@ -138,15 +131,7 @@
                       <button
                         @click.prevent="doEditProfile"
                         type="submit"
-                        class="
-                          btn
-                          text-danger
-                          btn-light btn-sm
-                          rounded
-                          col-sm-2
-                          ms-0
-                          p-2
-                        "
+                        class="btn text-danger btn-light btn-sm rounded col-sm-2 ms-0 p-2"
                         style="
                           box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                         "
@@ -188,14 +173,7 @@
           <div class="row">
             <div
               style="margin-left: 0px"
-              class="
-                col-sm-9
-                offset-md-1
-                align-self-start
-                mt-2
-                row
-                justify-content-between
-              "
+              class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
             >
               <div class="col-sm-12">
                 <label class="mb-0"
@@ -316,15 +294,7 @@
                       <button
                         @click.prevent="doEditProfile"
                         type="submit"
-                        class="
-                          btn
-                          text-danger
-                          btn-light btn-sm
-                          rounded
-                          ms-0
-                          mb-3
-                          p-2
-                        "
+                        class="btn text-danger btn-light btn-sm rounded ms-0 mb-3 p-2"
                         style="
                           box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                         "
@@ -377,9 +347,9 @@ export default {
       first_name: this.$auth.user.first_name,
       last_name: this.$auth.user.last_name,
       phone: "",
-      address:"",
-      province_id:"",
-      city_id:"",
+      address: "",
+      province_id: "",
+      city_id: "",
       country_id: 1,
       postal_code: "",
       //data v select

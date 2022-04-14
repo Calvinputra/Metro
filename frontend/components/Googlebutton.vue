@@ -1,6 +1,7 @@
 <template>
   <section>
     <button
+      type="button"
       @click="googleLoginHandler"
       class="btn btn-shadow p-2"
       style="

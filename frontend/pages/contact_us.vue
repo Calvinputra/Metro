@@ -107,21 +107,18 @@
     </section>
     <section id="contact-mobileview">
       <Breadcrumb :links="breadcrumb" />
-      <div class="col-sm-12">
-        <label class="mb-0"
-          ><h2 class="font-weight-bold">Formulir umpan balik</h2></label
-        >
-        <hr
-          style="height: 2px; border-width: 0; color: red"
-          class="col-sm-12 me-2"
-        />
-      </div>
-      <section class="container">
-        <div>
-          <div style="col-sm">
-            <img style="width: 100%" src="/img/metro.png" alt="" />
+      <section>
+        <div class="container">
+          <div class="col-sm-12 p-0">
+            <label class="mb-0"
+              ><h2 class="font-weight-bold m-0">Formulir umpan balik</h2></label
+            >
+            <hr style="height: 2px; color: red" class="col-sm-12 p-0" />
           </div>
-          <div>
+          <div class="text-center my-5">
+            <img style="width: 200px" src="/img/logo.png" alt="" />
+          </div>
+          <div class="ms-4">
             <form method="post" class="mr-5">
               <div class="form-group mt-2">
                 <label for="first_name"
@@ -192,7 +189,10 @@
                 <div class="text-center ms-2">
                   <button
                     type="submit"
-                    class="btn text-danger text-center btn-light btn-sm shadow rounded p-2"
+                    style="
+                      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                    "
+                    class="btn text-danger text-center btn-light btn-sm rounded py-1 px-4"
                     :disabled="disabled"
                     @click.prevent="delay"
                   >

@@ -168,15 +168,15 @@
           <b-dropdown-item v-if="!this.$auth.loggedIn" to="/register"
             >Daftar</b-dropdown-item
           >
-          <b-dropdown-item to="/products">Produk</b-dropdown-item>
+          <b-dropdown-item v-if="this.$auth.loggedIn" to="/profile"
+            >Akun Saya</b-dropdown-item
+          >
           <b-dropdown-item v-if="this.$auth.loggedIn" to="/riwayat_pembelian"
             >Riwayat Pembelian</b-dropdown-item
           >
+          <b-dropdown-item to="/products">Produk</b-dropdown-item>
           <b-dropdown-item v-if="this.$auth.loggedIn" to="/change_password"
             >Ubah sandi</b-dropdown-item
-          >
-          <b-dropdown-item v-if="this.$auth.loggedIn" to="/profile"
-            >Akun Saya</b-dropdown-item
           >
           <b-dropdown-item v-if="this.$auth.loggedIn" @click="logout"
             >Keluar</b-dropdown-item
