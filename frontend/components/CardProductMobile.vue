@@ -28,7 +28,10 @@
           id="product-image-mobile"
         ></div>
         <div class="card-body">
-          <h5 class="card-title" style="font-size: 13px; padding-bottom: 3px">
+          <h5
+            class="card-title"
+            style="font-size: 13px; padding-bottom: 3px; margin-right: 15%"
+          >
             {{ data.name }}
           </h5>
           <div class="row">
@@ -221,7 +224,7 @@ h5 {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
 </style>

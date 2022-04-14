@@ -87,14 +87,14 @@
               style="margin-left: 0px"
               class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
             >
-              <div class="col-sm-12">
+              <div class="col-sm-12 mt-2">
                 <label class="mb-0"
                   ><h2 class="font-weight-bold">Lupa Kata Sandi?</h2></label
                 >
               </div>
               <div class="mb-4">
                 <hr
-                  style="height: 10%; width: 100%; border-width: 0; color: red"
+                  style="height: 2px; width: 100%; border-width: 0; color: red"
                   class="col-sm-12 mb-1 mt-0"
                 />
                 <p class="mb-">
@@ -126,12 +126,7 @@
                       name="email"
                       placeholder="Email"
                     />
-                    <p>
-                      Lupa kata sandi?
-                      <span class="text-danger"
-                        ><a href=""> Klik disini.</a></span
-                      >
-                    </p>
+
                     <br />
                   </div>
                 </form>
@@ -139,7 +134,7 @@
                   <button
                     @click.prevent="delay"
                     type="submit"
-                    class="btn text-danger btn-light btn-sm rounded p-2"
+                    class="btn text-danger btn-light btn-sm rounded py-1 px-3"
                     style="
                       box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                     "
