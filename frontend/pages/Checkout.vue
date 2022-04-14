@@ -564,6 +564,7 @@
                   style="
                     border-bottom-width: 0px !important;
                     border-top: 0px !important;
+                    font-size: 14px;
                   "
                 >
                   Total Berat
@@ -572,6 +573,7 @@
                   style="
                     border-bottom-width: 0px !important;
                     border-top: 0px !important;
+                    font-size: 14px;
                   "
                   class="col-5"
                 >
@@ -583,6 +585,7 @@
                   style="
                     border-bottom-width: 0px !important;
                     border-top: 0px !important;
+                    font-size: 14px;
                   "
                 >
                   Total Harga
@@ -591,6 +594,7 @@
                   style="
                     border-bottom-width: 0px !important;
                     border-top: 0px !important;
+                    font-size: 14px;
                   "
                 >
                   Rp. {{ Number(grandTotal).toLocaleString("id-ID") }}
