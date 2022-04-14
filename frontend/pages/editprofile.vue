@@ -370,7 +370,7 @@ import "vue-select/dist/vue-select.css";
 Vue.component("v-select", vSelect);
 
 export default {
-  // middleware: "auth",
+  middleware: "auth",
   // auth: "guest",
   data() {
     return {
@@ -436,7 +436,7 @@ export default {
           });
         });
         if (response) {
-          this.getCity(reset);
+          await this.getCity(reset);
         }
       } catch (error) {
         console.log(error);
@@ -451,7 +451,7 @@ export default {
         let response = await this.$axios.$get(
           process.env.API_URL + "/api/cities?province_id=" + this.province_id
         );
-        console.log(response);
+        //console.log(response);
         response.data.forEach((value, index) => {
           this.cities.push({
             label: value.name,
@@ -459,7 +459,7 @@ export default {
           });
         });
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     },
     async doEditProfile() {
@@ -502,30 +502,13 @@ export default {
             });
           });
         }
-        console.log(response);
+        //console.log(response);
       } catch (error) {
         console.log(error);
       }
     },
   },
-  head() {
-    return {
-      script: [
-        {
-          src: "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js",
-        },
-        {
-          src: "https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js",
-        },
-      ],
-      link: [
-        {
-          rel: "stylesheet",
-          href: "https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css",
-        },
-      ],
-    };
-  },
+
   async mounted() {
     this.phone = this.$auth.user.phone;
     if (this.$auth.user.addresses.length > 0) {
@@ -539,6 +522,11 @@ export default {
 
     await this.getProvince(false);
   },
+   watch: {
+    country_id() {
+      this.getProvince(false);
+    },
+   }
 };
 </script>
 
