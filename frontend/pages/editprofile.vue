@@ -9,7 +9,14 @@
               <AccountMenu :name="'register'" />
             </div>
             <div
-              class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
+              class="
+                col-sm-9
+                offset-md-1
+                align-self-start
+                mt-2
+                row
+                justify-content-between
+              "
             >
               <div class="col-sm-12">
                 <label class="mb-0"
@@ -131,7 +138,15 @@
                       <button
                         @click.prevent="doEditProfile"
                         type="submit"
-                        class="btn text-danger btn-light btn-sm rounded col-sm-2 ms-0 p-2"
+                        class="
+                          btn
+                          text-danger
+                          btn-light btn-sm
+                          rounded
+                          col-sm-2
+                          ms-0
+                          p-2
+                        "
                         style="
                           box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                         "
@@ -173,7 +188,14 @@
           <div class="row">
             <div
               style="margin-left: 0px"
-              class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
+              class="
+                col-sm-9
+                offset-md-1
+                align-self-start
+                mt-2
+                row
+                justify-content-between
+              "
             >
               <div class="col-sm-12">
                 <label class="mb-0"
@@ -294,7 +316,15 @@
                       <button
                         @click.prevent="doEditProfile"
                         type="submit"
-                        class="btn text-danger btn-light btn-sm rounded ms-0 mb-3 p-2"
+                        class="
+                          btn
+                          text-danger
+                          btn-light btn-sm
+                          rounded
+                          ms-0
+                          mb-3
+                          p-2
+                        "
                         style="
                           box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                         "
@@ -496,7 +526,7 @@ export default {
       ],
     };
   },
-  mounted() {
+  async mounted() {
     this.phone = this.$auth.user.phone;
     if (this.$auth.user.addresses.length > 0) {
       this.address = this.$auth.user.addresses[0].address;
@@ -506,9 +536,8 @@ export default {
       this.postal_code = this.$auth.user.addresses[0].postal_code;
       this.$nuxt.refresh();
     }
-  },
-  created() {
-    this.getProvince(false);
+
+    await this.getProvince(false);
   },
 };
 </script>
