@@ -534,6 +534,7 @@ export default {
       this.city_id = this.$auth.user.addresses[0].city_id;
       this.country_id = this.$auth.user.addresses[0].country_id;
       this.postal_code = this.$auth.user.addresses[0].postal_code;
+      this.$nuxt.refresh();
     }
   },
   created() {
