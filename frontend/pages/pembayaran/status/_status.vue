@@ -9,14 +9,7 @@
             <AccountMenu :name="'register'" />
           </div>
           <div
-            class="
-              col-sm-9
-              offset-md-1
-              align-self-start
-              mt-2
-              row
-              justify-content-between
-            "
+            class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
           >
             <div class="col-sm-12">
               <label class="mb-0"
@@ -26,7 +19,7 @@
             <div class="mb-4">
               <hr
                 style="height: 10%; width: 100%; border-width: 0; color: red"
-                class="col-sm-12 mb-0 mt-0"
+                class="col-sm-12 mb-1 mt-0"
               />
               <p class="mb-"></p>
             </div>
@@ -144,15 +137,7 @@
       <div class="container" style="font-size: 80%">
         <div class="row">
           <div
-            class="
-              col-sm-9
-              offset-md-1
-              align-self-start
-              mt-2
-              mb-5
-              row
-              justify-content-between
-            "
+            class="col-sm-9 offset-md-1 align-self-start mt-2 mb-5 row justify-content-between"
           >
             <div class="col-sm-12">
               <label class="mb-0"
@@ -164,7 +149,7 @@
             <div class="mb-4">
               <hr
                 style="height: 10%; width: 100%; border-width: 0; color: red"
-                class="col-sm-12 mb-0 mt-0"
+                class="col-sm-12 mb-1 mt-0"
               />
               <h6 class="mt-2"></h6>
             </div>

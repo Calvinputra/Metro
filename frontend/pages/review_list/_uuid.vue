@@ -15,14 +15,7 @@
               <AccountMenu :name="'register'" />
             </div>
             <div
-              class="
-                col-sm-9
-                offset-md-1
-                align-self-start
-                mt-2
-                row
-                justify-content-between
-              "
+              class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
             >
               <div class="col-sm-12">
                 <label class="mb-0"
@@ -34,7 +27,7 @@
               <div class="mb-4">
                 <hr
                   style="height: 3px; width: 100%; border-width: 0; color: red"
-                  class="col-sm-12 mb-0 mt-0"
+                  class="col-sm-12 mb-1 mt-0"
                 />
                 <p class="mb-">Beri Rating untuk transaksi ini.</p>
               </div>
@@ -64,15 +57,7 @@
           <!-- row -->
           <div class="row">
             <div
-              class="
-                col-11
-                ms-1
-                offset-md-1
-                align-self-start
-                mt-2
-                row
-                justify-content-between
-              "
+              class="col-11 ms-1 offset-md-1 align-self-start mt-2 row justify-content-between"
             >
               <div class="col-12">
                 <label class="mb-0"

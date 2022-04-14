@@ -18,7 +18,7 @@
               <div class="mb-4">
                 <hr
                   style="height: 10%; width: 100%; border-width: 0; color: red"
-                  class="col-sm-12 mb-0 mt-0"
+                  class="col-sm-12 mb-1 mt-0"
                 />
               </div>
               <div style="text-align: justify">
@@ -181,7 +181,7 @@
               <div class="mb-4">
                 <hr
                   style="height: 10%; width: 100%; border-width: 0; color: red"
-                  class="col-sm-12 mb-0 mt-0"
+                  class="col-sm-12 mb-1 mt-0"
                 />
               </div>
               <div style="text-align: justify">

@@ -8,14 +8,7 @@
             <AccountMenu :name="'register'" />
           </div>
           <div
-            class="
-              col-sm-9
-              offset-md-1
-              align-self-start
-              mt-2
-              row
-              justify-content-between
-            "
+            class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
           >
             <div class="col-sm-12">
               <label class="mb-0"
@@ -27,7 +20,7 @@
             <div class="mb-4">
               <hr
                 style="height: 10%; width: 100%; border-width: 0; color: red"
-                class="col-sm-12 mb-0 mt-0"
+                class="col-sm-12 mb-1 mt-0"
               />
               <p class="mb-">Lacak Pembelian Kamu di halaman ini.</p>
             </div>
@@ -36,20 +29,9 @@
               <span class="mr-3">Status: </span>
               <button
                 type="submit"
-                class="
-                  btn
-                  btn-sm
-                  rounded
-                  col-sm-2
-                  ms-0
-                  ps-0
-                  py-2
-                  px-2
-                "
+                class="btn btn-sm rounded col-sm-2 ms-0 ps-0 py-2 px-2"
               >
-                <nuxt-link to="/riwayat_pembelian">
-                  Semua
-                </nuxt-link>
+                <nuxt-link to="/riwayat_pembelian"> Semua </nuxt-link>
               </button>
               <button
                 type="submit"
@@ -63,45 +45,29 @@
                 type="submit"
                 class="btn text-black btn-sm col-sm-1 ms-0 ps-0 py-2 px-2"
               >
-                <nuxt-link to="/selesai">
-                  Selesai
-                </nuxt-link>
+                <nuxt-link to="/selesai"> Selesai </nuxt-link>
               </button>
               <button
                 type="submit"
                 class="btn text-black btn-sm col-sm-2 ms-0 ps-0 py-2 px-2"
               >
-                <nuxt-link to="/tidakberhasil">
-                  Tidak Berhasil
-                </nuxt-link>
+                <nuxt-link to="/tidakberhasil"> Tidak Berhasil </nuxt-link>
               </button>
               <button
                 type="submit"
-                class="btn text-white
-                  btn-danger btn-sm col-sm-2 ms-0 ps-0 py-2 px-2"
+                class="btn text-white btn-danger btn-sm col-sm-2 ms-0 ps-0 py-2 px-2"
               >
                 Berlangsung
               </button>
             </div>
             <hr
               style="height: 3px; width: 100%; border-width: 0; color: red"
-              class="col-sm-12 mb-0 mt-0"
+              class="col-sm-12 mb-1 mt-0"
             />
             <div class="pl-5 ml-4 pt-2">
               <button
                 type="submit"
-                class="
-                  btn
-                  text-white
-                  btn-danger btn-sm
-                  shadow
-                  rounded
-                  col-sm-3
-                  ms-0
-                  ps-0
-                  py-2
-                  px-2
-                "
+                class="btn text-white btn-danger btn-sm shadow rounded col-sm-3 ms-0 ps-0 py-2 px-2"
               >
                 Menunggu Konfirmasi
               </button>
@@ -109,25 +75,19 @@
                 type="submit"
                 class="btn text-black btn-sm col-sm-2 ms-0 ps-0 py-2 px-2"
               >
-                <nuxt-link to="/prosespesan">
-                  Pesanan Diproses
-                </nuxt-link>
+                <nuxt-link to="/prosespesan"> Pesanan Diproses </nuxt-link>
               </button>
               <button
                 type="submit"
                 class="btn text-black btn-sm col-sm-2 ms-0 ps-0 py-2 px-2"
               >
-                <nuxt-link to="/sedangkirim">
-                  Sedang Dikirim
-                </nuxt-link>
+                <nuxt-link to="/sedangkirim"> Sedang Dikirim </nuxt-link>
               </button>
               <button
                 type="submit"
                 class="btn text-black btn-sm col-sm-2 ms-0 ps-0 py-2 px-2"
               >
-                <nuxt-link to="/sampaitujuan">
-                  Sampai Tujuan
-                </nuxt-link>
+                <nuxt-link to="/sampaitujuan"> Sampai Tujuan </nuxt-link>
               </button>
             </div>
             <historyBerlangsung />
