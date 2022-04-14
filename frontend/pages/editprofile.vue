@@ -350,7 +350,7 @@ export default {
       address: this.$auth.user.addresses[0].address,
       province_id: this.$auth.user.addresses[0].province_id,
       city_id: this.$auth.user.addresses[0].city_id,
-      country_id: this.$auth.user.addresses[0].country_id,
+      country_id: 1,
       postal_code: this.$auth.user.addresses[0].postal_code,
       //data v select
       cities: [],
