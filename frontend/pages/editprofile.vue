@@ -439,7 +439,7 @@ export default {
           last_name: this.last_name,
           phone: this.phone,
           address: this.address,
-          country: this.country_id,
+          country: 1,
           province: this.province_id,
           city: this.city_id,
           postal_code: this.postal_code,
