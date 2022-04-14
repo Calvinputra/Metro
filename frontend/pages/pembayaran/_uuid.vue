@@ -96,7 +96,7 @@
       </client-only>
     </section>
 
-    <section id="pembayaran-mobileview" style="font-size: 80%" v-if="isLoaded">
+    <section id="pembayaran-mobileview" v-if="isLoaded">
       <section class="mt-3">
         <div class="container"></div>
       </section>

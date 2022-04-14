@@ -134,7 +134,7 @@
     </section>
 
     <section id="pembayaran-mobileview">
-      <div class="container" style="font-size: 80%">
+      <div class="container">
         <div class="row">
           <div
             class="col-sm-9 offset-md-1 align-self-start mt-2 mb-5 row justify-content-between"

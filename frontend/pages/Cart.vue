@@ -163,7 +163,7 @@
     </div>
 
     <div id="cart-mobileview" v-if="isLoaded">
-      <div class="container mb-5 mt-4" style="font-size: 80%">
+      <div class="container mb-5 mt-4">
         <!-- Alert-->
 
         <h2>Keranjang Belanja</h2>
@@ -552,7 +552,7 @@ export default {
             });
           this.carts = [];
           this.$nuxt.refresh();
-           this.$store.dispatch("setCartChange", true);
+          this.$store.dispatch("setCartChange", true);
         });
       } else {
         this.$store.dispatch("deleteAllCart");

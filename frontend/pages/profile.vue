@@ -245,7 +245,7 @@
         />
       </client-only>
     </section>
-    <section id="profile-mobileview" style="font-size: 80%">
+    <section id="profile-mobileview">
       <Breadcrumb :links="breadcrumb" />
       <section>
         <div class="container">

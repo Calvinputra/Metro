@@ -117,7 +117,7 @@
         </div>
       </section>
     </section>
-    <section class="" id="cardswipe-mobileview" style="font-size: 80%">
+    <section class="" id="cardswipe-mobileview">
       <!-- TODO harus pake div / section karena nested a href -->
       <!-- NOTE : Kalo a dibawah ini di ganti icon toped di mobilenya berantakan -->
       <section

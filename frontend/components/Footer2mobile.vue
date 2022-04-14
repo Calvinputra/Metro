@@ -11,7 +11,10 @@
         {{ settings.company_address }}
       </p>
     </div>
-    <div class="d-flex justify-content-center mt-3" style="flex-wrap: wrap">
+    <div
+      class="d-flex justify-content-center mt-3"
+      style="flex-wrap: wrap; font-size: 12px"
+    >
       <template v-for="(menu_item, index) in footer_1.items">
         <nuxt-link
           :key="menu_item.id"
@@ -53,7 +56,10 @@
       </div>
     </div>
 
-    <div class="d-flex justify-content-center" style="flex-wrap: wrap">
+    <div
+      class="d-flex justify-content-center"
+      style="flex-wrap: wrap; font-size: 12px"
+    >
       <template v-for="(menu_item, index) in footer_3.items">
         <nuxt-link
           :key="menu_item.id"

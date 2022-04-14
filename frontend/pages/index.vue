@@ -46,7 +46,7 @@
       </div>
     </section>
 
-    <section id="home-mobileview" v-if="isLoaded" style="font-size: 80%">
+    <section id="home-mobileview" v-if="isLoaded">
       <Carousel1 :data="sliderData" />
 
       <template v-for="content in contents">

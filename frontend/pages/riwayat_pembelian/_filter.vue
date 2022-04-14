@@ -164,7 +164,7 @@
     </section>
 
     <section id="riwayat-mobileview">
-      <div class="container" style="font-size: 80%">
+      <div class="container">
         <Breadcrumb :links="breadcrumb" />
 
         <div class="row">

@@ -314,7 +314,7 @@
       </section>
     </section>
 
-    <section id="checkout-mobileview" style="font-size: 80%" v-if="isLoaded">
+    <section id="checkout-mobileview" v-if="isLoaded">
       <!-- belum log in -->
       <Breadcrumb :links="breadcrumb" />
       <section class="container-md" style="min-width: 95%">
