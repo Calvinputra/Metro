@@ -54,7 +54,7 @@
             </div>
           </div>
 
-          <div class="row mt-2">
+          <div class="row mt-2 justify-content-center">
             <div class="col-7 p-0 m-0">
               <a
                 @click.stop

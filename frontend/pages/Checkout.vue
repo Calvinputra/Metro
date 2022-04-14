@@ -820,7 +820,7 @@ export default {
             this.isLoaded = true;
           }
         } else {
-          this.$toast.error("Silahkan memilih product untuk checkout", {
+          this.$toast.error("Silahkan memilih produk untuk checkout", {
             theme: "bubble",
             position: "bottom-right",
             duration: 5000,

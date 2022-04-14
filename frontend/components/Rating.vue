@@ -1,10 +1,11 @@
 <template>
   <section style="font-family: 'Nunito Sans'">
+    <!-- not use -->
     <section id="rating-webview">
       <div style="color: red" class="mt-3">
         <hr
           style="height: 3px; border-width: 0; color: red"
-          class="col-sm-12 mb-1 mt-0"
+          class="col-sm-12 mb-0 mt-0"
         />
       </div>
       <div class="d-flex" style="justify-content: space-between">
