@@ -9,7 +9,14 @@
               <AccountMenu :name="'register'" />
             </div>
             <div
-              class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
+              class="
+                col-sm-9
+                offset-md-1
+                align-self-start
+                mt-2
+                row
+                justify-content-between
+              "
             >
               <div class="col-sm-12">
                 <label class="mb-0"
@@ -131,7 +138,15 @@
                       <button
                         @click.prevent="doEditProfile"
                         type="submit"
-                        class="btn text-danger btn-light btn-sm rounded col-sm-2 ms-0 p-2"
+                        class="
+                          btn
+                          text-danger
+                          btn-light btn-sm
+                          rounded
+                          col-sm-2
+                          ms-0
+                          p-2
+                        "
                         style="
                           box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                         "
@@ -173,7 +188,14 @@
           <div class="row">
             <div
               style="margin-left: 0px"
-              class="col-sm-9 offset-md-1 align-self-start mt-2 row justify-content-between"
+              class="
+                col-sm-9
+                offset-md-1
+                align-self-start
+                mt-2
+                row
+                justify-content-between
+              "
             >
               <div class="col-sm-12">
                 <label class="mb-0"
@@ -294,7 +316,15 @@
                       <button
                         @click.prevent="doEditProfile"
                         type="submit"
-                        class="btn text-danger btn-light btn-sm rounded ms-0 mb-3 p-2"
+                        class="
+                          btn
+                          text-danger
+                          btn-light btn-sm
+                          rounded
+                          ms-0
+                          mb-3
+                          p-2
+                        "
                         style="
                           box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
                         "
@@ -346,12 +376,12 @@ export default {
     return {
       first_name: this.$auth.user.first_name,
       last_name: this.$auth.user.last_name,
-      phone: this.$auth.user.phone,
-      address: this.$auth.user.addresses[0].address,
-      province_id: this.$auth.user.addresses[0].province_id,
-      city_id: this.$auth.user.addresses[0].city_id,
+      phone: "",
+      address:"",
+      province_id:"",
+      city_id:"",
       country_id: 1,
-      postal_code: this.$auth.user.addresses[0].postal_code,
+      postal_code: "",
       //data v select
       cities: [],
       countries: [],
@@ -439,7 +469,7 @@ export default {
           last_name: this.last_name,
           phone: this.phone,
           address: this.address,
-          country: 1,
+          country: this.country_id,
           province: this.province_id,
           city: this.city_id,
           postal_code: this.postal_code,
@@ -495,6 +525,16 @@ export default {
         },
       ],
     };
+  },
+  mounted() {
+    this.phone = this.$auth.user.phone;
+    if (this.$auth.user.addresses.length > 0) {
+      this.address = this.$auth.user.addresses[0].address;
+      this.province_id = this.$auth.user.addresses[0].province_id;
+      this.city_id = this.$auth.user.addresses[0].city_id;
+      this.country_id = this.$auth.user.addresses[0].country_id;
+      this.postal_code = this.$auth.user.addresses[0].postal_code;
+    }
   },
   created() {
     this.getProvince(false);
