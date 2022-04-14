@@ -85,7 +85,6 @@
                               <p class="ps-2">{{ this.$auth.user.phone }}</p>
                             </td>
                           </tr>
-                          <br />
                           <tr>
                             <th scope="row" class="pe-3"><p>Alamat</p></th>
                             <td>
@@ -325,7 +324,6 @@
                               <p class="ps-2">{{ this.$auth.user.phone }}</p>
                             </td>
                           </tr>
-                          <br />
                           <tr>
                             <th scope="row" class="pe-3"><p>Alamat</p></th>
                             <td>
