@@ -54,6 +54,7 @@
           <div class="row mt-2">
             <div class="col-7 p-0 m-0">
               <a
+                @click.stop
                 class="btn text-danger btn-sm p-1 fw-bold"
                 style="
                   font-size: 10px;

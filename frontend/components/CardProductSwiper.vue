@@ -61,6 +61,7 @@
                 </p>
                 <div class="row" @click.stop>
                   <a
+                   @click.stop
                     class="btn text-danger fw-bold btn-sm rounded col-sm-7 pt-2"
                     style="
                       height: 38px;
