@@ -79,15 +79,18 @@
     </section>
     <section
       id="about-mobileview"
-      style="font-size: 80%; font-family: 'Nunito Sans'"
+      style="font-size: 14px; font-family: 'Nunito Sans'"
     >
       <Breadcrumb :links="breadcrumb" />
-      <section>
+      <section class="container">
         <h4 class="text-center">Metro Jaya</h4>
         <br />
-        <div class="row">
-          <div class="col-2"></div>
-          <div class="text-center col-8" style="text-align: justify !important">
+        <div class="row p-0">
+          <div class="col-1 p-0"></div>
+          <div
+            class="text-center col-10"
+            style="text-align: justify !important"
+          >
             <p>
               Berdiri sejak tahun 2005, METRO JAYA adalah importir dan
               distributor sanitari terbaik di Indonesia. METRO JAYA memiliki
@@ -99,23 +102,22 @@
               sanitari Anda.
             </p>
           </div>
-          <div class="col-2"></div>
         </div>
         <br />
         <br />
         <h4 class="text-center">Kelebihan Metro Jaya</h4>
         <br />
-        <div class="row ms-3">
-          <div class="col-6">
+        <div class="row p-0 mx-1">
+          <div class="col-6 p-0">
             <img style="width: 150px" src="/img/harga_metro.png" alt="" />
           </div>
-          <div class="col-6">
+          <div class="col-6 p-0">
             <img style="width: 150px" src="/img/garansi_metro.png" alt="" />
           </div>
-          <div class="col-6 mt-3">
+          <div class="col-6 p-0 mt-3">
             <img style="width: 150px" src="/img/pengalaman_metro.png" alt="" />
           </div>
-          <div class="col-6 mt-3">
+          <div class="col-6 p-0 mt-3">
             <img style="width: 150px" src="/img/kurir_metro.png" alt="" />
           </div>
         </div>
