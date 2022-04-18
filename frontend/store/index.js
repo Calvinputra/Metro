@@ -107,7 +107,7 @@ export const mutations = {
 
     incrementProductQty(state, { product, notification }) {
         if (notification) {
-            this.$toast.success("Berhasl menambah jumlah produk", {
+            this.$toast.success("Berhasil menambah jumlah produk", {
                 theme: "bubble",
                 position: "bottom-right",
                 duration: 5000,
