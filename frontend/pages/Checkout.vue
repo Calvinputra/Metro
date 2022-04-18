@@ -27,7 +27,7 @@
           </div>
           <div class="col-sm-5 mb-0">
             <form class="">
-              <div class="col-sm-12">
+              <div class="col-sm-12 ps-0 mb-3">
                 <label class="mb-0"
                   ><h2 class="font-weight-bold">
                     Masuk ke Akun
@@ -78,28 +78,27 @@
               <button
                 @click="doLogin"
                 type="submit"
-                class="btn text-danger btn-light btn-sm rounded col-sm-5 ms-2 mb-3"
-                style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+                class="btn text-white btn-danger btn-sm rounded px-3 py-1 ms-2 mb-3"
+                style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important; padding 7px 60px !important;"
               >
                 Masuk Akun
               </button>
               <p class="mb-3">Atau</p>
               <Googlebutton />
             </div>
-            <p class="mt-3">
+            <p class="mt-4">
               Lupa kata sandi?
               <nuxt-link
                 :to="{ path: '/forgot_passw`ord' }"
                 class="text-danger"
               >
-                klik disini.</nuxt-link
+                Klik disini</nuxt-link
               >
             </p>
             <p class="mt-2">
-              Belum mempunyai akun?<nuxt-link
-                :to="{ path: '/register' }"
-                class="text-danger"
-                >Buat Akun.</nuxt-link
+              Belum mempunyai akun?
+              <nuxt-link :to="{ path: '/register' }" class="text-danger">
+                Buat Akun</nuxt-link
               >
             </p>
           </div>
@@ -307,7 +306,7 @@
               >Bayar</a
             >
             <p v-if="!$auth.loggedIn" style="color: red">
-              Silahkan Login untuk melanjutkan transaksi
+              Silahkan masuk untuk melanjutkan transaksi
             </p>
           </div>
         </div>
@@ -618,7 +617,7 @@
               >Bayar</a
             >
             <p v-if="!$auth.loggedIn" style="color: red">
-              Silahkan Login untuk melanjutkan transaksi
+              Silahkan masuk untuk melanjutkan transaksi
             </p>
           </div>
         </div>
