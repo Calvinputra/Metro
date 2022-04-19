@@ -65,17 +65,8 @@
             <button
               @click="onSubmitHandler"
               type="submit"
-              class="
-                btn
-                text-danger
-                btn-light btn-sm
-                fw-bold
-                shadow
-                rounded
-                py-2
-                pe-3
-                ps-3
-              "
+              style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+              class="btn text-danger btn-light btn-sm fw-bold rounded py-2 pe-3 ps-3"
             >
               Kirim
             </button>
@@ -84,18 +75,8 @@
             <button
               @click="onCancelHandler"
               type="button"
-              class="
-                btn
-                text-danger
-                btn-light btn-sm
-                fw-bold
-                shadow
-                rounded
-                py-2
-                pe-3
-                ps-3
-                ms-5
-              "
+              style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important"
+              class="btn text-danger btn-light btn-sm fw-bold rounded py-2 pe-3 ps-3 ms-5"
             >
               Batal
             </button>

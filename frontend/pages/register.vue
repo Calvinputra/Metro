@@ -39,6 +39,13 @@
                     <div class="register-form-title mr-5 pr-5">
                       Pengisian Data Diri
                     </div>
+
+                    <center>
+                      <Googlebutton />
+                    </center>
+                    <div>
+                      <center class="mt-3 mb-3">Atau</center>
+                    </div>
                     <b-alert
                       v-model="showDismissibleAlert"
                       variant="danger"
@@ -233,12 +240,6 @@
                           Buat Akun
                         </button>
                       </div>
-                      <div>
-                        <center class="mt-3 mb-3">Atau</center>
-                      </div>
-                      <center>
-                        <Googlebutton />
-                      </center>
                     </div>
                   </form>
                 </div>
@@ -298,6 +299,8 @@
                 <div class="row justify-content-start">
                   <form>
                     <div class="register-form-title">Pengisian Data Diri</div>
+                    <Googlebutton />
+                    <p>atau</p>
                     <b-alert
                       v-model="showDismissibleAlert"
                       variant="danger"
@@ -483,8 +486,6 @@
                       >
                         Buat Akun
                       </button>
-                      <p>atau</p>
-                      <Googlebutton />
                     </div>
                   </form>
                 </div>

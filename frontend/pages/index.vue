@@ -1,5 +1,10 @@
 <template>
   <section>
+    <link
+      rel="icon"
+      href="https://cdn.discordapp.com/attachments/722800563489865779/965986999486017557/Frame_1.png"
+      type="image/x-icon"
+    />
     <LoadingSpinner v-if="!isLoaded" />
     <section id="home-webview" v-if="isLoaded">
       <Carousel1 :data="sliderData" />
@@ -40,8 +45,14 @@
           <div class="col-sm-12 p-0">
             <h2 class="fw-bold">Metode Pembayaran</h2>
             <hr style="opacity: 1; color: black; height: 2px" />
-            <img style="width: 80%" src="/img/brand.png" alt="" />
+            <img style="width: 80%" src="/img/desktop_payment.png" alt="" />
           </div>
+
+          <div>
+            <h5 class="fw-bold">dan 10+ metode pembayaran lainnya</h5>
+          </div>
+
+          <hr style="opacity: 1; width: 40%; color: black; height: 2px" />
         </center>
       </div>
     </section>
@@ -66,8 +77,14 @@
         <div class="col-sm-12 p-0">
           <h5 class="fw-bold">Metode Pembayaran</h5>
           <hr style="opacity: 1; color: black; height: 2px" />
-          <img style="width: 90%" src="/img/brand_mobile.png" alt="" />
+          <img style="width: 90%" src="/img/mobile_payment.png" alt="" />
         </div>
+        <div>
+          <p style="font-size: 14px" class="fw-bold">
+            dan 10+ metode pembayaran lainnya
+          </p>
+        </div>
+        <hr style="opacity: 1; width: 75%; color: black; height: 2px" />
       </center>
       <Footer2mobile />
       <div style="position: inherit"></div>
