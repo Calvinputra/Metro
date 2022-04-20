@@ -163,11 +163,25 @@
           class="fas fa-heart"
           style="font-size: 30px !important; color: #c63442 !important"
         ></i>
-        <i
-          @click="redirectTo('/cart')"
-          class="fas fa-shopping-cart"
-          style="font-size: 30px !important; color: #c63442 !important"
-        ></i>
+        <nuxt-link style="text-decoration: none" to="/cart">
+          <div
+            class="d-flex justify-content-end"
+            style="
+              width: 32px;
+              height: 32px;
+              background-size: cover;
+              background-repeat: no-repeat;
+              background-image: url('/img/cart-1.png');
+            "
+          >
+            <template>
+              <i
+                style="font-size: 12px !important; color: #75ef8e !important"
+                class="fa fa-solid fa-circle"
+              ></i>
+            </template>
+          </div>
+        </nuxt-link>
         <i
           @click="redirectTo('/profile')"
           class="fas fa-user"

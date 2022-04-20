@@ -60,7 +60,7 @@
                       </ul>
                     </b-alert>
                     <div class="row">
-                      <div class="form-group col-sm-5 center">
+                      <div class="form-group col-sm-10 center">
                         <label for="first_name"
                           >Nama Depan<span style="color: red">*</span></label
                         >
@@ -73,7 +73,7 @@
                           v-model="first_name"
                         />
                       </div>
-                      <div class="form-group form-group col-sm-5">
+                      <!-- <div class="form-group form-group col-sm-5">
                         <label for="last_name"
                           >Nama Belakang<span style="color: red">*</span></label
                         >
@@ -86,7 +86,7 @@
                           placeholder="Nama Belakang"
                           v-model="last_name"
                         />
-                      </div>
+                      </div> -->
 
                       <!--<div class="form-group form-group col-sm-10">
                       <label for="phone"
