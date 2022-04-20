@@ -380,7 +380,7 @@ export default {
       address: "",
       province_id: "",
       city_id: "",
-      country_id: 1,
+      country_id: 0,
       postal_code: "",
       //data v select
       cities: [],
@@ -511,22 +511,24 @@ export default {
 
   async mounted() {
     this.phone = this.$auth.user.phone;
+
     if (this.$auth.user.addresses.length > 0) {
       this.address = this.$auth.user.addresses[0].address;
       this.province_id = this.$auth.user.addresses[0].province_id;
       this.city_id = this.$auth.user.addresses[0].city_id;
-      this.country_id = this.$auth.user.addresses[0].country_id;
+      this.country_id = 1;
       this.postal_code = this.$auth.user.addresses[0].postal_code;
       this.$nuxt.refresh();
     }
 
-    await this.getProvince(false);
+
   },
-   watch: {
-    country_id() {
+  watch:{
+
+    "country_id" () {
       this.getProvince(false);
     },
-   }
+  }
 };
 </script>
 
