@@ -23,72 +23,85 @@
                   </h2></label
                 >
               </div>
-              <div class="mb-2">
-                <hr
-                  style="height: 10%; width: 100%; border-width: 0; color: red"
-                  class="col-sm-10 mb-0 mt-0"
-                />
-                <p class="">
-                  Jika sudah memiliki akun, dapat pergi ke halaman Masuk Akun.
-                </p>
-              </div>
+              <div style="margin: 0px auto"></div>
+              <div class="row justify-content-start">
+                <form>
+                  <hr
+                    style="
+                      height: 2px;
+                      width: 100%;
+                      border-width: 0;
+                      color: red;
+                    "
+                    class="col-sm-12 mb-0 mt-0"
+                  />
+                  <p class="">
+                    Jika sudah memiliki akun, dapat pergi ke halaman Masuk Akun.
+                  </p>
+                  <div class="register-form-title">Pengisian Data Diri</div>
 
-              <div style="margin: 0px auto">
-                <div class="row justify-content-start">
-                  <form>
-                    <div class="register-form-title mr-5 pr-5">
-                      Pengisian Data Diri
+                  <center class="mt-3 mb-3">
+                    <Googlebutton />
+                  </center>
+                  <div class="row mb-4 mt-4">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-4">
+                      <hr style="opacity: 1; color: black; height: 2px" />
                     </div>
-
-                    <center>
-                      <Googlebutton />
-                    </center>
-                    <div>
-                      <center class="mt-3 mb-3">Atau</center>
+                    <div class="col-sm-2 mt-1">
+                      <center>
+                        <p>Atau</p>
+                      </center>
                     </div>
-                    <b-alert
-                      v-model="showDismissibleAlert"
-                      variant="danger"
-                      dismissible
+                    <div class="col-sm-4">
+                      <hr style="opacity: 1; color: black; height: 2px" />
+                    </div>
+                    <div class="col-sm-1"></div>
+                  </div>
+                  <b-alert
+                    v-model="showDismissibleAlert"
+                    variant="danger"
+                    dismissible
+                  >
+                    <ul
+                      style="color: black; padding: 0"
+                      v-for="(error, key) in errors"
+                      :key="key"
                     >
-                      <ul
-                        style="color: black; padding: 0"
-                        v-for="(error, key) in errors"
-                        :key="key"
+                      <li v-for="(e, key) in error" :key="key">{{ e }}</li>
+                    </ul>
+                  </b-alert>
+                  <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="form-group col-sm-5 center">
+                      <label for="first_name"
+                        >Nama Depan<span style="color: red">*</span></label
                       >
-                        <li v-for="(e, key) in error" :key="key">{{ e }}</li>
-                      </ul>
-                    </b-alert>
-                    <div class="row">
-                      <div class="form-group col-sm-10 center">
-                        <label for="first_name"
-                          >Nama Depan<span style="color: red">*</span></label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="first_name"
-                          name="first_name"
-                          placeholder="Nama Depan"
-                          v-model="first_name"
-                        />
-                      </div>
-                      <!-- <div class="form-group form-group col-sm-5">
-                        <label for="last_name"
-                          >Nama Belakang<span style="color: red">*</span></label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          style=""
-                          id="last_name"
-                          name="last_name"
-                          placeholder="Nama Belakang"
-                          v-model="last_name"
-                        />
-                      </div> -->
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="first_name"
+                        name="first_name"
+                        placeholder="Nama Depan"
+                        v-model="first_name"
+                      />
+                    </div>
+                    <div class="form-group form-group col-sm-5">
+                      <label for="last_name"
+                        >Nama Belakang<span style="color: red">*</span></label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        style=""
+                        id="last_name"
+                        name="last_name"
+                        placeholder="Nama Belakang"
+                        v-model="last_name"
+                      />
+                    </div>
 
-                      <!--<div class="form-group form-group col-sm-10">
+                    <!--<div class="form-group form-group col-sm-10">
                       <label for="phone"
                         >Nomor Telepon<span style="color: red">*</span></label
                       >
@@ -101,51 +114,56 @@
                         v-model="phone"
                       />
                     </div> -->
-                      <div class="form-group form-group col-sm-10">
-                        <label for="email"
-                          >Email<span style="color: red">*</span></label
-                        >
-                        <input
-                          type="email"
-                          class="form-control"
-                          id="email"
-                          name="email"
-                          placeholder="Email"
-                          v-model="email"
-                        />
-                      </div>
-
-                      <div class="form-group col-sm-10">
-                        <label for="password"
-                          >Kata Sandi<span style="color: red">*</span></label
-                        >
-
-                        <input
-                          type="password"
-                          class="form-control"
-                          id="password"
-                          name="password"
-                          placeholder="Password"
-                          v-model="password"
-                        />
-                      </div>
-                      <div class="form-group col-sm-10 m-0">
-                        <label for="password_confirmation"
-                          >Konfirmasi Kata Sandi<span style="color: red"
-                            >*</span
-                          ></label
-                        >
-                        <input
-                          type="password"
-                          class="form-control"
-                          id="password_confirmation"
-                          name="password_confirmation"
-                          placeholder="Password"
-                          v-model="password_confirmation"
-                        />
-                      </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-1"></div>
+                    <div class="form-group form-group col-sm-10">
+                      <label for="email"
+                        >Email<span style="color: red">*</span></label
+                      >
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        name="email"
+                        placeholder="Email"
+                        v-model="email"
+                      />
                     </div>
-                    <!-- <div class="register-form-title pe-5 me-5">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-1"></div>
+                    <div class="form-group col-sm-10">
+                      <label for="password"
+                        >Kata Sandi<span style="color: red">*</span></label
+                      >
+
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="password"
+                        name="password"
+                        placeholder="Password"
+                        v-model="password"
+                      />
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-1"></div>
+                    <div class="form-group col-sm-10 m-0">
+                      <label for="password_confirmation"
+                        >Konfirmasi Kata Sandi<span style="color: red"
+                          >*</span
+                        ></label
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="password_confirmation"
+                        name="password_confirmation"
+                        placeholder="Password"
+                        v-model="password_confirmation"
+                      />
+                    </div>
+                  </div>
+                  <!-- <div class="register-form-title pe-5 me-5">
                       Alamat Pengiriman
                     </div>
                     <div class="form-group col-sm-10">
@@ -206,43 +224,42 @@
                       />
                     </div> -->
 
-                    <br />
-                    <label style="color: red" class="mb-2 ms-2"
-                      ><span style="color: red">*</span>Wajib diisi</label
+                  <br />
+                  <label style="color: red" class="mb-2 ms-5 ps-4"
+                    ><span style="color: red">*</span>Wajib diisi</label
+                  >
+                  <div class="form-check ms-5 ps-4">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      id="exampleCheck1"
+                      v-model="agreement_1"
+                    />
+                    <label class="form-check-label" for="exampleCheck1"
+                      >Saya telah membaca dan menyetujui Kebijakan
+                      Privasi</label
                     >
-                    <div class="form-check ms-3">
-                      <input
-                        type="checkbox"
-                        class="form-check-input"
-                        id="exampleCheck1"
-                        v-model="agreement_1"
-                      />
-                      <label class="form-check-label" for="exampleCheck1"
-                        >Saya telah membaca dan menyetujui Kebijakan
-                        Privasi</label
-                      >
-                    </div>
+                  </div>
 
-                    <br />
-                    <div style="margin-right: 150px">
-                      <div class="text-center">
-                        <button
-                          @click.prevent="doRegister"
-                          :disabled="button_register_disabled"
-                          type="submit"
-                          class="btn text-white btn-danger btn-sm rounded py-2"
-                          style="
-                            font-size: 16px;
-                            padding: 10px 65px;
-                            box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
-                          "
-                        >
-                          Buat Akun
-                        </button>
-                      </div>
+                  <br />
+                  <div style="margin-right: 150px">
+                    <div class="text-center">
+                      <button
+                        @click.prevent="doRegister"
+                        :disabled="button_register_disabled"
+                        type="submit"
+                        class="btn text-white btn-danger btn-sm rounded py-2"
+                        style="
+                          font-size: 16px;
+                          padding: 10px 65px;
+                          box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;
+                        "
+                      >
+                        Buat Akun
+                      </button>
                     </div>
-                  </form>
-                </div>
+                  </div>
+                </form>
               </div>
             </div>
           </div>

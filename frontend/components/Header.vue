@@ -61,10 +61,7 @@
                       (!this.$auth.loggedIn && tempCart.length > 0) ||
                       (this.$auth.loggedIn && this.carts.length > 0)
                     "
-                    style="
-                      font-size: 12px !important;
-                      color: #75ef8e !important;
-                    "
+                    style="font-size: 12px !important; color: red !important"
                     class="fa fa-solid fa-circle"
                   ></i>
                 </template>

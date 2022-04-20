@@ -124,9 +124,6 @@
             <div class="ms-4">
               <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
               <p>
-                <i class="fas fa-home me-3"></i> {{ settings.company_city }}
-              </p>
-              <p>
                 <i class="fas fa-envelope me-3"></i>
                 {{ settings.company_email }}
               </p>
@@ -156,12 +153,12 @@
         <i
           @click="redirectTo('/')"
           class="fas fa-home"
-          style="font-size: 30px !important; color: #c63442 !important"
+          style="font-size: 30px !important; color: #1c2826 !important"
         ></i>
         <i
           @click="redirectTo('/wishlist')"
           class="fas fa-heart"
-          style="font-size: 30px !important; color: #c63442 !important"
+          style="font-size: 30px !important; color: #1c2826 !important"
         ></i>
         <nuxt-link style="text-decoration: none" to="/cart">
           <div
@@ -171,12 +168,12 @@
               height: 32px;
               background-size: cover;
               background-repeat: no-repeat;
-              background-image: url('/img/cart-1.png');
+              background-image: url('/img/cart.png');
             "
           >
             <template>
               <i
-                style="font-size: 12px !important; color: #75ef8e !important"
+                style="font-size: 12px !important; color: red !important"
                 class="fa fa-solid fa-circle"
               ></i>
             </template>
@@ -185,7 +182,7 @@
         <i
           @click="redirectTo('/profile')"
           class="fas fa-user"
-          style="font-size: 30px !important; color: #c63442 !important"
+          style="font-size: 30px !important; color: #1c2826 !important"
         ></i>
       </div>
     </section>
@@ -236,7 +233,8 @@ export default {
 
   #footer-mobileview {
     display: flex;
-    background-color: lightgray;
+    background-color: #f8f9fa;
+    box-shadow: 0px 0px 30px -10px rgba(0, 0, 0, 0.25) !important;
     position: fixed;
     padding: 2%;
     bottom: 0;

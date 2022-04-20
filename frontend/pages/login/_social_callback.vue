@@ -36,6 +36,24 @@
                 <h2 class="text-center" style="font-family: 'Nunito Sans'">
                   Masuk Ke Akun
                 </h2>
+                <center class="mt-3 mb-3">
+                  <Googlebutton />
+                </center>
+                <div class="row mb-4 mt-4">
+                  <div class="col-sm-1"></div>
+                  <div class="col-sm-4">
+                    <hr style="opacity: 1; color: black; height: 2px" />
+                  </div>
+                  <div class="col-sm-2 mt-1">
+                    <center>
+                      <p>Atau</p>
+                    </center>
+                  </div>
+                  <div class="col-sm-4">
+                    <hr style="opacity: 1; color: black; height: 2px" />
+                  </div>
+                  <div class="col-sm-1"></div>
+                </div>
               </div>
 
               <br />
@@ -54,37 +72,38 @@
                   </ul>
                 </b-alert>
                 <div class="row">
-                  <form class="ps-5 ms-5">
-                    <div class="form-group col-sm-10">
-                      <label for="email" style="font-family: 'Nunito Sans'"
-                        >Email<span style="color: red">*</span></label
-                      >
-                      <input
-                        v-on:keyup.enter="doLogin"
-                        v-model="email"
-                        type="email"
-                        class="form-control"
-                        id="email"
-                        name="email"
-                        placeholder="Email"
-                      />
-                    </div>
-                    <div class="form-group col-sm-10">
-                      <label for="password" style="font-family: 'Nunito Sans'"
-                        >Kata Sandi<span style="color: red">*</span></label
-                      >
-                      <input
-                        v-on:keyup.enter="doLogin"
-                        v-model="password"
-                        type="password"
-                        class="form-control"
-                        id="password"
-                        name="password"
-                        placeholder="Password"
-                      />
-                      <p style="color: red" class="mt-2">*Wajib diisi</p>
-                    </div>
-                  </form>
+                  <div class="col-sm-1"></div>
+                  <div class="form-group col-sm-10">
+                    <label for="email" style="font-family: 'Nunito Sans'"
+                      >Email<span style="color: red">*</span></label
+                    >
+                    <input
+                      v-on:keyup.enter="doLogin"
+                      v-model="email"
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      name="email"
+                      placeholder="Email"
+                    />
+                  </div>
+                  <div class="col-sm-1"></div>
+                  <div class="col-sm-1"></div>
+                  <div class="form-group col-sm-10">
+                    <label for="password" style="font-family: 'Nunito Sans'"
+                      >Kata Sandi<span style="color: red">*</span></label
+                    >
+                    <input
+                      v-on:keyup.enter="doLogin"
+                      v-model="password"
+                      type="password"
+                      class="form-control"
+                      id="password"
+                      name="password"
+                      placeholder="Password"
+                    />
+                    <p style="color: red" class="mt-2">*Wajib diisi</p>
+                  </div>
                   <div class="text-center">
                     <button
                       @click.prevent="doLogin"
@@ -99,20 +118,14 @@
                       Masuk Akun
                     </button>
                   </div>
-                  <center class="mt-3 mb-3">
-                    <p>Atau</p>
-                  </center>
-                  <center class="mb-3">
-                    <Googlebutton />
-                  </center>
-                  <p class="ms-5" style="padding-left: 4rem !important">
+                  <p class="ms-5 ps-4 mt-3">
                     Lupa kata sandi?
                     <nuxt-link to="/forgot_password" style="color: red"
                       >Klik disini</nuxt-link
                     >
                   </p>
                   <br />
-                  <div class="ms-5" style="padding-left: 4rem !important">
+                  <div class="ms-5 ps-4" style="">
                     Belum mempunyai akun?
                     <nuxt-link to="/register" style="color: red"
                       >Buat Akun</nuxt-link

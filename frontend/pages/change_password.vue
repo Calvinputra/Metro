@@ -49,52 +49,58 @@
                         <li v-for="(e, key) in error" :key="key">{{ e }}</li>
                       </ul>
                     </b-alert>
-                    <div class="form-group col-sm-11">
-                      <label for="Password"
-                        >Kata Sandi Lama<span style="color: red">*</span
-                        >:</label
-                      >
-                      <input
-                        type="password"
-                        class="form-control"
-                        id="password"
-                        name="password"
-                        placeholder="Password"
-                        v-model="old_password"
-                      />
-                    </div>
-                    <div class="form-group col-sm-11">
-                      <label for="password"
-                        >Kata Sandi Baru<span style="color: red">*</span
-                        >:</label
-                      >
-                      <input
-                        type="password"
-                        class="form-control"
-                        id="password"
-                        name="password"
-                        placeholder="New Password"
-                        v-model="password"
-                      />
+                    <div class="row">
+                      <div class="col-sm-1"></div>
+                      <div class="form-group col-sm-10">
+                        <label for="Password"
+                          >Kata Sandi Lama<span style="color: red">*</span
+                          >:</label
+                        >
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="password"
+                          name="password"
+                          placeholder="Password"
+                          v-model="old_password"
+                        />
+                      </div>
+                      <div class="col-sm-1"></div>
+                      <div class="col-sm-1"></div>
+                      <div class="form-group col-sm-10">
+                        <label for="password"
+                          >Kata Sandi Baru<span style="color: red">*</span
+                          >:</label
+                        >
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="password"
+                          name="password"
+                          placeholder="New Password"
+                          v-model="password"
+                        />
+                      </div>
+                      <div class="col-sm-1"></div>
+                      <div class="col-sm-1"></div>
+                      <div class="form-group col-sm-10">
+                        <label for="password_confirmation"
+                          >Konfirmasi Kata Sandi Baru<span style="color: red"
+                            >*</span
+                          >:</label
+                        >
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="password_confirmation"
+                          name="password_confirmation"
+                          placeholder="Password"
+                          v-model="password_confirmation"
+                        />
+                      </div>
                     </div>
 
-                    <div class="form-group col-sm-11">
-                      <label for="password_confirmation"
-                        >Konfirmasi Kata Sandi Baru<span style="color: red"
-                          >*</span
-                        >:</label
-                      >
-                      <input
-                        type="password"
-                        class="form-control"
-                        id="password_confirmation"
-                        name="password_confirmation"
-                        placeholder="Password"
-                        v-model="password_confirmation"
-                      />
-                    </div>
-
-                    <p style="color: red">Wajib diisi*</p>
+                    <p class="ms-5 ps-4" style="color: red">Wajib diisi*</p>
                     <br />
                     <div class="text-center">
                       <button
@@ -159,7 +165,7 @@
                   style="height: 3px; width: 100%; border-width: 0; color: red"
                   class="col-sm-12 mb-1 mt-0"
                 />
-                <p class="mb-">
+                <p class="">
                   Pastikan Kata Sandi Lama dan Kata Sandi Baru berbeda.
                 </p>
               </div>
