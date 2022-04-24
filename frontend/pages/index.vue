@@ -1,13 +1,18 @@
 <template>
   <section>
     <link
+      rel="stylesheet"
+      href="https://unpkg.com/flickity@2/dist/flickity.min.css"
+    />
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <link
       rel="icon"
       href="https://cdn.discordapp.com/attachments/722800563489865779/965986999486017557/Frame_1.png"
       type="image/x-icon"
     />
     <LoadingSpinner v-if="!isLoaded" />
-    <section id="home-webview" v-if="isLoaded">
-      <Carousel1 :data="sliderData" />
+    <Carousel1 :data="sliderData" />
+    <section class="container" id="home-webview" v-if="isLoaded">
       <!-- <div class="row p-0 m-0">
         <div class="col-sm-1"></div>
         <div class="col-sm-2 d-flex align-items-center justify-content-center">
@@ -42,24 +47,66 @@
       </template>
       <div class="row mt-5 p-0 m-0">
         <center>
-          <div class="col-sm-12 p-0">
-            <h2 class="fw-bold">Metode Pembayaran</h2>
-            <hr style="opacity: 1; color: black; height: 2px" />
-            <img style="width: 80%" src="/img/desktop_payment.png" alt="" />
+          <h3 class="fw-bold mt-4">Metoder Pembayaran</h3>
+          <div
+            class="main-carousel"
+            data-flickity='{ "cellAlign": "left", "contain": true , "autoPlay": true , "wrapAround": true }'
+          >
+            <div
+              class="carousel-cell d-flex align-items-center"
+              style="padding: 0rem 5.5rem"
+            >
+              <img class="mx-3" style="width: 33%" src="img/gopay.png" alt="" />
+              <img class="mx-3" style="width: 33%" src="img/qris.png" alt="" />
+              <img
+                class="mx-3"
+                style="width: 33%"
+                src="img/shoppee.png"
+                alt=""
+              />
+            </div>
+            <div
+              class="carousel-cell d-flex align-items-center"
+              style="padding: 0rem 5.5rem"
+            >
+              <img class="mx-3" style="width: 33%" src="img/bri.png" alt="" />
+              <img class="mx-3" style="width: 33%" src="img/bca.png" alt="" />
+              <img
+                class="mx-3"
+                style="width: 33%"
+                src="img/mandiri.png"
+                alt=""
+              />
+            </div>
+            <div
+              class="carousel-cell d-flex align-items-center"
+              style="padding: 0rem 5.5rem"
+            >
+              <img
+                class="mx-3"
+                style="width: 33%"
+                src="img/alfamart.png"
+                alt=""
+              />
+              <img
+                class="mx-3"
+                style="width: 33%"
+                src="img/indomaret.png"
+                alt=""
+              />
+              <img
+                class="mx-3"
+                style="width: 33%"
+                src="img/alfamidi.jpg"
+                alt=""
+              />
+            </div>
           </div>
-
-          <div>
-            <h5 class="fw-bold">dan 10+ metode pembayaran lainnya</h5>
-          </div>
-
-          <hr style="opacity: 1; width: 40%; color: black; height: 2px" />
         </center>
       </div>
     </section>
 
     <section id="home-mobileview" v-if="isLoaded">
-      <Carousel1 :data="sliderData" />
-
       <template v-for="content in contents">
         <template v-if="content.title">
           <div :key="'mobile' + content.id" class="d-flex container">
@@ -70,21 +117,53 @@
           <SwiperCardProduct :products="content.products" />
         </section>
       </template>
-      <div class="row">
-        <div class="col-sm-1"></div>
-      </div>
+      <div class="row"></div>
       <center>
-        <div class="col-sm-12 p-0">
-          <h5 class="fw-bold">Metode Pembayaran</h5>
-          <hr style="opacity: 1; color: black; height: 2px" />
-          <img style="width: 90%" src="/img/mobile_payment.png" alt="" />
+        <h5 class="fw-bold">Metode Pembayaran</h5>
+        <div
+          class="main-carousel"
+          data-flickity='{ "cellAlign": "left", "contain": true , "autoPlay": true , "wrapAround": true }'
+        >
+          <div
+            class="carousel-cell d-flex align-items-center"
+            style="padding: 0rem 5.5rem"
+          >
+            <img class="mx-2" style="width: 60%" src="img/gopay.png" alt="" />
+            <img class="mx-2" style="width: 60%" src="img/qris.png" alt="" />
+            <img class="mx-2" style="width: 60%" src="img/shoppee.png" alt="" />
+          </div>
+          <div
+            class="carousel-cell d-flex align-items-center"
+            style="padding: 0rem 5.5rem"
+          >
+            <img class="mx-2" style="width: 60%" src="img/bri.png" alt="" />
+            <img class="mx-2" style="width: 60%" src="img/bca.png" alt="" />
+            <img class="mx-2" style="width: 60%" src="img/mandiri.png" alt="" />
+          </div>
+          <div
+            class="carousel-cell d-flex align-items-center"
+            style="padding: 0rem 5.5rem"
+          >
+            <img
+              class="mx-2"
+              style="width: 60%"
+              src="img/alfamart.png"
+              alt=""
+            />
+            <img
+              class="mx-2"
+              style="width: 60%"
+              src="img/indomaret.png"
+              alt=""
+            />
+            <img
+              class="mx-2"
+              style="width: 60%"
+              src="img/alfamidi.jpg"
+              alt=""
+            />
+          </div>
         </div>
-        <div>
-          <p style="font-size: 14px" class="fw-bold">
-            dan 10+ metode pembayaran lainnya
-          </p>
-        </div>
-        <hr style="opacity: 1; width: 75%; color: black; height: 2px" />
       </center>
       <Footer2mobile />
       <div style="position: inherit"></div>
@@ -101,6 +180,7 @@
 #home-mobileview {
   display: none;
 }
+
 /* 0 - 991 px */
 @media screen and (max-width: 500px) {
   #home_logo {
@@ -117,6 +197,17 @@
 
   #home-mobileview {
     display: grid;
+  }
+
+  .flickity-button-icon {
+    position: absolute;
+    left: 20%;
+    top: 20%;
+    width: 40%;
+    height: 60%;
+  }
+  .flickity-page-dots {
+    display: none;
   }
 }
 </style>
@@ -135,6 +226,7 @@ export default {
       contents: [],
     };
   },
+
   async asyncData({ $axios }) {
     try {
       let sliders = await $axios.$get(process.env.API_URL + "/api/sliders");
