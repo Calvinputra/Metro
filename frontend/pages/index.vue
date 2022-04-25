@@ -1,10 +1,12 @@
 <template>
   <section>
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://unpkg.com/flickity@2/dist/flickity.min.css"
-    />
+    /> -->
+    <link rel="stylesheet" href="/css/flickity.css" />
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
     <link
       rel="icon"
       href="https://cdn.discordapp.com/attachments/722800563489865779/965986999486017557/Frame_1.png"
@@ -47,7 +49,7 @@
       </template>
       <div class="row mt-5 p-0 m-0">
         <center>
-          <h3 class="fw-bold mt-4">Metoder Pembayaran</h3>
+          <h3 class="fw-bold mt-4">Metode Pembayaran</h3>
           <div
             class="main-carousel"
             data-flickity='{ "cellAlign": "left", "contain": true , "autoPlay": true , "wrapAround": true }'
@@ -122,44 +124,54 @@
         <h5 class="fw-bold">Metode Pembayaran</h5>
         <div
           class="main-carousel"
+          style="font-size: 20px !important"
           data-flickity='{ "cellAlign": "left", "contain": true , "autoPlay": true , "wrapAround": true }'
         >
           <div
             class="carousel-cell d-flex align-items-center"
-            style="padding: 0rem 5.5rem"
+            style="padding: 0rem 5.5rem !important"
           >
-            <img class="mx-2" style="width: 60%" src="img/gopay.png" alt="" />
-            <img class="mx-2" style="width: 60%" src="img/qris.png" alt="" />
-            <img class="mx-2" style="width: 60%" src="img/shoppee.png" alt="" />
+            <img class="mx-3" style="width: 100%" src="img/gopay.png" alt="" />
+            <img class="mx-3" style="width: 100%" src="img/qris.png" alt="" />
+          </div>
+          <div
+            class="mt-2 carousel-cell d-flex align-items-center"
+            style="padding: 0rem 4.5rem"
+          >
+            <img
+              class="mx-3"
+              style="width: 100%"
+              src="img/shoppee.png"
+              alt=""
+            />
+            <img class="mx-3" style="width: 100%" src="img/bri.png" alt="" />
           </div>
           <div
             class="carousel-cell d-flex align-items-center"
             style="padding: 0rem 5.5rem"
           >
-            <img class="mx-2" style="width: 60%" src="img/bri.png" alt="" />
-            <img class="mx-2" style="width: 60%" src="img/bca.png" alt="" />
-            <img class="mx-2" style="width: 60%" src="img/mandiri.png" alt="" />
+            <img class="mx-3" style="width: 100%" src="img/bca.png" alt="" />
+            <img
+              class="mx-3"
+              style="width: 100%"
+              src="img/mandiri.png"
+              alt=""
+            />
           </div>
           <div
-            class="carousel-cell d-flex align-items-center"
+            class="carousel-cell mt-2 d-flex align-items-center"
             style="padding: 0rem 5.5rem"
           >
             <img
-              class="mx-2"
-              style="width: 60%"
+              class="mx-3"
+              style="width: 100%"
               src="img/alfamart.png"
               alt=""
             />
             <img
-              class="mx-2"
-              style="width: 60%"
+              class="mx-3"
+              style="width: 100%"
               src="img/indomaret.png"
-              alt=""
-            />
-            <img
-              class="mx-2"
-              style="width: 60%"
-              src="img/alfamidi.jpg"
               alt=""
             />
           </div>
@@ -170,8 +182,6 @@
     </section>
   </section>
 </template>
-
-<style scoped></style>
 
 <style lang="css" scoped>
 #home-mobile {
@@ -186,6 +196,9 @@
   #home_logo {
     display: none !important;
   }
+  .flickity-prev-next-button .flickity-button-icon {
+    width: 40% !important;
+  }
 
   #home-webview {
     display: none;
@@ -197,17 +210,6 @@
 
   #home-mobileview {
     display: grid;
-  }
-
-  .flickity-button-icon {
-    position: absolute;
-    left: 20%;
-    top: 20%;
-    width: 40%;
-    height: 60%;
-  }
-  .flickity-page-dots {
-    display: none;
   }
 }
 </style>
