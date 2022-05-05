@@ -55,15 +55,20 @@
             data-flickity='{ "cellAlign": "left", "contain": true , "autoPlay": true , "wrapAround": true }'
           >
             <div
-              class="carousel-cell d-flex align-items-center"
+              class="carousel-cell d-flex align-items-center mt-3"
               style="padding: 0rem 5.5rem"
             >
-              <img class="mx-3" style="width: 33%" src="img/gopay.png" alt="" />
-              <img class="mx-3" style="width: 33%" src="img/qris.png" alt="" />
               <img
                 class="mx-3"
                 style="width: 33%"
-                src="img/shoppee.png"
+                src="img/gopay.webp"
+                alt=""
+              />
+              <img class="mx-3" style="width: 33%" src="img/qris.webp" alt="" />
+              <img
+                class="mx-3"
+                style="width: 33%"
+                src="img/shoppee.webp"
                 alt=""
               />
             </div>
@@ -71,35 +76,35 @@
               class="carousel-cell d-flex align-items-center"
               style="padding: 0rem 5.5rem"
             >
-              <img class="mx-3" style="width: 33%" src="img/bri.png" alt="" />
-              <img class="mx-3" style="width: 33%" src="img/bca.png" alt="" />
+              <img class="mx-3" style="width: 33%" src="img/bri.webp" alt="" />
+              <img class="mx-3" style="width: 33%" src="img/bca.webp" alt="" />
               <img
                 class="mx-3"
                 style="width: 33%"
-                src="img/mandiri.png"
+                src="img/mandiri.webp"
                 alt=""
               />
             </div>
             <div
-              class="carousel-cell d-flex align-items-center"
+              class="carousel-cell d-flex align-items-center mt-3"
               style="padding: 0rem 5.5rem"
             >
               <img
                 class="mx-3"
                 style="width: 33%"
-                src="img/alfamart.png"
+                src="img/alfamart.webp"
                 alt=""
               />
               <img
                 class="mx-3"
                 style="width: 33%"
-                src="img/indomaret.png"
+                src="img/indomaret.webp"
                 alt=""
               />
               <img
                 class="mx-3"
                 style="width: 33%"
-                src="img/alfamidi.jpg"
+                src="img/alfamidi.webp"
                 alt=""
               />
             </div>
@@ -128,11 +133,11 @@
           data-flickity='{ "cellAlign": "left", "contain": true , "autoPlay": true , "wrapAround": true }'
         >
           <div
-            class="carousel-cell d-flex align-items-center"
+            class="carousel-cell mt-2 d-flex align-items-center"
             style="padding: 0rem 5.5rem !important"
           >
-            <img class="mx-3" style="width: 100%" src="img/gopay.png" alt="" />
-            <img class="mx-3" style="width: 100%" src="img/qris.png" alt="" />
+            <img class="mx-3" style="width: 100%" src="img/gopay.webp" alt="" />
+            <img class="mx-3" style="width: 100%" src="img/qris.webp" alt="" />
           </div>
           <div
             class="mt-2 carousel-cell d-flex align-items-center"
@@ -141,20 +146,20 @@
             <img
               class="mx-3"
               style="width: 100%"
-              src="img/shoppee.png"
+              src="img/shoppee.webp"
               alt=""
             />
-            <img class="mx-3" style="width: 100%" src="img/bri.png" alt="" />
+            <img class="mx-3" style="width: 100%" src="img/bri.webp" alt="" />
           </div>
           <div
             class="carousel-cell d-flex align-items-center"
             style="padding: 0rem 5.5rem"
           >
-            <img class="mx-3" style="width: 100%" src="img/bca.png" alt="" />
+            <img class="mx-3" style="width: 100%" src="img/bca.webp" alt="" />
             <img
               class="mx-3"
               style="width: 100%"
-              src="img/mandiri.png"
+              src="img/mandiri.webp"
               alt=""
             />
           </div>
@@ -165,13 +170,13 @@
             <img
               class="mx-3"
               style="width: 100%"
-              src="img/alfamart.png"
+              src="img/alfamart.webp"
               alt=""
             />
             <img
               class="mx-3"
               style="width: 100%"
-              src="img/indomaret.png"
+              src="img/indomaret.webp"
               alt=""
             />
           </div>
