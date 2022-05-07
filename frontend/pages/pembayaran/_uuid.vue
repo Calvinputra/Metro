@@ -12,8 +12,11 @@
         <div class="card bg-light">
           <div class="card-header">
             <div class="d-flex justify-content-between">
-              <template v-if="isPaymentCreated">
+              <template v-if="isPaymentCreated && va_numbers">
                 <p class="mb-0">Virtual Account {{ va_numbers[0].bank }}</p>
+              </template>
+              <template v-else-if="midtrans_data && midtrans_data.payment_type">
+                {{ midtrans_data.payment_type }}
               </template>
               <template v-else
                 ><p>Anda Belum memilih metode pembayaran</p></template
@@ -28,7 +31,7 @@
                   <h7> Kode Pembayaran </h7>
                 </span>
                 <span>
-                  <template v-if="isPaymentCreated">
+                  <template v-if="isPaymentCreated && va_numbers">
                     <h5>
                       {{ va_numbers[0].bank }} - {{ va_numbers[0].va_number }}
                     </h5>
@@ -37,7 +40,7 @@
                 </span>
               </div>
               <div class="mt-3">
-                <template v-if="isPaymentCreated">
+                <template v-if="isPaymentCreated && va_numbers">
                   <b
                     class="text-success rounded bu"
                     @click="copyText(va_numbers[0].va_number)"
@@ -105,8 +108,11 @@
         <div class="card bg-light">
           <div class="card-header">
             <div class="d-flex justify-content-between">
-              <template v-if="isPaymentCreated">
+              <template v-if="isPaymentCreated && va_numbers">
                 <p class="mb-0">Virtual Account {{ va_numbers[0].bank }}</p>
+              </template>
+              <template v-else-if="midtrans_data && midtrans_data.payment_type">
+                {{ midtrans_data.payment_type }}
               </template>
               <template v-else>
                 <div class="align-items-center d-flex">
@@ -125,7 +131,7 @@
                   <h7> Kode Pembayaran </h7>
                 </span>
                 <span>
-                  <template v-if="isPaymentCreated">
+                  <template v-if="isPaymentCreated && va_numbers">
                     <h5>
                       {{ va_numbers[0].bank }} - {{ va_numbers[0].va_number }}
                     </h5>
@@ -248,16 +254,23 @@ export default {
       let response_data = response.data;
       let isPaymentCreated = false;
       let va_numbers = null;
+      let midtrans_data = null;
       if (response_data.midtrans_data) {
         isPaymentCreated = true;
         const temp_data = JSON.parse(response_data.midtrans_data);
-        va_numbers = temp_data.data.va_numbers;
+        if (temp_data) {
+          midtrans_data = temp_data;
+        }
+        if (temp_data.va_numbers) {
+          va_numbers = temp_data.data.va_numbers;
+        }
       }
       return {
         data: response_data,
         snapToken: response_data.snap_token,
         isPaymentCreated: isPaymentCreated,
         va_numbers: va_numbers,
+        midtrans_data: midtrans_data,
       };
     } catch (error) {
       console.log(error);
@@ -290,7 +303,7 @@ export default {
     return {
       script: [
         {
-          src: "https://app.sandbox.midtrans.com/snap/snap.js",
+          src: "https://app.midtrans.com/snap/snap.js",
           "data-client-key": process.env.MIDTRANS_CLIENT_KEY,
         },
       ],
